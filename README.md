@@ -21,7 +21,6 @@ offline and doesn't include any advertisements.
 
 ## Screenshots
 
-![Screenshot1](fastlane/metadata/android/en-US/images/phoneScreenshots/1.png)
-![Screenshot2](fastlane/metadata/android/en-US/images/phoneScreenshots/2.png)
-![Screenshot3](fastlane/metadata/android/en-US/images/phoneScreenshots/3.png)
-![Screenshot4](fastlane/metadata/android/en-US/images/phoneScreenshots/4.png)
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="360" height="675"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="360" height="675">
+
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="360" height="675"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="360" height="675">
