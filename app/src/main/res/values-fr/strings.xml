@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Titres principaux -->
+	<string name="app_name">Lanceur Discret</string>
+	<string name="drawer_activity_title">Applications</string>
+
+	<!-- Textes des boutons -->
+	<string name="button_access_menu">Maintenez ici pour accéder au menu</string>
+	<string name="button_refresh_list">Actualiser la liste des applications</string>
+	<string name="button_manage_favorites">Gérer les favoris</string>
+	<string name="button_about">À propos</string>
+	<string name="button_apply">Valider</string>
+	<string name="button_cancel">Annuler</string>
+    <string name="button_close">Fermer</string>
+
+	<!-- Messages d'information -->
+    <string name="text_no_favorites_yet">Pour ajouter des applications au panneau des favoris, glissez vers le bas et maintenez le bouton menu</string>
+	<string name="text_applications_list_refreshed">Liste d\'application actualisée</string>
+	<string name="text_favorites_saved">Applications favorites enregistrées</string>
+    <string name="text_applications_list_last_update">Applications (liste du</string>
+
+	<!-- Textes des fenêtres -->
+	<string name="text_check_favorites">Cocher vos applications favorites</string>
+    <string name="text_license">Licence publique générale GNU v3.0</string>
+    <string name="text_source_code">Accédez au code source via :</string>
+    <string name="error_remove_favorites">Une erreur est survenue en modifiant les applications favorites !</string>
+    <string name="error_add_new_favorite">Une erreur est survenue en ajoutant %1$s aux applications favorites !</string>
+
+</resources>

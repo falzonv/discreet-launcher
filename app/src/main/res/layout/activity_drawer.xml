@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".ActivityDrawer"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:fitsSystemWindows="true">
+
+	<TextView
+		android:id="@+id/last_update_datetime"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textStyle="italic"
+		android:gravity="center"
+		android:padding="5dp"
+		android:layout_marginTop="1dp"
+		android:layout_marginBottom="1dp"
+		android:text="@string/text_applications_list_last_update"
+		android:textColor="@color/color_applications_drawer_text"
+		android:background="@color/color_applications_drawer_background"/>
+
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/applications_list"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginBottom="1dp"
+		android:background="@color/color_applications_drawer_background"/>
+
+</LinearLayout>

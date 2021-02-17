@@ -1,0 +1,37 @@
+# F-Droid metadata file for Discreet Launcher
+#
+# Helpful links :
+# - https://f-droid.org/manual
+# - https://f-droid.org/docs/Build_Metadata_Reference/
+# - https://f-droid.org/en/docs/All_About_Descriptions_Graphics_and_Screenshots/
+# - https://gitlab.com/fdroid/fdroiddata/-/blob/master/templates/app-full
+# - https://gitlab.com/snippets/1895688 (about Fastlane structure)
+
+Categories: 
+  - System
+  - Theming
+License: GPL-3.0-only
+
+WebSite: https://vincent-falzon.com
+SourceCode: https://github.com/falzonv/discreet-launcher
+IssueTracker: https://github.com/falzonv/discreet-launcher/issues
+Changelog: https://github.com/falzonv/discreet-launcher/releases
+
+#Summary: (via Fastlane structure)
+#Description: (via Fastlane structure)
+
+RepoType: git
+Repo: https://github.com/falzonv/discreet-launcher
+
+Builds:
+  - versionName: 'v1.0.0'
+    versionCode: 1
+    commit: v1.0.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 'v1.0.0'
+CurrentVersionCode: 1

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Main colors -->
+    <color name="colorPrimary">#3F51B5</color>
+	<color name="colorPrimaryDark">#303F9F</color>
+	<color name="colorAccent">#4081FF</color>
+
+	<!-- Applications drawer colors -->
+	<color name="color_applications_drawer_text">#FFFFFF</color>
+	<color name="color_applications_drawer_background">#66000000</color>
+
+</resources>

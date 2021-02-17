@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Main titles -->
+	<string name="app_name">Discreet Launcher</string>
+	<string name="drawer_activity_title">Applications</string>
+
+	<!-- Buttons labels -->
+	<string name="button_access_menu">Hold here to access the menu</string>
+	<string name="button_refresh_list">Refresh the applications list</string>
+	<string name="button_manage_favorites">Manage favorites</string>
+	<string name="button_about">About</string>
+	<string name="button_apply">Apply</string>
+	<string name="button_cancel">Cancel</string>
+    <string name="button_close">Close</string>
+
+	<!-- Information messages -->
+    <string name="text_no_favorites_yet">To add applications to the favorites panel, swipe down and hold the menu button</string>
+	<string name="text_applications_list_refreshed">Applications list refreshed</string>
+	<string name="text_favorites_saved">Favorites applications saved</string>
+    <string name="text_applications_list_last_update">Applications (list from</string>
+
+    <!-- Error messages -->
+    <string name="error_remove_favorites">An error happened while editing the favorites applications!</string>
+    <string name="error_add_new_favorite">An error happened while adding %1$s to the favorites applications!</string>
+
+	<!-- Dialogs text -->
+	<string name="text_check_favorites">Check your favorites applications</string>
+    <string name="text_author" translatable="false">Vincent Falzon</string>
+    <string name="text_license">GNU General Public License v3.0</string>
+    <string name="website_license" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="text_source_code">Access to the source code via:</string>
+    <string name="website_source_code" translatable="false">https://vincent-falzon.com</string>
+
+</resources>

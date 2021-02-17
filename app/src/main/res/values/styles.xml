@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Application theme -->
+	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+		<!-- Main colors -->
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+
+		<!-- Hide the title bar -->
+		<item name="windowNoTitle">true</item>
+
+		<!-- Display the user wallpaper (navigationBarColor requires API 21 minimum) -->
+		<item name="android:windowShowWallpaper">true</item>
+		<item name="android:windowTranslucentStatus">true</item>
+		<item name="android:windowBackground">@android:color/transparent</item>
+		<item name="android:navigationBarColor">@android:color/transparent</item>
+
+	</style>
+
+</resources>
