@@ -1,15 +1,10 @@
-Discreet Launcher provides you a distraction-free home screen, allowing you to fully enjoy your
-wallpaper (only the status and navigation bars have been kept for convenience).
+Discreet Launcher provides you a distraction-free home screen, allowing you to fully enjoy your wallpaper (only the status and navigation bars have been kept for convenience).
 <br/>
 <br/>
-From this clean home screen, simply slide your finger down to display your favorites applications
-or up to see the complete list of applications.
+From this clean home screen, simply slide your finger down to display your favorites applications or up to see the complete list of applications.
 <br/>
 <br/>
-Both for speed and to limit battery usage, the list of installed applications is fetched only when
-Discreet Launcher starts. You can refresh it at any time from the menu, for example if a newly
-installed application does not appear.
+Both for speed and to limit battery usage, the list of installed applications is fetched only when Discreet Launcher starts. You can refresh it at any time from the menu, for example if a newly installed application does not appear.
 <br/>
 <br/>
-Discreet Launcher is open source, doesn't require any unnecessary permission, works completely
-offline and doesn't include any advertisements.
+Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
