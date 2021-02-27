@@ -4,7 +4,7 @@ Enjoy a clean home screen while accessing everything in an instant!
 
 ![ApplicationIcon](app/src/main/res/mipmap-hdpi/ic_launcher_round.png)
 
-**Available soon !**
+**Available on: [F-Droid](https://f-droid.org/en/packages/com.vincent_falzon.discreetlauncher)**
 
 Discreet Launcher provides you a distraction-free home screen, allowing you to fully enjoy your
 wallpaper (only the status and navigation bars have been kept for convenience).
