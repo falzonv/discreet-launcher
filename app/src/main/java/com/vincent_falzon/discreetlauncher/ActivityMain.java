@@ -439,4 +439,16 @@ public class ActivityMain extends AppCompatActivity
 			return false ;
 		}
 	}
+
+
+	/**
+	 * When the user presses "Back" from the Main Activity, either close the favorites panel or
+	 * do nothing to stay on the home screen
+	 */
+	@Override
+	public void onBackPressed()
+	{
+		if(favoritesPanel.getVisibility() == View.VISIBLE)
+			favoritesPanel.setVisibility(View.GONE) ;
+	}
 }
