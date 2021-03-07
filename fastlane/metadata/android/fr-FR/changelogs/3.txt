@@ -1,0 +1,1 @@
+Corriger un comportement inattendu du bouton Retour sur certaines versions d'Android
