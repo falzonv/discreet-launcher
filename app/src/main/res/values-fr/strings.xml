@@ -4,6 +4,7 @@
 	<!-- Titres principaux -->
 	<string name="app_name">Lanceur Discret</string>
 	<string name="drawer_activity_title">Applications</string>
+    <string name="settings_activity_title">Paramètres / Aide</string>
 
 	<!-- Textes des boutons -->
 	<string name="button_access_menu">Maintenez ici pour accéder au menu</string>

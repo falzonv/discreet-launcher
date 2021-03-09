@@ -114,13 +114,13 @@ public class ActivityMain extends AppCompatActivity
 		PackageManager apkManager = getPackageManager() ;
 		if(global_applicationsList == null) global_applicationsList = new ArrayList<>() ;
 			else global_applicationsList.clear() ;
-			
+
 		// Retrieve the list of applications that can be launched by the user
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
 		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
 		List<ResolveInfo> apkManagerList = apkManager.queryIntentActivities(intent, 0) ;
 
-		// Defin the icons size in pixels
+		// Define the icons size in pixels
 		int icon_size_px = Math.round(48 * getResources().getDisplayMetrics().density) ;
 
 		// Browse the APK manager list and store the data of each application in the main list
@@ -248,6 +248,12 @@ public class ActivityMain extends AppCompatActivity
 			{
 				// Display a menu to select the favorites applications
 				displayManageFavoritesDialog() ;
+				return true ;
+			}
+			else if(selection == R.id.menu_action_settings)
+			{
+				// Display the Settings and Help activity
+				startActivity(new Intent().setClass(this, ActivitySettings.class)) ;
 				return true ;
 			}
 			else if(selection == R.id.menu_action_about)

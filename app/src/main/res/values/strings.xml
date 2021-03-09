@@ -4,6 +4,7 @@
 	<!-- Main titles -->
 	<string name="app_name">Discreet Launcher</string>
 	<string name="drawer_activity_title">Applications</string>
+    <string name="settings_activity_title">Settings / Help</string>
 
 	<!-- Buttons labels -->
 	<string name="button_access_menu">Hold here to access the menu</string>
