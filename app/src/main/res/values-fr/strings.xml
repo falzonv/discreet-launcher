@@ -23,6 +23,9 @@
 
 	<!-- Textes des fenêtres -->
 	<string name="text_check_favorites">Cocher vos applications favorites</string>
+    <string name="text_customization">Personnalisation</string>
+    <string name="text_icon_pack">Pack d\'icônes</string>
+    <string name="text_no_icon_pack">Aucun (utiliser les vraies icônes)</string>
     <string name="text_license">Licence publique générale GNU v3.0</string>
     <string name="text_source_code">Accédez au code source via :</string>
     <string name="error_remove_favorites">Une erreur est survenue en modifiant les applications favorites !</string>

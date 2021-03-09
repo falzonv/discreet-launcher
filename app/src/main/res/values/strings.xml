@@ -27,6 +27,9 @@
 
 	<!-- Dialogs text -->
 	<string name="text_check_favorites">Check your favorites applications</string>
+    <string name="text_customization">Customization</string>
+    <string name="text_icon_pack">Icon pack</string>
+    <string name="text_no_icon_pack">None (use the real icons)</string>
     <string name="text_author" translatable="false">Vincent Falzon</string>
     <string name="text_license">GNU General Public License v3.0</string>
     <string name="website_license" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
