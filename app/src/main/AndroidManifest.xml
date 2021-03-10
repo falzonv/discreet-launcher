@@ -31,13 +31,13 @@
 
 		<activity
 			android:name=".ActivityDrawer"
-			android:label="@string/drawer_activity_title"
+			android:label="@string/app_name"
 			android:parentActivityName=".ActivityMain"
 			android:excludeFromRecents="true"/>
 
         <activity
             android:name=".ActivitySettings"
-            android:label="@string/settings_activity_title"
+            android:label="@string/settings_title"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:excludeFromRecents="true"/>

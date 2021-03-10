@@ -163,7 +163,7 @@ public class ActivityMain extends AppCompatActivity
 		for(ResolveInfo entry:apkManagerList)
 		{
 			// Load the application icon
-			Drawable icon = null ;
+			Drawable icon ;
 			if(pack_name.equals("none")) icon = entry.loadIcon(apkManager) ;
 				else
 				{
@@ -305,12 +305,6 @@ public class ActivityMain extends AppCompatActivity
 				startActivity(new Intent().setClass(this, ActivitySettings.class)) ;
 				return true ;
 			}
-			else if(selection == R.id.menu_action_about)
-			{
-				// Display the About information
-				displayAboutDialog() ;
-				return true ;
-			}
 		return false ;
 	}
 
@@ -414,19 +408,6 @@ public class ActivityMain extends AppCompatActivity
 					}
 				}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;
-		dialog.show() ;
-	}
-
-
-	/**
-	 * Prepare and display the About dialog.
-	 */
-	private void displayAboutDialog()
-	{
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
-		dialog.setTitle(R.string.button_about) ;
-		dialog.setView(R.layout.about) ;
-		dialog.setNeutralButton(R.string.button_close, null) ;
 		dialog.show() ;
 	}
 

@@ -14,4 +14,12 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        app:title="@string/text_about"
+        app:iconSpaceReserved="false">
+
+        <Preference app:layout="@layout/about"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
