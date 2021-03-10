@@ -80,7 +80,13 @@ public class ActivitySettings extends AppCompatActivity
 		// Call the constructor of the parent class
 		super.onCreate(savedInstanceState) ;
 
-		// Search for installed icon packs
+		// Initializations
+		global_iconPacks = new ArrayList<>() ;
+		global_packsNames = new ArrayList<>() ;
+
+		// Prepare the icon pack setting options
+		global_iconPacks.add("none") ;
+		global_packsNames.add(getString(R.string.text_no_icon_pack)) ;
 		searchIconPacks() ;
 
 		// Load the settings from the XML file
@@ -94,19 +100,9 @@ public class ActivitySettings extends AppCompatActivity
 	 */
 	private void searchIconPacks()
 	{
-		// Initializations
-		if(global_iconPacks == null) global_iconPacks = new ArrayList<>() ;
-			else global_iconPacks.clear() ;
-		if(global_packsNames == null) global_packsNames = new ArrayList<>() ;
-			else global_packsNames.clear() ;
+		// Retrieve the list of installed icon packs
 		PackageManager apkManager = getPackageManager() ;
 		Intent filter = new Intent("org.adw.launcher.THEMES") ;
-
-		// Add the default option first (no icon pack)
-		global_iconPacks.add("none") ;
-		global_packsNames.add(getString(R.string.text_no_icon_pack)) ;
-
-		// Retrieve the list of installed icon packs
 		List<ResolveInfo> packsList = apkManager.queryIntentActivities(filter, PackageManager.GET_META_DATA) ;
 
 		// Browse the retrieved packs and store their information in the lists
