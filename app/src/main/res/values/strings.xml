@@ -30,6 +30,24 @@
     <string name="text_customization">Customization</string>
     <string name="text_icon_pack">Icon pack</string>
     <string name="text_no_icon_pack">None (use the real icons)</string>
+    <string name="text_help">Help</string>
+    <string name="text_help_favorites_panel">
+        From the home screen, you can swipe down to display the favorites panel and swipe up to hide it.
+        If you swipe up when the favorites panel is hidden, it will display the complete list of applications.
+    </string>
+    <string name="text_help_applications_list">
+        When you are at the top of the applications list, you can swipe down to return to the home screen.
+        In case you just opened the list and have not scrolled yet, you will need to swipe down twice to return to the home screen.
+    </string>
+    <string name="text_help_menu">
+        At the bottom of the favorites panel, you can hold the button to display the menu of the launcher.
+        This menu allows to refresh the applications list, define the favorites applications and open the settings.
+    </string>
+    <string name="text_help_refresh">
+        Both for speed and to limit battery usage, the applications list and their icons are fetched only when the launcher starts.
+        If you add or remove an application, or if you change the icon pack, the change will be visible only after the list is refreshed.
+        You can check the last time it was done on top of the applications list.
+    </string>
     <string name="text_about">About</string>
     <string name="text_author" translatable="false">Vincent Falzon</string>
     <string name="text_license">GNU General Public License v3.0</string>
