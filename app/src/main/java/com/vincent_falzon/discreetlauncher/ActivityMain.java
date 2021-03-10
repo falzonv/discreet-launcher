@@ -25,12 +25,15 @@ package com.vincent_falzon.discreetlauncher ;
 // Imports
 import android.content.DialogInterface ;
 import android.content.Intent ;
+import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
+import android.graphics.drawable.Drawable ;
 import android.os.Bundle ;
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
+import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import android.view.ContextMenu ;
@@ -48,6 +51,7 @@ import java.util.Comparator ;
 import java.util.Date ;
 import java.util.List ;
 
+
 /**
  * Main class and home screen activity.
  */
@@ -59,6 +63,7 @@ public class ActivityMain extends AppCompatActivity
 	private static String global_list_last_update;
 	
 	// Attributes
+	private SharedPreferences settings ;
 	private Intent drawerActivityLauncher ;
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
@@ -78,6 +83,7 @@ public class ActivityMain extends AppCompatActivity
 
 		// Initializations
 		setContentView(R.layout.activity_main) ;
+		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		detector = new GestureDetectorCompat(this, new GestureListener()) ;
 		file = new InternalFile(this, "favorites.txt") ;
 		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
@@ -120,16 +126,55 @@ public class ActivityMain extends AppCompatActivity
 		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
 		List<ResolveInfo> apkManagerList = apkManager.queryIntentActivities(intent, 0) ;
 
+		// Retrieve the icon pack setting
+		String pack_name = settings.getString("icon_pack", "none") ;
+		if(pack_name == null) pack_name = "none" ;
+
+		// If an icon pack is selected
+		IconPack iconPack = null ;
+		if(!pack_name.equals("none"))
+			{
+				// Try to load the icon pack resources
+				iconPack = new IconPack(this, pack_name) ;
+				if(iconPack.loadResources())
+					{
+						// Try to find the resource ID of the appfilter.xml file in the icon pack
+						if(!iconPack.findAppfilterID())
+							{
+								// Display an error message and do not use the icon pack
+								displayAlertDialog(getString(R.string.error_appfilter_not_found, pack_name)) ;
+								pack_name = "none" ;
+							}
+					}
+					else
+					{
+						// Display an error message and do not use the icon pack
+						displayAlertDialog(getString(R.string.error_icon_pack_not_found, pack_name));
+						pack_name = "none" ;
+					}
+			}
+
 		// Define the icons size in pixels
 		int icon_size_px = Math.round(48 * getResources().getDisplayMetrics().density) ;
 
 		// Browse the APK manager list and store the data of each application in the main list
 		for(ResolveInfo entry:apkManagerList)
 		{
+			// Load the application icon
+			Drawable icon = null ;
+			if(pack_name.equals("none")) icon = entry.loadIcon(apkManager) ;
+				else
+				{
+					// Retrieve the icon in the pack, use the real icon if not found
+					icon = iconPack.searchIcon(entry.activityInfo.packageName) ;
+					if(icon == null) icon = entry.loadIcon(apkManager) ;
+				}
+
+			// Add the application to the list
 			Application application = new Application(
 					entry.loadLabel(apkManager).toString(),
 					entry.activityInfo.packageName,
-					entry.loadIcon(apkManager)) ;
+					icon) ;
 			application.getIcon().setBounds(0, 0, icon_size_px, icon_size_px) ;
 			global_applicationsList.add(application) ;
 		}
@@ -241,6 +286,8 @@ public class ActivityMain extends AppCompatActivity
 			{
 				// Update the applications list
 				updateApplicationsList() ;
+				updateFavoritesList() ;
+				adapter.notifyDataSetChanged() ;
 				displayToast(R.string.text_applications_list_refreshed) ;
 				return true ;
 			}
@@ -284,6 +331,19 @@ public class ActivityMain extends AppCompatActivity
 	private void displayToast(int message)
 	{
 		displayToast(message, Toast.LENGTH_SHORT) ;
+	}
+
+
+	/**
+	 * Display a message in an alert dialog box.
+	 * @param message The message to display
+	 */
+	private void displayAlertDialog(String message)
+	{
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
+		dialog.setMessage(message) ;
+		dialog.setNeutralButton(R.string.button_close, null) ;
+		dialog.show() ;
 	}
 
 

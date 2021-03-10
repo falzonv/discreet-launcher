@@ -24,6 +24,8 @@
     <!-- Error messages -->
     <string name="error_remove_favorites">An error happened while editing the favorites applications!</string>
     <string name="error_add_new_favorite">An error happened while adding %1$s to the favorites applications!</string>
+    <string name="error_icon_pack_not_found">The selected icon pack (%1$s) has not been found!\nDid you uninstalled it?</string>
+    <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
 
 	<!-- Dialogs text -->
 	<string name="text_check_favorites">Check your favorites applications</string>
