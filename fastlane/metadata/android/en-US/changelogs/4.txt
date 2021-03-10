@@ -1,0 +1,4 @@
+- Add icon packs support
+- Create a "Settings and Help" menu
+- Fill the Help section
+- Move the About text in this menu
