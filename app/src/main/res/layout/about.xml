@@ -5,12 +5,13 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_marginHorizontal="20dp"
     android:gravity="center">
 
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:gravity="bottom">
 
@@ -56,6 +57,7 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:textAlignment="center"
         android:text="@string/text_source_code"/>
 
     <TextView
