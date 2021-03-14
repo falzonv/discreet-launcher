@@ -24,9 +24,13 @@ package com.vincent_falzon.discreetlauncher ;
 
 // Imports
 import android.content.Context ;
+import android.content.DialogInterface ;
+import android.content.Intent ;
 import android.content.pm.PackageManager ;
 import androidx.annotation.NonNull ;
+import androidx.appcompat.app.AlertDialog ;
 import androidx.recyclerview.widget.RecyclerView ;
+import android.net.Uri ;
 import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
@@ -99,10 +103,10 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 	/**
 	 * Represent a clickable application item in the RecyclerView.
 	 */
-	public class ApplicationView extends RecyclerView.ViewHolder implements View.OnClickListener
+	public class ApplicationView extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener
 	{
 		// Attributes
-		private final TextView name;
+		private final TextView name ;
 
 
 		/**
@@ -117,6 +121,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 			// Listen for a click on the application
 			name = view.findViewById(R.id.application_item) ;
 			view.setOnClickListener(this) ;
+			view.setOnLongClickListener(this) ;
 		}
 
 
@@ -130,6 +135,51 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 			// Retrieve the APK identifier and start the application
 			String apk = applicationsList.get(getAdapterPosition()).getApk() ;
 			view.getContext().startActivity(apkManager.getLaunchIntentForPackage(apk)) ;
+		}
+
+
+		/**
+		 * When the application is long clicked, propose to open its system settings.
+		 * @param view To get the context
+		 * @return always <code>true</code> as we consume the long click event
+		 */
+		@Override
+		public boolean onLongClick(final View view)
+		{
+			// Retrieve the APK identifier and name
+			final String apk = applicationsList.get(getAdapterPosition()).getApk() ;
+			final String name = applicationsList.get(getAdapterPosition()).getName() ;
+
+			// Prepare and display the selection dialog
+			final Context context = view.getContext() ;
+			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+			dialog.setMessage(context.getString(R.string.text_open_or_settings, name)) ;
+			dialog.setPositiveButton(R.string.button_settings,
+					new DialogInterface.OnClickListener()
+					{
+						// Save the new list of favorites applications
+						@Override
+						public void onClick(DialogInterface dialogInterface, int i)
+						{
+							// Open the application system settings
+							Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
+							intent.setData(Uri.parse("package:" + apk)) ;
+							context.startActivity(intent) ;
+						}
+					}) ;
+			dialog.setNeutralButton(R.string.button_open,
+					new DialogInterface.OnClickListener()
+					{
+						// Save the new list of favorites applications
+						@Override
+						public void onClick(DialogInterface dialogInterface, int i)
+						{
+							// Start the application
+							context.startActivity(apkManager.getLaunchIntentForPackage(apk)) ;
+						}
+					}) ;
+			dialog.show() ;
+			return true ;
 		}
 	}
 }

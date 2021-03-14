@@ -10,6 +10,8 @@
 	<string name="button_refresh_list">Actualiser la liste des applications</string>
 	<string name="button_manage_favorites">Gérer les favoris</string>
 	<string name="button_apply">Valider</string>
+    <string name="button_open">Ouvrir</string>
+    <string name="button_settings">Paramètres</string>
 	<string name="button_cancel">Annuler</string>
     <string name="button_close">Fermer</string>
 
@@ -27,6 +29,9 @@
 
 	<!-- Textes des fenêtres -->
 	<string name="text_check_favorites">Cocher vos applications favorites</string>
+    <string name="text_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
+
+    <!-- Textes des paramètres et de l'aide -->
     <string name="text_customization">Personnalisation</string>
     <string name="text_icon_pack">Pack d\'icônes</string>
     <string name="text_no_icon_pack">Aucun (utiliser les vraies icônes)</string>
