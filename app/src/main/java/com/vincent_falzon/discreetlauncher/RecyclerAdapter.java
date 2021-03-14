@@ -132,9 +132,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		@Override
 		public void onClick(View view)
 		{
-			// Retrieve the APK identifier and start the application
-			String apk = applicationsList.get(getAdapterPosition()).getApk() ;
-			view.getContext().startActivity(apkManager.getLaunchIntentForPackage(apk)) ;
+			startApplication(view.getContext(), applicationsList.get(getAdapterPosition()).getApk()) ;
 		}
 
 
@@ -175,11 +173,35 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 						public void onClick(DialogInterface dialogInterface, int i)
 						{
 							// Start the application
-							context.startActivity(apkManager.getLaunchIntentForPackage(apk)) ;
+							startApplication(context, apk) ;
 						}
 					}) ;
 			dialog.show() ;
 			return true ;
+		}
+
+
+		/**
+		 * Start an application after checking that it is still available.
+		 * @param context To get the context
+		 * @param apk Package name of the application to be started
+		 */
+		private void startApplication(Context context, String apk)
+		{
+			// Check if the application still exists (not uninstalled or disabled)
+			Intent intent = apkManager.getLaunchIntentForPackage(apk) ;
+			if(intent == null)
+				{
+					// Display an error message
+					AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+					dialog.setMessage(context.getString(R.string.error_application_not_found, apk)) ;
+					dialog.setNeutralButton(R.string.button_close, null) ;
+					dialog.show() ;
+					return ;
+				}
+
+			// Start the application
+			context.startActivity(intent) ;
 		}
 	}
 }

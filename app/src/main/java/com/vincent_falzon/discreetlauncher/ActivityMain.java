@@ -149,7 +149,7 @@ public class ActivityMain extends AppCompatActivity
 					else
 					{
 						// Display an error message and set the icon pack to none
-						displayAlertDialog(getString(R.string.error_icon_pack_not_found, pack_name)) ;
+						displayAlertDialog(getString(R.string.error_application_not_found, pack_name)) ;
 						SharedPreferences.Editor editor = settings.edit() ;
 						editor.putString("icon_pack", "none").apply() ;
 						pack_name = "none" ;
