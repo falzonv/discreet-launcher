@@ -36,6 +36,7 @@
     <string name="text_icon_pack">Icon pack</string>
     <string name="text_no_icon_pack">None (use the real icons)</string>
     <string name="text_help">Help</string>
+    <string name="text_help_title_general">General usage</string>
     <string name="text_help_favorites_panel">
         From the home screen, you can swipe down to display the favorites panel and swipe up to hide it.
         If you swipe up when the favorites panel is hidden, it will display the complete list of applications.
@@ -44,6 +45,10 @@
         When you are at the top of the applications list, you can swipe down to return to the home screen.
         In case you just opened the list and have not scrolled yet, you will need to swipe down twice to return to the home screen.
     </string>
+    <string name="text_help_long_click">
+        Put your finger a few moments on an application to access its system settings.
+    </string>
+    <string name="text_help_title_settings">Menu and settings</string>
     <string name="text_help_menu">
         At the bottom of the favorites panel, you can hold the button to display the menu of the launcher.
         This menu allows to refresh the applications list, define the favorites applications and open the settings.

@@ -11,20 +11,40 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:text="@string/text_help_title_general"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:text="@string/text_help_favorites_panel"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="5dp"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="@string/text_help_applications_list"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/text_help_long_click"
         android:layout_marginBottom="10dp"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:text="@string/text_help_title_settings"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:text="@string/text_help_menu"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="5dp"/>
 
     <TextView
         android:layout_height="wrap_content"
