@@ -1,4 +1,5 @@
 Lanceur Discret vous offre un écran d'accueil sans distractions, vous permettant de profiter pleinement de votre fond d'écran (seules les barres de statut et de navigation ont été conservées pour plus de commodité).<br/><br/>
 Depuis cet écran d'accueil épuré, glissez simplement le doigt vers le bas pour afficher vos applications favorites ou vers le haut pour voir la liste complète des applications.<br/><br/>
+En maintenant le doigt sur une application, vous pouvez accéder à ses paramètres système. Les packs d'icônes sont aussi supportés.<br/><br/>
 Tant pour la rapidité que pour limiter l'utilisation de la batterie, la liste des applications installées n'est récupérée que lorsque Lanceur Discret démarre. Vous pouvez à tout moment l'actualiser depuis le menu, par exemple si une application nouvellement installée n'apparaît pas.<br/><br/>
-Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile, fonctionne complètement hors-ligne et n'inclut aucune publicité. Il supporte aussi les packs d'icônes.
+Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile, fonctionne complètement hors-ligne et n'inclut aucune publicité.
