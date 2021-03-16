@@ -1,0 +1,4 @@
+- Allow to access app settings with a long click
+- Improve the About and Help texts
+- Fix issues when several apps come from the same package
+- Apply several small code optimizations

@@ -1,0 +1,4 @@
+- Ouvrir les paramètres d'une appli avec un clic long
+- Améliorer les textes Aide et À propos
+- Gérer le cas où plusieurs applis viennent du même package
+- Appliquer plusieurs petites optimisations de code
