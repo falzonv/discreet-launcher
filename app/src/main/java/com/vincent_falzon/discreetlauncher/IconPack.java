@@ -93,14 +93,14 @@ class IconPack
 
 
 	@SuppressLint("UseCompatLoadingForDrawables")
-	public Drawable searchIcon(String apk_name)
+	public Drawable searchIcon(String apk, String name)
 	{
 		// Check if appfilter.xml exists in the icon pack
 		if(appfilter_id <= 0) return null ;
 
 		// Initializations
 		XmlPullParser appfilter = pack_resources.getXml(appfilter_id) ;
-		String component_info = "ComponentInfo{" + apk_name + "/" ;
+		String component_info = "ComponentInfo{" + apk + "/" + name ;
 		int i, j ;
 
 		try

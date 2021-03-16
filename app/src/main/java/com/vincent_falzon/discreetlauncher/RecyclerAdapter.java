@@ -84,7 +84,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 	@Override
 	public void onBindViewHolder(ApplicationView appView, int i)
 	{
-		appView.name.setText(applicationsList.get(i).getName()) ;
+		appView.name.setText(applicationsList.get(i).getDisplayName()) ;
 		appView.name.setCompoundDrawables(null, applicationsList.get(i).getIcon(), null, null) ;
 	}
 
@@ -132,7 +132,8 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		@Override
 		public void onClick(View view)
 		{
-			startApplication(view.getContext(), applicationsList.get(getAdapterPosition()).getApk()) ;
+			int i = getAdapterPosition() ;
+			startApplication(view.getContext(), applicationsList.get(i).getName(), applicationsList.get(i).getApk()) ;
 		}
 
 
@@ -144,14 +145,15 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		@Override
 		public boolean onLongClick(final View view)
 		{
-			// Retrieve the APK identifier and name
-			final String apk = applicationsList.get(getAdapterPosition()).getApk() ;
-			final String name = applicationsList.get(getAdapterPosition()).getName() ;
+			// Retrieve the package name of the application
+			int i = getAdapterPosition() ;
+			final String name = applicationsList.get(i).getName() ;
+			final String apk = applicationsList.get(i).getApk() ;
 
 			// Prepare and display the selection dialog
 			final Context context = view.getContext() ;
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			dialog.setMessage(context.getString(R.string.text_open_or_settings, name)) ;
+			dialog.setMessage(context.getString(R.string.text_open_or_settings, applicationsList.get(i).getDisplayName())) ;
 			dialog.setPositiveButton(R.string.button_settings,
 					new DialogInterface.OnClickListener()
 					{
@@ -173,7 +175,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 						public void onClick(DialogInterface dialogInterface, int i)
 						{
 							// Start the application
-							startApplication(context, apk) ;
+							startApplication(context, name, apk) ;
 						}
 					}) ;
 			dialog.show() ;
@@ -184,24 +186,33 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		/**
 		 * Start an application after checking that it is still available.
 		 * @param context To get the context
-		 * @param apk Package name of the application to be started
+		 * @param name Internal name of the application
+		 * @param apk Package name of the application
 		 */
-		private void startApplication(Context context, String apk)
+		private void startApplication(Context context, String name, String apk)
 		{
-			// Check if the application still exists (not uninstalled or disabled)
-			Intent intent = apkManager.getLaunchIntentForPackage(apk) ;
-			if(intent == null)
+			// Try to launch the specific intent of the application
+			Intent activity_intent = new Intent(Intent.ACTION_MAIN) ;
+			activity_intent.setClassName(apk, name) ;
+			if(activity_intent.resolveActivity(apkManager) != null)
 				{
-					// Display an error message
-					AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-					dialog.setMessage(context.getString(R.string.error_application_not_found, apk)) ;
-					dialog.setNeutralButton(R.string.button_close, null) ;
-					dialog.show() ;
+					context.startActivity(activity_intent) ;
 					return ;
 				}
 
-			// Start the application
-			context.startActivity(intent) ;
+			// If it was not found, try to launch the default intent of the package
+			Intent package_intent = apkManager.getLaunchIntentForPackage(apk) ;
+			if(package_intent != null)
+				{
+					context.startActivity(package_intent) ;
+					return ;
+				}
+
+			// Display an error message as the application might be uninstalled or disabled
+			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+			dialog.setMessage(context.getString(R.string.error_application_not_found, apk)) ;
+			dialog.setNeutralButton(R.string.button_close, null) ;
+			dialog.show() ;
 		}
 	}
 }

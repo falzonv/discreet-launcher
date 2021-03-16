@@ -168,13 +168,14 @@ public class ActivityMain extends AppCompatActivity
 				else
 				{
 					// Retrieve the icon in the pack, use the real icon if not found
-					icon = iconPack.searchIcon(entry.activityInfo.packageName) ;
+					icon = iconPack.searchIcon(entry.activityInfo.packageName, entry.activityInfo.name) ;
 					if(icon == null) icon = entry.loadIcon(apkManager) ;
 				}
 
 			// Add the application to the list
 			Application application = new Application(
 					entry.loadLabel(apkManager).toString(),
+					entry.activityInfo.name,
 					entry.activityInfo.packageName,
 					icon) ;
 			application.getIcon().setBounds(0, 0, icon_size_px, icon_size_px) ;
@@ -187,7 +188,7 @@ public class ActivityMain extends AppCompatActivity
 			@Override
 			public int compare(Application application1, Application application2)
 			{
-				return application1.getName().compareToIgnoreCase(application2.getName()) ;
+				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
 			}
 		}) ;
 
@@ -208,18 +209,45 @@ public class ActivityMain extends AppCompatActivity
 		// Check if the favorites file exists
 		if(file.isExisting())
 			{
-				// Retrieve and browse the APK identifiers of all favorites applications
-				for(String nom : file.readAllLines())
+				// Retrieve and browse the internal names of all favorites applications
+				for(String name : file.readAllLines())
 				{
-					// Search the APK identifier in the applications list
+					// Search the internal name in the applications list
 					for(Application application : global_applicationsList)
-						if(application.getApk().equals(nom))
+						if(application.getName().equals(name))
 						{
-							// Add the application to the favorites and move to the next APK
+							// Add the application to the favorites and move to the next line
 							global_favoritesList.add(application) ;
 							break ;
 						}
 				}
+
+				// To remove later: manage old file format
+				if(global_favoritesList.size() == 0)
+					{
+						// Retrieve and browse the package names of all favorites applications
+						for(String apk : file.readAllLines())
+						{
+							// Search the package name in the applications list
+							for(Application application : global_applicationsList)
+								if(application.getApk().equals(apk))
+								{
+									// Add the application to the favorites and move to the next line
+									global_favoritesList.add(application) ;
+									break ;
+								}
+						}
+
+						// Check if favorites need to be migrated
+						if(global_favoritesList.size() > 0)
+							{
+								// Try to migrate them to the new format
+								if(!file.remove()) return ;
+								for(Application application : global_favoritesList)
+									if(!file.writeLine(application.getName())) return ;
+								displayAlertDialog(getString(R.string.error_file_format_changed)) ;
+							}
+					}
 			}
 	}
 
@@ -353,7 +381,7 @@ public class ActivityMain extends AppCompatActivity
 		int i = 0 ;
 		for(Application application : global_applicationsList)
 		{
-			app_names[i] = application.getName() ;
+			app_names[i] = application.getDisplayName() ;
 			i++ ;
 		}
 
@@ -361,7 +389,7 @@ public class ActivityMain extends AppCompatActivity
 		final boolean[] selected = new boolean[app_names.length] ;
 		if(file.isExisting())
 			for(i = 0 ; i < app_names.length ; i++)
-				selected[i] = file.isLineExisting(global_applicationsList.get(i).getApk()) ;
+				selected[i] = file.isLineExisting(global_applicationsList.get(i).getName()) ;
 		else for(i = 0 ; i < app_names.length ; i++)
 			selected[i] = false ;
 
@@ -393,9 +421,9 @@ public class ActivityMain extends AppCompatActivity
 						for(i = 0 ; i < selected.length ; i++)
 						{
 							if(selected[i])
-								if(!file.writeLine(global_applicationsList.get(i).getApk()))
+								if(!file.writeLine(global_applicationsList.get(i).getName()))
 									{
-										String message = getString(R.string.error_add_new_favorite, global_applicationsList.get(i).getApk()) ;
+										String message = getString(R.string.error_add_new_favorite, global_applicationsList.get(i).getDisplayName()) ;
 										Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show() ;
 										return ;
 									}

@@ -26,11 +26,12 @@ package com.vincent_falzon.discreetlauncher ;
 import android.graphics.drawable.Drawable ;
 
 /**
- * Represent an Android application with a name, an APK identifier and an icon.
+ * Represent an Android application with its names (displayed, internal and package) and icon.
  */
 class Application
 {
 	// Attributes
+	private final String display_name ;
 	private final String name ;
 	private final String apk ;
 	private final Drawable icon ;
@@ -38,12 +39,14 @@ class Application
 
 	/**
 	 * Constructor to represent an Android application.
-	 * @param name Displayed to the user
-	 * @param apk Used internally for intents
+	 * @param display_name Displayed to the user
+	 * @param name Application name used internally
+	 * @param apk Package name used internally
 	 * @param icon Displayed to the user
 	 */
-	Application(String name, String apk, Drawable icon)
+	Application(String display_name, String name, String apk, Drawable icon)
 	{
+		this.display_name = display_name ;
 		this.name = name ;
 		this.apk = apk ;
 		this.icon = icon ;
@@ -51,8 +54,18 @@ class Application
 
 
 	/**
-	 * Get the name of the application.
+	 * Get the disply name of the application.
 	 * @return Name displayed in the menus
+	 */
+	String getDisplayName()
+	{
+		return display_name ;
+	}
+
+
+	/**
+	 * Get the internal name of the application.
+	 * @return Application name used internally
 	 */
 	String getName()
 	{
@@ -61,8 +74,8 @@ class Application
 
 
 	/**
-	 * Get the APK identifier of the application.
-	 * @return Used internally to start intents
+	 * Get the package name of the application.
+	 * @return Package name used internally
 	 */
 	String getApk()
 	{
