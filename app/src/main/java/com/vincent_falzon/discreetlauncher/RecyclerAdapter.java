@@ -164,6 +164,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 							// Open the application system settings
 							Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
 							intent.setData(Uri.parse("package:" + apk)) ;
+							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 							context.startActivity(intent) ;
 						}
 					}) ;
@@ -193,7 +194,9 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		{
 			// Try to launch the specific intent of the application
 			Intent activity_intent = new Intent(Intent.ACTION_MAIN) ;
+			activity_intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
 			activity_intent.setClassName(apk, name) ;
+			activity_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 			if(activity_intent.resolveActivity(apkManager) != null)
 				{
 					context.startActivity(activity_intent) ;
@@ -204,6 +207,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 			Intent package_intent = apkManager.getLaunchIntentForPackage(apk) ;
 			if(package_intent != null)
 				{
+					package_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 					context.startActivity(package_intent) ;
 					return ;
 				}
