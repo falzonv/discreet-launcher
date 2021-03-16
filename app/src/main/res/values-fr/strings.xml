@@ -19,7 +19,7 @@
     <string name="text_no_favorites_yet">Pour ajouter des applications au panneau des favoris, glissez vers le bas et maintenez le bouton menu</string>
 	<string name="text_applications_list_refreshed">Liste d\'application actualisée</string>
 	<string name="text_favorites_saved">Applications favorites enregistrées</string>
-    <string name="text_applications_list_last_update">Applications (liste du</string>
+    <string name="text_applications_list_last_update">Applications (liste du %1$s)</string>
 
     <!-- Messages d'erreur -->
     <string name="error_remove_favorites">Une erreur est survenue en modifiant les applications favorites !</string>

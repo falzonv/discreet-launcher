@@ -98,10 +98,7 @@ class InternalFile
 	 */
 	boolean isLineExisting(String search)
 	{
-		ArrayList<String> content = readAllLines() ;
-		for(String line : content)
-			if(line.equals(search)) return true ;
-		return false ;
+		return readAllLines().contains(search) ;
 	}
 
 

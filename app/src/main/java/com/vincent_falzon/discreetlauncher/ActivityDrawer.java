@@ -57,9 +57,8 @@ public class ActivityDrawer extends AppCompatActivity
 		layoutManager = new GridLayoutManager(this, 4) ;
 
 		// Indicate the last time the applications list was updated
-		String text = getResources().getString(R.string.text_applications_list_last_update) + " " + ActivityMain.getListLastUpdate() + ")" ;
 		TextView lastUpdateDateTime = findViewById(R.id.last_update_datetime) ;
-		lastUpdateDateTime.setText(text) ;
+		lastUpdateDateTime.setText(getString(R.string.text_applications_list_last_update, ActivityMain.getListLastUpdate())) ;
 
 		// Follow the scrolling position to detect when it is stuck on top
 		position = 0 ;

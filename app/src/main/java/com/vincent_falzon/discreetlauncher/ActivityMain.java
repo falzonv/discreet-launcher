@@ -51,7 +51,6 @@ import java.util.Comparator ;
 import java.util.Date ;
 import java.util.List ;
 
-
 /**
  * Main class and home screen activity.
  */
@@ -68,7 +67,6 @@ public class ActivityMain extends AppCompatActivity
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
 	private LinearLayout favoritesPanel ;
-	private InternalFile file ;
 
 	
 	/**
@@ -85,7 +83,6 @@ public class ActivityMain extends AppCompatActivity
 		setContentView(R.layout.activity_main) ;
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		detector = new GestureDetectorCompat(this, new GestureListener()) ;
-		file = new InternalFile(this, "favorites.txt") ;
 		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
 
 		// Build the applications lists
@@ -160,10 +157,10 @@ public class ActivityMain extends AppCompatActivity
 		int icon_size_px = Math.round(48 * getResources().getDisplayMetrics().density) ;
 
 		// Browse the APK manager list and store the data of each application in the main list
+		Drawable icon ;
 		for(ResolveInfo entry:apkManagerList)
 		{
 			// Load the application icon
-			Drawable icon ;
 			if(pack_name.equals("none")) icon = entry.loadIcon(apkManager) ;
 				else
 				{
@@ -171,6 +168,7 @@ public class ActivityMain extends AppCompatActivity
 					icon = iconPack.searchIcon(entry.activityInfo.packageName, entry.activityInfo.name) ;
 					if(icon == null) icon = entry.loadIcon(apkManager) ;
 				}
+			icon.setBounds(0, 0, icon_size_px, icon_size_px) ;
 
 			// Add the application to the list
 			Application application = new Application(
@@ -178,7 +176,6 @@ public class ActivityMain extends AppCompatActivity
 					entry.activityInfo.name,
 					entry.activityInfo.packageName,
 					icon) ;
-			application.getIcon().setBounds(0, 0, icon_size_px, icon_size_px) ;
 			global_applicationsList.add(application) ;
 		}
 
@@ -207,6 +204,7 @@ public class ActivityMain extends AppCompatActivity
 			else global_favoritesList.clear() ;
 
 		// Check if the favorites file exists
+		final InternalFile file = new InternalFile(this, "favorites.txt") ;
 		if(file.isExisting())
 			{
 				// Retrieve and browse the internal names of all favorites applications
@@ -386,6 +384,7 @@ public class ActivityMain extends AppCompatActivity
 		}
 
 		// Retrieve the current favorites applications
+		final InternalFile file = new InternalFile(this, "favorites.txt") ;
 		final boolean[] selected = new boolean[app_names.length] ;
 		if(file.isExisting())
 			for(i = 0 ; i < app_names.length ; i++)

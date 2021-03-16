@@ -19,7 +19,7 @@
     <string name="text_no_favorites_yet">To add applications to the favorites panel, swipe down and hold the menu button</string>
 	<string name="text_applications_list_refreshed">Applications list refreshed</string>
 	<string name="text_favorites_saved">Favorites applications saved</string>
-    <string name="text_applications_list_last_update">Applications (list from</string>
+    <string name="text_applications_list_last_update">Applications (list from %1$s)</string>
 
     <!-- Error messages -->
     <string name="error_remove_favorites">An error happened while editing the favorites applications!</string>
