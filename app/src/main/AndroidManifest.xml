@@ -38,8 +38,7 @@
             android:name=".ActivitySettings"
             android:label="@string/settings_title"
             android:parentActivityName=".ActivityMain"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            android:excludeFromRecents="true"/>
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
 
 	</application>
 
