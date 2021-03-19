@@ -61,7 +61,7 @@
     </string>
     <string name="text_help_refresh">
         Both for speed and to limit battery usage, the applications list and their icons are fetched only when the launcher starts.
-        If you add or remove an application, or if you change the icon pack, the change will be visible only after the list is refreshed.
+        If you add or remove an application, it will be visible only after the list is refreshed.
         You can check the last time it was done on top of the applications list.
     </string>
     <string name="text_about">About</string>

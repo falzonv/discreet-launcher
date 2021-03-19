@@ -39,7 +39,7 @@ import java.util.List ;
 public class ActivitySettings extends AppCompatActivity
 {
 	// Attributes
-	private static ArrayList<String> global_iconPacks;
+	private static ArrayList<String> global_iconPacks ;
 	private static ArrayList<String> global_packsNames ;
 
 
@@ -63,8 +63,8 @@ public class ActivitySettings extends AppCompatActivity
 			ListPreference iconPack = findPreference("icon_pack") ;
 			if(iconPack != null)
 				{
-					iconPack.setEntries(global_packsNames.toArray(new CharSequence[0]));
-					iconPack.setEntryValues(global_iconPacks.toArray(new CharSequence[0]));
+					iconPack.setEntries(global_packsNames.toArray(new CharSequence[0])) ;
+					iconPack.setEntryValues(global_iconPacks.toArray(new CharSequence[0])) ;
 				}
 		}
 	}

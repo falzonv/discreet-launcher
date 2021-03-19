@@ -594,6 +594,15 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
 	{
-		if(key.equals("display_clock")) manageClock() ;
+		if(key.equals("display_clock"))
+				manageClock();
+			else if(key.equals("icon_pack"))
+			{
+				// Update the applications list
+				updateApplicationsList() ;
+				updateFavoritesList() ;
+				adapter.notifyDataSetChanged() ;
+				displayToast(R.string.text_applications_list_refreshed) ;
+			}
 	}
 }

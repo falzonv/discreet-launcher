@@ -61,7 +61,7 @@
     </string>
     <string name="text_help_refresh">
         Tant pour la rapidité que pour limiter l\'utilisation de la batterie, la liste d\'applications et leurs icônes ne sont récupérées que quand le lanceur démarre.
-        Si vous ajoutez ou supprimez une application, ou si vous changez le pack d\'icônes, le changement ne sera visible qu\'une fois la liste actualisée.
+        Si vous ajoutez ou supprimez une application, cela ne sera visible qu\'une fois la liste actualisée.
         Vous pouvez vérifier la dernière fois que cela a été fait en haut de la liste d\'applications.
     </string>
     <string name="text_about">À propos</string>
