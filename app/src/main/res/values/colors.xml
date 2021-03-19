@@ -6,6 +6,9 @@
 	<color name="colorPrimaryDark">#303F9F</color>
 	<color name="colorAccent">#4081FF</color>
 
+    <!-- Transparent color for the status bar -->
+    <color name="color_transparent">#00000000</color>
+
 	<!-- Applications drawer colors -->
 	<color name="color_applications_drawer_text">#FFFFFF</color>
 	<color name="color_applications_drawer_background">#66000000</color>

@@ -98,6 +98,10 @@ public class ActivityMain extends AppCompatActivity
 		favoritesPanel.setVisibility(View.GONE) ;
 		adapter.notifyDataSetChanged() ;
 
+		// Make the status bar transparent if this option was selected
+		if(settings.getBoolean("transparent_status_bar", false))
+				getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+
 		// Display a message if the user doesn't have any favorites applications yet
 		if(global_favoritesList.size() == 0)
 			displayToast(R.string.text_no_favorites_yet, Toast.LENGTH_LONG) ;
@@ -494,6 +498,10 @@ public class ActivityMain extends AppCompatActivity
 							{
 								// Close the favorites panel
 								favoritesPanel.setVisibility(View.GONE) ;
+
+								// Make the status bar transparent if this option was selected
+								if(settings.getBoolean("transparent_status_bar", false))
+									getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
 							}
 							else
 							{
@@ -505,6 +513,10 @@ public class ActivityMain extends AppCompatActivity
 					{
 						// Going down, open the favorites panel
 						favoritesPanel.setVisibility(View.VISIBLE) ;
+
+						// Make the status bar translucent if it was transparent
+						if(settings.getBoolean("transparent_status_bar", false))
+							getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
 					}
 
 				// Indicate that the event has been consumed

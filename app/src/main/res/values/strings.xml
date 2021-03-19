@@ -36,6 +36,8 @@
 
     <!-- Settings and help texts -->
     <string name="text_customization">Customization</string>
+    <string name="text_transparent_status_bar">Transparent status bar</string>
+    <string name="text_transparent_status_bar_help">On the home screen (favorites closed)</string>
     <string name="text_icon_pack">Icon pack</string>
     <string name="text_no_icon_pack">None (use the real icons)</string>
     <string name="text_help">Help</string>

@@ -5,6 +5,13 @@
         app:title="@string/text_customization"
         app:iconSpaceReserved="false">
 
+        <SwitchPreference
+            app:key="transparent_status_bar"
+            app:title="@string/text_transparent_status_bar"
+            app:summary="@string/text_transparent_status_bar_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
         <ListPreference
             app:key="icon_pack"
             app:title="@string/text_icon_pack"
