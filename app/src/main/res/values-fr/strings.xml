@@ -38,6 +38,7 @@
     <string name="text_customization">Personnalisation</string>
     <string name="text_transparent_status_bar">Barre de statut transparente</string>
     <string name="text_transparent_status_bar_help">Sur l\'écran d\'accueil (favoris fermés)</string>
+    <string name="text_display_clock">Afficher l\'heure sur l\'écran d\'accueil</string>
     <string name="text_icon_pack">Pack d\'icônes</string>
     <string name="text_no_icon_pack">Aucun (utiliser les vraies icônes)</string>
     <string name="text_help">Aide</string>

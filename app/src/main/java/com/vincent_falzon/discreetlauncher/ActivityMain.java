@@ -23,8 +23,12 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.annotation.SuppressLint ;
+import android.content.BroadcastReceiver ;
+import android.content.Context;
 import android.content.DialogInterface ;
 import android.content.Intent ;
+import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
@@ -43,6 +47,7 @@ import android.view.MenuItem ;
 import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
+import android.widget.TextView ;
 import android.widget.Toast ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
@@ -54,7 +59,7 @@ import java.util.List ;
 /**
  * Main class and home screen activity.
  */
-public class ActivityMain extends AppCompatActivity
+public class ActivityMain extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
 	// Global attributes
 	private static ArrayList<Application> global_applicationsList ;
@@ -67,23 +72,35 @@ public class ActivityMain extends AppCompatActivity
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
 	private LinearLayout favoritesPanel ;
+	private BroadcastReceiver clockUpdater ;
+	private TextView clockText ;
+	private SimpleDateFormat clockFormat ;
 
 	
 	/**
 	 * Constructor.
 	 * @param savedInstanceState To retrieve the context
 	 */
+	@SuppressLint("SimpleDateFormat")
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		// Call the constructor of the parent class
 		super.onCreate(savedInstanceState) ;
 
-		// Initializations
+		// Initialize the layout and navigation elements
 		setContentView(R.layout.activity_main) ;
-		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		detector = new GestureDetectorCompat(this, new GestureListener()) ;
 		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
+
+		// Retrieve the settings and listen for changes
+		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
+		settings.registerOnSharedPreferenceChangeListener(this) ;
+
+		// Initialize the text clock
+		clockText = findViewById(R.id.clock_text) ;
+		clockFormat = new SimpleDateFormat("HH:mm") ;
+		manageClock() ;
 
 		// Build the applications lists
 		updateApplicationsList() ;
@@ -251,6 +268,34 @@ public class ActivityMain extends AppCompatActivity
 							}
 					}
 			}
+	}
+
+
+	/**
+	 * Display or hide the clock on the main screen according to the settings.
+	 */
+	private void manageClock()
+	{
+		if(settings.getBoolean("display_clock", false))
+		{
+			// Display the clock and update it every minute
+			clockText.setText(clockFormat.format(new Date())) ;
+			clockUpdater = new BroadcastReceiver()
+			{
+				@Override
+				public void onReceive(Context context, Intent intent)
+				{
+					clockText.setText(clockFormat.format(new Date())) ;
+				}
+			} ;
+			registerReceiver(clockUpdater, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
+		}
+		else
+		{
+			// Stop the clock update and hide it
+			if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
+			clockText.setText("") ;
+		}
 	}
 
 
@@ -538,5 +583,17 @@ public class ActivityMain extends AppCompatActivity
 	{
 		if(favoritesPanel.getVisibility() == View.VISIBLE)
 			favoritesPanel.setVisibility(View.GONE) ;
+	}
+
+
+	/**
+	 * Listen for changes in the settings and react accordingly.
+	 * @param sharedPreferences Settings where the change happened
+	 * @param key The value which has changed
+	 */
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
+	{
+		if(key.equals("display_clock")) manageClock() ;
 	}
 }

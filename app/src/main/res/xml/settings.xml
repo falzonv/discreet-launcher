@@ -12,6 +12,12 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <SwitchPreference
+            app:key="display_clock"
+            app:title="@string/text_display_clock"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
         <ListPreference
             app:key="icon_pack"
             app:title="@string/text_icon_pack"

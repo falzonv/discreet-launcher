@@ -38,9 +38,17 @@
 
 	</LinearLayout>
 
-	<View
+	<TextView
+        android:id="@+id/clock_text"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:layout_weight="1"/>
+		android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:fontFamily="sans-serif-light"
+        android:textSize="80sp"
+        android:textColor="@color/color_applications_drawer_text"
+        android:shadowColor="@color/color_applications_drawer_background"
+        android:shadowRadius="20"/>
 
 </LinearLayout>
