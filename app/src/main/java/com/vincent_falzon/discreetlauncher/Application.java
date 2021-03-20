@@ -23,6 +23,9 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.content.Context ;
+import android.content.Intent ;
+import android.content.pm.PackageManager ;
 import android.graphics.drawable.Drawable ;
 
 /**
@@ -90,5 +93,38 @@ class Application
 	Drawable getIcon()
 	{
 		return icon ;
+	}
+
+
+	/**
+	 * Start the application as a new task.
+	 * @param context Provided by an activity
+	 */
+	void start(Context context)
+	{
+		// Check if the application still exists (not uninstalled or disabled)
+		PackageManager apkManager = context.getPackageManager() ;
+		Intent package_intent = apkManager.getLaunchIntentForPackage(apk) ;
+		if(package_intent == null)
+		{
+			// Display an error message and quit
+			ShowDialog.alert(context, context.getString(R.string.error_application_not_found, apk)) ;
+			return ;
+		}
+
+		// Try to launch the specific intent of the application
+		Intent activity_intent = new Intent(Intent.ACTION_MAIN) ;
+		activity_intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
+		activity_intent.setClassName(apk, name) ;
+		activity_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+		if(activity_intent.resolveActivity(apkManager) != null)
+		{
+			context.startActivity(activity_intent) ;
+			return ;
+		}
+
+		// If it was not found, launch the default intent of the package
+		package_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+		context.startActivity(package_intent) ;
 	}
 }

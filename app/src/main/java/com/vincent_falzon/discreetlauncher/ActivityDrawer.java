@@ -58,7 +58,7 @@ public class ActivityDrawer extends AppCompatActivity
 
 		// Indicate the last time the applications list was updated
 		TextView lastUpdateDateTime = findViewById(R.id.last_update_datetime) ;
-		lastUpdateDateTime.setText(getString(R.string.text_applications_list_last_update, ActivityMain.getListLastUpdate())) ;
+		lastUpdateDateTime.setText(getString(R.string.text_applications_list_last_update, ActivityMain.getApplicationsList().getLastUpdate())) ;
 
 		// Follow the scrolling position to detect when it is stuck on top
 		position = 0 ;
@@ -106,7 +106,7 @@ public class ActivityDrawer extends AppCompatActivity
 			}) ;
 
 		// Display the applications list
-		recycler.setAdapter(new RecyclerAdapter(this, false)) ;
+		recycler.setAdapter(new RecyclerAdapter(false)) ;
 		recycler.setLayoutManager(layoutManager) ;
 	}
 }

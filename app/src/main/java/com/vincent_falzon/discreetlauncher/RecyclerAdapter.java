@@ -26,7 +26,6 @@ package com.vincent_falzon.discreetlauncher ;
 import android.content.Context ;
 import android.content.DialogInterface ;
 import android.content.Intent ;
-import android.content.pm.PackageManager ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.recyclerview.widget.RecyclerView ;
@@ -43,20 +42,17 @@ import java.util.ArrayList ;
 class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationView>
 {
 	// Attributes
-	private final PackageManager apkManager ;
 	private final ArrayList<Application> applicationsList ;
 
 
 	/**
 	 * Constructor to fill a RecyclerView with the applications list.
-	 * @param context To get the APK manager
 	 * @param favorites Full list or favorites only
 	 */
-	RecyclerAdapter(Context context, boolean favorites)
+	RecyclerAdapter(boolean favorites)
 	{
-		apkManager = context.getPackageManager() ;
-		if(favorites) applicationsList = ActivityMain.getFavoritesList() ;
-			else applicationsList = ActivityMain.getApplicationsList() ;
+		if(favorites) applicationsList = ActivityMain.getApplicationsList().getFavorites() ;
+			else applicationsList = ActivityMain.getApplicationsList().getApplications() ;
 	}
 
 
@@ -132,28 +128,27 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		@Override
 		public void onClick(View view)
 		{
-			int i = getAdapterPosition() ;
-			startApplication(view.getContext(), applicationsList.get(i).getName(), applicationsList.get(i).getApk()) ;
+			if(view == null) return ;
+			applicationsList.get(getAdapterPosition()).start(view.getContext()) ;
 		}
 
 
 		/**
 		 * When the application is long clicked, propose to open its system settings.
 		 * @param view To get the context
-		 * @return always <code>true</code> as we consume the long click event
+		 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
 		 */
 		@Override
 		public boolean onLongClick(final View view)
 		{
-			// Retrieve the package name of the application
-			int i = getAdapterPosition() ;
-			final String name = applicationsList.get(i).getName() ;
-			final String apk = applicationsList.get(i).getApk() ;
+			// Get the clicked position to retrieve the selected application
+			if(view == null) return false ;
+			final int selection = getAdapterPosition() ;
 
 			// Prepare and display the selection dialog
 			final Context context = view.getContext() ;
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			dialog.setMessage(context.getString(R.string.text_open_or_settings, applicationsList.get(i).getDisplayName())) ;
+			dialog.setMessage(context.getString(R.string.text_open_or_settings, applicationsList.get(selection).getDisplayName())) ;
 			dialog.setPositiveButton(R.string.button_settings,
 					new DialogInterface.OnClickListener()
 					{
@@ -163,7 +158,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 						{
 							// Open the application system settings
 							Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-							intent.setData(Uri.parse("package:" + apk)) ;
+							intent.setData(Uri.parse("package:" + applicationsList.get(selection).getApk())) ;
 							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 							context.startActivity(intent) ;
 						}
@@ -176,48 +171,11 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 						public void onClick(DialogInterface dialogInterface, int i)
 						{
 							// Start the application
-							startApplication(context, name, apk) ;
+							applicationsList.get(selection).start(context) ;
 						}
 					}) ;
 			dialog.show() ;
 			return true ;
-		}
-
-
-		/**
-		 * Start an application after checking that it is still available.
-		 * @param context To get the context
-		 * @param name Internal name of the application
-		 * @param apk Package name of the application
-		 */
-		private void startApplication(Context context, String name, String apk)
-		{
-			// Check if the application still exists (not uninstalled or disabled)
-			Intent package_intent = apkManager.getLaunchIntentForPackage(apk) ;
-			if(package_intent == null)
-				{
-					// Display an error message and quit
-					AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-					dialog.setMessage(context.getString(R.string.error_application_not_found, apk)) ;
-					dialog.setNeutralButton(R.string.button_close, null) ;
-					dialog.show() ;
-					return ;
-				}
-
-			// Try to launch the specific intent of the application
-			Intent activity_intent = new Intent(Intent.ACTION_MAIN) ;
-			activity_intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
-			activity_intent.setClassName(apk, name) ;
-			activity_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-			if(activity_intent.resolveActivity(apkManager) != null)
-				{
-					context.startActivity(activity_intent) ;
-					return ;
-				}
-
-			// If it was not found, launch the default intent of the package
-			package_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-			context.startActivity(package_intent) ;
 		}
 	}
 }

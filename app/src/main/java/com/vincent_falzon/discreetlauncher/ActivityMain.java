@@ -30,9 +30,6 @@ import android.content.DialogInterface ;
 import android.content.Intent ;
 import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
-import android.content.pm.PackageManager ;
-import android.content.pm.ResolveInfo ;
-import android.graphics.drawable.Drawable ;
 import android.os.Bundle ;
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.appcompat.app.AlertDialog ;
@@ -48,31 +45,22 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
-import android.widget.Toast ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
-import java.util.Collections ;
-import java.util.Comparator ;
 import java.util.Date ;
-import java.util.List ;
 
 /**
  * Main class and home screen activity.
  */
 public class ActivityMain extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
-	// Global attributes
-	private static ArrayList<Application> global_applicationsList ;
-	private static ArrayList<Application> global_favoritesList ;
-	private static String global_list_last_update;
-	
 	// Attributes
+	private static ApplicationsList applicationsList ;
 	private SharedPreferences settings ;
-	private Intent drawerActivityLauncher ;
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
 	private LinearLayout favoritesPanel ;
-	private BroadcastReceiver clockUpdater ;
+	private BroadcastReceiver clockUpdater;
 	private TextView clockText ;
 	private SimpleDateFormat clockFormat ;
 
@@ -97,177 +85,34 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 
+		// Make the status bar transparent if this option was selected
+		if(settings.getBoolean("transparent_status_bar", false))
+			getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+
 		// Initialize the text clock
 		clockText = findViewById(R.id.clock_text) ;
 		clockFormat = new SimpleDateFormat("HH:mm") ;
 		manageClock() ;
 
-		// Build the applications lists
-		updateApplicationsList() ;
-		updateFavoritesList() ;
-		
+		// If they do not exist yet, build the applications lists (complete and favorites)
+		if(applicationsList == null)
+			{
+				applicationsList = new ApplicationsList(this, settings) ;
+				applicationsList.update(this) ;
+			}
+
+		// Display a message if the user doesn't have any favorites applications yet
+		if(applicationsList.getFavoritesCount() == 0)
+			ShowDialog.toastLong(this, getString(R.string.text_no_favorites_yet)) ;
+
 		// Prepare the display of the favorites panel over 4 columns
 		RecyclerView recycler = findViewById(R.id.favorites_applications) ;
-		adapter = new RecyclerAdapter(this, true) ;
+		adapter = new RecyclerAdapter(true) ;
 		recycler.setAdapter(adapter) ;
 		recycler.setLayoutManager(new GridLayoutManager(this, 4)) ;
 		favoritesPanel = findViewById(R.id.favorites_panel) ;
 		favoritesPanel.setVisibility(View.GONE) ;
 		adapter.notifyDataSetChanged() ;
-
-		// Make the status bar transparent if this option was selected
-		if(settings.getBoolean("transparent_status_bar", false))
-				getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
-
-		// Display a message if the user doesn't have any favorites applications yet
-		if(global_favoritesList.size() == 0)
-			displayToast(R.string.text_no_favorites_yet, Toast.LENGTH_LONG) ;
-
-		// Prepare the Drawer activity launcher
-		drawerActivityLauncher = new Intent() ;
-		drawerActivityLauncher.setClass(this, ActivityDrawer.class) ;
-	}
-	
-	
-	/**
-	 * Build the applications list and sort them in alphabetic order.
-	 */
-	private void updateApplicationsList()
-	{
-		// Initializations
-		PackageManager apkManager = getPackageManager() ;
-		if(global_applicationsList == null) global_applicationsList = new ArrayList<>() ;
-			else global_applicationsList.clear() ;
-
-		// Retrieve the list of applications that can be launched by the user
-		Intent intent = new Intent(Intent.ACTION_MAIN) ;
-		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
-		List<ResolveInfo> apkManagerList = apkManager.queryIntentActivities(intent, 0) ;
-
-		// Retrieve the icon pack setting
-		String pack_name = settings.getString("icon_pack", "none") ;
-		if(pack_name == null) pack_name = "none" ;
-
-		// If an icon pack is selected
-		IconPack iconPack = null ;
-		if(!pack_name.equals("none"))
-			{
-				// Try to load the icon pack resources
-				iconPack = new IconPack(this, pack_name) ;
-				if(iconPack.loadResources())
-					{
-						// Try to find the resource ID of the appfilter.xml file in the icon pack
-						if(!iconPack.findAppfilterID())
-							{
-								// Display an error message and do not use the icon pack
-								displayAlertDialog(getString(R.string.error_appfilter_not_found, pack_name)) ;
-								pack_name = "none" ;
-							}
-					}
-					else
-					{
-						// Display an error message and set the icon pack to none
-						displayAlertDialog(getString(R.string.error_application_not_found, pack_name)) ;
-						SharedPreferences.Editor editor = settings.edit() ;
-						editor.putString("icon_pack", "none").apply() ;
-						pack_name = "none" ;
-					}
-			}
-
-		// Define the icons size in pixels
-		int icon_size_px = Math.round(48 * getResources().getDisplayMetrics().density) ;
-
-		// Browse the APK manager list and store the data of each application in the main list
-		Drawable icon ;
-		for(ResolveInfo entry:apkManagerList)
-		{
-			// Load the application icon
-			if(pack_name.equals("none")) icon = entry.loadIcon(apkManager) ;
-				else
-				{
-					// Retrieve the icon in the pack, use the real icon if not found
-					icon = iconPack.searchIcon(entry.activityInfo.packageName, entry.activityInfo.name) ;
-					if(icon == null) icon = entry.loadIcon(apkManager) ;
-				}
-			icon.setBounds(0, 0, icon_size_px, icon_size_px) ;
-
-			// Add the application to the list
-			Application application = new Application(
-					entry.loadLabel(apkManager).toString(),
-					entry.activityInfo.name,
-					entry.activityInfo.packageName,
-					icon) ;
-			global_applicationsList.add(application) ;
-		}
-
-		// Sort applications in alphabetic order
-		Collections.sort(global_applicationsList, new Comparator<Application>()
-		{
-			@Override
-			public int compare(Application application1, Application application2)
-			{
-				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
-			}
-		}) ;
-
-		// Save the last update timestamp
-		global_list_last_update = SimpleDateFormat.getDateTimeInstance().format(new Date()) ;
-	}
-
-
-	/**
-	 * Built the favorites applications list.
-	 */
-	private void updateFavoritesList()
-	{
-		// Initializations
-		if(global_favoritesList == null) global_favoritesList = new ArrayList<>() ;
-			else global_favoritesList.clear() ;
-
-		// Check if the favorites file exists
-		final InternalFile file = new InternalFile(this, "favorites.txt") ;
-		if(file.isExisting())
-			{
-				// Retrieve and browse the internal names of all favorites applications
-				for(String name : file.readAllLines())
-				{
-					// Search the internal name in the applications list
-					for(Application application : global_applicationsList)
-						if(application.getName().equals(name))
-						{
-							// Add the application to the favorites and move to the next line
-							global_favoritesList.add(application) ;
-							break ;
-						}
-				}
-
-				// To remove later: manage old file format
-				if(global_favoritesList.size() == 0)
-					{
-						// Retrieve and browse the package names of all favorites applications
-						for(String apk : file.readAllLines())
-						{
-							// Search the package name in the applications list
-							for(Application application : global_applicationsList)
-								if(application.getApk().equals(apk))
-								{
-									// Add the application to the favorites and move to the next line
-									global_favoritesList.add(application) ;
-									break ;
-								}
-						}
-
-						// Check if favorites need to be migrated
-						if(global_favoritesList.size() > 0)
-							{
-								// Try to migrate them to the new format
-								if(!file.remove()) return ;
-								for(Application application : global_favoritesList)
-									if(!file.writeLine(application.getName())) return ;
-								displayAlertDialog(getString(R.string.error_file_format_changed)) ;
-							}
-					}
-			}
 	}
 
 
@@ -276,58 +121,43 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 */
 	private void manageClock()
 	{
+		// Check in the settings if the clock should be displayed or not
 		if(settings.getBoolean("display_clock", false))
-		{
-			// Display the clock and update it every minute
-			clockText.setText(clockFormat.format(new Date())) ;
-			clockUpdater = new BroadcastReceiver()
 			{
-				@Override
-				public void onReceive(Context context, Intent intent)
-				{
-					clockText.setText(clockFormat.format(new Date())) ;
-				}
-			} ;
-			registerReceiver(clockUpdater, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
-		}
-		else
-		{
-			// Stop the clock update and hide it
-			if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
-			clockText.setText("") ;
-		}
-	}
-
-
-	/**
-	 * Return the timestamp of the last time the applications list was updated.
-	 * @return Date and time in text format
-	 */
-	public static String getListLastUpdate()
-	{
-		return global_list_last_update ;
+				// Display the clock and start to listen for updates (every minute)
+				clockText.setText(clockFormat.format(new Date())) ;
+				clockUpdater = new BroadcastReceiver()
+					{
+						@Override
+						public void onReceive(Context context, Intent intent)
+						{
+							clockText.setText(clockFormat.format(new Date())) ;
+						}
+					} ;
+				registerReceiver(clockUpdater, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
+			}
+			else
+			{
+				// Stop to listen for updates and hide the clock
+				if(clockUpdater != null)
+					{
+						unregisterReceiver(clockUpdater) ;
+						clockUpdater = null ;
+					}
+				clockText.setText("") ;
+			}
 	}
 
 
 	/**
 	 * Return the list of applications.
-	 * @return Displayed in the Drawer activity
+	 * @return Contains the complete list, the favorites list and the last update timestamp
 	 */
-	public static ArrayList<Application> getApplicationsList()
+	static ApplicationsList getApplicationsList()
 	{
-		return global_applicationsList ;
+		return applicationsList ;
 	}
 
-
-	/**
-	 * Return the list of favorites applications.
-	 * @return Displayed in the favorites panel
-	 */
-	public static ArrayList<Application> getFavoritesList()
-	{
-		return global_favoritesList ;
-	}
-	
 	
 	/**
 	 * Create the contextual menu.
@@ -362,10 +192,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(selection == R.id.menu_action_refresh_list)
 			{
 				// Update the applications list
-				updateApplicationsList() ;
-				updateFavoritesList() ;
+				applicationsList.update(this) ;
 				adapter.notifyDataSetChanged() ;
-				displayToast(R.string.text_applications_list_refreshed) ;
 				return true ;
 			}
 			else if(selection == R.id.menu_action_manage_favorites)
@@ -385,48 +213,15 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
-	 * Display a Toast with a custom message and a custom duration.
-	 * @param message In R.string format
-	 * @param length Toast.LENGTH_SHORT or Toast.LENGTH_LONG
-	 */
-	private void displayToast(int message, int length)
-	{
-		Toast.makeText(getApplicationContext(), message, length).show() ;
-	}
-
-
-	/**
-	 * Display a Toast with a custom message and a short duration.
-	 * @param message In R.string format
-	 */
-	private void displayToast(int message)
-	{
-		displayToast(message, Toast.LENGTH_SHORT) ;
-	}
-
-
-	/**
-	 * Display a message in an alert dialog box.
-	 * @param message The message to display
-	 */
-	private void displayAlertDialog(String message)
-	{
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
-		dialog.setMessage(message) ;
-		dialog.setNeutralButton(R.string.button_close, null) ;
-		dialog.show() ;
-	}
-
-
-	/**
 	 * Prepare and display the favorites applications management dialog.
 	 */
 	private void displayManageFavoritesDialog()
 	{
 		// List the names of all applications
-		CharSequence[] app_names = new CharSequence[global_applicationsList.size()] ;
+		final ArrayList<Application> applications = applicationsList.getApplications() ;
+		CharSequence[] app_names = new CharSequence[applications.size()] ;
 		int i = 0 ;
-		for(Application application : global_applicationsList)
+		for(Application application : applications)
 		{
 			app_names[i] = application.getDisplayName() ;
 			i++ ;
@@ -437,11 +232,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		final boolean[] selected = new boolean[app_names.length] ;
 		if(file.isExisting())
 			for(i = 0 ; i < app_names.length ; i++)
-				selected[i] = file.isLineExisting(global_applicationsList.get(i).getName()) ;
+				selected[i] = file.isLineExisting(applications.get(i).getName()) ;
 		else for(i = 0 ; i < app_names.length ; i++)
 			selected[i] = false ;
 
 		// Prepare and display the selection dialog
+		final Context context = this ;
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
 		dialog.setTitle(R.string.text_check_favorites) ;
 		dialog.setMultiChoiceItems(app_names, selected,
@@ -461,7 +257,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						if(!file.remove())
 							{
 								// An error happened while trying to remove the current list
-								displayToast(R.string.error_remove_favorites) ;
+								ShowDialog.toast(context, R.string.error_remove_favorites) ;
 								return ;
 							}
 
@@ -469,18 +265,17 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						for(i = 0 ; i < selected.length ; i++)
 						{
 							if(selected[i])
-								if(!file.writeLine(global_applicationsList.get(i).getName()))
+								if(!file.writeLine(applications.get(i).getName()))
 									{
-										String message = getString(R.string.error_add_new_favorite, global_applicationsList.get(i).getDisplayName()) ;
-										Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show() ;
+										ShowDialog.toastLong(context, getString(R.string.error_add_new_favorite, applications.get(i).getDisplayName())) ;
 										return ;
 									}
 						}
 
 						// Update the favorites panel and inform the user
-						updateFavoritesList() ;
+						applicationsList.updateFavorites(context) ;
 						adapter.notifyDataSetChanged() ;
-						displayToast(R.string.text_favorites_saved) ;
+						ShowDialog.toast(getApplicationContext(), R.string.text_favorites_saved) ;
 					}
 				}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;
@@ -551,7 +346,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 							else
 							{
 								// Open the applications drawer
-								startActivity(drawerActivityLauncher) ;
+								startActivity(new Intent().setClass(getApplicationContext(), ActivityDrawer.class)) ;
 							}
 					}
 					else
@@ -594,15 +389,22 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
 	{
-		if(key.equals("display_clock"))
-				manageClock();
+		if(key.equals("display_clock")) manageClock() ;
 			else if(key.equals("icon_pack"))
 			{
-				// Update the applications list
-				updateApplicationsList() ;
-				updateFavoritesList() ;
+				applicationsList.update(this) ;
 				adapter.notifyDataSetChanged() ;
-				displayToast(R.string.text_applications_list_refreshed) ;
 			}
+	}
+
+
+	/**
+	 * Unregister all remaining broadcast receivers when the activity is destroyed.
+	 */
+	@Override
+	public void onDestroy()
+	{
+		super.onDestroy() ;
+		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
 	}
 }
