@@ -1,0 +1,7 @@
+v1.3.1
+- Fix existence test before opening an application (bug introduced in v1.1.0)
+
+v1.3.0
+- Option to make the status bar fully transparent
+- Option to display the current time on the home screen
+- Automatically update icons when the pack changes

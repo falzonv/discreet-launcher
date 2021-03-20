@@ -1,0 +1,7 @@
+v1.3.1
+- Correction du test d'existence avant d'ouvrir une application (bug introduit en v1.1.0)
+
+v1.3.0
+- Option pour rendre la barre de statut transparente
+- Option pour afficher l'heure sur l'écran d'accueil
+- Mise à jour automatique des icônes quand le pack change
