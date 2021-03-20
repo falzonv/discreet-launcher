@@ -1,0 +1,3 @@
+- Option pour rendre la barre de statut transparente
+- Option pour afficher l'heure sur l'écran d'accueil
+- Mise à jour automatique des icônes quand le pack change
