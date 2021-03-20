@@ -192,6 +192,18 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		 */
 		private void startApplication(Context context, String name, String apk)
 		{
+			// Check if the application still exists (not uninstalled or disabled)
+			Intent package_intent = apkManager.getLaunchIntentForPackage(apk) ;
+			if(package_intent == null)
+				{
+					// Display an error message and quit
+					AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+					dialog.setMessage(context.getString(R.string.error_application_not_found, apk)) ;
+					dialog.setNeutralButton(R.string.button_close, null) ;
+					dialog.show() ;
+					return ;
+				}
+
 			// Try to launch the specific intent of the application
 			Intent activity_intent = new Intent(Intent.ACTION_MAIN) ;
 			activity_intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
@@ -203,20 +215,9 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 					return ;
 				}
 
-			// If it was not found, try to launch the default intent of the package
-			Intent package_intent = apkManager.getLaunchIntentForPackage(apk) ;
-			if(package_intent != null)
-				{
-					package_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-					context.startActivity(package_intent) ;
-					return ;
-				}
-
-			// Display an error message as the application might be uninstalled or disabled
-			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			dialog.setMessage(context.getString(R.string.error_application_not_found, apk)) ;
-			dialog.setNeutralButton(R.string.button_close, null) ;
-			dialog.show() ;
+			// If it was not found, launch the default intent of the package
+			package_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+			context.startActivity(package_intent) ;
 		}
 	}
 }
