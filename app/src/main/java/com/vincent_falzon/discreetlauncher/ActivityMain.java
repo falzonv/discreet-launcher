@@ -112,7 +112,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		recycler.setLayoutManager(new GridLayoutManager(this, 4)) ;
 		favoritesPanel = findViewById(R.id.favorites_panel) ;
 		favoritesPanel.setVisibility(View.GONE) ;
-		adapter.notifyDataSetChanged() ;
 	}
 
 
