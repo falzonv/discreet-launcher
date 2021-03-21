@@ -60,7 +60,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
 	private LinearLayout favoritesPanel ;
-	private BroadcastReceiver clockUpdater;
+	private BroadcastReceiver clockUpdater ;
 	private TextView clockText ;
 	private SimpleDateFormat clockFormat ;
 
@@ -97,7 +97,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// If they do not exist yet, build the applications lists (complete and favorites)
 		if(applicationsList == null)
 			{
-				applicationsList = new ApplicationsList(this, settings) ;
+				applicationsList = new ApplicationsList() ;
 				applicationsList.update(this) ;
 			}
 
@@ -392,6 +392,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(key.equals("display_clock")) manageClock() ;
 			else if(key.equals("icon_pack"))
 			{
+				// If the icon pack has changed, update the icons
 				applicationsList.update(this) ;
 				adapter.notifyDataSetChanged() ;
 			}

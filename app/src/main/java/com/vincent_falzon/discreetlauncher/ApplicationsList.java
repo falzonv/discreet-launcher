@@ -29,6 +29,7 @@ import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
 import android.graphics.drawable.Drawable ;
+import androidx.preference.PreferenceManager ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
 import java.util.Collections ;
@@ -37,40 +38,30 @@ import java.util.Date ;
 import java.util.List ;
 
 /**
- * Represent an Android application with its names (displayed, internal and package) and icon.
+ * Contain applications lists (complete and favorites) and the last update timestamp.
  */
 class ApplicationsList
 {
 	// Attributes
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
-	private final int icon_size ;
-	private final InternalFile favorites_file ;
-	private final SharedPreferences settings ;
 	private String last_update ;
 
 
 	/**
 	 * Constructor to create the applications list.
 	 */
-	ApplicationsList(Context context, SharedPreferences settings)
+	ApplicationsList()
 	{
-		// Initialize the applications lists
 		applications = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
-
-		// Define the icons size in pixels
-		icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
-
-		// Other initializations
-		favorites_file = new InternalFile(context, "favorites.txt") ;
-		this.settings = settings ;
 		last_update = "" ;
 	}
 
 
 	/**
 	 * Update both the complete applications list and the favorite applications list.
+	 * @param context To get the package manager, load icon pack and display a toast
 	 */
 	void update(Context context)
 	{
@@ -83,12 +74,11 @@ class ApplicationsList
 		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
 		List<ResolveInfo> apkManagerList = apkManager.queryIntentActivities(intent, 0) ;
 
-		// Retrieve the icon pack setting
-		String pack_name = settings.getString("icon_pack", "none") ;
-		if(pack_name == null) pack_name = "none" ;
+		// Define the icons size in pixels
+		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 
-		// Check if and icon pack is selected and load it if it does
-		IconPack iconPack = selectIconPack(context) ;
+		// If an icon pack is selected, load it
+		IconPack iconPack = loadIconPack(context) ;
 
 		// Browse the APK manager list and store the data of each application in the main list
 		Drawable icon ;
@@ -134,18 +124,19 @@ class ApplicationsList
 
 	/**
 	 * Update the favorites applications list based on the favorites file and the complete list.
-	 * @param context For file format conversion (to be removed later)
+	 * @param context To get the file path
 	 */
 	void updateFavorites(Context context)
 	{
 		// Initializations
+		InternalFile file = new InternalFile(context, "favorites.txt") ;
 		favorites.clear() ;
 
 		// Check if the favorites file exists
-		if(favorites_file.isExisting())
+		if(file.isExisting())
 		{
 			// Retrieve and browse the internal names of all favorites applications
-			for(String name : favorites_file.readAllLines())
+			for(String name : file.readAllLines())
 			{
 				// Search the internal name in the applications list
 				for(Application application : applications)
@@ -158,7 +149,7 @@ class ApplicationsList
 			}
 
 			// To remove later: manage old file format
-			if(favorites.size() == 0) convertOldFavoritesFileFormat(context) ;
+			if(favorites.size() == 0) convertOldFavoritesFileFormat(context, file) ;
 		}
 	}
 
@@ -169,10 +160,10 @@ class ApplicationsList
 	 * a version before v1.2.0. It updates the favorites file to new format with internal names.
 	 * @param context To display an alert dialog
 	 */
-	private void convertOldFavoritesFileFormat(Context context)
+	private void convertOldFavoritesFileFormat(Context context, InternalFile file)
 	{
 		// Retrieve and browse the package names of all favorites applications
-		for(String apk : favorites_file.readAllLines())
+		for(String apk : file.readAllLines())
 		{
 			// Search the package name in the applications list
 			for(Application application : applications)
@@ -188,9 +179,9 @@ class ApplicationsList
 		if(favorites.size() > 0)
 		{
 			// Try to migrate them to the new format
-			if(!favorites_file.remove()) return ;
+			if(!file.remove()) return ;
 			for(Application application : favorites)
-				if(!favorites_file.writeLine(application.getName())) return ;
+				if(!file.writeLine(application.getName())) return ;
 			ShowDialog.alert(context, context.getString(R.string.error_file_format_changed)) ;
 		}
 	}
@@ -198,12 +189,13 @@ class ApplicationsList
 
 	/**
 	 * Check if an icon pack is selected and load it if it does.
-	 * @param context To display alerts if needed
+	 * @param context To get the settings and display alerts
 	 * @return An icon pack loaded or <code>null</code> if none is selected
 	 */
-	private IconPack selectIconPack(Context context)
+	private IconPack loadIconPack(Context context)
 	{
 		// Check if an icon pack is selected
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
 		String pack_name = settings.getString("icon_pack", "none") ;
 		if((pack_name == null) || pack_name.equals("none")) return null ;
 

@@ -106,11 +106,11 @@ class Application
 		PackageManager apkManager = context.getPackageManager() ;
 		Intent package_intent = apkManager.getLaunchIntentForPackage(apk) ;
 		if(package_intent == null)
-		{
-			// Display an error message and quit
-			ShowDialog.alert(context, context.getString(R.string.error_application_not_found, apk)) ;
-			return ;
-		}
+			{
+				// Display an error message and quit
+				ShowDialog.alert(context, context.getString(R.string.error_application_not_found, apk)) ;
+				return ;
+			}
 
 		// Try to launch the specific intent of the application
 		Intent activity_intent = new Intent(Intent.ACTION_MAIN) ;
@@ -118,10 +118,10 @@ class Application
 		activity_intent.setClassName(apk, name) ;
 		activity_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 		if(activity_intent.resolveActivity(apkManager) != null)
-		{
-			context.startActivity(activity_intent) ;
-			return ;
-		}
+			{
+				context.startActivity(activity_intent) ;
+				return ;
+			}
 
 		// If it was not found, launch the default intent of the package
 		package_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
