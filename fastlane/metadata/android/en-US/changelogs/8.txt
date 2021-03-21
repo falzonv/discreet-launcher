@@ -1,0 +1,2 @@
+- Automatic update of the list when an application is added or removed
+- Internal reorganization and various code optimizations
