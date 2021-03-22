@@ -151,7 +151,7 @@ public class ActivityDrawer extends AppCompatActivity
 		public void onReceive(Context context, Intent intent)
 		{
 			// Check if a package has been added or removed (except during updates)
-			if(intent == null) return ;
+			if(intent.getAction() == null) return ;
 			if((intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) || intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
 				&& !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false))
 				{

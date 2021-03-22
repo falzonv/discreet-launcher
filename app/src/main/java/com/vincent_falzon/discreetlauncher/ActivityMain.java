@@ -56,6 +56,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 {
 	// Attributes
 	private static ApplicationsList applicationsList ;
+	private BroadcastReceiver applicationsListUpdater ;
 	private SharedPreferences settings ;
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
@@ -100,6 +101,14 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				applicationsList = new ApplicationsList() ;
 				applicationsList.update(this) ;
 			}
+
+		// Start to listen for packages added or removed
+		applicationsListUpdater = new PackagesMessagesReceiver() ;
+		IntentFilter filter = new IntentFilter() ;
+		filter.addAction(Intent.ACTION_PACKAGE_ADDED) ;
+		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
+		filter.addDataScheme("package") ;
+		registerReceiver(applicationsListUpdater, filter) ;
 
 		// Display a message if the user doesn't have any favorites applications yet
 		if(applicationsList.getFavoritesCount() == 0)
@@ -406,5 +415,32 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		super.onDestroy() ;
 		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
+		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
+	}
+
+
+	/**
+	 * Receive system events related to packages and update the applications list accordingly.
+	 */
+	class PackagesMessagesReceiver extends BroadcastReceiver
+	{
+		/**
+		 * Method called when a broadcast message is received.
+		 * @param context Context of the message.
+		 * @param intent Type and content of the message.
+		 */
+		@Override
+		public void onReceive(Context context, Intent intent)
+		{
+			// Check if a package has been added or removed (except during updates)
+			if(intent.getAction() == null) return ;
+			if((intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) || intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
+				&& !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false))
+				{
+					// Update the applications list
+					applicationsList.update(context) ;
+					adapter.notifyDataSetChanged() ;
+				}
+		}
 	}
 }

@@ -46,6 +46,7 @@ class ApplicationsList
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
 	private String last_update ;
+	private boolean update_in_progress ;
 
 
 	/**
@@ -56,6 +57,7 @@ class ApplicationsList
 		applications = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
 		last_update = "" ;
+		update_in_progress = false ;
 	}
 
 
@@ -65,6 +67,10 @@ class ApplicationsList
 	 */
 	void update(Context context)
 	{
+		// Check if an update is already in progress
+		if(update_in_progress) return ;
+		update_in_progress = true ;
+
 		// Initializations
 		PackageManager apkManager = context.getPackageManager() ;
 		applications.clear() ;
@@ -119,6 +125,7 @@ class ApplicationsList
 		// Save the last update timestamp and inform the user that the list has been refreshed
 		last_update = SimpleDateFormat.getDateTimeInstance().format(new Date()) ;
 		ShowDialog.toast(context, R.string.text_applications_list_refreshed) ;
+		update_in_progress = false ;
 	}
 
 
