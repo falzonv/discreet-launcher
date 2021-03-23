@@ -1,0 +1,7 @@
+v2.1.0
+- Correction de la mise à jour de la liste depuis l'écran d'accueil
+- Option de notification offrant l'accès rapide à 3 applications choisies
+
+v2.0.0
+- Mise à jour automatique de la liste quand une application est ajoutée ou supprimée
+- Réorganisation interne et diverses optimisations du code

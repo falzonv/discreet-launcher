@@ -1,0 +1,7 @@
+v2.1.0
+- Fix automatic list update from the home screen
+- Add notification offering quick access to 3 user-defined applications
+
+v2.0.0
+- Automatic update of the list when an application is added or removed
+- Internal reorganization and various code optimizations
