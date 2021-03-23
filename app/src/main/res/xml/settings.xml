@@ -28,6 +28,49 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        app:title="@string/text_notification_settings"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreference
+            app:key="display_notification"
+            app:title="@string/text_display_notification"
+            app:summary="@string/text_display_notification_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="true"/>
+
+        <Preference
+            app:title="@string/text_select_notification_apps"
+            app:summary="@string/text_select_notification_apps_help"
+            app:dependency="display_notification"
+            app:iconSpaceReserved="false"/>
+
+        <ListPreference
+            app:key="notification_app1"
+            app:title="@string/text_application1"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:dependency="display_notification"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="notification_app2"
+            app:title="@string/text_application2"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:dependency="display_notification"
+            app:useSimpleSummaryProvider="true"/>
+
+        <ListPreference
+            app:key="notification_app3"
+            app:title="@string/text_application3"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:dependency="display_notification"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         app:title="@string/text_help"
         app:iconSpaceReserved="false">
 

@@ -45,6 +45,7 @@ class ApplicationsList
 	// Attributes
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
+	private final Application[] notificationApps ;
 	private String last_update ;
 	private boolean update_in_progress ;
 
@@ -56,6 +57,7 @@ class ApplicationsList
 	{
 		applications = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
+		notificationApps = new Application[3] ;
 		last_update = "" ;
 		update_in_progress = false ;
 	}
@@ -88,7 +90,7 @@ class ApplicationsList
 
 		// Browse the APK manager list and store the data of each application in the main list
 		Drawable icon ;
-		for(ResolveInfo entry:apkManagerList)
+		for(ResolveInfo entry : apkManagerList)
 		{
 			// Load the application icon
 			if(iconPack == null) icon = entry.loadIcon(apkManager) ;
@@ -231,6 +233,35 @@ class ApplicationsList
 
 
 	/**
+	 * Update the applications used as notification buttons
+	 * @param context To get the settings
+	 */
+	void updateNotificationApps(Context context)
+	{
+		// Initializations
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
+		String[] setting_app = new String[3] ;
+
+		// Update the notification applications
+		String[] app ;
+		for(int i = 0 ; i < 3 ; i++)
+		{
+			// Check if an application has been selected
+			setting_app[i] = settings.getString("notification_app" + (i + 1), "none") ;
+			if((setting_app[i] == null) || setting_app[i].equals("none"))
+				{
+					notificationApps[i] = null ;
+					continue ;
+				}
+
+			// Retrieve the applications details
+			app = setting_app[i].split("_discreet_") ;
+			notificationApps[i] = new Application(app[0], app[1], app[2], null) ;
+		}
+	}
+
+
+	/**
 	 * Return the complete list of applications.
 	 * @return For display in the Drawer activity
 	 */
@@ -267,5 +298,15 @@ class ApplicationsList
 	int getFavoritesCount()
 	{
 		return favorites.size() ;
+	}
+
+
+	/**
+	 * Return the three notification applications
+	 * @return For display as notification buttons
+	 */
+	Application[] getNotificationApps()
+	{
+		return notificationApps ;
 	}
 }

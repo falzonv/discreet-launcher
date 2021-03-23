@@ -33,14 +33,21 @@
 	<!-- Textes des fenêtres -->
 	<string name="text_check_favorites">Cocher vos applications favorites</string>
     <string name="text_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
+    <string name="text_notification">(apps réglables dans les paramètres)</string>
 
     <!-- Textes des paramètres et de l'aide -->
     <string name="text_customization">Personnalisation</string>
     <string name="text_transparent_status_bar">Barre de statut transparente</string>
     <string name="text_transparent_status_bar_help">Sur l\'écran d\'accueil (favoris fermés)</string>
     <string name="text_display_clock">Afficher l\'heure sur l\'écran d\'accueil</string>
-    <string name="text_icon_pack">Pack d\'icônes</string>
+    <string name="text_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="text_no_icon_pack">Aucun (utiliser les vraies icônes)</string>
+    <string name="text_notification_settings">Paramètres de la notification</string>
+    <string name="text_display_notification">Afficher la notification</string>
+    <string name="text_display_notification_help">Sauf sur l\'ecran d\'accueil</string>
+    <string name="text_select_notification_apps">Choisissez les applications à afficher dans la notification</string>
+    <string name="text_select_notification_apps_help">(Android permet jusqu\'à 3 boutons)</string>
+    <string name="text_no_application">Aucune (masquer le bouton)</string>
     <string name="text_help">Aide</string>
     <string name="text_help_title_general">Utilisation générale</string>
     <string name="text_help_favorites_panel">

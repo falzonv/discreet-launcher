@@ -31,6 +31,7 @@ import android.content.Intent ;
 import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
 import android.os.Bundle ;
+
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
@@ -64,6 +65,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private BroadcastReceiver clockUpdater ;
 	private TextView clockText ;
 	private SimpleDateFormat clockFormat ;
+	private NotificationMenu notificationMenu ;
 
 	
 	/**
@@ -101,6 +103,11 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				applicationsList = new ApplicationsList() ;
 				applicationsList.update(this) ;
 			}
+
+		// Prepare the notification menu but hide it when the user is on the home screen
+		notificationMenu = new NotificationMenu(this) ;
+		applicationsList.updateNotificationApps(this) ;
+		notificationMenu.hide() ;
 
 		// Start to listen for packages added or removed
 		applicationsListUpdater = new PackagesMessagesReceiver() ;
@@ -397,13 +404,54 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
 	{
-		if(key.equals("display_clock")) manageClock() ;
-			else if(key.equals("icon_pack"))
-			{
+		switch(key)
+		{
+			case "display_clock" :
+				// Toggle the clock
+				manageClock() ;
+				break ;
+			case "icon_pack" :
 				// If the icon pack has changed, update the icons
 				applicationsList.update(this) ;
 				adapter.notifyDataSetChanged() ;
-			}
+				break ;
+			case "display_notification" :
+				// Toggle the notification
+				if(settings.getBoolean("display_notification", true)) notificationMenu.display(this) ;
+					else notificationMenu.hide() ;
+				break ;
+			case "notification_app1" :
+			case "notification_app2" :
+			case "notification_app3" :
+				// If one of the applications has changed, update the notification
+				applicationsList.updateNotificationApps(this) ;
+				notificationMenu.hide() ;
+				notificationMenu.display(this) ;
+				break ;
+		}
+	}
+
+
+	/**
+	 * Display the notification when the user leaves the home screen (if option selected).
+	 */
+	@Override
+	public void onPause()
+	{
+		super.onPause() ;
+		if(settings.getBoolean("display_notification", true))
+			notificationMenu.display(this) ;
+	}
+
+
+	/**
+	 * Hide the notification when the user is on the home screen.
+	 */
+	@Override
+	public void onResume()
+	{
+		super.onResume() ;
+		notificationMenu.hide() ;
 	}
 
 

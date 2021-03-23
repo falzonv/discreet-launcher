@@ -39,8 +39,10 @@ import java.util.List ;
 public class ActivitySettings extends AppCompatActivity
 {
 	// Attributes
-	private static ArrayList<String> global_iconPacks ;
-	private static ArrayList<String> global_packsNames ;
+	private static ArrayList<String> iconPacks ;
+	private static ArrayList<String> packsNames ;
+	private static ArrayList<String> applicationsNames ;
+	private static ArrayList<String> applicationsDisplayNames ;
 
 
 	/**
@@ -63,8 +65,28 @@ public class ActivitySettings extends AppCompatActivity
 			ListPreference iconPack = findPreference("icon_pack") ;
 			if(iconPack != null)
 				{
-					iconPack.setEntries(global_packsNames.toArray(new CharSequence[0])) ;
-					iconPack.setEntryValues(global_iconPacks.toArray(new CharSequence[0])) ;
+					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
+					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
+				}
+
+			// Initialize the notification applications selectors
+			ListPreference app1 = findPreference("notification_app1") ;
+			if(app1 != null)
+				{
+					app1.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
+					app1.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
+				}
+			ListPreference app2 = findPreference("notification_app2") ;
+			if(app2 != null)
+				{
+					app2.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
+					app2.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
+				}
+			ListPreference app3 = findPreference("notification_app3") ;
+			if(app3 != null)
+				{
+					app3.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
+					app3.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
 				}
 		}
 	}
@@ -81,13 +103,24 @@ public class ActivitySettings extends AppCompatActivity
 		super.onCreate(savedInstanceState) ;
 
 		// Initializations
-		global_iconPacks = new ArrayList<>() ;
-		global_packsNames = new ArrayList<>() ;
+		if(iconPacks == null) iconPacks = new ArrayList<>() ;
+		if(packsNames == null) packsNames = new ArrayList<>() ;
+		if(applicationsNames == null) applicationsNames = new ArrayList<>() ;
+		if(applicationsDisplayNames == null) applicationsDisplayNames = new ArrayList<>() ;
 
-		// Prepare the icon pack setting options
-		global_iconPacks.add("none") ;
-		global_packsNames.add(getString(R.string.text_no_icon_pack)) ;
+		// Prepare the icon pack setting
+		iconPacks.clear() ;
+		packsNames.clear() ;
+		iconPacks.add("none") ;
+		packsNames.add(getString(R.string.text_no_icon_pack)) ;
 		searchIconPacks() ;
+
+		// Prepare the notification applications settings
+		applicationsNames.clear() ;
+		applicationsDisplayNames.clear() ;
+		applicationsNames.add("none") ;
+		applicationsDisplayNames.add(getString(R.string.text_no_application)) ;
+		searchApplications() ;
 
 		// Load the settings from the XML file
 		setContentView(R.layout.activity_settings) ;
@@ -108,8 +141,23 @@ public class ActivitySettings extends AppCompatActivity
 		// Browse the retrieved packs and store their information in the lists
 		for(ResolveInfo pack:packsList)
 		{
-			global_iconPacks.add(pack.activityInfo.packageName) ;
-			global_packsNames.add(pack.loadLabel(apkManager).toString()) ;
+			iconPacks.add(pack.activityInfo.packageName) ;
+			packsNames.add(pack.loadLabel(apkManager).toString()) ;
+		}
+	}
+
+
+	/**
+	 * Build a list of the installed applications
+	 */
+	private void searchApplications()
+	{
+		// Browse the applications list and store their information in the lists
+		ArrayList<Application> applicationsList = ActivityMain.getApplicationsList().getApplications() ;
+		for(Application application : applicationsList)
+		{
+			applicationsNames.add(application.getDisplayName() + "_discreet_" + application.getName() + "_discreet_" + application.getApk()) ;
+			applicationsDisplayNames.add(application.getDisplayName()) ;
 		}
 	}
 }

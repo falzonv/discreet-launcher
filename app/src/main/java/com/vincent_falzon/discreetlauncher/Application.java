@@ -97,6 +97,20 @@ class Application
 
 
 	/**
+	 * Get the specific activity intent.
+	 * @return An intent specially created to launch this activity as a new task
+	 */
+	Intent getActivityIntent()
+	{
+		Intent intent = new Intent(Intent.ACTION_MAIN) ;
+		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
+		intent.setClassName(apk, name) ;
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+		return intent ;
+	}
+
+
+	/**
 	 * Start the application as a new task.
 	 * @param context Provided by an activity
 	 */
@@ -113,10 +127,7 @@ class Application
 			}
 
 		// Try to launch the specific intent of the application
-		Intent activity_intent = new Intent(Intent.ACTION_MAIN) ;
-		activity_intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
-		activity_intent.setClassName(apk, name) ;
-		activity_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+		Intent activity_intent = getActivityIntent() ;
 		if(activity_intent.resolveActivity(apkManager) != null)
 			{
 				context.startActivity(activity_intent) ;
