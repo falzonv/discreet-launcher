@@ -38,9 +38,15 @@
             app:iconSpaceReserved="false"
             app:defaultValue="true"/>
 
+        <SwitchPreference
+            app:key="hide_on_lock_screen"
+            app:title="@string/text_hide_on_lock_screen"
+            app:summary="@string/text_hide_on_lock_screen_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="true"/>
+
         <Preference
-            app:title="@string/text_select_notification_apps"
-            app:summary="@string/text_select_notification_apps_help"
+            app:summary="@string/text_select_notification_apps"
             app:dependency="display_notification"
             app:iconSpaceReserved="false"/>
 

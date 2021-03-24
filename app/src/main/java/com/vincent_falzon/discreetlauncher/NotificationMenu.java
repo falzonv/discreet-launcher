@@ -27,9 +27,11 @@ import android.app.NotificationChannel ;
 import android.app.NotificationManager ;
 import android.app.PendingIntent ;
 import android.content.Context ;
+import android.content.SharedPreferences ;
 import android.os.Build ;
 import androidx.core.app.NotificationCompat ;
 import androidx.core.app.NotificationManagerCompat ;
+import androidx.preference.PreferenceManager ;
 
 /**
  * Display an Android notification with the favorites applications.
@@ -76,6 +78,11 @@ class NotificationMenu
 		builder.setOngoing(true) ;                             // Sticky notification
 		builder.setPriority(NotificationCompat.PRIORITY_MAX) ; // Needed to display the buttons
 		builder.setNotificationSilent() ;                      // No sound or vibration
+
+		// Check if the notification should be displayed or not on the lock screen
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
+		if(settings.getBoolean("hide_on_lock_screen", true))
+			builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ;
 
 		// Retrieve the selected applications
 		Application[] app = ActivityMain.getApplicationsList().getNotificationApps() ;

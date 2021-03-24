@@ -45,8 +45,9 @@
     <string name="text_notification_settings">Paramètres de la notification</string>
     <string name="text_display_notification">Afficher la notification</string>
     <string name="text_display_notification_help">Sauf sur l\'ecran d\'accueil</string>
-    <string name="text_select_notification_apps">Choisissez les applications à afficher dans la notification</string>
-    <string name="text_select_notification_apps_help">(Android permet jusqu\'à 3 boutons)</string>
+    <string name="text_hide_on_lock_screen">Masquer sur l\'écran de verrouillage</string>
+    <string name="text_hide_on_lock_screen_help">(Repassez par l\'accueil pour appliquer)</string>
+    <string name="text_select_notification_apps">Choisissez les applications à afficher dans la notification (Android permet jusqu\'à 3 boutons)</string>
     <string name="text_no_application">Aucune (masquer le bouton)</string>
     <string name="text_help">Aide</string>
     <string name="text_help_title_general">Utilisation générale</string>

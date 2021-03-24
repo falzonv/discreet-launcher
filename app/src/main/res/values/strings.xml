@@ -45,8 +45,9 @@
     <string name="text_notification_settings">Notification settings</string>
     <string name="text_display_notification">Display the notification</string>
     <string name="text_display_notification_help">Except on the home screen</string>
-    <string name="text_select_notification_apps">Choose the applications to display in the notification</string>
-    <string name="text_select_notification_apps_help">(Android allows up to 3 buttons)</string>
+    <string name="text_hide_on_lock_screen">Hide on lock screen</string>
+    <string name="text_hide_on_lock_screen_help">(Go to home screen to apply)</string>
+    <string name="text_select_notification_apps">Choose the applications to display in the notification (Android allows up to 3 buttons)</string>
     <string name="text_application1" translatable="false">Application 1</string>
     <string name="text_application2" translatable="false">Application 2</string>
     <string name="text_application3" translatable="false">Application 3</string>
