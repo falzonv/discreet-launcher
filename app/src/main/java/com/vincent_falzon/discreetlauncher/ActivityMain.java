@@ -23,15 +23,12 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
-import android.annotation.SuppressLint ;
-import android.content.BroadcastReceiver ;
-import android.content.Context;
+import android.content.Context ;
 import android.content.DialogInterface ;
 import android.content.Intent ;
 import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
 import android.os.Bundle ;
-
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
@@ -46,9 +43,7 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
-import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
-import java.util.Date ;
 
 /**
  * Main class and home screen activity.
@@ -57,14 +52,13 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 {
 	// Attributes
 	private static ApplicationsList applicationsList ;
-	private BroadcastReceiver applicationsListUpdater ;
+	private EventsReceiver applicationsListUpdater ;
 	private SharedPreferences settings ;
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
 	private LinearLayout favoritesPanel ;
-	private BroadcastReceiver clockUpdater ;
+	private EventsReceiver clockUpdater ;
 	private TextView clockText ;
-	private SimpleDateFormat clockFormat ;
 	private NotificationMenu notificationMenu ;
 
 	
@@ -72,7 +66,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 * Constructor.
 	 * @param savedInstanceState To retrieve the context
 	 */
-	@SuppressLint("SimpleDateFormat")
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -95,7 +88,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Initialize the text clock
 		clockText = findViewById(R.id.clock_text) ;
-		clockFormat = new SimpleDateFormat("HH:mm") ;
 		manageClock() ;
 
 		// If they do not exist yet, build the applications lists (complete and favorites)
@@ -110,14 +102,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		applicationsList.updateNotificationApps(this) ;
 		notificationMenu.hide() ;
 
-		// Start to listen for packages added or removed
-		applicationsListUpdater = new PackagesMessagesReceiver() ;
-		IntentFilter filter = new IntentFilter() ;
-		filter.addAction(Intent.ACTION_PACKAGE_ADDED) ;
-		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
-		filter.addDataScheme("package") ;
-		registerReceiver(applicationsListUpdater, filter) ;
-
 		// Display a message if the user doesn't have any favorites applications yet
 		if(applicationsList.getFavoritesCount() == 0)
 			ShowDialog.toastLong(this, getString(R.string.text_no_favorites_yet)) ;
@@ -129,6 +113,14 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		recycler.setLayoutManager(new GridLayoutManager(this, 4)) ;
 		favoritesPanel = findViewById(R.id.favorites_panel) ;
 		favoritesPanel.setVisibility(View.GONE) ;
+
+		// Start to listen for packages added or removed
+		applicationsListUpdater = new EventsReceiver(adapter) ;
+		IntentFilter filter = new IntentFilter() ;
+		filter.addAction(Intent.ACTION_PACKAGE_ADDED) ;
+		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
+		filter.addDataScheme("package") ;
+		registerReceiver(applicationsListUpdater, filter) ;
 	}
 
 
@@ -141,15 +133,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(settings.getBoolean("display_clock", false))
 			{
 				// Display the clock and start to listen for updates (every minute)
-				clockText.setText(clockFormat.format(new Date())) ;
-				clockUpdater = new BroadcastReceiver()
-					{
-						@Override
-						public void onReceive(Context context, Intent intent)
-						{
-							clockText.setText(clockFormat.format(new Date())) ;
-						}
-					} ;
+				clockUpdater = new EventsReceiver(clockText) ;
 				registerReceiver(clockUpdater, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
 			}
 			else
@@ -465,31 +449,5 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		super.onDestroy() ;
 		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
-	}
-
-
-	/**
-	 * Receive system events related to packages and update the applications list accordingly.
-	 */
-	class PackagesMessagesReceiver extends BroadcastReceiver
-	{
-		/**
-		 * Method called when a broadcast message is received.
-		 * @param context Context of the message.
-		 * @param intent Type and content of the message.
-		 */
-		@Override
-		public void onReceive(Context context, Intent intent)
-		{
-			// Check if a package has been added or removed (except during updates)
-			if(intent.getAction() == null) return ;
-			if((intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) || intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
-				&& !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false))
-				{
-					// Update the applications list
-					applicationsList.update(context) ;
-					adapter.notifyDataSetChanged() ;
-				}
-		}
 	}
 }

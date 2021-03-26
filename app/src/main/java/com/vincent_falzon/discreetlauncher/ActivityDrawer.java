@@ -23,8 +23,6 @@ package com.vincent_falzon.discreetlauncher;
  */
 
 // Imports
-import android.content.BroadcastReceiver ;
-import android.content.Context ;
 import android.content.Intent ;
 import android.content.IntentFilter ;
 import android.os.Bundle ;
@@ -41,8 +39,9 @@ public class ActivityDrawer extends AppCompatActivity
 {
 	// Attributes
 	private GridLayoutManager layoutManager ;
+	@SuppressWarnings("FieldCanBeLocal") // Not true as it is needed for EventsReceiver
 	private RecyclerAdapter adapter ;
-	private BroadcastReceiver applicationsListUpdater ;
+	private EventsReceiver applicationsListUpdater ;
 	private int position ;
 	private int last_position ;
 
@@ -66,8 +65,13 @@ public class ActivityDrawer extends AppCompatActivity
 		TextView lastUpdateDateTime = findViewById(R.id.last_update_datetime) ;
 		lastUpdateDateTime.setText(getString(R.string.text_applications_list_last_update, ActivityMain.getApplicationsList().getLastUpdate())) ;
 
+		// Display the applications list
+		adapter = new RecyclerAdapter(false) ;
+		recycler.setAdapter(adapter) ;
+		recycler.setLayoutManager(layoutManager) ;
+
 		// Start to listen for packages added or removed
-		applicationsListUpdater = new PackagesMessagesReceiver() ;
+		applicationsListUpdater = new EventsReceiver(adapter) ;
 		IntentFilter filter = new IntentFilter() ;
 		filter.addAction(Intent.ACTION_PACKAGE_ADDED) ;
 		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
@@ -118,11 +122,6 @@ public class ActivityDrawer extends AppCompatActivity
 					position = layoutManager.findFirstCompletelyVisibleItemPosition() ;
 				}
 			}) ;
-
-		// Display the applications list
-		adapter = new RecyclerAdapter(false) ;
-		recycler.setAdapter(adapter) ;
-		recycler.setLayoutManager(layoutManager) ;
 	}
 
 
@@ -134,31 +133,5 @@ public class ActivityDrawer extends AppCompatActivity
 	{
 		super.onDestroy() ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
-	}
-
-
-	/**
-	 * Receive system events related to packages and update the applications list accordingly.
-	 */
-	class PackagesMessagesReceiver extends BroadcastReceiver
-	{
-		/**
-		 * Method called when a broadcast message is received.
-		 * @param context Context of the message.
-		 * @param intent Type and content of the message.
-		 */
-		@Override
-		public void onReceive(Context context, Intent intent)
-		{
-			// Check if a package has been added or removed (except during updates)
-			if(intent.getAction() == null) return ;
-			if((intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) || intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
-				&& !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false))
-				{
-					// Update the applications list
-					ActivityMain.getApplicationsList().update(context) ;
-					adapter.notifyDataSetChanged() ;
-				}
-		}
 	}
 }
