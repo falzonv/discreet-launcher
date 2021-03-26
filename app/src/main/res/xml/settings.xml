@@ -36,14 +36,15 @@
             app:title="@string/text_display_notification"
             app:summary="@string/text_display_notification_help"
             app:iconSpaceReserved="false"
-            app:defaultValue="true"/>
+            app:defaultValue="false"/>
 
         <SwitchPreference
             app:key="hide_on_lock_screen"
             app:title="@string/text_hide_on_lock_screen"
             app:summary="@string/text_hide_on_lock_screen_help"
             app:iconSpaceReserved="false"
-            app:defaultValue="true"/>
+            app:defaultValue="true"
+            app:dependency="display_notification"/>
 
         <Preference
             app:summary="@string/text_select_notification_apps"
