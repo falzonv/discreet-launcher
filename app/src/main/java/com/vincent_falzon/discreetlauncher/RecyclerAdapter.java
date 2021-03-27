@@ -148,21 +148,40 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 			// Prepare and display the selection dialog
 			final Context context = view.getContext() ;
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			dialog.setMessage(context.getString(R.string.text_open_or_settings, applicationsList.get(selection).getDisplayName())) ;
-			dialog.setPositiveButton(R.string.button_settings,
-					new DialogInterface.OnClickListener()
-					{
-						// Save the new list of favorites applications
-						@Override
-						public void onClick(DialogInterface dialogInterface, int i)
-						{
-							// Open the application system settings
-							Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-							intent.setData(Uri.parse("package:" + applicationsList.get(selection).getApk())) ;
-							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-							context.startActivity(intent) ;
-						}
-					}) ;
+			if(applicationsList.get(selection).getApk().equals(Application.SHORTCUT_APK))
+				{
+					dialog.setMessage(context.getString(R.string.text_open_or_remove, applicationsList.get(selection).getDisplayName())) ;
+					dialog.setPositiveButton(R.string.button_remove,
+							new DialogInterface.OnClickListener()
+							{
+								// Save the new list of favorites applications
+								@Override
+								public void onClick(DialogInterface dialogInterface, int i)
+								{
+									// Remove the shortcut from the file and update the applications list
+									ActivityMain.getApplicationsList().removeShortcut(context, applicationsList.get(selection).getDisplayName()) ;
+									notifyDataSetChanged() ;
+								}
+							}) ;
+				}
+				else
+				{
+					dialog.setMessage(context.getString(R.string.text_open_or_settings, applicationsList.get(selection).getDisplayName())) ;
+					dialog.setPositiveButton(R.string.button_settings,
+							new DialogInterface.OnClickListener()
+							{
+								// Save the new list of favorites applications
+								@Override
+								public void onClick(DialogInterface dialogInterface, int i)
+								{
+									// Open the application system settings
+									Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
+									intent.setData(Uri.parse("package:" + applicationsList.get(selection).getApk())) ;
+									intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+									context.startActivity(intent) ;
+								}
+							}) ;
+				}
 			dialog.setNeutralButton(R.string.button_open,
 					new DialogInterface.OnClickListener()
 					{

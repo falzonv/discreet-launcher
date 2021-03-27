@@ -53,6 +53,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private EventsReceiver applicationsListUpdater ;
+	private EventsReceiver shortcutsCreator ;
 	private SharedPreferences settings ;
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
@@ -121,6 +122,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
 		filter.addDataScheme("package") ;
 		registerReceiver(applicationsListUpdater, filter) ;
+
+		// Start to listen for shortcut requests
+		shortcutsCreator = new EventsReceiver(adapter) ;
+		IntentFilter shortcutsFilter = new IntentFilter() ;
+		shortcutsFilter.addAction("com.android.launcher.action.INSTALL_SHORTCUT") ;
+		registerReceiver(shortcutsCreator, shortcutsFilter) ;
 	}
 
 
@@ -449,5 +456,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		super.onDestroy() ;
 		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
+		if(shortcutsCreator != null) unregisterReceiver(shortcutsCreator) ;
 	}
 }

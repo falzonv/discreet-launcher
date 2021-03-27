@@ -42,6 +42,7 @@ public class ActivityDrawer extends AppCompatActivity
 	@SuppressWarnings("FieldCanBeLocal") // Not true as it is needed for EventsReceiver
 	private RecyclerAdapter adapter ;
 	private EventsReceiver applicationsListUpdater ;
+	private EventsReceiver shortcutsCreator ;
 	private int position ;
 	private int last_position ;
 
@@ -77,6 +78,12 @@ public class ActivityDrawer extends AppCompatActivity
 		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
 		filter.addDataScheme("package") ;
 		registerReceiver(applicationsListUpdater, filter) ;
+
+		// Start to listen for shortcut requests
+		IntentFilter shortcutsFilter = new IntentFilter() ;
+		shortcutsFilter.addAction("com.android.launcher.action.INSTALL_SHORTCUT") ;
+		shortcutsCreator = new EventsReceiver(adapter) ;
+		registerReceiver(shortcutsCreator, shortcutsFilter) ;
 
 		// Follow the scrolling position to detect when it is stuck on top
 		position = 0 ;
@@ -133,5 +140,6 @@ public class ActivityDrawer extends AppCompatActivity
 	{
 		super.onDestroy() ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
+		if(shortcutsCreator != null) unregisterReceiver(shortcutsCreator) ;
 	}
 }

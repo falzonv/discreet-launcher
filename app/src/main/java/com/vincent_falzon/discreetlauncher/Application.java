@@ -33,11 +33,15 @@ import android.graphics.drawable.Drawable ;
  */
 class Application
 {
+	// Constants
+	public static final String SHORTCUT_APK = "discreetlauncher.shortcut" ;
+
 	// Attributes
 	private final String display_name ;
 	private final String name ;
 	private final String apk ;
 	private final Drawable icon ;
+	private final Intent shortcutIntent ;
 
 
 	/**
@@ -53,6 +57,23 @@ class Application
 		this.name = name ;
 		this.apk = apk ;
 		this.icon = icon ;
+		this.shortcutIntent = null ;
+	}
+
+
+	/**
+	 * Constructor to represent a shortcut.
+	 * @param display_name Displayed to the user
+	 * @param shortcutIntent Used to launch the shortcut
+	 * @param icon Displayed to the user
+	 */
+	Application(String display_name, Intent shortcutIntent, Drawable icon)
+	{
+		this.display_name = display_name ;
+		this.name = SHORTCUT_APK + "." + display_name ;
+		this.apk = SHORTCUT_APK ;
+		this.icon = icon ;
+		this.shortcutIntent = shortcutIntent ;
 	}
 
 
@@ -116,26 +137,33 @@ class Application
 	 */
 	void start(Context context)
 	{
+		// If the application is a shortcut, launch its intent
+		if(apk.equals(SHORTCUT_APK))
+			{
+				context.startActivity(shortcutIntent) ;
+				return ;
+			}
+
 		// Check if the application still exists (not uninstalled or disabled)
 		PackageManager apkManager = context.getPackageManager() ;
-		Intent package_intent = apkManager.getLaunchIntentForPackage(apk) ;
-		if(package_intent == null)
+		Intent packageIntent = apkManager.getLaunchIntentForPackage(apk) ;
+		if(packageIntent == null)
 			{
 				// Display an error message and quit
-				ShowDialog.alert(context, context.getString(R.string.error_application_not_found, apk)) ;
+				ShowDialog.alert(context, context.getString(R.string.error_application_not_found, name)) ;
 				return ;
 			}
 
 		// Try to launch the specific intent of the application
-		Intent activity_intent = getActivityIntent() ;
-		if(activity_intent.resolveActivity(apkManager) != null)
+		Intent activityIntent = getActivityIntent() ;
+		if(activityIntent.resolveActivity(apkManager) != null)
 			{
-				context.startActivity(activity_intent) ;
+				context.startActivity(activityIntent) ;
 				return ;
 			}
 
 		// If it was not found, launch the default intent of the package
-		package_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-		context.startActivity(package_intent) ;
+		packageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+		context.startActivity(packageIntent) ;
 	}
 }

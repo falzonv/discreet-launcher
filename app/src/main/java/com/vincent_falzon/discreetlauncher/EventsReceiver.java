@@ -99,5 +99,13 @@ class EventsReceiver extends BroadcastReceiver
 				ActivityMain.getApplicationsList().update(context) ;
 				if(adapter != null) adapter.notifyDataSetChanged() ;
 			}
+
+		// Check if a request to add a shortcut has been received
+		if(intent.getAction().equals("com.android.launcher.action.INSTALL_SHORTCUT"))
+			{
+				// Add the shortcut and update the applications list
+				ActivityMain.getApplicationsList().addShortcut(context, intent) ;
+				if(adapter != null) adapter.notifyDataSetChanged() ;
+			}
 	}
 }

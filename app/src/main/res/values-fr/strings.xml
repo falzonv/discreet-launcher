@@ -11,6 +11,7 @@
 	<string name="button_manage_favorites">Gérer les favoris</string>
 	<string name="button_apply">Valider</string>
     <string name="button_open">Ouvrir</string>
+    <string name="button_remove">Supprimer</string>
     <string name="button_settings">Paramètres</string>
 	<string name="button_cancel">Annuler</string>
     <string name="button_close">Fermer</string>
@@ -23,7 +24,11 @@
 
     <!-- Messages d'erreur -->
     <string name="error_remove_favorites">Une erreur est survenue en modifiant les applications favorites !</string>
+    <string name="error_remove_shortcuts">Une erreur est survenue en modifiant la liste des raccourcis !</string>
     <string name="error_add_new_favorite">Une erreur est survenue en ajoutant %1$s aux applications favorites !</string>
+    <string name="error_invalid_shortcut_request">La requête reçue pour ajouter un raccourci n\'est pas valide !</string>
+    <string name="error_shortcut_exists">Le raccourci %1$s existe déjà !</string>
+    <string name="error_add_new_shortcut">Une erreur est survenue en ajoutant le raccourci %1$s !</string>
     <string name="error_application_not_found">L\'application %1$s est introuvable !</string>
     <string name="error_appfilter_not_found">Le fichier appfilter.xml est introuvable dans le pack d\'icônes sélectionné ! (%1$s)</string>
     <string name="error_file_format_changed">
@@ -33,6 +38,7 @@
 	<!-- Textes des fenêtres -->
 	<string name="text_check_favorites">Cocher vos applications favorites</string>
     <string name="text_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
+    <string name="text_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
     <string name="text_notification">(apps réglables dans les paramètres)</string>
 
     <!-- Textes des paramètres et de l'aide -->

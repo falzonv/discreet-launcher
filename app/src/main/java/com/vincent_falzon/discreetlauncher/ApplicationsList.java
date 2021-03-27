@@ -29,7 +29,9 @@ import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
 import android.graphics.drawable.Drawable ;
+import androidx.core.content.res.ResourcesCompat ;
 import androidx.preference.PreferenceManager ;
+import java.net.URISyntaxException ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
 import java.util.Collections ;
@@ -48,6 +50,7 @@ class ApplicationsList
 	private final Application[] notificationApps ;
 	private String last_update ;
 	private boolean update_in_progress ;
+	private boolean adding_shortcut ;
 
 
 	/**
@@ -60,6 +63,7 @@ class ApplicationsList
 		notificationApps = new Application[3] ;
 		last_update = "" ;
 		update_in_progress = false ;
+		adding_shortcut = false ;
 	}
 
 
@@ -110,6 +114,9 @@ class ApplicationsList
 					icon) ;
 			applications.add(application) ;
 		}
+
+		// Add the shortcuts to the list as applications
+		loadShortcuts(context) ;
 
 		// Sort the applications list in alphabetic order based on display name
 		Collections.sort(applications, new Comparator<Application>()
@@ -258,6 +265,133 @@ class ApplicationsList
 			app = setting_app[i].split("_discreet_") ;
 			notificationApps[i] = new Application(app[0], app[1], app[2], null) ;
 		}
+	}
+
+
+	/**
+	 * Add shortcuts to the applications list based on the shortcuts file.
+	 * @param context To get the file path and generic icon
+	 */
+	void loadShortcuts(Context context)
+	{
+		// Initializations
+		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
+
+		// Check if the shortcuts file exists
+		if(file.isExisting())
+			{
+				// Use the notification icon as generic shortcut icon
+				Drawable icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
+				int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
+				if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
+
+				// Browse all the saved shortcuts
+				String[] shortcut ;
+				for(String shortcut_line : file.readAllLines())
+				{
+					// Add the shortcut to the list of applications
+					shortcut = shortcut_line.split("_discreet_") ;
+					try
+					{
+						applications.add(new Application(shortcut[0], Intent.parseUri(shortcut[1], 0), icon)) ;
+					}
+					catch(URISyntaxException e)
+					{
+						ShowDialog.alert(context, context.getString(R.string.error_add_new_shortcut, shortcut[0])) ;
+					}
+				}
+			}
+	}
+
+
+	/**
+	 * Method called when a request to add a shortcut has been received.
+	 * @param context Provided by the receiver
+	 * @param newShortcut Details of the shortcut to add
+	 */
+	void addShortcut(Context context, Intent newShortcut)
+	{
+		// Check if the request is already being handled by another receiver
+		if(update_in_progress) return ;
+		adding_shortcut = true ;
+
+		// Retrieve the name and intent of the shortcut
+		String name = newShortcut.getStringExtra(Intent.EXTRA_SHORTCUT_NAME) ;
+		Intent intent = (Intent)newShortcut.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT) ;
+		if((name == null) || (intent == null))
+			{
+				// If the request is invalid, display a message and quit
+				ShowDialog.alert(context, context.getString(R.string.error_invalid_shortcut_request)) ;
+				return ;
+			}
+
+		// Check if the shortcut already exists in the file
+		String shortcut = name + "_discreet_" + intent.toUri(0) ;
+		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
+		if(file.isExisting())
+			{
+				// Browse all the saved shortcuts
+				String[] saved_shortcut ;
+				for(String shortcut_line : file.readAllLines())
+				{
+					// If the added shortcut exists, display a message and quit
+					saved_shortcut = shortcut_line.split("_discreet_") ;
+					if(name.equals(saved_shortcut[0]))
+						{
+							ShowDialog.alert(context, context.getString(R.string.error_shortcut_exists, name)) ;
+							return ;
+						}
+				}
+			}
+
+		// If it was not existing, add the shortcut to the file
+		if(!file.writeLine(shortcut))
+			{
+				ShowDialog.alert(context, context.getString(R.string.error_add_new_shortcut, name)) ;
+				return ;
+			}
+
+		// Update the applications list
+		update(context) ;
+		adding_shortcut = false ;
+	}
+
+
+	/**
+	 * Remove an entry from the shortcuts file and update the applications list
+	 * @param context To get the file path
+	 * @param removed_shortcut Display name of the shortcut to remove
+	 */
+	void removeShortcut(Context context, String removed_shortcut)
+	{
+		// Save the current shortcuts list and remove the file
+		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
+		ArrayList<String> currentShortcuts = file.readAllLines() ;
+		if(!file.remove())
+			{
+				// An error happened while trying to remove the current list
+				ShowDialog.toast(context, R.string.error_remove_shortcuts) ;
+				return ;
+			}
+
+		// Write the new shortcuts list in the file
+		String[] shortcut ;
+		for(String shortcut_line : currentShortcuts)
+		{
+			// Extract the display name from the line and check if this is the shortcut to remove
+			shortcut = shortcut_line.split("_discreet_") ;
+			if(shortcut[0].equals(removed_shortcut)) continue ;
+
+			// Add all the other shortcuts to the list again
+			if(!file.writeLine(shortcut_line))
+				{
+					ShowDialog.toastLong(context, context.getString(R.string.error_add_new_shortcut, shortcut[0])) ;
+					return ;
+				}
+		}
+
+		// Update the applications list
+		update(context) ;
 	}
 
 
