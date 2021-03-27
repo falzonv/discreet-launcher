@@ -123,6 +123,10 @@ class Application
 	 */
 	Intent getActivityIntent()
 	{
+		// If the application is a shortcut, directly return its intent
+		if(apk.equals(SHORTCUT_APK)) return shortcutIntent ;
+
+		// For a standard application, create a proper intent
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
 		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
 		intent.setClassName(apk, name) ;

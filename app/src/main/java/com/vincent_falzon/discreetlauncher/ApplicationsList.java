@@ -258,9 +258,21 @@ class ApplicationsList
 					continue ;
 				}
 
-			// Retrieve the applications details
+			// Retrieve the applications details, checking if it is a shortcut
 			app = setting_app[i].split("_discreet_") ;
-			notificationApps[i] = new Application(app[0], app[1], app[2], null) ;
+			if(app[2].equals(Application.SHORTCUT_APK))
+				{
+					try
+					{
+						notificationApps[i] = new Application(app[0], Intent.parseUri(app[1], 0), null) ;
+					}
+					catch(URISyntaxException e)
+					{
+						ShowDialog.alert(context, context.getString(R.string.error_add_new_shortcut, app[0])) ;
+						notificationApps[i] = null ;
+					}
+				}
+				else notificationApps[i] = new Application(app[0], app[1], app[2], null) ;
 		}
 	}
 

@@ -156,7 +156,13 @@ public class ActivitySettings extends AppCompatActivity
 		ArrayList<Application> applicationsList = ActivityMain.getApplicationsList().getApplications() ;
 		for(Application application : applicationsList)
 		{
-			applicationsNames.add(application.getDisplayName() + "_discreet_" + application.getName() + "_discreet_" + application.getApk()) ;
+			// Check if this is a real application or a shortcut
+			String internal_name = application.getDisplayName() + "_discreet_" ;
+			if(application.getApk().equals(Application.SHORTCUT_APK))
+					internal_name += application.getActivityIntent().toUri(0) ;
+				else internal_name += application.getName() ;
+			internal_name += "_discreet_" + application.getApk() ;
+			applicationsNames.add(internal_name) ;
 			applicationsDisplayNames.add(application.getDisplayName()) ;
 		}
 	}
