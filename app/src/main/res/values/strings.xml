@@ -23,8 +23,7 @@
     <string name="text_applications_list_last_update">Applications (list from %1$s)</string>
 
     <!-- Error messages -->
-    <string name="error_remove_favorites">An error happened while editing the favorites applications!</string>
-    <string name="error_remove_shortcuts">An error happened while editing the shortcuts list!</string>
+    <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
     <string name="error_add_new_favorite">An error happened while adding %1$s to the favorites applications!</string>
     <string name="error_invalid_shortcut_request">The received request to add a shortcut is not valid!</string>
     <string name="error_shortcut_exists">The shortcut %1$s already exists!</string>

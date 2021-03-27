@@ -51,12 +51,12 @@ class InternalFile
 
 
 	/**
-	 * Check if the file already exists on the system.
-	 * @return <code>true</code> if it exists, <code>false</code> otherwise
+	 * Check if the file exists on the system (inverted for easier error handling).
+	 * @return <code>true</code> if it does not exist, <code>false</code> otherwise
 	 */
-	boolean isExisting()
+	boolean isNotExisting()
 	{
-		return file.exists() ;
+		return !file.exists() ;
 	}
 
 
@@ -67,7 +67,7 @@ class InternalFile
 	ArrayList<String> readAllLines()
 	{
 		// Check if the file exists
-		if(!isExisting()) return null ;
+		if(isNotExisting()) return null ;
 
 		// Prepare the table used to store the lines
 		ArrayList<String> content = new ArrayList<>() ;
@@ -128,15 +128,18 @@ class InternalFile
 
 
 	/**
-	 * Remove the internal file (if it doesn't exist it is considered as removed).
-	 * @return <code>true</code> if successful, <code>false</code> otherwise
+	 * Try to remove the internal file and give the result (inverted for easier error handling).
+	 * If the file does not exist, it is considered as successfully removed.
+	 * @param context To display alerts
+	 * @return <code>true</code> if it has failed, <code>false</code> otherwise
 	 */
-	boolean remove()
+	boolean hasRemovalFailed(Context context)
 	{
-		// Check if the file exists before trying to remove it
-		if(!file.exists()) return true ;
+		// Try to remove the file
+		if(isNotExisting() || file.delete()) return false ;
 
-		// Remove the file and return the result
-		return file.delete() ;
+		// If not successful, display an error message and inform the calling method
+		ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
+		return true ;
 	}
 }

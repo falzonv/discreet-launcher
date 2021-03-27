@@ -237,11 +237,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Retrieve the current favorites applications
 		final InternalFile file = new InternalFile(this, "favorites.txt") ;
 		final boolean[] selected = new boolean[app_names.length] ;
-		if(file.isExisting())
-			for(i = 0 ; i < app_names.length ; i++)
-				selected[i] = file.isLineExisting(applications.get(i).getName()) ;
-		else for(i = 0 ; i < app_names.length ; i++)
-			selected[i] = false ;
+		if(file.isNotExisting()) for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
+			else for(i = 0 ; i < app_names.length ; i++)
+					selected[i] = file.isLineExisting(applications.get(i).getName()) ;
 
 		// Prepare and display the selection dialog
 		final Context context = this ;
@@ -261,12 +259,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 					public void onClick(DialogInterface dialogInterface, int i)
 					{
 						// Remove the current favorites list
-						if(!file.remove())
-							{
-								// An error happened while trying to remove the current list
-								ShowDialog.toast(context, R.string.error_remove_favorites) ;
-								return ;
-							}
+						if(file.hasRemovalFailed(context)) return ;
 
 						// Write the new favorites list
 						for(i = 0 ; i < selected.length ; i++)

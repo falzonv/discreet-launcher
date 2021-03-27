@@ -145,28 +145,25 @@ class ApplicationsList
 	void updateFavorites(Context context)
 	{
 		// Initializations
-		InternalFile file = new InternalFile(context, "favorites.txt") ;
 		favorites.clear() ;
+		InternalFile file = new InternalFile(context, "favorites.txt") ;
+		if(file.isNotExisting()) return ;
 
-		// Check if the favorites file exists
-		if(file.isExisting())
+		// Retrieve and browse the internal names of all favorites applications
+		for(String name : file.readAllLines())
 		{
-			// Retrieve and browse the internal names of all favorites applications
-			for(String name : file.readAllLines())
-			{
-				// Search the internal name in the applications list
-				for(Application application : applications)
-					if(application.getName().equals(name))
-					{
-						// Add the application to the favorites and move to the next line
-						favorites.add(application) ;
-						break ;
-					}
-			}
-
-			// To remove later: manage old file format
-			if(favorites.size() == 0) convertOldFavoritesFileFormat(context, file) ;
+			// Search the internal name in the applications list
+			for(Application application : applications)
+				if(application.getName().equals(name))
+				{
+					// Add the application to the favorites and move to the next line
+					favorites.add(application) ;
+					break ;
+				}
 		}
+
+		// To remove later: manage old file format
+		if(favorites.size() == 0) convertOldFavoritesFileFormat(context, file) ;
 	}
 
 
@@ -195,7 +192,7 @@ class ApplicationsList
 		if(favorites.size() > 0)
 		{
 			// Try to migrate them to the new format
-			if(!file.remove()) return ;
+			if(file.hasRemovalFailed(context)) return ;
 			for(Application application : favorites)
 				if(!file.writeLine(application.getName())) return ;
 			ShowDialog.alert(context, context.getString(R.string.error_file_format_changed)) ;
@@ -276,31 +273,28 @@ class ApplicationsList
 	{
 		// Initializations
 		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
+		if(file.isNotExisting()) return ;
 
-		// Check if the shortcuts file exists
-		if(file.isExisting())
+		// Use the notification icon as generic shortcut icon
+		Drawable icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
+		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
+		if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
+
+		// Browse all the saved shortcuts
+		String[] shortcut ;
+		for(String shortcut_line : file.readAllLines())
+		{
+			// Add the shortcut to the list of applications
+			shortcut = shortcut_line.split("_discreet_") ;
+			try
 			{
-				// Use the notification icon as generic shortcut icon
-				Drawable icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
-				int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
-				if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
-
-				// Browse all the saved shortcuts
-				String[] shortcut ;
-				for(String shortcut_line : file.readAllLines())
-				{
-					// Add the shortcut to the list of applications
-					shortcut = shortcut_line.split("_discreet_") ;
-					try
-					{
-						applications.add(new Application(shortcut[0], Intent.parseUri(shortcut[1], 0), icon)) ;
-					}
-					catch(URISyntaxException e)
-					{
-						ShowDialog.alert(context, context.getString(R.string.error_add_new_shortcut, shortcut[0])) ;
-					}
-				}
+				applications.add(new Application(shortcut[0], Intent.parseUri(shortcut[1], 0), icon)) ;
 			}
+			catch(URISyntaxException e)
+			{
+				ShowDialog.alert(context, context.getString(R.string.error_add_new_shortcut, shortcut[0])) ;
+			}
+		}
 	}
 
 
@@ -328,7 +322,7 @@ class ApplicationsList
 		// Check if the shortcut already exists in the file
 		String shortcut = name + "_discreet_" + intent.toUri(0) ;
 		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
-		if(file.isExisting())
+		if(!file.isNotExisting())
 			{
 				// Browse all the saved shortcuts
 				String[] saved_shortcut ;
@@ -367,12 +361,7 @@ class ApplicationsList
 		// Save the current shortcuts list and remove the file
 		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
 		ArrayList<String> currentShortcuts = file.readAllLines() ;
-		if(!file.remove())
-			{
-				// An error happened while trying to remove the current list
-				ShowDialog.toast(context, R.string.error_remove_shortcuts) ;
-				return ;
-			}
+		if(file.hasRemovalFailed(context)) return ;
 
 		// Write the new shortcuts list in the file
 		String[] shortcut ;
