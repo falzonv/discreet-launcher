@@ -148,7 +148,7 @@ Si c'est le cas, n'hésitez pas à ajouter un commentaire dans le ticket existan
 - **Donnez une description aussi claire que possible** de la fonctionnalité ou de l'amélioration que vous voudriez voir dévelopée, vous pouvez aussi ajouter des captures d'écran ou des vidéos si vous pensez que cela **rendra la demande plus facile à comprendre**.
 - Soyez patient(e), n'oubliez pas que je fais cela sur mon temps libre ;-)
 
-Il y a **plusieurs choses qui ne seront pas mises en place** pour l'instant car les objectifs généraux de ce lanceur sont de fournir un écran libre de distractions, de ne pas avoir besoin de permissions inutiles et rester stable et fonctionnel (c'est à dire, pas surchargé avec des options diffiiles à maintenir qui créent des bugs impossibles à reproduire).  
+Il y a **plusieurs choses qui ne seront pas mises en place** pour l'instant car les objectifs généraux de ce lanceur sont de fournir un écran libre de distractions, de ne pas avoir besoin de permissions inutiles et de rester stable et fonctionnel (c'est à dire, pas surchargé avec des options diffiiles à maintenir qui créent des bugs impossibles à reproduire).  
 *=> Parmi ce qui n'est pas prévu : support des widgets, tri manuel dans la liste d'applications complète, dossiers, renommage des applications.*
 
 Enfin, **les tickets peuvent être créés en français ou en anglais** selon votre préférence (si vous commencez en français, la conversation continuera en français, sinon la langue par défaut sera l'anglais).
