@@ -1,0 +1,3 @@
+- Web apps and shortcuts support
+- Option to hide the notification on lock screen
+- Several internal improvements

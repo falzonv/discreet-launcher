@@ -18,8 +18,8 @@ android
         targetSdkVersion 30
 
         // Versioning
-        versionCode 9
-        versionName "v2.1.0"
+        versionCode 10
+        versionName "v2.2.0"
     }
 
     // Build types always include debug (hidden by default)

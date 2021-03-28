@@ -60,7 +60,7 @@
     <string name="text_help">Help</string>
     <string name="text_help_title_general">General usage</string>
     <string name="text_help_favorites_panel">
-        From the home screen, you can swipe down to display the favorites panel and swipe up to hide it.
+        From the home screen, swipe down to display the favorites panel and swipe up to hide it.
         If you swipe up when the favorites panel is hidden, it will display the complete list of applications.
     </string>
     <string name="text_help_applications_list">
@@ -72,7 +72,7 @@
     </string>
     <string name="text_help_title_settings">Menu and settings</string>
     <string name="text_help_menu">
-        At the bottom of the favorites panel, you can hold the button to display the menu of the launcher.
+        At the bottom of the favorites panel, hold the button to display the menu of the launcher.
         This menu allows to refresh the applications list, define the favorites applications and open the settings.
     </string>
     <string name="text_help_refresh">

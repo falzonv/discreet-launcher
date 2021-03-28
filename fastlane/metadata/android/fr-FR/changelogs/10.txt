@@ -1,0 +1,3 @@
+- Support des applications et raccourcis web
+- Possibilité de masquer la notification sur l'écran de verrouillage
+- Plusieurs améliorations internes
