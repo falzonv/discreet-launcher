@@ -237,7 +237,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		}
 
 		// Retrieve the current favorites applications
-		final InternalFile file = new InternalFile(this, "favorites.txt") ;
+		final InternalFile file = new InternalFile(this, ApplicationsList.FAVORITES_FILE) ;
 		final boolean[] selected = new boolean[app_names.length] ;
 		if(file.isNotExisting()) for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
 			else for(i = 0 ; i < app_names.length ; i++)

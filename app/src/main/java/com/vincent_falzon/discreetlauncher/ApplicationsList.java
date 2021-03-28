@@ -43,6 +43,11 @@ import java.util.List ;
  */
 class ApplicationsList
 {
+	// Constants
+	public static final String FAVORITES_FILE = "favorites.txt" ;
+	public static final String SHORTCUTS_FILE = "shortcuts.txt" ;
+	public static final String SHORTCUTS_LEGACY_FILE = "shortcuts_legacy.txt" ;
+
 	// Attributes
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
@@ -143,7 +148,7 @@ class ApplicationsList
 	{
 		// Initializations
 		favorites.clear() ;
-		InternalFile file = new InternalFile(context, "favorites.txt") ;
+		InternalFile file = new InternalFile(context, FAVORITES_FILE) ;
 		if(file.isNotExisting()) return ;
 
 		// Retrieve and browse the internal names of all favorites applications
@@ -275,7 +280,7 @@ class ApplicationsList
 		if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// If their file exists, browse the shortcuts
-		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
+		InternalFile file = new InternalFile(context, SHORTCUTS_FILE) ;
 		if(!file.isNotExisting())
 			{
 				String[] shortcut ;
@@ -291,7 +296,7 @@ class ApplicationsList
 			}
 
 		// If their file exists, browse the legacy shortcuts
-		InternalFile legacyFile = new InternalFile(context, "shortcuts_legacy.txt") ;
+		InternalFile legacyFile = new InternalFile(context, SHORTCUTS_LEGACY_FILE) ;
 		if(!legacyFile.isNotExisting())
 			{
 				String[] legacy_shortcut ;
@@ -317,8 +322,8 @@ class ApplicationsList
 	{
 		// Check if the shortcut already exists in the file
 		InternalFile file ;
-		if(legacy) file = new InternalFile(context, "shortcuts_legacy.txt") ;
-			else file = new InternalFile(context, "shortcuts.txt") ;
+		if(legacy) file = new InternalFile(context, SHORTCUTS_LEGACY_FILE) ;
+			else file = new InternalFile(context, SHORTCUTS_FILE) ;
 		if(!file.isNotExisting())
 			{
 				// Browse all the saved shortcuts
@@ -353,8 +358,8 @@ class ApplicationsList
 		// Save the current shortcuts list and remove the file
 		InternalFile file ;
 		if(removedShortcut.getApk().equals(Application.APK_SHORTCUT_LEGACY))
-				file = new InternalFile(context, "shortcuts_legacy.txt") ;
-			else file = new InternalFile(context, "shortcuts.txt") ;
+				file = new InternalFile(context, SHORTCUTS_LEGACY_FILE) ;
+			else file = new InternalFile(context, SHORTCUTS_FILE) ;
 		ArrayList<String> currentShortcuts = file.readAllLines() ;
 		if(file.hasRemovalFailed(context)) return ;
 
