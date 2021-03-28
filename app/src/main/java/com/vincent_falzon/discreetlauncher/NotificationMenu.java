@@ -81,7 +81,7 @@ class NotificationMenu
 
 		// Check if the notification should be displayed or not on the lock screen
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
-		if(settings.getBoolean("hide_on_lock_screen", true))
+		if(settings.getBoolean(ActivitySettings.HIDE_ON_LOCK_SCREEN, true))
 			builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ;
 
 		// Retrieve the selected applications

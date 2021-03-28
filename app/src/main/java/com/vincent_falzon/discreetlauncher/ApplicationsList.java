@@ -211,8 +211,8 @@ class ApplicationsList
 	{
 		// Check if an icon pack is selected
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
-		String pack_name = settings.getString("icon_pack", "none") ;
-		if((pack_name == null) || pack_name.equals("none")) return null ;
+		String pack_name = settings.getString(ActivitySettings.ICON_PACK, ActivitySettings.NONE) ;
+		if((pack_name == null) || pack_name.equals(ActivitySettings.NONE)) return null ;
 
 		// Try to load the icon pack resources
 		IconPack iconPack = new IconPack(context, pack_name) ;
@@ -221,7 +221,7 @@ class ApplicationsList
 				// Display an error message and set the icon pack to none
 				ShowDialog.alert(context, context.getString(R.string.error_application_not_found, pack_name)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
-				editor.putString("icon_pack", "none").apply() ;
+				editor.putString(ActivitySettings.ICON_PACK, ActivitySettings.NONE).apply() ;
 				return null ;
 			}
 
@@ -253,8 +253,8 @@ class ApplicationsList
 		for(int i = 0 ; i < 3 ; i++)
 		{
 			// Check if an application has been selected
-			setting_app[i] = settings.getString("notification_app" + (i + 1), "none") ;
-			if((setting_app[i] == null) || setting_app[i].equals("none"))
+			setting_app[i] = settings.getString(ActivitySettings.NOTIFICATION_APP + (i + 1), ActivitySettings.NONE) ;
+			if((setting_app[i] == null) || setting_app[i].equals(ActivitySettings.NONE))
 				{
 					notificationApps[i] = null ;
 					continue ;

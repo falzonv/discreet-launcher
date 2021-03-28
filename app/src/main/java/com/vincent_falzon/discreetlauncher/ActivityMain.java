@@ -85,7 +85,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 
 		// Make the status bar transparent if this option was selected
-		if(settings.getBoolean("transparent_status_bar", false))
+		if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
 			getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
 
 		// Initialize the text clock
@@ -139,7 +139,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private void manageClock()
 	{
 		// Check in the settings if the clock should be displayed or not
-		if(settings.getBoolean("display_clock", false))
+		if(settings.getBoolean(ActivitySettings.DISPLAY_CLOCK, false))
 			{
 				// Display the clock and start to listen for updates (every minute)
 				clockUpdater = new EventsReceiver(clockText) ;
@@ -342,7 +342,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 								favoritesPanel.setVisibility(View.GONE) ;
 
 								// Make the status bar transparent if this option was selected
-								if(settings.getBoolean("transparent_status_bar", false))
+								if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
 									getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
 							}
 							else
@@ -357,7 +357,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						favoritesPanel.setVisibility(View.VISIBLE) ;
 
 						// Make the status bar translucent if it was transparent
-						if(settings.getBoolean("transparent_status_bar", false))
+						if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
 							getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
 					}
 
@@ -393,27 +393,27 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		switch(key)
 		{
-			case "display_clock" :
+			case ActivitySettings.DISPLAY_CLOCK :
 				// Toggle the clock
 				manageClock() ;
 				break ;
-			case "icon_pack" :
+			case ActivitySettings.ICON_PACK :
 				// If the icon pack has changed, update the icons
 				applicationsList.update(this) ;
 				adapter.notifyDataSetChanged() ;
 				break ;
-			case "display_notification" :
+			case ActivitySettings.DISPLAY_NOTIFICATION :
 				// Toggle the notification
-				if(settings.getBoolean("display_notification", true))
+				if(settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true))
 					{
 						applicationsList.updateNotificationApps(this) ;
 						notificationMenu.display(this) ;
 					}
 					else notificationMenu.hide() ;
 				break ;
-			case "notification_app1" :
-			case "notification_app2" :
-			case "notification_app3" :
+			case ActivitySettings.NOTIFICATION_APP + "1" :
+			case ActivitySettings.NOTIFICATION_APP + "2" :
+			case ActivitySettings.NOTIFICATION_APP + "3" :
 				// If one of the applications has changed, update the notification
 				applicationsList.updateNotificationApps(this) ;
 				notificationMenu.hide() ;
@@ -430,7 +430,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	public void onPause()
 	{
 		super.onPause() ;
-		if(settings.getBoolean("display_notification", true))
+		if(settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true))
 			notificationMenu.display(this) ;
 	}
 

@@ -38,6 +38,15 @@ import java.util.List ;
  */
 public class ActivitySettings extends AppCompatActivity
 {
+	// Constants
+	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
+	public static final String DISPLAY_CLOCK = "display_clock" ;
+	public static final String ICON_PACK = "icon_pack" ;
+	public static final String DISPLAY_NOTIFICATION = "display_notification" ;
+	public static final String HIDE_ON_LOCK_SCREEN = "hide_on_lock_screen" ;
+	public static final String NOTIFICATION_APP = "notification_app" ;
+	public static final String NONE = "none" ;
+
 	// Attributes
 	private static ArrayList<String> iconPacks ;
 	private static ArrayList<String> packsNames ;
@@ -62,7 +71,7 @@ public class ActivitySettings extends AppCompatActivity
 			setPreferencesFromResource(R.xml.settings, rootKey) ;
 
 			// Initialize the icon pack selector
-			ListPreference iconPack = findPreference("icon_pack") ;
+			ListPreference iconPack = findPreference(ICON_PACK) ;
 			if(iconPack != null)
 				{
 					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
@@ -70,24 +79,13 @@ public class ActivitySettings extends AppCompatActivity
 				}
 
 			// Initialize the notification applications selectors
-			ListPreference app1 = findPreference("notification_app1") ;
-			if(app1 != null)
-				{
-					app1.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
-					app1.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
-				}
-			ListPreference app2 = findPreference("notification_app2") ;
-			if(app2 != null)
-				{
-					app2.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
-					app2.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
-				}
-			ListPreference app3 = findPreference("notification_app3") ;
-			if(app3 != null)
-				{
-					app3.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
-					app3.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
-				}
+			for(int i = 0 ; i < 3 ; i++)
+			{
+				ListPreference notification_app = findPreference(NOTIFICATION_APP + (i + 1)) ;
+				if(notification_app == null) continue ;
+				notification_app.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
+				notification_app.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
+			}
 		}
 	}
 
@@ -111,14 +109,14 @@ public class ActivitySettings extends AppCompatActivity
 		// Prepare the icon pack setting
 		iconPacks.clear() ;
 		packsNames.clear() ;
-		iconPacks.add("none") ;
+		iconPacks.add(NONE) ;
 		packsNames.add(getString(R.string.text_no_icon_pack)) ;
 		searchIconPacks() ;
 
 		// Prepare the notification applications settings
 		applicationsNames.clear() ;
 		applicationsDisplayNames.clear() ;
-		applicationsNames.add("none") ;
+		applicationsNames.add(NONE) ;
 		applicationsDisplayNames.add(getString(R.string.text_no_application)) ;
 		searchApplications() ;
 
