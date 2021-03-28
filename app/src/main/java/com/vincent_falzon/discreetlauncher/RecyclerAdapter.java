@@ -148,7 +148,8 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 			// Prepare and display the selection dialog
 			final Context context = view.getContext() ;
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			if(applicationsList.get(selection).getApk().equals(Application.SHORTCUT_APK))
+			String apk = applicationsList.get(selection).getApk() ;
+			if(apk.startsWith(Application.APK_SHORTCUT))
 				{
 					dialog.setMessage(context.getString(R.string.text_open_or_remove, applicationsList.get(selection).getDisplayName())) ;
 					dialog.setPositiveButton(R.string.button_remove,
@@ -159,7 +160,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 								public void onClick(DialogInterface dialogInterface, int i)
 								{
 									// Remove the shortcut from the file and update the applications list
-									ActivityMain.getApplicationsList().removeShortcut(context, applicationsList.get(selection).getDisplayName()) ;
+									ActivityMain.getApplicationsList().removeShortcut(context, applicationsList.get(selection)) ;
 									notifyDataSetChanged() ;
 								}
 							}) ;

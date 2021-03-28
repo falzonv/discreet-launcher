@@ -27,6 +27,7 @@ import android.content.Context ;
 import android.content.Intent ;
 import android.content.pm.PackageManager ;
 import android.graphics.drawable.Drawable ;
+import java.net.URISyntaxException ;
 
 /**
  * Represent an Android application with its names (displayed, internal and package) and icon.
@@ -34,18 +35,20 @@ import android.graphics.drawable.Drawable ;
 class Application
 {
 	// Constants
-	public static final String SHORTCUT_APK = "discreetlauncher.shortcut" ;
+	public static final String APK_SHORTCUT = "discreetlauncher.shortcut" ;
+	public static final String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
+	public static final String NOTIFICATION_SEPARATOR = "_discreet_" ;
+	public static final String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
 
 	// Attributes
 	private final String display_name ;
 	private final String name ;
 	private final String apk ;
 	private final Drawable icon ;
-	private final Intent shortcutIntent ;
 
 
 	/**
-	 * Constructor to represent an Android application.
+	 * Constructor to represent an Android application or a shortcut
 	 * @param display_name Displayed to the user
 	 * @param name Application name used internally
 	 * @param apk Package name used internally
@@ -57,23 +60,6 @@ class Application
 		this.name = name ;
 		this.apk = apk ;
 		this.icon = icon ;
-		this.shortcutIntent = null ;
-	}
-
-
-	/**
-	 * Constructor to represent a shortcut.
-	 * @param display_name Displayed to the user
-	 * @param shortcutIntent Used to launch the shortcut
-	 * @param icon Displayed to the user
-	 */
-	Application(String display_name, Intent shortcutIntent, Drawable icon)
-	{
-		this.display_name = display_name ;
-		this.name = SHORTCUT_APK + "." + display_name ;
-		this.apk = SHORTCUT_APK ;
-		this.icon = icon ;
-		this.shortcutIntent = shortcutIntent ;
 	}
 
 
@@ -123,8 +109,21 @@ class Application
 	 */
 	Intent getActivityIntent()
 	{
-		// If the application is a shortcut, directly return its intent
-		if(apk.equals(SHORTCUT_APK)) return shortcutIntent ;
+		// If the application is a shortcut with Oreo or higher, create a special Intent
+		if(apk.equals(APK_SHORTCUT))
+			{
+				Intent intent = new Intent() ;
+				intent.setClassName("com.vincent_falzon.discreetlauncher", "com.vincent_falzon.discreetlauncher.ActivityShortcut") ;
+				intent.putExtra(Application.APK_SHORTCUT, name) ;
+				return intent ;
+			}
+
+		// If the application is a shortcut before Oreo, return its intent (cannot be null in practice)
+		if(apk.equals(APK_SHORTCUT_LEGACY))
+			{
+				try { return Intent.parseUri(name, 0) ; }
+				catch(URISyntaxException e) { return null ; }
+			}
 
 		// For a standard application, create a proper intent
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
@@ -141,10 +140,10 @@ class Application
 	 */
 	void start(Context context)
 	{
-		// If the application is a shortcut, launch its intent
-		if(apk.equals(SHORTCUT_APK))
+		// Check if the application is a shortcut
+		if(apk.startsWith(APK_SHORTCUT))
 			{
-				context.startActivity(shortcutIntent) ;
+				context.startActivity(getActivityIntent()) ;
 				return ;
 			}
 

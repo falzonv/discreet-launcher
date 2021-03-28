@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher;
 // Imports
 import android.content.Intent ;
 import android.content.IntentFilter ;
+import android.os.Build ;
 import android.os.Bundle ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AppCompatActivity ;
@@ -39,10 +40,9 @@ public class ActivityDrawer extends AppCompatActivity
 {
 	// Attributes
 	private GridLayoutManager layoutManager ;
-	@SuppressWarnings("FieldCanBeLocal") // Not true as it is needed for EventsReceiver
-	private RecyclerAdapter adapter ;
+	@SuppressWarnings("FieldCanBeLocal") private RecyclerAdapter adapter ; // Not true (needed for EventsReceiver)
 	private EventsReceiver applicationsListUpdater ;
-	private EventsReceiver shortcutsCreator ;
+	private EventsReceiver legacyShortcutsCreator ;
 	private int position ;
 	private int last_position ;
 
@@ -79,11 +79,12 @@ public class ActivityDrawer extends AppCompatActivity
 		filter.addDataScheme("package") ;
 		registerReceiver(applicationsListUpdater, filter) ;
 
-		// Start to listen for shortcut requests
-		IntentFilter shortcutsFilter = new IntentFilter() ;
-		shortcutsFilter.addAction("com.android.launcher.action.INSTALL_SHORTCUT") ;
-		shortcutsCreator = new EventsReceiver(adapter) ;
-		registerReceiver(shortcutsCreator, shortcutsFilter) ;
+		// When Android version is before, Oreo, start to listen for legacy shortcut requests
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+			{
+				legacyShortcutsCreator = new EventsReceiver(adapter) ;
+				registerReceiver(legacyShortcutsCreator, new IntentFilter("com.android.launcher.action.INSTALL_SHORTCUT")) ;
+			}
 
 		// Follow the scrolling position to detect when it is stuck on top
 		position = 0 ;
@@ -140,6 +141,6 @@ public class ActivityDrawer extends AppCompatActivity
 	{
 		super.onDestroy() ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
-		if(shortcutsCreator != null) unregisterReceiver(shortcutsCreator) ;
+		if(legacyShortcutsCreator != null) unregisterReceiver(legacyShortcutsCreator) ;
 	}
 }

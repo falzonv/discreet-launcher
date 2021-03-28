@@ -27,6 +27,7 @@ import android.annotation.SuppressLint ;
 import android.content.BroadcastReceiver ;
 import android.content.Context ;
 import android.content.Intent ;
+import android.os.Build ;
 import android.widget.TextView ;
 import java.text.SimpleDateFormat ;
 import java.util.Date ;
@@ -100,12 +101,28 @@ class EventsReceiver extends BroadcastReceiver
 				if(adapter != null) adapter.notifyDataSetChanged() ;
 			}
 
-		// Check if a request to add a shortcut has been received
-		if(intent.getAction().equals("com.android.launcher.action.INSTALL_SHORTCUT"))
+		// Execute the following code only if the Android version is before Oreo
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
-				// Add the shortcut and update the applications list
-				ActivityMain.getApplicationsList().addShortcut(context, intent) ;
-				if(adapter != null) adapter.notifyDataSetChanged() ;
+				// Check if a request to add a shortcut has been received
+				if(intent.getAction().equals("com.android.launcher.action.INSTALL_SHORTCUT"))
+					{
+						// Retrive the name and intent of the shortcut
+						String display_name = intent.getStringExtra(Intent.EXTRA_SHORTCUT_NAME) ;
+						Intent shortcutIntent = (Intent)intent.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT) ;
+
+						// If the request is invalid, display a message and quit
+						if((display_name == null) || (shortcutIntent == null))
+							{
+								ShowDialog.alert(context, context.getString(R.string.error_invalid_shortcut_request)) ;
+								return ;
+							}
+
+						// Add the shortcut and update the applications list
+						String shortcut = display_name + Application.SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
+						ActivityMain.getApplicationsList().addShortcut(context, display_name, shortcut, true) ;
+						if(adapter != null) adapter.notifyDataSetChanged() ;
+					}
 			}
 	}
 }

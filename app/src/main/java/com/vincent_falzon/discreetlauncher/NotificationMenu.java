@@ -91,7 +91,7 @@ class NotificationMenu
 		for(int i = 0 ; i < 3 ; i++)
 		{
 			if(app[i] == null) continue ;
-			PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, app[i].getActivityIntent(), 0) ;
+			PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, app[i].getActivityIntent(), PendingIntent.FLAG_CANCEL_CURRENT) ;
 			builder.addAction(0, app[i].getDisplayName(), pendingIntent) ;
 		}
 

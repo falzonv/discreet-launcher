@@ -40,6 +40,16 @@
             android:parentActivityName=".ActivityMain"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
 
+        <activity
+            android:name=".ActivityShortcut"
+            android:parentActivityName=".ActivityMain"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 	</application>
 
 </manifest>

@@ -28,6 +28,7 @@ import android.content.DialogInterface ;
 import android.content.Intent ;
 import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
+import android.os.Build ;
 import android.os.Bundle ;
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.appcompat.app.AlertDialog ;
@@ -53,7 +54,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private EventsReceiver applicationsListUpdater ;
-	private EventsReceiver shortcutsCreator ;
+	private EventsReceiver legacyShortcutsCreator ;
 	private SharedPreferences settings ;
 	private GestureDetectorCompat detector ;
 	private RecyclerAdapter adapter ;
@@ -103,7 +104,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		applicationsList.updateNotificationApps(this) ;
 		notificationMenu.hide() ;
 
-		// Display a message if the user doesn't have any favorites applications yet
+		// Display a message if the user does not have any favorites applications yet
 		if(applicationsList.getFavoritesCount() == 0)
 			ShowDialog.toastLong(this, getString(R.string.text_no_favorites_yet)) ;
 
@@ -123,11 +124,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		filter.addDataScheme("package") ;
 		registerReceiver(applicationsListUpdater, filter) ;
 
-		// Start to listen for shortcut requests
-		shortcutsCreator = new EventsReceiver(adapter) ;
-		IntentFilter shortcutsFilter = new IntentFilter() ;
-		shortcutsFilter.addAction("com.android.launcher.action.INSTALL_SHORTCUT") ;
-		registerReceiver(shortcutsCreator, shortcutsFilter) ;
+		// When Android version is before, Oreo, start to listen for legacy shortcut requests
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+			{
+				legacyShortcutsCreator = new EventsReceiver(adapter) ;
+				registerReceiver(legacyShortcutsCreator, new IntentFilter("com.android.launcher.action.INSTALL_SHORTCUT")) ;
+			}
 	}
 
 
@@ -267,7 +269,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 							if(selected[i])
 								if(!file.writeLine(applications.get(i).getName()))
 									{
-										ShowDialog.toastLong(context, getString(R.string.error_add_new_favorite, applications.get(i).getDisplayName())) ;
+										ShowDialog.toastLong(context, getString(R.string.error_with_favorite, applications.get(i).getDisplayName())) ;
 										return ;
 									}
 						}
@@ -402,7 +404,11 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				break ;
 			case "display_notification" :
 				// Toggle the notification
-				if(settings.getBoolean("display_notification", true)) notificationMenu.display(this) ;
+				if(settings.getBoolean("display_notification", true))
+					{
+						applicationsList.updateNotificationApps(this) ;
+						notificationMenu.display(this) ;
+					}
 					else notificationMenu.hide() ;
 				break ;
 			case "notification_app1" :
@@ -449,6 +455,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		super.onDestroy() ;
 		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
-		if(shortcutsCreator != null) unregisterReceiver(shortcutsCreator) ;
+		if(legacyShortcutsCreator != null) unregisterReceiver(legacyShortcutsCreator) ;
 	}
 }

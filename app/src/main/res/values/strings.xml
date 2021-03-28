@@ -24,10 +24,10 @@
 
     <!-- Error messages -->
     <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
-    <string name="error_add_new_favorite">An error happened while adding %1$s to the favorites applications!</string>
+    <string name="error_with_favorite">An error happened with the favorite %1$s!</string>
     <string name="error_invalid_shortcut_request">The received request to add a shortcut is not valid!</string>
-    <string name="error_shortcut_exists">The shortcut %1$s already exists!</string>
-    <string name="error_add_new_shortcut">An error happened while adding the shortcut %1$s!</string>
+    <string name="error_with_shortcut">An error happened with the shortcut %1$s!</string>
+    <string name="error_error_not_default_launcher">Only the default launcher can open shortcuts!</string>
     <string name="error_application_not_found">The application %1$s has not been found!</string>
     <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
     <string name="error_file_format_changed">

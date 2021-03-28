@@ -31,7 +31,6 @@ import android.content.pm.ResolveInfo ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
 import androidx.preference.PreferenceManager ;
-import java.net.URISyntaxException ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
 import java.util.Collections ;
@@ -50,7 +49,6 @@ class ApplicationsList
 	private final Application[] notificationApps ;
 	private String last_update ;
 	private boolean update_in_progress ;
-	private boolean adding_shortcut ;
 
 
 	/**
@@ -63,7 +61,6 @@ class ApplicationsList
 		notificationApps = new Application[3] ;
 		last_update = "" ;
 		update_in_progress = false ;
-		adding_shortcut = false ;
 	}
 
 
@@ -258,135 +255,122 @@ class ApplicationsList
 					continue ;
 				}
 
-			// Retrieve the applications details, checking if it is a shortcut
-			app = setting_app[i].split("_discreet_") ;
-			if(app[2].equals(Application.SHORTCUT_APK))
-				{
-					try
-					{
-						notificationApps[i] = new Application(app[0], Intent.parseUri(app[1], 0), null) ;
-					}
-					catch(URISyntaxException e)
-					{
-						ShowDialog.alert(context, context.getString(R.string.error_add_new_shortcut, app[0])) ;
-						notificationApps[i] = null ;
-					}
-				}
-				else notificationApps[i] = new Application(app[0], app[1], app[2], null) ;
+			// Retrieve the applications details
+			app = setting_app[i].split(Application.NOTIFICATION_SEPARATOR) ;
+			if(app.length == 3)	notificationApps[i] = new Application(app[0], app[1], app[2], null) ;
+				else notificationApps[i] = null ;
 		}
 	}
 
 
 	/**
-	 * Add shortcuts to the applications list based on the shortcuts file.
+	 * Add shortcuts to the applications list based on the shortcuts files.
 	 * @param context To get the file path and generic icon
 	 */
 	void loadShortcuts(Context context)
 	{
-		// Initializations
-		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
-		if(file.isNotExisting()) return ;
-
 		// Use the notification icon as generic shortcut icon
 		Drawable icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 		if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 
-		// Browse all the saved shortcuts
-		String[] shortcut ;
-		for(String shortcut_line : file.readAllLines())
-		{
-			// Add the shortcut to the list of applications
-			shortcut = shortcut_line.split("_discreet_") ;
-			try
+		// If their file exists, browse the shortcuts
+		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
+		if(!file.isNotExisting())
 			{
-				applications.add(new Application(shortcut[0], Intent.parseUri(shortcut[1], 0), icon)) ;
+				String[] shortcut ;
+				for(String shortcut_line : file.readAllLines())
+				{
+					// Add the shortcut to the list of applications
+					shortcut = shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
+					if(shortcut.length != 4) continue ;
+					applications.add(new Application(shortcut[0],
+							shortcut[1] + Application.SHORTCUT_SEPARATOR + shortcut[2] + Application.SHORTCUT_SEPARATOR + shortcut[3],
+							Application.APK_SHORTCUT, icon)) ;
+				}
 			}
-			catch(URISyntaxException e)
+
+		// If their file exists, browse the legacy shortcuts
+		InternalFile legacyFile = new InternalFile(context, "shortcuts_legacy.txt") ;
+		if(!legacyFile.isNotExisting())
 			{
-				ShowDialog.alert(context, context.getString(R.string.error_add_new_shortcut, shortcut[0])) ;
+				String[] legacy_shortcut ;
+				for(String legacy_shortcut_line : legacyFile.readAllLines())
+				{
+					// Add the shortcut to the list of applications
+					legacy_shortcut = legacy_shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
+					if(legacy_shortcut.length != 2) continue ;
+					applications.add(new Application(legacy_shortcut[0], legacy_shortcut[1], Application.APK_SHORTCUT_LEGACY, icon)) ;
+				}
 			}
-		}
 	}
 
 
 	/**
 	 * Method called when a request to add a shortcut has been received.
 	 * @param context Provided by the receiver
-	 * @param newShortcut Details of the shortcut to add
+	 * @param display_name Displayed to the user
+	 * @param shortcut Line to add to the shortcuts file
+	 * @param legacy <code>true</code> if before Oreo, <code>false</code> otherwise
 	 */
-	void addShortcut(Context context, Intent newShortcut)
+	void addShortcut(Context context, String display_name, String shortcut, boolean legacy)
 	{
-		// Check if the request is already being handled by another receiver
-		if(update_in_progress) return ;
-		adding_shortcut = true ;
-
-		// Retrieve the name and intent of the shortcut
-		String name = newShortcut.getStringExtra(Intent.EXTRA_SHORTCUT_NAME) ;
-		Intent intent = (Intent)newShortcut.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT) ;
-		if((name == null) || (intent == null))
-			{
-				// If the request is invalid, display a message and quit
-				ShowDialog.alert(context, context.getString(R.string.error_invalid_shortcut_request)) ;
-				return ;
-			}
-
 		// Check if the shortcut already exists in the file
-		String shortcut = name + "_discreet_" + intent.toUri(0) ;
-		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
+		InternalFile file ;
+		if(legacy) file = new InternalFile(context, "shortcuts_legacy.txt") ;
+			else file = new InternalFile(context, "shortcuts.txt") ;
 		if(!file.isNotExisting())
 			{
 				// Browse all the saved shortcuts
 				String[] saved_shortcut ;
 				for(String shortcut_line : file.readAllLines())
 				{
-					// If the added shortcut exists, display a message and quit
-					saved_shortcut = shortcut_line.split("_discreet_") ;
-					if(name.equals(saved_shortcut[0]))
-						{
-							ShowDialog.alert(context, context.getString(R.string.error_shortcut_exists, name)) ;
-							return ;
-						}
+					// Do not continue if the shortcut already exists
+					saved_shortcut = shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
+					if(display_name.equals(saved_shortcut[0])) return ;
 				}
 			}
 
 		// If it was not existing, add the shortcut to the file
 		if(!file.writeLine(shortcut))
 			{
-				ShowDialog.alert(context, context.getString(R.string.error_add_new_shortcut, name)) ;
+				ShowDialog.alert(context, context.getString(R.string.error_with_shortcut, display_name)) ;
 				return ;
 			}
 
 		// Update the applications list
 		update(context) ;
-		adding_shortcut = false ;
 	}
 
 
 	/**
 	 * Remove an entry from the shortcuts file and update the applications list
 	 * @param context To get the file path
-	 * @param removed_shortcut Display name of the shortcut to remove
+	 * @param removedShortcut The shortcut to remove
 	 */
-	void removeShortcut(Context context, String removed_shortcut)
+	void removeShortcut(Context context, Application removedShortcut)
 	{
 		// Save the current shortcuts list and remove the file
-		InternalFile file = new InternalFile(context, "shortcuts.txt") ;
+		InternalFile file ;
+		if(removedShortcut.getApk().equals(Application.APK_SHORTCUT_LEGACY))
+				file = new InternalFile(context, "shortcuts_legacy.txt") ;
+			else file = new InternalFile(context, "shortcuts.txt") ;
 		ArrayList<String> currentShortcuts = file.readAllLines() ;
 		if(file.hasRemovalFailed(context)) return ;
 
 		// Write the new shortcuts list in the file
+		String to_remove = removedShortcut.getDisplayName() ;
 		String[] shortcut ;
 		for(String shortcut_line : currentShortcuts)
 		{
 			// Extract the display name from the line and check if this is the shortcut to remove
-			shortcut = shortcut_line.split("_discreet_") ;
-			if(shortcut[0].equals(removed_shortcut)) continue ;
+			shortcut = shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
+			if(shortcut[0].equals(to_remove)) continue ;
 
 			// Add all the other shortcuts to the list again
 			if(!file.writeLine(shortcut_line))
 				{
-					ShowDialog.toastLong(context, context.getString(R.string.error_add_new_shortcut, shortcut[0])) ;
+					ShowDialog.toastLong(context, context.getString(R.string.error_with_shortcut, shortcut[0])) ;
 					return ;
 				}
 		}
