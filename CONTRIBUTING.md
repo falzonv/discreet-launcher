@@ -113,7 +113,7 @@ Ce document fournit des indications sur les diverses façons de contribuer :
 3. [Contribuer au code](#contribuer-au-code)
 
 Pour l'instant, les traductions dans d'autres langues que le français et l'anglais ne sont pas prévues.  
-Vous pouvez lire plus de détails sur la [raison](#pourquoi-d-autres-traductions-ne-sont-pas-prévues) à la fin de ce document.
+Vous pouvez lire plus de détails sur la [raison](#pourquoi-dautres-traductions-ne-sont-pas-prévues-) à la fin de ce document.
 
 Cordialement.
 
