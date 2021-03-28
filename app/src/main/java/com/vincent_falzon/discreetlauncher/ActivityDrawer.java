@@ -89,47 +89,53 @@ public class ActivityDrawer extends AppCompatActivity
 		// Follow the scrolling position to detect when it is stuck on top
 		position = 0 ;
 		last_position = -1 ;
-		recycler.addOnScrollListener(new RecyclerView.OnScrollListener()
-			{
-				/**
-				 * When the scrolling ends, check if it is stuck on top.
-				 * @param recyclerView Scrolled RecyclerView
-				 * @param newState 0 (Not scrolling), 1 (Active scrolling) or 2 (Scrolling inerty)
-				 */
-				@Override
-				public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState)
+		recycler.addOnScrollListener(new ScrollListener()) ;
+	}
+
+
+	/**
+	 * Detect a scrolling action on a RecyclerView.
+	 */
+	class ScrollListener extends RecyclerView.OnScrollListener
+	{
+		/**
+		 * When the scrolling ends, check if it is stuck on top.
+		 * @param recyclerView Scrolled RecyclerView
+		 * @param newState 0 (Not scrolling), 1 (Active scrolling) or 2 (Scrolling inerty)
+		 */
+		@Override
+		public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState)
+		{
+			// Let the parent actions be performed
+			super.onScrollStateChanged(recyclerView, newState) ;
+
+			// Wait for the gesture to be finished
+			if(newState == RecyclerView.SCROLL_STATE_IDLE)
 				{
-					// Let the parent actions be performed
-					super.onScrollStateChanged(recyclerView, newState) ;
+					// If the scrolling is stuck on top, close the drawer activity
+					if((position == 0) && (last_position == 0)) finish() ;
 
-					// Wait for the gesture to be finished
-					if(newState == RecyclerView.SCROLL_STATE_IDLE)
-						{
-							// If the scrolling is stuck on top, close the drawer activity
-							if((position == 0) && (last_position == 0)) finish() ;
-
-							// Update the last position to detect the stuck state
-							last_position = position ;
-						}
+					// Update the last position to detect the stuck state
+					last_position = position ;
 				}
+		}
 
 
-				/**
-				 * Update the position of the first visible item as the user is scrolling.
-				 * @param recyclerView Scrolled RecyclerView
-				 * @param dx Horizontal distance
-				 * @param dy Vertical distance
-				 */
-				@Override
-				public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy)
-				{
-					// Let the parent actions be performed
-					super.onScrolled(recyclerView, dx, dy) ;
+		/**
+		 * Update the position of the first visible item as the user is scrolling.
+		 * @param recyclerView Scrolled RecyclerView
+		 * @param dx Horizontal distance
+		 * @param dy Vertical distance
+		 */
+		@Override
+		public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy)
+		{
+			// Let the parent actions be performed
+			super.onScrolled(recyclerView, dx, dy) ;
 
-					// Update the position of the first visible item
-					position = layoutManager.findFirstCompletelyVisibleItemPosition() ;
-				}
-			}) ;
+			// Update the position of the first visible item
+			position = layoutManager.findFirstCompletelyVisibleItemPosition() ;
+		}
 	}
 
 
