@@ -85,4 +85,49 @@
     <string name="text_license">Licence publique générale GNU v3.0</string>
     <string name="text_source_code">Pour accéder au code source, signaler un problème ou voir mes autres projets, consulter le site</string>
 
+    <!-- Journal des changements -->
+    <string name="text_changelog">Journal des changements</string>
+    <string name="changelog">
+        <b>v2.2.0 - 28/03/2021</b>\n
+        - Support des applications et raccourcis web (idée de johanbove)\n
+        - Option pour masquer la notification sur l\'écran de verrouillage\n
+        - Plusieurs améliorations internes\n
+        \n
+        <b>v2.1.0 - 23/03/2021</b>\n
+        - Fix: mise à jour automatique depuis l\'accueil (merci xi7)\n
+        - Option de notification pour l\'accès rapide à 3 applications (idée de xi7)\n
+        \n
+        <b>v2.0.0 - 21/03/2021</b>\n
+        - Mise à jour automatique de la liste quand une appli est installée ou désinstallée\n
+        - Réorganisation interne majeure et diverses optimisations de code\n
+        \n
+        <b>v1.3.1 - 20/03/2021</b>\n
+        - Fix: crash en ouvrant une application désinstallée (introduit en v1.1.0)\n
+        \n
+        <b>v1.3.0 - 20/03/2021</b>\n
+        - Option pour rendre la barre de statut transparente (idée de xi7)\n
+        - Option pour afficher l\'heure sur l\'écran d\'accueil (idée de mateimm)\n
+        - Mise à jour automatique des icônes quand le pack change\n
+        \n
+        <b>v1.2.0 - 16/03/2021</b>\n
+        - Fix: soucis avec les applis venant du même package (merci xi7)\n
+        - Clic long sur une appli pour ouvrir ses paramètres (idée de xi7)\n
+        - Plusieurs optimisations de code mineures\n
+        - Amélioration des textes d\'aide\n
+        \n
+        <b>v1.1.0 - 10/03/2021</b>\n
+        - Support des packs d\'icônes (idée de porosjp)\n
+        - Création du menu "Paramètres / Aide"\n
+        \n
+        <b>v1.0.2 - 07/03/2021</b>\n
+        - Fix: mauvais comportement du bouton Retour (merci abou123)\n
+        \n
+        <b>v1.0.1 - 27/02/2021</b>\n
+        - Meilleur affichage dans F-Droid\n
+        \n
+        <b>v1.0.0 - 17/02/2021</b>\n
+        - Version initiale
+        \n
+    </string>
+
 </resources>

@@ -44,6 +44,11 @@
         app:title="@string/text_about"
         app:iconSpaceReserved="false">
 
+        <Preference
+            app:title="@string/text_changelog"
+            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$ChangelogFragment"
+            app:icon="@android:drawable/ic_input_get"/>
+
         <Preference app:layout="@layout/about"/>
 
     </PreferenceCategory>

@@ -91,4 +91,49 @@
     <string name="text_source_code">To access the source code, report an issue or see my other projects, visit the website</string>
     <string name="website_source_code" translatable="false">https://vincent-falzon.com</string>
 
+    <!-- Changelog -->
+    <string name="text_changelog">Changelog</string>
+    <string name="changelog">
+        <b>v2.2.0 - 28/03/2021</b>\n
+        - Support web apps and shortcuts (idea from johanbove)\n
+        - Option to hide the notification on lock screen\n
+        - Several internal improvements\n
+        \n
+        <b>v2.1.0 - 23/03/2021</b>\n
+        - Fix: automatic update from the home screen (thanks xi7)\n
+        - Notification settings for quick access to 3 applications (idea from xi7)\n
+        \n
+        <b>v2.0.0 - 21/03/2021</b>\n
+        - Automatic update of the list when an application is added or removed\n
+        - Major internal reorganization and various code optimizations\n
+        \n
+        <b>v1.3.1 - 20/03/2021</b>\n
+        - Fix: crash when opening a removed application (bug introduced in v1.1.0)\n
+        \n
+        <b>v1.3.0 - 20/03/2021</b>\n
+        - Option to make the status bar fully transparent (idea from xi7)\n
+        - Option to display the current time on the home screen (idea from mateimm)\n
+        - Automatic icons update when the pack changes\n
+        \n
+        <b>v1.2.0 - 16/03/2021</b>\n
+        - Fix: bugs with apps coming from the same package (thanks xi7)\n
+        - Long click on an app open its system settings (idea from xi7)\n
+        - Several minor code optimizations\n
+        - Help texts improvements\n
+        \n
+        <b>v1.1.0 - 10/03/2021</b>\n
+        - Icon packs support (idea from porosjp)\n
+        - Create "Settings / Help" menu\n
+        \n
+        <b>v1.0.2 - 07/03/2021</b>\n
+        - Fix: wrong behavior of Back button (thanks abou123)\n
+        \n
+        <b>v1.0.1 - 27/02/2021</b>\n
+        - Better display in F-Droid\n
+        \n
+        <b>v1.0.0 - 17/02/2021</b>\n
+        - Initial release
+        \n
+    </string>
+
 </resources>
