@@ -38,7 +38,7 @@
             android:name=".ActivitySettings"
             android:label="@string/settings_title"
             android:parentActivityName=".ActivityMain"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+            android:theme="@style/AppThemeSettings"/>
 
         <activity
             android:name=".ActivityShortcut"

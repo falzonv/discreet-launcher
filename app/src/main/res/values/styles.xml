@@ -15,9 +15,20 @@
 		<!-- Display the user wallpaper (navigationBarColor requires API 21 minimum) -->
 		<item name="android:windowShowWallpaper">true</item>
         <item name="android:statusBarColor">@color/color_applications_drawer_background</item>
-		<item name="android:windowBackground">@android:color/transparent</item>
-		<item name="android:navigationBarColor">@android:color/transparent</item>
+		<item name="android:windowBackground">@color/color_transparent</item>
+		<item name="android:navigationBarColor">@color/color_transparent</item>
 
 	</style>
+
+
+    <!-- Settings theme -->
+    <style name="AppThemeSettings" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- Main colors -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher;
+package com.vincent_falzon.discreetlauncher ;
 
 // License
 /*
@@ -27,6 +27,7 @@ import android.content.Intent ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
 import android.os.Bundle ;
+import android.view.MenuItem ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
@@ -52,42 +53,6 @@ public class ActivitySettings extends AppCompatActivity
 	private static ArrayList<String> packsNames ;
 	private static ArrayList<String> applicationsNames ;
 	private static ArrayList<String> applicationsDisplayNames ;
-
-
-	/**
-	 * Load the settings from the XML file and prepare their values.
-	 */
-	public static class SettingsFragment extends PreferenceFragmentCompat
-	{
-		/**
-		 * Constructor.
-		 * @param savedInstanceState To retrieve the context
-		 * @param rootKey Root of the settings hierarchy
-		 */
-		@Override
-		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
-		{
-			// Load the settings from the XML file
-			setPreferencesFromResource(R.xml.settings, rootKey) ;
-
-			// Initialize the icon pack selector
-			ListPreference iconPack = findPreference(ICON_PACK) ;
-			if(iconPack != null)
-				{
-					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
-					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
-				}
-
-			// Initialize the notification applications selectors
-			for(int i = 0 ; i < 3 ; i++)
-			{
-				ListPreference notification_app = findPreference(NOTIFICATION_APP + (i + 1)) ;
-				if(notification_app == null) continue ;
-				notification_app.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
-				notification_app.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
-			}
-		}
-	}
 
 
 	/**
@@ -120,9 +85,84 @@ public class ActivitySettings extends AppCompatActivity
 		applicationsDisplayNames.add(getString(R.string.text_no_application)) ;
 		searchApplications() ;
 
-		// Load the settings from the XML file
+		// Load the general settings layout
 		setContentView(R.layout.activity_settings) ;
+
+		// Display the settings
 		getSupportFragmentManager().beginTransaction().replace(R.id.settings_container, new SettingsFragment()).commit() ;
+	}
+
+
+	/**
+	 * Modify the arrow from action bar to allow navigation between fragments.
+	 * @param item Selected element
+	 * @return <code>true</code> if the event has been consumed, <code>false</code> otherwise
+	 */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		// Make the arrow from the action bar do the same action than the Back button
+		if(item.getItemId() == android.R.id.home)
+			{
+				onBackPressed() ;
+				return true ;
+			}
+		return super.onOptionsItemSelected(item) ;
+	}
+
+
+	/**
+	 * Load the general settings from the XML file and prepare their values.
+	 */
+	public static class SettingsFragment extends PreferenceFragmentCompat
+	{
+		/**
+		 * Constructor.
+		 * @param savedInstanceState To retrieve the context
+		 * @param rootKey Root of the settings hierarchy
+		 */
+		@Override
+		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
+		{
+			// Load the settings from the XML file
+			setPreferencesFromResource(R.xml.settings, rootKey) ;
+
+			// Initialize the icon pack selector
+			ListPreference iconPack = findPreference(ICON_PACK) ;
+			if(iconPack != null)
+				{
+					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
+					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
+				}
+		}
+	}
+
+
+	/**
+	 * Load the notification settings from the XML file and prepare their values.
+	 */
+	public static class NotificationFragment extends PreferenceFragmentCompat
+	{
+		/**
+		 * Constructor.
+		 * @param savedInstanceState To retrieve the context
+		 * @param rootKey Root of the settings hierarchy
+		 */
+		@Override
+		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
+		{
+			// Load the settings from the XML file
+			setPreferencesFromResource(R.xml.settings_notification, rootKey) ;
+
+			// Initialize the notification applications selectors
+			for(int i = 0 ; i < 3 ; i++)
+			{
+				ListPreference notification_app = findPreference(NOTIFICATION_APP + (i + 1)) ;
+				if(notification_app == null) continue ;
+				notification_app.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
+				notification_app.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
+			}
+		}
 	}
 
 

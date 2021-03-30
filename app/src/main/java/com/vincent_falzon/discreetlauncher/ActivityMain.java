@@ -81,6 +81,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Retrieve the settings and listen for changes
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
+		PreferenceManager.setDefaultValues(this, R.xml.settings_notification, true) ;
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 

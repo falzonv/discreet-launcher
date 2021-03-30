@@ -47,12 +47,16 @@
     <string name="text_display_clock">Afficher l\'heure sur l\'écran d\'accueil</string>
     <string name="text_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="text_no_icon_pack">Aucun (utiliser les vraies icônes)</string>
-    <string name="text_notification_settings">Paramètres de la notification</string>
+    <string name="text_notification_settings">Notification d\'accès rapide</string>
+    <string name="text_notification_help">
+        Une notification permettant d\'ouvrir 3 applications peut être affichée quand vous quittez l\'accueil.
+    </string>
     <string name="text_display_notification">Afficher la notification</string>
-    <string name="text_display_notification_help">Sauf sur l\'ecran d\'accueil</string>
     <string name="text_hide_on_lock_screen">Masquer sur l\'écran de verrouillage</string>
     <string name="text_hide_on_lock_screen_help">(Repassez par l\'accueil pour appliquer)</string>
-    <string name="text_select_notification_apps">Choisissez les applications à afficher dans la notification (Android permet jusqu\'à 3 boutons)</string>
+    <string name="text_select_notification_apps_help">
+        (Limité à 3 applications car c\'est le nombre maximal de boutons affichables sur une notification)
+    </string>
     <string name="text_no_application">Aucune (masquer le bouton)</string>
     <string name="text_help">Aide</string>
     <string name="text_help_title_general">Utilisation générale</string>

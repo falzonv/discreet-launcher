@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/text_notification_settings"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:summary="@string/text_notification_help"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreference
+            app:key="display_notification"
+            app:title="@string/text_display_notification"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="hide_on_lock_screen"
+            app:title="@string/text_hide_on_lock_screen"
+            app:summary="@string/text_hide_on_lock_screen_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="true"
+            app:dependency="display_notification"/>
+
+        <ListPreference
+            app:key="notification_app1"
+            app:title="@string/text_application1"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:dependency="display_notification"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="notification_app2"
+            app:title="@string/text_application2"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:dependency="display_notification"
+            app:useSimpleSummaryProvider="true"/>
+
+        <ListPreference
+            app:key="notification_app3"
+            app:title="@string/text_application3"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:dependency="display_notification"
+            app:useSimpleSummaryProvider="true"/>
+
+        <Preference
+            app:summary="@string/text_select_notification_apps_help"
+            app:dependency="display_notification"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
