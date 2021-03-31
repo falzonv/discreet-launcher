@@ -40,7 +40,7 @@
     <string name="text_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
     <string name="text_notification">(apps réglables dans les paramètres)</string>
 
-    <!-- Textes des paramètres et de l'aide -->
+    <!-- Textes des paramètres -->
     <string name="text_customization">Personnalisation</string>
     <string name="text_transparent_status_bar">Barre de statut transparente</string>
     <string name="text_transparent_status_bar_help">Sur l\'écran d\'accueil (favoris fermés)</string>
@@ -58,75 +58,77 @@
         (Limité à 3 applications car c\'est le nombre maximal de boutons affichables sur une notification)
     </string>
     <string name="text_no_application">Aucune (masquer le bouton)</string>
-    <string name="text_help">Aide</string>
-    <string name="text_help_title_general">Utilisation générale</string>
-    <string name="text_help_favorites_panel">
-        Depuis l\'écran d\'accueil, glissez le doigt vers le bas pour afficher le panneau des favoris et vers le haut pour le masquer.
-        Si vous glissez le doigt vers le haut quand le panneau des favoris est caché, la liste complète des applications s\'affiche.
-    </string>
-    <string name="text_help_applications_list">
-        Quand vous êtes en haut de la liste d\'applications, vous pouvez glisser le doigt vers le bas pour retourner à l\'écran d\'accueil.
-        Si vous venez d\'ouvrir la liste et que vous ne l\'avez pas encore fait défiler, vous devrez glissez vers le bas deux fois pour revenir à l\'accueil.
-    </string>
-    <string name="text_help_long_click">
-        Maintenez le doigt quelques instants sur une application pour accéder à ses paramètres système.
-    </string>
-    <string name="text_help_title_settings">Menu et paramètres</string>
-    <string name="text_help_menu">
-        En bas du panneau des favoris, pressez le bouton pour afficher le menu du lanceur.
-        Ce menu permet d\'actualiser la liste des applications, de définir les applications favorites et d\'ouvrir les paramètres.
-    </string>
-    <string name="text_help_refresh">
-        La liste d\'applications et leurs icônes ne sont actualisées qu\'après certains évènements (démarrage, application ajoutée ou supprimée, pack d\'icônes modifié).
-        Si quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
-        Vous pouvez vérifier la dernière fois que cela a été fait en haut de la liste d\'applications.
-    </string>
-    <string name="text_about">À propos</string>
+    <string name="text_help_and_general_info">Aide et informations générales</string>
     <string name="text_license">Licence publique générale GNU v3.0</string>
     <string name="text_source_code">Pour accéder au code source, signaler un problème ou voir mes autres projets, consulter le site</string>
+
+    <!-- Aide -->
+    <string name="text_help">Aide</string>
+    <string name="help">
+        \n<b>Navigation dans l\'application</b>
+        \n
+        \nDepuis l\'écran d\'accueil, glissez le doigt vers le bas pour afficher le panneau des favoris et vers le haut pour le masquer.
+        Si vous glissez le doigt vers le haut quand le panneau des favoris est caché, la liste complète des applications s\'affiche.
+        \n
+        \nQuand vous êtes en haut de la liste des applications, vous pouvez glisser le doigt vers le bas pour retourner à l\'écran d\'accueil.
+        Si vous venez d\'ouvrir la liste sans l\'avoir fait défiler, vous devrez glissez vers le bas deux fois pour revenir à l\'accueil.
+        \n
+        \nSous le panneau des favoris, pressez le bouton pour afficher le menu du lanceur.
+        Ce menu permet d\'actualiser la liste des applications, de définir les applications favorites et d\'ouvrir les paramètres.
+        \n
+        \nEn maintenant le doigt quelques instants sur une application, il vous sera proposé d\'accéder à ses paramètres système.
+        \n
+        \n<b>Mise à jour de la liste des applications</b>
+        \n
+        \nLa liste d\'applications et leurs icônes ne sont actualisées qu\'après certains évènements
+        (au démarrage, lorsqu\'une application est ajoutée ou supprimée, quand le pack d\'icônes est modifié).
+        Si quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
+        Vous pouvez vérifier la dernière fois que cela a été fait en haut de la liste d\'applications.
+        \n
+    </string>
 
     <!-- Journal des changements -->
     <string name="text_changelog">Journal des changements</string>
     <string name="changelog">
-        <b>v2.2.0 - 28/03/2021</b>\n
-        - Support des applications et raccourcis web (idée de johanbove)\n
-        - Option pour masquer la notification sur l\'écran de verrouillage\n
-        - Plusieurs améliorations internes\n
+        \n<b>v2.2.0 - 28/03/2021</b>
+        \n- Support des applications et raccourcis web (idée de johanbove)
+        \n- Option pour masquer la notification sur l\'écran de verrouillage
+        \n- Plusieurs améliorations internes
         \n
-        <b>v2.1.0 - 23/03/2021</b>\n
-        - Fix: mise à jour automatique depuis l\'accueil (merci xi7)\n
-        - Option de notification pour l\'accès rapide à 3 applications (idée de xi7)\n
+        \n<b>v2.1.0 - 23/03/2021</b>
+        \n- Fix: mise à jour automatique depuis l\'accueil (merci xi7)
+        \n- Option de notification pour l\'accès rapide à 3 applications (idée de xi7)
         \n
-        <b>v2.0.0 - 21/03/2021</b>\n
-        - Mise à jour automatique de la liste quand une appli est installée ou désinstallée\n
-        - Réorganisation interne majeure et diverses optimisations de code\n
+        \n<b>v2.0.0 - 21/03/2021</b>
+        \n- Mise à jour automatique de la liste quand une appli est installée ou désinstallée
+        \n- Réorganisation interne majeure et diverses optimisations de code
         \n
-        <b>v1.3.1 - 20/03/2021</b>\n
-        - Fix: crash en ouvrant une application désinstallée (introduit en v1.1.0)\n
+        \n<b>v1.3.1 - 20/03/2021</b>
+        \n- Fix: crash en ouvrant une application désinstallée (introduit en v1.1.0)
         \n
-        <b>v1.3.0 - 20/03/2021</b>\n
-        - Option pour rendre la barre de statut transparente (idée de xi7)\n
-        - Option pour afficher l\'heure sur l\'écran d\'accueil (idée de mateimm)\n
-        - Mise à jour automatique des icônes quand le pack change\n
+        \n<b>v1.3.0 - 20/03/2021</b>
+        \n- Option pour rendre la barre de statut transparente (idée de xi7)
+        \n- Option pour afficher l\'heure sur l\'écran d\'accueil (idée de mateimm)
+        \n- Mise à jour automatique des icônes quand le pack change
         \n
-        <b>v1.2.0 - 16/03/2021</b>\n
-        - Fix: soucis avec les applis venant du même package (merci xi7)\n
-        - Clic long sur une appli pour ouvrir ses paramètres (idée de xi7)\n
-        - Plusieurs optimisations de code mineures\n
-        - Amélioration des textes d\'aide\n
+        \n<b>v1.2.0 - 16/03/2021</b>
+        \n- Fix: soucis avec les applis venant du même package (merci xi7)
+        \n- Clic long sur une appli pour ouvrir ses paramètres (idée de xi7)
+        \n- Plusieurs optimisations de code mineures
+        \n- Amélioration des textes d\'aide
         \n
-        <b>v1.1.0 - 10/03/2021</b>\n
-        - Support des packs d\'icônes (idée de porosjp)\n
-        - Création du menu "Paramètres / Aide"\n
+        \n<b>v1.1.0 - 10/03/2021</b>
+        \n- Support des packs d\'icônes (idée de porosjp)
+        \n- Création du menu "Paramètres / Aide"
         \n
-        <b>v1.0.2 - 07/03/2021</b>\n
-        - Fix: mauvais comportement du bouton Retour (merci abou123)\n
+        \n<b>v1.0.2 - 07/03/2021</b>
+        \n- Fix: mauvais comportement du bouton Retour (merci abou123)
         \n
-        <b>v1.0.1 - 27/02/2021</b>\n
-        - Meilleur affichage dans F-Droid\n
+        \n<b>v1.0.1 - 27/02/2021</b>
+        \n- Meilleur affichage dans F-Droid
         \n
-        <b>v1.0.0 - 17/02/2021</b>\n
-        - Version initiale
+        \n<b>v1.0.0 - 17/02/2021</b>
+        \n- Version initiale
         \n
     </string>
 

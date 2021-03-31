@@ -33,23 +33,20 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/text_help"
+        app:title="@string/text_help_and_general_info"
         app:iconSpaceReserved="false">
 
-        <Preference app:layout="@layout/help"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        app:title="@string/text_about"
-        app:iconSpaceReserved="false">
+        <Preference
+            app:title="@string/text_help"
+            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$HelpFragment"
+            app:icon="@android:drawable/ic_menu_help"/>
 
         <Preference
             app:title="@string/text_changelog"
             app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$ChangelogFragment"
             app:icon="@android:drawable/ic_input_get"/>
 
-        <Preference app:layout="@layout/about"/>
+        <Preference app:layout="@layout/settings_about"/>
 
     </PreferenceCategory>
 

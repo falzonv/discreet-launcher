@@ -167,6 +167,25 @@ public class ActivitySettings extends AppCompatActivity
 
 
 	/**
+	 * Load the help settings from the XML file.
+	 */
+	public static class HelpFragment extends PreferenceFragmentCompat
+	{
+		/**
+		 * Constructor.
+		 * @param savedInstanceState To retrieve the context
+		 * @param rootKey Root of the settings hierarchy
+		 */
+		@Override
+		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
+		{
+			// Load the settings from the XML file
+			setPreferencesFromResource(R.xml.settings_help, rootKey) ;
+		}
+	}
+
+
+	/**
 	 * Load the changelog settings from the XML file.
 	 */
 	public static class ChangelogFragment extends PreferenceFragmentCompat
