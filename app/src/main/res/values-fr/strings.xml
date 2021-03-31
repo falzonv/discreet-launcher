@@ -21,6 +21,7 @@
 	<string name="text_applications_list_refreshed">Liste d\'application actualisée</string>
 	<string name="text_favorites_saved">Applications favorites enregistrées</string>
     <string name="text_applications_list_last_update">Applications (liste du %1$s)</string>
+    <string name="text_too_many_favorites">Désolé il y avait trop de favoris, seuls les 16 premiers ont été conservés.</string>
 
     <!-- Messages d'erreur -->
     <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
@@ -90,6 +91,11 @@
     <!-- Journal des changements -->
     <string name="text_changelog">Journal des changements</string>
     <string name="changelog">
+        \n<b>v2.3.0 - </b>
+        \n- Refonte du menu "Paramètres / Aide"
+        \n- Intégration du journal des changements
+        \n- Fix: bug d\'affichage quand il y a trop de favoris
+        \n
         \n<b>v2.2.0 - 28/03/2021</b>
         \n- Support des applications et raccourcis web (idée de johanbove)
         \n- Option pour masquer la notification sur l\'écran de verrouillage

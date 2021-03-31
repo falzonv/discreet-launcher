@@ -51,6 +51,9 @@ import java.util.ArrayList ;
  */
 public class ActivityMain extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
+	// Constants
+	public static final int MAX_FAVORITES = 16 ;
+
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private EventsReceiver applicationsListUpdater ;
@@ -265,20 +268,28 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						if(file.hasRemovalFailed(context)) return ;
 
 						// Write the new favorites list
+						int favorites_number = 0 ;
 						for(i = 0 ; i < selected.length ; i++)
 						{
+							// Check if an application is selected
 							if(selected[i])
-								if(!file.writeLine(applications.get(i).getName()))
-									{
-										ShowDialog.toastLong(context, getString(R.string.error_with_favorite, applications.get(i).getDisplayName())) ;
-										return ;
-									}
+								{
+									// If the maximum is not reached, add the application to the favorites list
+									favorites_number++ ;
+									if(favorites_number <= MAX_FAVORITES)
+										if(!file.writeLine(applications.get(i).getName()))
+											{
+												ShowDialog.toastLong(context, getString(R.string.error_with_favorite, applications.get(i).getDisplayName())) ;
+												return ;
+											}
+								}
 						}
 
 						// Update the favorites panel and inform the user
 						applicationsList.updateFavorites(context) ;
 						adapter.notifyDataSetChanged() ;
-						ShowDialog.toast(getApplicationContext(), R.string.text_favorites_saved) ;
+						if(favorites_number > MAX_FAVORITES) ShowDialog.toastLong(context, getString(R.string.text_too_many_favorites)) ;
+							else ShowDialog.toast(getApplicationContext(), R.string.text_favorites_saved) ;
 					}
 				}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;

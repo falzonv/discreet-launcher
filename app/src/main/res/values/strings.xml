@@ -21,6 +21,7 @@
 	<string name="text_applications_list_refreshed">Applications list refreshed</string>
 	<string name="text_favorites_saved">Favorites applications saved</string>
     <string name="text_applications_list_last_update">Applications (list from %1$s)</string>
+    <string name="text_too_many_favorites">Sorry there were too many favorites, only the 16 firsts were kept.</string>
 
     <!-- Error messages -->
     <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
@@ -96,6 +97,11 @@
     <!-- Changelog -->
     <string name="text_changelog">Changelog</string>
     <string name="changelog">
+        \n<b>v2.3.0 - </b>
+        \n- Redesign of the "Settings / Help" menu
+        \n- Integration of the changelog
+        \n- Fix: display bug when there are too many favorites
+        \n
         \n<b>v2.2.0 - 28/03/2021</b>
         \n- Support web apps and shortcuts (idea from johanbove)
         \n- Option to hide the notification on lock screen
