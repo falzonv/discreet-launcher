@@ -10,6 +10,6 @@ Options et autres fonctionnalités :
 - Les raccourcis et applications web sont supportés
 - La majorité des packs d'icônes sont supportés
 - Mise à jour de la liste des applications seulement après certains évènements (démarrage, installation ou désinstallation d'application, changement de pack d'icônes) pour plus de rapidité et limiter l'utilisation de la batterie
-- Aide intégrée
+- Aide et journal des changements intégrés
 
 Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile, fonctionne complètement hors-ligne et n'inclut aucune publicité.

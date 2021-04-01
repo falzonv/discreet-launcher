@@ -10,6 +10,6 @@ Options and other features:
 - Web apps and shortcuts are supported
 - Most icon packs are supported
 - Applications list updated only after specific events (startup, application addition or deletion, icon pack modified) for better speed and to limit battery usage
-- Integrated help
+- Integrated help and changelog
 
 Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
