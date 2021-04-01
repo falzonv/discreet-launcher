@@ -39,7 +39,7 @@
 	<string name="text_check_favorites">Cocher vos applications favorites</string>
     <string name="text_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
     <string name="text_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
-    <string name="text_notification">(apps réglables dans les paramètres)</string>
+    <string name="text_notification">(apps/texte réglables dans les paramètres)</string>
 
     <!-- Textes des paramètres -->
     <string name="text_customization">Personnalisation</string>
@@ -53,6 +53,7 @@
         Une notification permettant d\'ouvrir 3 applications peut être affichée quand vous quittez l\'accueil.
     </string>
     <string name="text_display_notification">Afficher la notification</string>
+    <string name="text_notification_text">Texte au dessus des boutons</string>
     <string name="text_hide_on_lock_screen">Masquer sur l\'écran de verrouillage</string>
     <string name="text_hide_on_lock_screen_help">(Repassez par l\'accueil pour appliquer)</string>
     <string name="text_select_notification_apps_help">
@@ -93,8 +94,9 @@
     <string name="changelog">
         \n<b>v2.3.0 - </b>
         \n- Refonte du menu "Paramètres / Aide"
+        \n- Texte de la notification personnalisable
         \n- Intégration du journal des changements
-        \n- Fix: bug d\'affichage quand il y a trop de favoris
+        \n- Fix: bug d\'affichage quand il y avait trop de favoris
         \n
         \n<b>v2.2.0 - 28/03/2021</b>
         \n- Support des applications et raccourcis web (idée de johanbove)

@@ -44,6 +44,7 @@ public class ActivitySettings extends AppCompatActivity
 	public static final String DISPLAY_CLOCK = "display_clock" ;
 	public static final String ICON_PACK = "icon_pack" ;
 	public static final String DISPLAY_NOTIFICATION = "display_notification" ;
+	public static final String NOTIFICATION_TEXT = "notification_text" ;
 	public static final String HIDE_ON_LOCK_SCREEN = "hide_on_lock_screen" ;
 	public static final String NOTIFICATION_APP = "notification_app" ;
 	public static final String NONE = "none" ;

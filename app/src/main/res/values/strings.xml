@@ -39,7 +39,7 @@
 	<string name="text_check_favorites">Check your favorites applications</string>
     <string name="text_open_or_settings">Do you want to open %1$s or its system settings?</string>
     <string name="text_open_or_remove">Do you want to open %1$s or remove it?</string>
-    <string name="text_notification">(choose apps in the settings)</string>
+    <string name="text_notification">(choose apps/text in the settings)</string>
 
     <!-- Settings texts -->
     <string name="text_customization">Customization</string>
@@ -53,6 +53,7 @@
         A notification allowing to open 3 applications can be displayed when you leave the home screen.
     </string>
     <string name="text_display_notification">Display the notification</string>
+    <string name="text_notification_text">Text above the buttons</string>
     <string name="text_hide_on_lock_screen">Hide on lock screen</string>
     <string name="text_hide_on_lock_screen_help">(Go to home screen to apply)</string>
     <string name="text_select_notification_apps_help">
@@ -99,8 +100,9 @@
     <string name="changelog">
         \n<b>v2.3.0 - </b>
         \n- Redesign of the "Settings / Help" menu
+        \n- Notification text can be customized
         \n- Integration of the changelog
-        \n- Fix: display bug when there are too many favorites
+        \n- Fix: display bug when there were too much favorites
         \n
         \n<b>v2.2.0 - 28/03/2021</b>
         \n- Support web apps and shortcuts (idea from johanbove)

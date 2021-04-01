@@ -69,18 +69,20 @@ class NotificationMenu
 	 */
 	void display(Context context)
 	{
+		// Retrieve the current settings
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
+
 		// Define the notification settings
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID) ;
 		builder.setSmallIcon(R.drawable.notification_icon) ;
 		builder.setContentTitle(context.getString(R.string.app_name)) ;
-		builder.setContentTitle(context.getString(R.string.text_notification)) ;
+		builder.setContentTitle(settings.getString(ActivitySettings.NOTIFICATION_TEXT, context.getString(R.string.text_notification))) ;
 		builder.setShowWhen(false) ;                           // Hide the notification timer
 		builder.setOngoing(true) ;                             // Sticky notification
 		builder.setPriority(NotificationCompat.PRIORITY_MAX) ; // Needed to display the buttons
 		builder.setNotificationSilent() ;                      // No sound or vibration
 
 		// Check if the notification should be displayed or not on the lock screen
-		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 		if(settings.getBoolean(ActivitySettings.HIDE_ON_LOCK_SCREEN, true))
 			builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ;
 

@@ -16,6 +16,14 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <EditTextPreference
+            app:key="notification_text"
+            app:title="@string/text_notification_text"
+            app:iconSpaceReserved="false"
+            app:defaultValue="@string/text_notification"
+            app:dependency="display_notification"
+            app:useSimpleSummaryProvider="true"/>
+
         <SwitchPreference
             app:key="hide_on_lock_screen"
             app:title="@string/text_hide_on_lock_screen"
@@ -30,7 +38,7 @@
             app:iconSpaceReserved="false"
             app:defaultValue="none"
             app:dependency="display_notification"
-            app:useSimpleSummaryProvider="true" />
+            app:useSimpleSummaryProvider="true"/>
 
         <ListPreference
             app:key="notification_app2"

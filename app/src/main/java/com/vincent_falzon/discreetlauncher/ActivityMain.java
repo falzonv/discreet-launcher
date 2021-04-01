@@ -423,6 +423,11 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 					}
 					else notificationMenu.hide() ;
 				break ;
+			case ActivitySettings.NOTIFICATION_TEXT :
+				// Update the notification text
+				notificationMenu.hide() ;
+				notificationMenu.display(this) ;
+				break ;
 			case ActivitySettings.NOTIFICATION_APP + "1" :
 			case ActivitySettings.NOTIFICATION_APP + "2" :
 			case ActivitySettings.NOTIFICATION_APP + "3" :
