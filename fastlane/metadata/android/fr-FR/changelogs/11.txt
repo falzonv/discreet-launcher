@@ -1,0 +1,4 @@
+- Refonte du menu "Paramètres / Aide"
+- Texte de la notification personnalisable
+- Intégration du journal des changements
+- Fix: bug d'affichage quand il y avait trop de favoris

@@ -21,7 +21,7 @@
 	<string name="text_applications_list_refreshed">Liste d\'application actualisée</string>
 	<string name="text_favorites_saved">Applications favorites enregistrées</string>
     <string name="text_applications_list_last_update">Applications (liste du %1$s)</string>
-    <string name="text_too_many_favorites">Désolé il y avait trop de favoris, seuls les 16 premiers ont été conservés.</string>
+    <string name="text_too_many_favorites">Désolé il y avait trop de favoris, seuls les %1$d premiers ont été conservés.</string>
 
     <!-- Messages d'erreur -->
     <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
@@ -92,7 +92,7 @@
     <!-- Journal des changements -->
     <string name="text_changelog">Journal des changements</string>
     <string name="changelog">
-        \n<b>v2.3.0 - </b>
+        \n<b>v2.3.0 - 02/04/2021</b>
         \n- Refonte du menu "Paramètres / Aide"
         \n- Texte de la notification personnalisable
         \n- Intégration du journal des changements

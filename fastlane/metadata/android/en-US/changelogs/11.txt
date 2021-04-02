@@ -1,0 +1,4 @@
+- Redesign of the "Settings / Help" menu
+- Notification text can be customized
+- Integration of the changelog
+- Fix: display bug when there were too much favorites
