@@ -410,7 +410,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				manageClock() ;
 				break ;
 			case ActivitySettings.ICON_PACK :
-				// If the icon pack has changed, update the icons
+			case ActivitySettings.HIDDEN_APPLICATIONS :
+				// Update the applications list when some settings are modified
 				applicationsList.update(this) ;
 				adapter.notifyDataSetChanged() ;
 				break ;

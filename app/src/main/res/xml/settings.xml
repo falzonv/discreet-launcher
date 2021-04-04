@@ -5,6 +5,11 @@
         app:title="@string/text_customization"
         app:iconSpaceReserved="false">
 
+        <Preference
+            app:title="@string/text_notification_settings"
+            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$NotificationFragment"
+            app:icon="@android:drawable/ic_menu_preferences"/>
+
         <SwitchPreference
             app:key="display_clock"
             app:title="@string/text_display_clock"
@@ -25,10 +30,10 @@
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
-        <Preference
-            app:title="@string/text_notification_settings"
-            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$NotificationFragment"
-            app:icon="@android:drawable/ic_menu_preferences"/>
+        <MultiSelectListPreference
+            app:key="hidden_applications"
+            app:title="@string/text_hidden_applications"
+            app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
 

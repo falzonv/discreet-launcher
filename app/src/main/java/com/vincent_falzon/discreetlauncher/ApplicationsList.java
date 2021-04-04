@@ -37,6 +37,7 @@ import java.util.Collections ;
 import java.util.Comparator ;
 import java.util.Date ;
 import java.util.List ;
+import java.util.Set ;
 
 /**
  * Contain applications lists (complete and favorites) and the last update timestamp.
@@ -51,6 +52,7 @@ class ApplicationsList
 	// Attributes
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
+	private final ArrayList<Application> hidden ;
 	private final Application[] notificationApps ;
 	private String last_update ;
 	private boolean update_in_progress ;
@@ -63,6 +65,7 @@ class ApplicationsList
 	{
 		applications = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
+		hidden = new ArrayList<>() ;
 		notificationApps = new Application[3] ;
 		last_update = "" ;
 		update_in_progress = false ;
@@ -130,6 +133,9 @@ class ApplicationsList
 			}
 		}) ;
 
+		// Hide application based on what is defined in the settings
+		manageHiddenApplications(context) ;
+
 		// Update the favorites applications list
 		updateFavorites(context) ;
 
@@ -157,11 +163,11 @@ class ApplicationsList
 			// Search the internal name in the applications list
 			for(Application application : applications)
 				if(application.getName().equals(name))
-				{
-					// Add the application to the favorites and move to the next line
-					favorites.add(application) ;
-					break ;
-				}
+					{
+						// Add the application to the favorites and move to the next line
+						favorites.add(application) ;
+						break ;
+					}
 		}
 
 		// To remove later: manage old file format
@@ -183,11 +189,11 @@ class ApplicationsList
 			// Search the package name in the applications list
 			for(Application application : applications)
 				if(application.getApk().equals(apk))
-				{
-					// Add the application to the favorites and move to the next line
-					favorites.add(application) ;
-					break ;
-				}
+					{
+						// Add the application to the favorites and move to the next line
+						favorites.add(application) ;
+						break ;
+					}
 		}
 
 		// Check if favorites need to be migrated
@@ -235,6 +241,39 @@ class ApplicationsList
 
 		// Return the icon pack loaded
 		return iconPack ;
+	}
+
+
+	/**
+	 * Hide applications based on what is defined in the settings.
+	 * @param context To get the settings
+	 */
+	void manageHiddenApplications(Context context)
+	{
+		// Check if hidden applications have been defined
+		hidden.clear() ;
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
+		Set<String> hiddenApplications = settings.getStringSet(ActivitySettings.HIDDEN_APPLICATIONS, null) ;
+		if(hiddenApplications == null) return ;
+
+		// Browse the list of applications that should be hidden
+		String[] app_details ;
+		for(String hidden_application : hiddenApplications)
+		{
+			// Retrieve the application internal name
+			app_details = hidden_application.split(Application.NOTIFICATION_SEPARATOR) ;
+			if(app_details.length < 2) continue ;
+
+			// Search the internal name in the applications list
+			for(Application application : applications)
+				if(application.getName().equals(app_details[1]))
+					{
+						// Move the application in the hidden list
+						hidden.add(application) ;
+						applications.remove(application) ;
+						break ;
+					}
+		}
 	}
 
 
@@ -402,6 +441,16 @@ class ApplicationsList
 	ArrayList<Application> getFavorites()
 	{
 		return favorites ;
+	}
+
+
+	/**
+	 * Return the list of hidden applications.
+	 * @return For display in the settings
+	 */
+	ArrayList<Application> getHidden()
+	{
+		return hidden ;
 	}
 
 

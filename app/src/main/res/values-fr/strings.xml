@@ -48,6 +48,7 @@
     <string name="text_display_clock">Afficher l\'heure sur l\'écran d\'accueil</string>
     <string name="text_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="text_no_icon_pack">Aucun (utiliser les vraies icônes)</string>
+    <string name="text_hidden_applications">Masquer des applications</string>
     <string name="text_notification_settings">Notification d\'accès rapide</string>
     <string name="text_notification_help">
         Une notification permettant d\'ouvrir 3 applications peut être affichée quand vous quittez l\'accueil.
@@ -92,6 +93,9 @@
     <!-- Journal des changements -->
     <string name="text_changelog">Journal des changements</string>
     <string name="changelog">
+        \n<b>v2.4.0 - </b>
+        \n- Possibilité de masquer des applications (idée de gicofied9)
+        \n
         \n<b>v2.3.0 - 02/04/2021</b>
         \n- Refonte du menu "Paramètres / Aide"
         \n- Texte de la notification personnalisable

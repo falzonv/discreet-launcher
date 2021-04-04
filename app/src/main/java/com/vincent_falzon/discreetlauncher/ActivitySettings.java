@@ -30,6 +30,7 @@ import android.os.Bundle ;
 import android.view.MenuItem ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
+import androidx.preference.MultiSelectListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
 import java.util.ArrayList ;
 import java.util.List ;
@@ -43,6 +44,7 @@ public class ActivitySettings extends AppCompatActivity
 	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	public static final String DISPLAY_CLOCK = "display_clock" ;
 	public static final String ICON_PACK = "icon_pack" ;
+	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;
 	public static final String DISPLAY_NOTIFICATION = "display_notification" ;
 	public static final String NOTIFICATION_TEXT = "notification_text" ;
 	public static final String HIDE_ON_LOCK_SCREEN = "hide_on_lock_screen" ;
@@ -54,6 +56,8 @@ public class ActivitySettings extends AppCompatActivity
 	private static ArrayList<String> packsNames ;
 	private static ArrayList<String> applicationsNames ;
 	private static ArrayList<String> applicationsDisplayNames ;
+	private static ArrayList<String> hiddenApplicationsNames ;
+	private static ArrayList<String> hiddenApplicationsDisplayNames ;
 
 
 	/**
@@ -71,6 +75,8 @@ public class ActivitySettings extends AppCompatActivity
 		if(packsNames == null) packsNames = new ArrayList<>() ;
 		if(applicationsNames == null) applicationsNames = new ArrayList<>() ;
 		if(applicationsDisplayNames == null) applicationsDisplayNames = new ArrayList<>() ;
+		if(hiddenApplicationsNames == null) hiddenApplicationsNames = new ArrayList<>() ;
+		if(hiddenApplicationsDisplayNames == null) hiddenApplicationsDisplayNames = new ArrayList<>() ;
 
 		// Prepare the icon pack setting
 		iconPacks.clear() ;
@@ -79,12 +85,13 @@ public class ActivitySettings extends AppCompatActivity
 		packsNames.add(getString(R.string.text_no_icon_pack)) ;
 		searchIconPacks() ;
 
-		// Prepare the notification applications settings
+		// Prepare the applications lists
 		applicationsNames.clear() ;
 		applicationsDisplayNames.clear() ;
-		applicationsNames.add(NONE) ;
-		applicationsDisplayNames.add(getString(R.string.text_no_application)) ;
+		hiddenApplicationsNames.clear() ;
+		hiddenApplicationsDisplayNames.clear() ;
 		searchApplications() ;
+		searchHiddenApplications() ;
 
 		// Load the general settings layout
 		setContentView(R.layout.activity_settings) ;
@@ -135,6 +142,21 @@ public class ActivitySettings extends AppCompatActivity
 					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
 					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
 				}
+
+			// Initialize the setting to hide applications
+			MultiSelectListPreference hiddenApplications = findPreference(HIDDEN_APPLICATIONS) ;
+			if(hiddenApplications != null)
+				{
+					// Build the applications list
+					ArrayList<String> displayNames = new ArrayList<>() ;
+					ArrayList<String> names = new ArrayList<>() ;
+					names.addAll(hiddenApplicationsNames) ;
+					names.addAll(applicationsNames) ;
+					displayNames.addAll(hiddenApplicationsDisplayNames) ;
+					displayNames.addAll(applicationsDisplayNames) ;
+					hiddenApplications.setEntries(displayNames.toArray(new CharSequence[0])) ;
+					hiddenApplications.setEntryValues(names.toArray(new CharSequence[0])) ;
+				}
 		}
 	}
 
@@ -155,13 +177,21 @@ public class ActivitySettings extends AppCompatActivity
 			// Load the settings from the XML file
 			setPreferencesFromResource(R.xml.settings_notification, rootKey) ;
 
+			// Prepare the applications list
+			ArrayList<String> displayNames = new ArrayList<>() ;
+			ArrayList<String> names = new ArrayList<>() ;
+			names.add(NONE) ;
+			names.addAll(applicationsNames) ;
+			displayNames.add(getString(R.string.text_no_application)) ;
+			displayNames.addAll(applicationsDisplayNames) ;
+
 			// Initialize the notification applications selectors
 			for(int i = 0 ; i < 3 ; i++)
 			{
 				ListPreference notification_app = findPreference(NOTIFICATION_APP + (i + 1)) ;
 				if(notification_app == null) continue ;
-				notification_app.setEntries(applicationsDisplayNames.toArray(new CharSequence[0])) ;
-				notification_app.setEntryValues(applicationsNames.toArray(new CharSequence[0])) ;
+				notification_app.setEntries(displayNames.toArray(new CharSequence[0])) ;
+				notification_app.setEntryValues(names.toArray(new CharSequence[0])) ;
 			}
 		}
 	}
@@ -206,7 +236,7 @@ public class ActivitySettings extends AppCompatActivity
 
 
 	/**
-	 * Build a list of the installed icon packs
+	 * Build a list of the installed icon packs.
 	 */
 	private void searchIconPacks()
 	{
@@ -225,7 +255,7 @@ public class ActivitySettings extends AppCompatActivity
 
 
 	/**
-	 * Build a list of the installed applications
+	 * Build a list of the installed applications.
 	 */
 	private void searchApplications()
 	{
@@ -237,6 +267,23 @@ public class ActivitySettings extends AppCompatActivity
 					+ Application.NOTIFICATION_SEPARATOR + application.getName()
 					+ Application.NOTIFICATION_SEPARATOR + application.getApk()) ;
 			applicationsDisplayNames.add(application.getDisplayName()) ;
+		}
+	}
+
+
+	/**
+	 * Build a list of the hidden applications.
+	 */
+	private void searchHiddenApplications()
+	{
+		// Browse the hidden applications list and store their information in the lists
+		ArrayList<Application> hiddenApplications = ActivityMain.getApplicationsList().getHidden() ;
+		for(Application application : hiddenApplications)
+		{
+			hiddenApplicationsNames.add(application.getDisplayName()
+					+ Application.NOTIFICATION_SEPARATOR + application.getName()
+					+ Application.NOTIFICATION_SEPARATOR + application.getApk()) ;
+			hiddenApplicationsDisplayNames.add(application.getDisplayName()) ;
 		}
 	}
 }
