@@ -31,7 +31,7 @@ If it has, feel free to add a comment to the existing ticket to share any new in
 - Please **indicate the version of Discreet Launcher** that you are currently using, you can find this information at the end of the "Settings / Help" page (look for something like "v1.0.0").
 - Sometimes it can be useful to mention your Android version if you know it.
 
-It should also be noted that **the F-Droid build and publishing process is automatic and usually take 4 to 5 days to complete**.
+It should also be noted that **the F-Droid build and publishing process is automatic and usually take 4 to 8 days to complete**.
 Consequently, when a bug is corrected, the new release will not be available immediately in F-Droid. You can check the [releases](https://github.com/falzonv/discreet-launcher/releases) section to see what has not been detected yet by F-Droid.
 
 Finally, **tickets can be created in English or in French** according to your preference (if you start in French the discussion will continue in French, otherwise the default language will be English).
@@ -131,7 +131,7 @@ Si c'est le cas, n'hésitez pas à ajouter un commentaire dans le ticket existan
 - Veuillez **indiquer la version de Lanceur Discret** que vous utilisez actuellement, vous pouvez trouver cette information à la fin de la page "Paramètres / Aide" (cherchez quelque chose qui ressemble à "v1.0.0").
 - Parfois il peut être utile de mentionner votre version d'Android si vous la connaissez.
 
-Il est à noter que **le processus de compilation et de publication par F-Droid est automatique et prend généralement 4 à 5 jours**.
+Il est à noter que **le processus de compilation et de publication par F-Droid est automatique et prend généralement 4 à 8 jours**.
 Par conséquent, quand un bug est corrigé, la nouvelle version ne sera pas disponible immédiatement dans F-Droid. Vous pouvez vérifier la page nommée "[Releases](https://github.com/falzonv/discreet-launcher/releases)" pour voir ce qui n'a pas encore été détecté par F-Droid (en anglais).
 
 Enfin, **les tickets peuvent être créés en français ou en anglais** selon votre préférence (si vous commencez en français, la conversation continuera en français, sinon la langue par défaut sera l'anglais).
