@@ -4,6 +4,7 @@
 	<!-- Titres principaux -->
 	<string name="app_name">Lanceur Discret</string>
     <string name="settings_title">Paramètres / Aide</string>
+    <string name="export_import_title">Exporter / Importer</string>
 
 	<!-- Textes des boutons -->
 	<string name="button_access_menu">Maintenez ici pour accéder au menu</string>
@@ -30,16 +31,35 @@
     <string name="error_with_shortcut">Une erreur est survenue avec le raccourci %1$s !</string>
     <string name="error_error_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis !</string>
     <string name="error_application_not_found">L\'application %1$s est introuvable !</string>
+    <string name="error_shortcut_missing_info">Des informations sont manquantes et le raccourci ne peut pas être lancé !</string>
+    <string name="error_shortcut_start_failed">Le système Android n\'a pas réussi à ouvrir le raccourci ou ne l\'a pas retrouvé !</string>
     <string name="error_appfilter_not_found">Le fichier appfilter.xml est introuvable dans le pack d\'icônes sélectionné ! (%1$s)</string>
     <string name="error_file_format_changed">
         La façon dont les favoris sont stockés a été modifiée avec la version 1.2.0.\nVotre liste a été convertie automatiquement mais vous devriez vérifier que tout est en ordre.
     </string>
+    <string name="error_creating_export">Une erreur est survenue durant l\'exportation des paramètres !</string>
+    <string name="error_reading_import">Une erreur est survenue durant la lecture du fichier d\'import !</string>
 
 	<!-- Textes des fenêtres -->
 	<string name="text_check_favorites">Cocher vos applications favorites</string>
     <string name="text_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
     <string name="text_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
     <string name="text_notification">(apps/texte réglables dans les paramètres)</string>
+
+    <!-- Textes de la partie Export / Import -->
+    <string name="button_export">Exporter</string>
+    <string name="button_import">Importer</string>
+    <string name="text_export_import_help">
+        Ces boutons permettent d\'exporter les données de l\'application (favoris, raccourcis et paramètres) ou d\'importer un export précédent.
+    </string>
+    <string name="text_warning_shortcuts_export">
+        (Avec Android Oreo (8) ou plus récent, les raccourcis web peuvent ne pas fonctionner comme prévu
+        car leurs informations sont gardées en interne par le système et ne sont pas exportables)
+    </string>
+    <string name="text_warning_edit_file">Soyez prudent(e) : si vous éditez ce fichier, cela peut produire des résultats inattendus !</string>
+    <string name="text_internal_files_content">Contenu des fichiers internes</string>
+    <string name="text_export_completed">Export terminé</string>
+    <string name="text_import_completed">Import terminé !\nVeuillez actualiser la liste des applications depuis le menu de l\'écran d\'accueil.</string>
 
     <!-- Textes des paramètres -->
     <string name="text_customization">Personnalisation</string>
@@ -95,6 +115,7 @@
     <string name="changelog">
         \n<b>v2.4.0 - </b>
         \n- Possibilité de masquer des applications (idée de gicofied9)
+        \n- Possibilité d\'exporter/importer les paramètres
         \n
         \n<b>v2.3.0 - 02/04/2021</b>
         \n- Refonte du menu "Paramètres / Aide"

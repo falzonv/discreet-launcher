@@ -72,11 +72,11 @@ public class ActivityShortcut extends AppCompatActivity
 									{
 										try { launcher.startShortcut(shortcut[0], shortcut[1], null, null, UserHandle.getUserHandleForUid(user_id)) ; }
 										catch(ActivityNotFoundException | IllegalStateException e)
-										{ ShowDialog.toastLong(this, getString(R.string.error_application_not_found, shortcut[0])) ; }
+										{ ShowDialog.toastLong(this, getString(R.string.error_shortcut_start_failed)) ; }
 									}
 									else ShowDialog.toastLong(this, getString(R.string.error_error_not_default_launcher)) ;
 							}
-							else ShowDialog.toastLong(this, getString(R.string.error_application_not_found, shortcut[0])) ;
+							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_missing_info)) ;
 					}
 
 				// Check if a new shortcut should be added and accept the request

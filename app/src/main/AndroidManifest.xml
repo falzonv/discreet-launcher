@@ -41,6 +41,12 @@
             android:theme="@style/AppThemeSettings"/>
 
         <activity
+            android:name=".ActivityExportImport"
+            android:label="@string/export_import_title"
+            android:parentActivityName=".ActivitySettings"
+            android:theme="@style/AppThemeSettings"/>
+
+        <activity
             android:name=".ActivityShortcut"
             android:parentActivityName=".ActivityMain"
             android:excludeFromRecents="true">

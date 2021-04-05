@@ -41,8 +41,8 @@ import java.util.List ;
 public class ActivitySettings extends AppCompatActivity
 {
 	// Constants
-	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	public static final String DISPLAY_CLOCK = "display_clock" ;
+	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	public static final String ICON_PACK = "icon_pack" ;
 	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;
 	public static final String DISPLAY_NOTIFICATION = "display_notification" ;

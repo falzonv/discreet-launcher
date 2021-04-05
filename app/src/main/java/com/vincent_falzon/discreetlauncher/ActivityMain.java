@@ -56,6 +56,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 	// Attributes
 	private static ApplicationsList applicationsList ;
+	private static boolean ignore_settings_changes ;
 	private EventsReceiver applicationsListUpdater ;
 	private EventsReceiver legacyShortcutsCreator ;
 	private SharedPreferences settings ;
@@ -87,6 +88,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		PreferenceManager.setDefaultValues(this, R.xml.settings_notification, true) ;
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
+		ignore_settings_changes = false ;
 
 		// Make the status bar transparent if this option was selected
 		if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
@@ -145,9 +147,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Check in the settings if the clock should be displayed or not
 		if(settings.getBoolean(ActivitySettings.DISPLAY_CLOCK, false))
 			{
-				// Display the clock and start to listen for updates (every minute)
-				clockUpdater = new EventsReceiver(clockText) ;
-				registerReceiver(clockUpdater, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
+				// If not already done, display the clock and start to listen for updates (every minute)
+				if(clockUpdater == null)
+					{
+						clockUpdater = new EventsReceiver(clockText) ;
+						registerReceiver(clockUpdater, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
+					}
 			}
 			else
 			{
@@ -169,6 +174,16 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	static ApplicationsList getApplicationsList()
 	{
 		return applicationsList ;
+	}
+
+
+	/**
+	 * Allow to temporary disable the SharedPreference changes listener.
+	 * @param new_value <code>true</code> to disable, <code>false</code> to enable
+	 */
+	static void setIgnoreSettingsChanges(boolean new_value)
+	{
+		ignore_settings_changes = new_value ;
 	}
 
 	
@@ -403,15 +418,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
 	{
+		if(ignore_settings_changes) return ;
 		switch(key)
 		{
-			case ActivitySettings.DISPLAY_CLOCK :
-				// Toggle the clock
-				manageClock() ;
-				break ;
 			case ActivitySettings.ICON_PACK :
 			case ActivitySettings.HIDDEN_APPLICATIONS :
-				// Update the applications list when some settings are modified
+				// Update the applications list
 				applicationsList.update(this) ;
 				adapter.notifyDataSetChanged() ;
 				break ;
@@ -425,14 +437,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 					else notificationMenu.hide() ;
 				break ;
 			case ActivitySettings.NOTIFICATION_TEXT :
-				// Update the notification text
-				notificationMenu.hide() ;
-				notificationMenu.display(this) ;
-				break ;
 			case ActivitySettings.NOTIFICATION_APP + "1" :
 			case ActivitySettings.NOTIFICATION_APP + "2" :
 			case ActivitySettings.NOTIFICATION_APP + "3" :
-				// If one of the applications has changed, update the notification
+				// Update the notification
 				applicationsList.updateNotificationApps(this) ;
 				notificationMenu.hide() ;
 				notificationMenu.display(this) ;
@@ -442,25 +450,30 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
-	 * Display the notification when the user leaves the home screen (if option selected).
+	 * Perform actions when the user leaves the home screen.
 	 */
 	@Override
 	public void onPause()
 	{
 		super.onPause() ;
+
+		// If the option is selected, display the notification
 		if(settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true))
 			notificationMenu.display(this) ;
 	}
 
 
 	/**
-	 * Hide the notification when the user is on the home screen.
+	 * Perform actions when the user come back to the home screen.
 	 */
 	@Override
 	public void onResume()
 	{
 		super.onResume() ;
+
+		// Hide the notification and update the clock according to settings
 		notificationMenu.hide() ;
+		manageClock() ;
 	}
 
 

@@ -4,6 +4,7 @@
 	<!-- Main titles -->
 	<string name="app_name">Discreet Launcher</string>
     <string name="settings_title">Settings / Help</string>
+    <string name="export_import_title">Export / Import</string>
 
 	<!-- Buttons labels -->
 	<string name="button_access_menu">Hold here to access the menu</string>
@@ -28,18 +29,37 @@
     <string name="error_with_favorite">An error happened with the favorite %1$s!</string>
     <string name="error_invalid_shortcut_request">The received request to add a shortcut is not valid!</string>
     <string name="error_with_shortcut">An error happened with the shortcut %1$s!</string>
+    <string name="error_shortcut_missing_info">Some information are missing and the shortcut cannot be launched!</string>
+    <string name="error_shortcut_start_failed">The Android system was not able to open the shortcut or it did not retrieved it!</string>
     <string name="error_error_not_default_launcher">Only the default launcher can open shortcuts!</string>
     <string name="error_application_not_found">The application %1$s has not been found!</string>
     <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
     <string name="error_file_format_changed">
         The way favorites are stored has changed with version 1.2.0.\nYour list has been converted automatically but you should check that everything is as you wish.
     </string>
+    <string name="error_creating_export">An error happened during the settings export!</string>
+    <string name="error_reading_import">An error happened while reading the import file!</string>
 
 	<!-- Dialogs texts -->
 	<string name="text_check_favorites">Check your favorites applications</string>
     <string name="text_open_or_settings">Do you want to open %1$s or its system settings?</string>
     <string name="text_open_or_remove">Do you want to open %1$s or remove it?</string>
     <string name="text_notification">(choose apps/text in the settings)</string>
+
+    <!-- Export / Import texts -->
+    <string name="button_export">Export</string>
+    <string name="button_import">Import</string>
+    <string name="text_export_import_help">
+        These buttons allow you to export the application data (favorites, shortcuts and settings) or to import a previous export.
+    </string>
+    <string name="text_warning_shortcuts_export">
+        (With Android Oreo (8) or higher, web shortcuts may not work as expected
+        because their information are kept internally by the system and cannot be exported)
+    </string>
+    <string name="text_warning_edit_file">Be careful: if you edit this file, it may produce unexpected results!</string>
+    <string name="text_internal_files_content">Internal files content</string>
+    <string name="text_export_completed">Export completed</string>
+    <string name="text_import_completed">Import completed!\nPlease refresh the applications list from the home screen menu.</string>
 
     <!-- Settings texts -->
     <string name="text_customization">Customization</string>
@@ -101,6 +121,7 @@
     <string name="changelog">
         \n<b>v2.4.0 - </b>
         \n- Option to hide applications (idea from gicofied9)
+        \n- Option to export/import settings
         \n
         \n<b>v2.3.0 - 02/04/2021</b>
         \n- Redesign of the "Settings / Help" menu

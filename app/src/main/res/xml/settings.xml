@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
         app:title="@string/text_customization"
@@ -34,6 +36,14 @@
             app:key="hidden_applications"
             app:title="@string/text_hidden_applications"
             app:iconSpaceReserved="false"/>
+
+        <Preference
+            app:title="@string/export_import_title"
+            app:icon="@android:drawable/ic_menu_upload">
+            <intent
+                android:targetPackage="com.vincent_falzon.discreetlauncher"
+                android:targetClass="com.vincent_falzon.discreetlauncher.ActivityExportImport"/>
+        </Preference>
 
     </PreferenceCategory>
 
