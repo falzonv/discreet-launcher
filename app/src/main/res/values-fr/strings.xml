@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!-- Titres principaux -->
-	<string name="app_name">Lanceur Discret</string>
-    <string name="settings_title">Paramètres / Aide</string>
-    <string name="export_import_title">Exporter / Importer</string>
-
-	<!-- Textes des boutons -->
+	<!-- Boutons -->
 	<string name="button_access_menu">Maintenez ici pour accéder au menu</string>
 	<string name="button_refresh_list">Actualiser la liste des applications</string>
 	<string name="button_manage_favorites">Gérer les favoris</string>
@@ -16,77 +11,71 @@
     <string name="button_settings">Paramètres</string>
 	<string name="button_cancel">Annuler</string>
     <string name="button_close">Fermer</string>
+    <string name="button_export">Exporter</string>
+    <string name="button_import">Importer</string>
 
 	<!-- Messages d'information -->
-    <string name="text_no_favorites_yet">Pour ajouter des applications au panneau des favoris, glissez vers le bas et maintenez le bouton menu</string>
-	<string name="text_applications_list_refreshed">Liste d\'application actualisée</string>
-	<string name="text_favorites_saved">Applications favorites enregistrées</string>
-    <string name="text_applications_list_last_update">Applications (liste du %1$s)</string>
-    <string name="text_too_many_favorites">Désolé il y avait trop de favoris, seuls les %1$d premiers ont été conservés.</string>
+    <string name="info_no_favorites_yet">Pour ajouter des applications au panneau des favoris, glissez vers le bas et maintenez le bouton menu</string>
+	<string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
+	<string name="info_favorites_saved">Applications favorites enregistrées</string>
+    <string name="info_applications_list_last_update">Applications (liste du %1$s)</string>
 
     <!-- Messages d'erreur -->
     <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
-    <string name="error_with_favorite">Une erreur est survenue avec le favori %1$s !</string>
-    <string name="error_invalid_shortcut_request">La requête reçue pour ajouter un raccourci n\'est pas valide !</string>
-    <string name="error_with_shortcut">Une erreur est survenue avec le raccourci %1$s !</string>
-    <string name="error_error_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis !</string>
-    <string name="error_application_not_found">L\'application %1$s est introuvable !</string>
+    <string name="error_favorite">Une erreur est survenue avec le favori %1$s !</string>
+    <string name="error_too_many_favorites">Désolé il y avait trop de favoris, seuls les %1$d premiers ont été conservés.</string>
+    <string name="error_shortcut">Une erreur est survenue avec le raccourci %1$s !</string>
+    <string name="error_shortcut_invalid_request">La requête reçue pour ajouter un raccourci n\'est pas valide !</string>
     <string name="error_shortcut_missing_info">Des informations sont manquantes et le raccourci ne peut pas être lancé !</string>
-    <string name="error_shortcut_start_failed">Le système Android n\'a pas réussi à ouvrir le raccourci ou ne l\'a pas retrouvé !</string>
+    <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis !</string>
+    <string name="error_shortcut_start">Le système Android n\'a pas réussi à ouvrir le raccourci ou ne l\'a pas retrouvé !</string>
+    <string name="error_application_not_found">L\'application %1$s est introuvable !</string>
     <string name="error_appfilter_not_found">Le fichier appfilter.xml est introuvable dans le pack d\'icônes sélectionné ! (%1$s)</string>
     <string name="error_file_format_changed">
         La façon dont les favoris sont stockés a été modifiée avec la version 1.2.0.\nVotre liste a été convertie automatiquement mais vous devriez vérifier que tout est en ordre.
     </string>
-    <string name="error_creating_export">Une erreur est survenue durant l\'exportation des paramètres !</string>
-    <string name="error_reading_import">Une erreur est survenue durant la lecture du fichier d\'import !</string>
+    <string name="error_export">Une erreur est survenue durant la création du fichier d\'export !</string>
+    <string name="error_import">Une erreur est survenue durant la lecture du fichier d\'import !</string>
 
-	<!-- Textes des fenêtres -->
-	<string name="text_check_favorites">Cocher vos applications favorites</string>
-    <string name="text_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
-    <string name="text_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
-    <string name="text_notification">(apps/texte réglables dans les paramètres)</string>
+	<!-- Fenêtres de sélection -->
+	<string name="dialog_check_favorites">Cocher vos applications favorites</string>
+    <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
+    <string name="dialog_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
 
-    <!-- Textes de la partie Export / Import -->
-    <string name="button_export">Exporter</string>
-    <string name="button_import">Importer</string>
-    <string name="text_export_import_help">
-        Ces boutons permettent d\'exporter les données de l\'application (favoris, raccourcis et paramètres) ou d\'importer un export précédent.
-    </string>
-    <string name="text_warning_shortcuts_export">
+    <!-- Export / Import -->
+    <string name="export_import_title">Exporter / Importer</string>
+    <string name="export_import_help">Ces boutons permettent d\'exporter les données de l\'application (favoris, raccourcis et paramètres) ou d\'importer un export précédent.</string>
+    <string name="export_import_file_edit_warning">Soyez prudent(e) : si vous éditez ce fichier, cela peut produire des résultats inattendus !</string>
+    <string name="export_import_internal_files_header">Contenu des fichiers internes</string>
+    <string name="export_import_warning_shortcuts">
         (Avec Android Oreo (8) ou plus récent, les raccourcis web peuvent ne pas fonctionner comme prévu
         car leurs informations sont gardées en interne par le système et ne sont pas exportables)
     </string>
-    <string name="text_warning_edit_file">Soyez prudent(e) : si vous éditez ce fichier, cela peut produire des résultats inattendus !</string>
-    <string name="text_internal_files_content">Contenu des fichiers internes</string>
-    <string name="text_export_completed">Export terminé</string>
-    <string name="text_import_completed">Import terminé !\nVeuillez actualiser la liste des applications depuis le menu de l\'écran d\'accueil.</string>
+    <string name="export_completed">Export terminé</string>
+    <string name="import_completed">Import terminé !\nVeuillez actualiser la liste des applications depuis le menu de l\'écran d\'accueil.</string>
 
-    <!-- Textes des paramètres -->
-    <string name="text_customization">Personnalisation</string>
-    <string name="text_transparent_status_bar">Barre de statut transparente</string>
-    <string name="text_transparent_status_bar_help">Sur l\'écran d\'accueil (favoris fermés)</string>
-    <string name="text_display_clock">Afficher l\'heure sur l\'écran d\'accueil</string>
-    <string name="text_icon_pack">Utiliser un pack d\'icônes installé</string>
-    <string name="text_no_icon_pack">Aucun (utiliser les vraies icônes)</string>
-    <string name="text_hidden_applications">Masquer des applications</string>
-    <string name="text_notification_settings">Notification d\'accès rapide</string>
-    <string name="text_notification_help">
-        Une notification permettant d\'ouvrir 3 applications peut être affichée quand vous quittez l\'accueil.
-    </string>
-    <string name="text_display_notification">Afficher la notification</string>
-    <string name="text_notification_text">Texte au dessus des boutons</string>
-    <string name="text_hide_on_lock_screen">Masquer sur l\'écran de verrouillage</string>
-    <string name="text_hide_on_lock_screen_help">(Repassez par l\'accueil pour appliquer)</string>
-    <string name="text_select_notification_apps_help">
-        (Limité à 3 applications car c\'est le nombre maximal de boutons affichables sur une notification)
-    </string>
-    <string name="text_no_application">Aucune (masquer le bouton)</string>
-    <string name="text_help_and_general_info">Aide et informations générales</string>
-    <string name="text_license">Licence publique générale GNU v3.0</string>
-    <string name="text_source_code">Pour accéder au code source, signaler un problème ou voir mes autres projets, consulter le site</string>
+    <!-- Paramètres -->
+    <string name="settings_title">Paramètres / Aide</string>
+    <string name="set_customization_title">Personnalisation</string>
+    <string name="set_transparent_status_bar">Barre de statut transparente</string>
+    <string name="set_transparent_status_bar_hint">Sur l\'écran d\'accueil (favoris fermés)</string>
+    <string name="set_display_clock">Afficher l\'heure sur l\'écran d\'accueil</string>
+    <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
+    <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
+    <string name="set_hidden_applications">Masquer des applications</string>
+    <string name="notification_settings_title">Notification d\'accès rapide</string>
+    <string name="notification_settings_help">Une notification permettant d\'ouvrir 3 applications peut être affichée quand vous quittez l\'accueil.</string>
+    <string name="set_display_notification">Afficher la notification</string>
+    <string name="set_notification_text">Texte au dessus des boutons</string>
+    <string name="set_notification_text_default">(apps/texte réglables dans les paramètres)</string>
+    <string name="set_hide_on_lock_screen">Masquer sur l\'écran de verrouillage</string>
+    <string name="set_hide_on_lock_screen_hint">(Repassez par l\'accueil pour appliquer)</string>
+    <string name="set_applications_hint">(Limité à 3 applications car c\'est le nombre maximal de boutons affichables sur une notification)</string>
+    <string name="set_application_none">Aucune (masquer le bouton)</string>
 
     <!-- Aide -->
-    <string name="text_help">Aide</string>
+    <string name="help_and_general_info_title">Aide et informations générales</string>
+    <string name="help_title">Aide</string>
     <string name="help">
         \n<b>Navigation dans l\'application</b>
         \n
@@ -111,7 +100,7 @@
     </string>
 
     <!-- Journal des changements -->
-    <string name="text_changelog">Journal des changements</string>
+    <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
         \n<b>v2.4.0 - </b>
         \n- Possibilité de masquer des applications (idée de gicofied9)
@@ -164,5 +153,10 @@
         \n- Version initiale
         \n
     </string>
+
+    <!-- À propos -->
+    <string name="app_name">Lanceur Discret</string>
+    <string name="licence_name">Licence publique générale GNU v3.0</string>
+    <string name="website_description">Pour accéder au code source, signaler un problème ou voir mes autres projets, consulter le site</string>
 
 </resources>

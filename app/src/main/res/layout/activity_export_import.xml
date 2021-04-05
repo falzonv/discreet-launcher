@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_export_import_help"/>
+        android:text="@string/export_import_help"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -44,6 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="italic"
-        android:text="@string/text_warning_shortcuts_export"/>
+        android:text="@string/export_import_warning_shortcuts"/>
 
 </LinearLayout>

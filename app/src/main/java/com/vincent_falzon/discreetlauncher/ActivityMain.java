@@ -113,7 +113,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Display a message if the user does not have any favorites applications yet
 		if(applicationsList.getFavoritesCount() == 0)
-			ShowDialog.toastLong(this, getString(R.string.text_no_favorites_yet)) ;
+			ShowDialog.toastLong(this, getString(R.string.info_no_favorites_yet)) ;
 
 		// Prepare the display of the favorites panel over 4 columns
 		RecyclerView recycler = findViewById(R.id.favorites_applications) ;
@@ -276,7 +276,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Prepare and display the selection dialog
 		final Context context = this ;
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
-		dialog.setTitle(R.string.text_check_favorites) ;
+		dialog.setTitle(R.string.dialog_check_favorites) ;
 		dialog.setMultiChoiceItems(app_names, selected,
 				new DialogInterface.OnMultiChoiceClickListener()
 				{
@@ -305,7 +305,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 									if(favorites_number <= MAX_FAVORITES)
 										if(!file.writeLine(applications.get(i).getName()))
 											{
-												ShowDialog.toastLong(context, getString(R.string.error_with_favorite, applications.get(i).getDisplayName())) ;
+												ShowDialog.toastLong(context, getString(R.string.error_favorite, applications.get(i).getDisplayName())) ;
 												return ;
 											}
 								}
@@ -314,8 +314,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						// Update the favorites panel and inform the user
 						applicationsList.updateFavorites(context) ;
 						adapter.notifyDataSetChanged() ;
-						if(favorites_number > MAX_FAVORITES) ShowDialog.toastLong(context, getString(R.string.text_too_many_favorites, MAX_FAVORITES)) ;
-							else ShowDialog.toast(getApplicationContext(), R.string.text_favorites_saved) ;
+						if(favorites_number > MAX_FAVORITES) ShowDialog.toastLong(context, getString(R.string.error_too_many_favorites, MAX_FAVORITES)) ;
+							else ShowDialog.toast(getApplicationContext(), R.string.info_favorites_saved) ;
 					}
 				}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;

@@ -76,7 +76,7 @@ class NotificationMenu
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID) ;
 		builder.setSmallIcon(R.drawable.notification_icon) ;
 		builder.setContentTitle(context.getString(R.string.app_name)) ;
-		builder.setContentTitle(settings.getString(ActivitySettings.NOTIFICATION_TEXT, context.getString(R.string.text_notification))) ;
+		builder.setContentTitle(settings.getString(ActivitySettings.NOTIFICATION_TEXT, context.getString(R.string.set_notification_text_default))) ;
 		builder.setShowWhen(false) ;                           // Hide the notification timer
 		builder.setOngoing(true) ;                             // Sticky notification
 		builder.setPriority(NotificationCompat.PRIORITY_MAX) ; // Needed to display the buttons

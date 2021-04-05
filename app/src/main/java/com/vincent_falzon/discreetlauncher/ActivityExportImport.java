@@ -141,11 +141,11 @@ public class ActivityExportImport extends AppCompatActivity
 		// Prepare the export file header
 		ArrayList<String> exportedData = new ArrayList<>() ;
 		exportedData.add("# Export " + getString(R.string.app_name) + " (" + SimpleDateFormat.getDateTimeInstance().format(new Date()) + ")") ;
-		exportedData.add("# " + getString(R.string.text_warning_edit_file)) ;
+		exportedData.add("# " + getString(R.string.export_import_file_edit_warning)) ;
 		exportedData.add("#") ;
 
 		// Save the content of all internal files
-		exportedData.add("# " + getString(R.string.text_internal_files_content)) ;
+		exportedData.add("# " + getString(R.string.export_import_internal_files_header)) ;
 		exportedData.addAll(prepareFileForExport(ApplicationsList.FAVORITES_FILE)) ;
 		exportedData.addAll(prepareFileForExport(ApplicationsList.SHORTCUTS_FILE)) ;
 		exportedData.addAll(prepareFileForExport(ApplicationsList.SHORTCUTS_LEGACY_FILE)) ;
@@ -160,7 +160,7 @@ public class ActivityExportImport extends AppCompatActivity
 		if(hiddenApplications == null) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + ActivitySettings.NONE) ;
 			else for(String hidden_application : hiddenApplications) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + hidden_application) ;
 		exportedData.add(ActivitySettings.DISPLAY_NOTIFICATION + ": " + settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true)) ;
-		exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + settings.getString(ActivitySettings.NOTIFICATION_TEXT, getString(R.string.text_notification)).replace("\n", "\\n")) ;
+		exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + settings.getString(ActivitySettings.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)).replace("\n", "\\n")) ;
 		exportedData.add(ActivitySettings.HIDE_ON_LOCK_SCREEN + ": " + settings.getBoolean(ActivitySettings.HIDE_ON_LOCK_SCREEN, true)) ;
 		exportedData.add(ActivitySettings.NOTIFICATION_APP + "1: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "1", ActivitySettings.NONE)) ;
 		exportedData.add(ActivitySettings.NOTIFICATION_APP + "2: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "2", ActivitySettings.NONE)) ;
@@ -179,12 +179,12 @@ public class ActivityExportImport extends AppCompatActivity
 			}
 			writer.close() ;
 			file.close() ;
-			ShowDialog.toast(this, R.string.text_export_completed) ;
+			ShowDialog.toast(this, R.string.export_completed) ;
 		}
 		catch(IOException e)
 		{
 			// Display an error message and quit
-			ShowDialog.toastLong(this, getString(R.string.error_creating_export)) ;
+			ShowDialog.toastLong(this, getString(R.string.error_export)) ;
 		}
 	}
 
@@ -229,7 +229,7 @@ public class ActivityExportImport extends AppCompatActivity
 		catch(IOException e)
 		{
 			// Display an error message and quit
-			ShowDialog.toastLong(this, getString(R.string.error_reading_import)) ;
+			ShowDialog.toastLong(this, getString(R.string.error_import)) ;
 			return ;
 		}
 
@@ -285,7 +285,7 @@ public class ActivityExportImport extends AppCompatActivity
 		editor.apply() ;
 
 		// Inform the user and start again to listen for settings changes
-		ShowDialog.toastLong(this, getString(R.string.text_import_completed)) ;
+		ShowDialog.toastLong(this, getString(R.string.import_completed)) ;
 		ActivityMain.getApplicationsList().updateNotificationApps(this) ;
 		ActivityMain.setIgnoreSettingsChanges(false) ;
 	}

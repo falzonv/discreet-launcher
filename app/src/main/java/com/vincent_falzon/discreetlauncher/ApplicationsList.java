@@ -141,7 +141,7 @@ class ApplicationsList
 
 		// Save the last update timestamp and inform the user that the list has been refreshed
 		last_update = SimpleDateFormat.getDateTimeInstance().format(new Date()) ;
-		ShowDialog.toast(context, R.string.text_applications_list_refreshed) ;
+		ShowDialog.toast(context, R.string.info_applications_list_refreshed) ;
 		update_in_progress = false ;
 	}
 
@@ -378,7 +378,7 @@ class ApplicationsList
 		// If it was not existing, add the shortcut to the file
 		if(!file.writeLine(shortcut))
 			{
-				ShowDialog.alert(context, context.getString(R.string.error_with_shortcut, display_name)) ;
+				ShowDialog.alert(context, context.getString(R.string.error_shortcut, display_name)) ;
 				return ;
 			}
 
@@ -414,7 +414,7 @@ class ApplicationsList
 			// Add all the other shortcuts to the list again
 			if(!file.writeLine(shortcut_line))
 				{
-					ShowDialog.toastLong(context, context.getString(R.string.error_with_shortcut, shortcut[0])) ;
+					ShowDialog.toastLong(context, context.getString(R.string.error_shortcut, shortcut[0])) ;
 					return ;
 				}
 		}

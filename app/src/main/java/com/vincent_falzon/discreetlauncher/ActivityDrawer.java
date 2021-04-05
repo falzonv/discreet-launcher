@@ -65,7 +65,7 @@ public class ActivityDrawer extends AppCompatActivity
 
 		// Indicate the last time the applications list was updated
 		TextView lastUpdateDateTime = findViewById(R.id.last_update_datetime) ;
-		lastUpdateDateTime.setText(getString(R.string.text_applications_list_last_update, ActivityMain.getApplicationsList().getLastUpdate())) ;
+		lastUpdateDateTime.setText(getString(R.string.info_applications_list_last_update, ActivityMain.getApplicationsList().getLastUpdate())) ;
 
 		// Display the applications list
 		adapter = new RecyclerAdapter(false) ;

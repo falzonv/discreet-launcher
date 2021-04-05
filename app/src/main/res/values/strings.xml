@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!-- Main titles -->
-	<string name="app_name">Discreet Launcher</string>
-    <string name="settings_title">Settings / Help</string>
-    <string name="export_import_title">Export / Import</string>
-
-	<!-- Buttons labels -->
+	<!-- Buttons -->
 	<string name="button_access_menu">Hold here to access the menu</string>
 	<string name="button_refresh_list">Refresh the applications list</string>
 	<string name="button_manage_favorites">Manage favorites</string>
@@ -16,83 +11,74 @@
     <string name="button_settings">Settings</string>
 	<string name="button_cancel">Cancel</string>
     <string name="button_close">Close</string>
+    <string name="button_export">Export</string>
+    <string name="button_import">Import</string>
 
 	<!-- Information messages -->
-    <string name="text_no_favorites_yet">To add applications to the favorites panel, swipe down and hold the menu button</string>
-	<string name="text_applications_list_refreshed">Applications list refreshed</string>
-	<string name="text_favorites_saved">Favorites applications saved</string>
-    <string name="text_applications_list_last_update">Applications (list from %1$s)</string>
-    <string name="text_too_many_favorites">Sorry there were too many favorites, only the %1$d firsts were kept.</string>
+    <string name="info_no_favorites_yet">To add applications to the favorites panel, swipe down and hold the menu button</string>
+	<string name="info_applications_list_refreshed">Applications list refreshed</string>
+	<string name="info_favorites_saved">Favorites applications saved</string>
+    <string name="info_applications_list_last_update">Applications (list from %1$s)</string>
 
     <!-- Error messages -->
     <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
-    <string name="error_with_favorite">An error happened with the favorite %1$s!</string>
-    <string name="error_invalid_shortcut_request">The received request to add a shortcut is not valid!</string>
-    <string name="error_with_shortcut">An error happened with the shortcut %1$s!</string>
+    <string name="error_favorite">An error happened with the favorite %1$s!</string>
+    <string name="error_too_many_favorites">Sorry there were too many favorites, only the %1$d firsts were kept.</string>
+    <string name="error_shortcut">An error happened with the shortcut %1$s!</string>
+    <string name="error_shortcut_invalid_request">The received request to add a shortcut is not valid!</string>
     <string name="error_shortcut_missing_info">Some information are missing and the shortcut cannot be launched!</string>
-    <string name="error_shortcut_start_failed">The Android system was not able to open the shortcut or it did not retrieved it!</string>
-    <string name="error_error_not_default_launcher">Only the default launcher can open shortcuts!</string>
+    <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts!</string>
+    <string name="error_shortcut_start">The Android system was not able to open the shortcut or it did not retrieved it!</string>
     <string name="error_application_not_found">The application %1$s has not been found!</string>
     <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
     <string name="error_file_format_changed">
         The way favorites are stored has changed with version 1.2.0.\nYour list has been converted automatically but you should check that everything is as you wish.
     </string>
-    <string name="error_creating_export">An error happened during the settings export!</string>
-    <string name="error_reading_import">An error happened while reading the import file!</string>
+    <string name="error_export">An error happened during the export file creation!</string>
+    <string name="error_import">An error happened during the import file reading!</string>
 
-	<!-- Dialogs texts -->
-	<string name="text_check_favorites">Check your favorites applications</string>
-    <string name="text_open_or_settings">Do you want to open %1$s or its system settings?</string>
-    <string name="text_open_or_remove">Do you want to open %1$s or remove it?</string>
-    <string name="text_notification">(choose apps/text in the settings)</string>
+	<!-- Selection dialogs -->
+	<string name="dialog_check_favorites">Check your favorites applications</string>
+    <string name="dialog_open_or_settings">Do you want to open %1$s or its system settings?</string>
+    <string name="dialog_open_or_remove">Do you want to open %1$s or remove it?</string>
 
-    <!-- Export / Import texts -->
-    <string name="button_export">Export</string>
-    <string name="button_import">Import</string>
-    <string name="text_export_import_help">
-        These buttons allow you to export the application data (favorites, shortcuts and settings) or to import a previous export.
-    </string>
-    <string name="text_warning_shortcuts_export">
+    <!-- Export / Import -->
+    <string name="export_import_title">Export / Import</string>
+    <string name="export_import_help">These buttons allow you to export the application data (favorites, shortcuts and settings) or to import a previous export.</string>
+    <string name="export_import_file_edit_warning">Be careful: if you edit this file, it may produce unexpected results!</string>
+    <string name="export_import_internal_files_header">Internal files content</string>
+    <string name="export_import_warning_shortcuts">
         (With Android Oreo (8) or higher, web shortcuts may not work as expected
         because their information are kept internally by the system and cannot be exported)
     </string>
-    <string name="text_warning_edit_file">Be careful: if you edit this file, it may produce unexpected results!</string>
-    <string name="text_internal_files_content">Internal files content</string>
-    <string name="text_export_completed">Export completed</string>
-    <string name="text_import_completed">Import completed!\nPlease refresh the applications list from the home screen menu.</string>
+    <string name="export_completed">Export completed</string>
+    <string name="import_completed">Import completed!\nPlease refresh the applications list from the home screen menu.</string>
 
-    <!-- Settings texts -->
-    <string name="text_customization">Customization</string>
-    <string name="text_transparent_status_bar">Transparent status bar</string>
-    <string name="text_transparent_status_bar_help">On the home screen (favorites closed)</string>
-    <string name="text_display_clock">Display current time on the home screen</string>
-    <string name="text_icon_pack">Use an installed icon pack</string>
-    <string name="text_hidden_applications">Hide applications</string>
-    <string name="text_no_icon_pack">None (use the real icons)</string>
-    <string name="text_notification_settings">Quick access notification</string>
-    <string name="text_notification_help">
-        A notification allowing to open 3 applications can be displayed when you leave the home screen.
-    </string>
-    <string name="text_display_notification">Display the notification</string>
-    <string name="text_notification_text">Text above the buttons</string>
-    <string name="text_hide_on_lock_screen">Hide on lock screen</string>
-    <string name="text_hide_on_lock_screen_help">(Go to home screen to apply)</string>
-    <string name="text_select_notification_apps_help">
-        (Limited to 3 applications because no more buttons can be shown on a notification)
-    </string>
-    <string name="text_application1" translatable="false">Application 1</string>
-    <string name="text_application2" translatable="false">Application 2</string>
-    <string name="text_application3" translatable="false">Application 3</string>
-    <string name="text_no_application">None (hide the button)</string>
-    <string name="text_help_and_general_info">Help and general information</string>
-    <string name="text_author" translatable="false">Vincent Falzon</string>
-    <string name="text_license">GNU General Public License v3.0</string>
-    <string name="website_license" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="text_source_code">To access the source code, report an issue or see my other projects, visit the website</string>
-    <string name="website_source_code" translatable="false">https://vincent-falzon.com</string>
+    <!-- Settings -->
+    <string name="settings_title">Settings / Help</string>
+    <string name="set_customization_title">Customization</string>
+    <string name="set_transparent_status_bar">Transparent status bar</string>
+    <string name="set_transparent_status_bar_hint">On the home screen (favorites closed)</string>
+    <string name="set_display_clock">Display current time on the home screen</string>
+    <string name="set_icon_pack">Use an installed icon pack</string>
+    <string name="set_hidden_applications">Hide applications</string>
+    <string name="set_icon_pack_none">None (use the real icons)</string>
+    <string name="notification_settings_title">Quick access notification</string>
+    <string name="notification_settings_help">A notification allowing to open 3 applications can be displayed when you leave the home screen.</string>
+    <string name="set_display_notification">Display the notification</string>
+    <string name="set_notification_text">Text above the buttons</string>
+    <string name="set_notification_text_default">(choose apps/text in the settings)</string>
+    <string name="set_hide_on_lock_screen">Hide on lock screen</string>
+    <string name="set_hide_on_lock_screen_hint">(Go to home screen to apply)</string>
+    <string name="set_applications_hint">(Limited to 3 applications because no more buttons can be shown on a notification)</string>
+    <string name="set_application1" translatable="false">Application 1</string>
+    <string name="set_application2" translatable="false">Application 2</string>
+    <string name="set_application3" translatable="false">Application 3</string>
+    <string name="set_application_none">None (hide the button)</string>
 
     <!-- Help -->
-    <string name="text_help">Help</string>
+    <string name="help_and_general_info_title">Help and general information</string>
+    <string name="help_title">Help</string>
     <string name="help">
         \n<b>Navigation in the application</b>
         \n
@@ -117,7 +103,7 @@
     </string>
 
     <!-- Changelog -->
-    <string name="text_changelog">Changelog</string>
+    <string name="changelog_title">Changelog</string>
     <string name="changelog">
         \n<b>v2.4.0 - </b>
         \n- Option to hide applications (idea from gicofied9)
@@ -170,5 +156,13 @@
         \n- Initial release
         \n
     </string>
+
+    <!-- About -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author" translatable="false">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">To access the source code, report an issue or see my other projects, visit the website</string>
+    <string name="website_link" translatable="false">https://vincent-falzon.com</string>
 
 </resources>

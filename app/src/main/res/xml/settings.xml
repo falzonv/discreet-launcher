@@ -4,37 +4,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        app:title="@string/text_customization"
+        app:title="@string/set_customization_title"
         app:iconSpaceReserved="false">
 
         <Preference
-            app:title="@string/text_notification_settings"
+            app:title="@string/notification_settings_title"
             app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$NotificationFragment"
             app:icon="@android:drawable/ic_menu_preferences"/>
 
         <SwitchPreference
             app:key="display_clock"
-            app:title="@string/text_display_clock"
+            app:title="@string/set_display_clock"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
         <SwitchPreference
             app:key="transparent_status_bar"
-            app:title="@string/text_transparent_status_bar"
-            app:summary="@string/text_transparent_status_bar_help"
+            app:title="@string/set_transparent_status_bar"
+            app:summary="@string/set_transparent_status_bar_hint"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
         <ListPreference
             app:key="icon_pack"
-            app:title="@string/text_icon_pack"
+            app:title="@string/set_icon_pack"
             app:iconSpaceReserved="false"
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
         <MultiSelectListPreference
             app:key="hidden_applications"
-            app:title="@string/text_hidden_applications"
+            app:title="@string/set_hidden_applications"
             app:iconSpaceReserved="false"/>
 
         <Preference
@@ -48,16 +48,16 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/text_help_and_general_info"
+        app:title="@string/help_and_general_info_title"
         app:iconSpaceReserved="false">
 
         <Preference
-            app:title="@string/text_help"
+            app:title="@string/help_title"
             app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$HelpFragment"
             app:icon="@android:drawable/ic_menu_help"/>
 
         <Preference
-            app:title="@string/text_changelog"
+            app:title="@string/changelog_title"
             app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$ChangelogFragment"
             app:icon="@android:drawable/ic_input_get"/>
 

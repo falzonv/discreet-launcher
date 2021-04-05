@@ -32,7 +32,7 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/text_author"/>
+        android:text="@string/author"/>
 
     <View
         android:layout_width="match_parent"
@@ -41,13 +41,13 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/text_license"/>
+        android:text="@string/licence_name"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:autoLink="web"
-        android:text="@string/website_license"/>
+        android:text="@string/license_link"/>
 
     <View
         android:layout_width="match_parent"
@@ -57,13 +57,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:gravity="center"
-        android:text="@string/text_source_code"/>
+        android:text="@string/website_description"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_marginBottom="20dp"
         android:autoLink="web"
-        android:text="@string/website_source_code"/>
+        android:text="@string/website_link"/>
 
 </LinearLayout>

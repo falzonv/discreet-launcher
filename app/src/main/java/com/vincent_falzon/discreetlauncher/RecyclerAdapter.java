@@ -151,7 +151,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 			String apk = applicationsList.get(selection).getApk() ;
 			if(apk.startsWith(Application.APK_SHORTCUT))
 				{
-					dialog.setMessage(context.getString(R.string.text_open_or_remove, applicationsList.get(selection).getDisplayName())) ;
+					dialog.setMessage(context.getString(R.string.dialog_open_or_remove, applicationsList.get(selection).getDisplayName())) ;
 					dialog.setPositiveButton(R.string.button_remove,
 							new DialogInterface.OnClickListener()
 							{
@@ -167,7 +167,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 				}
 				else
 				{
-					dialog.setMessage(context.getString(R.string.text_open_or_settings, applicationsList.get(selection).getDisplayName())) ;
+					dialog.setMessage(context.getString(R.string.dialog_open_or_settings, applicationsList.get(selection).getDisplayName())) ;
 					dialog.setPositiveButton(R.string.button_settings,
 							new DialogInterface.OnClickListener()
 							{

@@ -72,9 +72,9 @@ public class ActivityShortcut extends AppCompatActivity
 									{
 										try { launcher.startShortcut(shortcut[0], shortcut[1], null, null, UserHandle.getUserHandleForUid(user_id)) ; }
 										catch(ActivityNotFoundException | IllegalStateException e)
-										{ ShowDialog.toastLong(this, getString(R.string.error_shortcut_start_failed)) ; }
+										{ ShowDialog.toastLong(this, getString(R.string.error_shortcut_start)) ; }
 									}
-									else ShowDialog.toastLong(this, getString(R.string.error_error_not_default_launcher)) ;
+									else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
 							}
 							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_missing_info)) ;
 					}
@@ -96,7 +96,7 @@ public class ActivityShortcut extends AppCompatActivity
 										+ Application.SHORTCUT_SEPARATOR + user_id.replace("UserHandle{", "").replace("}", "") ;
 								ActivityMain.getApplicationsList().addShortcut(this, display_name, shortcut, false) ;
 							}
-							else ShowDialog.toastLong(this, getString(R.string.error_invalid_shortcut_request)) ;
+							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
 					}
 			}
 

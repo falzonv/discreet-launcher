@@ -108,7 +108,7 @@ class EventsReceiver extends BroadcastReceiver
 						// If the request is invalid, display a message and quit
 						if((display_name == null) || (shortcutIntent == null))
 							{
-								ShowDialog.alert(context, context.getString(R.string.error_invalid_shortcut_request)) ;
+								ShowDialog.alert(context, context.getString(R.string.error_shortcut_invalid_request)) ;
 								return ;
 							}
 

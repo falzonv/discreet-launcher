@@ -82,7 +82,7 @@ public class ActivitySettings extends AppCompatActivity
 		iconPacks.clear() ;
 		packsNames.clear() ;
 		iconPacks.add(NONE) ;
-		packsNames.add(getString(R.string.text_no_icon_pack)) ;
+		packsNames.add(getString(R.string.set_icon_pack_none)) ;
 		searchIconPacks() ;
 
 		// Prepare the applications lists
@@ -182,7 +182,7 @@ public class ActivitySettings extends AppCompatActivity
 			ArrayList<String> names = new ArrayList<>() ;
 			names.add(NONE) ;
 			names.addAll(applicationsNames) ;
-			displayNames.add(getString(R.string.text_no_application)) ;
+			displayNames.add(getString(R.string.set_application_none)) ;
 			displayNames.addAll(applicationsDisplayNames) ;
 
 			// Initialize the notification applications selectors
