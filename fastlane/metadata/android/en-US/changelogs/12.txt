@@ -1,0 +1,2 @@
+- Option to hide applications (idea from gicofied9)
+- Option to export/import settings
