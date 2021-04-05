@@ -57,6 +57,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private static boolean ignore_settings_changes ;
+	private static boolean adapter_update_needed ;
 	private EventsReceiver applicationsListUpdater ;
 	private EventsReceiver legacyShortcutsCreator ;
 	private SharedPreferences settings ;
@@ -121,9 +122,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		recycler.setLayoutManager(new GridLayoutManager(this, 4)) ;
 		favoritesPanel = findViewById(R.id.favorites_panel) ;
 		favoritesPanel.setVisibility(View.GONE) ;
+		adapter_update_needed = false ;
 
 		// Start to listen for packages added or removed
-		applicationsListUpdater = new EventsReceiver(adapter) ;
+		applicationsListUpdater = new EventsReceiver() ;
 		IntentFilter filter = new IntentFilter() ;
 		filter.addAction(Intent.ACTION_PACKAGE_ADDED) ;
 		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
@@ -133,7 +135,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// When Android version is before, Oreo, start to listen for legacy shortcut requests
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
-				legacyShortcutsCreator = new EventsReceiver(adapter) ;
+				legacyShortcutsCreator = new EventsReceiver() ;
 				registerReceiver(legacyShortcutsCreator, new IntentFilter("com.android.launcher.action.INSTALL_SHORTCUT")) ;
 			}
 	}
@@ -184,6 +186,15 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	static void setIgnoreSettingsChanges(boolean new_value)
 	{
 		ignore_settings_changes = new_value ;
+	}
+
+
+	/**
+	 * Inform the activity that an update of the RecyclerView is needed.
+	 */
+	static void setAdapterUpdateNeeded()
+	{
+		adapter_update_needed = true ;
 	}
 
 	
@@ -474,6 +485,13 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Hide the notification and update the clock according to settings
 		notificationMenu.hide() ;
 		manageClock() ;
+
+		// Update the RecyclerView if needed
+		if(adapter_update_needed)
+			{
+				adapter.notifyDataSetChanged() ;
+				adapter_update_needed = false ;
+			}
 	}
 
 

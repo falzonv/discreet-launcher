@@ -38,18 +38,14 @@ import java.util.Date ;
 class EventsReceiver extends BroadcastReceiver
 {
 	// Attributes
-	private final RecyclerAdapter adapter ;
 	private final TextView clockText ;
 
 
 	/**
 	 * Constructor to update the applications list when there is a change.
-	 * @param adapter The RecyclerView to notify after the update
 	 */
-	EventsReceiver(RecyclerAdapter adapter)
+	EventsReceiver()
 	{
-		// Initializations
-		this.adapter = adapter ;
 		clockText = null ;
 	}
 
@@ -60,11 +56,8 @@ class EventsReceiver extends BroadcastReceiver
 	 */
 	EventsReceiver(TextView view)
 	{
-		// Initializations
-		adapter = null ;
-		clockText = view ;
-
 		// Display the clock forcing a "HH:mm" format
+		clockText = view ;
 		@SuppressLint("SimpleDateFormat")
 		SimpleDateFormat clockFormat = new SimpleDateFormat("HH:mm") ;
 		clockText.setText(clockFormat.format(new Date())) ;
@@ -98,7 +91,8 @@ class EventsReceiver extends BroadcastReceiver
 			{
 				// Update the applications list
 				ActivityMain.getApplicationsList().update(context) ;
-				if(adapter != null) adapter.notifyDataSetChanged() ;
+				ActivityMain.setAdapterUpdateNeeded() ;
+				ActivityDrawer.setAdapterUpdateNeeded() ;
 			}
 
 		// Execute the following code only if the Android version is before Oreo
@@ -121,7 +115,8 @@ class EventsReceiver extends BroadcastReceiver
 						// Add the shortcut and update the applications list
 						String shortcut = display_name + Application.SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
 						ActivityMain.getApplicationsList().addShortcut(context, display_name, shortcut, true) ;
-						if(adapter != null) adapter.notifyDataSetChanged() ;
+						ActivityMain.setAdapterUpdateNeeded() ;
+						ActivityDrawer.setAdapterUpdateNeeded() ;
 					}
 			}
 	}

@@ -40,7 +40,8 @@ public class ActivityDrawer extends AppCompatActivity
 {
 	// Attributes
 	private GridLayoutManager layoutManager ;
-	@SuppressWarnings("FieldCanBeLocal") private RecyclerAdapter adapter ; // Not true (needed for EventsReceiver)
+	private RecyclerAdapter adapter ;
+	private static boolean adapter_update_needed ;
 	private EventsReceiver applicationsListUpdater ;
 	private EventsReceiver legacyShortcutsCreator ;
 	private int position ;
@@ -70,9 +71,10 @@ public class ActivityDrawer extends AppCompatActivity
 		adapter = new RecyclerAdapter(false) ;
 		recycler.setAdapter(adapter) ;
 		recycler.setLayoutManager(layoutManager) ;
+		adapter_update_needed = false ;
 
 		// Start to listen for packages added or removed
-		applicationsListUpdater = new EventsReceiver(adapter) ;
+		applicationsListUpdater = new EventsReceiver() ;
 		IntentFilter filter = new IntentFilter() ;
 		filter.addAction(Intent.ACTION_PACKAGE_ADDED) ;
 		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
@@ -82,7 +84,7 @@ public class ActivityDrawer extends AppCompatActivity
 		// When Android version is before, Oreo, start to listen for legacy shortcut requests
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
-				legacyShortcutsCreator = new EventsReceiver(adapter) ;
+				legacyShortcutsCreator = new EventsReceiver() ;
 				registerReceiver(legacyShortcutsCreator, new IntentFilter("com.android.launcher.action.INSTALL_SHORTCUT")) ;
 			}
 
@@ -90,6 +92,15 @@ public class ActivityDrawer extends AppCompatActivity
 		position = 0 ;
 		last_position = -1 ;
 		recycler.addOnScrollListener(new ScrollListener()) ;
+	}
+
+
+	/**
+	 * Inform the activity that an update of the RecyclerView is needed.
+	 */
+	static void setAdapterUpdateNeeded()
+	{
+		adapter_update_needed = true ;
 	}
 
 
@@ -136,6 +147,23 @@ public class ActivityDrawer extends AppCompatActivity
 			// Update the position of the first visible item
 			position = layoutManager.findFirstCompletelyVisibleItemPosition() ;
 		}
+	}
+
+
+	/**
+	 * Perform actions when the user come back to the drawer.
+	 */
+	@Override
+	public void onResume()
+	{
+		super.onResume() ;
+
+		// Update the RecyclerView if needed
+		if(adapter_update_needed)
+			{
+				adapter.notifyDataSetChanged() ;
+				adapter_update_needed = false ;
+			}
 	}
 
 
