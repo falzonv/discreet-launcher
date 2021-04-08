@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text clock on the home screen -->
+    <dimen name="clock_font_size">80sp</dimen>
+    <dimen name="clock_shadow_radius">20</dimen>
+
+    <!-- Menu button -->
+    <dimen name="menu_button_top_margin">5dp</dimen>
+    <dimen name="menu_button_vertical_padding">5dp</dimen>
+    <dimen name="menu_button_horizontal_padding">10dp</dimen>
+
+    <!-- Applications list -->
+    <dimen name="application_vertical_margins">10dp</dimen>
+    <dimen name="application_space_text_to_icon">5dp</dimen>
+    <dimen name="last_update_text_padding">5dp</dimen>
+
+    <!-- Settings / Help -->
+    <dimen name="settings_horizontal_margins">20dp</dimen>
+    <dimen name="buttons_vertical_margins">10dp</dimen>
+    <dimen name="buttons_horizontal_spacing">15dp</dimen>
+    <dimen name="about_paragraphs_spacing">10dp</dimen>
+    <dimen name="about_margin_bottom">20dp</dimen>
+
+</resources>

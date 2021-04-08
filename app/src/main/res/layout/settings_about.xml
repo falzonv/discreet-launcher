@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="10dp"
-    android:layout_marginHorizontal="20dp"
+    android:layout_marginTop="@dimen/about_paragraphs_spacing"
+    android:layout_marginHorizontal="@dimen/settings_horizontal_margins"
     android:gravity="center">
 
     <LinearLayout
@@ -34,13 +34,10 @@
         android:layout_width="wrap_content"
         android:text="@string/author"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"/>
-
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/about_paragraphs_spacing"
         android:text="@string/licence_name"/>
 
     <TextView
@@ -49,20 +46,17 @@
         android:autoLink="web"
         android:text="@string/license_link"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"/>
-
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/about_paragraphs_spacing"
         android:gravity="center"
         android:text="@string/website_description"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="@dimen/about_margin_bottom"
         android:autoLink="web"
         android:text="@string/website_link"/>
 

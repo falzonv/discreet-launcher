@@ -4,8 +4,8 @@
 	android:id="@+id/application_item"
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
-	android:layout_marginTop="10dp"
-	android:layout_marginBottom="10dp"
-	android:drawablePadding="5dp"
+	android:layout_marginTop="@dimen/application_vertical_margins"
+	android:layout_marginBottom="@dimen/application_vertical_margins"
+	android:drawablePadding="@dimen/application_space_text_to_icon"
 	android:gravity="center"
 	android:textColor="@color/color_applications_drawer_text"/>

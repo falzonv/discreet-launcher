@@ -28,11 +28,11 @@
 			android:layout_gravity="center"
 			android:gravity="center"
 			android:text="@string/button_access_menu"
-			android:paddingTop="5dp"
-			android:paddingStart="10dp"
-			android:paddingEnd="10dp"
-			android:paddingBottom="5dp"
-			android:layout_marginTop="5dp"
+			android:paddingTop="@dimen/menu_button_vertical_padding"
+			android:paddingStart="@dimen/menu_button_horizontal_padding"
+			android:paddingEnd="@dimen/menu_button_horizontal_padding"
+			android:paddingBottom="@dimen/menu_button_vertical_padding"
+			android:layout_marginTop="@dimen/menu_button_top_margin"
 			android:textColor="@color/color_applications_drawer_text"
 			android:background="@color/color_applications_drawer_background"/>
 
@@ -46,9 +46,9 @@
         android:gravity="center_horizontal"
         android:text=""
         android:fontFamily="sans-serif-light"
-        android:textSize="80sp"
+        android:textSize="@dimen/clock_font_size"
         android:textColor="@color/color_applications_drawer_text"
         android:shadowColor="@color/color_applications_drawer_background"
-        android:shadowRadius="20"/>
+        android:shadowRadius="@dimen/clock_shadow_radius"/>
 
 </LinearLayout>
