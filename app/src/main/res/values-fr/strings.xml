@@ -103,6 +103,7 @@
     <string name="changelog">
         \n<b>v2.5.0</b>
         \n- Mise à jour automatique de la liste après import
+        \n- Fix: adapter la limite de favoris à la taille d\'écran (merci AeOeAa)
         \n
         \n<b>v2.4.0 - 05/04/2021</b>
         \n- Possibilité de masquer des applications (idée de gicofied9)

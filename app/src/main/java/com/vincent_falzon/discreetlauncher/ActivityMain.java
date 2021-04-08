@@ -36,6 +36,7 @@ import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
+import android.util.DisplayMetrics ;
 import android.view.ContextMenu ;
 import android.view.GestureDetector ;
 import android.view.MenuInflater ;
@@ -52,7 +53,7 @@ import java.util.ArrayList ;
 public class ActivityMain extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
 	// Constants
-	public static final int MAX_FAVORITES = 16 ;
+	public static final int NB_COLUMNS = 4 ;
 
 	// Attributes
 	private static ApplicationsList applicationsList ;
@@ -119,7 +120,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		RecyclerView recycler = findViewById(R.id.favorites_applications) ;
 		adapter = new RecyclerAdapter(true) ;
 		recycler.setAdapter(adapter) ;
-		recycler.setLayoutManager(new GridLayoutManager(this, 4)) ;
+		recycler.setLayoutManager(new GridLayoutManager(this, NB_COLUMNS)) ;
 		favoritesPanel = findViewById(R.id.favorites_panel) ;
 		favoritesPanel.setVisibility(View.GONE) ;
 		adapter_update_needed = false ;
@@ -273,6 +274,18 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			else for(i = 0 ; i < app_names.length ; i++)
 					selected[i] = file.isLineExisting(applications.get(i).getName()) ;
 
+		// Retrieve the total height available in portrait mode (navigation bar automatically removed)
+		DisplayMetrics metrics = getResources().getDisplayMetrics() ;
+		int button_height = findViewById(R.id.access_menu_button).getHeight() ;
+		int total_size = Math.max(metrics.heightPixels, metrics.widthPixels)
+				- Math.round(25 * metrics.density)	// Remove 25dp for the status bar
+				- Math.round(20 * metrics.density)  // Remove 20dp for button margins and spare
+				- button_height ;
+
+		// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
+		int app_size = button_height + Math.round(48 * metrics.density) + Math.round(25 * metrics.density) ;
+		final int max_favorites = (total_size / app_size) * NB_COLUMNS ;
+
 		// Prepare and display the selection dialog
 		final Context context = this ;
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
@@ -302,7 +315,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 								{
 									// If the maximum is not reached, add the application to the favorites list
 									favorites_number++ ;
-									if(favorites_number <= MAX_FAVORITES)
+									if(favorites_number <= max_favorites)
 										if(!file.writeLine(applications.get(i).getName()))
 											{
 												ShowDialog.toastLong(context, getString(R.string.error_favorite, applications.get(i).getDisplayName())) ;
@@ -314,7 +327,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						// Update the favorites panel and inform the user
 						applicationsList.updateFavorites(context) ;
 						adapter.notifyDataSetChanged() ;
-						if(favorites_number > MAX_FAVORITES) ShowDialog.toastLong(context, getString(R.string.error_too_many_favorites, MAX_FAVORITES)) ;
+						if(favorites_number > max_favorites) ShowDialog.toastLong(context, getString(R.string.error_too_many_favorites, max_favorites)) ;
 							else ShowDialog.toast(getApplicationContext(), R.string.info_favorites_saved) ;
 					}
 				}) ;
