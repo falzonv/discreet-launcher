@@ -52,7 +52,6 @@
         car leurs informations sont gardées en interne par le système et ne sont pas exportables)
     </string>
     <string name="export_completed">Export terminé</string>
-    <string name="import_completed">Import terminé !\nVeuillez actualiser la liste des applications depuis le menu de l\'écran d\'accueil.</string>
 
     <!-- Paramètres -->
     <string name="settings_title">Paramètres / Aide</string>
@@ -102,7 +101,10 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
-        \n<b>v2.4.0 - </b>
+        \n<b>v2.5.0</b>
+        \n- Mise à jour automatique de la liste après import
+        \n
+        \n<b>v2.4.0 - 05/04/2021</b>
         \n- Possibilité de masquer des applications (idée de gicofied9)
         \n- Possibilité d\'exporter/importer les paramètres
         \n

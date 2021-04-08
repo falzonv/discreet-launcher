@@ -284,9 +284,11 @@ public class ActivityExportImport extends AppCompatActivity
 		if(hiddenApplications.size() > 0) editor.putStringSet(ActivitySettings.HIDDEN_APPLICATIONS, hiddenApplications) ;
 		editor.apply() ;
 
-		// Inform the user and start again to listen for settings changes
-		ShowDialog.toastLong(this, getString(R.string.import_completed)) ;
+		// Update the application list and start again to listen for settings changes
+		ActivityMain.getApplicationsList().update(this) ;
 		ActivityMain.getApplicationsList().updateNotificationApps(this) ;
+		ActivityMain.setAdapterUpdateNeeded() ;
+		ActivityDrawer.setAdapterUpdateNeeded() ;
 		ActivityMain.setIgnoreSettingsChanges(false) ;
 	}
 

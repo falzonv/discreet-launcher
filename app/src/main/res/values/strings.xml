@@ -52,7 +52,6 @@
         because their information are kept internally by the system and cannot be exported)
     </string>
     <string name="export_completed">Export completed</string>
-    <string name="import_completed">Import completed!\nPlease refresh the applications list from the home screen menu.</string>
 
     <!-- Settings -->
     <string name="settings_title">Settings / Help</string>
@@ -105,7 +104,10 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
-        \n<b>v2.4.0 - </b>
+        \n<b>v2.5.0</b>
+        \n- Automatic update of the list after import
+        \n
+        \n<b>v2.4.0 - 05/04/2021</b>
         \n- Option to hide applications (idea from gicofied9)
         \n- Option to export/import settings
         \n
