@@ -1,0 +1,7 @@
+v2.5.1:
+- Fix: possible bug with web apps on Android >= 8
+
+v2.5.0:
+- Automatic update of the list after import
+- New web apps/shortcuts will have icons
+- Fix: adapt favorites limit to screen size (thanks AeOeAa)

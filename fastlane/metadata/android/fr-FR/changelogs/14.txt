@@ -1,0 +1,7 @@
+v2.5.1 :
+- Fix: possible bug avec les applications web sur Android >= 8
+
+v2.5.0 :
+- Mise à jour automatique de la liste après import
+- Icônes affichées pour les nouveaux raccourcis web
+- Fix: adapter la limite de favoris à la taille d\'écran (merci AeOeAa)
