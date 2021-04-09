@@ -27,6 +27,7 @@ import android.annotation.SuppressLint ;
 import android.content.BroadcastReceiver ;
 import android.content.Context ;
 import android.content.Intent ;
+import android.graphics.Bitmap ;
 import android.os.Build ;
 import android.widget.TextView ;
 import java.text.SimpleDateFormat ;
@@ -101,9 +102,10 @@ class EventsReceiver extends BroadcastReceiver
 				// Check if a request to add a shortcut has been received
 				if(intent.getAction().equals("com.android.launcher.action.INSTALL_SHORTCUT"))
 					{
-						// Retrive the name and intent of the shortcut
+						// Retrive the name, icon and intent of the shortcut
 						String display_name = intent.getStringExtra(Intent.EXTRA_SHORTCUT_NAME) ;
-						Intent shortcutIntent = (Intent)intent.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT) ;
+						Bitmap icon = intent.getParcelableExtra(Intent.EXTRA_SHORTCUT_ICON) ;
+						Intent shortcutIntent = intent.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT) ;
 
 						// If the request is invalid, display a message and quit
 						if((display_name == null) || (shortcutIntent == null))
@@ -114,7 +116,7 @@ class EventsReceiver extends BroadcastReceiver
 
 						// Add the shortcut and update the applications list
 						String shortcut = display_name + Application.SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
-						ActivityMain.getApplicationsList().addShortcut(context, display_name, shortcut, true) ;
+						ActivityMain.getApplicationsList().addShortcut(context, display_name, shortcut, icon, true) ;
 						ActivityMain.setAdapterUpdateNeeded() ;
 						ActivityDrawer.setAdapterUpdateNeeded() ;
 					}

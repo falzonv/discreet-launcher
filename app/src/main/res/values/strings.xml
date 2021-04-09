@@ -106,6 +106,7 @@
     <string name="changelog">
         \n<b>v2.5.0</b>
         \n- Automatic update of the list after import
+        \n- New web apps/shortcuts will have icons
         \n- Fix: adapt favorites limit to screen size (thanks AeOeAa)
         \n
         \n<b>v2.4.0 - 05/04/2021</b>

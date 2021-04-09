@@ -28,9 +28,15 @@ import android.content.Intent ;
 import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
+import android.graphics.Bitmap ;
+import android.graphics.BitmapFactory ;
+import android.graphics.drawable.BitmapDrawable ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
 import androidx.preference.PreferenceManager ;
+import java.io.File ;
+import java.io.FileOutputStream ;
+import java.io.IOException ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
 import java.util.Collections ;
@@ -313,10 +319,10 @@ class ApplicationsList
 	 */
 	void loadShortcuts(Context context)
 	{
-		// Use the notification icon as generic shortcut icon
-		Drawable icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
+		// Use the notification icon as default shortcut icon
+		Drawable default_icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
-		if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
+		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// If their file exists, browse the shortcuts
 		InternalFile file = new InternalFile(context, SHORTCUTS_FILE) ;
@@ -325,9 +331,23 @@ class ApplicationsList
 				String[] shortcut ;
 				for(String shortcut_line : file.readAllLines())
 				{
-					// Add the shortcut to the list of applications
+					// Extrat the shortcut details
 					shortcut = shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
 					if(shortcut.length != 4) continue ;
+
+					// Try to retrieve the shortcut icon or use the default
+					Drawable icon ;
+					File icon_file = new File(context.getFilesDir().getAbsolutePath() + "/icon_shortcut_" + shortcut[0] + ".png") ;
+					// TODO : check BitmapFactory: Unable to decode stream: java.io.FileNotFoundException
+					Bitmap bitmap = BitmapFactory.decodeFile(icon_file.getAbsolutePath(), new BitmapFactory.Options()) ;
+					if(bitmap != null)
+						{
+							icon = new BitmapDrawable(context.getResources(), bitmap) ;
+							icon.setBounds(0, 0, icon_size, icon_size) ;
+						}
+					else icon = default_icon ;
+
+					// Add the shortcut to the list of applications
 					applications.add(new Application(shortcut[0],
 							shortcut[1] + Application.SHORTCUT_SEPARATOR + shortcut[2] + Application.SHORTCUT_SEPARATOR + shortcut[3],
 							Application.APK_SHORTCUT, icon)) ;
@@ -341,9 +361,23 @@ class ApplicationsList
 				String[] legacy_shortcut ;
 				for(String legacy_shortcut_line : legacyFile.readAllLines())
 				{
-					// Add the shortcut to the list of applications
+					// Extrat the shortcut details
 					legacy_shortcut = legacy_shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
 					if(legacy_shortcut.length != 2) continue ;
+
+					// Try to retrieve the shortcut icon or use the default
+					Drawable icon ;
+					File icon_file = new File(context.getFilesDir().getAbsolutePath() + "/icon_shortcut_" + legacy_shortcut[0] + ".png") ;
+					// TODO : check BitmapFactory: Unable to decode stream: java.io.FileNotFoundException
+					Bitmap bitmap = BitmapFactory.decodeFile(icon_file.getAbsolutePath(), new BitmapFactory.Options()) ;
+					if(bitmap != null)
+						{
+							icon = new BitmapDrawable(context.getResources(), bitmap) ;
+							icon.setBounds(0, 0, icon_size, icon_size) ;
+						}
+						else icon = default_icon ;
+
+					// Add the shortcut to the list of applications
 					applications.add(new Application(legacy_shortcut[0], legacy_shortcut[1], Application.APK_SHORTCUT_LEGACY, icon)) ;
 				}
 			}
@@ -354,10 +388,11 @@ class ApplicationsList
 	 * Method called when a request to add a shortcut has been received.
 	 * @param context Provided by the receiver
 	 * @param display_name Displayed to the user
+	 * @param icon Displayed to the user
 	 * @param shortcut Line to add to the shortcuts file
 	 * @param legacy <code>true</code> if before Oreo, <code>false</code> otherwise
 	 */
-	void addShortcut(Context context, String display_name, String shortcut, boolean legacy)
+	void addShortcut(Context context, String display_name, String shortcut, Bitmap icon, boolean legacy)
 	{
 		// Check if the shortcut already exists in the file
 		InternalFile file ;
@@ -380,6 +415,21 @@ class ApplicationsList
 			{
 				ShowDialog.alert(context, context.getString(R.string.error_shortcut, display_name)) ;
 				return ;
+			}
+
+		// Save the shortcut icon to a file
+		if(icon != null)
+			{
+				try
+				{
+					FileOutputStream icon_file = new FileOutputStream(new File(context.getFilesDir().getAbsolutePath() + "/icon_shortcut_" + display_name + ".png")) ;
+					icon.compress(Bitmap.CompressFormat.PNG, 100, icon_file) ;
+					icon_file.close() ;
+				}
+				catch(IOException e)
+				{
+					ShowDialog.alert(context, context.getString(R.string.error_shortcut, display_name)) ;
+				}
 			}
 
 		// Update the applications list
@@ -418,6 +468,9 @@ class ApplicationsList
 					return ;
 				}
 		}
+
+		// Remove the shortcut icon
+		new InternalFile(context, "icon_shortcut_" + to_remove + ".png").hasRemovalFailed(context) ;
 
 		// Update the applications list
 		update(context) ;
