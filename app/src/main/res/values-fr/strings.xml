@@ -102,6 +102,9 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
+        \n<b>v2.5.1 - 09/04/2021</b>
+        \n- Fix: possible bug avec les applications web sur Android >= 8
+        \n
         \n<b>v2.5.0 - 09/04/2021</b>
         \n- Mise à jour automatique de la liste après import
         \n- Icônes affichées pour les nouveaux raccourcis web

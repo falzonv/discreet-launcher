@@ -105,6 +105,9 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
+        \n<b>v2.5.1 - 09/04/2021</b>
+        \n- Fix: possible bug with web apps on Android >= 8
+        \n
         \n<b>v2.5.0 - 09/04/2021</b>
         \n- Automatic update of the list after import
         \n- New web apps/shortcuts will have icons

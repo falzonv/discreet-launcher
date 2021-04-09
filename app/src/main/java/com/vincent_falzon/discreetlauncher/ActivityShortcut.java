@@ -123,13 +123,13 @@ public class ActivityShortcut extends AppCompatActivity
 								ActivityMain.getApplicationsList().addShortcut(this, display_name, shortcut, icon, false) ;
 							}
 							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
-
-						// Go back to the previous activity
-						Intent homeScreenIntent = new Intent() ;
-						homeScreenIntent.setClass(this, ActivityMain.class) ;
-						homeScreenIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-						startActivity(homeScreenIntent) ;
 					}
 			}
+
+		// Go back to the previous activity
+		Intent homeScreenIntent = new Intent() ;
+		homeScreenIntent.setClass(this, ActivityMain.class) ;
+		homeScreenIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+		startActivity(homeScreenIntent) ;
 	}
 }
