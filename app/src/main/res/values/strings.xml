@@ -105,7 +105,7 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
-        \n<b>v2.5.0</b>
+        \n<b>v2.5.0 - 09/04/2021</b>
         \n- Automatic update of the list after import
         \n- New web apps/shortcuts will have icons
         \n- Fix: adapt favorites limit to screen size (thanks AeOeAa)

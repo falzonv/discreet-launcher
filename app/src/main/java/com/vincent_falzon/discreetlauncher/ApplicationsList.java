@@ -312,7 +312,7 @@ class ApplicationsList
 
 	/**
 	 * Add shortcuts to the applications list based on the shortcuts files.
-	 * @param context To get the file path and generic icon
+	 * @param context To get the file path and icons
 	 */
 	void loadShortcuts(Context context)
 	{

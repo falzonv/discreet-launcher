@@ -45,7 +45,7 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
-import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT;
+import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
 /**

@@ -1,0 +1,3 @@
+- Automatic update of the list after import
+- New web apps/shortcuts will have icons
+- Fix: adapt favorites limit to screen size (thanks AeOeAa)

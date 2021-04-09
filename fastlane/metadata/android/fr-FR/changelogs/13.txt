@@ -1,0 +1,3 @@
+- Mise à jour automatique de la liste après import
+- Icônes affichées pour les nouveaux raccourcis web
+- Fix: adapter la limite de favoris à la taille d\'écran (merci AeOeAa)

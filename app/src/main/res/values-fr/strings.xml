@@ -102,7 +102,7 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
-        \n<b>v2.5.0</b>
+        \n<b>v2.5.0 - 09/04/2021</b>
         \n- Mise à jour automatique de la liste après import
         \n- Icônes affichées pour les nouveaux raccourcis web
         \n- Fix: adapter la limite de favoris à la taille d\'écran (merci AeOeAa)
