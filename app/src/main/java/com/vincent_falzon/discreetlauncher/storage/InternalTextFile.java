@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher ;
+package com.vincent_falzon.discreetlauncher.storage ;
 
 // License
 /*
@@ -24,6 +24,8 @@ package com.vincent_falzon.discreetlauncher ;
 
 // Imports
 import android.content.Context ;
+import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import java.io.BufferedReader ;
 import java.io.File ;
 import java.io.FileReader ;
@@ -33,7 +35,7 @@ import java.util.ArrayList ;
 /**
  * Manage the storage of an internal file.
  */
-class InternalFile
+public class InternalTextFile
 {
 	// Attributes
 	private final File file ;
@@ -44,7 +46,7 @@ class InternalFile
 	 * @param context To get the folder path
 	 * @param filename Name of the file
 	 */
-	InternalFile(Context context, String filename)
+	public InternalTextFile(Context context, String filename)
 	{
 		file = new File(context.getFilesDir().getAbsolutePath() + "/" + filename) ;
 	}
@@ -54,7 +56,7 @@ class InternalFile
 	 * Check if the file exists on the system (inverted for easier error handling).
 	 * @return <code>true</code> if it does not exist, <code>false</code> otherwise
 	 */
-	boolean isNotExisting()
+	public boolean isNotExisting()
 	{
 		return !file.exists() ;
 	}
@@ -64,7 +66,7 @@ class InternalFile
 	 * Read the internal file line by line and store the result in an array of lines.
 	 * @return Content of the file or <code>null</code> if an error happened
 	 */
-	ArrayList<String> readAllLines()
+	public ArrayList<String> readAllLines()
 	{
 		// Check if the file exists
 		if(isNotExisting()) return null ;
@@ -96,7 +98,7 @@ class InternalFile
 	 * @param search Text of the line
 	 * @return <code>true</code> if it exists, <code>false</code> otherwis
 	 */
-	boolean isLineExisting(String search)
+	public boolean isLineExisting(String search)
 	{
 		return readAllLines().contains(search) ;
 	}
@@ -108,7 +110,7 @@ class InternalFile
 	 * @param added_line To write in the file
 	 * @return <code>true</code> if successful, <code>false</code> otherwise
 	 */
-	boolean writeLine(String added_line)
+	public boolean writeLine(String added_line)
 	{
 		try
 		{
@@ -133,7 +135,7 @@ class InternalFile
 	 * @param context To display alerts
 	 * @return <code>true</code> if it has failed, <code>false</code> otherwise
 	 */
-	boolean hasRemovalFailed(Context context)
+	public boolean hasRemovalFailed(Context context)
 	{
 		// Try to remove the file
 		if(isNotExisting() || file.delete()) return false ;

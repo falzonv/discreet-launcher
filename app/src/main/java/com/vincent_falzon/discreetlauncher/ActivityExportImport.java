@@ -33,6 +33,7 @@ import android.os.ParcelFileDescriptor ;
 import android.view.View ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.storage.InternalTextFile ;
 import java.io.BufferedReader ;
 import java.io.FileReader ;
 import java.io.FileWriter ;
@@ -198,7 +199,7 @@ public class ActivityExportImport extends AppCompatActivity
 	{
 		// Initializations
 		ArrayList<String> content = new ArrayList<>() ;
-		InternalFile file = new InternalFile(this, filename) ;
+		InternalTextFile file = new InternalTextFile(this, filename) ;
 
 		// Return the content of the file or indicate that it does not exist
 		if(file.isNotExisting()) content.add(filename + ": " + ActivitySettings.NONE) ;
@@ -235,13 +236,13 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Prepare the files that need to be replaced
 		ActivityMain.setIgnoreSettingsChanges(true) ;
-		InternalFile favorites, shortcuts, shortcuts_legacy ;
+		InternalTextFile favorites, shortcuts, shortcuts_legacy ;
 		if(importedData.contains(ApplicationsList.FAVORITES_FILE + ": " + ActivitySettings.NONE)) favorites = null ;
-			else favorites = new InternalFile(this, ApplicationsList.FAVORITES_FILE) ;
+			else favorites = new InternalTextFile(this, ApplicationsList.FAVORITES_FILE) ;
 		if(importedData.contains(ApplicationsList.SHORTCUTS_FILE + ": " + ActivitySettings.NONE)) shortcuts = null ;
-			else shortcuts = new InternalFile(this, ApplicationsList.SHORTCUTS_FILE) ;
+			else shortcuts = new InternalTextFile(this, ApplicationsList.SHORTCUTS_FILE) ;
 		if(importedData.contains(ApplicationsList.SHORTCUTS_LEGACY_FILE + ": " + ActivitySettings.NONE)) shortcuts_legacy = null ;
-			else shortcuts_legacy = new InternalFile(this, ApplicationsList.SHORTCUTS_LEGACY_FILE) ;
+			else shortcuts_legacy = new InternalTextFile(this, ApplicationsList.SHORTCUTS_LEGACY_FILE) ;
 		if(favorites != null) favorites.hasRemovalFailed(this) ;
 		if(shortcuts != null) shortcuts.hasRemovalFailed(this) ;
 		if(shortcuts_legacy != null) shortcuts_legacy.hasRemovalFailed(this) ;

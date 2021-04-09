@@ -34,6 +34,7 @@ import android.graphics.drawable.BitmapDrawable ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.storage.InternalTextFile ;
 import java.io.File ;
 import java.io.FileOutputStream ;
 import java.io.IOException ;
@@ -160,7 +161,7 @@ class ApplicationsList
 	{
 		// Initializations
 		favorites.clear() ;
-		InternalFile file = new InternalFile(context, FAVORITES_FILE) ;
+		InternalTextFile file = new InternalTextFile(context, FAVORITES_FILE) ;
 		if(file.isNotExisting()) return ;
 
 		// Retrieve and browse the internal names of all favorites applications
@@ -187,7 +188,7 @@ class ApplicationsList
 	 * a version before v1.2.0. It updates the favorites file to new format with internal names.
 	 * @param context To display an alert dialog
 	 */
-	private void convertOldFavoritesFileFormat(Context context, InternalFile file)
+	private void convertOldFavoritesFileFormat(Context context, InternalTextFile file)
 	{
 		// Retrieve and browse the package names of all favorites applications
 		for(String apk : file.readAllLines())
@@ -325,7 +326,7 @@ class ApplicationsList
 		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// If their file exists, browse the shortcuts
-		InternalFile file = new InternalFile(context, SHORTCUTS_FILE) ;
+		InternalTextFile file = new InternalTextFile(context, SHORTCUTS_FILE) ;
 		if(!file.isNotExisting())
 			{
 				String[] shortcut ;
@@ -355,7 +356,7 @@ class ApplicationsList
 			}
 
 		// If their file exists, browse the legacy shortcuts
-		InternalFile legacyFile = new InternalFile(context, SHORTCUTS_LEGACY_FILE) ;
+		InternalTextFile legacyFile = new InternalTextFile(context, SHORTCUTS_LEGACY_FILE) ;
 		if(!legacyFile.isNotExisting())
 			{
 				String[] legacy_shortcut ;
@@ -395,9 +396,9 @@ class ApplicationsList
 	void addShortcut(Context context, String display_name, String shortcut, Bitmap icon, boolean legacy)
 	{
 		// Check if the shortcut already exists in the file
-		InternalFile file ;
-		if(legacy) file = new InternalFile(context, SHORTCUTS_LEGACY_FILE) ;
-			else file = new InternalFile(context, SHORTCUTS_FILE) ;
+		InternalTextFile file ;
+		if(legacy) file = new InternalTextFile(context, SHORTCUTS_LEGACY_FILE) ;
+			else file = new InternalTextFile(context, SHORTCUTS_FILE) ;
 		if(!file.isNotExisting())
 			{
 				// Browse all the saved shortcuts
@@ -445,10 +446,10 @@ class ApplicationsList
 	void removeShortcut(Context context, Application removedShortcut)
 	{
 		// Save the current shortcuts list and remove the file
-		InternalFile file ;
+		InternalTextFile file ;
 		if(removedShortcut.getApk().equals(Application.APK_SHORTCUT_LEGACY))
-				file = new InternalFile(context, SHORTCUTS_LEGACY_FILE) ;
-			else file = new InternalFile(context, SHORTCUTS_FILE) ;
+				file = new InternalTextFile(context, SHORTCUTS_LEGACY_FILE) ;
+			else file = new InternalTextFile(context, SHORTCUTS_FILE) ;
 		ArrayList<String> currentShortcuts = file.readAllLines() ;
 		if(file.hasRemovalFailed(context)) return ;
 
@@ -470,7 +471,7 @@ class ApplicationsList
 		}
 
 		// Remove the shortcut icon
-		new InternalFile(context, "icon_shortcut_" + to_remove + ".png").hasRemovalFailed(context) ;
+		new InternalTextFile(context, "icon_shortcut_" + to_remove + ".png").hasRemovalFailed(context) ;
 
 		// Update the applications list
 		update(context) ;

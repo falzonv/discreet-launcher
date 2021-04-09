@@ -30,7 +30,7 @@ import androidx.appcompat.app.AlertDialog ;
 /**
  * Provide methods to display toasts and alert dialogs.
  */
-abstract class ShowDialog
+public abstract class ShowDialog
 {
 	/**
 	 * Display an R.string message in a Toast for a short duration.
