@@ -3,17 +3,17 @@ Discreet Launcher provides you a distraction-free home screen, allowing you to f
 From this clean home screen, simply slide your finger down to display your favorites applications or up to see the complete list of applications.
 
 Other features:
-- Hold your finger on an application to access its system settings
+- Long click opens application settings
 - A notification can be shown to give quick access to 3 applications
-- Web apps and shortcuts are supported
+- Web apps and shortcuts support
 - Applications list updated only after specific events (startup, application addition or deletion, icon pack modified) for better speed and to limit battery usage
 - Integrated help and changelog
-- Settings can be exported and imported (text format)
+- Settings export/import (text format)
 
 Customization options:
 - Applications can be hidden in the list
-- The current time (HH:MM) can be displayed on the home screen
-- The status bar can be fully transparent
-- Most icon packs are supported
+- Translucent or transparent status bar
+- Display of the time on the home screen
+- Icon packs support
 
 Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.

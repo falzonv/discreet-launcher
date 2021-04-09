@@ -3,17 +3,17 @@ Lanceur Discret vous offre un écran d'accueil sans distractions, vous permettan
 Depuis cet écran d'accueil épuré, glissez simplement le doigt vers le bas pour afficher vos applications favorites ou vers le haut pour voir la liste complète des applications.
 
 Autres fonctionnalités :
-- Maintenez le doigt sur une application pour accéder à ses paramètres système
+- Clic long pour ouvrir les paramètres d'une application
 - Une notification peut-être affichée pour un accès rapide à 3 applications
-- Les raccourcis et applications web sont supportés
+- Support des raccourcis et applications web
 - Mise à jour de la liste des applications seulement après certains évènements (démarrage, installation ou désinstallation d'application, changement de pack d'icônes) pour plus de rapidité et limiter l'utilisation de la batterie
 - Aide et journal des changements intégrés
-- Les paramètres peuvent être exportés et importés (format texte)
+- Export/import des paramètres (format texte)
 
 Options de personnalisation :
-- Possible de masquer des applications dans la liste
-- L'heure actuelle (HH:MM) peut être affichée sur l'écran d'accueil
-- La barre de statut peut être complètement transparente
-- La plupart des packs d'icônes sont supportés
+- Possible de masquer des applications
+- Barre de statut translucide ou transparente
+- Affichage de l'heure sur l'écran d'accueil
+- Support des packs d'icônes
 
 Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile, fonctionne complètement hors-ligne et n'inclut aucune publicité.
