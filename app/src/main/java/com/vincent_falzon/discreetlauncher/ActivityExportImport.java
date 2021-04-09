@@ -33,10 +33,12 @@ import android.os.ParcelFileDescriptor ;
 import android.view.View ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
-import com.vincent_falzon.discreetlauncher.storage.InternalTextFile ;
+import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.io.BufferedReader ;
+import java.io.File ;
 import java.io.FileReader ;
 import java.io.FileWriter ;
+import java.io.FilenameFilter ;
 import java.io.IOException ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
@@ -161,26 +163,50 @@ public class ActivityExportImport extends AppCompatActivity
 		if(hiddenApplications == null) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + ActivitySettings.NONE) ;
 			else for(String hidden_application : hiddenApplications) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + hidden_application) ;
 		exportedData.add(ActivitySettings.DISPLAY_NOTIFICATION + ": " + settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true)) ;
-		exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + settings.getString(ActivitySettings.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)).replace("\n", "\\n")) ;
+		String notification_text = settings.getString(ActivitySettings.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)) ;
+		if(notification_text == null) exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + getString(R.string.set_notification_text_default)) ;
+			else exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + notification_text.replace("\n", "\\n")) ;
 		exportedData.add(ActivitySettings.HIDE_ON_LOCK_SCREEN + ": " + settings.getBoolean(ActivitySettings.HIDE_ON_LOCK_SCREEN, true)) ;
 		exportedData.add(ActivitySettings.NOTIFICATION_APP + "1: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "1", ActivitySettings.NONE)) ;
 		exportedData.add(ActivitySettings.NOTIFICATION_APP + "2: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "2", ActivitySettings.NONE)) ;
 		exportedData.add(ActivitySettings.NOTIFICATION_APP + "3: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "3", ActivitySettings.NONE)) ;
 		exportedData.add("#") ;
 
+		// Save all shortcuts icons
+		exportedData.add("# " + getString(R.string.export_import_shortcuts_icons)) ;
+		String[] shortcuts_icons = getFilesDir().list(new FilenameFilter()
+		{
+			@Override
+			public boolean accept(File directory, String name)
+			{
+				return name.startsWith(ApplicationsList.SHORTCUT_ICON_PREFIX) ;
+			}
+		}) ;
+		if(shortcuts_icons != null)
+			for(String icon : shortcuts_icons)
+			{
+				InternalFilePNG file = new InternalFilePNG(getApplicationContext(), icon) ;
+				exportedData.add(file.getName() + ": " + file.convertFileToString()) ;
+			}
+		exportedData.add("#") ;
+
 		try
 		{
 			// Write all lines in the file
 			ParcelFileDescriptor file = getContentResolver().openFileDescriptor(location, "w") ;
-			FileWriter writer = new FileWriter(file.getFileDescriptor()) ;
-			for(String line : exportedData)
-			{
-				writer.write(line) ;
-				writer.write(System.lineSeparator()) ;
-			}
-			writer.close() ;
-			file.close() ;
-			ShowDialog.toast(this, R.string.export_completed) ;
+			if(file != null)
+				{
+					FileWriter writer = new FileWriter(file.getFileDescriptor()) ;
+					for(String line : exportedData)
+					{
+						writer.write(line);
+						writer.write(System.lineSeparator()) ;
+					}
+					writer.close() ;
+					file.close() ;
+					ShowDialog.toast(this, R.string.export_completed) ;
+				}
+				else ShowDialog.toastLong(this, getString(R.string.error_export)) ;
 		}
 		catch(IOException e)
 		{
@@ -199,11 +225,11 @@ public class ActivityExportImport extends AppCompatActivity
 	{
 		// Initializations
 		ArrayList<String> content = new ArrayList<>() ;
-		InternalTextFile file = new InternalTextFile(this, filename) ;
+		InternalFileTXT file = new InternalFileTXT(getApplicationContext(), filename) ;
 
 		// Return the content of the file or indicate that it does not exist
-		if(file.isNotExisting()) content.add(filename + ": " + ActivitySettings.NONE) ;
-			else for(String line : file.readAllLines()) content.add(filename + ": " + line) ;
+		if(file.exists()) for(String line : file.readAllLines()) content.add(filename + ": " + line) ;
+			else content.add(filename + ": " + ActivitySettings.NONE) ;
 		return content ;
 	}
 
@@ -222,10 +248,19 @@ public class ActivityExportImport extends AppCompatActivity
 		{
 			// Read the content of the file line by line
 			ParcelFileDescriptor file = getContentResolver().openFileDescriptor(location, "r") ;
-			BufferedReader reader = new BufferedReader(new FileReader(file.getFileDescriptor())) ;
-			while((buffer = reader.readLine()) != null) importedData.add(buffer) ;
-			reader.close() ;
-			file.close() ;
+			if(file != null)
+				{
+					BufferedReader reader = new BufferedReader(new FileReader(file.getFileDescriptor())) ;
+					while((buffer = reader.readLine()) != null) importedData.add(buffer) ;
+					reader.close() ;
+					file.close() ;
+				}
+				else
+				{
+					// Display an error message and quit
+					ShowDialog.toastLong(this, getString(R.string.error_import)) ;
+					return ;
+				}
 		}
 		catch(IOException e)
 		{
@@ -236,16 +271,16 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Prepare the files that need to be replaced
 		ActivityMain.setIgnoreSettingsChanges(true) ;
-		InternalTextFile favorites, shortcuts, shortcuts_legacy ;
+		InternalFileTXT favorites, shortcuts, shortcuts_legacy ;
 		if(importedData.contains(ApplicationsList.FAVORITES_FILE + ": " + ActivitySettings.NONE)) favorites = null ;
-			else favorites = new InternalTextFile(this, ApplicationsList.FAVORITES_FILE) ;
+			else favorites = new InternalFileTXT(getApplicationContext(), ApplicationsList.FAVORITES_FILE) ;
 		if(importedData.contains(ApplicationsList.SHORTCUTS_FILE + ": " + ActivitySettings.NONE)) shortcuts = null ;
-			else shortcuts = new InternalTextFile(this, ApplicationsList.SHORTCUTS_FILE) ;
+			else shortcuts = new InternalFileTXT(getApplicationContext(), ApplicationsList.SHORTCUTS_FILE) ;
 		if(importedData.contains(ApplicationsList.SHORTCUTS_LEGACY_FILE + ": " + ActivitySettings.NONE)) shortcuts_legacy = null ;
-			else shortcuts_legacy = new InternalTextFile(this, ApplicationsList.SHORTCUTS_LEGACY_FILE) ;
-		if(favorites != null) favorites.hasRemovalFailed(this) ;
-		if(shortcuts != null) shortcuts.hasRemovalFailed(this) ;
-		if(shortcuts_legacy != null) shortcuts_legacy.hasRemovalFailed(this) ;
+			else shortcuts_legacy = new InternalFileTXT(getApplicationContext(), ApplicationsList.SHORTCUTS_LEGACY_FILE) ;
+		if(favorites != null) favorites.remove() ;
+		if(shortcuts != null) shortcuts.remove() ;
+		if(shortcuts_legacy != null) shortcuts_legacy.remove() ;
 
 		// Reset the preference to default before importing the file
 		settings.edit().clear().apply() ;
@@ -257,6 +292,9 @@ public class ActivityExportImport extends AppCompatActivity
 		editor = settings.edit() ;
 		for(String line : importedData)
 		{
+			// Skip the comments
+			if(line.startsWith("#")) continue ;
+
 			// Replace the content of the internal files
 			if(line.startsWith(ApplicationsList.FAVORITES_FILE) && (favorites != null))
 				{
@@ -281,6 +319,16 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(ActivitySettings.NOTIFICATION_APP + "1")) loadStringSetting(ActivitySettings.NOTIFICATION_APP + "1", line) ;
 				else if(line.startsWith(ActivitySettings.NOTIFICATION_APP + "2")) loadStringSetting(ActivitySettings.NOTIFICATION_APP + "2", line) ;
 				else if(line.startsWith(ActivitySettings.NOTIFICATION_APP + "3")) loadStringSetting(ActivitySettings.NOTIFICATION_APP + "3", line) ;
+				// Save the shortcuts icons
+				else if(line.startsWith(ApplicationsList.SHORTCUT_ICON_PREFIX))
+				{
+					if(line.indexOf(": ") > 0)
+						{
+							String filename = line.substring(0, line.indexOf(": ")) ;
+							InternalFilePNG icon_file = new InternalFilePNG(getApplicationContext(), filename) ;
+							icon_file.convertStringToFile(line.replace(icon_file.getName() + ": ", ""));
+						}
+				}
 		}
 		if(hiddenApplications.size() > 0) editor.putStringSet(ActivitySettings.HIDDEN_APPLICATIONS, hiddenApplications) ;
 		editor.apply() ;

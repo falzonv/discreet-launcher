@@ -24,41 +24,24 @@ package com.vincent_falzon.discreetlauncher.storage ;
 
 // Imports
 import android.content.Context ;
-import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import java.io.BufferedReader ;
-import java.io.File ;
 import java.io.FileReader ;
 import java.io.FileWriter ;
 import java.util.ArrayList ;
 
 /**
- * Manage the storage of an internal file.
+ * Manage the storage of an internal TXT file.
  */
-public class InternalTextFile
+public class InternalFileTXT extends InternalFile
 {
-	// Attributes
-	private final File file ;
-
-
 	/**
-	 * Constructor to create or open an internal file.
+	 * Constructor to create or open an internal TXT file.
 	 * @param context To get the folder path
-	 * @param filename Name of the file
+	 * @param filename Name of the file including the extension
 	 */
-	public InternalTextFile(Context context, String filename)
+	public InternalFileTXT(Context context, String filename)
 	{
-		file = new File(context.getFilesDir().getAbsolutePath() + "/" + filename) ;
-	}
-
-
-	/**
-	 * Check if the file exists on the system (inverted for easier error handling).
-	 * @return <code>true</code> if it does not exist, <code>false</code> otherwise
-	 */
-	public boolean isNotExisting()
-	{
-		return !file.exists() ;
+		super(context, filename) ;
 	}
 
 
@@ -69,7 +52,7 @@ public class InternalTextFile
 	public ArrayList<String> readAllLines()
 	{
 		// Check if the file exists
-		if(isNotExisting()) return null ;
+		if(!exists()) return null ;
 
 		// Prepare the table used to store the lines
 		ArrayList<String> content = new ArrayList<>() ;
@@ -126,22 +109,5 @@ public class InternalTextFile
 			// An error happened while writing the line
 			return false ;
 		}
-	}
-
-
-	/**
-	 * Try to remove the internal file and give the result (inverted for easier error handling).
-	 * If the file does not exist, it is considered as successfully removed.
-	 * @param context To display alerts
-	 * @return <code>true</code> if it has failed, <code>false</code> otherwise
-	 */
-	public boolean hasRemovalFailed(Context context)
-	{
-		// Try to remove the file
-		if(isNotExisting() || file.delete()) return false ;
-
-		// If not successful, display an error message and inform the calling method
-		ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
-		return true ;
 	}
 }

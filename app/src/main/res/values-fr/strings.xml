@@ -46,7 +46,8 @@
     <string name="export_import_title">Exporter / Importer</string>
     <string name="export_import_help">Ces boutons permettent d\'exporter les données de l\'application (favoris, raccourcis et paramètres) ou d\'importer un export précédent.</string>
     <string name="export_import_file_edit_warning">Soyez prudent(e) : si vous éditez ce fichier, cela peut produire des résultats inattendus !</string>
-    <string name="export_import_internal_files_header">Contenu des fichiers internes</string>
+    <string name="export_import_internal_files_header">Contenu des fichiers textes internes</string>
+    <string name="export_import_shortcuts_icons">Icônes des raccourcis et applications web</string>
     <string name="export_import_warning_shortcuts">
         (Avec Android Oreo (8) ou plus récent, les raccourcis web peuvent ne pas fonctionner comme prévu
         car leurs informations sont gardées en interne par le système et ne sont pas exportables)

@@ -45,7 +45,7 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
-import com.vincent_falzon.discreetlauncher.storage.InternalTextFile ;
+import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT;
 import java.util.ArrayList ;
 
 /**
@@ -269,11 +269,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		}
 
 		// Retrieve the current favorites applications
-		final InternalTextFile file = new InternalTextFile(this, ApplicationsList.FAVORITES_FILE) ;
+		final InternalFileTXT file = new InternalFileTXT(getApplicationContext(), ApplicationsList.FAVORITES_FILE) ;
 		final boolean[] selected = new boolean[app_names.length] ;
-		if(file.isNotExisting()) for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
-			else for(i = 0 ; i < app_names.length ; i++)
-					selected[i] = file.isLineExisting(applications.get(i).getName()) ;
+		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
+			 else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
 
 		// Retrieve the total height available in portrait mode (navigation bar automatically removed)
 		DisplayMetrics metrics = getResources().getDisplayMetrics() ;
@@ -305,7 +304,11 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 					public void onClick(DialogInterface dialogInterface, int i)
 					{
 						// Remove the current favorites list
-						if(file.hasRemovalFailed(context)) return ;
+						if(!file.remove())
+							{
+								ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
+								return ;
+							}
 
 						// Write the new favorites list
 						int favorites_number = 0 ;
@@ -515,9 +518,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	public void onDestroy()
 	{
-		super.onDestroy() ;
 		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
 		if(legacyShortcutsCreator != null) unregisterReceiver(legacyShortcutsCreator) ;
+		super.onDestroy() ;
 	}
 }

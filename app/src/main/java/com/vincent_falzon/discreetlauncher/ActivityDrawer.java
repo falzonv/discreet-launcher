@@ -173,8 +173,8 @@ public class ActivityDrawer extends AppCompatActivity
 	@Override
 	public void onDestroy()
 	{
-		super.onDestroy() ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
 		if(legacyShortcutsCreator != null) unregisterReceiver(legacyShortcutsCreator) ;
+		super.onDestroy() ;
 	}
 }
