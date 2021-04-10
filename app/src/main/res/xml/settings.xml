@@ -8,41 +8,18 @@
         app:iconSpaceReserved="false">
 
         <Preference
+            app:title="@string/display_settings_title"
+            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$DisplayFragment"
+            app:icon="@android:drawable/ic_menu_gallery"/>
+
+        <Preference
             app:title="@string/notification_settings_title"
             app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$NotificationFragment"
             app:icon="@android:drawable/ic_menu_preferences"/>
 
-        <SwitchPreference
-            app:key="display_clock"
-            app:title="@string/set_display_clock"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
-        <SwitchPreference
-            app:key="transparent_status_bar"
-            app:title="@string/set_transparent_status_bar"
-            app:summary="@string/set_transparent_status_bar_hint"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
-        <SwitchPreference
-            app:key="force_portrait"
-            app:title="@string/set_force_portrait"
-            app:summary="@string/set_force_portrait_hint"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
-        <ListPreference
-            app:key="icon_pack"
-            app:title="@string/set_icon_pack"
-            app:iconSpaceReserved="false"
-            app:defaultValue="none"
-            app:useSimpleSummaryProvider="true"/>
-
         <MultiSelectListPreference
             app:key="hidden_applications"
-            app:title="@string/set_hidden_applications"
-            app:iconSpaceReserved="false"/>
+            app:title="@string/set_hidden_applications"/>
 
         <Preference
             app:title="@string/export_import_title"

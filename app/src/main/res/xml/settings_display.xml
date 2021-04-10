@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/display_settings_general_title"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:key="icon_pack"
+            app:title="@string/set_icon_pack"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/display_settings_home_screen_title"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreference
+            app:key="display_clock"
+            app:title="@string/set_display_clock"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="transparent_status_bar"
+            app:title="@string/set_transparent_status_bar"
+            app:summary="@string/set_transparent_status_bar_hint"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="force_portrait"
+            app:title="@string/set_force_portrait"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

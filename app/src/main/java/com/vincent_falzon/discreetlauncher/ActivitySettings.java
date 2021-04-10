@@ -159,14 +159,6 @@ public class ActivitySettings extends AppCompatActivity
 			// Load the settings from the XML file
 			setPreferencesFromResource(R.xml.settings, rootKey) ;
 
-			// Initialize the icon pack selector
-			ListPreference iconPack = findPreference(ICON_PACK) ;
-			if(iconPack != null)
-				{
-					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
-					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
-				}
-
 			// Initialize the setting to hide applications
 			MultiSelectListPreference hiddenApplications = findPreference(HIDDEN_APPLICATIONS) ;
 			if(hiddenApplications != null)
@@ -180,6 +172,33 @@ public class ActivitySettings extends AppCompatActivity
 					displayNames.addAll(applicationsDisplayNames) ;
 					hiddenApplications.setEntries(displayNames.toArray(new CharSequence[0])) ;
 					hiddenApplications.setEntryValues(names.toArray(new CharSequence[0])) ;
+				}
+		}
+	}
+
+
+	/**
+	 * Load the display settings from the XML file.
+	 */
+	public static class DisplayFragment extends PreferenceFragmentCompat
+	{
+		/**
+		 * Constructor.
+		 * @param savedInstanceState To retrieve the context
+		 * @param rootKey Root of the settings hierarchy
+		 */
+		@Override
+		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
+		{
+			// Load the settings from the XML file
+			setPreferencesFromResource(R.xml.settings_display, rootKey) ;
+
+			// Initialize the icon pack selector
+			ListPreference iconPack = findPreference(ICON_PACK) ;
+			if(iconPack != null)
+				{
+					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
+					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
 				}
 		}
 	}
