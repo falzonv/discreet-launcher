@@ -28,6 +28,7 @@ import android.content.DialogInterface ;
 import android.content.Intent ;
 import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
+import android.content.pm.ActivityInfo ;
 import android.os.Build ;
 import android.os.Bundle ;
 import androidx.core.view.GestureDetectorCompat ;
@@ -96,6 +97,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Make the status bar transparent if this option was selected
 		if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
 			getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+
+		// If the option is selected, force the portrait mode
+		togglePortraitMode() ;
 
 		// Initialize the text clock
 		clockText = findViewById(R.id.clock_text) ;
@@ -168,6 +172,17 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 					}
 				clockText.setText("") ;
 			}
+	}
+
+
+	/**
+	 * Force or not the portrait mode according to the settings.
+	 */
+	private void togglePortraitMode()
+	{
+		if(settings.getBoolean(ActivitySettings.FORCE_PORTRAIT, false))
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) ;
+			else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) ;
 	}
 
 
@@ -499,9 +514,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		super.onResume() ;
 
-		// Hide the notification and update the clock according to settings
+		// Hide the notification and update the display according to settings
 		notificationMenu.hide() ;
 		manageClock() ;
+		togglePortraitMode() ;
 
 		// Update the RecyclerView if needed
 		if(adapter_update_needed)

@@ -57,9 +57,11 @@
     <!-- Paramètres -->
     <string name="settings_title">Paramètres / Aide</string>
     <string name="set_customization_title">Personnalisation</string>
+    <string name="set_display_clock">Afficher l\'heure sur l\'écran d\'accueil</string>
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_hint">Sur l\'écran d\'accueil (favoris fermés)</string>
-    <string name="set_display_clock">Afficher l\'heure sur l\'écran d\'accueil</string>
+    <string name="set_force_portrait">Forcer le mode portrait</string>
+    <string name="set_force_portrait_hint">Écran d\'accueil uniquement</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
     <string name="set_hidden_applications">Masquer des applications</string>

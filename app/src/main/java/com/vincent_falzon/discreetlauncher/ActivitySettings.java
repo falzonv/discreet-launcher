@@ -24,14 +24,18 @@ package com.vincent_falzon.discreetlauncher ;
 
 // Imports
 import android.content.Intent ;
+import android.content.SharedPreferences ;
+import android.content.pm.ActivityInfo ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
+import android.os.Build ;
 import android.os.Bundle ;
 import android.view.MenuItem ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
 import androidx.preference.MultiSelectListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
+import androidx.preference.PreferenceManager ;
 import java.util.ArrayList ;
 import java.util.List ;
 
@@ -43,6 +47,7 @@ public class ActivitySettings extends AppCompatActivity
 	// Constants
 	public static final String DISPLAY_CLOCK = "display_clock" ;
 	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
+	public static final String FORCE_PORTRAIT = "force_portrait" ;
 	public static final String ICON_PACK = "icon_pack" ;
 	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;
 	public static final String DISPLAY_NOTIFICATION = "display_notification" ;
@@ -116,6 +121,25 @@ public class ActivitySettings extends AppCompatActivity
 				return true ;
 			}
 		return super.onOptionsItemSelected(item) ;
+	}
+
+
+	/**
+	 * Perfom actions when returning to the home screen.
+	 */
+	@Override
+	protected void onDestroy()
+	{
+		// Fix an Android Oreo 8.1 bug (orientation is sometimes kept from an activity to another)
+		if(Build.VERSION.SDK_INT == Build.VERSION_CODES.O_MR1)
+			{
+				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this) ;
+				if(settings.getBoolean(ActivitySettings.FORCE_PORTRAIT, false))
+						setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) ;
+					else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) ;
+			}
+
+		super.onDestroy() ;
 	}
 
 

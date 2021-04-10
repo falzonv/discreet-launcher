@@ -158,6 +158,7 @@ public class ActivityExportImport extends AppCompatActivity
 		exportedData.add("# " + getString(R.string.button_settings)) ;
 		exportedData.add(ActivitySettings.DISPLAY_CLOCK + ": " + settings.getBoolean(ActivitySettings.DISPLAY_CLOCK, false)) ;
 		exportedData.add(ActivitySettings.TRANSPARENT_STATUS_BAR + ": " + settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false)) ;
+		exportedData.add(ActivitySettings.FORCE_PORTRAIT + ": " + settings.getBoolean(ActivitySettings.FORCE_PORTRAIT, false)) ;
 		exportedData.add(ActivitySettings.ICON_PACK + ": " + settings.getString(ActivitySettings.ICON_PACK, ActivitySettings.NONE)) ;
 		Set<String> hiddenApplications = settings.getStringSet(ActivitySettings.HIDDEN_APPLICATIONS, null) ;
 		if(hiddenApplications == null) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + ActivitySettings.NONE) ;
@@ -311,6 +312,7 @@ public class ActivityExportImport extends AppCompatActivity
 				// Load the settings
 				else if(line.startsWith(ActivitySettings.DISPLAY_CLOCK)) loadBooleanSetting(ActivitySettings.DISPLAY_CLOCK, line) ;
 				else if(line.startsWith(ActivitySettings.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(ActivitySettings.TRANSPARENT_STATUS_BAR, line) ;
+				else if(line.startsWith(ActivitySettings.FORCE_PORTRAIT)) loadBooleanSetting(ActivitySettings.FORCE_PORTRAIT, line) ;
 				else if(line.startsWith(ActivitySettings.ICON_PACK)) loadStringSetting(ActivitySettings.ICON_PACK + "1", line) ;
 				else if(line.startsWith(ActivitySettings.HIDDEN_APPLICATIONS)) hiddenApplications.add(line.replace(ActivitySettings.HIDDEN_APPLICATIONS + ": ", "")) ;
 				else if(line.startsWith(ActivitySettings.DISPLAY_NOTIFICATION)) loadBooleanSetting(ActivitySettings.DISPLAY_NOTIFICATION, line) ;

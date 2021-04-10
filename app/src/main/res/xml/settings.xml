@@ -25,6 +25,13 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <SwitchPreference
+            app:key="force_portrait"
+            app:title="@string/set_force_portrait"
+            app:summary="@string/set_force_portrait_hint"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
         <ListPreference
             app:key="icon_pack"
             app:title="@string/set_icon_pack"

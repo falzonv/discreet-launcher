@@ -57,12 +57,14 @@
     <!-- Settings -->
     <string name="settings_title">Settings / Help</string>
     <string name="set_customization_title">Customization</string>
+    <string name="set_display_clock">Display current time on the home screen</string>
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_hint">On the home screen (favorites closed)</string>
-    <string name="set_display_clock">Display current time on the home screen</string>
+    <string name="set_force_portrait">Force portrait mode</string>
+    <string name="set_force_portrait_hint">Home screen only</string>
     <string name="set_icon_pack">Use an installed icon pack</string>
-    <string name="set_hidden_applications">Hide applications</string>
     <string name="set_icon_pack_none">None (use the real icons)</string>
+    <string name="set_hidden_applications">Hide applications</string>
     <string name="notification_settings_title">Quick access notification</string>
     <string name="notification_settings_help">A notification allowing to open 3 applications can be displayed when you leave the home screen.</string>
     <string name="set_display_notification">Display the notification</string>
