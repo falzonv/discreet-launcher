@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher;
 // Imports
 import android.content.Intent ;
 import android.content.IntentFilter ;
+import android.content.res.Configuration ;
 import android.os.Build ;
 import android.os.Bundle ;
 import androidx.annotation.NonNull ;
@@ -61,7 +62,9 @@ public class ActivityDrawer extends AppCompatActivity
 		// Initializations
 		setContentView(R.layout.activity_drawer) ;
 		RecyclerView recycler = findViewById(R.id.applications_list) ;
-		layoutManager = new GridLayoutManager(this, 4) ;
+		if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+				layoutManager = new GridLayoutManager(this, ActivityMain.COLUMNS_LANDSCAPE) ;
+			else layoutManager = new GridLayoutManager(this, ActivityMain.COLUMNS_PORTRAIT) ;
 
 		// Indicate the last time the applications list was updated
 		TextView lastUpdateDateTime = findViewById(R.id.last_update_datetime) ;

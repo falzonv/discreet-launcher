@@ -104,6 +104,10 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
+        \n<b>v2.6.0</b>
+        \n- Afficher les apps sur 5 colonnes en mode paysage
+        \n- Option forcer mode portrait à l\'accueil (idée de c0bnut)
+        \n
         \n<b>v2.5.1 - 09/04/2021</b>
         \n- Fix: possible bug avec les applications web sur Android >= 8
         \n

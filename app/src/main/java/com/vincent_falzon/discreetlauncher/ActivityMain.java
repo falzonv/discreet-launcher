@@ -29,6 +29,7 @@ import android.content.Intent ;
 import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
 import android.content.pm.ActivityInfo ;
+import android.content.res.Configuration;
 import android.os.Build ;
 import android.os.Bundle ;
 import androidx.core.view.GestureDetectorCompat ;
@@ -55,7 +56,8 @@ import java.util.ArrayList ;
 public class ActivityMain extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
 	// Constants
-	public static final int NB_COLUMNS = 4 ;
+	public static final int COLUMNS_PORTRAIT = 4 ;
+	public static final int COLUMNS_LANDSCAPE = 5 ;
 
 	// Attributes
 	private static ApplicationsList applicationsList ;
@@ -121,11 +123,15 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(applicationsList.getFavoritesCount() == 0)
 			ShowDialog.toastLong(this, getString(R.string.info_no_favorites_yet)) ;
 
-		// Prepare the display of the favorites panel over 4 columns
+		// Prepare the display of the favorites panel
 		RecyclerView recycler = findViewById(R.id.favorites_applications) ;
 		adapter = new RecyclerAdapter(true) ;
 		recycler.setAdapter(adapter) ;
-		recycler.setLayoutManager(new GridLayoutManager(this, NB_COLUMNS)) ;
+		if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+				recycler.setLayoutManager(new GridLayoutManager(this, COLUMNS_LANDSCAPE)) ;
+			else recycler.setLayoutManager(new GridLayoutManager(this, COLUMNS_PORTRAIT)) ;
+
+		// Hide the favorites panel by default
 		favoritesPanel = findViewById(R.id.favorites_panel) ;
 		favoritesPanel.setVisibility(View.GONE) ;
 		adapter_update_needed = false ;
@@ -299,7 +305,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
 		int app_size = button_height + Math.round(48 * metrics.density) + Math.round(25 * metrics.density) ;
-		final int max_favorites = (total_size / app_size) * NB_COLUMNS ;
+		final int max_favorites = (total_size / app_size) * COLUMNS_PORTRAIT;
 
 		// Prepare and display the selection dialog
 		final Context context = this ;

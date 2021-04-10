@@ -107,6 +107,10 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
+        \n<b>v2.6.0</b>
+        \n- Display apps on 5 columns in landscape mode
+        \n- Option to force portrait on home screen (idea from c0bnut)
+        \n
         \n<b>v2.5.1 - 09/04/2021</b>
         \n- Fix: possible bug with web apps on Android >= 8
         \n
