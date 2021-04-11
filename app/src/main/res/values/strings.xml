@@ -49,8 +49,8 @@
     <string name="export_import_internal_files_header">Internal text files content</string>
     <string name="export_import_shortcuts_icons">Web applications and shortcuts icons</string>
     <string name="export_import_warning_shortcuts">
-        (With Android Oreo (8) or higher, web shortcuts may not work as expected
-        because their information are kept internally by the system and cannot be exported)
+        (With Android Oreo (8) or higher, imported web applications may not work
+        because they are managed by the system and are not supposed to be exported)
     </string>
     <string name="export_completed">Export completed</string>
 

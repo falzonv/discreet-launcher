@@ -18,7 +18,6 @@
     <!-- Settings / Help -->
     <dimen name="settings_horizontal_margins">20dp</dimen>
     <dimen name="buttons_vertical_margins">10dp</dimen>
-    <dimen name="buttons_horizontal_spacing">15dp</dimen>
     <dimen name="about_paragraphs_spacing">10dp</dimen>
     <dimen name="about_margin_bottom">20dp</dimen>
 

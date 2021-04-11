@@ -133,9 +133,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				applicationsList.update(this) ;
 			}
 
-		// Prepare the notification menu but hide it when the user is on the home screen
+		// Prepare the notification menu
 		notificationMenu = new NotificationMenu(this) ;
-		notificationMenu.hide() ;
 
 		// Display a message if the user does not have any favorites applications yet
 		if(applicationsList.getFavoritesCount() == 0)

@@ -21,19 +21,20 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/export_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/buttons_horizontal_spacing"
             android:text="@string/button_export"
-            android:textAllCaps="false"
-            android:onClick="startExport"/>
+            android:onClick="onClickExportImportActivity"
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
         <Button
+            android:id="@+id/import_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_import"
-            android:textAllCaps="false"
-            android:onClick="startImport"/>
+            android:onClick="onClickExportImportActivity"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
 
     </LinearLayout>
 

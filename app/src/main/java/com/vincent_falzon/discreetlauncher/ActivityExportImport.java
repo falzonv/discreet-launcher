@@ -68,33 +68,34 @@ public class ActivityExportImport extends AppCompatActivity
 
 
 	/**
-	 * Display the file selector where the export file should be saved.
+	 * Detect a click on an element from the activity.
+	 * @param view Element clicked
 	 */
-	public void startExport(View view)
+	public void onClickExportImportActivity(View view)
 	{
-		// Retrieve the current day, month and year to form a timestamp
-		@SuppressLint("SimpleDateFormat")
-		String timestamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date()) ;
+		// Identify which element has been clicked
+		int selection = view.getId() ;
+		if(selection == R.id.export_button)
+			{
+				// Retrieve the current day, month and year to form a timestamp
+				@SuppressLint("SimpleDateFormat")
+				String timestamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date()) ;
 
-		// Prepare and display the file selector
-		Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT) ;
-		intent.addCategory(Intent.CATEGORY_OPENABLE) ;
-		intent.setType("text/plain") ;
-		intent.putExtra(Intent.EXTRA_TITLE, timestamp + "_discreetlauncher.txt") ;
-		startActivityForResult(intent, 100) ;
-	}
-
-
-	/**
-	 * Display the file selector for the user to select the import file.
-	 */
-	public void startImport(View view)
-	{
-		// Prepare and display the file selector
-		Intent intent = new Intent(Intent.ACTION_GET_CONTENT) ;
-		intent.addCategory(Intent.CATEGORY_OPENABLE) ;
-		intent.setType("text/plain") ;
-		startActivityForResult(intent, 110) ;
+				// Display the file selector for the user to select where the export file should be saved
+				Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT) ;
+				intent.addCategory(Intent.CATEGORY_OPENABLE) ;
+				intent.setType("text/plain") ;
+				intent.putExtra(Intent.EXTRA_TITLE, timestamp + "_discreetlauncher.txt") ;
+				startActivityForResult(intent, 100) ;
+			}
+			else if (selection == R.id.import_button)
+			{
+				// Display the file selector for the user to select the import file
+				Intent intent = new Intent(Intent.ACTION_GET_CONTENT) ;
+				intent.addCategory(Intent.CATEGORY_OPENABLE) ;
+				intent.setType("text/plain") ;
+				startActivityForResult(intent, 110) ;
+			}
 	}
 
 
