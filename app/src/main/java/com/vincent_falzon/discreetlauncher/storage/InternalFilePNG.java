@@ -117,12 +117,16 @@ public class InternalFilePNG extends InternalFile
 
 
 	/**
-	 * Decode a Base64 String Bitmap and write it to the internal file.
-	 * @param data A Bitmap encoded as a Base64 String
+	 * Decode the line representing a Bitmap in an import file and write it to the internal file.
+	 * @param line Read from a previously exported file
 	 */
-	public void convertStringToFile(String data)
+	public void loadFromImport(String line)
 	{
+		// Extract and decode the Base64 String representing the Bitmap
+		String data = line.replace(file.getName() + ": ", "") ;
 		byte[] bitmap_bytes = Base64.decode(data, Base64.NO_WRAP) ;
+
+		// Create the internal file from the decoded data
 		writeToFile(BitmapFactory.decodeByteArray(bitmap_bytes, 0, bitmap_bytes.length)) ;
 	}
 }

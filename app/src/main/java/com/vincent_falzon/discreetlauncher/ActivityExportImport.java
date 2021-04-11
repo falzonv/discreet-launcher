@@ -269,9 +269,8 @@ public class ActivityExportImport extends AppCompatActivity
 				{
 					if(line.indexOf(": ") > 0)
 						{
-							String filename = line.substring(0, line.indexOf(": ")) ;
-							InternalFilePNG icon_file = new InternalFilePNG(getApplicationContext(), filename) ;
-							icon_file.convertStringToFile(line.replace(icon_file.getName() + ": ", ""));
+							InternalFilePNG icon_file = new InternalFilePNG(this, line.substring(0, line.indexOf(": "))) ;
+							icon_file.loadFromImport(line) ;
 						}
 				}
 		}
