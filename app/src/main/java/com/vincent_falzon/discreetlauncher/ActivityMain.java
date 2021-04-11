@@ -47,6 +47,7 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
+import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
@@ -62,8 +63,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private static boolean ignore_settings_changes ;
-	private static boolean adapters_update_needed ;
-	private EventsReceiver applicationsListUpdater ;
+	private static boolean list_update_needed ;
+	private PackagesListener packagesListener ;
 	private EventsReceiver legacyShortcutsCreator ;
 	private SharedPreferences settings ;
 	private GestureDetectorCompat gestureDetector ;
@@ -99,7 +100,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		homeScreen = findViewById(R.id.home_screen) ;
 		favorites = findViewById(R.id.favorites) ;
 		drawer = findViewById(R.id.drawer) ;
-		adapters_update_needed = false ;
+		list_update_needed = false ;
 
 		// Assign default values to settings not configured yet
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
@@ -170,12 +171,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		fullListRecycler.addOnScrollListener(new DrawerScrollListener()) ;
 
 		// Start to listen for packages added or removed
-		applicationsListUpdater = new EventsReceiver() ;
-		IntentFilter filter = new IntentFilter() ;
-		filter.addAction(Intent.ACTION_PACKAGE_ADDED) ;
-		filter.addAction(Intent.ACTION_PACKAGE_REMOVED) ;
-		filter.addDataScheme("package") ;
-		registerReceiver(applicationsListUpdater, filter) ;
+		packagesListener = new PackagesListener() ;
+		registerReceiver(packagesListener, packagesListener.getFilter()) ;
 
 		// When Android version is before Oreo, start to listen for legacy shortcut requests
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -308,11 +305,11 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
-	 * Inform the activity that an update of the RecyclerView is needed.
+	 * Inform the activity that an update of the applications list is needed.
 	 */
-	static void setAdaptersUpdateNeeded()
+	public static void setListUpdateNeeded()
 	{
-		adapters_update_needed = true ;
+		list_update_needed = true ;
 	}
 
 	
@@ -647,11 +644,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		togglePortraitMode() ;
 
 		// Update the favorites panel and applications drawer if needed
-		if(adapters_update_needed)
+		if(list_update_needed)
 			{
+				applicationsList.update(this) ;
 				favoritesAdapter.notifyDataSetChanged() ;
 				drawerAdapter.notifyDataSetChanged() ;
-				adapters_update_needed = false ;
+				list_update_needed = false ;
 			}
 	}
 
@@ -664,7 +662,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		// Unregister all remaining broadcast receivers
 		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
-		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
+		if(packagesListener != null) unregisterReceiver(packagesListener) ;
 		if(legacyShortcutsCreator != null) unregisterReceiver(legacyShortcutsCreator) ;
 
 		// Let the parent actions be performed

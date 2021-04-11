@@ -121,6 +121,7 @@ public class ActivityShortcut extends AppCompatActivity
 
 								// Add the shortcut
 								ActivityMain.getApplicationsList().addShortcut(this, display_name, shortcut, icon, false) ;
+								ActivityMain.setListUpdateNeeded() ;
 							}
 							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
 					}

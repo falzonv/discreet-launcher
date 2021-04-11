@@ -403,9 +403,6 @@ class ApplicationsList
 		// Save the shortcut icon to a file
 		InternalFilePNG icon_file = new InternalFilePNG(context, SHORTCUT_ICON_PREFIX + display_name + ".png") ;
 		if(!icon_file.writeToFile(icon)) ShowDialog.alert(context, context.getString(R.string.error_shortcut, display_name)) ;
-
-		// Update the applications list
-		update(context) ;
 	}
 
 

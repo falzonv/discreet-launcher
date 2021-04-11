@@ -86,15 +86,6 @@ class EventsReceiver extends BroadcastReceiver
 				return ;
 			}
 
-		// Check if a package has been added or removed (except during updates)
-		if((intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) || intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
-			&& !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false))
-			{
-				// Update the applications list
-				ActivityMain.getApplicationsList().update(context) ;
-				ActivityMain.setAdaptersUpdateNeeded() ;
-			}
-
 		// Execute the following code only if the Android version is before Oreo
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
@@ -116,7 +107,7 @@ class EventsReceiver extends BroadcastReceiver
 						// Add the shortcut and update the applications list
 						String shortcut = display_name + Application.SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
 						ActivityMain.getApplicationsList().addShortcut(context, display_name, shortcut, icon, true) ;
-						ActivityMain.setAdaptersUpdateNeeded() ;
+						ActivityMain.setListUpdateNeeded() ;
 					}
 			}
 	}

@@ -279,9 +279,8 @@ public class ActivityExportImport extends AppCompatActivity
 		editor.apply() ;
 
 		// Update the application list and start again to listen for settings changes
-		ActivityMain.getApplicationsList().update(this) ;
 		ActivityMain.getApplicationsList().updateNotificationApps(this) ;
-		ActivityMain.setAdaptersUpdateNeeded() ;
+		ActivityMain.setListUpdateNeeded() ;
 		ActivityMain.setIgnoreSettingsChanges(false) ;
 	}
 
