@@ -107,60 +107,60 @@
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
         \n<b>v2.6.0</b>
-        \n- Afficher les apps sur 5 colonnes en mode paysage
-        \n- Option forcer mode portrait à l\'accueil (idée de c0bnut)
+        \n- Affichage sur 5 colonnes en mode paysage
+        \n- Paramètres d\'affichage dans une section dédiée
+        \n- <u><i>Option</i></u> portrait forcé à l\'accueil (idée c0bnut)
         \n
         \n<b>v2.5.1 - 09/04/2021</b>
-        \n- Fix: possible bug avec les applications web sur Android >= 8
+        \n- <u><i>Fix</i></u> possible bug à la création d\'apps web
         \n
         \n<b>v2.5.0 - 09/04/2021</b>
-        \n- Mise à jour automatique de la liste après import
-        \n- Icônes affichées pour les nouveaux raccourcis web
-        \n- Fix: adapter la limite de favoris à la taille d\'écran (merci AeOeAa)
+        \n- Mise à jour de la liste après import
+        \n- Icônes pour les nouvelles applications web
+        \n- <u><i>Fix</i></u> limite de favoris selon l\'écran (merci AeOeAa)
         \n
         \n<b>v2.4.0 - 05/04/2021</b>
-        \n- Possibilité de masquer des applications (idée de gicofied9)
-        \n- Possibilité d\'exporter/importer les paramètres
+        \n- Export/import des paramètres
+        \n- <u><i>Option</i></u> masquer des applications (idée gicofied9)
         \n
         \n<b>v2.3.0 - 02/04/2021</b>
         \n- Refonte du menu "Paramètres / Aide"
-        \n- Texte de la notification personnalisable
         \n- Intégration du journal des changements
-        \n- Fix: bug d\'affichage quand il y avait trop de favoris
+        \n- <u><i>Option</i></u> texte de la notification personnalisable
+        \n- <u><i>Fix</i></u> menu inaccessible avec trop de favoris
         \n
         \n<b>v2.2.0 - 28/03/2021</b>
-        \n- Support des applications et raccourcis web (idée de johanbove)
-        \n- Option pour masquer la notification sur l\'écran de verrouillage
+        \n- Support des applications web (idée johanbove)
         \n- Plusieurs améliorations internes
+        \n- <u><i>Option</i></u> notification masquée si verrouillé
         \n
         \n<b>v2.1.0 - 23/03/2021</b>
-        \n- Fix: mise à jour automatique depuis l\'accueil (merci xi7)
-        \n- Option de notification pour l\'accès rapide à 3 applications (idée de xi7)
+        \n- Notification pour accès rapide à 3 applis (idée xi7)
+        \n- <u><i>Fix</i></u> liste mise à jour depuis l\'accueil (merci xi7)
         \n
         \n<b>v2.0.0 - 21/03/2021</b>
-        \n- Mise à jour automatique de la liste quand une appli est installée ou désinstallée
-        \n- Réorganisation interne majeure et diverses optimisations de code
+        \n- Mise à jour automatique de la liste quand une application est installée ou désinstallée
+        \n- Réorganisation interne majeure
         \n
         \n<b>v1.3.1 - 20/03/2021</b>
-        \n- Fix: crash en ouvrant une application désinstallée (introduit en v1.1.0)
+        \n- <u><i>Fix</i></u> crash en ouvrant une application désinstallée
         \n
         \n<b>v1.3.0 - 20/03/2021</b>
-        \n- Option pour rendre la barre de statut transparente (idée de xi7)
-        \n- Option pour afficher l\'heure sur l\'écran d\'accueil (idée de mateimm)
-        \n- Mise à jour automatique des icônes quand le pack change
+        \n- Mise à jour des icônes quand le pack change
+        \n- <u><i>Option</i></u> barre de statut transparente (idée xi7)
+        \n- <u><i>Option</i></u> horloge à l\'accueil (idée mateimm)
         \n
         \n<b>v1.2.0 - 16/03/2021</b>
-        \n- Fix: soucis avec les applis venant du même package (merci xi7)
-        \n- Clic long sur une appli pour ouvrir ses paramètres (idée de xi7)
-        \n- Plusieurs optimisations de code mineures
+        \n- Clic long ouvre les options d\'une appli (idée xi7)
         \n- Amélioration des textes d\'aide
+        \n- <u><i>Fix</i></u> bugs avec apps du même package (merci xi7)
         \n
         \n<b>v1.1.0 - 10/03/2021</b>
-        \n- Support des packs d\'icônes (idée de porosjp)
+        \n- Support des packs d\'icônes (idée porosjp)
         \n- Création du menu "Paramètres / Aide"
         \n
         \n<b>v1.0.2 - 07/03/2021</b>
-        \n- Fix: mauvais comportement du bouton Retour (merci abou123)
+        \n- <u><i>Fix</i></u> bug avec le bouton Retour (merci abou123)
         \n
         \n<b>v1.0.1 - 27/02/2021</b>
         \n- Meilleur affichage dans F-Droid

@@ -110,60 +110,60 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
         \n<b>v2.6.0</b>
-        \n- Display apps on 5 columns in landscape mode
-        \n- Option to force portrait on home screen (idea from c0bnut)
+        \n- Display on 5 columns in landscape mode
+        \n- Display settings in a dedicated section
+        \n- <u><i>Option</i></u> force portrait on home screen (idea c0bnut)
         \n
         \n<b>v2.5.1 - 09/04/2021</b>
-        \n- Fix: possible bug with web apps on Android >= 8
+        \n- <u><i>Fix</i></u> possible bug when creating web apps
         \n
         \n<b>v2.5.0 - 09/04/2021</b>
-        \n- Automatic update of the list after import
-        \n- New web apps/shortcuts will have icons
-        \n- Fix: adapt favorites limit to screen size (thanks AeOeAa)
+        \n- Update of the list after import
+        \n- New web applications will have icons
+        \n- <u><i>Fix</i></u> favorites limit depends on screen (thanks AeOeAa)
         \n
         \n<b>v2.4.0 - 05/04/2021</b>
-        \n- Option to hide applications (idea from gicofied9)
-        \n- Option to export/import settings
+        \n- Export/import settings
+        \n- <u><i>Option</i></u> hide applications (idea from gicofied9)
         \n
         \n<b>v2.3.0 - 02/04/2021</b>
         \n- Redesign of the "Settings / Help" menu
-        \n- Notification text can be customized
         \n- Integration of the changelog
-        \n- Fix: display bug when there were too much favorites
+        \n- <u><i>Option</i></u> notification text can be customized
+        \n- <u><i>Fix</i></u> menu unreachable with too much favorites
         \n
         \n<b>v2.2.0 - 28/03/2021</b>
-        \n- Support web apps and shortcuts (idea from johanbove)
-        \n- Option to hide the notification on lock screen
+        \n- Support web applications (idea johanbove)
         \n- Several internal improvements
+        \n- <u><i>Option</i></u> hide notification on lock screen
         \n
         \n<b>v2.1.0 - 23/03/2021</b>
-        \n- Fix: automatic update from the home screen (thanks xi7)
-        \n- Notification settings for quick access to 3 applications (idea from xi7)
+        \n- Notification for quick access to 3 apps (idea xi7)
+        \n- <u><i>Fix</i></u> list update from the home screen (thanks xi7)
         \n
         \n<b>v2.0.0 - 21/03/2021</b>
         \n- Automatic update of the list when an application is added or removed
-        \n- Major internal reorganization and various code optimizations
+        \n- Major internal reorganization
         \n
         \n<b>v1.3.1 - 20/03/2021</b>
-        \n- Fix: crash when opening a removed application (bug introduced in v1.1.0)
+        \n- <u><i>Fix</i></u> crash when opening a removed application
         \n
         \n<b>v1.3.0 - 20/03/2021</b>
-        \n- Option to make the status bar fully transparent (idea from xi7)
-        \n- Option to display the current time on the home screen (idea from mateimm)
-        \n- Automatic icons update when the pack changes
+        \n- Icons update when the pack changes
+        \n- <u><i>Option</i></u> transparent status bar (idea xi7)
+        \n- <u><i>Option</i></u> clock on home screen (idea mateimm)
         \n
         \n<b>v1.2.0 - 16/03/2021</b>
-        \n- Fix: bugs with apps coming from the same package (thanks xi7)
-        \n- Long click on an app open its system settings (idea from xi7)
-        \n- Several minor code optimizations
-        \n- Help texts improvements
+        \n- Long click opens application settings (idea xi7)
+        \n- Improvements of help texts
+        \n- <u><i>Fix</i></u> bugs with apps in same package (thanks xi7)
         \n
         \n<b>v1.1.0 - 10/03/2021</b>
-        \n- Icon packs support (idea from porosjp)
+        \n- Icon packs support (idea porosjp)
         \n- Create "Settings / Help" menu
         \n
         \n<b>v1.0.2 - 07/03/2021</b>
-        \n- Fix: wrong behavior of Back button (thanks abou123)
+        \n- <u><i>Fix</i></u> bug with Back button (thanks abou123)
         \n
         \n<b>v1.0.1 - 27/02/2021</b>
         \n- Better display in F-Droid
