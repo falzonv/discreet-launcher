@@ -267,18 +267,15 @@ public class ActivityExportImport extends AppCompatActivity
 				// Save the shortcuts icons
 				else if(line.startsWith(ApplicationsList.SHORTCUT_ICON_PREFIX))
 				{
-					if(line.indexOf(": ") > 0)
-						{
-							InternalFilePNG icon_file = new InternalFilePNG(this, line.substring(0, line.indexOf(": "))) ;
-							icon_file.loadFromImport(line) ;
-						}
+					if(line.indexOf(": ") <= 0) continue ;
+					InternalFilePNG icon_file = new InternalFilePNG(this, line.substring(0, line.indexOf(": "))) ;
+					icon_file.loadFromImport(line) ;
 				}
 		}
 		if(hiddenApplications.size() > 0) editor.putStringSet(ActivitySettings.HIDDEN_APPLICATIONS, hiddenApplications) ;
 		editor.apply() ;
 
-		// Update the application list and start again to listen for settings changes
-		ActivityMain.getApplicationsList().updateNotificationApps(this) ;
+		// Indicate that the applications list should be updated and start to listen again for settings changes
 		ActivityMain.setListUpdateNeeded() ;
 		ActivityMain.setIgnoreSettingsChanges(false) ;
 	}

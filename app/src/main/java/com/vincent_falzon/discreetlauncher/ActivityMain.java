@@ -135,7 +135,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Prepare the notification menu but hide it when the user is on the home screen
 		notificationMenu = new NotificationMenu(this) ;
-		applicationsList.updateNotificationApps(this) ;
 		notificationMenu.hide() ;
 
 		// Display a message if the user does not have any favorites applications yet
@@ -538,10 +537,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			case ActivitySettings.DISPLAY_NOTIFICATION :
 				// Toggle the notification
 				if(settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true))
-					{
-						applicationsList.updateNotificationApps(this) ;
 						notificationMenu.display(this) ;
-					}
 					else notificationMenu.hide() ;
 				break ;
 			case ActivitySettings.NOTIFICATION_TEXT :
@@ -549,7 +545,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			case ActivitySettings.NOTIFICATION_APP + "2" :
 			case ActivitySettings.NOTIFICATION_APP + "3" :
 				// Update the notification
-				applicationsList.updateNotificationApps(this) ;
 				notificationMenu.hide() ;
 				notificationMenu.display(this) ;
 				break ;

@@ -39,9 +39,7 @@ import androidx.preference.PreferenceManager ;
 class NotificationMenu
 {
 	// Attributes
-	public static final String CHANNEL_ID = "discreetlauncher" ;
 	private final NotificationManagerCompat manager ;
-	private final int notification_id ;
 
 
 	/**
@@ -52,14 +50,13 @@ class NotificationMenu
 	{
 		// Initializations
 		manager = NotificationManagerCompat.from(context) ;
-		notification_id = 1 ;
 
 		// If the Android version is Oreo or higher, create the notification channel
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-		{
-			NotificationChannel channel = new NotificationChannel(CHANNEL_ID, context.getString(R.string.app_name), NotificationManager.IMPORTANCE_HIGH) ;
-			manager.createNotificationChannel(channel) ;
-		}
+			{
+				NotificationChannel channel = new NotificationChannel("discreetlauncher", context.getString(R.string.app_name), NotificationManager.IMPORTANCE_HIGH) ;
+				manager.createNotificationChannel(channel) ;
+			}
 	}
 
 
@@ -73,7 +70,7 @@ class NotificationMenu
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 
 		// Define the notification settings
-		NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID) ;
+		NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "discreetlauncher") ;
 		builder.setSmallIcon(R.drawable.notification_icon) ;
 		builder.setContentTitle(context.getString(R.string.app_name)) ;
 		builder.setContentTitle(settings.getString(ActivitySettings.NOTIFICATION_TEXT, context.getString(R.string.set_notification_text_default))) ;
@@ -86,19 +83,25 @@ class NotificationMenu
 		if(settings.getBoolean(ActivitySettings.HIDE_ON_LOCK_SCREEN, true))
 			builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ;
 
-		// Retrieve the selected applications
-		Application[] app = ActivityMain.getApplicationsList().getNotificationApps() ;
-
-		// Set the notification actions
+		// Retrieve the selected applications and set them as actions
 		for(int i = 0 ; i < 3 ; i++)
 		{
-			if(app[i] == null) continue ;
-			PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, app[i].getActivityIntent(), PendingIntent.FLAG_CANCEL_CURRENT) ;
-			builder.addAction(0, app[i].getDisplayName(), pendingIntent) ;
+			// Check if an application has been selected
+			String application_set = settings.getString(ActivitySettings.NOTIFICATION_APP + (i + 1), ActivitySettings.NONE) ;
+			if((application_set == null) || application_set.equals(ActivitySettings.NONE)) continue ;
+
+			// Retrieve the applications details
+			String[] application_details = application_set.split(Application.NOTIFICATION_SEPARATOR) ;
+			if(application_details.length != 3) continue ;
+
+			// Add the notification as an action
+			Application application = new Application(application_details[0], application_details[1], application_details[2], null) ;
+			PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, application.getActivityIntent(), PendingIntent.FLAG_CANCEL_CURRENT) ;
+			builder.addAction(0, application.getDisplayName(), pendingIntent) ;
 		}
 
 		// Display the notification
-		manager.notify(notification_id, builder.build()) ;
+		manager.notify(1, builder.build()) ;
 	}
 
 
@@ -107,6 +110,6 @@ class NotificationMenu
 	 */
 	void hide()
 	{
-		manager.cancel(notification_id) ;
+		manager.cancel(1) ;
 	}
 }

@@ -56,7 +56,6 @@ class ApplicationsList
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
 	private final ArrayList<Application> hidden ;
-	private final Application[] notificationApps ;
 	private String last_update ;
 	private boolean update_in_progress ;
 
@@ -69,7 +68,6 @@ class ApplicationsList
 		applications = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
 		hidden = new ArrayList<>() ;
-		notificationApps = new Application[3] ;
 		last_update = "" ;
 		update_in_progress = false ;
 	}
@@ -281,36 +279,6 @@ class ApplicationsList
 
 
 	/**
-	 * Update the applications used as notification buttons
-	 * @param context To get the settings
-	 */
-	void updateNotificationApps(Context context)
-	{
-		// Initializations
-		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
-		String[] setting_app = new String[3] ;
-
-		// Update the notification applications
-		String[] app ;
-		for(int i = 0 ; i < 3 ; i++)
-		{
-			// Check if an application has been selected
-			setting_app[i] = settings.getString(ActivitySettings.NOTIFICATION_APP + (i + 1), ActivitySettings.NONE) ;
-			if((setting_app[i] == null) || setting_app[i].equals(ActivitySettings.NONE))
-				{
-					notificationApps[i] = null ;
-					continue ;
-				}
-
-			// Retrieve the applications details
-			app = setting_app[i].split(Application.NOTIFICATION_SEPARATOR) ;
-			if(app.length == 3)	notificationApps[i] = new Application(app[0], app[1], app[2], null) ;
-				else notificationApps[i] = null ;
-		}
-	}
-
-
-	/**
 	 * Add shortcuts to the applications list based on the shortcuts files.
 	 * @param context To get the file path and icons
 	 */
@@ -495,15 +463,5 @@ class ApplicationsList
 	int getFavoritesCount()
 	{
 		return favorites.size() ;
-	}
-
-
-	/**
-	 * Return the three notification applications
-	 * @return For display as notification buttons
-	 */
-	Application[] getNotificationApps()
-	{
-		return notificationApps ;
 	}
 }
