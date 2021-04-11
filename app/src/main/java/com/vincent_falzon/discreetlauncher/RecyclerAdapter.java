@@ -129,7 +129,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		public void onClick(View view)
 		{
 			if(view == null) return ;
-			applicationsList.get(getAdapterPosition()).start(view.getContext()) ;
+			applicationsList.get(getBindingAdapterPosition()).start(view.getContext()) ;
 		}
 
 
@@ -143,7 +143,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		{
 			// Get the clicked position to retrieve the selected application
 			if(view == null) return false ;
-			final int selection = getAdapterPosition() ;
+			final int selection = getBindingAdapterPosition() ;
 
 			// Prepare and display the selection dialog
 			final Context context = view.getContext() ;
