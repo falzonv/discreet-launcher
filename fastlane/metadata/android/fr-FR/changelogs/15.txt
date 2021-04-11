@@ -1,0 +1,3 @@
+- Affichage sur 5 colonnes en mode paysage
+- Paramètres d'affichage dans une section dédiée
+- Option : portrait forcé à l'accueil (idée c0bnut)

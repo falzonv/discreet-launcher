@@ -1,0 +1,3 @@
+- Display on 5 columns in landscape mode
+- Display settings in a dedicated section
+- Option: force portrait on home screen (idea c0bnut)

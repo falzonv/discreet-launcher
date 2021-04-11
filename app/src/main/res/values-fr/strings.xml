@@ -106,7 +106,7 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
-        \n<b>v2.6.0</b>
+        \n<b>v2.6.0 - 11/04/2021</b>
         \n- Affichage sur 5 colonnes en mode paysage
         \n- Paramètres d\'affichage dans une section dédiée
         \n- <u><i>Option</i></u> portrait forcé à l\'accueil (idée c0bnut)
