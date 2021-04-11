@@ -46,7 +46,7 @@ public class InternalFileTXT extends InternalFile
 
 
 	/**
-	 * Read the internal file line by line and store the result in an array of lines.
+	 * Read the internal file line by line and return the result in an array of lines.
 	 * @return Content of the file or <code>null</code> if an error happened
 	 */
 	public ArrayList<String> readAllLines()
@@ -109,5 +109,20 @@ public class InternalFileTXT extends InternalFile
 			// An error happened while writing the line
 			return false ;
 		}
+	}
+
+
+	/**
+	 * Prepare the internal file for inclusion in an export file.
+	 * @param not_existing Will be returned if the file does not exist
+	 * @return An array of lines where each line starts with the filename
+	 */
+	public ArrayList<String> prepareForExport(String not_existing)
+	{
+		// Return the content of the file or indicate that it does not exist
+		ArrayList<String> content = new ArrayList<>() ;
+		if(!exists()) content.add(file.getName() + ": " + not_existing) ;
+			else for(String line : readAllLines()) content.add(file.getName() + ": " + line) ;
+		return content ;
 	}
 }

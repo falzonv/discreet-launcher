@@ -29,17 +29,12 @@ import android.content.Intent ;
 import android.content.SharedPreferences ;
 import android.net.Uri ;
 import android.os.Bundle ;
-import android.os.ParcelFileDescriptor ;
 import android.view.View ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
-import java.io.BufferedReader ;
 import java.io.File ;
-import java.io.FileReader ;
-import java.io.FileWriter ;
 import java.io.FilenameFilter ;
-import java.io.IOException ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
 import java.util.Date ;
@@ -51,10 +46,6 @@ import java.util.Set ;
  */
 public class ActivityExportImport extends AppCompatActivity
 {
-	// Constants
-	public static final int EXPORT_REQUEST_CODE = 100 ;
-	public static final int IMPORT_REQUEST_CODE = 110 ;
-
 	// Attributes
 	private SharedPreferences settings ;
 	private SharedPreferences.Editor editor ;
@@ -67,7 +58,7 @@ public class ActivityExportImport extends AppCompatActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		// Call the constructor of the parent class
+		// Let the parent actions be performed
 		super.onCreate(savedInstanceState) ;
 
 		// Initializations
@@ -90,7 +81,7 @@ public class ActivityExportImport extends AppCompatActivity
 		intent.addCategory(Intent.CATEGORY_OPENABLE) ;
 		intent.setType("text/plain") ;
 		intent.putExtra(Intent.EXTRA_TITLE, timestamp + "_discreetlauncher.txt") ;
-		startActivityForResult(intent, EXPORT_REQUEST_CODE) ;
+		startActivityForResult(intent, 100) ;
 	}
 
 
@@ -103,7 +94,7 @@ public class ActivityExportImport extends AppCompatActivity
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT) ;
 		intent.addCategory(Intent.CATEGORY_OPENABLE) ;
 		intent.setType("text/plain") ;
-		startActivityForResult(intent, IMPORT_REQUEST_CODE) ;
+		startActivityForResult(intent, 110) ;
 	}
 
 
@@ -125,10 +116,10 @@ public class ActivityExportImport extends AppCompatActivity
 		// Check the type of request and perform the related actions
 		switch(request)
 		{
-			case EXPORT_REQUEST_CODE :
+			case 100 :
 				writeToExportFile(data.getData()) ;
 				break ;
-			case IMPORT_REQUEST_CODE :
+			case 110 :
 				readFromImportFile(data.getData()) ;
 				break ;
 		}
@@ -137,7 +128,7 @@ public class ActivityExportImport extends AppCompatActivity
 
 	/**
 	 * Export all the application data and settings to the selected destination.
-	 * @param location File location selected by the user
+	 * @param location Location of the file on the system
 	 */
 	private void writeToExportFile(Uri location)
 	{
@@ -149,25 +140,25 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Save the content of all internal files
 		exportedData.add("# " + getString(R.string.export_import_internal_files_header)) ;
-		exportedData.addAll(prepareFileForExport(ApplicationsList.FAVORITES_FILE)) ;
-		exportedData.addAll(prepareFileForExport(ApplicationsList.SHORTCUTS_FILE)) ;
-		exportedData.addAll(prepareFileForExport(ApplicationsList.SHORTCUTS_LEGACY_FILE)) ;
+		exportedData.addAll(new InternalFileTXT(this, ApplicationsList.FAVORITES_FILE).prepareForExport(ActivitySettings.NONE)) ;
+		exportedData.addAll(new InternalFileTXT(this, ApplicationsList.SHORTCUTS_FILE).prepareForExport(ActivitySettings.NONE)) ;
+		exportedData.addAll(new InternalFileTXT(this, ApplicationsList.SHORTCUTS_LEGACY_FILE).prepareForExport(ActivitySettings.NONE)) ;
 		exportedData.add("#") ;
 
 		// Save all settings
 		exportedData.add("# " + getString(R.string.button_settings)) ;
-		exportedData.add(ActivitySettings.DISPLAY_CLOCK + ": " + settings.getBoolean(ActivitySettings.DISPLAY_CLOCK, false)) ;
-		exportedData.add(ActivitySettings.TRANSPARENT_STATUS_BAR + ": " + settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false)) ;
-		exportedData.add(ActivitySettings.FORCE_PORTRAIT + ": " + settings.getBoolean(ActivitySettings.FORCE_PORTRAIT, false)) ;
+		exportedData.add(exportBooleanSetting(ActivitySettings.DISPLAY_CLOCK, false)) ;
+		exportedData.add(exportBooleanSetting(ActivitySettings.TRANSPARENT_STATUS_BAR, false)) ;
+		exportedData.add(exportBooleanSetting(ActivitySettings.FORCE_PORTRAIT, false)) ;
 		exportedData.add(ActivitySettings.ICON_PACK + ": " + settings.getString(ActivitySettings.ICON_PACK, ActivitySettings.NONE)) ;
 		Set<String> hiddenApplications = settings.getStringSet(ActivitySettings.HIDDEN_APPLICATIONS, null) ;
 		if(hiddenApplications == null) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + ActivitySettings.NONE) ;
 			else for(String hidden_application : hiddenApplications) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + hidden_application) ;
-		exportedData.add(ActivitySettings.DISPLAY_NOTIFICATION + ": " + settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true)) ;
+		exportedData.add(exportBooleanSetting(ActivitySettings.DISPLAY_NOTIFICATION, true)) ;
 		String notification_text = settings.getString(ActivitySettings.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)) ;
 		if(notification_text == null) exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + getString(R.string.set_notification_text_default)) ;
 			else exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + notification_text.replace("\n", "\\n")) ;
-		exportedData.add(ActivitySettings.HIDE_ON_LOCK_SCREEN + ": " + settings.getBoolean(ActivitySettings.HIDE_ON_LOCK_SCREEN, true)) ;
+		exportedData.add(exportBooleanSetting(ActivitySettings.HIDE_ON_LOCK_SCREEN, true)) ;
 		exportedData.add(ActivitySettings.NOTIFICATION_APP + "1: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "1", ActivitySettings.NONE)) ;
 		exportedData.add(ActivitySettings.NOTIFICATION_APP + "2: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "2", ActivitySettings.NONE)) ;
 		exportedData.add(ActivitySettings.NOTIFICATION_APP + "3: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "3", ActivitySettings.NONE)) ;
@@ -185,90 +176,41 @@ public class ActivityExportImport extends AppCompatActivity
 		}) ;
 		if(shortcuts_icons != null)
 			for(String icon : shortcuts_icons)
-			{
-				InternalFilePNG file = new InternalFilePNG(getApplicationContext(), icon) ;
-				exportedData.add(file.getName() + ": " + file.convertFileToString()) ;
-			}
+				exportedData.add(new InternalFilePNG(this, icon).prepareForExport()) ;
 		exportedData.add("#") ;
 
-		try
-		{
-			// Write all lines in the file
-			ParcelFileDescriptor file = getContentResolver().openFileDescriptor(location, "w") ;
-			if(file != null)
-				{
-					FileWriter writer = new FileWriter(file.getFileDescriptor()) ;
-					for(String line : exportedData)
-					{
-						writer.write(line);
-						writer.write(System.lineSeparator()) ;
-					}
-					writer.close() ;
-					file.close() ;
-					ShowDialog.toast(this, R.string.export_completed) ;
-				}
-				else ShowDialog.toastLong(this, getString(R.string.error_export)) ;
-		}
-		catch(IOException e)
-		{
-			// Display an error message and quit
-			ShowDialog.toastLong(this, getString(R.string.error_export)) ;
-		}
+		// Write all lines in the export file
+		if(ExternalFile.writeAllLines(this, location, exportedData))
+				ShowDialog.toast(this, R.string.export_completed) ;
+			else ShowDialog.toastLong(this, getString(R.string.error_export)) ;
 	}
 
 
 	/**
-	 * Retrieve the content of a file as an array of lines.
-	 * @param filename Name of the file to export
-	 * @return Content of the file or a mention that it does not exist
+	 * Prepare the line of a boolean setting for writing in an export file.
+	 * @param setting Key of the setting to export
+	 * @param default_value Default value of the setting
 	 */
-	private ArrayList<String> prepareFileForExport(String filename)
+	private String exportBooleanSetting(String setting, boolean default_value)
 	{
-		// Initializations
-		ArrayList<String> content = new ArrayList<>() ;
-		InternalFileTXT file = new InternalFileTXT(getApplicationContext(), filename) ;
-
-		// Return the content of the file or indicate that it does not exist
-		if(file.exists()) for(String line : file.readAllLines()) content.add(filename + ": " + line) ;
-			else content.add(filename + ": " + ActivitySettings.NONE) ;
-		return content ;
+		return setting + ": " + settings.getBoolean(setting, default_value) ;
 	}
 
 
 	/**
 	 * Load all the application data and settings from the selected source.
-	 * @param location File location selected by the user
+	 * @param location Location of the file on the system
 	 */
 	private void readFromImportFile(Uri location)
 	{
-		// Prepare the table used to store the lines
-		ArrayList<String> importedData = new ArrayList<>() ;
-		String buffer ;
-
-		try
-		{
-			// Read the content of the file line by line
-			ParcelFileDescriptor file = getContentResolver().openFileDescriptor(location, "r") ;
-			if(file != null)
-				{
-					BufferedReader reader = new BufferedReader(new FileReader(file.getFileDescriptor())) ;
-					while((buffer = reader.readLine()) != null) importedData.add(buffer) ;
-					reader.close() ;
-					file.close() ;
-				}
-				else
-				{
-					// Display an error message and quit
-					ShowDialog.toastLong(this, getString(R.string.error_import)) ;
-					return ;
-				}
-		}
-		catch(IOException e)
-		{
-			// Display an error message and quit
-			ShowDialog.toastLong(this, getString(R.string.error_import)) ;
-			return ;
-		}
+		// Read the content of the file line by line
+		ArrayList<String> importedData = ExternalFile.readAllLines(this, location) ;
+		if(importedData == null)
+			{
+				// Display an error message and quit
+				ShowDialog.toastLong(this, getString(R.string.error_import)) ;
+				return ;
+			}
 
 		// Prepare the files that need to be replaced
 		ActivityMain.setIgnoreSettingsChanges(true) ;
@@ -286,6 +228,7 @@ public class ActivityExportImport extends AppCompatActivity
 		// Reset the preference to default before importing the file
 		settings.edit().clear().apply() ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
+		PreferenceManager.setDefaultValues(this, R.xml.settings_display, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_notification, true) ;
 
 		// Browse the lines of the import file
@@ -338,15 +281,14 @@ public class ActivityExportImport extends AppCompatActivity
 		// Update the application list and start again to listen for settings changes
 		ActivityMain.getApplicationsList().update(this) ;
 		ActivityMain.getApplicationsList().updateNotificationApps(this) ;
-		ActivityMain.setAdapterUpdateNeeded() ;
-		ActivityDrawer.setAdapterUpdateNeeded() ;
+		ActivityMain.setAdaptersUpdateNeeded() ;
 		ActivityMain.setIgnoreSettingsChanges(false) ;
 	}
 
 
 	/**
-	 * Load the new value of a Boolean setting from the line of an import file.
-	 * @param setting The setting to modify
+	 * Modify a boolean setting based on its line in an import file.
+	 * @param setting Key of the setting to modify
 	 * @param line Line containing the new value
 	 */
 	private void loadBooleanSetting(String setting, String line)
@@ -356,8 +298,8 @@ public class ActivityExportImport extends AppCompatActivity
 
 
 	/**
-	 * Load the new value of a String setting from the line of an import file.
-	 * @param setting The setting to modify
+	 * Modify a String setting based on its line in an import file.
+	 * @param setting Key of the setting to modify
 	 * @param line Line containing the new value
 	 */
 	private void loadStringSetting(String setting, String line)

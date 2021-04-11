@@ -100,19 +100,19 @@ public class InternalFilePNG extends InternalFile
 
 
 	/**
-	 * Convert the content of the internal file to a Base64 String.
-	 * @return A Base64 String or <code>null</code> if an error happened
+	 * Prepare the internal file for inclusion in an export file.
+	 * @return The filename followed by a Base64 String or an empty string if an error happened
 	 */
-	public String convertFileToString()
+	public String prepareForExport()
 	{
 		// Try to decode the Bitmap
 		Bitmap bitmap = readFromFile() ;
-		if(bitmap == null) return null ;
+		if(bitmap == null) return "" ;
 
-		// Encode the Bitmap as a Base64 String
+		// Encode the Bitmap as a Base64 String and return the result
 		ByteArrayOutputStream byteArray = new ByteArrayOutputStream() ;
 		bitmap.compress(Bitmap.CompressFormat.PNG,100, byteArray) ;
-		return Base64.encodeToString(byteArray.toByteArray(), Base64.NO_WRAP) ;
+		return file.getName() + ": " + Base64.encodeToString(byteArray.toByteArray(), Base64.NO_WRAP) ;
 	}
 
 
