@@ -34,8 +34,8 @@
     <string name="error_file_format_changed">
         The way favorites are stored has changed with version 1.2.0.\nYour list has been converted automatically but you should check that everything is as you wish.
     </string>
-    <string name="error_export">An error happened during the export file creation!</string>
-    <string name="error_import">An error happened during the import file reading!</string>
+    <string name="error_export">An error happened while creating the export file!</string>
+    <string name="error_import">An error happened while reading the import file!</string>
 
 	<!-- Selection dialogs -->
 	<string name="dialog_check_favorites">Check your favorites applications</string>
@@ -68,7 +68,7 @@
     <string name="set_icon_pack_none">None (use the real icons)</string>
     <string name="set_hidden_applications">Hide applications</string>
     <string name="notification_settings_title">Quick access notification</string>
-    <string name="notification_settings_help">A notification allowing to open 3 applications can be displayed when you leave the home screen.</string>
+    <string name="notification_settings_help">A notification allowing to open 3 applications can be displayed when the launcher is in background.</string>
     <string name="set_display_notification">Display the notification</string>
     <string name="set_notification_text">Text above the buttons</string>
     <string name="set_notification_text_default">(choose apps/text in the settings)</string>

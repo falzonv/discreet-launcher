@@ -82,7 +82,7 @@ class EventsReceiver extends BroadcastReceiver
 				// Update the clock forcing a "HH:mm" format
 				@SuppressLint("SimpleDateFormat")
 				SimpleDateFormat clockFormat = new SimpleDateFormat("HH:mm") ;
-				clockText.setText(clockFormat.format(new Date())) ; ;
+				clockText.setText(clockFormat.format(new Date())) ;
 				return ;
 			}
 
@@ -92,8 +92,7 @@ class EventsReceiver extends BroadcastReceiver
 			{
 				// Update the applications list
 				ActivityMain.getApplicationsList().update(context) ;
-				ActivityMain.setAdapterUpdateNeeded() ;
-				ActivityDrawer.setAdapterUpdateNeeded() ;
+				ActivityMain.setAdaptersUpdateNeeded() ;
 			}
 
 		// Execute the following code only if the Android version is before Oreo
@@ -117,8 +116,7 @@ class EventsReceiver extends BroadcastReceiver
 						// Add the shortcut and update the applications list
 						String shortcut = display_name + Application.SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
 						ActivityMain.getApplicationsList().addShortcut(context, display_name, shortcut, icon, true) ;
-						ActivityMain.setAdapterUpdateNeeded() ;
-						ActivityDrawer.setAdapterUpdateNeeded() ;
+						ActivityMain.setAdaptersUpdateNeeded() ;
 					}
 			}
 	}

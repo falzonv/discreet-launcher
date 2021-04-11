@@ -32,6 +32,7 @@ import android.content.pm.ActivityInfo ;
 import android.content.res.Configuration ;
 import android.os.Build ;
 import android.os.Bundle ;
+import androidx.annotation.NonNull ;
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
@@ -41,7 +42,6 @@ import androidx.recyclerview.widget.RecyclerView ;
 import android.util.DisplayMetrics ;
 import android.view.ContextMenu ;
 import android.view.GestureDetector ;
-import android.view.MenuInflater ;
 import android.view.MenuItem ;
 import android.view.MotionEvent ;
 import android.view.View ;
@@ -51,7 +51,7 @@ import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
 /**
- * Main class and home screen activity.
+ * Main class activity managing the home screen and applications drawer.
  */
 public class ActivityMain extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
@@ -62,16 +62,26 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private static boolean ignore_settings_changes ;
-	private static boolean adapter_update_needed ;
+	private static boolean adapters_update_needed ;
 	private EventsReceiver applicationsListUpdater ;
 	private EventsReceiver legacyShortcutsCreator ;
 	private SharedPreferences settings ;
-	private GestureDetectorCompat detector ;
-	private RecyclerAdapter adapter ;
-	private LinearLayout favoritesPanel ;
-	private EventsReceiver clockUpdater ;
-	private TextView clockText ;
+	private GestureDetectorCompat gestureDetector ;
 	private NotificationMenu notificationMenu ;
+
+	// Attributes related to the home screen
+	private LinearLayout homeScreen ;
+	private LinearLayout favorites ;
+	private RecyclerAdapter favoritesAdapter ;
+	private TextView clock ;
+	private EventsReceiver clockUpdater ;
+
+	// Attributes related to the drawer
+	private LinearLayout drawer ;
+	private RecyclerAdapter drawerAdapter ;
+	private GridLayoutManager drawerLayout ;
+	private int drawer_position ;
+	private int drawer_last_position ;
 
 	
 	/**
@@ -81,30 +91,38 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		// Call the constructor of the parent class
+		// Let the parent actions be performed
 		super.onCreate(savedInstanceState) ;
 
-		// Initialize the layout and navigation elements
+		// Initializations
 		setContentView(R.layout.activity_main) ;
-		detector = new GestureDetectorCompat(this, new GestureListener()) ;
-		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
+		homeScreen = findViewById(R.id.home_screen) ;
+		favorites = findViewById(R.id.favorites) ;
+		drawer = findViewById(R.id.drawer) ;
+		adapters_update_needed = false ;
 
-		// Retrieve the settings and listen for changes
+		// Assign default values to settings not configured yet
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
+		PreferenceManager.setDefaultValues(this, R.xml.settings_display, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_notification, true) ;
+
+		// Retrieve the current settings and start to listen for changes
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 		ignore_settings_changes = false ;
 
-		// Make the status bar transparent if this option was selected
-		if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
-			getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+		// Hide the favorites panel and the drawer by default
+		displayFavorites(false) ;
+		displayDrawer(false) ;
 
 		// If the option is selected, force the portrait mode
 		togglePortraitMode() ;
 
+		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
+		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
+
 		// Initialize the text clock
-		clockText = findViewById(R.id.clock_text) ;
+		clock = findViewById(R.id.clock_text) ;
 		manageClock() ;
 
 		// If they do not exist yet, build the applications lists (complete and favorites)
@@ -123,18 +141,33 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(applicationsList.getFavoritesCount() == 0)
 			ShowDialog.toastLong(this, getString(R.string.info_no_favorites_yet)) ;
 
-		// Prepare the display of the favorites panel
-		RecyclerView recycler = findViewById(R.id.favorites_applications) ;
-		adapter = new RecyclerAdapter(true) ;
-		recycler.setAdapter(adapter) ;
+		// Define the favorites panel and applications list layouts based on screen orientation
+		GridLayoutManager favoritesLayout ;
 		if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-				recycler.setLayoutManager(new GridLayoutManager(this, COLUMNS_LANDSCAPE)) ;
-			else recycler.setLayoutManager(new GridLayoutManager(this, COLUMNS_PORTRAIT)) ;
+			{
+				favoritesLayout = new GridLayoutManager(this, ActivityMain.COLUMNS_LANDSCAPE) ;
+				drawerLayout = new GridLayoutManager(this, ActivityMain.COLUMNS_LANDSCAPE) ;
+			}
+			else
+			{
+				favoritesLayout = new GridLayoutManager(this, COLUMNS_PORTRAIT) ;
+				drawerLayout = new GridLayoutManager(this, ActivityMain.COLUMNS_PORTRAIT) ;
+			}
 
-		// Hide the favorites panel by default
-		favoritesPanel = findViewById(R.id.favorites_panel) ;
-		favoritesPanel.setVisibility(View.GONE) ;
-		adapter_update_needed = false ;
+		// Initialize the content of the favorites panel
+		RecyclerView favoritesRecycler = findViewById(R.id.favorites_applications) ;
+		favoritesAdapter = new RecyclerAdapter(true) ;
+		favoritesRecycler.setAdapter(favoritesAdapter) ;
+		favoritesRecycler.setLayoutManager(favoritesLayout) ;
+
+		// Initialize the content of the full applications list
+		RecyclerView fullListRecycler = findViewById(R.id.applications_list) ;
+		drawerAdapter = new RecyclerAdapter(false) ;
+		fullListRecycler.setAdapter(drawerAdapter) ;
+		fullListRecycler.setLayoutManager(drawerLayout) ;
+		drawer_position = 0 ;
+		drawer_last_position = -1 ;
+		fullListRecycler.addOnScrollListener(new DrawerScrollListener()) ;
 
 		// Start to listen for packages added or removed
 		applicationsListUpdater = new EventsReceiver() ;
@@ -144,7 +177,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		filter.addDataScheme("package") ;
 		registerReceiver(applicationsListUpdater, filter) ;
 
-		// When Android version is before, Oreo, start to listen for legacy shortcut requests
+		// When Android version is before Oreo, start to listen for legacy shortcut requests
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
 				legacyShortcutsCreator = new EventsReceiver() ;
@@ -164,7 +197,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				// If not already done, display the clock and start to listen for updates (every minute)
 				if(clockUpdater == null)
 					{
-						clockUpdater = new EventsReceiver(clockText) ;
+						clockUpdater = new EventsReceiver(clock) ;
 						registerReceiver(clockUpdater, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
 					}
 			}
@@ -176,7 +209,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						unregisterReceiver(clockUpdater) ;
 						clockUpdater = null ;
 					}
-				clockText.setText("") ;
+				clock.setText("") ;
 			}
 	}
 
@@ -189,6 +222,68 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(settings.getBoolean(ActivitySettings.FORCE_PORTRAIT, false))
 				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) ;
 			else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) ;
+	}
+
+
+	/**
+	 * Display or hide the favorites panel.
+	 * @param display <code>true</code> to display, <code>false</code> to hide
+	 */
+	private void displayFavorites(boolean display)
+	{
+		if(display)
+			{
+				// Display the favorites panel
+				favorites.setVisibility(View.VISIBLE) ;
+
+				// If the status bar was transparent, make it translucent as the panel
+				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
+					getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
+			}
+			else
+			{
+				// Hide the favorites panel
+				favorites.setVisibility(View.GONE) ;
+
+				// If the option is selected, make the status bar fully transparent
+				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
+					getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+			}
+	}
+
+
+	/**
+	 * Display or hide the applications drawer.
+	 * @param display <code>true</code> to display, <code>false</code> to hide
+	 */
+	private void displayDrawer(boolean display)
+	{
+		if(display)
+			{
+				// Indicate the last time the applications list was updated
+				TextView lastUpdate = findViewById(R.id.last_update_datetime) ;
+				lastUpdate.setText(getString(R.string.info_applications_list_last_update, applicationsList.getLastUpdate())) ;
+
+				// If the status bar was transparent, make it translucent as the drawer
+				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
+					getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
+
+				// Display the applications drawer
+				drawer_position = 0 ;
+				drawer_last_position = -1 ;
+				homeScreen.setVisibility(View.GONE) ;
+				drawer.setVisibility(View.VISIBLE) ;
+			}
+			else
+			{
+				// Hide the applications drawer
+				homeScreen.setVisibility(View.VISIBLE) ;
+				drawer.setVisibility(View.GONE) ;
+
+				// If the option is selected, make the status bar fully transparent
+				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
+					getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+			}
 	}
 
 
@@ -215,9 +310,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	/**
 	 * Inform the activity that an update of the RecyclerView is needed.
 	 */
-	static void setAdapterUpdateNeeded()
+	static void setAdaptersUpdateNeeded()
 	{
-		adapter_update_needed = true ;
+		adapters_update_needed = true ;
 	}
 
 	
@@ -230,12 +325,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo)
 	{
-		// Call the method of the parent class
 		super.onCreateContextMenu(menu, view, menuInfo) ;
-
-		// Create the contextual menu
-		MenuInflater inflater = getMenuInflater() ;
-		inflater.inflate(R.menu.contextual_menu, menu) ;
+		getMenuInflater().inflate(R.menu.contextual_menu, menu) ;
 	}
 
 
@@ -247,15 +338,14 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	public boolean onContextItemSelected(MenuItem item)
 	{
-		// Get the ID of the clicked item
-		int selection = item.getItemId() ;
-
 		// Identify which menu entry has been clicked
+		int selection = item.getItemId() ;
 		if(selection == R.id.menu_action_refresh_list)
 			{
 				// Update the applications list
 				applicationsList.update(this) ;
-				adapter.notifyDataSetChanged() ;
+				favoritesAdapter.notifyDataSetChanged() ;
+				drawerAdapter.notifyDataSetChanged() ;
 				return true ;
 			}
 			else if(selection == R.id.menu_action_manage_favorites)
@@ -351,7 +441,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 						// Update the favorites panel and inform the user
 						applicationsList.updateFavorites(context) ;
-						adapter.notifyDataSetChanged() ;
+						favoritesAdapter.notifyDataSetChanged() ;
 						if(favorites_number > max_favorites) ShowDialog.toastLong(context, getString(R.string.error_too_many_favorites, max_favorites)) ;
 							else ShowDialog.toast(getApplicationContext(), R.string.info_favorites_saved) ;
 					}
@@ -362,20 +452,20 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
-	 * Detect a user action on the screen
+	 * Detect a user action on the screen.
 	 * @param event Gesture event
 	 * @return <code>true</code> if event is consumed, <code>false</code> otherwise
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event)
 	{
-		detector.onTouchEvent(event) ;
+		gestureDetector.onTouchEvent(event) ;
 		return super.onTouchEvent(event) ;
 	}
 
 
 	/**
-	 * Detect and recognize a gesture on the screen.
+	 * Detect and recognize a gesture on the home screen.
 	 */
 	class GestureListener extends GestureDetector.SimpleOnGestureListener
 	{
@@ -401,61 +491,32 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		@Override
 		public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY)
 		{
+			// Ignore the gesture if the applications drawer is opened
+			if(drawer.getVisibility() == View.VISIBLE) return false ;
+
 			// Calculate the traveled distances on both axes
 			float x_distance = Math.abs(event1.getX() - event2.getX()) ;
 			float y_distance = event1.getY() - event2.getY() ;
 
 			// Check if this is a vertical gesture over a distance and not a single tap
 			if((Math.abs(y_distance) > x_distance) && (Math.abs(y_distance) > 100))
-			{
-				// Check the gesture direction
-				if(y_distance > 0)
-					{
-						// Going up, check if the favorites panel is opened
-						if(favoritesPanel.getVisibility() == View.VISIBLE)
-							{
-								// Close the favorites panel
-								favoritesPanel.setVisibility(View.GONE) ;
+				{
+					// Check if the gesture is going up (if) or down (else)
+					if(y_distance > 0)
+						{
+							// Display the applications drawer only if the favorites panel is closed
+							if(favorites.getVisibility() == View.VISIBLE) displayFavorites(false) ;
+								else displayDrawer(true) ;
+						}
+						else displayFavorites(true) ;
 
-								// Make the status bar transparent if this option was selected
-								if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
-									getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
-							}
-							else
-							{
-								// Open the applications drawer
-								startActivity(new Intent().setClass(getApplicationContext(), ActivityDrawer.class)) ;
-							}
-					}
-					else
-					{
-						// Going down, open the favorites panel
-						favoritesPanel.setVisibility(View.VISIBLE) ;
-
-						// Make the status bar translucent if it was transparent
-						if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
-							getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
-					}
-
-				// Indicate that the event has been consumed
-				return true ;
-			}
+					// Indicate that the event has been consumed
+					return true ;
+				}
 
 			// Ignore other gestures
 			return false ;
 		}
-	}
-
-
-	/**
-	 * When the user presses "Back" from the Main Activity, either close the favorites panel or
-	 * do nothing to stay on the home screen
-	 */
-	@Override
-	public void onBackPressed()
-	{
-		if(favoritesPanel.getVisibility() == View.VISIBLE)
-			favoritesPanel.setVisibility(View.GONE) ;
 	}
 
 
@@ -474,7 +535,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			case ActivitySettings.HIDDEN_APPLICATIONS :
 				// Update the applications list
 				applicationsList.update(this) ;
-				adapter.notifyDataSetChanged() ;
+				favoritesAdapter.notifyDataSetChanged() ;
+				drawerAdapter.notifyDataSetChanged() ;
 				break ;
 			case ActivitySettings.DISPLAY_NOTIFICATION :
 				// Toggle the notification
@@ -499,11 +561,69 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
+	 * Detect a scrolling action on the applications drawer.
+	 */
+	class DrawerScrollListener extends RecyclerView.OnScrollListener
+	{
+		/**
+		 * When the scrolling ends, check if it is stuck on top.
+		 * @param recyclerView Scrolled RecyclerView
+		 * @param newState 0 (Not scrolling), 1 (Active scrolling) or 2 (Scrolling inerty)
+		 */
+		@Override
+		public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState)
+		{
+			// Let the parent actions be performed
+			super.onScrollStateChanged(recyclerView, newState) ;
+
+			// Wait for the gesture to be finished
+			if(newState == RecyclerView.SCROLL_STATE_IDLE)
+			{
+				// If the scrolling is stuck on top, close the drawer activity
+				if((drawer_position == 0) && (drawer_last_position == 0)) displayDrawer(false) ;
+
+				// Update the last position to detect the stuck state
+				drawer_last_position = drawer_position;
+			}
+		}
+
+
+		/**
+		 * Update the position of the first visible item as the user is scrolling.
+		 * @param recyclerView Scrolled RecyclerView
+		 * @param dx Horizontal distance
+		 * @param dy Vertical distance
+		 */
+		@Override
+		public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy)
+		{
+			// Let the parent actions be performed
+			super.onScrolled(recyclerView, dx, dy) ;
+
+			// Update the position of the first visible item
+			drawer_position = drawerLayout.findFirstCompletelyVisibleItemPosition() ;
+		}
+	}
+
+
+	/**
+	 * Close the applications drawer or favorites panel if opened, otherwise do nothing.
+	 */
+	@Override
+	public void onBackPressed()
+	{
+		if(drawer.getVisibility() == View.VISIBLE) displayDrawer(false) ;
+			else if(favorites.getVisibility() == View.VISIBLE) displayFavorites(false) ;
+	}
+
+
+	/**
 	 * Perform actions when the user leaves the home screen.
 	 */
 	@Override
 	public void onPause()
 	{
+		// Let the parent actions be performed
 		super.onPause() ;
 
 		// If the option is selected, display the notification
@@ -518,6 +638,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	@Override
 	public void onResume()
 	{
+		// Let the parent actions be performed
 		super.onResume() ;
 
 		// Hide the notification and update the display according to settings
@@ -525,24 +646,28 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		manageClock() ;
 		togglePortraitMode() ;
 
-		// Update the RecyclerView if needed
-		if(adapter_update_needed)
+		// Update the favorites panel and applications drawer if needed
+		if(adapters_update_needed)
 			{
-				adapter.notifyDataSetChanged() ;
-				adapter_update_needed = false ;
+				favoritesAdapter.notifyDataSetChanged() ;
+				drawerAdapter.notifyDataSetChanged() ;
+				adapters_update_needed = false ;
 			}
 	}
 
 
 	/**
-	 * Unregister all remaining broadcast receivers when the activity is destroyed.
+	 * Perform actions when the activity is destroyed.
 	 */
 	@Override
 	public void onDestroy()
 	{
+		// Unregister all remaining broadcast receivers
 		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
 		if(applicationsListUpdater != null) unregisterReceiver(applicationsListUpdater) ;
 		if(legacyShortcutsCreator != null) unregisterReceiver(legacyShortcutsCreator) ;
+
+		// Let the parent actions be performed
 		super.onDestroy() ;
 	}
 }

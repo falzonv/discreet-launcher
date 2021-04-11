@@ -8,47 +8,85 @@
 	android:orientation="vertical"
 	android:fitsSystemWindows="true">
 
-	<LinearLayout
-		android:id="@+id/favorites_panel"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/home_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
 
-		<androidx.recyclerview.widget.RecyclerView
-			android:id="@+id/favorites_applications"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:background="@color/color_applications_drawer_background"/>
+        <LinearLayout
+            android:id="@+id/favorites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-		<TextView
-			android:id="@+id/access_menu_button"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textStyle="italic"
-			android:layout_gravity="center"
-			android:gravity="center"
-			android:text="@string/button_access_menu"
-			android:paddingTop="@dimen/menu_button_vertical_padding"
-			android:paddingStart="@dimen/menu_button_horizontal_padding"
-			android:paddingEnd="@dimen/menu_button_horizontal_padding"
-			android:paddingBottom="@dimen/menu_button_vertical_padding"
-			android:layout_marginTop="@dimen/menu_button_top_margin"
-			android:textColor="@color/color_applications_drawer_text"
-			android:background="@color/color_applications_drawer_background"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/favorites_applications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_applications_drawer_background"/>
 
-	</LinearLayout>
+            <TextView
+                android:id="@+id/access_menu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/button_access_menu"
+                android:paddingTop="@dimen/menu_button_vertical_padding"
+                android:paddingStart="@dimen/menu_button_horizontal_padding"
+                android:paddingEnd="@dimen/menu_button_horizontal_padding"
+                android:paddingBottom="@dimen/menu_button_vertical_padding"
+                android:layout_marginTop="@dimen/menu_button_top_margin"
+                android:textColor="@color/color_applications_drawer_text"
+                android:background="@color/color_applications_drawer_background"/>
 
-	<TextView
-        android:id="@+id/clock_text"
-		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:text=""
-        android:fontFamily="sans-serif-light"
-        android:textSize="@dimen/clock_font_size"
-        android:textColor="@color/color_applications_drawer_text"
-        android:shadowColor="@color/color_applications_drawer_background"
-        android:shadowRadius="@dimen/clock_shadow_radius"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/clock_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:fontFamily="sans-serif-light"
+            android:textSize="@dimen/clock_font_size"
+            android:textColor="@color/color_applications_drawer_text"
+            android:shadowColor="@color/color_applications_drawer_background"
+            android:shadowRadius="@dimen/clock_shadow_radius"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/last_update_datetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:padding="@dimen/last_update_text_padding"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:text="@string/info_applications_list_last_update"
+            android:textColor="@color/color_applications_drawer_text"
+            android:background="@color/color_applications_drawer_background"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/applications_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:background="@color/color_applications_drawer_background"/>
+
+    </LinearLayout>
 
 </LinearLayout>

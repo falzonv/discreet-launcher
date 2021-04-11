@@ -68,7 +68,7 @@
     <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
     <string name="set_hidden_applications">Masquer des applications</string>
     <string name="notification_settings_title">Notification d\'accès rapide</string>
-    <string name="notification_settings_help">Une notification permettant d\'ouvrir 3 applications peut être affichée quand vous quittez l\'accueil.</string>
+    <string name="notification_settings_help">Une notification permettant d\'ouvrir 3 applications peut être affichée quand le lanceur est en arrière-plan.</string>
     <string name="set_display_notification">Afficher la notification</string>
     <string name="set_notification_text">Texte au dessus des boutons</string>
     <string name="set_notification_text_default">(apps/texte réglables dans les paramètres)</string>
