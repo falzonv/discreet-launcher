@@ -44,12 +44,6 @@ import java.util.Set ;
  */
 public class ApplicationsList
 {
-	// Constants
-	public static final String FAVORITES_FILE = "favorites.txt" ;
-	public static final String SHORTCUTS_FILE = "shortcuts.txt" ;
-	public static final String SHORTCUTS_LEGACY_FILE = "shortcuts_legacy.txt" ;
-	public static final String SHORTCUT_ICON_PREFIX = "icon_shortcut_" ;
-
 	// Attributes
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
@@ -140,7 +134,7 @@ public class ApplicationsList
 	{
 		// Initializations
 		favorites.clear() ;
-		InternalFileTXT file = new InternalFileTXT(context, FAVORITES_FILE) ;
+		InternalFileTXT file = new InternalFileTXT(context, Constants.FAVORITES_FILE) ;
 		if(!file.exists()) return ;
 
 		// Retrieve and browse the internal names of all favorites applications
@@ -203,8 +197,8 @@ public class ApplicationsList
 	{
 		// Check if an icon pack is selected
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
-		String pack_name = settings.getString(ActivitySettings.ICON_PACK, ActivitySettings.NONE) ;
-		if((pack_name == null) || pack_name.equals(ActivitySettings.NONE)) return null ;
+		String pack_name = settings.getString(Constants.ICON_PACK, Constants.NONE) ;
+		if((pack_name == null) || pack_name.equals(Constants.NONE)) return null ;
 
 		// Try to load the icon pack resources
 		IconPack iconPack = new IconPack(context, pack_name) ;
@@ -213,7 +207,7 @@ public class ApplicationsList
 				// Display an error message and set the icon pack to none
 				ShowDialog.alert(context, context.getString(R.string.error_application_not_found, pack_name)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
-				editor.putString(ActivitySettings.ICON_PACK, ActivitySettings.NONE).apply() ;
+				editor.putString(Constants.ICON_PACK, Constants.NONE).apply() ;
 				return null ;
 			}
 
@@ -239,7 +233,7 @@ public class ApplicationsList
 		// Check if hidden applications have been defined
 		hidden.clear() ;
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
-		Set<String> hiddenApplications = settings.getStringSet(ActivitySettings.HIDDEN_APPLICATIONS, null) ;
+		Set<String> hiddenApplications = settings.getStringSet(Constants.HIDDEN_APPLICATIONS, null) ;
 		if(hiddenApplications == null) return ;
 
 		// Browse the list of applications that should be hidden
@@ -247,7 +241,7 @@ public class ApplicationsList
 		for(String hidden_application : hiddenApplications)
 		{
 			// Retrieve the application internal name
-			app_details = hidden_application.split(Application.NOTIFICATION_SEPARATOR) ;
+			app_details = hidden_application.split(Constants.NOTIFICATION_SEPARATOR) ;
 			if(app_details.length < 2) continue ;
 
 			// Search the internal name in the applications list
@@ -275,48 +269,48 @@ public class ApplicationsList
 		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// If their file exists, browse the shortcuts
-		InternalFileTXT file = new InternalFileTXT(context, SHORTCUTS_FILE) ;
+		InternalFileTXT file = new InternalFileTXT(context, Constants.SHORTCUTS_FILE) ;
 		if(file.exists())
 			{
 				String[] shortcut ;
 				for(String shortcut_line : file.readAllLines())
 				{
 					// Extrat the shortcut details
-					shortcut = shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
+					shortcut = shortcut_line.split(Constants.SHORTCUT_SEPARATOR) ;
 					if(shortcut.length != 4) continue ;
 
 					// Try to retrieve the shortcut icon or use the default icon
-					InternalFilePNG icon_file = new InternalFilePNG(context, SHORTCUT_ICON_PREFIX + shortcut[0] + ".png") ;
+					InternalFilePNG icon_file = new InternalFilePNG(context, Constants.SHORTCUT_ICON_PREFIX + shortcut[0] + ".png") ;
 					Drawable icon = icon_file.convertBitmapToDrawable(context, icon_file.readFromFile()) ;
 					if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 						else icon = default_icon ;
 
 					// Add the shortcut to the list of applications
 					applications.add(new Application(shortcut[0],
-							shortcut[1] + Application.SHORTCUT_SEPARATOR + shortcut[2] + Application.SHORTCUT_SEPARATOR + shortcut[3],
-							Application.APK_SHORTCUT, icon)) ;
+							shortcut[1] + Constants.SHORTCUT_SEPARATOR + shortcut[2] + Constants.SHORTCUT_SEPARATOR + shortcut[3],
+							Constants.APK_SHORTCUT, icon)) ;
 				}
 			}
 
 		// If their file exists, browse the legacy shortcuts
-		InternalFileTXT legacyFile = new InternalFileTXT(context, SHORTCUTS_LEGACY_FILE) ;
+		InternalFileTXT legacyFile = new InternalFileTXT(context, Constants.SHORTCUTS_LEGACY_FILE) ;
 		if(legacyFile.exists())
 			{
 				String[] legacy_shortcut ;
 				for(String legacy_shortcut_line : legacyFile.readAllLines())
 				{
 					// Extrat the shortcut details
-					legacy_shortcut = legacy_shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
+					legacy_shortcut = legacy_shortcut_line.split(Constants.SHORTCUT_SEPARATOR) ;
 					if(legacy_shortcut.length != 2) continue ;
 
 					// Try to retrieve the shortcut icon or use the default icon
-					InternalFilePNG icon_file = new InternalFilePNG(context, SHORTCUT_ICON_PREFIX + legacy_shortcut[0] + ".png") ;
+					InternalFilePNG icon_file = new InternalFilePNG(context, Constants.SHORTCUT_ICON_PREFIX + legacy_shortcut[0] + ".png") ;
 					Drawable icon = icon_file.convertBitmapToDrawable(context, icon_file.readFromFile()) ;
 					if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 						else icon = default_icon ;
 
 					// Add the shortcut to the list of applications
-					applications.add(new Application(legacy_shortcut[0], legacy_shortcut[1], Application.APK_SHORTCUT_LEGACY, icon)) ;
+					applications.add(new Application(legacy_shortcut[0], legacy_shortcut[1], Constants.APK_SHORTCUT_LEGACY, icon)) ;
 				}
 			}
 	}

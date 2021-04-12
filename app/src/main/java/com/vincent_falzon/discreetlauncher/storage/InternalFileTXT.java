@@ -24,6 +24,7 @@ package com.vincent_falzon.discreetlauncher.storage ;
 
 // Imports
 import android.content.Context ;
+import com.vincent_falzon.discreetlauncher.Constants ;
 import java.io.BufferedReader ;
 import java.io.FileReader ;
 import java.io.FileWriter ;
@@ -114,14 +115,13 @@ public class InternalFileTXT extends InternalFile
 
 	/**
 	 * Prepare the internal file for inclusion in an export file.
-	 * @param not_existing Will be returned if the file does not exist
 	 * @return An array of lines where each line starts with the filename
 	 */
-	public ArrayList<String> prepareForExport(String not_existing)
+	public ArrayList<String> prepareForExport()
 	{
 		// Return the content of the file or indicate that it does not exist
 		ArrayList<String> content = new ArrayList<>() ;
-		if(!exists()) content.add(file.getName() + ": " + not_existing) ;
+		if(!exists()) content.add(file.getName() + ": " + Constants.NONE) ;
 			else for(String line : readAllLines()) content.add(file.getName() + ": " + line) ;
 		return content ;
 	}

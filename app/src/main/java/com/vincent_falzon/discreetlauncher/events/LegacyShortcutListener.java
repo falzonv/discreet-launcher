@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher.events;
+package com.vincent_falzon.discreetlauncher.events ;
 
 // License
 /*
@@ -29,10 +29,10 @@ import android.content.Intent ;
 import android.content.IntentFilter ;
 import android.graphics.Bitmap ;
 import android.os.Build ;
+import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import static com.vincent_falzon.discreetlauncher.ActivityMain.setListUpdateNeeded ;
-import static com.vincent_falzon.discreetlauncher.Application.SHORTCUT_SEPARATOR ;
 
 /**
  * Listen for legacy shortcut creation requests.
@@ -79,7 +79,7 @@ public class LegacyShortcutListener extends BroadcastReceiver
 							}
 
 						// Add the shortcut and update the applications list
-						String shortcut = display_name + SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
+						String shortcut = display_name + Constants.SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
 						ShortcutListener.addShortcut(context, display_name, shortcut, icon, true) ;
 						setListUpdateNeeded() ;
 					}

@@ -34,12 +34,6 @@ import java.net.URISyntaxException ;
  */
 public class Application
 {
-	// Constants
-	public static final String APK_SHORTCUT = "discreetlauncher.shortcut" ;
-	public static final String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
-	public static final String NOTIFICATION_SEPARATOR = "_discreet_" ;
-	public static final String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
-
 	// Attributes
 	private final String display_name ;
 	private final String name ;
@@ -110,16 +104,16 @@ public class Application
 	Intent getActivityIntent()
 	{
 		// If the application is a shortcut with Oreo or higher, create a special Intent
-		if(apk.equals(APK_SHORTCUT))
+		if(apk.equals(Constants.APK_SHORTCUT))
 			{
 				Intent intent = new Intent() ;
 				intent.setClassName("com.vincent_falzon.discreetlauncher", "com.vincent_falzon.discreetlauncher.events.ShortcutListener") ;
-				intent.putExtra(Application.APK_SHORTCUT, name) ;
+				intent.putExtra(Constants.APK_SHORTCUT, name) ;
 				return intent ;
 			}
 
 		// If the application is a shortcut before Oreo, return its intent (cannot be null in practice)
-		if(apk.equals(APK_SHORTCUT_LEGACY))
+		if(apk.equals(Constants.APK_SHORTCUT_LEGACY))
 			{
 				try { return Intent.parseUri(name, 0) ; }
 				catch(URISyntaxException e) { return null ; }
@@ -141,7 +135,7 @@ public class Application
 	void start(Context context)
 	{
 		// Check if the application is a shortcut
-		if(apk.startsWith(APK_SHORTCUT))
+		if(apk.startsWith(Constants.APK_SHORTCUT))
 			{
 				context.startActivity(getActivityIntent()) ;
 				return ;

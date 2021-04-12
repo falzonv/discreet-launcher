@@ -141,28 +141,28 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Save the content of all internal files
 		exportedData.add("# " + getString(R.string.export_import_internal_files_header)) ;
-		exportedData.addAll(new InternalFileTXT(this, ApplicationsList.FAVORITES_FILE).prepareForExport(ActivitySettings.NONE)) ;
-		exportedData.addAll(new InternalFileTXT(this, ApplicationsList.SHORTCUTS_FILE).prepareForExport(ActivitySettings.NONE)) ;
-		exportedData.addAll(new InternalFileTXT(this, ApplicationsList.SHORTCUTS_LEGACY_FILE).prepareForExport(ActivitySettings.NONE)) ;
+		exportedData.addAll(new InternalFileTXT(this, Constants.FAVORITES_FILE).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(this, Constants.SHORTCUTS_FILE).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(this, Constants.SHORTCUTS_LEGACY_FILE).prepareForExport()) ;
 		exportedData.add("#") ;
 
 		// Save all settings
 		exportedData.add("# " + getString(R.string.button_settings)) ;
-		exportedData.add(exportBooleanSetting(ActivitySettings.DISPLAY_CLOCK, false)) ;
-		exportedData.add(exportBooleanSetting(ActivitySettings.TRANSPARENT_STATUS_BAR, false)) ;
-		exportedData.add(exportBooleanSetting(ActivitySettings.FORCE_PORTRAIT, false)) ;
-		exportedData.add(ActivitySettings.ICON_PACK + ": " + settings.getString(ActivitySettings.ICON_PACK, ActivitySettings.NONE)) ;
-		Set<String> hiddenApplications = settings.getStringSet(ActivitySettings.HIDDEN_APPLICATIONS, null) ;
-		if(hiddenApplications == null) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + ActivitySettings.NONE) ;
-			else for(String hidden_application : hiddenApplications) exportedData.add(ActivitySettings.HIDDEN_APPLICATIONS + ": " + hidden_application) ;
-		exportedData.add(exportBooleanSetting(ActivitySettings.DISPLAY_NOTIFICATION, true)) ;
-		String notification_text = settings.getString(ActivitySettings.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)) ;
-		if(notification_text == null) exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + getString(R.string.set_notification_text_default)) ;
-			else exportedData.add(ActivitySettings.NOTIFICATION_TEXT + ": " + notification_text.replace("\n", "\\n")) ;
-		exportedData.add(exportBooleanSetting(ActivitySettings.HIDE_ON_LOCK_SCREEN, true)) ;
-		exportedData.add(ActivitySettings.NOTIFICATION_APP + "1: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "1", ActivitySettings.NONE)) ;
-		exportedData.add(ActivitySettings.NOTIFICATION_APP + "2: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "2", ActivitySettings.NONE)) ;
-		exportedData.add(ActivitySettings.NOTIFICATION_APP + "3: " + settings.getString(ActivitySettings.NOTIFICATION_APP + "3", ActivitySettings.NONE)) ;
+		exportedData.add(exportBooleanSetting(Constants.DISPLAY_CLOCK, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
+		exportedData.add(Constants.ICON_PACK + ": " + settings.getString(Constants.ICON_PACK, Constants.NONE)) ;
+		Set<String> hiddenApplications = settings.getStringSet(Constants.HIDDEN_APPLICATIONS, null) ;
+		if(hiddenApplications == null) exportedData.add(Constants.HIDDEN_APPLICATIONS + ": " + Constants.NONE) ;
+			else for(String hidden_application : hiddenApplications) exportedData.add(Constants.HIDDEN_APPLICATIONS + ": " + hidden_application) ;
+		exportedData.add(exportBooleanSetting(Constants.DISPLAY_NOTIFICATION, true)) ;
+		String notification_text = settings.getString(Constants.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)) ;
+		if(notification_text == null) exportedData.add(Constants.NOTIFICATION_TEXT + ": " + getString(R.string.set_notification_text_default)) ;
+			else exportedData.add(Constants.NOTIFICATION_TEXT + ": " + notification_text.replace("\n", "\\n")) ;
+		exportedData.add(exportBooleanSetting(Constants.HIDE_ON_LOCK_SCREEN, true)) ;
+		exportedData.add(Constants.NOTIFICATION_APP + "1: " + settings.getString(Constants.NOTIFICATION_APP + "1", Constants.NONE)) ;
+		exportedData.add(Constants.NOTIFICATION_APP + "2: " + settings.getString(Constants.NOTIFICATION_APP + "2", Constants.NONE)) ;
+		exportedData.add(Constants.NOTIFICATION_APP + "3: " + settings.getString(Constants.NOTIFICATION_APP + "3", Constants.NONE)) ;
 		exportedData.add("#") ;
 
 		// Save all shortcuts icons
@@ -172,7 +172,7 @@ public class ActivityExportImport extends AppCompatActivity
 			@Override
 			public boolean accept(File directory, String name)
 			{
-				return name.startsWith(ApplicationsList.SHORTCUT_ICON_PREFIX) ;
+				return name.startsWith(Constants.SHORTCUT_ICON_PREFIX) ;
 			}
 		}) ;
 		if(shortcuts_icons != null)
@@ -216,12 +216,12 @@ public class ActivityExportImport extends AppCompatActivity
 		// Prepare the files that need to be replaced
 		ActivityMain.setIgnoreSettingsChanges(true) ;
 		InternalFileTXT favorites, shortcuts, shortcuts_legacy ;
-		if(importedData.contains(ApplicationsList.FAVORITES_FILE + ": " + ActivitySettings.NONE)) favorites = null ;
-			else favorites = new InternalFileTXT(getApplicationContext(), ApplicationsList.FAVORITES_FILE) ;
-		if(importedData.contains(ApplicationsList.SHORTCUTS_FILE + ": " + ActivitySettings.NONE)) shortcuts = null ;
-			else shortcuts = new InternalFileTXT(getApplicationContext(), ApplicationsList.SHORTCUTS_FILE) ;
-		if(importedData.contains(ApplicationsList.SHORTCUTS_LEGACY_FILE + ": " + ActivitySettings.NONE)) shortcuts_legacy = null ;
-			else shortcuts_legacy = new InternalFileTXT(getApplicationContext(), ApplicationsList.SHORTCUTS_LEGACY_FILE) ;
+		if(importedData.contains(Constants.FAVORITES_FILE + ": " + Constants.NONE)) favorites = null ;
+			else favorites = new InternalFileTXT(getApplicationContext(), Constants.FAVORITES_FILE) ;
+		if(importedData.contains(Constants.SHORTCUTS_FILE + ": " + Constants.NONE)) shortcuts = null ;
+			else shortcuts = new InternalFileTXT(getApplicationContext(), Constants.SHORTCUTS_FILE) ;
+		if(importedData.contains(Constants.SHORTCUTS_LEGACY_FILE + ": " + Constants.NONE)) shortcuts_legacy = null ;
+			else shortcuts_legacy = new InternalFileTXT(getApplicationContext(), Constants.SHORTCUTS_LEGACY_FILE) ;
 		if(favorites != null) favorites.remove() ;
 		if(shortcuts != null) shortcuts.remove() ;
 		if(shortcuts_legacy != null) shortcuts_legacy.remove() ;
@@ -241,39 +241,39 @@ public class ActivityExportImport extends AppCompatActivity
 			if(line.startsWith("#")) continue ;
 
 			// Replace the content of the internal files
-			if(line.startsWith(ApplicationsList.FAVORITES_FILE) && (favorites != null))
+			if(line.startsWith(Constants.FAVORITES_FILE) && (favorites != null))
 				{
-					favorites.writeLine(line.replace(ApplicationsList.FAVORITES_FILE + ": ", "")) ;
+					favorites.writeLine(line.replace(Constants.FAVORITES_FILE + ": ", "")) ;
 				}
-				else if(line.startsWith(ApplicationsList.SHORTCUTS_FILE) && (shortcuts != null))
+				else if(line.startsWith(Constants.SHORTCUTS_FILE) && (shortcuts != null))
 				{
-					shortcuts.writeLine(line.replace(ApplicationsList.SHORTCUTS_FILE + ": ", "")) ;
+					shortcuts.writeLine(line.replace(Constants.SHORTCUTS_FILE + ": ", "")) ;
 				}
-				else if(line.startsWith(ApplicationsList.SHORTCUTS_LEGACY_FILE) && (shortcuts_legacy != null))
+				else if(line.startsWith(Constants.SHORTCUTS_LEGACY_FILE) && (shortcuts_legacy != null))
 				{
-					shortcuts_legacy.writeLine(line.replace(ApplicationsList.SHORTCUTS_LEGACY_FILE + ": ", "")) ;
+					shortcuts_legacy.writeLine(line.replace(Constants.SHORTCUTS_LEGACY_FILE + ": ", "")) ;
 				}
 				// Load the settings
-				else if(line.startsWith(ActivitySettings.DISPLAY_CLOCK)) loadBooleanSetting(ActivitySettings.DISPLAY_CLOCK, line) ;
-				else if(line.startsWith(ActivitySettings.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(ActivitySettings.TRANSPARENT_STATUS_BAR, line) ;
-				else if(line.startsWith(ActivitySettings.FORCE_PORTRAIT)) loadBooleanSetting(ActivitySettings.FORCE_PORTRAIT, line) ;
-				else if(line.startsWith(ActivitySettings.ICON_PACK)) loadStringSetting(ActivitySettings.ICON_PACK + "1", line) ;
-				else if(line.startsWith(ActivitySettings.HIDDEN_APPLICATIONS)) hiddenApplications.add(line.replace(ActivitySettings.HIDDEN_APPLICATIONS + ": ", "")) ;
-				else if(line.startsWith(ActivitySettings.DISPLAY_NOTIFICATION)) loadBooleanSetting(ActivitySettings.DISPLAY_NOTIFICATION, line) ;
-				else if(line.startsWith(ActivitySettings.NOTIFICATION_TEXT)) loadStringSetting(ActivitySettings.NOTIFICATION_TEXT, line.replace("\\n", "\n")) ;
-				else if(line.startsWith(ActivitySettings.HIDE_ON_LOCK_SCREEN)) loadBooleanSetting(ActivitySettings.HIDE_ON_LOCK_SCREEN, line) ;
-				else if(line.startsWith(ActivitySettings.NOTIFICATION_APP + "1")) loadStringSetting(ActivitySettings.NOTIFICATION_APP + "1", line) ;
-				else if(line.startsWith(ActivitySettings.NOTIFICATION_APP + "2")) loadStringSetting(ActivitySettings.NOTIFICATION_APP + "2", line) ;
-				else if(line.startsWith(ActivitySettings.NOTIFICATION_APP + "3")) loadStringSetting(ActivitySettings.NOTIFICATION_APP + "3", line) ;
+				else if(line.startsWith(Constants.DISPLAY_CLOCK)) loadBooleanSetting(Constants.DISPLAY_CLOCK, line) ;
+				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
+				else if(line.startsWith(Constants.FORCE_PORTRAIT)) loadBooleanSetting(Constants.FORCE_PORTRAIT, line) ;
+				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK + "1", line) ;
+				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS)) hiddenApplications.add(line.replace(Constants.HIDDEN_APPLICATIONS + ": ", "")) ;
+				else if(line.startsWith(Constants.DISPLAY_NOTIFICATION)) loadBooleanSetting(Constants.DISPLAY_NOTIFICATION, line) ;
+				else if(line.startsWith(Constants.NOTIFICATION_TEXT)) loadStringSetting(Constants.NOTIFICATION_TEXT, line.replace("\\n", "\n")) ;
+				else if(line.startsWith(Constants.HIDE_ON_LOCK_SCREEN)) loadBooleanSetting(Constants.HIDE_ON_LOCK_SCREEN, line) ;
+				else if(line.startsWith(Constants.NOTIFICATION_APP + "1")) loadStringSetting(Constants.NOTIFICATION_APP + "1", line) ;
+				else if(line.startsWith(Constants.NOTIFICATION_APP + "2")) loadStringSetting(Constants.NOTIFICATION_APP + "2", line) ;
+				else if(line.startsWith(Constants.NOTIFICATION_APP + "3")) loadStringSetting(Constants.NOTIFICATION_APP + "3", line) ;
 				// Save the shortcuts icons
-				else if(line.startsWith(ApplicationsList.SHORTCUT_ICON_PREFIX))
+				else if(line.startsWith(Constants.SHORTCUT_ICON_PREFIX))
 				{
 					if(line.indexOf(": ") <= 0) continue ;
 					InternalFilePNG icon_file = new InternalFilePNG(this, line.substring(0, line.indexOf(": "))) ;
 					icon_file.loadFromImport(line) ;
 				}
 		}
-		if(hiddenApplications.size() > 0) editor.putStringSet(ActivitySettings.HIDDEN_APPLICATIONS, hiddenApplications) ;
+		if(hiddenApplications.size() > 0) editor.putStringSet(Constants.HIDDEN_APPLICATIONS, hiddenApplications) ;
 		editor.apply() ;
 
 		// Indicate that the applications list should be updated and start to listen again for settings changes

@@ -59,10 +59,6 @@ import java.util.Date ;
  */
 public class ActivityMain extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
-	// Constants
-	public static final int COLUMNS_PORTRAIT = 4 ;
-	public static final int COLUMNS_LANDSCAPE = 5 ;
-
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private static boolean ignore_settings_changes ;
@@ -140,13 +136,13 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		GridLayoutManager favoritesLayout ;
 		if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
 			{
-				favoritesLayout = new GridLayoutManager(this, ActivityMain.COLUMNS_LANDSCAPE) ;
-				drawerLayout = new GridLayoutManager(this, ActivityMain.COLUMNS_LANDSCAPE) ;
+				favoritesLayout = new GridLayoutManager(this, Constants.COLUMNS_LANDSCAPE) ;
+				drawerLayout = new GridLayoutManager(this, Constants.COLUMNS_LANDSCAPE) ;
 			}
 			else
 			{
-				favoritesLayout = new GridLayoutManager(this, COLUMNS_PORTRAIT) ;
-				drawerLayout = new GridLayoutManager(this, ActivityMain.COLUMNS_PORTRAIT) ;
+				favoritesLayout = new GridLayoutManager(this, Constants.COLUMNS_PORTRAIT) ;
+				drawerLayout = new GridLayoutManager(this, Constants.COLUMNS_PORTRAIT) ;
 			}
 
 		// Initialize the content of the favorites panel
@@ -186,7 +182,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private void manageClock()
 	{
 		// Check in the settings if the clock should be displayed or not
-		if(settings.getBoolean(ActivitySettings.DISPLAY_CLOCK, false))
+		if(settings.getBoolean(Constants.DISPLAY_CLOCK, false))
 			{
 				// If not already done, display the clock and start to listen for updates (every minute)
 				if(minuteListener == null)
@@ -213,7 +209,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 */
 	private void togglePortraitMode()
 	{
-		if(settings.getBoolean(ActivitySettings.FORCE_PORTRAIT, false))
+		if(settings.getBoolean(Constants.FORCE_PORTRAIT, false))
 				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) ;
 			else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) ;
 	}
@@ -231,7 +227,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				favorites.setVisibility(View.VISIBLE) ;
 
 				// If the status bar was transparent, make it translucent as the panel
-				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
+				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
 			}
 			else
@@ -240,7 +236,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				favorites.setVisibility(View.GONE) ;
 
 				// If the option is selected, make the status bar fully transparent
-				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
+				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
 			}
 	}
@@ -255,7 +251,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(display)
 			{
 				// If the status bar was transparent, make it translucent as the drawer
-				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
+				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
 
 				// Display the applications drawer
@@ -271,7 +267,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				drawer.setVisibility(View.GONE) ;
 
 				// If the option is selected, make the status bar fully transparent
-				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
+				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
 			}
 	}
@@ -281,7 +277,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 * Return the list of applications.
 	 * @return Contains the complete list, the favorites list and the last update timestamp
 	 */
-	public static ApplicationsList getApplicationsList()
+	static ApplicationsList getApplicationsList()
 	{
 		return applicationsList ;
 	}
@@ -392,7 +388,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		}
 
 		// Retrieve the current favorites applications
-		final InternalFileTXT file = new InternalFileTXT(getApplicationContext(), ApplicationsList.FAVORITES_FILE) ;
+		final InternalFileTXT file = new InternalFileTXT(getApplicationContext(), Constants.FAVORITES_FILE) ;
 		final boolean[] selected = new boolean[app_names.length] ;
 		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
 			 else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
@@ -407,7 +403,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
 		int app_size = button_height + Math.round(48 * metrics.density) + Math.round(25 * metrics.density) ;
-		final int max_favorites = (total_size / app_size) * COLUMNS_PORTRAIT;
+		final int max_favorites = (total_size / app_size) * Constants.COLUMNS_PORTRAIT;
 
 		// Prepare and display the selection dialog
 		final Context context = this ;
@@ -543,21 +539,21 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(ignore_settings_changes) return ;
 		switch(key)
 		{
-			case ActivitySettings.ICON_PACK :
-			case ActivitySettings.HIDDEN_APPLICATIONS :
+			case Constants.ICON_PACK :
+			case Constants.HIDDEN_APPLICATIONS :
 				// Update the applications list
 				updateList() ;
 				break ;
-			case ActivitySettings.DISPLAY_NOTIFICATION :
+			case Constants.DISPLAY_NOTIFICATION :
 				// Toggle the notification
-				if(settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true))
+				if(settings.getBoolean(Constants.DISPLAY_NOTIFICATION, true))
 						notificationMenu.display(this) ;
 					else notificationMenu.hide() ;
 				break ;
-			case ActivitySettings.NOTIFICATION_TEXT :
-			case ActivitySettings.NOTIFICATION_APP + "1" :
-			case ActivitySettings.NOTIFICATION_APP + "2" :
-			case ActivitySettings.NOTIFICATION_APP + "3" :
+			case Constants.NOTIFICATION_TEXT :
+			case Constants.NOTIFICATION_APP + "1" :
+			case Constants.NOTIFICATION_APP + "2" :
+			case Constants.NOTIFICATION_APP + "3" :
 				// Update the notification
 				notificationMenu.hide() ;
 				notificationMenu.display(this) ;
@@ -633,7 +629,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		super.onPause() ;
 
 		// If the option is selected, display the notification
-		if(settings.getBoolean(ActivitySettings.DISPLAY_NOTIFICATION, true))
+		if(settings.getBoolean(Constants.DISPLAY_NOTIFICATION, true))
 			notificationMenu.display(this) ;
 	}
 

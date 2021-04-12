@@ -44,18 +44,6 @@ import java.util.List ;
  */
 public class ActivitySettings extends AppCompatActivity
 {
-	// Constants
-	public static final String DISPLAY_CLOCK = "display_clock" ;
-	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
-	public static final String FORCE_PORTRAIT = "force_portrait" ;
-	public static final String ICON_PACK = "icon_pack" ;
-	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;
-	public static final String DISPLAY_NOTIFICATION = "display_notification" ;
-	public static final String NOTIFICATION_TEXT = "notification_text" ;
-	public static final String HIDE_ON_LOCK_SCREEN = "hide_on_lock_screen" ;
-	public static final String NOTIFICATION_APP = "notification_app" ;
-	public static final String NONE = "none" ;
-
 	// Attributes
 	private static ArrayList<String> iconPacks ;
 	private static ArrayList<String> packsNames ;
@@ -86,7 +74,7 @@ public class ActivitySettings extends AppCompatActivity
 		// Prepare the icon pack setting
 		iconPacks.clear() ;
 		packsNames.clear() ;
-		iconPacks.add(NONE) ;
+		iconPacks.add(Constants.NONE) ;
 		packsNames.add(getString(R.string.set_icon_pack_none)) ;
 		searchIconPacks() ;
 
@@ -134,7 +122,7 @@ public class ActivitySettings extends AppCompatActivity
 		if(Build.VERSION.SDK_INT == Build.VERSION_CODES.O_MR1)
 			{
 				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this) ;
-				if(settings.getBoolean(ActivitySettings.FORCE_PORTRAIT, false))
+				if(settings.getBoolean(Constants.FORCE_PORTRAIT, false))
 						setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) ;
 					else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) ;
 			}
@@ -160,7 +148,7 @@ public class ActivitySettings extends AppCompatActivity
 			setPreferencesFromResource(R.xml.settings, rootKey) ;
 
 			// Initialize the setting to hide applications
-			MultiSelectListPreference hiddenApplications = findPreference(HIDDEN_APPLICATIONS) ;
+			MultiSelectListPreference hiddenApplications = findPreference(Constants.HIDDEN_APPLICATIONS) ;
 			if(hiddenApplications != null)
 				{
 					// Build the applications list
@@ -194,7 +182,7 @@ public class ActivitySettings extends AppCompatActivity
 			setPreferencesFromResource(R.xml.settings_display, rootKey) ;
 
 			// Initialize the icon pack selector
-			ListPreference iconPack = findPreference(ICON_PACK) ;
+			ListPreference iconPack = findPreference(Constants.ICON_PACK) ;
 			if(iconPack != null)
 				{
 					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
@@ -223,7 +211,7 @@ public class ActivitySettings extends AppCompatActivity
 			// Prepare the applications list
 			ArrayList<String> displayNames = new ArrayList<>() ;
 			ArrayList<String> names = new ArrayList<>() ;
-			names.add(NONE) ;
+			names.add(Constants.NONE) ;
 			names.addAll(applicationsNames) ;
 			displayNames.add(getString(R.string.set_application_none)) ;
 			displayNames.addAll(applicationsDisplayNames) ;
@@ -231,7 +219,7 @@ public class ActivitySettings extends AppCompatActivity
 			// Initialize the notification applications selectors
 			for(int i = 0 ; i < 3 ; i++)
 			{
-				ListPreference notification_app = findPreference(NOTIFICATION_APP + (i + 1)) ;
+				ListPreference notification_app = findPreference(Constants.NOTIFICATION_APP + (i + 1)) ;
 				if(notification_app == null) continue ;
 				notification_app.setEntries(displayNames.toArray(new CharSequence[0])) ;
 				notification_app.setEntryValues(names.toArray(new CharSequence[0])) ;
@@ -307,8 +295,8 @@ public class ActivitySettings extends AppCompatActivity
 		for(Application application : applicationsList)
 		{
 			applicationsNames.add(application.getDisplayName()
-					+ Application.NOTIFICATION_SEPARATOR + application.getName()
-					+ Application.NOTIFICATION_SEPARATOR + application.getApk()) ;
+					+ Constants.NOTIFICATION_SEPARATOR + application.getName()
+					+ Constants.NOTIFICATION_SEPARATOR + application.getApk()) ;
 			applicationsDisplayNames.add(application.getDisplayName()) ;
 		}
 	}
@@ -324,8 +312,8 @@ public class ActivitySettings extends AppCompatActivity
 		for(Application application : hiddenApplications)
 		{
 			hiddenApplicationsNames.add(application.getDisplayName()
-					+ Application.NOTIFICATION_SEPARATOR + application.getName()
-					+ Application.NOTIFICATION_SEPARATOR + application.getApk()) ;
+					+ Constants.NOTIFICATION_SEPARATOR + application.getName()
+					+ Constants.NOTIFICATION_SEPARATOR + application.getApk()) ;
 			hiddenApplicationsDisplayNames.add(application.getDisplayName()) ;
 		}
 	}

@@ -73,25 +73,25 @@ class NotificationMenu
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "discreetlauncher") ;
 		builder.setSmallIcon(R.drawable.notification_icon) ;
 		builder.setContentTitle(context.getString(R.string.app_name)) ;
-		builder.setContentTitle(settings.getString(ActivitySettings.NOTIFICATION_TEXT, context.getString(R.string.set_notification_text_default))) ;
+		builder.setContentTitle(settings.getString(Constants.NOTIFICATION_TEXT, context.getString(R.string.set_notification_text_default))) ;
 		builder.setShowWhen(false) ;                           // Hide the notification timer
 		builder.setOngoing(true) ;                             // Sticky notification
 		builder.setPriority(NotificationCompat.PRIORITY_MAX) ; // Needed to display the buttons
 		builder.setNotificationSilent() ;                      // No sound or vibration
 
 		// Check if the notification should be displayed or not on the lock screen
-		if(settings.getBoolean(ActivitySettings.HIDE_ON_LOCK_SCREEN, true))
+		if(settings.getBoolean(Constants.HIDE_ON_LOCK_SCREEN, true))
 			builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ;
 
 		// Retrieve the selected applications and set them as actions
 		for(int i = 0 ; i < 3 ; i++)
 		{
 			// Check if an application has been selected
-			String application_set = settings.getString(ActivitySettings.NOTIFICATION_APP + (i + 1), ActivitySettings.NONE) ;
-			if((application_set == null) || application_set.equals(ActivitySettings.NONE)) continue ;
+			String application_set = settings.getString(Constants.NOTIFICATION_APP + (i + 1), Constants.NONE) ;
+			if((application_set == null) || application_set.equals(Constants.NONE)) continue ;
 
 			// Retrieve the applications details
-			String[] application_details = application_set.split(Application.NOTIFICATION_SEPARATOR) ;
+			String[] application_details = application_set.split(Constants.NOTIFICATION_SEPARATOR) ;
 			if(application_details.length != 3) continue ;
 
 			// Add the notification as an action
