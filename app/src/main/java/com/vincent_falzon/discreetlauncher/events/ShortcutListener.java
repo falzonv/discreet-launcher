@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher ;
+package com.vincent_falzon.discreetlauncher.events ;
 
 // License
 /*
@@ -35,11 +35,23 @@ import android.os.Build ;
 import android.os.Bundle ;
 import android.os.UserHandle ;
 import androidx.appcompat.app.AppCompatActivity ;
+import com.vincent_falzon.discreetlauncher.ActivityMain ;
+import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.storage.InternalFilePNG ;
+import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
+import java.util.ArrayList ;
+import static com.vincent_falzon.discreetlauncher.Application.APK_SHORTCUT ;
+import static com.vincent_falzon.discreetlauncher.Application.APK_SHORTCUT_LEGACY ;
+import static com.vincent_falzon.discreetlauncher.Application.SHORTCUT_SEPARATOR ;
+import static com.vincent_falzon.discreetlauncher.ApplicationsList.SHORTCUTS_FILE ;
+import static com.vincent_falzon.discreetlauncher.ApplicationsList.SHORTCUTS_LEGACY_FILE ;
+import static com.vincent_falzon.discreetlauncher.ApplicationsList.SHORTCUT_ICON_PREFIX ;
 
 /**
  * Activity called to add a shortcut (starting with Android Oreo).
  */
-public class ActivityShortcut extends AppCompatActivity
+public class ShortcutListener extends AppCompatActivity
 {
 	/**
 	 * Constructor.
@@ -61,11 +73,11 @@ public class ActivityShortcut extends AppCompatActivity
 				if(intent.getExtras() != null)
 					{
 						// Retrieve the shortcut line provided by the caller
-						String shortcut_line = intent.getExtras().getString(Application.APK_SHORTCUT) ;
+						String shortcut_line = intent.getExtras().getString(APK_SHORTCUT) ;
 						if(shortcut_line != null)
 							{
 								// Extract the shortcut details
-								String[] shortcut = shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
+								String[] shortcut = shortcut_line.split(SHORTCUT_SEPARATOR) ;
 								if(shortcut.length == 3)
 								{
 									// Try to retrieve the user ID, use 0 if not found (0 is "System", the most commonly used)
@@ -99,9 +111,9 @@ public class ActivityShortcut extends AppCompatActivity
 								String display_name = receivedShortcut.getShortLabel().toString() ;
 								String user_id = receivedShortcut.getUserHandle().toString() ;
 								String shortcut = display_name
-										+ Application.SHORTCUT_SEPARATOR + receivedShortcut.getPackage()
-										+ Application.SHORTCUT_SEPARATOR + receivedShortcut.getId()
-										+ Application.SHORTCUT_SEPARATOR + user_id.replace("UserHandle{", "").replace("}", "") ;
+										+ SHORTCUT_SEPARATOR + receivedShortcut.getPackage()
+										+ SHORTCUT_SEPARATOR + receivedShortcut.getId()
+										+ SHORTCUT_SEPARATOR + user_id.replace("UserHandle{", "").replace("}", "") ;
 
 								// Check if the launcher is allowed to retrieve the shortcut icon
 								Bitmap icon = null ;
@@ -120,17 +132,87 @@ public class ActivityShortcut extends AppCompatActivity
 									else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
 
 								// Add the shortcut
-								ActivityMain.getApplicationsList().addShortcut(this, display_name, shortcut, icon, false) ;
+								addShortcut(this, display_name, shortcut, icon, false) ;
 								ActivityMain.setListUpdateNeeded() ;
 							}
 							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
 					}
 			}
 
-		// Go back to the previous activity
+		// Go back to the home screen
 		Intent homeScreenIntent = new Intent() ;
 		homeScreenIntent.setClass(this, ActivityMain.class) ;
 		homeScreenIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 		startActivity(homeScreenIntent) ;
+	}
+
+
+	/**
+	 * Method called when a request to add a shortcut has been received.
+	 * @param context Provided by the receiver
+	 * @param display_name Displayed to the user
+	 * @param icon Displayed to the user
+	 * @param shortcut Line to add to the shortcuts file
+	 * @param legacy <code>true</code> if before Oreo, <code>false</code> otherwise
+	 */
+	static void addShortcut(Context context, String display_name, String shortcut, Bitmap icon, boolean legacy)
+	{
+		// Check if the shortcut already exists in the file
+		InternalFileTXT file = new InternalFileTXT(context, legacy ? SHORTCUTS_LEGACY_FILE : SHORTCUTS_FILE) ;
+		if(file.exists())
+			{
+				// Browse all the saved shortcuts
+				String[] saved_shortcut ;
+				for(String shortcut_line : file.readAllLines())
+				{
+					// Do not continue if the shortcut already exists
+					saved_shortcut = shortcut_line.split(SHORTCUT_SEPARATOR) ;
+					if(display_name.equals(saved_shortcut[0])) return ;
+				}
+			}
+
+		// If it was not existing, add the shortcut to the file and save its icon
+		InternalFilePNG icon_file = new InternalFilePNG(context, SHORTCUT_ICON_PREFIX + display_name + ".png") ;
+		if(!file.writeLine(shortcut) || !icon_file.writeToFile(icon))
+			ShowDialog.alert(context, context.getString(R.string.error_shortcut, display_name)) ;
+	}
+
+
+	/**
+	 * Remove an entry from the shortcuts file.
+	 * @param context To get the file path
+	 * @param display_name Name of the shortcut to remove
+	 * @param shortcut_type Shortcut before or after Oreo
+	 */
+	public static void removeShortcut(Context context, String display_name, String shortcut_type)
+	{
+		// Save the current shortcuts list and remove the file
+		InternalFileTXT file = new InternalFileTXT(context, shortcut_type.equals(APK_SHORTCUT_LEGACY) ? SHORTCUTS_LEGACY_FILE : SHORTCUTS_FILE) ;
+		ArrayList<String> currentShortcuts = file.readAllLines() ;
+		if(!file.remove())
+			{
+				ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
+				return ;
+			}
+
+		// Write the new shortcuts list in the file
+		String[] shortcut ;
+		for(String shortcut_line : currentShortcuts)
+		{
+			// Extract the display name from the line and check if this is the shortcut to remove
+			shortcut = shortcut_line.split(SHORTCUT_SEPARATOR) ;
+			if(shortcut[0].equals(display_name)) continue ;
+
+			// Add all the other shortcuts to the list again
+			if(!file.writeLine(shortcut_line))
+				{
+					ShowDialog.toastLong(context, context.getString(R.string.error_shortcut, shortcut[0])) ;
+					return ;
+				}
+		}
+
+		// Remove the shortcut icon
+		InternalFilePNG icon = new InternalFilePNG(context, SHORTCUT_ICON_PREFIX + display_name + ".png") ;
+		icon.remove() ;
 	}
 }

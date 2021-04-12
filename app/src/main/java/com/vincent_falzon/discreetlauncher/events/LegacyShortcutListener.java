@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher ;
+package com.vincent_falzon.discreetlauncher.events;
 
 // License
 /*
@@ -23,45 +23,29 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
-import android.annotation.SuppressLint ;
 import android.content.BroadcastReceiver ;
 import android.content.Context ;
 import android.content.Intent ;
+import android.content.IntentFilter ;
 import android.graphics.Bitmap ;
 import android.os.Build ;
-import android.widget.TextView ;
-import java.text.SimpleDateFormat ;
-import java.util.Date ;
+import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import static com.vincent_falzon.discreetlauncher.ActivityMain.setListUpdateNeeded ;
+import static com.vincent_falzon.discreetlauncher.Application.SHORTCUT_SEPARATOR ;
 
 /**
- * Receive broadcast events and react accordingly when needed.
+ * Listen for legacy shortcut creation requests.
  */
-class EventsReceiver extends BroadcastReceiver
+public class LegacyShortcutListener extends BroadcastReceiver
 {
-	// Attributes
-	private final TextView clockText ;
-
-
 	/**
-	 * Constructor to update the applications list when there is a change.
+	 * Provide the filter to use when registering this receiver.
+	 * @return An IntentFilter allowing to listen for legacy shortcut creation requests
 	 */
-	EventsReceiver()
+	public IntentFilter getFilter()
 	{
-		clockText = null ;
-	}
-
-
-	/**
-	 * Constructor to update the clock TextView every minute (if the option is selected).
-	 * @param view The TextView representing the clock
-	 */
-	EventsReceiver(TextView view)
-	{
-		// Display the clock forcing a "HH:mm" format
-		clockText = view ;
-		@SuppressLint("SimpleDateFormat")
-		SimpleDateFormat clockFormat = new SimpleDateFormat("HH:mm") ;
-		clockText.setText(clockFormat.format(new Date())) ;
+		return new IntentFilter("com.android.launcher.action.INSTALL_SHORTCUT") ;
 	}
 
 
@@ -73,22 +57,12 @@ class EventsReceiver extends BroadcastReceiver
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
-		// Check if the intent as a valid action
-		if(intent.getAction() == null) return ;
-
-		// Check if the clock must be updated
-		if((clockText != null) && intent.getAction().equals(Intent.ACTION_TIME_TICK))
-			{
-				// Update the clock forcing a "HH:mm" format
-				@SuppressLint("SimpleDateFormat")
-				SimpleDateFormat clockFormat = new SimpleDateFormat("HH:mm") ;
-				clockText.setText(clockFormat.format(new Date())) ;
-				return ;
-			}
-
 		// Execute the following code only if the Android version is before Oreo
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
+				// Check if the intent as a valid action
+				if(intent.getAction() == null) return ;
+
 				// Check if a request to add a shortcut has been received
 				if(intent.getAction().equals("com.android.launcher.action.INSTALL_SHORTCUT"))
 					{
@@ -100,14 +74,14 @@ class EventsReceiver extends BroadcastReceiver
 						// If the request is invalid, display a message and quit
 						if((display_name == null) || (shortcutIntent == null))
 							{
-								ShowDialog.alert(context, context.getString(R.string.error_shortcut_invalid_request)) ;
+								ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_invalid_request)) ;
 								return ;
 							}
 
 						// Add the shortcut and update the applications list
-						String shortcut = display_name + Application.SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
-						ActivityMain.getApplicationsList().addShortcut(context, display_name, shortcut, icon, true) ;
-						ActivityMain.setListUpdateNeeded() ;
+						String shortcut = display_name + SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
+						ShortcutListener.addShortcut(context, display_name, shortcut, icon, true) ;
+						setListUpdateNeeded() ;
 					}
 			}
 	}

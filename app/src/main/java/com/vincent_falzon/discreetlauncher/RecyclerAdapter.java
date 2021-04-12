@@ -34,6 +34,7 @@ import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
 import android.widget.TextView ;
+import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
 import java.util.ArrayList ;
 
 /**
@@ -160,7 +161,8 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 								public void onClick(DialogInterface dialogInterface, int i)
 								{
 									// Remove the shortcut from the file and update the applications list
-									ActivityMain.getApplicationsList().removeShortcut(context, applicationsList.get(selection)) ;
+									Application toRemove = applicationsList.get(selection) ;
+									ShortcutListener.removeShortcut(context, toRemove.getDisplayName(), toRemove.getApk()) ;
 									ActivityMain.setListUpdateNeeded() ;
 								}
 							}) ;

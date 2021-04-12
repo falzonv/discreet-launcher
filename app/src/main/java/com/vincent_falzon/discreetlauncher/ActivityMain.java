@@ -26,7 +26,6 @@ package com.vincent_falzon.discreetlauncher ;
 import android.content.Context ;
 import android.content.DialogInterface ;
 import android.content.Intent ;
-import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
 import android.content.pm.ActivityInfo ;
 import android.content.res.Configuration ;
@@ -47,6 +46,8 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
+import com.vincent_falzon.discreetlauncher.events.LegacyShortcutListener ;
+import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.text.SimpleDateFormat ;
@@ -67,7 +68,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private static boolean ignore_settings_changes ;
 	private static boolean list_update_needed ;
 	private PackagesListener packagesListener ;
-	private EventsReceiver legacyShortcutsCreator ;
+	private LegacyShortcutListener legacyShortcutListener ;
 	private SharedPreferences settings ;
 	private GestureDetectorCompat gestureDetector ;
 	private NotificationMenu notificationMenu ;
@@ -77,7 +78,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private LinearLayout favorites ;
 	private RecyclerAdapter favoritesAdapter ;
 	private TextView clock ;
-	private EventsReceiver clockUpdater ;
+	private MinuteListener minuteListener ;
 
 	// Attributes related to the drawer
 	private LinearLayout drawer ;
@@ -173,8 +174,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// When Android version is before Oreo, start to listen for legacy shortcut requests
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
-				legacyShortcutsCreator = new EventsReceiver() ;
-				registerReceiver(legacyShortcutsCreator, new IntentFilter("com.android.launcher.action.INSTALL_SHORTCUT")) ;
+				legacyShortcutListener = new LegacyShortcutListener() ;
+				registerReceiver(legacyShortcutListener, legacyShortcutListener.getFilter()) ;
 			}
 	}
 
@@ -188,19 +189,19 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(settings.getBoolean(ActivitySettings.DISPLAY_CLOCK, false))
 			{
 				// If not already done, display the clock and start to listen for updates (every minute)
-				if(clockUpdater == null)
+				if(minuteListener == null)
 					{
-						clockUpdater = new EventsReceiver(clock) ;
-						registerReceiver(clockUpdater, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
+						minuteListener = new MinuteListener(clock) ;
+						registerReceiver(minuteListener, minuteListener.getFilter()) ;
 					}
 			}
 			else
 			{
 				// Stop to listen for updates and hide the clock
-				if(clockUpdater != null)
+				if(minuteListener != null)
 					{
-						unregisterReceiver(clockUpdater) ;
-						clockUpdater = null ;
+						unregisterReceiver(minuteListener) ;
+						minuteListener = null ;
 					}
 				clock.setText("") ;
 			}
@@ -280,7 +281,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 * Return the list of applications.
 	 * @return Contains the complete list, the favorites list and the last update timestamp
 	 */
-	static ApplicationsList getApplicationsList()
+	public static ApplicationsList getApplicationsList()
 	{
 		return applicationsList ;
 	}
@@ -663,9 +664,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	public void onDestroy()
 	{
 		// Unregister all remaining broadcast receivers
-		if(clockUpdater != null) unregisterReceiver(clockUpdater) ;
+		if(minuteListener != null) unregisterReceiver(minuteListener) ;
 		if(packagesListener != null) unregisterReceiver(packagesListener) ;
-		if(legacyShortcutsCreator != null) unregisterReceiver(legacyShortcutsCreator) ;
+		if(legacyShortcutListener != null) unregisterReceiver(legacyShortcutListener) ;
 
 		// Let the parent actions be performed
 		super.onDestroy() ;

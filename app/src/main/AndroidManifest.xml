@@ -41,7 +41,7 @@
             android:theme="@style/AppThemeSettings"/>
 
         <activity
-            android:name=".ActivityShortcut"
+            android:name=".events.ShortcutListener"
             android:parentActivityName=".ActivityMain"
             android:excludeFromRecents="true">
             <intent-filter>

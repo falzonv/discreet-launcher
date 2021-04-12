@@ -28,23 +28,21 @@ import android.content.Intent ;
 import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
-import android.graphics.Bitmap ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
 import androidx.preference.PreferenceManager ;
-import com.vincent_falzon.discreetlauncher.storage.* ;
-import java.text.SimpleDateFormat ;
+import com.vincent_falzon.discreetlauncher.storage.InternalFilePNG ;
+import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.Comparator ;
-import java.util.Date ;
 import java.util.List ;
 import java.util.Set ;
 
 /**
  * Contain applications lists (complete and favorites) and the last update timestamp.
  */
-class ApplicationsList
+public class ApplicationsList
 {
 	// Constants
 	public static final String FAVORITES_FILE = "favorites.txt" ;
@@ -321,82 +319,6 @@ class ApplicationsList
 					applications.add(new Application(legacy_shortcut[0], legacy_shortcut[1], Application.APK_SHORTCUT_LEGACY, icon)) ;
 				}
 			}
-	}
-
-
-	/**
-	 * Method called when a request to add a shortcut has been received.
-	 * @param context Provided by the receiver
-	 * @param display_name Displayed to the user
-	 * @param icon Displayed to the user
-	 * @param shortcut Line to add to the shortcuts file
-	 * @param legacy <code>true</code> if before Oreo, <code>false</code> otherwise
-	 */
-	void addShortcut(Context context, String display_name, String shortcut, Bitmap icon, boolean legacy)
-	{
-		// Check if the shortcut already exists in the file
-		InternalFileTXT file = new InternalFileTXT(context, legacy ? SHORTCUTS_LEGACY_FILE : SHORTCUTS_FILE) ;
-		if(file.exists())
-			{
-				// Browse all the saved shortcuts
-				String[] saved_shortcut ;
-				for(String shortcut_line : file.readAllLines())
-				{
-					// Do not continue if the shortcut already exists
-					saved_shortcut = shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
-					if(display_name.equals(saved_shortcut[0])) return ;
-				}
-			}
-
-		// If it was not existing, add the shortcut to the file
-		if(!file.writeLine(shortcut))
-			{
-				ShowDialog.alert(context, context.getString(R.string.error_shortcut, display_name)) ;
-				return ;
-			}
-
-		// Save the shortcut icon to a file
-		InternalFilePNG icon_file = new InternalFilePNG(context, SHORTCUT_ICON_PREFIX + display_name + ".png") ;
-		if(!icon_file.writeToFile(icon)) ShowDialog.alert(context, context.getString(R.string.error_shortcut, display_name)) ;
-	}
-
-
-	/**
-	 * Remove an entry from the shortcuts file and update the applications list
-	 * @param context To get the file path
-	 * @param toRemove The shortcut to remove
-	 */
-	void removeShortcut(Context context, Application toRemove)
-	{
-		// Save the current shortcuts list and remove the file
-		InternalFileTXT file = new InternalFileTXT(context, toRemove.getApk().equals(Application.APK_SHORTCUT_LEGACY) ? SHORTCUTS_LEGACY_FILE : SHORTCUTS_FILE) ;
-		ArrayList<String> currentShortcuts = file.readAllLines() ;
-		if(!file.remove())
-			{
-				ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
-				return ;
-			}
-
-		// Write the new shortcuts list in the file
-		String display_name = toRemove.getDisplayName() ;
-		String[] shortcut ;
-		for(String shortcut_line : currentShortcuts)
-		{
-			// Extract the display name from the line and check if this is the shortcut to remove
-			shortcut = shortcut_line.split(Application.SHORTCUT_SEPARATOR) ;
-			if(shortcut[0].equals(display_name)) continue ;
-
-			// Add all the other shortcuts to the list again
-			if(!file.writeLine(shortcut_line))
-				{
-					ShowDialog.toastLong(context, context.getString(R.string.error_shortcut, shortcut[0])) ;
-					return ;
-				}
-		}
-
-		// Remove the shortcut icon
-		InternalFilePNG icon = new InternalFilePNG(context, SHORTCUT_ICON_PREFIX + display_name + ".png") ;
-		icon.remove() ;
 	}
 
 

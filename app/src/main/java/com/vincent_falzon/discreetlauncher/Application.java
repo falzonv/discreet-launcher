@@ -32,7 +32,7 @@ import java.net.URISyntaxException ;
 /**
  * Represent an Android application with its names (displayed, internal and package) and icon.
  */
-class Application
+public class Application
 {
 	// Constants
 	public static final String APK_SHORTCUT = "discreetlauncher.shortcut" ;
@@ -113,7 +113,7 @@ class Application
 		if(apk.equals(APK_SHORTCUT))
 			{
 				Intent intent = new Intent() ;
-				intent.setClassName("com.vincent_falzon.discreetlauncher", "com.vincent_falzon.discreetlauncher.ActivityShortcut") ;
+				intent.setClassName("com.vincent_falzon.discreetlauncher", "com.vincent_falzon.discreetlauncher.events.ShortcutListener") ;
 				intent.putExtra(Application.APK_SHORTCUT, name) ;
 				return intent ;
 			}
