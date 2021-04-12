@@ -161,7 +161,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 								{
 									// Remove the shortcut from the file and update the applications list
 									ActivityMain.getApplicationsList().removeShortcut(context, applicationsList.get(selection)) ;
-									notifyDataSetChanged() ;
+									ActivityMain.setListUpdateNeeded() ;
 								}
 							}) ;
 				}

@@ -56,8 +56,6 @@ class ApplicationsList
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
 	private final ArrayList<Application> hidden ;
-	private String last_update ;
-	private boolean update_in_progress ;
 
 
 	/**
@@ -68,8 +66,6 @@ class ApplicationsList
 		applications = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
 		hidden = new ArrayList<>() ;
-		last_update = "" ;
-		update_in_progress = false ;
 	}
 
 
@@ -79,10 +75,6 @@ class ApplicationsList
 	 */
 	void update(Context context)
 	{
-		// Check if an update is already in progress
-		if(update_in_progress) return ;
-		update_in_progress = true ;
-
 		// Initializations
 		PackageManager apkManager = context.getPackageManager() ;
 		applications.clear() ;
@@ -139,11 +131,6 @@ class ApplicationsList
 
 		// Update the favorites applications list
 		updateFavorites(context) ;
-
-		// Save the last update timestamp and inform the user that the list has been refreshed
-		last_update = SimpleDateFormat.getDateTimeInstance().format(new Date()) ;
-		ShowDialog.toast(context, R.string.info_applications_list_refreshed) ;
-		update_in_progress = false ;
 	}
 
 
@@ -410,9 +397,6 @@ class ApplicationsList
 		// Remove the shortcut icon
 		InternalFilePNG icon = new InternalFilePNG(context, SHORTCUT_ICON_PREFIX + display_name + ".png") ;
 		icon.remove() ;
-
-		// Update the applications list
-		update(context) ;
 	}
 
 
@@ -443,25 +427,5 @@ class ApplicationsList
 	ArrayList<Application> getHidden()
 	{
 		return hidden ;
-	}
-
-
-	/**
-	 * Return the timestamp of the last time the applications list was updated.
-	 * @return Date and time in text format
-	 */
-	String getLastUpdate()
-	{
-		return last_update ;
-	}
-
-
-	/**
-	 * Return the number of favorites applications in the list.
-	 * @return Number of favorites applications
-	 */
-	int getFavoritesCount()
-	{
-		return favorites.size() ;
 	}
 }

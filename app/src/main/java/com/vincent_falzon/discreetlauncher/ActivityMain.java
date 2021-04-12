@@ -49,7 +49,9 @@ import android.widget.LinearLayout ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
+import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
+import java.util.Date ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -126,18 +128,11 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		clock = findViewById(R.id.clock_text) ;
 		manageClock() ;
 
-		// If they do not exist yet, build the applications lists (complete and favorites)
-		if(applicationsList == null)
-			{
-				applicationsList = new ApplicationsList() ;
-				applicationsList.update(this) ;
-			}
-
 		// Prepare the notification menu
 		notificationMenu = new NotificationMenu(this) ;
 
 		// Display a message if the user does not have any favorites applications yet
-		if(applicationsList.getFavoritesCount() == 0)
+		if(applicationsList.getFavorites().size() == 0)
 			ShowDialog.toastLong(this, getString(R.string.info_no_favorites_yet)) ;
 
 		// Define the favorites panel and applications list layouts based on screen orientation
@@ -167,6 +162,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		drawer_position = 0 ;
 		drawer_last_position = -1 ;
 		fullListRecycler.addOnScrollListener(new DrawerScrollListener()) ;
+
+		// If it does not exist yet, build the applications list
+		if(applicationsList == null) updateList() ;
 
 		// Start to listen for packages added or removed
 		packagesListener = new PackagesListener() ;
@@ -255,10 +253,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		if(display)
 			{
-				// Indicate the last time the applications list was updated
-				TextView lastUpdate = findViewById(R.id.last_update_datetime) ;
-				lastUpdate.setText(getString(R.string.info_applications_list_last_update, applicationsList.getLastUpdate())) ;
-
 				// If the status bar was transparent, make it translucent as the drawer
 				if(settings.getBoolean(ActivitySettings.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
@@ -310,6 +304,30 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		list_update_needed = true ;
 	}
 
+
+	/**
+	 * Update the applications list and the display in the interface
+	 */
+	private void updateList()
+	{
+		// Update the applications list
+		if(applicationsList == null) applicationsList = new ApplicationsList() ;
+		applicationsList.update(this) ;
+		list_update_needed = false ;
+
+		// Update the display in the favorites panel and applications drawer
+		favoritesAdapter.notifyDataSetChanged() ;
+		drawerAdapter.notifyDataSetChanged() ;
+
+		// Update the timestamp in the applications drawer
+		TextView lastUpdate = findViewById(R.id.last_update_datetime) ;
+		String timestamp = SimpleDateFormat.getDateTimeInstance().format(new Date()) ;
+		lastUpdate.setText(getString(R.string.info_applications_list_last_update, timestamp)) ;
+
+		// Inform the user that the list has been refreshed
+		ShowDialog.toast(this, R.string.info_applications_list_refreshed) ;
+	}
+
 	
 	/**
 	 * Create the contextual menu.
@@ -338,9 +356,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(selection == R.id.menu_action_refresh_list)
 			{
 				// Update the applications list
-				applicationsList.update(this) ;
-				favoritesAdapter.notifyDataSetChanged() ;
-				drawerAdapter.notifyDataSetChanged() ;
+				updateList() ;
 				return true ;
 			}
 			else if(selection == R.id.menu_action_manage_favorites)
@@ -529,9 +545,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			case ActivitySettings.ICON_PACK :
 			case ActivitySettings.HIDDEN_APPLICATIONS :
 				// Update the applications list
-				applicationsList.update(this) ;
-				favoritesAdapter.notifyDataSetChanged() ;
-				drawerAdapter.notifyDataSetChanged() ;
+				updateList() ;
 				break ;
 			case ActivitySettings.DISPLAY_NOTIFICATION :
 				// Toggle the notification
@@ -638,13 +652,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		togglePortraitMode() ;
 
 		// Update the favorites panel and applications drawer if needed
-		if(list_update_needed)
-			{
-				applicationsList.update(this) ;
-				favoritesAdapter.notifyDataSetChanged() ;
-				drawerAdapter.notifyDataSetChanged() ;
-				list_update_needed = false ;
-			}
+		if(list_update_needed) updateList() ;
 	}
 
 
