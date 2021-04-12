@@ -141,9 +141,9 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Save the content of all internal files
 		exportedData.add("# " + getString(R.string.export_import_internal_files_header)) ;
-		exportedData.addAll(new InternalFileTXT(this, Constants.FAVORITES_FILE).prepareForExport()) ;
-		exportedData.addAll(new InternalFileTXT(this, Constants.SHORTCUTS_FILE).prepareForExport()) ;
-		exportedData.addAll(new InternalFileTXT(this, Constants.SHORTCUTS_LEGACY_FILE).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FAVORITES_FILE).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.SHORTCUTS_FILE).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.SHORTCUTS_LEGACY_FILE).prepareForExport()) ;
 		exportedData.add("#") ;
 
 		// Save all settings
@@ -177,7 +177,7 @@ public class ActivityExportImport extends AppCompatActivity
 		}) ;
 		if(shortcuts_icons != null)
 			for(String icon : shortcuts_icons)
-				exportedData.add(new InternalFilePNG(this, icon).prepareForExport()) ;
+				exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;
 		exportedData.add("#") ;
 
 		// Write all lines in the export file
@@ -217,11 +217,11 @@ public class ActivityExportImport extends AppCompatActivity
 		ActivityMain.setIgnoreSettingsChanges(true) ;
 		InternalFileTXT favorites, shortcuts, shortcuts_legacy ;
 		if(importedData.contains(Constants.FAVORITES_FILE + ": " + Constants.NONE)) favorites = null ;
-			else favorites = new InternalFileTXT(getApplicationContext(), Constants.FAVORITES_FILE) ;
+			else favorites = new InternalFileTXT(Constants.FAVORITES_FILE) ;
 		if(importedData.contains(Constants.SHORTCUTS_FILE + ": " + Constants.NONE)) shortcuts = null ;
-			else shortcuts = new InternalFileTXT(getApplicationContext(), Constants.SHORTCUTS_FILE) ;
+			else shortcuts = new InternalFileTXT(Constants.SHORTCUTS_FILE) ;
 		if(importedData.contains(Constants.SHORTCUTS_LEGACY_FILE + ": " + Constants.NONE)) shortcuts_legacy = null ;
-			else shortcuts_legacy = new InternalFileTXT(getApplicationContext(), Constants.SHORTCUTS_LEGACY_FILE) ;
+			else shortcuts_legacy = new InternalFileTXT(Constants.SHORTCUTS_LEGACY_FILE) ;
 		if(favorites != null) favorites.remove() ;
 		if(shortcuts != null) shortcuts.remove() ;
 		if(shortcuts_legacy != null) shortcuts_legacy.remove() ;
@@ -269,7 +269,7 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(Constants.SHORTCUT_ICON_PREFIX))
 				{
 					if(line.indexOf(": ") <= 0) continue ;
-					InternalFilePNG icon_file = new InternalFilePNG(this, line.substring(0, line.indexOf(": "))) ;
+					InternalFilePNG icon_file = new InternalFilePNG(line.substring(0, line.indexOf(": "))) ;
 					icon_file.loadFromImport(line) ;
 				}
 		}

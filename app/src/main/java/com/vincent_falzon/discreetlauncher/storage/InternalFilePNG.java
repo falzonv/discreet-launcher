@@ -40,12 +40,11 @@ public class InternalFilePNG extends InternalFile
 {
 	/**
 	 * Constructor to create or open an internal PNG file.
-	 * @param context To get the folder path
 	 * @param filename Name of the file including the extension
 	 */
-	public InternalFilePNG(Context context, String filename)
+	public InternalFilePNG(String filename)
 	{
-		super(context, filename) ;
+		super(filename) ;
 	}
 
 

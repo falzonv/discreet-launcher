@@ -134,7 +134,7 @@ public class ApplicationsList
 	{
 		// Initializations
 		favorites.clear() ;
-		InternalFileTXT file = new InternalFileTXT(context, Constants.FAVORITES_FILE) ;
+		InternalFileTXT file = new InternalFileTXT(Constants.FAVORITES_FILE) ;
 		if(!file.exists()) return ;
 
 		// Retrieve and browse the internal names of all favorites applications
@@ -269,7 +269,7 @@ public class ApplicationsList
 		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// If their file exists, browse the shortcuts
-		InternalFileTXT file = new InternalFileTXT(context, Constants.SHORTCUTS_FILE) ;
+		InternalFileTXT file = new InternalFileTXT(Constants.SHORTCUTS_FILE) ;
 		if(file.exists())
 			{
 				String[] shortcut ;
@@ -280,7 +280,7 @@ public class ApplicationsList
 					if(shortcut.length != 4) continue ;
 
 					// Try to retrieve the shortcut icon or use the default icon
-					InternalFilePNG icon_file = new InternalFilePNG(context, Constants.SHORTCUT_ICON_PREFIX + shortcut[0] + ".png") ;
+					InternalFilePNG icon_file = new InternalFilePNG(Constants.SHORTCUT_ICON_PREFIX + shortcut[0] + ".png") ;
 					Drawable icon = icon_file.convertBitmapToDrawable(context, icon_file.readFromFile()) ;
 					if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 						else icon = default_icon ;
@@ -293,7 +293,7 @@ public class ApplicationsList
 			}
 
 		// If their file exists, browse the legacy shortcuts
-		InternalFileTXT legacyFile = new InternalFileTXT(context, Constants.SHORTCUTS_LEGACY_FILE) ;
+		InternalFileTXT legacyFile = new InternalFileTXT(Constants.SHORTCUTS_LEGACY_FILE) ;
 		if(legacyFile.exists())
 			{
 				String[] legacy_shortcut ;
@@ -304,7 +304,7 @@ public class ApplicationsList
 					if(legacy_shortcut.length != 2) continue ;
 
 					// Try to retrieve the shortcut icon or use the default icon
-					InternalFilePNG icon_file = new InternalFilePNG(context, Constants.SHORTCUT_ICON_PREFIX + legacy_shortcut[0] + ".png") ;
+					InternalFilePNG icon_file = new InternalFilePNG(Constants.SHORTCUT_ICON_PREFIX + legacy_shortcut[0] + ".png") ;
 					Drawable icon = icon_file.convertBitmapToDrawable(context, icon_file.readFromFile()) ;
 					if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 						else icon = default_icon ;

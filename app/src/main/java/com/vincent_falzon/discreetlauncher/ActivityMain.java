@@ -63,6 +63,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private static ApplicationsList applicationsList ;
 	private static boolean ignore_settings_changes ;
 	private static boolean list_update_needed ;
+	private static String internal_folder;
 	private PackagesListener packagesListener ;
 	private LegacyShortcutListener legacyShortcutListener ;
 	private SharedPreferences settings ;
@@ -94,11 +95,14 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Let the parent actions be performed
 		super.onCreate(savedInstanceState) ;
 
-		// Initializations
+		// Initializations related to the interface
 		setContentView(R.layout.activity_main) ;
 		homeScreen = findViewById(R.id.home_screen) ;
 		favorites = findViewById(R.id.favorites) ;
 		drawer = findViewById(R.id.drawer) ;
+
+		// Other initializations
+		internal_folder = getApplicationContext().getFilesDir().getAbsolutePath() ;
 		list_update_needed = false ;
 
 		// Assign default values to settings not configured yet
@@ -111,9 +115,15 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 		ignore_settings_changes = false ;
 
-		// Hide the favorites panel and the drawer by default
-		displayFavorites(false) ;
-		displayDrawer(false) ;
+		// If it does not exist yet, build the applications list
+		if(applicationsList == null)
+			{
+				applicationsList = new ApplicationsList() ;
+				applicationsList.update(this) ;
+				TextView lastUpdate = findViewById(R.id.last_update_datetime) ;
+				String timestamp = SimpleDateFormat.getDateTimeInstance().format(new Date()) ;
+				lastUpdate.setText(getString(R.string.info_applications_list_last_update, timestamp)) ;
+			}
 
 		// If the option is selected, force the portrait mode
 		togglePortraitMode() ;
@@ -127,10 +137,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Prepare the notification menu
 		notificationMenu = new NotificationMenu(this) ;
-
-		// Display a message if the user does not have any favorites applications yet
-		if(applicationsList.getFavorites().size() == 0)
-			ShowDialog.toastLong(this, getString(R.string.info_no_favorites_yet)) ;
 
 		// Define the favorites panel and applications list layouts based on screen orientation
 		GridLayoutManager favoritesLayout ;
@@ -160,8 +166,13 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		drawer_last_position = -1 ;
 		fullListRecycler.addOnScrollListener(new DrawerScrollListener()) ;
 
-		// If it does not exist yet, build the applications list
-		if(applicationsList == null) updateList() ;
+		// Display a message if the user does not have any favorites applications yet
+		if(applicationsList.getFavorites().size() == 0)
+			ShowDialog.toastLong(this, getString(R.string.info_no_favorites_yet)) ;
+
+		// Hide the favorites panel and the drawer by default
+		displayFavorites(false) ;
+		displayDrawer(false) ;
 
 		// Start to listen for packages added or removed
 		packagesListener = new PackagesListener() ;
@@ -294,6 +305,16 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
+	 * Return the internal files folder location (must be initialized by ActivityMain).
+	 * @return Internal files folder location on the system or <code>null</code> if not initialized
+	 */
+	public static String getInternalFolder()
+	{
+		return internal_folder ;
+	}
+
+
+	/**
 	 * Inform the activity that an update of the applications list is needed.
 	 */
 	public static void setListUpdateNeeded()
@@ -308,7 +329,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private void updateList()
 	{
 		// Update the applications list
-		if(applicationsList == null) applicationsList = new ApplicationsList() ;
 		applicationsList.update(this) ;
 		list_update_needed = false ;
 
@@ -388,7 +408,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		}
 
 		// Retrieve the current favorites applications
-		final InternalFileTXT file = new InternalFileTXT(getApplicationContext(), Constants.FAVORITES_FILE) ;
+		final InternalFileTXT file = new InternalFileTXT(Constants.FAVORITES_FILE) ;
 		final boolean[] selected = new boolean[app_names.length] ;
 		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
 			 else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;

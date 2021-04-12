@@ -23,8 +23,8 @@ package com.vincent_falzon.discreetlauncher.storage ;
  */
 
 // Imports
-import android.content.Context ;
 import java.io.File ;
+import static com.vincent_falzon.discreetlauncher.ActivityMain.getInternalFolder ;
 
 /**
  * Manage the storage of an internal file.
@@ -37,12 +37,11 @@ class InternalFile
 
 	/**
 	 * Constructor to create or open an internal file.
-	 * @param context To get the folder path
 	 * @param filename Name of the file including the extension
 	 */
-	InternalFile(Context context, String filename)
+	InternalFile(String filename)
 	{
-		file = new File(context.getFilesDir(), filename) ;
+		file = new File(getInternalFolder(), filename) ;
 	}
 
 

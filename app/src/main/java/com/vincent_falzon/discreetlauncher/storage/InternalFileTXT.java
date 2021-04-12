@@ -23,7 +23,6 @@ package com.vincent_falzon.discreetlauncher.storage ;
  */
 
 // Imports
-import android.content.Context ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import java.io.BufferedReader ;
 import java.io.FileReader ;
@@ -37,12 +36,11 @@ public class InternalFileTXT extends InternalFile
 {
 	/**
 	 * Constructor to create or open an internal TXT file.
-	 * @param context To get the folder path
 	 * @param filename Name of the file including the extension
 	 */
-	public InternalFileTXT(Context context, String filename)
+	public InternalFileTXT(String filename)
 	{
-		super(context, filename) ;
+		super(filename) ;
 	}
 
 
