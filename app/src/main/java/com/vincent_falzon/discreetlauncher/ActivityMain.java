@@ -83,6 +83,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private GridLayoutManager drawerLayout ;
 	private int drawer_position ;
 	private int drawer_last_position ;
+	private int drawer_close_gesture ;
 
 	
 	/**
@@ -162,8 +163,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		drawerAdapter = new RecyclerAdapter(false) ;
 		fullListRecycler.setAdapter(drawerAdapter) ;
 		fullListRecycler.setLayoutManager(drawerLayout) ;
-		drawer_position = 0 ;
-		drawer_last_position = -1 ;
 		fullListRecycler.addOnScrollListener(new DrawerScrollListener()) ;
 
 		// Display a message if the user does not have any favorites applications yet
@@ -267,7 +266,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 				// Display the applications drawer
 				drawer_position = 0 ;
-				drawer_last_position = -1 ;
+				drawer_last_position = 0 ;
+				drawer_close_gesture = 0 ;
 				homeScreen.setVisibility(View.GONE) ;
 				drawer.setVisibility(View.VISIBLE) ;
 			}
@@ -590,7 +590,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		/**
 		 * When the scrolling ends, check if it is stuck on top.
 		 * @param recyclerView Scrolled RecyclerView
-		 * @param newState 0 (Not scrolling), 1 (Active scrolling) or 2 (Scrolling inerty)
+		 * @param newState 1 (Active scrolling) then 2 (Scrolling inerty) then 0 (Not scrolling)
 		 */
 		@Override
 		public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState)
@@ -598,15 +598,35 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			// Let the parent actions be performed
 			super.onScrollStateChanged(recyclerView, newState) ;
 
+			// Keep track of the state to avoid accidental drawer closure
+			switch(newState)
+			{
+				case RecyclerView.SCROLL_STATE_DRAGGING :
+					if(drawer_close_gesture == 0) drawer_close_gesture = 1 ;
+						else drawer_close_gesture = 0 ;
+					break ;
+				case RecyclerView.SCROLL_STATE_SETTLING :
+					if(drawer_close_gesture == 1) drawer_close_gesture = 2 ;
+						else drawer_close_gesture = 0 ;
+					break ;
+				case RecyclerView.SCROLL_STATE_IDLE :
+					if(drawer_close_gesture == 2) drawer_close_gesture = 3 ;
+						else drawer_close_gesture = 0 ;
+			}
+
 			// Wait for the gesture to be finished
 			if(newState == RecyclerView.SCROLL_STATE_IDLE)
-			{
-				// If the scrolling is stuck on top, close the drawer activity
-				if((drawer_position == 0) && (drawer_last_position == 0)) displayDrawer(false) ;
+				{
+					// If the scrolling is stuck on top, close the drawer activity
+					if((drawer_position == 0) && (drawer_last_position == 0) && (drawer_close_gesture == 3))
+						displayDrawer(false) ;
 
-				// Update the last position to detect the stuck state
-				drawer_last_position = drawer_position;
-			}
+					// Consider the gesture finished
+					if(drawer_close_gesture == 3) drawer_close_gesture = 0 ;
+
+					// Update the last position to detect the stuck state
+					drawer_last_position = drawer_position ;
+				}
 		}
 
 
@@ -663,8 +683,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Let the parent actions be performed
 		super.onResume() ;
 
-		// Hide the notification and update the display according to settings
+		// Hide the favorites panel, the drawer and the notification
+		displayFavorites(false) ;
+		displayDrawer(false) ;
 		notificationMenu.hide() ;
+
+		// Update the display according to settings
 		manageClock() ;
 		togglePortraitMode() ;
 
