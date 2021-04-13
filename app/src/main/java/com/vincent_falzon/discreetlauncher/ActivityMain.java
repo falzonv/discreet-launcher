@@ -687,6 +687,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		displayFavorites(false) ;
 		displayDrawer(false) ;
 		notificationMenu.hide() ;
+		closeContextMenu() ;
 
 		// Update the display according to settings
 		manageClock() ;
