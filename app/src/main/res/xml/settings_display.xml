@@ -5,6 +5,12 @@
         app:title="@string/display_settings_general_title"
         app:iconSpaceReserved="false">
 
+        <SwitchPreference
+            app:key="force_portrait"
+            app:title="@string/set_force_portrait"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
         <ListPreference
             app:key="icon_pack"
             app:title="@string/set_icon_pack"
@@ -28,12 +34,6 @@
             app:key="transparent_status_bar"
             app:title="@string/set_transparent_status_bar"
             app:summary="@string/set_transparent_status_bar_hint"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
-        <SwitchPreference
-            app:key="force_portrait"
-            app:title="@string/set_force_portrait"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 

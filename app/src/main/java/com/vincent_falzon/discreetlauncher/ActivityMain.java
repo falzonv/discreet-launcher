@@ -50,9 +50,7 @@ import com.vincent_falzon.discreetlauncher.events.LegacyShortcutListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
-import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
-import java.util.Date ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -78,7 +76,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private MinuteListener minuteListener ;
 
 	// Attributes related to the drawer
-	private LinearLayout drawer ;
+	private RecyclerView drawer ;
 	private RecyclerAdapter drawerAdapter ;
 	private GridLayoutManager drawerLayout ;
 	private int drawer_position ;
@@ -121,9 +119,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			{
 				applicationsList = new ApplicationsList() ;
 				applicationsList.update(this) ;
-				TextView lastUpdate = findViewById(R.id.last_update_datetime) ;
-				String timestamp = SimpleDateFormat.getDateTimeInstance().format(new Date()) ;
-				lastUpdate.setText(getString(R.string.info_applications_list_last_update, timestamp)) ;
 			}
 
 		// If the option is selected, force the portrait mode
@@ -153,17 +148,16 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			}
 
 		// Initialize the content of the favorites panel
-		RecyclerView favoritesRecycler = findViewById(R.id.favorites_applications) ;
 		favoritesAdapter = new RecyclerAdapter(true) ;
+		RecyclerView favoritesRecycler = findViewById(R.id.favorites_applications) ;
 		favoritesRecycler.setAdapter(favoritesAdapter) ;
 		favoritesRecycler.setLayoutManager(favoritesLayout) ;
 
 		// Initialize the content of the full applications list
-		RecyclerView fullListRecycler = findViewById(R.id.applications_list) ;
 		drawerAdapter = new RecyclerAdapter(false) ;
-		fullListRecycler.setAdapter(drawerAdapter) ;
-		fullListRecycler.setLayoutManager(drawerLayout) ;
-		fullListRecycler.addOnScrollListener(new DrawerScrollListener()) ;
+		drawer.setAdapter(drawerAdapter) ;
+		drawer.setLayoutManager(drawerLayout) ;
+		drawer.addOnScrollListener(new DrawerScrollListener()) ;
 
 		// Display a message if the user does not have any favorites applications yet
 		if(applicationsList.getFavorites().size() == 0)
@@ -335,11 +329,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Update the display in the favorites panel and applications drawer
 		favoritesAdapter.notifyDataSetChanged() ;
 		drawerAdapter.notifyDataSetChanged() ;
-
-		// Update the timestamp in the applications drawer
-		TextView lastUpdate = findViewById(R.id.last_update_datetime) ;
-		String timestamp = SimpleDateFormat.getDateTimeInstance().format(new Date()) ;
-		lastUpdate.setText(getString(R.string.info_applications_list_last_update, timestamp)) ;
 
 		// Inform the user that the list has been refreshed
 		ShowDialog.toast(this, R.string.info_applications_list_refreshed) ;

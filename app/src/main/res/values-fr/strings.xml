@@ -18,7 +18,6 @@
     <string name="info_no_favorites_yet">Pour ajouter des applications au panneau des favoris, glissez vers le bas et maintenez le bouton menu</string>
 	<string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
 	<string name="info_favorites_saved">Applications favorites enregistrées</string>
-    <string name="info_applications_list_last_update">Applications (liste du %1$s)</string>
 
     <!-- Messages d'erreur -->
     <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
@@ -58,8 +57,8 @@
     <string name="settings_title">Paramètres / Aide</string>
     <string name="set_customization_title">Personnalisation</string>
     <string name="display_settings_title">Affichage</string>
-    <string name="display_settings_general_title">Affichage / Général</string>
-    <string name="display_settings_home_screen_title">Affichage / Écran d\'accueil</string>
+    <string name="display_settings_general_title">Affichage > Général</string>
+    <string name="display_settings_home_screen_title">Affichage > Écran d\'accueil</string>
     <string name="set_display_clock">Afficher l\'horloge</string>
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
@@ -86,8 +85,7 @@
         \nDepuis l\'écran d\'accueil, glissez le doigt vers le bas pour afficher le panneau des favoris et vers le haut pour le masquer.
         Si vous glissez le doigt vers le haut quand le panneau des favoris est caché, la liste complète des applications s\'affiche.
         \n
-        \nQuand vous êtes en haut de la liste des applications, vous pouvez glisser le doigt vers le bas pour retourner à l\'écran d\'accueil.
-        Si vous venez d\'ouvrir la liste sans l\'avoir fait défiler, vous devrez glissez vers le bas deux fois pour revenir à l\'accueil.
+        \nQuand vous êtes en haut de la liste des applications, glissez le doigt vers le bas pour retourner à l\'écran d\'accueil.
         \n
         \nSous le panneau des favoris, pressez le bouton pour afficher le menu du lanceur.
         Ce menu permet d\'actualiser la liste des applications, de définir les applications favorites et d\'ouvrir les paramètres.
@@ -99,7 +97,6 @@
         \nLa liste d\'applications et leurs icônes ne sont actualisées qu\'après certains évènements
         (au démarrage, lorsqu\'une application est ajoutée ou supprimée, quand le pack d\'icônes est modifié).
         Si quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
-        Vous pouvez vérifier la dernière fois que cela a été fait en haut de la liste d\'applications.
         \n
     </string>
 
