@@ -99,6 +99,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		homeScreen = findViewById(R.id.home_screen) ;
 		favorites = findViewById(R.id.favorites) ;
 		drawer = findViewById(R.id.drawer) ;
+		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
+		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
 
 		// Other initializations
 		internal_folder = getApplicationContext().getFilesDir().getAbsolutePath() ;
@@ -124,9 +126,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// If the option is selected, force the portrait mode
 		togglePortraitMode() ;
 
-		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
-		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
-
 		// Initialize the text clock
 		clock = findViewById(R.id.clock_text) ;
 		manageClock() ;
@@ -148,13 +147,13 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			}
 
 		// Initialize the content of the favorites panel
-		favoritesAdapter = new RecyclerAdapter(true) ;
+		favoritesAdapter = new RecyclerAdapter(applicationsList.getFavorites()) ;
 		RecyclerView favoritesRecycler = findViewById(R.id.favorites_applications) ;
 		favoritesRecycler.setAdapter(favoritesAdapter) ;
 		favoritesRecycler.setLayoutManager(favoritesLayout) ;
 
 		// Initialize the content of the full applications list
-		drawerAdapter = new RecyclerAdapter(false) ;
+		drawerAdapter = new RecyclerAdapter(applicationsList.getApplications()) ;
 		drawer.setAdapter(drawerAdapter) ;
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;

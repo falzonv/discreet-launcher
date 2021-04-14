@@ -48,12 +48,11 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 
 	/**
 	 * Constructor to fill a RecyclerView with the applications list.
-	 * @param favorites Full list or favorites only
+	 * @param applicationsList Applications to display in the recycler
 	 */
-	RecyclerAdapter(boolean favorites)
+	RecyclerAdapter(ArrayList<Application> applicationsList)
 	{
-		if(favorites) applicationsList = ActivityMain.getApplicationsList().getFavorites() ;
-			else applicationsList = ActivityMain.getApplicationsList().getApplications() ;
+		this.applicationsList = applicationsList ;
 	}
 
 
@@ -112,7 +111,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		 */
 		ApplicationView(View view)
 		{
-			// Call the constructor of the parent class
+			// Let the parent actions be performed
 			super(view) ;
 
 			// Listen for a click on the application
@@ -142,17 +141,16 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		@Override
 		public boolean onLongClick(final View view)
 		{
-			// Get the clicked position to retrieve the selected application
+			// Get the clicked position and retrieve the selected application
 			if(view == null) return false ;
-			final int selection = getBindingAdapterPosition() ;
+			final Application application = applicationsList.get(getBindingAdapterPosition()) ;
 
 			// Prepare and display the selection dialog
 			final Context context = view.getContext() ;
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			String apk = applicationsList.get(selection).getApk() ;
-			if(apk.startsWith(Constants.APK_SHORTCUT))
+			if(application.getApk().startsWith(Constants.APK_SHORTCUT))
 				{
-					dialog.setMessage(context.getString(R.string.dialog_open_or_remove, applicationsList.get(selection).getDisplayName())) ;
+					dialog.setMessage(context.getString(R.string.dialog_open_or_remove, application.getDisplayName())) ;
 					dialog.setPositiveButton(R.string.button_remove,
 							new DialogInterface.OnClickListener()
 							{
@@ -161,15 +159,14 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 								public void onClick(DialogInterface dialogInterface, int i)
 								{
 									// Remove the shortcut from the file and update the applications list
-									Application toRemove = applicationsList.get(selection) ;
-									ShortcutListener.removeShortcut(context, toRemove.getDisplayName(), toRemove.getApk()) ;
+									ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
 									ActivityMain.setListUpdateNeeded() ;
 								}
 							}) ;
 				}
 				else
 				{
-					dialog.setMessage(context.getString(R.string.dialog_open_or_settings, applicationsList.get(selection).getDisplayName())) ;
+					dialog.setMessage(context.getString(R.string.dialog_open_or_settings, application.getDisplayName())) ;
 					dialog.setPositiveButton(R.string.button_settings,
 							new DialogInterface.OnClickListener()
 							{
@@ -179,7 +176,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 								{
 									// Open the application system settings
 									Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-									intent.setData(Uri.parse("package:" + applicationsList.get(selection).getApk())) ;
+									intent.setData(Uri.parse("package:" + application.getApk())) ;
 									intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 									context.startActivity(intent) ;
 								}
@@ -193,7 +190,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 						public void onClick(DialogInterface dialogInterface, int i)
 						{
 							// Start the application
-							applicationsList.get(selection).start(context) ;
+							application.start(context) ;
 						}
 					}) ;
 			dialog.show() ;
