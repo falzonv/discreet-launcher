@@ -480,6 +480,21 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
+	 * Detect a click on an element from the activity.
+	 * @param view Element clicked
+	 */
+	public void onClickMainActivity(View view)
+	{
+		// Display the contextual menu after a short click
+		if(view.getId() == R.id.access_menu_button)
+			{
+				if(Build.VERSION.SDK_INT < Build.VERSION_CODES.N) view.showContextMenu() ;
+					else view.showContextMenu(0, view.getHeight()) ;
+			}
+	}
+
+
+	/**
 	 * Detect a user action on the screen.
 	 * @param event Gesture event
 	 * @return <code>true</code> if event is consumed, <code>false</code> otherwise

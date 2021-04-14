@@ -7,8 +7,8 @@
 
     <!-- Menu button -->
     <dimen name="menu_button_top_margin">5dp</dimen>
-    <dimen name="menu_button_vertical_padding">5dp</dimen>
-    <dimen name="menu_button_horizontal_padding">10dp</dimen>
+    <dimen name="menu_button_start_padding">3dp</dimen>
+    <dimen name="menu_button_end_padding">10dp</dimen>
 
     <!-- Applications list -->
     <dimen name="application_vertical_margins">10dp</dimen>

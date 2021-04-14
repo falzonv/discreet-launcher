@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 	tools:context=".ActivityMain"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -35,13 +36,13 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/button_access_menu"
-                android:paddingTop="@dimen/menu_button_vertical_padding"
-                android:paddingStart="@dimen/menu_button_horizontal_padding"
-                android:paddingEnd="@dimen/menu_button_horizontal_padding"
-                android:paddingBottom="@dimen/menu_button_vertical_padding"
+                android:paddingStart="@dimen/menu_button_start_padding"
+                android:paddingEnd="@dimen/menu_button_end_padding"
                 android:layout_marginTop="@dimen/menu_button_top_margin"
+                android:onClick="onClickMainActivity"
                 android:textColor="@color/color_applications_drawer_text"
-                android:background="@color/color_applications_drawer_background"/>
+                android:background="@color/color_applications_drawer_background"
+                app:drawableStartCompat="@android:drawable/ic_menu_more"/>
 
         </LinearLayout>
 

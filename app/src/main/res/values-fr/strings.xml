@@ -2,7 +2,7 @@
 <resources>
 
 	<!-- Boutons -->
-	<string name="button_access_menu">Maintenez ici pour accéder au menu</string>
+	<string name="button_access_menu">Accéder au menu</string>
 	<string name="button_refresh_list">Actualiser la liste des applications</string>
 	<string name="button_manage_favorites">Gérer les favoris</string>
 	<string name="button_apply">Valider</string>
