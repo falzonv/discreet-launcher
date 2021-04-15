@@ -27,7 +27,7 @@ import android.content.BroadcastReceiver ;
 import android.content.Context ;
 import android.content.Intent ;
 import android.content.IntentFilter ;
-import static com.vincent_falzon.discreetlauncher.ActivityMain.setListUpdateNeeded ;
+import static com.vincent_falzon.discreetlauncher.ActivityMain.updateList ;
 
 /**
  * Listen for packages additions and deletions.
@@ -59,12 +59,11 @@ public class PackagesListener extends BroadcastReceiver
 		// Check if the intent as a valid action
 		if(intent.getAction() == null) return ;
 
-		// Check if a package has been added or removed (except during updates)
-		if((intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) || intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))
-			&& !intent.getBooleanExtra(Intent.EXTRA_REPLACING, false))
-			{
-				// Indicate that the applications list should be updated
-				setListUpdateNeeded() ;
-			}
+		// Do not react to applications updates
+		if(intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) return ;
+
+		// If a package has been added or removed, update the applications list
+		if((intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) ||
+			intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))) updateList(context) ;
 	}
 }

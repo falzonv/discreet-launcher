@@ -128,7 +128,7 @@ public class ShortcutListener extends AppCompatActivity
 
 								// Add the shortcut
 								addShortcut(this, display_name, shortcut, icon, false) ;
-								ActivityMain.setListUpdateNeeded() ;
+								ActivityMain.updateList(this) ;
 							}
 							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
 					}

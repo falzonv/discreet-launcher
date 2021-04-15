@@ -60,8 +60,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private static boolean ignore_settings_changes ;
-	private static boolean list_update_needed ;
-	private static String internal_folder;
+	private static boolean adapters_update_needed ;
+	private static String internal_folder ;
 	private PackagesListener packagesListener ;
 	private LegacyShortcutListener legacyShortcutListener ;
 	private SharedPreferences settings ;
@@ -104,7 +104,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Other initializations
 		internal_folder = getApplicationContext().getFilesDir().getAbsolutePath() ;
-		list_update_needed = false ;
 
 		// Assign default values to settings not configured yet
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
@@ -226,6 +225,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		if(display)
 			{
+				// Update the recyclers (favorites panel and applications drawer) if needed
+				if(adapters_update_needed) updateAdapters() ;
+
 				// Display the favorites panel
 				favorites.setVisibility(View.VISIBLE) ;
 
@@ -253,6 +255,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		if(display)
 			{
+				// Update the recyclers (favorites panel and applications drawer) if needed
+				if(adapters_update_needed) updateAdapters() ;
+
 				// Make the status and navigation bar translucent
 				getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
@@ -311,29 +316,25 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
-	 * Inform the activity that an update of the applications list is needed.
+	 * Update the applications list and inform the user.
+	 * @param context Needed to update the list
 	 */
-	public static void setListUpdateNeeded()
+	public static void updateList(Context context)
 	{
-		list_update_needed = true ;
+		applicationsList.update(context) ;
+		adapters_update_needed = true ;
+		ShowDialog.toast(context, R.string.info_applications_list_refreshed) ;
 	}
 
 
 	/**
-	 * Update the applications list and the display in the interface
+	 * Update the display in the favorites panel and applications drawer.
 	 */
-	private void updateList()
+	private void updateAdapters()
 	{
-		// Update the applications list
-		applicationsList.update(this) ;
-		list_update_needed = false ;
-
-		// Update the display in the favorites panel and applications drawer
 		favoritesAdapter.notifyDataSetChanged() ;
 		drawerAdapter.notifyDataSetChanged() ;
-
-		// Inform the user that the list has been refreshed
-		ShowDialog.toast(this, R.string.info_applications_list_refreshed) ;
+		adapters_update_needed = false ;
 	}
 
 	
@@ -364,7 +365,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(selection == R.id.menu_action_refresh_list)
 			{
 				// Update the applications list
-				updateList() ;
+				updateList(this) ;
 				return true ;
 			}
 			else if(selection == R.id.menu_action_manage_favorites)
@@ -568,7 +569,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			case Constants.ICON_PACK :
 			case Constants.HIDDEN_APPLICATIONS :
 				// Update the applications list
-				updateList() ;
+				updateList(this) ;
 				break ;
 			case Constants.DISPLAY_NOTIFICATION :
 				// Toggle the notification
@@ -699,8 +700,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		manageClock() ;
 		togglePortraitMode() ;
 
-		// Update the favorites panel and applications drawer if needed
-		if(list_update_needed) updateList() ;
+		// Update the favorites panel and applications drawer display if needed
+		if(adapters_update_needed) updateAdapters() ;
 	}
 
 
