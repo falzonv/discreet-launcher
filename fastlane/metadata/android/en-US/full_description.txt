@@ -4,9 +4,9 @@ From this clean home screen, simply slide your finger down to display your favor
 
 Other features:
 - Long click opens application settings
-- A notification can be shown to give quick access to 3 applications
-- Web apps and shortcuts support
-- Applications list updated only after specific events (startup, application addition or deletion, icon pack modified) for better speed and to limit battery usage
+- Notification option for quick access to 3 applications
+- Web applications support
+- Optimized update of the applications list for better speed and to limit battery usage
 - Integrated help and changelog
 - Settings export/import (text format)
 

@@ -103,6 +103,14 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
+        \n<b>v3.0.0</b>
+        \n- Tiroir d\'applications s\'ouvre encore plus vite
+        \n- Apparence du tiroir plus simple (idée tuch96)
+        \n- Bouton de menu plus élégant (idée tuch96)
+        \n- Boutons export/import plus élégants
+        \n- Réorganisation interne majeure
+        \n- <u><i>Fix</i></u> portrait forcé fonctionne dans le tiroir
+        \n
         \n<b>v2.6.0 - 11/04/2021</b>
         \n- Affichage sur 5 colonnes en mode paysage
         \n- Paramètres d\'affichage dans une section dédiée

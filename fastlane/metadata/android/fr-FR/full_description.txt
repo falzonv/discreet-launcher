@@ -3,10 +3,10 @@ Lanceur Discret vous offre un écran d'accueil sans distractions, vous permettan
 Depuis cet écran d'accueil épuré, glissez simplement le doigt vers le bas pour afficher vos applications favorites ou vers le haut pour voir la liste complète des applications.
 
 Autres fonctionnalités :
-- Clic long pour ouvrir les paramètres d'une application
-- Une notification peut-être affichée pour un accès rapide à 3 applications
-- Support des raccourcis et applications web
-- Mise à jour de la liste des applications seulement après certains évènements (démarrage, installation ou désinstallation d'application, changement de pack d'icônes) pour plus de rapidité et limiter l'utilisation de la batterie
+- Clic long ouvre les paramètres d'une application
+- Notification possible pour accès rapide à 3 applications
+- Support des applications web
+- Mise à jour de la liste des applications optimisée pour plus de rapidité et économiser la batterie
 - Aide et journal des changements intégrés
 - Export/import des paramètres (format texte)
 
