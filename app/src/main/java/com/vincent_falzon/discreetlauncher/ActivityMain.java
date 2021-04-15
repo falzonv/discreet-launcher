@@ -253,9 +253,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		if(display)
 			{
-				// If the status bar was transparent, make it translucent as the drawer
-				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
-					getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
+				// Make the status and navigation bar translucent
+				getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
+				getWindow().setNavigationBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
 
 				// Display the applications drawer
 				drawer_position = 0 ;
@@ -273,6 +273,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+
+				// Make the navigation bar transparent
+				getWindow().setNavigationBarColor(getResources().getColor(R.color.color_transparent)) ;
 			}
 	}
 
