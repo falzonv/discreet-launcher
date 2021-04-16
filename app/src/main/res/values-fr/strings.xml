@@ -103,7 +103,7 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
-        \n<b>v3.0.0</b>
+        \n<b>v3.0.0 - 16/04/2021</b>
         \n- Tiroir d\'applications s\'ouvre encore plus vite
         \n- Apparence du tiroir plus simple (idée tuch96)
         \n- Bouton de menu plus élégant (idée tuch96)

@@ -1,0 +1,6 @@
+- Tiroir d'applications s'ouvre encore plus vite
+- Apparence du tiroir plus simple (idée tuch96)
+- Bouton de menu plus élégant (idée tuch96)
+- Boutons export/import plus élégants
+- Réorganisation interne majeure
+- Fix : portrait forcé fonctionne dans le tiroir

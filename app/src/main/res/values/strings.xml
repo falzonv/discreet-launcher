@@ -106,7 +106,7 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
-        \n<b>v3.0.0</b>
+        \n<b>v3.0.0 - 16/04/2021</b>
         \n- Applications drawer opens even faster
         \n- Drawer appearance is simpler (idea tuch96)
         \n- More elegant menu button (idea tuch96)

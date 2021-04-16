@@ -1,0 +1,6 @@
+- Applications drawer opens even faster
+- Drawer appearance is simpler (idea tuch96)
+- More elegant menu button (idea tuch96)
+- More elegant export/import buttons
+- Major internal reorganization
+- Fix: force portrait works in the drawer
