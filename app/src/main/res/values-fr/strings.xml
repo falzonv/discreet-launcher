@@ -30,9 +30,6 @@
     <string name="error_shortcut_start">Le système Android n\'a pas réussi à ouvrir le raccourci ou ne l\'a pas retrouvé !</string>
     <string name="error_application_not_found">L\'application %1$s est introuvable !</string>
     <string name="error_appfilter_not_found">Le fichier appfilter.xml est introuvable dans le pack d\'icônes sélectionné ! (%1$s)</string>
-    <string name="error_file_format_changed">
-        La façon dont les favoris sont stockés a été modifiée avec la version 1.2.0.\nVotre liste a été convertie automatiquement mais vous devriez vérifier que tout est en ordre.
-    </string>
     <string name="error_export">Une erreur est survenue durant la création du fichier d\'export !</string>
     <string name="error_import">Une erreur est survenue durant la lecture du fichier d\'import !</string>
 

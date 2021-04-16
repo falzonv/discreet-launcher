@@ -460,7 +460,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						}
 
 						// Update the favorites panel and inform the user
-						applicationsList.updateFavorites(context) ;
+						applicationsList.updateFavorites() ;
 						favoritesAdapter.notifyDataSetChanged() ;
 						if(favorites_number > max_favorites) ShowDialog.toastLong(context, getString(R.string.error_too_many_favorites, max_favorites)) ;
 							else ShowDialog.toast(getApplicationContext(), R.string.info_favorites_saved) ;

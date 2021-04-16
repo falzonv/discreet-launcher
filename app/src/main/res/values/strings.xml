@@ -30,9 +30,6 @@
     <string name="error_shortcut_start">The Android system was not able to open the shortcut or it did not retrieved it!</string>
     <string name="error_application_not_found">The application %1$s has not been found!</string>
     <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
-    <string name="error_file_format_changed">
-        The way favorites are stored has changed with version 1.2.0.\nYour list has been converted automatically but you should check that everything is as you wish.
-    </string>
     <string name="error_export">An error happened while creating the export file!</string>
     <string name="error_import">An error happened while reading the import file!</string>
 

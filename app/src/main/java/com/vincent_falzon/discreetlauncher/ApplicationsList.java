@@ -122,15 +122,14 @@ public class ApplicationsList
 		manageHiddenApplications(context) ;
 
 		// Update the favorites applications list
-		updateFavorites(context) ;
+		updateFavorites() ;
 	}
 
 
 	/**
 	 * Update the favorites applications list based on the favorites file and the complete list.
-	 * @param context To get the file path
 	 */
-	void updateFavorites(Context context)
+	void updateFavorites()
 	{
 		// Initializations
 		favorites.clear() ;
@@ -148,42 +147,6 @@ public class ApplicationsList
 						favorites.add(application) ;
 						break ;
 					}
-		}
-
-		// To remove later: manage old file format
-		if(favorites.size() == 0) convertOldFavoritesFileFormat(context, file) ;
-	}
-
-
-	/**
-	 * To be removed later, file format conversion due to change in v1.2.0.
-	 * This method is called during the favorites update in case the user updated the launcher from
-	 * a version before v1.2.0. It updates the favorites file to new format with internal names.
-	 * @param context To display an alert dialog
-	 */
-	private void convertOldFavoritesFileFormat(Context context, InternalFileTXT file)
-	{
-		// Retrieve and browse the package names of all favorites applications
-		for(String apk : file.readAllLines())
-		{
-			// Search the package name in the applications list
-			for(Application application : applications)
-				if(application.getApk().equals(apk))
-					{
-						// Add the application to the favorites and move to the next line
-						favorites.add(application) ;
-						break ;
-					}
-		}
-
-		// Check if favorites need to be migrated
-		if(favorites.size() > 0)
-		{
-			// Try to migrate them to the new format
-			if(file.remove()) return ;
-			for(Application application : favorites)
-				if(!file.writeLine(application.getName())) return ;
-			ShowDialog.alert(context, context.getString(R.string.error_file_format_changed)) ;
 		}
 	}
 
