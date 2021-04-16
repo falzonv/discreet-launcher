@@ -106,6 +106,9 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
+        \n<b>v3.0.1 - 16/04/2021</b>
+        \n- <u><i>Fix</i></u> web apps now open (thanks zcgrubb/johanbove)
+        \n
         \n<b>v3.0.0 - 16/04/2021</b>
         \n- Applications drawer opens even faster
         \n- Drawer appearance is simpler (idea tuch96)

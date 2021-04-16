@@ -64,36 +64,6 @@ public class ShortcutListener extends AppCompatActivity
 				// Retrieve the intent which started this activity
 				Intent intent = getIntent() ;
 
-				// Check if a shortcut should be started
-				if(intent.getExtras() != null)
-					{
-						// Retrieve the shortcut line provided by the caller
-						String shortcut_line = intent.getExtras().getString(Constants.APK_SHORTCUT) ;
-						if(shortcut_line != null)
-							{
-								// Extract the shortcut details
-								String[] shortcut = shortcut_line.split(Constants.SHORTCUT_SEPARATOR) ;
-								if(shortcut.length == 3)
-								{
-									// Try to retrieve the user ID, use 0 if not found (0 is "System", the most commonly used)
-									int user_id ;
-									try { user_id = Integer.parseInt(shortcut[2]) ; }
-									catch(NumberFormatException e) { user_id = 0 ; }
-
-									// Try to launch the shortcut
-									LauncherApps launcher = (LauncherApps)getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
-									if(launcher.hasShortcutHostPermission())
-									{
-										try { launcher.startShortcut(shortcut[0], shortcut[1], null, null, UserHandle.getUserHandleForUid(user_id)) ; }
-										catch(ActivityNotFoundException | IllegalStateException e)
-										{ ShowDialog.toastLong(this, getString(R.string.error_shortcut_start)) ; }
-									}
-									else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
-								}
-								else ShowDialog.toastLong(this, getString(R.string.error_shortcut_missing_info)) ;
-							}
-					}
-
 				// Check if a new shortcut should be added and accept the request
 				LauncherApps.PinItemRequest pinRequest = intent.getParcelableExtra(LauncherApps.EXTRA_PIN_ITEM_REQUEST) ;
 				if((pinRequest != null) && (pinRequest.getShortcutInfo() != null) && pinRequest.accept())
@@ -101,44 +71,100 @@ public class ShortcutListener extends AppCompatActivity
 						// If the request is invalid, display a message and quit
 						ShortcutInfo receivedShortcut = pinRequest.getShortcutInfo() ;
 						if((receivedShortcut.getShortLabel() != null))
-							{
-								// Retrive the informations of the shortcut
-								String display_name = receivedShortcut.getShortLabel().toString() ;
-								String user_id = receivedShortcut.getUserHandle().toString() ;
-								String shortcut = display_name
-										+ Constants.SHORTCUT_SEPARATOR + receivedShortcut.getPackage()
-										+ Constants.SHORTCUT_SEPARATOR + receivedShortcut.getId()
-										+ Constants.SHORTCUT_SEPARATOR + user_id.replace("UserHandle{", "").replace("}", "") ;
+						{
+							// Retrive the informations of the shortcut
+							String display_name = receivedShortcut.getShortLabel().toString() ;
+							String user_id = receivedShortcut.getUserHandle().toString() ;
+							String shortcut = display_name
+									+ Constants.SHORTCUT_SEPARATOR + receivedShortcut.getPackage()
+									+ Constants.SHORTCUT_SEPARATOR + receivedShortcut.getId()
+									+ Constants.SHORTCUT_SEPARATOR + user_id.replace("UserHandle{", "").replace("}", "") ;
 
-								// Check if the launcher is allowed to retrieve the shortcut icon
-								Bitmap icon = null ;
-								LauncherApps launcher = (LauncherApps)getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
-								if(launcher.hasShortcutHostPermission())
+							// Check if the launcher is allowed to retrieve the shortcut icon
+							Bitmap icon = null ;
+							LauncherApps launcher = (LauncherApps)getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
+							if(launcher.hasShortcutHostPermission())
+							{
+								// If its dimensions are valid, create a Bitmap from the icon
+								Drawable shortcutIcon = launcher.getShortcutIconDrawable(receivedShortcut, 0) ;
+								if((shortcutIcon.getIntrinsicWidth() > 0) && (shortcutIcon.getIntrinsicHeight() > 0))
+								{
+									icon = Bitmap.createBitmap(shortcutIcon.getIntrinsicWidth(), shortcutIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
+									shortcutIcon.setBounds(0, 0, shortcutIcon.getIntrinsicWidth(), shortcutIcon.getIntrinsicHeight()) ;
+									shortcutIcon.draw(new Canvas(icon)) ;
+								}
+							}
+							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
+
+							// Add the shortcut
+							addShortcut(this, display_name, shortcut, icon, false) ;
+							ActivityMain.updateList(this) ;
+						}
+						else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
+
+						// Go back to the home screen
+						returnToHomeScreen() ;
+					}
+
+				// Check if a shortcut should be started
+				if(intent.getExtras() == null) returnToHomeScreen() ;
+					else
+					{
+						// Retrieve the shortcut line provided by the caller
+						String shortcut_line = intent.getExtras().getString(Constants.APK_SHORTCUT) ;
+						if(shortcut_line == null) returnToHomeScreen() ;
+							else
+							{
+								// Extract the shortcut details
+								String[] shortcut = shortcut_line.split(Constants.SHORTCUT_SEPARATOR) ;
+								if(shortcut.length == 3)
 									{
-										// If its dimensions are valid, create a Bitmap from the icon
-										Drawable shortcutIcon = launcher.getShortcutIconDrawable(receivedShortcut, 0) ;
-										if((shortcutIcon.getIntrinsicWidth() > 0) && (shortcutIcon.getIntrinsicHeight() > 0))
+										// Try to retrieve the user ID, use 0 if not found (0 is "System", the most commonly used)
+										int user_id ;
+										try { user_id = Integer.parseInt(shortcut[2]) ; }
+										catch(NumberFormatException e) { user_id = 0 ; }
+
+										// Check if the shortcut can be launched
+										LauncherApps launcher = (LauncherApps)getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
+										if(launcher.hasShortcutHostPermission())
 											{
-												icon = Bitmap.createBitmap(shortcutIcon.getIntrinsicWidth(), shortcutIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
-												shortcutIcon.setBounds(0, 0, shortcutIcon.getIntrinsicWidth(), shortcutIcon.getIntrinsicHeight()) ;
-												shortcutIcon.draw(new Canvas(icon)) ;
+												try
+												{
+													// Try to launch the shortcut
+													launcher.startShortcut(shortcut[0], shortcut[1], null, null, UserHandle.getUserHandleForUid(user_id)) ;
+												}
+												catch(ActivityNotFoundException | IllegalStateException e)
+												{
+													ShowDialog.toastLong(this, getString(R.string.error_shortcut_start)) ;
+													returnToHomeScreen() ;
+												}
+											}
+											else
+											{
+												ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
+												returnToHomeScreen() ;
 											}
 									}
-									else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
-
-								// Add the shortcut
-								addShortcut(this, display_name, shortcut, icon, false) ;
-								ActivityMain.updateList(this) ;
+									else
+									{
+										ShowDialog.toastLong(this, getString(R.string.error_shortcut_missing_info)) ;
+										returnToHomeScreen() ;
+									}
 							}
-							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
 					}
 			}
+	}
 
-		// Go back to the home screen
-		Intent homeScreenIntent = new Intent() ;
-		homeScreenIntent.setClass(this, ActivityMain.class) ;
-		homeScreenIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-		startActivity(homeScreenIntent) ;
+
+	/**
+	 * Return to the home screen activity.
+	 */
+	private void returnToHomeScreen()
+	{
+		Intent intent = new Intent() ;
+		intent.setClass(this, ActivityMain.class) ;
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+		startActivity(intent) ;
 	}
 
 

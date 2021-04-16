@@ -103,6 +103,9 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
+        \n<b>v3.0.1 - 16/04/2021</b>
+        \n- <u><i>Fix</i></u> web apps s\'ouvrent (merci zcgrubb/johanbove)
+        \n
         \n<b>v3.0.0 - 16/04/2021</b>
         \n- Tiroir d\'applications s\'ouvre encore plus vite
         \n- Apparence du tiroir plus simple (idée tuch96)
