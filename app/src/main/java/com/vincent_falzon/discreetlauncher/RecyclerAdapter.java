@@ -129,9 +129,9 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 		@Override
 		public void onClick(View view)
 		{
-			if(!applicationsList.get(getBindingAdapterPosition()).start(view.getContext()))
+			if(!applicationsList.get(getBindingAdapterPosition()).start(view))
 				{
-					// Display an error messag if the application was not found
+					// Display an error message if the application was not found
 					Context context = view.getContext() ;
 					String display_name = applicationsList.get(getBindingAdapterPosition()).getDisplayName() ;
 					ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, display_name)) ;
@@ -197,7 +197,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 						public void onClick(DialogInterface dialogInterface, int i)
 						{
 							// Start the application and display an error message if it was not found
-							if(!application.start(context))
+							if(!application.start(view))
 								ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
 						}
 					}) ;

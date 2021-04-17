@@ -27,6 +27,7 @@ import android.content.Context ;
 import android.content.Intent ;
 import android.content.pm.PackageManager ;
 import android.graphics.drawable.Drawable ;
+import android.view.View ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import java.net.URISyntaxException ;
 
@@ -36,10 +37,10 @@ import java.net.URISyntaxException ;
 public class Application
 {
 	// Attributes
-	private final String display_name ;
-	private final String name ;
-	private final String apk ;
-	private final Drawable icon ;
+	final String display_name ;
+	final String name ;
+	final String apk ;
+	final Drawable icon ;
 
 
 	/**
@@ -131,13 +132,14 @@ public class Application
 
 	/**
 	 * Start the application as a new task.
-	 * @param context Provided by an activity
+	 * @param view Element from which the event originates
 	 * @return <code>true</code> if the application was found, <code>false</code> otherwise
 	 */
 	@SuppressWarnings("BooleanMethodIsAlwaysInverted")
-	public boolean start(Context context)
+	public boolean start(View view)
 	{
 		// Check if the application is a shortcut
+		Context context = view.getContext() ;
 		if(apk.startsWith(Constants.APK_SHORTCUT))
 			{
 				context.startActivity(getActivityIntent()) ;
