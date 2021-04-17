@@ -1,0 +1,14 @@
+v3.0.2
+- Remove conversion between v1.1.0 and v1.2.0
+- Fix: screenshots in F-Droid (try)
+
+v3.0.1
+- Fix: web apps now open (thanks zcgrubb/johanbove)
+
+v3.0.0
+- Applications drawer opens even faster
+- Drawer appearance is simpler (idea tuch96)
+- More elegant menu button (idea tuch96)
+- More elegant export/import buttons
+- Major internal reorganization
+- Fix: force portrait works in the drawer

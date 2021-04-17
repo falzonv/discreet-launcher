@@ -1,0 +1,14 @@
+v3.0.2
+- Retrait de la conversion entre v1.1.0 et v1.2.0
+- Fix: captures d'écran sur F-Droid (essai)
+
+v3.0.1
+- Fix: web apps s'ouvrent (merci zcgrubb/johanbove)
+
+v3.0.0
+- Tiroir d'applications s'ouvre encore plus vite
+- Apparence du tiroir plus simple (idée tuch96)
+- Bouton de menu plus élégant (idée tuch96)
+- Boutons export/import plus élégants
+- Réorganisation interne majeure
+- Fix : portrait forcé fonctionne dans le tiroir

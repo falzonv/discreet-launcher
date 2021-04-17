@@ -100,6 +100,10 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
+        \n<b>v3.0.2 - 17/04/2021</b>
+        \n- Retrait de la conversion entre v1.1.0 et v1.2.0
+        \n- <u><i>Fix</i></u> captures d\'écran sur F-Droid (essai)
+        \n
         \n<b>v3.0.1 - 16/04/2021</b>
         \n- <u><i>Fix</i></u> web apps s\'ouvrent (merci zcgrubb/johanbove)
         \n

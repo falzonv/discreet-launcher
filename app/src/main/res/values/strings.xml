@@ -103,6 +103,10 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
+        \n<b>v3.0.2 - 17/04/2021</b>
+        \n- Remove conversion between v1.1.0 and v1.2.0
+        \n- <u><i>Fix</i></u> screenshots in F-Droid (try)
+        \n
         \n<b>v3.0.1 - 16/04/2021</b>
         \n- <u><i>Fix</i></u> web apps now open (thanks zcgrubb/johanbove)
         \n
