@@ -274,6 +274,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			else
 			{
 				// Hide the applications drawer
+				drawer.scrollToPosition(0) ;
 				homeScreen.setVisibility(View.VISIBLE) ;
 				drawer.setVisibility(View.GONE) ;
 
