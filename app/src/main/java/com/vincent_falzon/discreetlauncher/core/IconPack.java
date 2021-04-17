@@ -23,11 +23,11 @@ package com.vincent_falzon.discreetlauncher.core ;
  */
 
 // Imports
-import android.annotation.SuppressLint ;
 import android.content.Context ;
 import android.content.pm.PackageManager ;
 import android.content.res.Resources ;
 import android.graphics.drawable.Drawable ;
+import androidx.core.content.res.ResourcesCompat ;
 import org.xmlpull.v1.XmlPullParser ;
 import org.xmlpull.v1.XmlPullParserException ;
 import java.io.IOException ;
@@ -38,20 +38,17 @@ import java.io.IOException ;
 class IconPack
 {
 	// Attributes
-	private final PackageManager apkManager ;
-	private final String pack_name ;
-	private Resources pack_resources ;
-	private int appfilter_id ;
+	private final String pack_name;
+	private Resources pack_resources;
+	private int appfilter_id;
 
 
 	/**
 	 * Constructor.
-	 * @param context To get the package manager
 	 * @param name Icon pack APK name
 	 */
-	IconPack(Context context, String name)
+	IconPack(String name)
 	{
-		apkManager = context.getPackageManager() ;
 		pack_name = name ;
 		pack_resources = null ;
 		appfilter_id = 0 ;
@@ -60,12 +57,15 @@ class IconPack
 
 	/**
 	 * Try to load the icon pack resources.
+	 * @param context To get the package manager
 	 * @return <code>true</code> if successful, <code>false</code> otherwise
 	 */
-	public boolean loadResources()
+	boolean loadResources(Context context)
 	{
 		try
 		{
+			// Try to load the icon pack resources
+			PackageManager apkManager = context.getPackageManager() ;
 			pack_resources = apkManager.getResourcesForApplication(pack_name) ;
 			return true ;
 		}
@@ -80,7 +80,7 @@ class IconPack
 	 * Try to find the ID of the appfilter.xml file in the selected icon pack
 	 * @return <code>true</code> if successful, <code>false</code> otherwise
 	 */
-	public boolean findAppfilterID()
+	boolean findAppfilterID()
 	{
 		// Check if the resources are loaded
 		if(pack_resources == null) return false ;
@@ -91,13 +91,18 @@ class IconPack
 	}
 
 
-	@SuppressLint("UseCompatLoadingForDrawables")
-	public Drawable searchIcon(String apk, String name)
+	/**
+	 * Search the icon of an application in the pack.
+	 * @param apk Package name of the application
+	 * @param name Internal name of the application
+	 * @return An icon or <code>null</code> if it cannot be retrieved
+	 */
+	Drawable searchIcon(String apk, String name)
 	{
 		// Check if appfilter.xml exists in the icon pack
 		if(appfilter_id <= 0) return null ;
 
-		// Initializations
+		// Initializations (XML file need to be reloaded for each icon)
 		XmlPullParser appfilter = pack_resources.getXml(appfilter_id) ;
 		String component_info = "ComponentInfo{" + apk + "/" + name ;
 		int i, j ;
@@ -113,29 +118,30 @@ class IconPack
 					{
 						// Browse up to the "component" attribute
 						for(i = 0; i < appfilter.getAttributeCount() ; i++)
+						{
 							if(appfilter.getAttributeName(i).equals("component"))
-							{
-								// Check if this is the searched package
-								if(appfilter.getAttributeValue(i).startsWith(component_info))
 								{
-									// Get the icon name in the pack
-									String icon_name = "";
-									for(j = 0; j < appfilter.getAttributeCount() ; j++)
-										if(appfilter.getAttributeName(j).equals("drawable"))
-											icon_name = appfilter.getAttributeValue(j);
+									// Check if this is the searched package
+									if(appfilter.getAttributeValue(i).startsWith(component_info))
+										{
+											// Get the icon name in the pack
+											String icon_name = "";
+											for(j = 0; j < appfilter.getAttributeCount() ; j++)
+												if(appfilter.getAttributeName(j).equals("drawable"))
+													icon_name = appfilter.getAttributeValue(j) ;
 
-									// Try to load the icon from the pack
-									int icon_id = pack_resources.getIdentifier(icon_name, "drawable", pack_name) ;
-									if(icon_id > 0)
-										return pack_resources.getDrawable(icon_id, null);
+											// Try to load the icon from the pack
+											int icon_id = pack_resources.getIdentifier(icon_name, "drawable", pack_name) ;
+											if(icon_id > 0) return ResourcesCompat.getDrawable(pack_resources, icon_id, null) ;
 
-									// No icon to load
-									return null;
+											// No icon to load
+											return null ;
+										}
+
+									// Move to the next <item ...> tag
+									break ;
 								}
-
-								// Move to the next <item ...> tag
-								break;
-							}
+						}
 					}
 				event = appfilter.next() ;
 			}

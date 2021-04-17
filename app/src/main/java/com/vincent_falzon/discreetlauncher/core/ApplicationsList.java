@@ -167,8 +167,8 @@ public class ApplicationsList
 		if((pack_name == null) || pack_name.equals(Constants.NONE)) return null ;
 
 		// Try to load the icon pack resources
-		IconPack iconPack = new IconPack(context, pack_name) ;
-		if(!iconPack.loadResources())
+		IconPack iconPack = new IconPack(pack_name) ;
+		if(!iconPack.loadResources(context))
 			{
 				// Display an error message and set the icon pack to none
 				ShowDialog.alert(context, context.getString(R.string.error_application_not_found, pack_name)) ;
