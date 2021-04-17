@@ -233,7 +233,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 				// If the status bar was transparent, make it translucent as the panel
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
-					getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
+					getWindow().setStatusBarColor(getResources().getColor(R.color.translucent_gray)) ;
 			}
 			else
 			{
@@ -242,7 +242,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
-					getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+					getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
 			}
 	}
 
@@ -259,8 +259,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				if(adapters_update_needed) updateAdapters() ;
 
 				// Make the status and navigation bar translucent
-				getWindow().setStatusBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
-				getWindow().setNavigationBarColor(getResources().getColor(R.color.color_applications_drawer_background)) ;
+				getWindow().setStatusBarColor(getResources().getColor(R.color.translucent_gray)) ;
+				getWindow().setNavigationBarColor(getResources().getColor(R.color.translucent_gray)) ;
 
 				// Display the applications drawer
 				drawer_position = 0 ;
@@ -277,10 +277,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
-					getWindow().setStatusBarColor(getResources().getColor(R.color.color_transparent)) ;
+					getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
 
 				// Make the navigation bar transparent
-				getWindow().setNavigationBarColor(getResources().getColor(R.color.color_transparent)) ;
+				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
 			}
 	}
 

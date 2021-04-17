@@ -8,4 +8,4 @@
 	android:layout_marginBottom="@dimen/application_vertical_margins"
 	android:drawablePadding="@dimen/application_space_text_to_icon"
 	android:gravity="center"
-	android:textColor="@color/color_applications_drawer_text"/>
+	android:textColor="@color/white"/>

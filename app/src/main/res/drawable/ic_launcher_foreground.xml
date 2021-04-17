@@ -17,20 +17,20 @@
             android:strokeWidth="4"
             android:strokeLineJoin="round"
             android:strokeLineCap="round"
-            android:strokeColor="@color/colorAccent"/>
+            android:strokeColor="@color/blue"/>
 
         <path
             android:pathData="M30,62 L54,37 L77,62"
             android:strokeWidth="4"
             android:strokeLineJoin="round"
             android:strokeLineCap="round"
-            android:strokeColor="@color/colorAccent"/>
+            android:strokeColor="@color/blue"/>
 
         <path
             android:pathData="M40,59 V80 H67 V59"
             android:strokeWidth="4"
             android:strokeLineJoin="round"
-            android:strokeColor="@color/colorAccent"/>
+            android:strokeColor="@color/blue"/>
 
     </group>
   </group>

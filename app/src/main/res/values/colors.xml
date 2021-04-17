@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!-- Main colors -->
-    <color name="colorPrimary">#3F51B5</color>
-	<color name="colorPrimaryDark">#303F9F</color>
-	<color name="colorAccent">#4081FF</color>
+	<!-- Basic colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#4081FF</color>
+    <color name="dark_blue">#3F51B5</color>
+    <color name="very_dark_blue">#303F9F</color>
 
-    <!-- Transparent color for the status bar -->
-    <color name="color_transparent">#00000000</color>
-
-	<!-- Applications drawer colors -->
-	<color name="color_applications_drawer_text">#FFFFFF</color>
-	<color name="color_applications_drawer_background">#66000000</color>
+    <!-- Transparent/translucent colors -->
+    <color name="transparent">#00000000</color>
+    <color name="translucent_gray">#66000000</color>
+    <color name="translucent_dark_gray">#BB000000</color>
+    <color name="translucent_white">#BBFFFFFF</color>
 
 </resources>

@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!-- Application theme -->
-	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
-		<!-- Main colors -->
-		<item name="colorPrimary">@color/colorPrimary</item>
-		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-		<item name="colorAccent">@color/colorAccent</item>
+        <!-- Main colors -->
+        <item name="colorPrimary">@color/dark_blue</item>
+        <item name="colorPrimaryDark">@color/very_dark_blue</item>
+        <item name="colorAccent">@color/blue</item>
+
+    </style>
+
+	<!-- Transparent backgroung theme -->
+	<style name="AppThemeTransparent" parent="AppTheme">
 
 		<!-- Hide the title bar -->
 		<item name="windowNoTitle">true</item>
 
 		<!-- Display the user wallpaper (navigationBarColor requires API 21 minimum) -->
 		<item name="android:windowShowWallpaper">true</item>
-        <item name="android:statusBarColor">@color/color_applications_drawer_background</item>
-		<item name="android:windowBackground">@color/color_transparent</item>
-		<item name="android:navigationBarColor">@color/color_transparent</item>
+        <item name="android:statusBarColor">@color/translucent_gray</item>
+		<item name="android:windowBackground">@color/transparent</item>
+		<item name="android:navigationBarColor">@color/transparent</item>
 
 	</style>
-
-
-    <!-- Settings theme -->
-    <style name="AppThemeSettings" parent="Theme.AppCompat.Light.DarkActionBar">
-
-        <!-- Main colors -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
-    </style>
 
 </resources>

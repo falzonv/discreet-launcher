@@ -26,7 +26,7 @@
                 android:id="@+id/favorites_applications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/color_applications_drawer_background"/>
+                android:background="@color/translucent_gray"/>
 
             <TextView
                 android:id="@+id/access_menu_button"
@@ -40,8 +40,8 @@
                 android:paddingEnd="@dimen/menu_button_end_padding"
                 android:layout_marginTop="@dimen/menu_button_top_margin"
                 android:onClick="onClickMainActivity"
-                android:textColor="@color/color_applications_drawer_text"
-                android:background="@color/color_applications_drawer_background"
+                android:textColor="@color/white"
+                android:background="@color/translucent_gray"
                 app:drawableStartCompat="@android:drawable/ic_menu_more"/>
 
         </LinearLayout>
@@ -55,8 +55,8 @@
             android:text=""
             android:fontFamily="sans-serif-light"
             android:textSize="@dimen/clock_font_size"
-            android:textColor="@color/color_applications_drawer_text"
-            android:shadowColor="@color/color_applications_drawer_background"
+            android:textColor="@color/white"
+            android:shadowColor="@color/translucent_gray"
             android:shadowRadius="@dimen/clock_shadow_radius"/>
 
     </LinearLayout>
@@ -66,6 +66,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        android:background="@color/color_applications_drawer_background"/>
+        android:background="@color/translucent_gray"/>
 
 </LinearLayout>

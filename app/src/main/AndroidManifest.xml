@@ -12,7 +12,7 @@
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:roundIcon="@mipmap/ic_launcher_round"
-		android:theme="@style/AppTheme">
+		android:theme="@style/AppThemeTransparent">
 
 		<activity
 				android:name=".ActivityMain"
@@ -32,18 +32,19 @@
             android:name=".ActivitySettings"
             android:label="@string/settings_title"
             android:parentActivityName=".ActivityMain"
-            android:theme="@style/AppThemeSettings"/>
+            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".ActivityExportImport"
             android:label="@string/export_import_title"
             android:parentActivityName=".ActivitySettings"
-            android:theme="@style/AppThemeSettings"/>
+            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".events.ShortcutListener"
             android:parentActivityName=".ActivityMain"
-            android:excludeFromRecents="true">
+            android:excludeFromRecents="true"
+            android:theme="@style/AppThemeTransparent">
             <intent-filter>
                 <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
