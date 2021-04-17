@@ -34,6 +34,7 @@ import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
 import android.widget.TextView ;
+import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
 import java.util.ArrayList ;
 
@@ -123,19 +124,24 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 
 		/**
 		 * Start the application when it is clicked.
-		 * @param view To get the context
+		 * @param view Target element
 		 */
 		@Override
 		public void onClick(View view)
 		{
-			if(view == null) return ;
-			applicationsList.get(getBindingAdapterPosition()).start(view.getContext()) ;
+			if(!applicationsList.get(getBindingAdapterPosition()).start(view.getContext()))
+				{
+					// Display an error messag if the application was not found
+					Context context = view.getContext() ;
+					String display_name = applicationsList.get(getBindingAdapterPosition()).getDisplayName() ;
+					ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, display_name)) ;
+				}
 		}
 
 
 		/**
 		 * When the application is long clicked, propose to open its system settings.
-		 * @param view To get the context
+		 * @param view Target element
 		 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
 		 */
 		@Override
@@ -190,8 +196,9 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 						@Override
 						public void onClick(DialogInterface dialogInterface, int i)
 						{
-							// Start the application
-							application.start(context) ;
+							// Start the application and display an error message if it was not found
+							if(!application.start(context))
+								ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
 						}
 					}) ;
 			dialog.show() ;

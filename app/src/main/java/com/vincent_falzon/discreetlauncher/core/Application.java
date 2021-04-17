@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher ;
+package com.vincent_falzon.discreetlauncher.core ;
 
 // License
 /*
@@ -27,6 +27,7 @@ import android.content.Context ;
 import android.content.Intent ;
 import android.content.pm.PackageManager ;
 import android.graphics.drawable.Drawable ;
+import com.vincent_falzon.discreetlauncher.Constants ;
 import java.net.URISyntaxException ;
 
 /**
@@ -48,7 +49,7 @@ public class Application
 	 * @param apk Package name used internally
 	 * @param icon Displayed to the user
 	 */
-	Application(String display_name, String name, String apk, Drawable icon)
+	public Application(String display_name, String name, String apk, Drawable icon)
 	{
 		this.display_name = display_name ;
 		this.name = name ;
@@ -61,7 +62,7 @@ public class Application
 	 * Get the disply name of the application.
 	 * @return Name displayed in the menus
 	 */
-	String getDisplayName()
+	public String getDisplayName()
 	{
 		return display_name ;
 	}
@@ -71,7 +72,7 @@ public class Application
 	 * Get the internal name of the application.
 	 * @return Application name used internally
 	 */
-	String getName()
+	public String getName()
 	{
 		return name ;
 	}
@@ -81,7 +82,7 @@ public class Application
 	 * Get the package name of the application.
 	 * @return Package name used internally
 	 */
-	String getApk()
+	public String getApk()
 	{
 		return apk ;
 	}
@@ -91,7 +92,7 @@ public class Application
 	 * Get the icon of the application.
 	 * @return Icon displayed in the menus
 	 */
-	Drawable getIcon()
+	public Drawable getIcon()
 	{
 		return icon ;
 	}
@@ -101,7 +102,7 @@ public class Application
 	 * Get the specific activity intent.
 	 * @return An intent specially created to launch this activity as a new task
 	 */
-	Intent getActivityIntent()
+	public Intent getActivityIntent()
 	{
 		// If the application is a shortcut with Oreo or higher, create a special Intent
 		if(apk.equals(Constants.APK_SHORTCUT))
@@ -131,36 +132,32 @@ public class Application
 	/**
 	 * Start the application as a new task.
 	 * @param context Provided by an activity
+	 * @return <code>true</code> if the application was found, <code>false</code> otherwise
 	 */
-	void start(Context context)
+	@SuppressWarnings("BooleanMethodIsAlwaysInverted")
+	public boolean start(Context context)
 	{
 		// Check if the application is a shortcut
 		if(apk.startsWith(Constants.APK_SHORTCUT))
 			{
 				context.startActivity(getActivityIntent()) ;
-				return ;
+				return true ;
 			}
 
 		// Check if the application still exists (not uninstalled or disabled)
 		PackageManager apkManager = context.getPackageManager() ;
 		Intent packageIntent = apkManager.getLaunchIntentForPackage(apk) ;
-		if(packageIntent == null)
-			{
-				// Display an error message and quit
-				ShowDialog.alert(context, context.getString(R.string.error_application_not_found, name)) ;
-				return ;
-			}
+		if(packageIntent == null) return false ;
 
 		// Try to launch the specific intent of the application
 		Intent activityIntent = getActivityIntent() ;
-		if(activityIntent.resolveActivity(apkManager) != null)
+		if(activityIntent.resolveActivity(apkManager) != null) context.startActivity(activityIntent) ;
+			else
 			{
-				context.startActivity(activityIntent) ;
-				return ;
+				// If it was not found, launch the default intent of the package
+				packageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+				context.startActivity(packageIntent) ;
 			}
-
-		// If it was not found, launch the default intent of the package
-		packageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-		context.startActivity(packageIntent) ;
+		return true ;
 	}
 }

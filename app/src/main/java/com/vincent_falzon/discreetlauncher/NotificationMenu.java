@@ -32,6 +32,7 @@ import android.os.Build ;
 import androidx.core.app.NotificationCompat ;
 import androidx.core.app.NotificationManagerCompat ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.core.Application ;
 
 /**
  * Display an Android notification with the favorites applications.

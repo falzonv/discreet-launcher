@@ -36,6 +36,7 @@ import androidx.preference.ListPreference ;
 import androidx.preference.MultiSelectListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.core.Application ;
 import java.util.ArrayList ;
 import java.util.List ;
 

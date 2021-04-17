@@ -13,7 +13,6 @@
     <!-- Applications list -->
     <dimen name="application_vertical_margins">10dp</dimen>
     <dimen name="application_space_text_to_icon">5dp</dimen>
-    <dimen name="last_update_text_padding">5dp</dimen>
 
     <!-- Settings / Help -->
     <dimen name="settings_horizontal_margins">20dp</dimen>

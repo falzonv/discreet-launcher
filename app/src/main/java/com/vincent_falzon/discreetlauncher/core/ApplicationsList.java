@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher ;
+package com.vincent_falzon.discreetlauncher.core ;
 
 // License
 /*
@@ -31,6 +31,9 @@ import android.content.pm.ResolveInfo ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFilePNG ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
@@ -53,7 +56,7 @@ public class ApplicationsList
 	/**
 	 * Constructor to create the applications list.
 	 */
-	ApplicationsList()
+	public ApplicationsList()
 	{
 		applications = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
@@ -65,7 +68,7 @@ public class ApplicationsList
 	 * Update both the complete applications list and the favorite applications list.
 	 * @param context To get the package manager, load icon pack and display a toast
 	 */
-	void update(Context context)
+	public void update(Context context)
 	{
 		// Initializations
 		PackageManager apkManager = context.getPackageManager() ;
@@ -129,7 +132,7 @@ public class ApplicationsList
 	/**
 	 * Update the favorites applications list based on the favorites file and the complete list.
 	 */
-	void updateFavorites()
+	public void updateFavorites()
 	{
 		// Initializations
 		favorites.clear() ;
@@ -283,7 +286,7 @@ public class ApplicationsList
 	 * Return the complete list of applications.
 	 * @return For display in the Drawer activity
 	 */
-	ArrayList<Application> getApplications()
+	public ArrayList<Application> getApplications()
 	{
 		return applications ;
 	}
@@ -293,7 +296,7 @@ public class ApplicationsList
 	 * Return the list of favorites applications.
 	 * @return For display in the favorites panel
 	 */
-	ArrayList<Application> getFavorites()
+	public ArrayList<Application> getFavorites()
 	{
 		return favorites ;
 	}
@@ -303,7 +306,7 @@ public class ApplicationsList
 	 * Return the list of hidden applications.
 	 * @return For display in the settings
 	 */
-	ArrayList<Application> getHidden()
+	public ArrayList<Application> getHidden()
 	{
 		return hidden ;
 	}
