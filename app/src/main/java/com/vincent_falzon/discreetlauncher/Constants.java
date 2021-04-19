@@ -38,6 +38,9 @@ public abstract class Constants
 	public static final String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
 	public static final String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
 
+	// Constants related to folders
+	public static final String APK_FOLDER = "discreetlauncher.folder" ;
+
 	// Constants related to display
 	public static final int COLUMNS_PORTRAIT = 4 ;
 	public static final int COLUMNS_LANDSCAPE = 5 ;

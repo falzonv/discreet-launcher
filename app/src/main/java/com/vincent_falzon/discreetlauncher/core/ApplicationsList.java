@@ -43,11 +43,12 @@ import java.util.List ;
 import java.util.Set ;
 
 /**
- * Contain applications lists (complete and favorites) and the last update timestamp.
+ * Provide and manage applications lists.
  */
 public class ApplicationsList
 {
 	// Attributes
+	private final ArrayList<Folder> folders ;
 	private final ArrayList<Application> applications ;
 	private final ArrayList<Application> favorites ;
 	private final ArrayList<Application> hidden ;
@@ -58,6 +59,7 @@ public class ApplicationsList
 	 */
 	public ApplicationsList()
 	{
+		folders = new ArrayList<>() ;
 		applications = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
 		hidden = new ArrayList<>() ;
@@ -124,6 +126,9 @@ public class ApplicationsList
 		// Hide application based on what is defined in the settings
 		manageHiddenApplications(context) ;
 
+		// Prepare folders according to files
+		prepareFolders(context) ;
+
 		// Update the favorites applications list
 		updateFavorites() ;
 	}
@@ -143,7 +148,7 @@ public class ApplicationsList
 		for(String name : file.readAllLines())
 		{
 			// Search the internal name in the applications list
-			for(Application application : applications)
+			for(Application application : getFoldersAndAllApplications())
 				if(application.getName().equals(name))
 					{
 						// Add the application to the favorites and move to the next line
@@ -191,7 +196,32 @@ public class ApplicationsList
 
 
 	/**
-	 * Hide applications based on what is defined in the settings.
+	 * Prepare folders according to the folders files.
+	 * @param context To get the icon
+	 */
+	private void prepareFolders(Context context)
+	{
+		// Use the notification icon as folder icon
+		Drawable default_icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
+		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
+		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
+
+		// If necessary, sort the folders in alphabetic order based on display name
+		if(folders.size() < 2) return ;
+		Collections.sort(folders, new Comparator<Application>()
+		{
+			@Override
+			public int compare(Application application1, Application application2)
+			{
+				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
+			}
+		}) ;
+	}
+
+
+	/**
+	 * Hide applications based on what is defined in the settings (to apply before folders).
+	 * TODO Replace management in settings by an "hidden.txt" file containing only internal names
 	 * @param context To get the settings
 	 */
 	void manageHiddenApplications(Context context)
@@ -225,7 +255,7 @@ public class ApplicationsList
 
 	/**
 	 * Add shortcuts to the applications list based on the shortcuts files.
-	 * @param context To get the file path and icons
+	 * @param context To get the icons
 	 */
 	void loadShortcuts(Context context)
 	{
@@ -283,18 +313,73 @@ public class ApplicationsList
 
 
 	/**
-	 * Return the complete list of applications.
-	 * @return For display in the Drawer activity
+	 * For display in the settings, also used in the favorites selection dialog.
+	 * @return List of all applications (except hidden) whether or not they are in folders
 	 */
-	public ArrayList<Application> getApplications()
+	public ArrayList<Application> getAllApplications()
 	{
-		return applications ;
+		// Aggregate all applications in one list
+		ArrayList<Application> allApplications = new ArrayList<>() ;
+		for(Folder folder : folders) allApplications.addAll(folder.getApplications()) ;
+		allApplications.addAll(applications) ;
+
+		// Sort the list in alphabetic order based on display name
+		Collections.sort(allApplications, new Comparator<Application>()
+		{
+			@Override
+			public int compare(Application application1, Application application2)
+			{
+				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
+			}
+		}) ;
+
+		// Remove duplicates and return the result
+		ArrayList<Application> result = new ArrayList<>() ;
+		for(Application application : allApplications)
+			if(!result.contains(application)) result.add(application) ;
+		return result ;
 	}
 
 
 	/**
-	 * Return the list of favorites applications.
-	 * @return For display in the favorites panel
+	 * For display in the drawer.
+	 * @return List of folders and applications not in folders.
+	 */
+	public ArrayList<Application> getFoldersAndApplications()
+	{
+		ArrayList<Application> result = new ArrayList<>() ;
+		result.addAll(folders) ;
+		result.addAll(applications) ;
+		return result ;
+	}
+
+
+	/**
+	 * For display in the favorites selection dialog.
+	 * @return List of folders and applications (except hidden) whether or not they are in folders
+	 */
+	public ArrayList<Application> getFoldersAndAllApplications()
+	{
+		ArrayList<Application> result = new ArrayList<>() ;
+		result.addAll(folders) ;
+		result.addAll(getAllApplications()) ;
+		return result ;
+	}
+
+
+	/**
+	 * For dismiss when resume in the main activity.
+	 * @return List of folders
+	 */
+	public ArrayList<Folder> getFolders()
+	{
+		return folders ;
+	}
+
+
+	/**
+	 * For display in the favorites panel.
+	 * @return List of favorites applications
 	 */
 	public ArrayList<Application> getFavorites()
 	{
@@ -303,8 +388,8 @@ public class ApplicationsList
 
 
 	/**
-	 * Return the list of hidden applications.
-	 * @return For display in the settings
+	 * For display in the settings.
+	 * @return List of hidden applications
 	 */
 	public ArrayList<Application> getHidden()
 	{

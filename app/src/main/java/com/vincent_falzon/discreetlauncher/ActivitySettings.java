@@ -292,7 +292,7 @@ public class ActivitySettings extends AppCompatActivity
 	private void searchApplications()
 	{
 		// Browse the applications list and store their information in the lists
-		ArrayList<Application> applicationsList = ActivityMain.getApplicationsList().getApplications() ;
+		ArrayList<Application> applicationsList = ActivityMain.getApplicationsList().getAllApplications() ;
 		for(Application application : applicationsList)
 		{
 			applicationsNames.add(application.getDisplayName()
@@ -312,6 +312,7 @@ public class ActivitySettings extends AppCompatActivity
 		ArrayList<Application> hiddenApplications = ActivityMain.getApplicationsList().getHidden() ;
 		for(Application application : hiddenApplications)
 		{
+			// Need to store everything for consistency with the applications list
 			hiddenApplicationsNames.add(application.getDisplayName()
 					+ Constants.NOTIFICATION_SEPARATOR + application.getName()
 					+ Constants.NOTIFICATION_SEPARATOR + application.getApk()) ;

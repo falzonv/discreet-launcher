@@ -41,7 +41,7 @@ import java.util.ArrayList ;
 /**
  * Fill a RecyclerView with the applications list (complete or favorites).
  */
-class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationView>
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationView>
 {
 	// Attributes
 	private final ArrayList<Application> applicationsList ;
@@ -51,7 +51,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationVi
 	 * Constructor to fill a RecyclerView with the applications list.
 	 * @param applicationsList Applications to display in the recycler
 	 */
-	RecyclerAdapter(ArrayList<Application> applicationsList)
+	public RecyclerAdapter(ArrayList<Application> applicationsList)
 	{
 		this.applicationsList = applicationsList ;
 	}

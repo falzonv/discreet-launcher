@@ -48,6 +48,7 @@ import android.widget.LinearLayout ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
+import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.events.LegacyShortcutListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
@@ -154,7 +155,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		favoritesRecycler.setLayoutManager(favoritesLayout) ;
 
 		// Initialize the content of the full applications list
-		drawerAdapter = new RecyclerAdapter(applicationsList.getApplications()) ;
+		drawerAdapter = new RecyclerAdapter(applicationsList.getFoldersAndApplications()) ;
 		drawer.setAdapter(drawerAdapter) ;
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;
@@ -393,7 +394,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private void displayManageFavoritesDialog()
 	{
 		// List the names of all applications
-		final ArrayList<Application> applications = applicationsList.getApplications() ;
+		final ArrayList<Application> applications = applicationsList.getFoldersAndAllApplications() ;
 		CharSequence[] app_names = new CharSequence[applications.size()] ;
 		int i = 0 ;
 		for(Application application : applications)
@@ -698,6 +699,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		displayDrawer(false) ;
 		notificationMenu.hide() ;
 		closeContextMenu() ;
+
+		// Hide the folders popups if there are any remaining
+		for(Folder folder : applicationsList.getFolders()) folder.closePopup() ;
 
 		// Update the display according to settings
 		manageClock() ;

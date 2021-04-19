@@ -43,8 +43,7 @@
         <activity
             android:name=".events.ShortcutListener"
             android:parentActivityName=".ActivityMain"
-            android:excludeFromRecents="true"
-            android:theme="@style/AppThemeTransparent">
+            android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
