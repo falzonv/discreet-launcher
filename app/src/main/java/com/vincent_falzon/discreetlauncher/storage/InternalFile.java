@@ -23,13 +23,15 @@ package com.vincent_falzon.discreetlauncher.storage ;
  */
 
 // Imports
+import android.content.Context ;
 import java.io.File ;
+import java.io.FilenameFilter ;
 import static com.vincent_falzon.discreetlauncher.ActivityMain.getInternalFolder ;
 
 /**
  * Manage the storage of an internal file.
  */
-class InternalFile
+public class InternalFile
 {
 	// Attributes
 	final File file ;
@@ -73,5 +75,25 @@ class InternalFile
 	{
 		if(!exists()) return true ;
 		return file.delete() ;
+	}
+
+
+	/**
+	 * Search internal files starting with a certain prefix.
+	 * @param context To list files
+	 * @param prefix Search filter
+	 * @return List of filenames or <code>null</code> if none was found
+	 */
+	public static String[] searchFilesStartingWith(Context context, final String prefix)
+	{
+		FilenameFilter filter = new FilenameFilter()
+		{
+			@Override
+			public boolean accept(File directory, String name)
+			{
+				return name.startsWith(prefix) ;
+			}
+		} ;
+		return context.getFilesDir().list(filter) ;
 	}
 }

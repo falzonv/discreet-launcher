@@ -33,8 +33,6 @@ import android.view.View ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
-import java.io.File ;
-import java.io.FilenameFilter ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
 import java.util.Date ;
@@ -167,14 +165,7 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Save all shortcuts icons
 		exportedData.add("# " + getString(R.string.export_import_shortcuts_icons)) ;
-		String[] shortcuts_icons = getFilesDir().list(new FilenameFilter()
-		{
-			@Override
-			public boolean accept(File directory, String name)
-			{
-				return name.startsWith(Constants.SHORTCUT_ICON_PREFIX) ;
-			}
-		}) ;
+		String[] shortcuts_icons = InternalFile.searchFilesStartingWith(this, Constants.SHORTCUT_ICON_PREFIX) ;
 		if(shortcuts_icons != null)
 			for(String icon : shortcuts_icons)
 				exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;
