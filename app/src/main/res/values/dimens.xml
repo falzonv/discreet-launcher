@@ -5,19 +5,10 @@
     <dimen name="clock_font_size">80sp</dimen>
     <dimen name="clock_shadow_radius">20</dimen>
 
-    <!-- Menu button -->
-    <dimen name="menu_button_top_margin">5dp</dimen>
-    <dimen name="menu_button_start_padding">3dp</dimen>
-    <dimen name="menu_button_end_padding">10dp</dimen>
-
-    <!-- Applications list -->
-    <dimen name="application_vertical_margins">10dp</dimen>
-    <dimen name="application_space_text_to_icon">5dp</dimen>
-
-    <!-- Settings / Help -->
-    <dimen name="settings_horizontal_margins">20dp</dimen>
-    <dimen name="buttons_vertical_margins">10dp</dimen>
-    <dimen name="about_paragraphs_spacing">10dp</dimen>
-    <dimen name="about_margin_bottom">20dp</dimen>
+    <!-- Margins and paddings -->
+    <dimen name="spacing_very_small">3dp</dimen>
+    <dimen name="spacing_small">5dp</dimen>
+    <dimen name="spacing_normal">10dp</dimen>
+    <dimen name="spacing_large">20dp</dimen>
 
 </resources>
