@@ -181,11 +181,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 								@Override
 								public void onClick(DialogInterface dialogInterface, int i)
 								{
-									// Open the application system settings
-									Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-									intent.setData(Uri.parse("package:" + application.getApk())) ;
-									intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-									context.startActivity(intent) ;
+									if(application.getApk().startsWith(Constants.APK_FOLDER))
+											context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+										else
+										{
+											// Open the application system settings
+											Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
+											intent.setData(Uri.parse("package:" + application.getApk())) ;
+											intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+											context.startActivity(intent) ;
+										}
 								}
 							}) ;
 				}

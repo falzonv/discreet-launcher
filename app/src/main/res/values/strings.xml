@@ -37,7 +37,7 @@
 
 	<!-- Selection dialogs -->
 	<string name="dialog_check_favorites">Check your favorites applications</string>
-    <string name="dialog_open_or_settings">Do you want to open %1$s or its system settings?</string>
+    <string name="dialog_open_or_settings">Do you want to open %1$s or its settings?</string>
     <string name="dialog_open_or_remove">Do you want to open %1$s or remove it?</string>
 
     <!-- Folders -->

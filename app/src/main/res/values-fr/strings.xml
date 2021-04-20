@@ -37,7 +37,7 @@
 
 	<!-- Fenêtres de sélection -->
 	<string name="dialog_check_favorites">Cocher vos applications favorites</string>
-    <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
+    <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres ?</string>
     <string name="dialog_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
 
     <!-- Dossiers -->
