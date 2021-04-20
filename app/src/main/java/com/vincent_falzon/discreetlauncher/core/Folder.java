@@ -37,37 +37,13 @@ import android.widget.PopupWindow ;
 import android.widget.TextView ;
 import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
-import com.vincent_falzon.discreetlauncher.ActivitySettings ;
+import com.vincent_falzon.discreetlauncher.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.Comparator ;
-
-/*
-
-
-Code de test à mettre dans loadShortcuts()
-
-		Folder folder = new Folder("Test", default_icon) ;
-		applications.add(folder) ;
-		folder.addToFolder(applications.get(0)) ;
-		folder.addToFolder(applications.get(10)) ;
-		folder.addToFolder(applications.get(8)) ;
-		folder.addToFolder(applications.get(5)) ;
-
-		Folder folder2 = new Folder("Jeux", default_icon) ;
-		applications.add(folder2) ;
-		folder2.addToFolder(applications.get(0)) ;
-		folder2.addToFolder(applications.get(10)) ;
-		folder2.addToFolder(applications.get(8)) ;
-		folder2.addToFolder(applications.get(8)) ;
-		folder2.addToFolder(applications.get(5)) ;
-		folder2.removeFromFolder(applications.get(10)) ;
-		folder2.sortFolder() ;
-
- */
 
 /**
  * Represent a folder and all the applications that this folder contains.
@@ -208,8 +184,7 @@ public class Folder extends Application
 		@Override
 		public void onClick(View view)
 		{
-			// TODO Change to ActivityFolders when it will be created
-			view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivitySettings.class)) ;
+			view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFolders.class)) ;
 		}
 	}
 

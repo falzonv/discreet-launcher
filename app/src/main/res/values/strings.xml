@@ -5,6 +5,7 @@
 	<string name="button_access_menu">Access the menu</string>
 	<string name="button_refresh_list">Refresh the applications list</string>
 	<string name="button_manage_favorites">Manage favorites</string>
+    <string name="button_manage_folders">Manage folders</string>
 	<string name="button_apply">Apply</string>
     <string name="button_open">Open</string>
     <string name="button_remove">Remove</string>
@@ -13,6 +14,7 @@
     <string name="button_close">Close</string>
     <string name="button_export">Export</string>
     <string name="button_import">Import</string>
+    <string name="button_add">Add</string>
 
 	<!-- Information messages -->
     <string name="info_no_favorites_yet">To add applications to the favorites panel, swipe down and hold the menu button</string>
@@ -37,6 +39,11 @@
 	<string name="dialog_check_favorites">Check your favorites applications</string>
     <string name="dialog_open_or_settings">Do you want to open %1$s or its system settings?</string>
     <string name="dialog_open_or_remove">Do you want to open %1$s or remove it?</string>
+
+    <!-- Folders -->
+    <string name="folders_create_new">New folder</string>
+    <string name="folders_create_new_help">You can create as many folders as you want to organize your applications.</string>
+    <string name="folders_remove_help">If a folder is removed, its content will be put back in the main applications list.</string>
 
     <!-- Export / Import -->
     <string name="export_import_title">Export / Import</string>

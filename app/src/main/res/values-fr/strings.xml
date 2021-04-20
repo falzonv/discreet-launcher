@@ -5,6 +5,7 @@
 	<string name="button_access_menu">Accéder au menu</string>
 	<string name="button_refresh_list">Actualiser la liste des applications</string>
 	<string name="button_manage_favorites">Gérer les favoris</string>
+    <string name="button_manage_folders">Gérer les dossiers</string>
 	<string name="button_apply">Valider</string>
     <string name="button_open">Ouvrir</string>
     <string name="button_remove">Supprimer</string>
@@ -13,6 +14,7 @@
     <string name="button_close">Fermer</string>
     <string name="button_export">Exporter</string>
     <string name="button_import">Importer</string>
+    <string name="button_add">Ajouter</string>
 
 	<!-- Messages d'information -->
     <string name="info_no_favorites_yet">Pour ajouter des applications au panneau des favoris, glissez vers le bas et maintenez le bouton menu</string>
@@ -37,6 +39,11 @@
 	<string name="dialog_check_favorites">Cocher vos applications favorites</string>
     <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres système ?</string>
     <string name="dialog_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
+
+    <!-- Dossiers -->
+    <string name="folders_create_new">Nouveau dossier</string>
+    <string name="folders_create_new_help">Vous pouvez créer autant de dossier que vous voulez pour organiser vos applications.</string>
+    <string name="folders_remove_help">Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.</string>
 
     <!-- Export / Import -->
     <string name="export_import_title">Exporter / Importer</string>

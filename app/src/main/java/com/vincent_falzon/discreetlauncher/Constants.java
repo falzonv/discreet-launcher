@@ -32,14 +32,13 @@ public abstract class Constants
 	public static final String SHORTCUTS_FILE = "shortcuts.txt" ;
 	public static final String SHORTCUTS_LEGACY_FILE = "shortcuts_legacy.txt" ;
 	public static final String SHORTCUT_ICON_PREFIX = "icon_shortcut_" ;
+	public static final String FOLDER_FILE_PREFIX = "folder_" ;
 
-	// Constants related to shortcuts
+	// Constants related to applications
+	public static final String APK_FOLDER = "discreetlauncher.folder" ;
 	public static final String APK_SHORTCUT = "discreetlauncher.shortcut" ;
 	public static final String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
 	public static final String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
-
-	// Constants related to folders
-	public static final String APK_FOLDER = "discreetlauncher.folder" ;
 
 	// Constants related to display
 	public static final int COLUMNS_PORTRAIT = 4 ;

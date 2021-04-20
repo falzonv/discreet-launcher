@@ -34,8 +34,7 @@ import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.ShowDialog ;
-import com.vincent_falzon.discreetlauncher.storage.InternalFilePNG ;
-import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
+import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.Comparator ;
@@ -201,10 +200,45 @@ public class ApplicationsList
 	 */
 	private void prepareFolders(Context context)
 	{
+		// Retrieve the existing folders files (quit if none was found)
+		folders.clear() ;
+		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FOLDER_FILE_PREFIX) ;
+		if(folders_files == null) return ;
+
 		// Use the notification icon as folder icon
-		Drawable default_icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
+		Drawable icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
-		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
+		if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
+
+		// Browse the name of all folders files
+		for(String filename : folders_files)
+		{
+			// Load the file, or skip it if it does not exist
+			InternalFileTXT file = new InternalFileTXT(filename) ;
+			if(!file.exists()) continue ;
+
+			// Retrieve the name of the folder and create it
+			String display_name = filename.replace(Constants.FOLDER_FILE_PREFIX, "").replace(".txt", "") ;
+			Folder folder = new Folder(display_name, icon) ;
+
+			// Browse the lines of the file to get the list of applications to put in the folder
+			for(String name : file.readAllLines())
+			{
+				// Search the internal name in the applications list
+				for(Application application : applications)
+					if(application.getName().equals(name))
+					{
+						// Move the application in the folder
+						folder.addToFolder(application) ;
+						applications.remove(application) ;
+						break ;
+					}
+			}
+
+			// Sort the folder and add it to the general applications list
+			folder.sortFolder() ;
+			folders.add(folder) ;
+		}
 
 		// If necessary, sort the folders in alphabetic order based on display name
 		if(folders.size() < 2) return ;
