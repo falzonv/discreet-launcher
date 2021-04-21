@@ -151,7 +151,7 @@ public class ApplicationsList
 				if(application.getName().equals(name))
 					{
 						// Add the application to the favorites and move to the next line
-						favorites.add(application) ;
+						if(!favorites.contains(application)) favorites.add(application) ;
 						break ;
 					}
 		}
