@@ -236,24 +236,14 @@ public class ActivityExportImport extends AppCompatActivity
 			if(line.startsWith("#")) continue ;
 
 			// Replace the content of the internal files
-			if(line.startsWith(Constants.FAVORITES_FILE) && (favorites != null))
-				{
-					favorites.writeLine(line.replace(Constants.FAVORITES_FILE + ": ", "")) ;
-				}
-				else if(line.startsWith(Constants.SHORTCUTS_FILE) && (shortcuts != null))
-				{
-					shortcuts.writeLine(line.replace(Constants.SHORTCUTS_FILE + ": ", "")) ;
-				}
-				else if(line.startsWith(Constants.SHORTCUTS_LEGACY_FILE) && (shortcuts_legacy != null))
-				{
-					shortcuts_legacy.writeLine(line.replace(Constants.SHORTCUTS_LEGACY_FILE + ": ", "")) ;
-				}
+			if(line.startsWith(Constants.FAVORITES_FILE)) writeLineToInternalFile(favorites, line) ;
+				else if(line.startsWith(Constants.SHORTCUTS_FILE)) writeLineToInternalFile(shortcuts, line) ;
+				else if(line.startsWith(Constants.SHORTCUTS_LEGACY_FILE)) writeLineToInternalFile(shortcuts_legacy, line) ;
 				// Save the folders files
 				else if(line.startsWith(Constants.FOLDER_FILE_PREFIX))
 				{
 					if(line.indexOf(": ") <= 0) continue ;
-					InternalFileTXT folder_file = new InternalFileTXT(line.substring(0, line.indexOf(": "))) ;
-					folder_file.writeLine(line.replace(folder_file.getName() + ": ", "")) ;
+					writeLineToInternalFile(new InternalFileTXT(line.substring(0, line.indexOf(": "))), line) ;
 				}
 				// Load the settings
 				else if(line.startsWith(Constants.DISPLAY_CLOCK)) loadBooleanSetting(Constants.DISPLAY_CLOCK, line) ;
@@ -281,6 +271,18 @@ public class ActivityExportImport extends AppCompatActivity
 		// Indicate that the applications list should be updated and start to listen again for settings changes
 		ActivityMain.updateList(this) ;
 		ActivityMain.setIgnoreSettingsChanges(false) ;
+	}
+
+
+	/**
+	 * Write a line in an internal file
+	 * @param file Internal file created before
+	 * @param line Line to write in the internal file
+	 */
+	private void writeLineToInternalFile(InternalFileTXT file, String line)
+	{
+		if(file == null) return ;
+		file.writeLine(line.replace(file.getName() + ": ", "")) ;
 	}
 
 
