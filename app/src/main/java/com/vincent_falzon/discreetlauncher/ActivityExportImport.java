@@ -142,6 +142,10 @@ public class ActivityExportImport extends AppCompatActivity
 		exportedData.addAll(new InternalFileTXT(Constants.FAVORITES_FILE).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.SHORTCUTS_FILE).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.SHORTCUTS_LEGACY_FILE).prepareForExport()) ;
+		String[] folders_files = InternalFile.searchFilesStartingWith(this, Constants.FOLDER_FILE_PREFIX) ;
+		if(folders_files != null)
+			for(String folder : folders_files)
+				exportedData.addAll(new InternalFileTXT(folder).prepareForExport()) ;
 		exportedData.add("#") ;
 
 		// Save all settings
@@ -243,6 +247,13 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(Constants.SHORTCUTS_LEGACY_FILE) && (shortcuts_legacy != null))
 				{
 					shortcuts_legacy.writeLine(line.replace(Constants.SHORTCUTS_LEGACY_FILE + ": ", "")) ;
+				}
+				// Save the folders files
+				else if(line.startsWith(Constants.FOLDER_FILE_PREFIX))
+				{
+					if(line.indexOf(": ") <= 0) continue ;
+					InternalFileTXT folder_file = new InternalFileTXT(line.substring(0, line.indexOf(": "))) ;
+					folder_file.writeLine(line.replace(folder_file.getName() + ": ", "")) ;
 				}
 				// Load the settings
 				else if(line.startsWith(Constants.DISPLAY_CLOCK)) loadBooleanSetting(Constants.DISPLAY_CLOCK, line) ;
