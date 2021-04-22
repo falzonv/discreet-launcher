@@ -37,7 +37,7 @@ import static com.vincent_falzon.discreetlauncher.ActivityMain.updateList ;
 /**
  * Listen for legacy shortcut creation requests.
  */
-public class LegacyShortcutListener extends BroadcastReceiver
+public class ShortcutLegacyListener extends BroadcastReceiver
 {
 	/**
 	 * Provide the filter to use when registering this receiver.

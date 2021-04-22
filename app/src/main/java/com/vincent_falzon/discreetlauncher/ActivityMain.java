@@ -49,7 +49,7 @@ import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
-import com.vincent_falzon.discreetlauncher.events.LegacyShortcutListener ;
+import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
@@ -66,7 +66,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private static boolean adapters_update_needed ;
 	private static String internal_folder ;
 	private PackagesListener packagesListener ;
-	private LegacyShortcutListener legacyShortcutListener ;
+	private ShortcutLegacyListener shortcutLegacyListener ;
 	private SharedPreferences settings ;
 	private GestureDetectorCompat gestureDetector ;
 	private NotificationMenu notificationMenu ;
@@ -175,8 +175,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// When Android version is before Oreo, start to listen for legacy shortcut requests
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
-				legacyShortcutListener = new LegacyShortcutListener() ;
-				registerReceiver(legacyShortcutListener, legacyShortcutListener.getFilter()) ;
+				shortcutLegacyListener = new ShortcutLegacyListener() ;
+				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
 			}
 	}
 
@@ -727,7 +727,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Unregister all remaining broadcast receivers
 		if(minuteListener != null) unregisterReceiver(minuteListener) ;
 		if(packagesListener != null) unregisterReceiver(packagesListener) ;
-		if(legacyShortcutListener != null) unregisterReceiver(legacyShortcutListener) ;
+		if(shortcutLegacyListener != null) unregisterReceiver(shortcutLegacyListener) ;
 
 		// Let the parent actions be performed
 		super.onDestroy() ;
