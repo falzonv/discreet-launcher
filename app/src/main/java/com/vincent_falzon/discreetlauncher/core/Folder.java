@@ -94,7 +94,7 @@ public class Folder extends Application
 	 */
 	public String getFileName()
 	{
-		return Constants.FOLDER_FILE_PREFIX + display_name + ".txt" ;
+		return Constants.FILE_FOLDER_PREFIX + display_name + ".txt" ;
 	}
 
 

@@ -410,7 +410,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		}
 
 		// Retrieve the current favorites applications
-		final InternalFileTXT file = new InternalFileTXT(Constants.FAVORITES_FILE) ;
+		final InternalFileTXT file = new InternalFileTXT(Constants.FILE_FAVORITES) ;
 		final boolean[] selected = new boolean[app_names.length] ;
 		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
 			 else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;

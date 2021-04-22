@@ -91,7 +91,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 				// Hide the keyboard and check if the folder already exists
 				((InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0) ;
-				InternalFileTXT file = new InternalFileTXT(Constants.FOLDER_FILE_PREFIX + new_folder_name + ".txt") ;
+				InternalFileTXT file = new InternalFileTXT(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt") ;
 				if(file.exists())
 					{
 						// Display an error message and quit
@@ -229,7 +229,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 												ShowDialog.toastLong(context, context.getString(R.string.error_folder_empty_name)) ;
 												return ;
 											}
-										if(new InternalFileTXT(Constants.FOLDER_FILE_PREFIX + new_folder_name + ".txt").exists())
+										if(new InternalFileTXT(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt").exists())
 											{
 												// Display an error message and quit
 												ShowDialog.toastLong(context, context.getString(R.string.error_folder_already_exists)) ;
@@ -237,7 +237,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 											}
 
 										// Rename the folder file
-										file.rename(Constants.FOLDER_FILE_PREFIX + new_folder_name + ".txt") ;
+										file.rename(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt") ;
 										folder.setDisplayName(new_folder_name) ;
 										ActivityMain.updateList(context) ;
 										notifyDataSetChanged() ;

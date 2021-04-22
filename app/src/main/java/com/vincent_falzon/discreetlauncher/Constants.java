@@ -28,11 +28,11 @@ package com.vincent_falzon.discreetlauncher ;
 public abstract class Constants
 {
 	// Constants related to internal files
-	public static final String FAVORITES_FILE = "favorites.txt" ;
-	public static final String SHORTCUTS_FILE = "shortcuts.txt" ;
-	public static final String SHORTCUTS_LEGACY_FILE = "shortcuts_legacy.txt" ;
-	public static final String SHORTCUT_ICON_PREFIX = "icon_shortcut_" ;
-	public static final String FOLDER_FILE_PREFIX = "folder_" ;
+	public static final String FILE_FAVORITES = "favorites.txt" ;
+	public static final String FILE_FOLDER_PREFIX = "folder_" ;
+	public static final String FILE_SHORTCUTS = "shortcuts.txt" ;
+	public static final String FILE_SHORTCUTS_LEGACY = "shortcuts_legacy.txt" ;
+	public static final String FILE_ICON_SHORTCUT_PREFIX = "icon_shortcut_" ;
 
 	// Constants related to applications
 	public static final String APK_FOLDER = "discreetlauncher.folder" ;

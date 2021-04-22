@@ -139,10 +139,10 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Save the content of all internal files
 		exportedData.add("# " + getString(R.string.export_import_internal_files_header)) ;
-		exportedData.addAll(new InternalFileTXT(Constants.FAVORITES_FILE).prepareForExport()) ;
-		exportedData.addAll(new InternalFileTXT(Constants.SHORTCUTS_FILE).prepareForExport()) ;
-		exportedData.addAll(new InternalFileTXT(Constants.SHORTCUTS_LEGACY_FILE).prepareForExport()) ;
-		String[] folders_files = InternalFile.searchFilesStartingWith(this, Constants.FOLDER_FILE_PREFIX) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_FAVORITES).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY).prepareForExport()) ;
+		String[] folders_files = InternalFile.searchFilesStartingWith(this, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files != null)
 			for(String folder : folders_files)
 				exportedData.addAll(new InternalFileTXT(folder).prepareForExport()) ;
@@ -169,7 +169,7 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Save all shortcuts icons
 		exportedData.add("# " + getString(R.string.export_import_shortcuts_icons)) ;
-		String[] shortcuts_icons = InternalFile.searchFilesStartingWith(this, Constants.SHORTCUT_ICON_PREFIX) ;
+		String[] shortcuts_icons = InternalFile.searchFilesStartingWith(this, Constants.FILE_ICON_SHORTCUT_PREFIX) ;
 		if(shortcuts_icons != null)
 			for(String icon : shortcuts_icons)
 				exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;
@@ -211,12 +211,12 @@ public class ActivityExportImport extends AppCompatActivity
 		// Prepare the files that need to be replaced
 		ActivityMain.setIgnoreSettingsChanges(true) ;
 		InternalFileTXT favorites, shortcuts, shortcuts_legacy ;
-		if(importedData.contains(Constants.FAVORITES_FILE + ": " + Constants.NONE)) favorites = null ;
-			else favorites = new InternalFileTXT(Constants.FAVORITES_FILE) ;
-		if(importedData.contains(Constants.SHORTCUTS_FILE + ": " + Constants.NONE)) shortcuts = null ;
-			else shortcuts = new InternalFileTXT(Constants.SHORTCUTS_FILE) ;
-		if(importedData.contains(Constants.SHORTCUTS_LEGACY_FILE + ": " + Constants.NONE)) shortcuts_legacy = null ;
-			else shortcuts_legacy = new InternalFileTXT(Constants.SHORTCUTS_LEGACY_FILE) ;
+		if(importedData.contains(Constants.FILE_FAVORITES + ": " + Constants.NONE)) favorites = null ;
+			else favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
+		if(importedData.contains(Constants.FILE_SHORTCUTS + ": " + Constants.NONE)) shortcuts = null ;
+			else shortcuts = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
+		if(importedData.contains(Constants.FILE_SHORTCUTS_LEGACY + ": " + Constants.NONE)) shortcuts_legacy = null ;
+			else shortcuts_legacy = new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY) ;
 		if(favorites != null) favorites.remove() ;
 		if(shortcuts != null) shortcuts.remove() ;
 		if(shortcuts_legacy != null) shortcuts_legacy.remove() ;
@@ -236,11 +236,11 @@ public class ActivityExportImport extends AppCompatActivity
 			if(line.startsWith("#")) continue ;
 
 			// Replace the content of the internal files
-			if(line.startsWith(Constants.FAVORITES_FILE)) writeLineToInternalFile(favorites, line) ;
-				else if(line.startsWith(Constants.SHORTCUTS_FILE)) writeLineToInternalFile(shortcuts, line) ;
-				else if(line.startsWith(Constants.SHORTCUTS_LEGACY_FILE)) writeLineToInternalFile(shortcuts_legacy, line) ;
+			if(line.startsWith(Constants.FILE_FAVORITES)) writeLineToInternalFile(favorites, line) ;
+				else if(line.startsWith(Constants.FILE_SHORTCUTS)) writeLineToInternalFile(shortcuts, line) ;
+				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
 				// Save the folders files
-				else if(line.startsWith(Constants.FOLDER_FILE_PREFIX))
+				else if(line.startsWith(Constants.FILE_FOLDER_PREFIX))
 				{
 					if(line.indexOf(": ") <= 0) continue ;
 					writeLineToInternalFile(new InternalFileTXT(line.substring(0, line.indexOf(": "))), line) ;
@@ -258,7 +258,7 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(Constants.NOTIFICATION_APP + "2")) loadStringSetting(Constants.NOTIFICATION_APP + "2", line) ;
 				else if(line.startsWith(Constants.NOTIFICATION_APP + "3")) loadStringSetting(Constants.NOTIFICATION_APP + "3", line) ;
 				// Save the shortcuts icons
-				else if(line.startsWith(Constants.SHORTCUT_ICON_PREFIX))
+				else if(line.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX))
 				{
 					if(line.indexOf(": ") <= 0) continue ;
 					InternalFilePNG icon_file = new InternalFilePNG(line.substring(0, line.indexOf(": "))) ;

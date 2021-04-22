@@ -138,7 +138,7 @@ public class ApplicationsList
 	{
 		// Initializations
 		favorites.clear() ;
-		InternalFileTXT file = new InternalFileTXT(Constants.FAVORITES_FILE) ;
+		InternalFileTXT file = new InternalFileTXT(Constants.FILE_FAVORITES) ;
 		if(!file.exists()) return ;
 
 		// Retrieve and browse the internal names of all favorites applications
@@ -198,7 +198,7 @@ public class ApplicationsList
 	 */
 	private void prepareFolders(Context context)
 	{
-		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FOLDER_FILE_PREFIX) ;
+		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files == null) return ;
 
 		// Use the notification icon as folder icon
@@ -214,7 +214,7 @@ public class ApplicationsList
 			if(!file.exists()) continue ;
 
 			// Retrieve the name of the folder and create it
-			String display_name = filename.replace(Constants.FOLDER_FILE_PREFIX, "").replace(".txt", "") ;
+			String display_name = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;
 			Folder folder = new Folder(display_name, icon) ;
 
 			// Browse the lines of the file to get the list of applications to put in the folder
@@ -284,7 +284,7 @@ public class ApplicationsList
 		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// If their file exists, browse the shortcuts
-		InternalFileTXT file = new InternalFileTXT(Constants.SHORTCUTS_FILE) ;
+		InternalFileTXT file = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
 		if(file.exists())
 			{
 				String[] shortcut ;
@@ -295,7 +295,7 @@ public class ApplicationsList
 					if(shortcut.length != 4) continue ;
 
 					// Try to retrieve the shortcut icon or use the default icon
-					InternalFilePNG icon_file = new InternalFilePNG(Constants.SHORTCUT_ICON_PREFIX + shortcut[0] + ".png") ;
+					InternalFilePNG icon_file = new InternalFilePNG(Constants.FILE_ICON_SHORTCUT_PREFIX + shortcut[0] + ".png") ;
 					Drawable icon = icon_file.convertBitmapToDrawable(context, icon_file.readFromFile()) ;
 					if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 						else icon = default_icon ;
@@ -308,7 +308,7 @@ public class ApplicationsList
 			}
 
 		// If their file exists, browse the legacy shortcuts
-		InternalFileTXT legacyFile = new InternalFileTXT(Constants.SHORTCUTS_LEGACY_FILE) ;
+		InternalFileTXT legacyFile = new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY) ;
 		if(legacyFile.exists())
 			{
 				String[] legacy_shortcut ;
@@ -319,7 +319,7 @@ public class ApplicationsList
 					if(legacy_shortcut.length != 2) continue ;
 
 					// Try to retrieve the shortcut icon or use the default icon
-					InternalFilePNG icon_file = new InternalFilePNG(Constants.SHORTCUT_ICON_PREFIX + legacy_shortcut[0] + ".png") ;
+					InternalFilePNG icon_file = new InternalFilePNG(Constants.FILE_ICON_SHORTCUT_PREFIX + legacy_shortcut[0] + ".png") ;
 					Drawable icon = icon_file.convertBitmapToDrawable(context, icon_file.readFromFile()) ;
 					if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 						else icon = default_icon ;

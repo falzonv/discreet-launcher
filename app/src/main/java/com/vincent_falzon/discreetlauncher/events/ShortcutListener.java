@@ -179,7 +179,7 @@ public class ShortcutListener extends AppCompatActivity
 	static void addShortcut(Context context, String display_name, String shortcut, Bitmap icon, boolean legacy)
 	{
 		// Check if the shortcut already exists in the file
-		InternalFileTXT file = new InternalFileTXT(legacy ? Constants.SHORTCUTS_LEGACY_FILE : Constants.SHORTCUTS_FILE) ;
+		InternalFileTXT file = new InternalFileTXT(legacy ? Constants.FILE_SHORTCUTS_LEGACY : Constants.FILE_SHORTCUTS) ;
 		if(file.exists())
 			{
 				// Browse all the saved shortcuts
@@ -193,7 +193,7 @@ public class ShortcutListener extends AppCompatActivity
 			}
 
 		// If it was not existing, add the shortcut to the file and save its icon
-		InternalFilePNG icon_file = new InternalFilePNG(Constants.SHORTCUT_ICON_PREFIX + display_name + ".png") ;
+		InternalFilePNG icon_file = new InternalFilePNG(Constants.FILE_ICON_SHORTCUT_PREFIX + display_name + ".png") ;
 		if(!file.writeLine(shortcut) || !icon_file.writeToFile(icon))
 			ShowDialog.alert(context, context.getString(R.string.error_shortcut, display_name)) ;
 	}
@@ -208,7 +208,7 @@ public class ShortcutListener extends AppCompatActivity
 	public static void removeShortcut(Context context, String display_name, String shortcut_type)
 	{
 		// Save the current shortcuts list and remove the file
-		InternalFileTXT file = new InternalFileTXT(shortcut_type.equals(Constants.APK_SHORTCUT_LEGACY) ? Constants.SHORTCUTS_LEGACY_FILE : Constants.SHORTCUTS_FILE) ;
+		InternalFileTXT file = new InternalFileTXT(shortcut_type.equals(Constants.APK_SHORTCUT_LEGACY) ? Constants.FILE_SHORTCUTS_LEGACY : Constants.FILE_SHORTCUTS) ;
 		ArrayList<String> currentShortcuts = file.readAllLines() ;
 		if(!file.remove())
 			{
@@ -233,7 +233,7 @@ public class ShortcutListener extends AppCompatActivity
 		}
 
 		// Remove the shortcut icon
-		InternalFilePNG icon = new InternalFilePNG(Constants.SHORTCUT_ICON_PREFIX + display_name + ".png") ;
+		InternalFilePNG icon = new InternalFilePNG(Constants.FILE_ICON_SHORTCUT_PREFIX + display_name + ".png") ;
 		icon.remove() ;
 	}
 }
