@@ -36,8 +36,6 @@ import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
 import java.util.Date ;
-import java.util.HashSet ;
-import java.util.Set ;
 
 /**
  * Allow to import and export settings, favorites applications and shortcuts.
@@ -140,13 +138,14 @@ public class ActivityExportImport extends AppCompatActivity
 		// Save the content of all internal files
 		exportedData.add("# " + getString(R.string.export_import_internal_files_header)) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_FAVORITES).prepareForExport()) ;
-		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS).prepareForExport()) ;
-		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_HIDDEN).prepareForExport()) ;
 		String[] folders_files = InternalFile.searchFilesStartingWith(this, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files != null)
 			for(String folder : folders_files)
 				exportedData.addAll(new InternalFileTXT(folder).prepareForExport()) ;
 		exportedData.add("#") ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY).prepareForExport()) ;
 
 		// Save all settings
 		exportedData.add("# " + getString(R.string.button_settings)) ;
@@ -154,9 +153,6 @@ public class ActivityExportImport extends AppCompatActivity
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
 		exportedData.add(Constants.ICON_PACK + ": " + settings.getString(Constants.ICON_PACK, Constants.NONE)) ;
-		Set<String> hiddenApplications = settings.getStringSet(Constants.HIDDEN_APPLICATIONS, null) ;
-		if(hiddenApplications == null) exportedData.add(Constants.HIDDEN_APPLICATIONS + ": " + Constants.NONE) ;
-			else for(String hidden_application : hiddenApplications) exportedData.add(Constants.HIDDEN_APPLICATIONS + ": " + hidden_application) ;
 		exportedData.add(exportBooleanSetting(Constants.DISPLAY_NOTIFICATION, true)) ;
 		String notification_text = settings.getString(Constants.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)) ;
 		if(notification_text == null) exportedData.add(Constants.NOTIFICATION_TEXT + ": " + getString(R.string.set_notification_text_default)) ;
@@ -210,14 +206,17 @@ public class ActivityExportImport extends AppCompatActivity
 
 		// Prepare the files that need to be replaced
 		ActivityMain.setIgnoreSettingsChanges(true) ;
-		InternalFileTXT favorites, shortcuts, shortcuts_legacy ;
+		InternalFileTXT favorites, hidden, shortcuts, shortcuts_legacy ;
 		if(importedData.contains(Constants.FILE_FAVORITES + ": " + Constants.NONE)) favorites = null ;
 			else favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
+		if(importedData.contains(Constants.FILE_HIDDEN + ": " + Constants.NONE)) hidden = null ;
+			else hidden = new InternalFileTXT(Constants.FILE_HIDDEN) ;
 		if(importedData.contains(Constants.FILE_SHORTCUTS + ": " + Constants.NONE)) shortcuts = null ;
 			else shortcuts = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
 		if(importedData.contains(Constants.FILE_SHORTCUTS_LEGACY + ": " + Constants.NONE)) shortcuts_legacy = null ;
 			else shortcuts_legacy = new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY) ;
 		if(favorites != null) favorites.remove() ;
+		if(hidden != null) hidden.remove() ;
 		if(shortcuts != null) shortcuts.remove() ;
 		if(shortcuts_legacy != null) shortcuts_legacy.remove() ;
 
@@ -228,7 +227,6 @@ public class ActivityExportImport extends AppCompatActivity
 		PreferenceManager.setDefaultValues(this, R.xml.settings_notification, true) ;
 
 		// Browse the lines of the import file
-		Set<String> hiddenApplications = new HashSet<>() ;
 		editor = settings.edit() ;
 		for(String line : importedData)
 		{
@@ -237,20 +235,20 @@ public class ActivityExportImport extends AppCompatActivity
 
 			// Replace the content of the internal files
 			if(line.startsWith(Constants.FILE_FAVORITES)) writeLineToInternalFile(favorites, line) ;
-				else if(line.startsWith(Constants.FILE_SHORTCUTS)) writeLineToInternalFile(shortcuts, line) ;
-				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
-				// Save the folders files
+				else if(line.startsWith(Constants.FILE_HIDDEN)) writeLineToInternalFile(hidden, line) ;
 				else if(line.startsWith(Constants.FILE_FOLDER_PREFIX))
 				{
 					if(line.indexOf(": ") <= 0) continue ;
 					writeLineToInternalFile(new InternalFileTXT(line.substring(0, line.indexOf(": "))), line) ;
 				}
+				else if(line.startsWith(Constants.FILE_SHORTCUTS)) writeLineToInternalFile(shortcuts, line) ;
+				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
 				// Load the settings
 				else if(line.startsWith(Constants.DISPLAY_CLOCK)) loadBooleanSetting(Constants.DISPLAY_CLOCK, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.FORCE_PORTRAIT)) loadBooleanSetting(Constants.FORCE_PORTRAIT, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK + "1", line) ;
-				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS)) hiddenApplications.add(line.replace(Constants.HIDDEN_APPLICATIONS + ": ", "")) ;
+				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS)) writeLineToInternalFile(hidden, line.replace(Constants.HIDDEN_APPLICATIONS, Constants.FILE_HIDDEN)) ;
 				else if(line.startsWith(Constants.DISPLAY_NOTIFICATION)) loadBooleanSetting(Constants.DISPLAY_NOTIFICATION, line) ;
 				else if(line.startsWith(Constants.NOTIFICATION_TEXT)) loadStringSetting(Constants.NOTIFICATION_TEXT, line.replace("\\n", "\n")) ;
 				else if(line.startsWith(Constants.HIDE_ON_LOCK_SCREEN)) loadBooleanSetting(Constants.HIDE_ON_LOCK_SCREEN, line) ;
@@ -265,7 +263,6 @@ public class ActivityExportImport extends AppCompatActivity
 					icon_file.loadFromImport(line) ;
 				}
 		}
-		if(hiddenApplications.size() > 0) editor.putStringSet(Constants.HIDDEN_APPLICATIONS, hiddenApplications) ;
 		editor.apply() ;
 
 		// Indicate that the applications list should be updated and start to listen again for settings changes

@@ -19,7 +19,7 @@
 
         <MultiSelectListPreference
             app:key="hidden_applications"
-            app:title="@string/set_hidden_applications"/>
+            app:isPreferenceVisible="false"/>
 
         <Preference
             app:title="@string/export_import_title"

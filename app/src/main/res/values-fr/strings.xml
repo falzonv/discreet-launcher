@@ -6,6 +6,7 @@
 	<string name="button_refresh_list">Actualiser la liste des applications</string>
 	<string name="button_manage_favorites">Gérer les favoris</string>
     <string name="button_organize_folders">Organiser les dossiers</string>
+    <string name="button_hide_applications">Masquer des applications</string>
 	<string name="button_apply">Valider</string>
     <string name="button_open">Ouvrir</string>
     <string name="button_remove">Supprimer</string>
@@ -23,6 +24,7 @@
 
     <!-- Messages d'erreur -->
     <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
+    <string name="error_rename_file">Une erreur est survenue en renommant le fichier %1$s !</string>
     <string name="error_favorite">Une erreur est survenue avec le favori %1$s !</string>
     <string name="error_too_many_favorites">Désolé il y avait trop de favoris, seuls les %1$d premiers ont été conservés.</string>
     <string name="error_shortcut">Une erreur est survenue avec le raccourci %1$s !</string>
@@ -38,8 +40,6 @@
     <string name="error_folder_already_exists">Ce dossier existe déjà !</string>
 
 	<!-- Fenêtres de sélection -->
-	<string name="dialog_check_favorites">Cocher vos applications favorites</string>
-    <string name="dialog_check_folder_content">Cocher les applications du dossier</string>
     <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres ?</string>
     <string name="dialog_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
     <string name="dialog_edit_name">Nouveau nom</string>
@@ -73,7 +73,6 @@
     <string name="set_force_portrait">Forcer le mode portrait</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
-    <string name="set_hidden_applications">Masquer des applications</string>
     <string name="notification_settings_title">Notification d\'accès rapide</string>
     <string name="notification_settings_help">Une notification permettant d\'ouvrir 3 applications peut être affichée quand le lanceur est en arrière-plan.</string>
     <string name="set_display_notification">Afficher la notification</string>

@@ -33,7 +33,6 @@ import android.os.Bundle ;
 import android.view.MenuItem ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
-import androidx.preference.MultiSelectListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
@@ -50,8 +49,6 @@ public class ActivitySettings extends AppCompatActivity
 	private static ArrayList<String> packsNames ;
 	private static ArrayList<String> applicationsNames ;
 	private static ArrayList<String> applicationsDisplayNames ;
-	private static ArrayList<String> hiddenApplicationsNames ;
-	private static ArrayList<String> hiddenApplicationsDisplayNames ;
 
 
 	/**
@@ -69,8 +66,6 @@ public class ActivitySettings extends AppCompatActivity
 		if(packsNames == null) packsNames = new ArrayList<>() ;
 		if(applicationsNames == null) applicationsNames = new ArrayList<>() ;
 		if(applicationsDisplayNames == null) applicationsDisplayNames = new ArrayList<>() ;
-		if(hiddenApplicationsNames == null) hiddenApplicationsNames = new ArrayList<>() ;
-		if(hiddenApplicationsDisplayNames == null) hiddenApplicationsDisplayNames = new ArrayList<>() ;
 
 		// Prepare the icon pack setting
 		iconPacks.clear() ;
@@ -82,10 +77,7 @@ public class ActivitySettings extends AppCompatActivity
 		// Prepare the applications lists
 		applicationsNames.clear() ;
 		applicationsDisplayNames.clear() ;
-		hiddenApplicationsNames.clear() ;
-		hiddenApplicationsDisplayNames.clear() ;
 		searchApplications() ;
-		searchHiddenApplications() ;
 
 		// Load the general settings layout
 		setContentView(R.layout.activity_settings) ;
@@ -147,21 +139,6 @@ public class ActivitySettings extends AppCompatActivity
 		{
 			// Load the settings from the XML file
 			setPreferencesFromResource(R.xml.settings, rootKey) ;
-
-			// Initialize the setting to hide applications
-			MultiSelectListPreference hiddenApplications = findPreference(Constants.HIDDEN_APPLICATIONS) ;
-			if(hiddenApplications != null)
-				{
-					// Build the applications list
-					ArrayList<String> displayNames = new ArrayList<>() ;
-					ArrayList<String> names = new ArrayList<>() ;
-					names.addAll(hiddenApplicationsNames) ;
-					names.addAll(applicationsNames) ;
-					displayNames.addAll(hiddenApplicationsDisplayNames) ;
-					displayNames.addAll(applicationsDisplayNames) ;
-					hiddenApplications.setEntries(displayNames.toArray(new CharSequence[0])) ;
-					hiddenApplications.setEntryValues(names.toArray(new CharSequence[0])) ;
-				}
 		}
 	}
 
@@ -299,24 +276,6 @@ public class ActivitySettings extends AppCompatActivity
 					+ Constants.NOTIFICATION_SEPARATOR + application.getName()
 					+ Constants.NOTIFICATION_SEPARATOR + application.getApk()) ;
 			applicationsDisplayNames.add(application.getDisplayName()) ;
-		}
-	}
-
-
-	/**
-	 * Build a list of the hidden applications.
-	 */
-	private void searchHiddenApplications()
-	{
-		// Browse the hidden applications list and store their information in the lists
-		ArrayList<Application> hiddenApplications = ActivityMain.getApplicationsList().getHidden() ;
-		for(Application application : hiddenApplications)
-		{
-			// Need to store everything for consistency with the applications list
-			hiddenApplicationsNames.add(application.getDisplayName()
-					+ Constants.NOTIFICATION_SEPARATOR + application.getName()
-					+ Constants.NOTIFICATION_SEPARATOR + application.getApk()) ;
-			hiddenApplicationsDisplayNames.add(application.getDisplayName()) ;
 		}
 	}
 }

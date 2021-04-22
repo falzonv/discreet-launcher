@@ -6,6 +6,7 @@
 	<string name="button_refresh_list">Refresh the applications list</string>
 	<string name="button_manage_favorites">Manage favorites</string>
     <string name="button_organize_folders">Organize folders</string>
+    <string name="button_hide_applications">Hide applications</string>
 	<string name="button_apply">Apply</string>
     <string name="button_open">Open</string>
     <string name="button_remove">Remove</string>
@@ -23,6 +24,7 @@
 
     <!-- Error messages -->
     <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
+    <string name="error_rename_file">An error happened while renaming the file %1$s!</string>
     <string name="error_favorite">An error happened with the favorite %1$s!</string>
     <string name="error_too_many_favorites">Sorry there were too many favorites, only the %1$d firsts were kept.</string>
     <string name="error_shortcut">An error happened with the shortcut %1$s!</string>
@@ -38,8 +40,6 @@
     <string name="error_folder_already_exists">This folder already exists!</string>
 
 	<!-- Selection dialogs -->
-	<string name="dialog_check_favorites">Check your favorites applications</string>
-    <string name="dialog_check_folder_content">Check the applications of the folder</string>
     <string name="dialog_open_or_settings">Do you want to open %1$s or its settings?</string>
     <string name="dialog_open_or_remove">Do you want to open %1$s or remove it?</string>
     <string name="dialog_edit_name">New name</string>
@@ -73,7 +73,6 @@
     <string name="set_force_portrait">Force portrait mode</string>
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use the real icons)</string>
-    <string name="set_hidden_applications">Hide applications</string>
     <string name="notification_settings_title">Quick access notification</string>
     <string name="notification_settings_help">A notification allowing to open 3 applications can be displayed when the launcher is in background.</string>
     <string name="set_display_notification">Display the notification</string>

@@ -54,6 +54,7 @@ import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
+import java.util.Set ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -115,6 +116,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Retrieve the current settings and start to listen for changes
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
+		convertHiddenApplications() ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 		ignore_settings_changes = false ;
 
@@ -384,6 +386,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				startActivity(new Intent().setClass(this, ActivityFolders.class)) ;
 				return true ;
 			}
+			else if(selection == R.id.menu_action_hide_applications)
+			{
+				// Display a menu to select the hidden applications
+				displayManageHiddenDialog() ;
+				return true ;
+			}
 			else if(selection == R.id.menu_action_settings)
 			{
 				// Display the Settings and Help activity
@@ -425,12 +433,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
 		int app_size = button_height + Math.round(48 * metrics.density) + Math.round(25 * metrics.density) ;
-		final int max_favorites = (total_size / app_size) * Constants.COLUMNS_PORTRAIT;
+		final int max_favorites = (total_size / app_size) * Constants.COLUMNS_PORTRAIT ;
 
 		// Prepare and display the selection dialog
 		final Context context = this ;
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
-		dialog.setTitle(R.string.dialog_check_favorites) ;
+		dialog.setTitle(R.string.button_manage_favorites) ;
 		dialog.setMultiChoiceItems(app_names, selected,
 				new DialogInterface.OnMultiChoiceClickListener()
 				{
@@ -474,6 +482,77 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 						favoritesAdapter.notifyDataSetChanged() ;
 						if(favorites_number > max_favorites) ShowDialog.toastLong(context, getString(R.string.error_too_many_favorites, max_favorites)) ;
 							else ShowDialog.toast(getApplicationContext(), R.string.info_favorites_saved) ;
+					}
+				}) ;
+		dialog.setNegativeButton(R.string.button_cancel, null) ;
+		dialog.show() ;
+	}
+
+
+	/**
+	 * Prepare and display the hidden applications management dialog.
+	 */
+	private void displayManageHiddenDialog()
+	{
+		// List the names of all applications
+		final ArrayList<Application> applications = new ArrayList<>() ;
+		applications.addAll(applicationsList.getHidden()) ;
+		applications.addAll(applicationsList.getApplications(false)) ;
+		CharSequence[] app_names = new CharSequence[applications.size()] ;
+		int i = 0 ;
+		for(Application application : applications)
+		{
+			app_names[i] = application.getDisplayName() ;
+			i++ ;
+		}
+
+		// Retrieve the current favorites applications
+		final InternalFileTXT file = new InternalFileTXT(Constants.FILE_HIDDEN) ;
+		final boolean[] selected = new boolean[app_names.length] ;
+		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
+			else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
+
+		// Prepare and display the selection dialog
+		final Context context = this ;
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
+		dialog.setTitle(R.string.button_hide_applications) ;
+		dialog.setMultiChoiceItems(app_names, selected,
+				new DialogInterface.OnMultiChoiceClickListener()
+				{
+					@Override
+					public void onClick(DialogInterface dialogInterface, int i, boolean b) { }
+				}) ;
+		dialog.setPositiveButton(R.string.button_apply,
+				new DialogInterface.OnClickListener()
+				{
+					// Save the new list of favorites applications
+					@Override
+					public void onClick(DialogInterface dialogInterface, int i)
+					{
+						// Remove the current hidden list
+						if(!file.remove())
+						{
+							ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
+							return ;
+						}
+
+						// Write the new hidden applications list
+						for(i = 0 ; i < selected.length ; i++)
+						{
+							// Check if an application is selected
+							if(selected[i])
+							{
+									if(!file.writeLine(applications.get(i).getName()))
+									{
+										ShowDialog.toastLong(context, getString(R.string.error_favorite, applications.get(i).getDisplayName())) ;
+										return ;
+									}
+							}
+						}
+
+						// Update the applications list
+						updateList(context) ;
+						favoritesAdapter.notifyDataSetChanged() ;
 					}
 				}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;
@@ -731,5 +810,31 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Let the parent actions be performed
 		super.onDestroy() ;
+	}
+
+
+	/**
+	 * Convert the hidden applications from settings to internal file.
+	 */
+	private void convertHiddenApplications()
+	{
+		// Check if there are still legacy hidden applications settings
+		Set<String> hiddenApplications = settings.getStringSet(Constants.HIDDEN_APPLICATIONS, null) ;
+		if(hiddenApplications == null) return ;
+
+		// Convert the settings to an internal file
+		InternalFileTXT file = new InternalFileTXT(Constants.FILE_HIDDEN) ;
+		file.remove() ;
+		String[] app_details ;
+		for(String hidden_application : hiddenApplications)
+		{
+			app_details = hidden_application.split(Constants.NOTIFICATION_SEPARATOR) ;
+			if(app_details.length < 2) continue ;
+			file.writeLine(app_details[1]) ;
+		}
+
+		// Remove the hidden applications settings
+		SharedPreferences.Editor editor = settings.edit() ;
+		editor.putStringSet(Constants.HIDDEN_APPLICATIONS, null).apply() ;
 	}
 }

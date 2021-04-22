@@ -30,6 +30,7 @@ public abstract class Constants
 	// Constants related to internal files
 	public static final String FILE_FAVORITES = "favorites.txt" ;
 	public static final String FILE_FOLDER_PREFIX = "folder_" ;
+	public static final String FILE_HIDDEN = "hidden.txt" ;
 	public static final String FILE_SHORTCUTS = "shortcuts.txt" ;
 	public static final String FILE_SHORTCUTS_LEGACY = "shortcuts_legacy.txt" ;
 	public static final String FILE_ICON_SHORTCUT_PREFIX = "icon_shortcut_" ;

@@ -14,6 +14,10 @@
         android:title="@string/button_organize_folders"/>
 
     <item
+        android:id="@+id/menu_action_hide_applications"
+        android:title="@string/button_hide_applications"/>
+
+    <item
         android:id="@+id/menu_action_settings"
         android:title="@string/settings_title"/>
 

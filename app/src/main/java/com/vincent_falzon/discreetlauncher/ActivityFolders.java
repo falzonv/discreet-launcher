@@ -237,10 +237,13 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 											}
 
 										// Rename the folder file
-										file.rename(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt") ;
-										folder.setDisplayName(new_folder_name) ;
-										ActivityMain.updateList(context) ;
-										notifyDataSetChanged() ;
+										if(file.rename(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt"))
+											{
+												folder.setDisplayName(new_folder_name) ;
+												ActivityMain.updateList(context) ;
+												notifyDataSetChanged() ;
+											}
+											else ShowDialog.toastLong(context, context.getString(R.string.error_rename_file, file.getName())) ;
 									}
 								}) ;
 						dialog.show() ;

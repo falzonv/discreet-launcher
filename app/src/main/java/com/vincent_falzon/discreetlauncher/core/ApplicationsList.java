@@ -39,7 +39,6 @@ import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.Comparator ;
 import java.util.List ;
-import java.util.Set ;
 
 /**
  * Provide and manage applications lists.
@@ -110,8 +109,8 @@ public class ApplicationsList
 		// Add the shortcuts to the list as applications
 		loadShortcuts(context) ;
 
-		// Hide application based on what is defined in the settings
-		manageHiddenApplications(context) ;
+		// Hide application based on the internal file
+		manageHiddenApplications() ;
 
 		// Prepare folders according to files
 		prepareFolders(context) ;
@@ -239,29 +238,21 @@ public class ApplicationsList
 
 
 	/**
-	 * Hide applications based on what is defined in the settings (to apply before folders).
-	 * TODO Replace management in settings by an "hidden.txt" file containing only internal names
-	 * @param context To get the settings
+	 * Hide applications based on the internal file (to apply before folders).
 	 */
-	void manageHiddenApplications(Context context)
+	void manageHiddenApplications()
 	{
 		// Check if hidden applications have been defined
 		hidden.clear() ;
-		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
-		Set<String> hiddenApplications = settings.getStringSet(Constants.HIDDEN_APPLICATIONS, null) ;
-		if(hiddenApplications == null) return ;
+		InternalFileTXT file = new InternalFileTXT(Constants.FILE_HIDDEN) ;
+		if(!file.exists()) return ;
 
 		// Browse the list of applications that should be hidden
-		String[] app_details ;
-		for(String hidden_application : hiddenApplications)
+		for(String name : file.readAllLines())
 		{
-			// Retrieve the application internal name
-			app_details = hidden_application.split(Constants.NOTIFICATION_SEPARATOR) ;
-			if(app_details.length < 2) continue ;
-
 			// Search the internal name in the applications list
 			for(Application application : drawer)
-				if(application.getName().equals(app_details[1]))
+				if(application.getName().equals(name))
 					{
 						// Move the application in the hidden list
 						hidden.add(application) ;
