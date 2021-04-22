@@ -90,30 +90,32 @@
     <!-- Help -->
     <string name="help_and_general_info_title">Help and general information</string>
     <string name="help_title">Help</string>
-    <string name="help">
-        \n<b>Navigation in the application</b>
+    <string name="help_navigation_title">Help > Navigation</string>
+    <string name="help_navigation_text">
+        From the home screen, swipe down to display the favorites panel and swipe up to hide it.
         \n
-        \nFrom the home screen, swipe down to display the favorites panel and swipe up to hide it.
-        If you swipe up when the favorites panel is hidden, it will display the complete list of applications.
+        \nIf you swipe up when the favorites panel is hidden, it will display the complete list of applications.
+        Swipe down from the top of this list to come back to the home screen.
         \n
-        \nWhen you are at the top of the complete applications list, swipe down to return to the home screen.
+        \nPress the button below the favorites panel to display the menu of the launcher.
         \n
-        \nBelow the favorites panel, click the button to display the menu of the launcher.
-        This menu allows to refresh the applications list, define the favorites applications and open the settings.
-        \n
-        \nIf you hold your finger a few moments on an application, you will be offered to access its system settings.
-        \n
-        \n<b>Applications list update</b>
-        \n
-        \nThe applications list and their icons are refreshed only after some events
+        \nIf you hold your finger a few moments on an application or a folder, you will be offered to access its settings.
+    </string>
+    <string name="help_list_update_title">Help > List update</string>
+    <string name="help_list_update_text">
+        The list of applications and their icons are refreshed only after some events
         (on start, when an application is added or removed, if the icon pack is modified).
         If something does not feel right, you should try to refresh the applications list manually.
-        \n
     </string>
 
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
+        \n<b>v3.1.0</b>
+        \n- Folders (idea xi7)
+        \n- <u><i>Fix</i></u> unexpected drawer closure
+        \n- <u><i>Fix</i></u> duplicated favorites
+        \n
         \n<b>v3.0.2 - 17/04/2021</b>
         \n- Remove conversion between v1.1.0 and v1.2.0
         \n- <u><i>Fix</i></u> screenshots in F-Droid (try)

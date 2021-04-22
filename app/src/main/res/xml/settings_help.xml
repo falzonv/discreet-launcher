@@ -2,12 +2,24 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        app:title="@string/help_title"
+        app:title="@string/help_navigation_title"
         app:iconSpaceReserved="false">
 
         <Preference
-            app:layout="@layout/settings_help"
-            app:selectable="false"/>
+            app:title="@string/help_navigation_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/help_list_update_title"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:title="@string/help_list_update_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
 

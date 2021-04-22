@@ -87,30 +87,32 @@
     <!-- Aide -->
     <string name="help_and_general_info_title">Aide et informations générales</string>
     <string name="help_title">Aide</string>
-    <string name="help">
-        \n<b>Navigation dans l\'application</b>
+    <string name="help_navigation_title">Aide > Navigation</string>
+    <string name="help_navigation_text">
+        Depuis l\'écran d\'accueil, tirez vers le bas pour afficher le panneau des favoris et vers le haut pour le masquer.
         \n
-        \nDepuis l\'écran d\'accueil, glissez le doigt vers le bas pour afficher le panneau des favoris et vers le haut pour le masquer.
-        Si vous glissez le doigt vers le haut quand le panneau des favoris est caché, la liste complète des applications s\'affiche.
+        \nSi vous tirez vers le haut quand le panneau des favoris est caché, la liste complète des applications s\'affiche.
+        Tirez vers le bas depuis le haut de cette liste pour revenir à l\'accueil.
         \n
-        \nQuand vous êtes en haut de la liste des applications, glissez le doigt vers le bas pour retourner à l\'écran d\'accueil.
+        \nPressez le bouton sous le panneau des favoris pour afficher le menu du lanceur.
         \n
-        \nSous le panneau des favoris, pressez le bouton pour afficher le menu du lanceur.
-        Ce menu permet d\'actualiser la liste des applications, de définir les applications favorites et d\'ouvrir les paramètres.
-        \n
-        \nEn maintenant le doigt quelques instants sur une application, il vous sera proposé d\'accéder à ses paramètres système.
-        \n
-        \n<b>Mise à jour de la liste des applications</b>
-        \n
-        \nLa liste d\'applications et leurs icônes ne sont actualisées qu\'après certains évènements
+        \nEn maintenant le doigt quelques instants sur une application ou un dossier, il vous sera proposé d\'accéder à ses paramètres.
+    </string>
+    <string name="help_list_update_title">Aide > Mise à jour de la liste</string>
+    <string name="help_list_update_text">
+        La liste des applications et leurs icônes ne sont actualisées qu\'après certains évènements
         (au démarrage, lorsqu\'une application est ajoutée ou supprimée, quand le pack d\'icônes est modifié).
         Si quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
-        \n
     </string>
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
+        \n<b>v3.1.0</b>
+        \n- Dossiers (idea xi7)
+        \n- <u><i>Fix</i></u> fermeture imprévue du tiroir
+        \n- <u><i>Fix</i></u> favoris dupliqués
+        \n
         \n<b>v3.0.2 - 17/04/2021</b>
         \n- Retrait de la conversion entre v1.1.0 et v1.2.0
         \n- <u><i>Fix</i></u> captures d\'écran sur F-Droid (essai)
