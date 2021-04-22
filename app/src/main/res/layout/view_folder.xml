@@ -14,7 +14,6 @@
         android:layout_width="wrap_content"
         android:textStyle="bold"
         android:gravity="center_vertical"
-        android:drawablePadding="@dimen/spacing_small"
         app:drawableEndCompat="@android:drawable/ic_menu_edit"/>
 
     <View

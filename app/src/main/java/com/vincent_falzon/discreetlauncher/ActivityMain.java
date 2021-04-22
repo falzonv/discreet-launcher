@@ -155,7 +155,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		favoritesRecycler.setLayoutManager(favoritesLayout) ;
 
 		// Initialize the content of the full applications list
-		drawerAdapter = new RecyclerAdapter(applicationsList.getFoldersAndApplications()) ;
+		drawerAdapter = new RecyclerAdapter(applicationsList.getDrawer()) ;
 		drawer.setAdapter(drawerAdapter) ;
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;
@@ -400,7 +400,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private void displayManageFavoritesDialog()
 	{
 		// List the names of all applications
-		final ArrayList<Application> applications = applicationsList.getFoldersAndAllApplications() ;
+		final ArrayList<Application> applications = applicationsList.getApplications(true) ;
 		CharSequence[] app_names = new CharSequence[applications.size()] ;
 		int i = 0 ;
 		for(Application application : applications)

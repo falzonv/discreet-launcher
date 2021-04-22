@@ -34,11 +34,15 @@
     <string name="error_appfilter_not_found">Le fichier appfilter.xml est introuvable dans le pack d\'icônes sélectionné ! (%1$s)</string>
     <string name="error_export">Une erreur est survenue durant la création du fichier d\'export !</string>
     <string name="error_import">Une erreur est survenue durant la lecture du fichier d\'import !</string>
+    <string name="error_folder_empty_name">Le nom ne peut pas être vide !</string>
+    <string name="error_folder_already_exists">Ce dossier existe déjà !</string>
 
 	<!-- Fenêtres de sélection -->
 	<string name="dialog_check_favorites">Cocher vos applications favorites</string>
+    <string name="dialog_check_folder_content">Cocher les applications du dossier</string>
     <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres ?</string>
     <string name="dialog_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
+    <string name="dialog_edit_name">Nouveau nom</string>
 
     <!-- Dossiers -->
     <string name="folders_create_new">Nouveau dossier</string>

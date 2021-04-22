@@ -69,12 +69,32 @@ public class Folder extends Application
 
 
 	/**
-	 * Get the disply name of the folder followed by the number of elements inside.
+	 * Get the display name of the folder followed by the number of elements inside.
 	 * @return Name displayed in the menus
 	 */
 	public String getDisplayName()
 	{
 		return display_name + " (" + applications.size() + ")" ;
+	}
+
+
+	/**
+	 * Set the display name of the folder.
+	 * @param new_name New display name
+	 */
+	public void setDisplayName(String new_name)
+	{
+		display_name = new_name ;
+	}
+
+
+	/**
+	 * Get the file name of the folder.
+	 * @return Name of the file in the internal storage
+	 */
+	public String getFileName()
+	{
+		return Constants.FOLDER_FILE_PREFIX + display_name + ".txt" ;
 	}
 
 
@@ -175,7 +195,7 @@ public class Folder extends Application
 	/**
 	 * Allow to access the activity to manage folders when clicking a view.
 	 */
-	private static class ManageFoldersAccessor implements View.OnClickListener
+	private class ManageFoldersAccessor implements View.OnClickListener
 	{
 		/**
 		 * Detect a click on a view.
@@ -185,6 +205,7 @@ public class Folder extends Application
 		public void onClick(View view)
 		{
 			view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFolders.class)) ;
+			closePopup() ;
 		}
 	}
 

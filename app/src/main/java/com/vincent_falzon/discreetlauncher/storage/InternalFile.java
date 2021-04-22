@@ -68,6 +68,17 @@ public class InternalFile
 
 
 	/**
+	 * Rename the internal file.
+	 * @param new_filename New name including the extension
+	 * @return <code>true</code> if successful, <code>false</code> otherwise
+	 */
+	public boolean rename(String new_filename)
+	{
+		return file.renameTo(new File(getInternalFolder(), new_filename)) ;
+	}
+
+
+	/**
 	 * Try to remove the internal file (considered as successful if not existing).
 	 * @return <code>true</code> if successful, <code>false</code> otherwise
 	 */

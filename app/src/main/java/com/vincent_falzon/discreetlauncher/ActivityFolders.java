@@ -23,24 +23,36 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.app.Activity ;
 import android.content.Context ;
+import android.content.DialogInterface ;
 import android.os.Bundle ;
 import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
+import android.view.inputmethod.InputMethodManager ;
+import android.widget.EditText ;
 import android.widget.TextView ;
 import androidx.annotation.NonNull ;
+import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.recyclerview.widget.LinearLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
+import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
+import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
 /**
  * Allow to import and export settings, favorites applications and shortcuts.
  */
-public class ActivityFolders extends AppCompatActivity
+public class ActivityFolders extends AppCompatActivity implements View.OnClickListener
 {
+	// Attributes
+	private FoldersListAdapter adapter ;
+	private ArrayList<Folder> folders ;
+
+
 	/**
 	 * Constructor.
 	 * @param savedInstanceState To retrieve the context
@@ -51,14 +63,48 @@ public class ActivityFolders extends AppCompatActivity
 		// Let the parent actions be performed
 		super.onCreate(savedInstanceState);
 
-		// Initializations
-		setContentView(R.layout.activity_folders);
-		ArrayList<Folder> folders = ActivityMain.getApplicationsList().getFolders() ;
+		// Interface initializations
+		setContentView(R.layout.activity_folders) ;
+		findViewById(R.id.new_folder_button).setOnClickListener(this) ;
+		folders = ActivityMain.getApplicationsList().getFolders() ;
 
-		// Load the folders list
+		// Prepare and diplay the list of folders
 		RecyclerView foldersList = findViewById(R.id.folders_list) ;
 		foldersList.setLayoutManager(new LinearLayoutManager(this)) ;
-		foldersList.setAdapter(new FoldersListAdapter(folders)) ;
+		adapter = new FoldersListAdapter(folders) ;
+		foldersList.setAdapter(adapter) ;
+	}
+
+
+	/**
+	 * Perform an action when an element is clicked.
+	 * @param view Target element
+	 */
+	public void onClick(View view)
+	{
+		// Identify which element has been clicked
+		if(view.getId() == R.id.new_folder_button)
+			{
+				// Retrieve the new folder name and check that it is not empty
+				String new_folder_name = ((EditText)findViewById(R.id.new_folder_name)).getText().toString() ;
+				if(new_folder_name.isEmpty()) return ;
+
+				// Hide the keyboard and check if the folder already exists
+				((InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0) ;
+				InternalFileTXT file = new InternalFileTXT(Constants.FOLDER_FILE_PREFIX + new_folder_name + ".txt") ;
+				if(file.exists())
+					{
+						// Display an error message and quit
+						ShowDialog.toastLong(this, getString(R.string.error_folder_already_exists)) ;
+						return ;
+					}
+
+				// Create the folder and update the list
+				file.writeLine("") ;
+				folders.add(new Folder(new_folder_name, null)) ;
+				ActivityMain.updateList(this) ;
+				adapter.notifyDataSetChanged() ;
+			}
 	}
 
 
@@ -123,7 +169,7 @@ public class ActivityFolders extends AppCompatActivity
 		/**
 		 * Represent a folder item in the RecyclerView.
 		 */
-		public static class FolderView extends RecyclerView.ViewHolder implements View.OnClickListener
+		public class FolderView extends RecyclerView.ViewHolder implements View.OnClickListener
 		{
 			// Attributes
 			private final TextView name ;
@@ -153,23 +199,147 @@ public class ActivityFolders extends AppCompatActivity
 			@Override
 			public void onClick(View view)
 			{
+				// Initializations
+				final Context context = view.getContext() ;
+				final Folder folder = folders.get(getBindingAdapterPosition()) ;
+				final InternalFileTXT file = new InternalFileTXT(folder.getFileName()) ;
+				AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+				dialog.setNegativeButton(R.string.button_cancel, null) ;
+
 				// Identify which element has been clicked
-				Context context = view.getContext() ;
 				int selection = view.getId() ;
 				if(selection == R.id.edit_folder_name)
 					{
-						// Propose to edit the folder name
-						ShowDialog.toast(context, R.string.folders_create_new) ;
+						// Ask the user for the new name
+						final EditText newFolderName = new EditText(context) ;
+						newFolderName.setText(folder.getName().replace(Constants.APK_FOLDER, "")) ;
+						dialog.setTitle(R.string.dialog_edit_name) ;
+						dialog.setView(newFolderName) ;
+						dialog.setPositiveButton(R.string.button_apply,
+								new DialogInterface.OnClickListener()
+								{
+									@Override
+									public void onClick(DialogInterface dialogInterface, int i)
+									{
+										// Check if the new name is empty or already exists
+										String new_folder_name = newFolderName.getText().toString() ;
+										if(new_folder_name.isEmpty())
+											{
+												// Display an error message and quit
+												ShowDialog.toastLong(context, context.getString(R.string.error_folder_empty_name)) ;
+												return ;
+											}
+										if(new InternalFileTXT(Constants.FOLDER_FILE_PREFIX + new_folder_name + ".txt").exists())
+											{
+												// Display an error message and quit
+												ShowDialog.toastLong(context, context.getString(R.string.error_folder_already_exists)) ;
+												return ;
+											}
+
+										// Rename the folder file
+										file.rename(Constants.FOLDER_FILE_PREFIX + new_folder_name + ".txt") ;
+										folder.setDisplayName(new_folder_name) ;
+										ActivityMain.updateList(context) ;
+										notifyDataSetChanged() ;
+									}
+								}) ;
+						dialog.show() ;
 					}
 					else if(selection == R.id.edit_folder_content)
 					{
-						// Propose to edit the folder content
-						ShowDialog.toast(context, R.string.button_settings) ;
+						// List the names of all applications
+						final ArrayList<Application> applications = new ArrayList<>() ;
+						applications.addAll(folder.getApplications()) ;
+						applications.addAll(ActivityMain.getApplicationsList().getApplicationsNotInFolders()) ;
+						CharSequence[] app_names = new CharSequence[applications.size()] ;
+						int i = 0 ;
+						for(Application application : applications)
+						{
+							app_names[i] = application.getDisplayName() ;
+							i++ ;
+						}
+
+						// Retrieve the current favorites applications
+						final boolean[] selected = new boolean[app_names.length] ;
+						if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
+							else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
+
+						// Let the user select the folder content
+						dialog.setMultiChoiceItems(app_names, selected,
+								new DialogInterface.OnMultiChoiceClickListener()
+								{
+									@Override
+									public void onClick(DialogInterface dialogInterface, int i, boolean b) { }
+								}) ;
+						dialog.setPositiveButton(R.string.button_apply,
+								new DialogInterface.OnClickListener()
+								{
+									@Override
+									public void onClick(DialogInterface dialogInterface, int i)
+									{
+										// Remove the current folder file
+										if(!file.remove())
+											{
+												ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
+												return ;
+											}
+
+										// Write the new folder file
+										for(i = 0 ; i < selected.length ; i++)
+										{
+											// Add selected applications to the folder
+											if(selected[i])
+												if(!file.writeLine(applications.get(i).getName()))
+													{
+														ShowDialog.toastLong(context, context.getString(R.string.error_favorite, applications.get(i).getDisplayName())) ;
+														return ;
+													}
+										}
+
+										// Update the display in the activity
+										folder.getApplications().clear() ;
+										for(String name : file.readAllLines())
+										{
+											// Search the internal name in the applications list
+											for(Application application : applications)
+												if(application.getName().equals(name))
+													{
+														// Add the application in the folder
+														folder.addToFolder(application) ;
+														break ;
+													}
+										}
+
+										// Update the applications list
+										ActivityMain.updateList(context) ;
+										notifyDataSetChanged() ;
+									}
+								}) ;
+						dialog.show() ;
 					}
 					else if(selection == R.id.remove_folder)
 					{
-						// Propose to remove the folder
-						ShowDialog.toast(context, R.string.button_remove) ;
+						// Ask confirmation before removing the folder
+						dialog.setMessage(R.string.folders_remove_help) ;
+						dialog.setPositiveButton(R.string.button_remove,
+								new DialogInterface.OnClickListener()
+								{
+									// Save the new list of favorites applications
+									@Override
+									public void onClick(DialogInterface dialogInterface, int i)
+									{
+										// Remove the folder file and update the applications list
+										if(!file.remove())
+											{
+												ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
+												return ;
+											}
+										folders.remove(getBindingAdapterPosition()) ;
+										ActivityMain.updateList(context) ;
+										notifyDataSetChanged() ;
+									}
+								}) ;
+						dialog.show() ;
 					}
 			}
 		}

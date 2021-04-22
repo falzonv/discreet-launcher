@@ -292,7 +292,7 @@ public class ActivitySettings extends AppCompatActivity
 	private void searchApplications()
 	{
 		// Browse the applications list and store their information in the lists
-		ArrayList<Application> applicationsList = ActivityMain.getApplicationsList().getAllApplications() ;
+		ArrayList<Application> applicationsList = ActivityMain.getApplicationsList().getApplications(false) ;
 		for(Application application : applicationsList)
 		{
 			applicationsNames.add(application.getDisplayName()

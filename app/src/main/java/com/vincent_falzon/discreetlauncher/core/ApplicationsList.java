@@ -47,10 +47,9 @@ import java.util.Set ;
 public class ApplicationsList
 {
 	// Attributes
-	private final ArrayList<Folder> folders ;
-	private final ArrayList<Application> applications ;
-	private final ArrayList<Application> favorites ;
+	private final ArrayList<Application> drawer ;
 	private final ArrayList<Application> hidden ;
+	private final ArrayList<Application> favorites ;
 
 
 	/**
@@ -58,10 +57,9 @@ public class ApplicationsList
 	 */
 	public ApplicationsList()
 	{
-		folders = new ArrayList<>() ;
-		applications = new ArrayList<>() ;
-		favorites = new ArrayList<>() ;
+		drawer = new ArrayList<>() ;
 		hidden = new ArrayList<>() ;
+		favorites = new ArrayList<>() ;
 	}
 
 
@@ -73,7 +71,7 @@ public class ApplicationsList
 	{
 		// Initializations
 		PackageManager apkManager = context.getPackageManager() ;
-		applications.clear() ;
+		drawer.clear() ;
 
 		// Retrieve the list of applications that can be launched by the user
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
@@ -106,14 +104,20 @@ public class ApplicationsList
 					entry.activityInfo.name,
 					entry.activityInfo.packageName,
 					icon) ;
-			applications.add(application) ;
+			drawer.add(application) ;
 		}
 
 		// Add the shortcuts to the list as applications
 		loadShortcuts(context) ;
 
+		// Hide application based on what is defined in the settings
+		manageHiddenApplications(context) ;
+
+		// Prepare folders according to files
+		prepareFolders(context) ;
+
 		// Sort the applications list in alphabetic order based on display name
-		Collections.sort(applications, new Comparator<Application>()
+		Collections.sort(drawer, new Comparator<Application>()
 		{
 			@Override
 			public int compare(Application application1, Application application2)
@@ -121,12 +125,6 @@ public class ApplicationsList
 				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
 			}
 		}) ;
-
-		// Hide application based on what is defined in the settings
-		manageHiddenApplications(context) ;
-
-		// Prepare folders according to files
-		prepareFolders(context) ;
 
 		// Update the favorites applications list
 		updateFavorites() ;
@@ -147,7 +145,7 @@ public class ApplicationsList
 		for(String name : file.readAllLines())
 		{
 			// Search the internal name in the applications list
-			for(Application application : getFoldersAndAllApplications())
+			for(Application application : getApplications(true))
 				if(application.getName().equals(name))
 					{
 						// Add the application to the favorites and move to the next line
@@ -200,8 +198,6 @@ public class ApplicationsList
 	 */
 	private void prepareFolders(Context context)
 	{
-		// Retrieve the existing folders files (quit if none was found)
-		folders.clear() ;
 		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FOLDER_FILE_PREFIX) ;
 		if(folders_files == null) return ;
 
@@ -225,31 +221,20 @@ public class ApplicationsList
 			for(String name : file.readAllLines())
 			{
 				// Search the internal name in the applications list
-				for(Application application : applications)
+				for(Application application : drawer)
 					if(application.getName().equals(name))
-					{
-						// Move the application in the folder
-						folder.addToFolder(application) ;
-						applications.remove(application) ;
-						break ;
-					}
+						{
+							// Move the application in the folder
+							folder.addToFolder(application) ;
+							drawer.remove(application) ;
+							break ;
+						}
 			}
 
 			// Sort the folder and add it to the general applications list
 			folder.sortFolder() ;
-			folders.add(folder) ;
+			drawer.add(folder) ;
 		}
-
-		// If necessary, sort the folders in alphabetic order based on display name
-		if(folders.size() < 2) return ;
-		Collections.sort(folders, new Comparator<Application>()
-		{
-			@Override
-			public int compare(Application application1, Application application2)
-			{
-				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
-			}
-		}) ;
 	}
 
 
@@ -275,12 +260,12 @@ public class ApplicationsList
 			if(app_details.length < 2) continue ;
 
 			// Search the internal name in the applications list
-			for(Application application : applications)
+			for(Application application : drawer)
 				if(application.getName().equals(app_details[1]))
 					{
 						// Move the application in the hidden list
 						hidden.add(application) ;
-						applications.remove(application) ;
+						drawer.remove(application) ;
 						break ;
 					}
 		}
@@ -316,7 +301,7 @@ public class ApplicationsList
 						else icon = default_icon ;
 
 					// Add the shortcut to the list of applications
-					applications.add(new Application(shortcut[0],
+					drawer.add(new Application(shortcut[0],
 							shortcut[1] + Constants.SHORTCUT_SEPARATOR + shortcut[2] + Constants.SHORTCUT_SEPARATOR + shortcut[3],
 							Constants.APK_SHORTCUT, icon)) ;
 				}
@@ -340,22 +325,57 @@ public class ApplicationsList
 						else icon = default_icon ;
 
 					// Add the shortcut to the list of applications
-					applications.add(new Application(legacy_shortcut[0], legacy_shortcut[1], Constants.APK_SHORTCUT_LEGACY, icon)) ;
+					drawer.add(new Application(legacy_shortcut[0], legacy_shortcut[1], Constants.APK_SHORTCUT_LEGACY, icon)) ;
 				}
 			}
 	}
 
 
 	/**
-	 * For display in the settings, also used in the favorites selection dialog.
+	 * For display in selection dialog.
+	 * @return List of folders
+	 */
+	public ArrayList<Folder> getFolders()
+	{
+		ArrayList<Folder> result = new ArrayList<>() ;
+		for(Application application : drawer)
+			if(application instanceof Folder) result.add((Folder)application) ;
+		return result ;
+	}
+
+
+	/**
+	 * For display in selection dialog.
+	 * @return List of applications not in folders
+	 */
+	public ArrayList<Application> getApplicationsNotInFolders()
+	{
+		ArrayList<Application> result = new ArrayList<>() ;
+		for(Application application : drawer)
+			if(!(application instanceof Folder)) result.add(application) ;
+		return result ;
+	}
+
+
+	/**
+	 * For display in the settings and the favorites selection dialog.
+	 * @param with_folders To include or not the folders in the result
 	 * @return List of all applications (except hidden) whether or not they are in folders
 	 */
-	public ArrayList<Application> getAllApplications()
+	public ArrayList<Application> getApplications(boolean with_folders)
 	{
 		// Aggregate all applications in one list
 		ArrayList<Application> allApplications = new ArrayList<>() ;
-		for(Folder folder : folders) allApplications.addAll(folder.getApplications()) ;
-		allApplications.addAll(applications) ;
+		for(Application application : drawer)
+		{
+			// Add all applications whether or not they are in folders
+			if(application instanceof Folder)
+				{
+					allApplications.addAll(((Folder)application).getApplications()) ;
+					if(with_folders) allApplications.add(application) ;
+				}
+				else allApplications.add(application) ;
+		}
 
 		// Sort the list in alphabetic order based on display name
 		Collections.sort(allApplications, new Comparator<Application>()
@@ -367,47 +387,8 @@ public class ApplicationsList
 			}
 		}) ;
 
-		// Remove duplicates and return the result
-		ArrayList<Application> result = new ArrayList<>() ;
-		for(Application application : allApplications)
-			if(!result.contains(application)) result.add(application) ;
-		return result ;
-	}
-
-
-	/**
-	 * For display in the drawer.
-	 * @return List of folders and applications not in folders.
-	 */
-	public ArrayList<Application> getFoldersAndApplications()
-	{
-		ArrayList<Application> result = new ArrayList<>() ;
-		result.addAll(folders) ;
-		result.addAll(applications) ;
-		return result ;
-	}
-
-
-	/**
-	 * For display in the favorites selection dialog.
-	 * @return List of folders and applications (except hidden) whether or not they are in folders
-	 */
-	public ArrayList<Application> getFoldersAndAllApplications()
-	{
-		ArrayList<Application> result = new ArrayList<>() ;
-		result.addAll(folders) ;
-		result.addAll(getAllApplications()) ;
-		return result ;
-	}
-
-
-	/**
-	 * For dismiss when resume in the main activity.
-	 * @return List of folders
-	 */
-	public ArrayList<Folder> getFolders()
-	{
-		return folders ;
+		// Return the result
+		return allApplications ;
 	}
 
 
@@ -418,6 +399,16 @@ public class ApplicationsList
 	public ArrayList<Application> getFavorites()
 	{
 		return favorites ;
+	}
+
+
+	/**
+	 * For display in the drawer.
+	 * @return List of folders and applications not in folders
+	 */
+	public ArrayList<Application> getDrawer()
+	{
+		return drawer;
 	}
 
 

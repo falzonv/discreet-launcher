@@ -34,11 +34,15 @@
     <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
     <string name="error_export">An error happened while creating the export file!</string>
     <string name="error_import">An error happened while reading the import file!</string>
+    <string name="error_folder_empty_name">The name cannot be empty!</string>
+    <string name="error_folder_already_exists">This folder already exists!</string>
 
 	<!-- Selection dialogs -->
 	<string name="dialog_check_favorites">Check your favorites applications</string>
+    <string name="dialog_check_folder_content">Check the applications of the folder</string>
     <string name="dialog_open_or_settings">Do you want to open %1$s or its settings?</string>
     <string name="dialog_open_or_remove">Do you want to open %1$s or remove it?</string>
+    <string name="dialog_edit_name">New name</string>
 
     <!-- Folders -->
     <string name="folders_create_new">New folder</string>

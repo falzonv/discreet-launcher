@@ -37,7 +37,7 @@ import java.net.URISyntaxException ;
 public class Application
 {
 	// Attributes
-	final String display_name ;
+	String display_name ;
 	final String name ;
 	final String apk ;
 	final Drawable icon ;
