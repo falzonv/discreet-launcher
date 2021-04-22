@@ -42,7 +42,7 @@
 
         <activity
             android:name=".ActivityFolders"
-            android:label="@string/button_manage_folders"
+            android:label="@string/button_organize_folders"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 

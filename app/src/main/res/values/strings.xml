@@ -5,7 +5,7 @@
 	<string name="button_access_menu">Access the menu</string>
 	<string name="button_refresh_list">Refresh the applications list</string>
 	<string name="button_manage_favorites">Manage favorites</string>
-    <string name="button_manage_folders">Manage folders</string>
+    <string name="button_organize_folders">Organize folders</string>
 	<string name="button_apply">Apply</string>
     <string name="button_open">Open</string>
     <string name="button_remove">Remove</string>

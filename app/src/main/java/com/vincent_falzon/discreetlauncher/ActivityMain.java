@@ -378,7 +378,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				displayManageFavoritesDialog() ;
 				return true ;
 			}
-			else if(selection == R.id.menu_action_manage_folders)
+			else if(selection == R.id.menu_action_organize_folders)
 			{
 				// Display the Manage Folders activity
 				startActivity(new Intent().setClass(this, ActivityFolders.class)) ;

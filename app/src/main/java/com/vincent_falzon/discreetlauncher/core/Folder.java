@@ -158,7 +158,7 @@ public class Folder extends Application
 		LayoutInflater inflater = LayoutInflater.from(context) ;
 
 		// Prepare the popup view
-		View popupView = inflater.inflate(R.layout.popup_window, (ViewGroup)null) ;
+		View popupView = inflater.inflate(R.layout.folder_popup, (ViewGroup)null) ;
 
 		// Prepare the folder title
 		TextView popupTitle = popupView.findViewById(R.id.popup_title) ;

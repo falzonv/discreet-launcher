@@ -138,7 +138,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 		public FolderView onCreateViewHolder(ViewGroup parent, int viewType)
 		{
 			LayoutInflater inflater = LayoutInflater.from(parent.getContext()) ;
-			View view = inflater.inflate(R.layout.view_folder, parent, false) ;
+			View view = inflater.inflate(R.layout.folder_view, parent, false) ;
 			return new FolderView(view) ;
 		}
 

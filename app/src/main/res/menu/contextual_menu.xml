@@ -10,8 +10,8 @@
 		android:title="@string/button_manage_favorites"/>
 
     <item
-        android:id="@+id/menu_action_manage_folders"
-        android:title="@string/button_manage_folders"/>
+        android:id="@+id/menu_action_organize_folders"
+        android:title="@string/button_organize_folders"/>
 
     <item
         android:id="@+id/menu_action_settings"

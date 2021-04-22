@@ -68,7 +68,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	public ApplicationView onCreateViewHolder(ViewGroup parent, int viewType)
 	{
 		LayoutInflater inflater = LayoutInflater.from(parent.getContext()) ;
-		View view = inflater.inflate(R.layout.recycler_element, parent, false) ;
+		View view = inflater.inflate(R.layout.application_view, parent, false) ;
 		return new ApplicationView(view) ;
 	}
 
