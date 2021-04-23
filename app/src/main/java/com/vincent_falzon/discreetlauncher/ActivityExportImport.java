@@ -247,8 +247,7 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(Constants.DISPLAY_CLOCK)) loadBooleanSetting(Constants.DISPLAY_CLOCK, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.FORCE_PORTRAIT)) loadBooleanSetting(Constants.FORCE_PORTRAIT, line) ;
-				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK + "1", line) ;
-				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS)) writeLineToInternalFile(hidden, line.replace(Constants.HIDDEN_APPLICATIONS, Constants.FILE_HIDDEN)) ;
+				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.DISPLAY_NOTIFICATION)) loadBooleanSetting(Constants.DISPLAY_NOTIFICATION, line) ;
 				else if(line.startsWith(Constants.NOTIFICATION_TEXT)) loadStringSetting(Constants.NOTIFICATION_TEXT, line.replace("\\n", "\n")) ;
 				else if(line.startsWith(Constants.HIDE_ON_LOCK_SCREEN)) loadBooleanSetting(Constants.HIDE_ON_LOCK_SCREEN, line) ;
@@ -261,6 +260,14 @@ public class ActivityExportImport extends AppCompatActivity
 					if(line.indexOf(": ") <= 0) continue ;
 					InternalFilePNG icon_file = new InternalFilePNG(line.substring(0, line.indexOf(": "))) ;
 					icon_file.loadFromImport(line) ;
+				}
+				// Convert the hidden applications from settings to internal file
+				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS))
+				{
+					String value = line.replace(Constants.HIDDEN_APPLICATIONS + ": ", "") ;
+					String[] app_details = value.split(Constants.NOTIFICATION_SEPARATOR) ;
+					if(app_details.length < 2) continue ;
+					writeLineToInternalFile(hidden, Constants.FILE_HIDDEN + ": " + app_details[1]) ;
 				}
 		}
 		editor.apply() ;

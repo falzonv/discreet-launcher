@@ -24,7 +24,6 @@ package com.vincent_falzon.discreetlauncher ;
 
 // Imports
 import android.content.Context ;
-import android.content.DialogInterface ;
 import android.content.Intent ;
 import android.content.SharedPreferences ;
 import android.content.pm.ActivityInfo ;
@@ -33,7 +32,6 @@ import android.os.Build ;
 import android.os.Bundle ;
 import androidx.annotation.NonNull ;
 import androidx.core.view.GestureDetectorCompat ;
-import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.GridLayoutManager ;
@@ -377,7 +375,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			else if(selection == R.id.menu_action_manage_favorites)
 			{
 				// Display a menu to select the favorites applications
-				displayManageFavoritesDialog() ;
+				showDialogManageFavorites() ;
 				return true ;
 			}
 			else if(selection == R.id.menu_action_organize_folders)
@@ -389,7 +387,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			else if(selection == R.id.menu_action_hide_applications)
 			{
 				// Display a menu to select the hidden applications
-				displayManageHiddenDialog() ;
+				showDialogHideApplications() ;
 				return true ;
 			}
 			else if(selection == R.id.menu_action_settings)
@@ -403,26 +401,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
-	 * Prepare and display the favorites applications management dialog.
+	 * Display the dialog allowing to select favorites applications.
 	 */
-	private void displayManageFavoritesDialog()
+	private void showDialogManageFavorites()
 	{
-		// List the names of all applications
-		final ArrayList<Application> applications = applicationsList.getApplications(true) ;
-		CharSequence[] app_names = new CharSequence[applications.size()] ;
-		int i = 0 ;
-		for(Application application : applications)
-		{
-			app_names[i] = application.getDisplayName() ;
-			i++ ;
-		}
-
-		// Retrieve the current favorites applications
-		final InternalFileTXT file = new InternalFileTXT(Constants.FILE_FAVORITES) ;
-		final boolean[] selected = new boolean[app_names.length] ;
-		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
-			 else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
-
 		// Retrieve the total height available in portrait mode (navigation bar automatically removed)
 		DisplayMetrics metrics = getResources().getDisplayMetrics() ;
 		int button_height = findViewById(R.id.access_menu_button).getHeight() ;
@@ -432,131 +414,31 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				- button_height ;
 
 		// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
-		int app_size = button_height + Math.round(48 * metrics.density) + Math.round(25 * metrics.density) ;
-		final int max_favorites = (total_size / app_size) * Constants.COLUMNS_PORTRAIT ;
+		int app_size = button_height + Math.round(48 * metrics.density) + Math.round(20 * metrics.density) ;
+		int max_favorites = (total_size / app_size) * Constants.COLUMNS_PORTRAIT ;
 
-		// Prepare and display the selection dialog
-		final Context context = this ;
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
-		dialog.setTitle(R.string.button_manage_favorites) ;
-		dialog.setMultiChoiceItems(app_names, selected,
-				new DialogInterface.OnMultiChoiceClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i, boolean b) { }
-				}) ;
-		dialog.setPositiveButton(R.string.button_apply,
-				new DialogInterface.OnClickListener()
-				{
-					// Save the new list of favorites applications
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i)
-					{
-						// Remove the current favorites list
-						if(!file.remove())
-							{
-								ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
-								return ;
-							}
+		// Prepare the list of applications
+		ArrayList<Application> applications = applicationsList.getApplications(true) ;
 
-						// Write the new favorites list
-						int favorites_number = 0 ;
-						for(i = 0 ; i < selected.length ; i++)
-						{
-							// Check if an application is selected
-							if(selected[i])
-								{
-									// If the maximum is not reached, add the application to the favorites list
-									favorites_number++ ;
-									if(favorites_number <= max_favorites)
-										if(!file.writeLine(applications.get(i).getName()))
-											{
-												ShowDialog.toastLong(context, getString(R.string.error_favorite, applications.get(i).getDisplayName())) ;
-												return ;
-											}
-								}
-						}
-
-						// Update the favorites panel and inform the user
-						applicationsList.updateFavorites() ;
-						favoritesAdapter.notifyDataSetChanged() ;
-						if(favorites_number > max_favorites) ShowDialog.toastLong(context, getString(R.string.error_too_many_favorites, max_favorites)) ;
-							else ShowDialog.toast(getApplicationContext(), R.string.info_favorites_saved) ;
-					}
-				}) ;
-		dialog.setNegativeButton(R.string.button_cancel, null) ;
-		dialog.show() ;
+		// Hide the favorites panel and display the selection dialog
+		displayFavorites(false) ;
+		ShowDialog.multiSelect(this, R.string.button_manage_favorites, applications, Constants.FILE_FAVORITES, max_favorites) ;
 	}
 
 
 	/**
-	 * Prepare and display the hidden applications management dialog.
+	 * Display the dialog allowing to select hidden applications.
 	 */
-	private void displayManageHiddenDialog()
+	private void showDialogHideApplications()
 	{
-		// List the names of all applications
-		final ArrayList<Application> applications = new ArrayList<>() ;
+		// Prepare the list of applications
+		ArrayList<Application> applications = new ArrayList<>() ;
 		applications.addAll(applicationsList.getHidden()) ;
 		applications.addAll(applicationsList.getApplications(false)) ;
-		CharSequence[] app_names = new CharSequence[applications.size()] ;
-		int i = 0 ;
-		for(Application application : applications)
-		{
-			app_names[i] = application.getDisplayName() ;
-			i++ ;
-		}
 
-		// Retrieve the current favorites applications
-		final InternalFileTXT file = new InternalFileTXT(Constants.FILE_HIDDEN) ;
-		final boolean[] selected = new boolean[app_names.length] ;
-		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
-			else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
-
-		// Prepare and display the selection dialog
-		final Context context = this ;
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
-		dialog.setTitle(R.string.button_hide_applications) ;
-		dialog.setMultiChoiceItems(app_names, selected,
-				new DialogInterface.OnMultiChoiceClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i, boolean b) { }
-				}) ;
-		dialog.setPositiveButton(R.string.button_apply,
-				new DialogInterface.OnClickListener()
-				{
-					// Save the new list of favorites applications
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i)
-					{
-						// Remove the current hidden list
-						if(!file.remove())
-						{
-							ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
-							return ;
-						}
-
-						// Write the new hidden applications list
-						for(i = 0 ; i < selected.length ; i++)
-						{
-							// Check if an application is selected
-							if(selected[i])
-							{
-									if(!file.writeLine(applications.get(i).getName()))
-									{
-										ShowDialog.toastLong(context, getString(R.string.error_favorite, applications.get(i).getDisplayName())) ;
-										return ;
-									}
-							}
-						}
-
-						// Update the applications list
-						updateList(context) ;
-						favoritesAdapter.notifyDataSetChanged() ;
-					}
-				}) ;
-		dialog.setNegativeButton(R.string.button_cancel, null) ;
-		dialog.show() ;
+		// Hide the favorites panel and display the selection dialog
+		displayFavorites(false) ;
+		ShowDialog.multiSelect(this, R.string.button_hide_applications, applications, Constants.FILE_HIDDEN, -1) ;
 	}
 
 
@@ -570,7 +452,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(view.getId() == R.id.access_menu_button)
 			{
 				if(Build.VERSION.SDK_INT < Build.VERSION_CODES.N) view.showContextMenu() ;
-					else view.showContextMenu(0, view.getHeight()) ;
+					else view.showContextMenu(0, 0) ;
 			}
 	}
 

@@ -26,7 +26,7 @@
     <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
     <string name="error_rename_file">An error happened while renaming the file %1$s!</string>
     <string name="error_favorite">An error happened with the favorite %1$s!</string>
-    <string name="error_too_many_favorites">Sorry there were too many favorites, only the %1$d firsts were kept.</string>
+    <string name="error_too_many_selections">Sorry, the number of selections is limited to %1$d!</string>
     <string name="error_shortcut">An error happened with the shortcut %1$s!</string>
     <string name="error_shortcut_invalid_request">The received request to add a shortcut is not valid!</string>
     <string name="error_shortcut_missing_info">Some information are missing and the shortcut cannot be launched!</string>
@@ -110,10 +110,12 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
-        \n<b>v3.1.0</b>
+        \n<b>v3.1.0 - 23/04/2021</b>
         \n- Folders (idea xi7)
+        \n- Improve hidden apps management
         \n- <u><i>Fix</i></u> unexpected drawer closure
         \n- <u><i>Fix</i></u> duplicated favorites
+        \n- <u><i>Fix</i></u> icon pack not read during import
         \n
         \n<b>v3.0.2 - 17/04/2021</b>
         \n- Remove conversion between v1.1.0 and v1.2.0

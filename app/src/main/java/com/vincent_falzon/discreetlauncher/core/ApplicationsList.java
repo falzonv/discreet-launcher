@@ -172,7 +172,7 @@ public class ApplicationsList
 		if(!iconPack.loadResources(context))
 			{
 				// Display an error message and set the icon pack to none
-				ShowDialog.alert(context, context.getString(R.string.error_application_not_found, pack_name)) ;
+				ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, pack_name)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
 				editor.putString(Constants.ICON_PACK, Constants.NONE).apply() ;
 				return null ;
@@ -182,7 +182,7 @@ public class ApplicationsList
 		if(!iconPack.findAppfilterID())
 			{
 				// Display an error message and do not use the icon pack
-				ShowDialog.alert(context, context.getString(R.string.error_appfilter_not_found, pack_name)) ;
+				ShowDialog.toastLong(context, context.getString(R.string.error_appfilter_not_found, pack_name)) ;
 				return null ;
 			}
 

@@ -26,7 +26,7 @@
     <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
     <string name="error_rename_file">Une erreur est survenue en renommant le fichier %1$s !</string>
     <string name="error_favorite">Une erreur est survenue avec le favori %1$s !</string>
-    <string name="error_too_many_favorites">Désolé il y avait trop de favoris, seuls les %1$d premiers ont été conservés.</string>
+    <string name="error_too_many_selections">Désolé, le nombre de sélections est limité à %1$d !</string>
     <string name="error_shortcut">Une erreur est survenue avec le raccourci %1$s !</string>
     <string name="error_shortcut_invalid_request">La requête reçue pour ajouter un raccourci n\'est pas valide !</string>
     <string name="error_shortcut_missing_info">Des informations sont manquantes et le raccourci ne peut pas être lancé !</string>
@@ -107,10 +107,12 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
-        \n<b>v3.1.0</b>
+        \n<b>v3.1.0 - 23/04/2021</b>
         \n- Dossiers (idea xi7)
+        \n- Gestion des applis cachées améliorée
         \n- <u><i>Fix</i></u> fermeture imprévue du tiroir
         \n- <u><i>Fix</i></u> favoris dupliqués
+        \n- <u><i>Fix</i></u> pack d\'icônes non lu pendant import
         \n
         \n<b>v3.0.2 - 17/04/2021</b>
         \n- Retrait de la conversion entre v1.1.0 et v1.2.0
