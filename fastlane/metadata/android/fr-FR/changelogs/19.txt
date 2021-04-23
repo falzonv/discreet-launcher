@@ -1,0 +1,5 @@
+- Dossiers (idée xi7)
+- Gestion des applis cachées améliorée
+- Fix : fermeture imprévue du tiroir
+- Fix : favoris dupliqués
+- Fix : pack d'icônes non lu pendant import

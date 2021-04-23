@@ -1,0 +1,5 @@
+- Folders (idea xi7)
+- Improve hidden apps management
+- Fix: unexpected drawer closure
+- Fix: duplicated favorites
+- Fix: icon pack not read during import
