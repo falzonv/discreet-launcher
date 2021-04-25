@@ -4,7 +4,7 @@
 	android:id="@+id/application_item"
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
-    android:layout_marginVertical="@dimen/spacing_normal"
+	android:layout_marginVertical="@dimen/spacing_normal"
 	android:drawablePadding="@dimen/spacing_small"
 	android:gravity="center"
 	android:textColor="@color/white"/>

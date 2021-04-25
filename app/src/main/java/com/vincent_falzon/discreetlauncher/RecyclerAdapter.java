@@ -165,54 +165,52 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 				{
 					dialog.setMessage(context.getString(R.string.dialog_open_or_remove, application.getDisplayName())) ;
 					dialog.setPositiveButton(R.string.button_remove,
-							new DialogInterface.OnClickListener()
+						new DialogInterface.OnClickListener()
+						{
+							@Override
+							public void onClick(DialogInterface dialogInterface, int i)
 							{
-								// Save the new list of favorites applications
-								@Override
-								public void onClick(DialogInterface dialogInterface, int i)
-								{
-									// Remove the shortcut from the file and update the applications list
-									ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
-									ActivityMain.updateList(context) ;
-									notifyDataSetChanged() ;
-								}
-							}) ;
+								// Remove the shortcut from the file and update the applications list
+								ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
+								ActivityMain.updateList(context) ;
+								notifyDataSetChanged() ;
+							}
+						}) ;
 				}
 				else
 				{
 					dialog.setMessage(context.getString(R.string.dialog_open_or_settings, application.getDisplayName())) ;
 					dialog.setPositiveButton(R.string.button_settings,
-							new DialogInterface.OnClickListener()
+						new DialogInterface.OnClickListener()
+						{
+							@Override
+							public void onClick(DialogInterface dialogInterface, int i)
 							{
-								// Save the new list of favorites applications
-								@Override
-								public void onClick(DialogInterface dialogInterface, int i)
-								{
-									if(application.getApk().startsWith(Constants.APK_FOLDER))
-											context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
-										else
-										{
-											// Open the application system settings
-											Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-											intent.setData(Uri.parse("package:" + application.getApk())) ;
-											intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-											context.startActivity(intent) ;
-										}
-								}
-							}) ;
+								if(application.getApk().startsWith(Constants.APK_FOLDER))
+										context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+									else
+									{
+										// Open the application system settings
+										Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
+										intent.setData(Uri.parse("package:" + application.getApk())) ;
+										intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+										context.startActivity(intent) ;
+									}
+							}
+						}) ;
 				}
 			dialog.setNeutralButton(R.string.button_open,
-					new DialogInterface.OnClickListener()
+				new DialogInterface.OnClickListener()
+				{
+					// Save the new list of favorites applications
+					@Override
+					public void onClick(DialogInterface dialogInterface, int i)
 					{
-						// Save the new list of favorites applications
-						@Override
-						public void onClick(DialogInterface dialogInterface, int i)
-						{
-							// Start the application and display an error message if it was not found
-							if(!application.start(view))
-								ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
-						}
-					}) ;
+						// Start the application and display an error message if it was not found
+						if(!application.start(view))
+							ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+					}
+				}) ;
 			dialog.show() ;
 			return true ;
 		}
