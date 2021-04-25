@@ -12,7 +12,6 @@
     <string name="button_remove">Remove</string>
     <string name="button_settings">Settings</string>
 	<string name="button_cancel">Cancel</string>
-    <string name="button_close">Close</string>
     <string name="button_export">Export</string>
     <string name="button_import">Import</string>
     <string name="button_add">Add</string>
@@ -20,7 +19,6 @@
 	<!-- Information messages -->
     <string name="info_no_favorites_yet">You can add your favorites applications here\nby clicking the button below.</string>
 	<string name="info_applications_list_refreshed">Applications list refreshed</string>
-	<string name="info_favorites_saved">Favorites applications saved</string>
 
     <!-- Error messages -->
     <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
@@ -65,8 +63,8 @@
     <string name="settings_title">Settings / Help</string>
     <string name="set_customization_title">Customization</string>
     <string name="display_settings_title">Display</string>
-    <string name="display_settings_general_title">Display > General</string>
-    <string name="display_settings_home_screen_title">Display > Home screen</string>
+    <string name="display_settings_general_title">General</string>
+    <string name="display_settings_home_screen_title">Home screen</string>
     <string name="set_display_clock">Display the clock</string>
     <string name="set_clock_format">Clock format</string>
     <string name="set_clock_format_24h">24 hours</string>
@@ -94,7 +92,7 @@
     <!-- Help -->
     <string name="help_and_general_info_title">Help and general information</string>
     <string name="help_title">Help</string>
-    <string name="help_navigation_title">Help > Navigation</string>
+    <string name="help_navigation_title">Navigation</string>
     <string name="help_navigation_text">
         From the home screen, swipe down to display the favorites panel and swipe up to hide it.
         \n
@@ -105,7 +103,7 @@
         \n
         \nIf you hold your finger a few moments on an application or a folder, you will be offered to access its settings.
     </string>
-    <string name="help_list_update_title">Help > List update</string>
+    <string name="help_list_update_title">List update</string>
     <string name="help_list_update_text">
         The list of applications and their icons are refreshed only after some events
         (on start, when an application is added or removed, if the icon pack is modified).
@@ -114,10 +112,10 @@
 
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
-    <string name="changelog">
-        \n<b>v3.2.0</b>
-        \n- Message suggesting to add favorites improved
-        \n- <u><i>Option</i></u> hide applications names (idea tuch96)
+    <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
+    <string name="changelog_v3_text"><b>v3.2.0</b>
+        \n- Message better integrated if no favorites
+        \n- <u><i>Option</i></u> hide apps names (idea tuch96)
         \n- <u><i>Option</i></u> 12-hour format (idea drewski-00h)
         \n
         \n<b>v3.1.0 - 23/04/2021</b>
@@ -128,11 +126,11 @@
         \n- <u><i>Fix</i></u> icon pack not read during import
         \n
         \n<b>v3.0.2 - 17/04/2021</b>
-        \n- Remove conversion between v1.1.0 and v1.2.0
+        \n- <u><i>Fix</i></u> duplicated favorites (try)
         \n- <u><i>Fix</i></u> screenshots in F-Droid (try)
         \n
         \n<b>v3.0.1 - 16/04/2021</b>
-        \n- <u><i>Fix</i></u> web apps now open (thanks zcgrubb/johanbove)
+        \n- <u><i>Fix</i></u> web apps ko (thanks zcgrubb/johanbove)
         \n
         \n<b>v3.0.0 - 16/04/2021</b>
         \n- Applications drawer opens even faster
@@ -141,11 +139,12 @@
         \n- More elegant export/import buttons
         \n- Major internal reorganization
         \n- <u><i>Fix</i></u> force portrait works in the drawer
-        \n
-        \n<b>v2.6.0 - 11/04/2021</b>
+    </string>
+    <string name="changelog_v2_title" translatable="false">Versions v2.x.x</string>
+    <string name="changelog_v2_text"><b>v2.6.0 - 11/04/2021</b>
         \n- Display on 5 columns in landscape mode
-        \n- Display settings in a dedicated section
-        \n- <u><i>Option</i></u> force portrait on home screen (idea c0bnut)
+        \n- Section for display settings
+        \n- <u><i>Option</i></u> force portrait mode (idea c0bnut)
         \n
         \n<b>v2.5.1 - 09/04/2021</b>
         \n- <u><i>Fix</i></u> possible bug when creating web apps
@@ -153,17 +152,17 @@
         \n<b>v2.5.0 - 09/04/2021</b>
         \n- Update of the list after import
         \n- New web applications will have icons
-        \n- <u><i>Fix</i></u> favorites limit depends on screen (thanks AeOeAa)
+        \n- <u><i>Fix</i></u> max favorites on screen (thanks AeOeAa)
         \n
         \n<b>v2.4.0 - 05/04/2021</b>
         \n- Export/import settings
-        \n- <u><i>Option</i></u> hide applications (idea from gicofied9)
+        \n- Hide applications (idea from gicofied9)
         \n
         \n<b>v2.3.0 - 02/04/2021</b>
-        \n- Redesign of the "Settings / Help" menu
+        \n- Redesign of the \"Settings / Help\" menu
         \n- Integration of the changelog
         \n- <u><i>Option</i></u> notification text can be customized
-        \n- <u><i>Fix</i></u> menu unreachable with too much favorites
+        \n- <u><i>Fix</i></u> menu access with too much favorites
         \n
         \n<b>v2.2.0 - 28/03/2021</b>
         \n- Support web applications (idea johanbove)
@@ -171,39 +170,39 @@
         \n- <u><i>Option</i></u> hide notification on lock screen
         \n
         \n<b>v2.1.0 - 23/03/2021</b>
-        \n- Notification for quick access to 3 apps (idea xi7)
-        \n- <u><i>Fix</i></u> list update from the home screen (thanks xi7)
+        \n- Quick-access notification (idea xi7)
+        \n- <u><i>Fix</i></u> update from home screen (thanks xi7)
         \n
         \n<b>v2.0.0 - 21/03/2021</b>
         \n- Automatic update of the list when an application is added or removed
         \n- Major internal reorganization
-        \n
-        \n<b>v1.3.1 - 20/03/2021</b>
-        \n- <u><i>Fix</i></u> crash when opening a removed application
+    </string>
+    <string name="changelog_v1_title" translatable="false">Versions v1.x.x</string>
+    <string name="changelog_v1_text"><b>v1.3.1 - 20/03/2021</b>
+        \n- <u><i>Fix</i></u> crash opening a removed application
         \n
         \n<b>v1.3.0 - 20/03/2021</b>
         \n- Icons update when the pack changes
         \n- <u><i>Option</i></u> transparent status bar (idea xi7)
-        \n- <u><i>Option</i></u> clock on home screen (idea mateimm)
+        \n- <u><i>Option</i></u> home screen clock (idea mateimm)
         \n
         \n<b>v1.2.0 - 16/03/2021</b>
-        \n- Long click opens application settings (idea xi7)
+        \n- Long click opens app settings (idea xi7)
         \n- Improvements of help texts
-        \n- <u><i>Fix</i></u> bugs with apps in same package (thanks xi7)
+        \n- <u><i>Fix</i></u> apps from same package (thanks xi7)
         \n
         \n<b>v1.1.0 - 10/03/2021</b>
         \n- Icon packs support (idea porosjp)
-        \n- Create "Settings / Help" menu
+        \n- Create \"Settings / Help\" menu
         \n
         \n<b>v1.0.2 - 07/03/2021</b>
-        \n- <u><i>Fix</i></u> bug with Back button (thanks abou123)
+        \n- <u><i>Fix</i></u> Back button bug (thanks abou123)
         \n
         \n<b>v1.0.1 - 27/02/2021</b>
         \n- Better display in F-Droid
         \n
         \n<b>v1.0.0 - 17/02/2021</b>
         \n- Initial release
-        \n
     </string>
 
     <!-- About -->

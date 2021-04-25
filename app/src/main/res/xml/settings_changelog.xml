@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory
+    <Preference
         app:title="@string/changelog_title"
+        app:selectable="false"
+        app:iconSpaceReserved="false"/>
+
+    <PreferenceCategory
+        app:title="@string/changelog_v3_title"
         app:iconSpaceReserved="false">
 
         <Preference
-            app:layout="@layout/settings_changelog"
-            app:selectable="false"/>
+            app:title="@string/changelog_v3_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/changelog_v2_title"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:title="@string/changelog_v2_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/changelog_v1_title"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:title="@string/changelog_v1_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
 

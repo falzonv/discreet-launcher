@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <Preference
+        app:title="@string/display_settings_title"
+        app:selectable="false"
+        app:iconSpaceReserved="false"/>
+
     <PreferenceCategory
         app:title="@string/display_settings_general_title"
         app:iconSpaceReserved="false">
