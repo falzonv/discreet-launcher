@@ -28,8 +28,6 @@ import android.content.Intent ;
 import android.content.pm.PackageManager ;
 import android.graphics.drawable.Drawable ;
 import android.view.View ;
-import com.vincent_falzon.discreetlauncher.Constants ;
-import java.net.URISyntaxException ;
 
 /**
  * Represent an Android application with its names (displayed, internal and package) and icon.
@@ -44,7 +42,7 @@ public class Application
 
 
 	/**
-	 * Constructor to represent an Android application or a shortcut
+	 * Constructor to represent an Android application
 	 * @param display_name Displayed to the user
 	 * @param name Application name used internally
 	 * @param apk Package name used internally
@@ -105,23 +103,6 @@ public class Application
 	 */
 	public Intent getActivityIntent()
 	{
-		// If the application is a shortcut with Oreo or higher, create a special Intent
-		if(apk.equals(Constants.APK_SHORTCUT))
-			{
-				Intent intent = new Intent() ;
-				intent.setClassName("com.vincent_falzon.discreetlauncher", "com.vincent_falzon.discreetlauncher.events.ShortcutListener") ;
-				intent.putExtra(Constants.APK_SHORTCUT, name) ;
-				return intent ;
-			}
-
-		// If the application is a shortcut before Oreo, return its intent (cannot be null in practice)
-		if(apk.equals(Constants.APK_SHORTCUT_LEGACY))
-			{
-				try { return Intent.parseUri(name, 0) ; }
-				catch(URISyntaxException e) { return null ; }
-			}
-
-		// For a standard application, create a proper intent
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
 		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
 		intent.setClassName(apk, name) ;
@@ -138,15 +119,8 @@ public class Application
 	@SuppressWarnings("BooleanMethodIsAlwaysInverted")
 	public boolean start(View view)
 	{
-		// Check if the application is a shortcut
-		Context context = view.getContext() ;
-		if(apk.startsWith(Constants.APK_SHORTCUT))
-			{
-				context.startActivity(getActivityIntent()) ;
-				return true ;
-			}
-
 		// Check if the application still exists (not uninstalled or disabled)
+		Context context = view.getContext() ;
 		PackageManager apkManager = context.getPackageManager() ;
 		Intent packageIntent = apkManager.getLaunchIntentForPackage(apk) ;
 		if(packageIntent == null) return false ;

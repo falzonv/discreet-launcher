@@ -33,6 +33,7 @@ import androidx.core.app.NotificationCompat ;
 import androidx.core.app.NotificationManagerCompat ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
+import com.vincent_falzon.discreetlauncher.core.Shortcut ;
 
 /**
  * Display an Android notification with the favorites applications.
@@ -96,7 +97,10 @@ class NotificationMenu
 			if(application_details.length != 3) continue ;
 
 			// Add the notification as an action
-			Application application = new Application(application_details[0], application_details[1], application_details[2], null) ;
+			Application application ;
+			if(application_details[2].startsWith(Constants.APK_SHORTCUT))
+					application = new Shortcut(application_details[0], application_details[1], application_details[2], null) ;
+				else application = new Application(application_details[0], application_details[1], application_details[2], null) ;
 			PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, application.getActivityIntent(), PendingIntent.FLAG_CANCEL_CURRENT) ;
 			builder.addAction(0, application.getDisplayName(), pendingIntent) ;
 		}

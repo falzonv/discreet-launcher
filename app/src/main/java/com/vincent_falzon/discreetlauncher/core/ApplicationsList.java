@@ -292,7 +292,7 @@ public class ApplicationsList
 						else icon = default_icon ;
 
 					// Add the shortcut to the list of applications
-					drawer.add(new Application(shortcut[0],
+					drawer.add(new Shortcut(shortcut[0],
 							shortcut[1] + Constants.SHORTCUT_SEPARATOR + shortcut[2] + Constants.SHORTCUT_SEPARATOR + shortcut[3],
 							Constants.APK_SHORTCUT, icon)) ;
 				}
@@ -316,7 +316,7 @@ public class ApplicationsList
 						else icon = default_icon ;
 
 					// Add the shortcut to the list of applications
-					drawer.add(new Application(legacy_shortcut[0], legacy_shortcut[1], Constants.APK_SHORTCUT_LEGACY, icon)) ;
+					drawer.add(new Shortcut(legacy_shortcut[0], legacy_shortcut[1], Constants.APK_SHORTCUT_LEGACY, icon)) ;
 				}
 			}
 	}
