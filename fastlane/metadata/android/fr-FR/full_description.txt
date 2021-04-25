@@ -4,7 +4,10 @@ Depuis cet écran d'accueil épuré, glissez simplement le doigt vers le bas pou
 
 En maintenant le doigt quelques instants sur une application, il vous sera proposé d'accéder à ses paramètres système.
 
+Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile, fonctionne complètement hors-ligne et n'inclut aucune publicité.
+
 Autres fonctionnalités :
+- Dossiers
 - Masquer des applications
 - Option de notification d'accès rapide
 - Support des raccourcis web
@@ -15,5 +18,3 @@ Autres fonctionnalités :
     > Support des packs d'icônes
 - Export/import des paramètres
 - Aide et journal des changements
-
-Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile, fonctionne complètement hors-ligne et n'inclut aucune publicité.

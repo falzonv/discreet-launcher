@@ -4,7 +4,10 @@ From this clean home screen, simply slide your finger down to display your favor
 
 If you hold your finger a few moments on an application, you will be offered to access its system settings.
 
+Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
+
 Other features:
+- Folders
 - Hide applications
 - Quick-access notification option
 - Web shortcuts support
@@ -15,5 +18,3 @@ Other features:
    > Icon packs support
 - Export/import settings
 - Help and changelog
-
-Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
