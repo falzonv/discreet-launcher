@@ -18,7 +18,7 @@
     <string name="button_add">Ajouter</string>
 
 	<!-- Messages d'information -->
-    <string name="info_no_favorites_yet">Pour ajouter des applications au panneau des favoris, glissez vers le bas et maintenez le bouton menu</string>
+    <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton ci-dessous.</string>
 	<string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
 	<string name="info_favorites_saved">Applications favorites enregistrées</string>
 

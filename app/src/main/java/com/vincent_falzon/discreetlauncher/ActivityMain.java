@@ -159,11 +159,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		drawer.setAdapter(drawerAdapter) ;
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;
-
-		// Display a message if the user does not have any favorites applications yet
-		if(applicationsList.getFavorites().size() == 0)
-			ShowDialog.toastLong(this, getString(R.string.info_no_favorites_yet)) ;
-
+		
 		// Hide the favorites panel and the drawer by default
 		displayFavorites(false) ;
 		displayDrawer(false) ;
@@ -230,6 +226,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			{
 				// Update the recyclers (favorites panel and applications drawer) if needed
 				if(adapters_update_needed) updateAdapters() ;
+
+				// Display a message if the user does not have any favorites applications yet
+				if(applicationsList.getFavorites().size() == 0) findViewById(R.id.info_no_favorites_yet).setVisibility(View.VISIBLE) ;
+					else findViewById(R.id.info_no_favorites_yet).setVisibility(View.GONE) ;
 
 				// Display the favorites panel
 				favorites.setVisibility(View.VISIBLE) ;

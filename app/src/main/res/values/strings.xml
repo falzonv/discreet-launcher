@@ -18,7 +18,7 @@
     <string name="button_add">Add</string>
 
 	<!-- Information messages -->
-    <string name="info_no_favorites_yet">To add applications to the favorites panel, swipe down and hold the menu button</string>
+    <string name="info_no_favorites_yet">You can add your favorites applications here\nby clicking the button below.</string>
 	<string name="info_applications_list_refreshed">Applications list refreshed</string>
 	<string name="info_favorites_saved">Favorites applications saved</string>
 

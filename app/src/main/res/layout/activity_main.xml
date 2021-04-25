@@ -22,6 +22,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/info_no_favorites_yet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_large"
+                android:gravity="center"
+                android:text="@string/info_no_favorites_yet"
+                android:textColor="@color/white"
+                android:background="@color/translucent_gray"
+                android:visibility="gone"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/favorites_applications"
                 android:layout_width="match_parent"
