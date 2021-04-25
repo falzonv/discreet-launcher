@@ -100,33 +100,33 @@ public abstract class ShowDialog
 				public void onClick(DialogInterface dialogInterface, int i, boolean b) { }
 			}) ;
 		dialog.setPositiveButton(R.string.button_apply,
-				new DialogInterface.OnClickListener()
+			new DialogInterface.OnClickListener()
+			{
+				@Override
+				public void onClick(DialogInterface dialogInterface, int i)
 				{
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i)
-					{
-						// Remove the current file
-						if(!file.remove()) return ;
+					// Remove the current file
+					if(!file.remove()) return ;
 
-						// Write the new selected applications to the file
-						int selections_number = 0 ;
-						for(i = 0 ; i < selected.length ; i++)
-							if(selected[i])
-								{
-									// Add the application only if the maximum is not reached
-									selections_number++ ;
-									if((max == -1) || (selections_number <= max)) file.writeLine(applications.get(i).getName()) ;
-										else
-										{
-											toastLong(context, context.getString(R.string.error_too_many_selections, max)) ;
-											break ;
-										}
-								}
+					// Write the new selected applications to the file
+					int selections_number = 0 ;
+					for(i = 0 ; i < selected.length ; i++)
+						if(selected[i])
+							{
+								// Add the application only if the maximum is not reached
+								selections_number++ ;
+								if((max == -1) || (selections_number <= max)) file.writeLine(applications.get(i).getName()) ;
+									else
+									{
+										toastLong(context, context.getString(R.string.error_too_many_selections, max)) ;
+										break ;
+									}
+							}
 
-						// Update the applications list
-						ActivityMain.updateList(context) ;
-					}
-				}) ;
+					// Update the applications list
+					ActivityMain.updateList(context) ;
+				}
+			}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;
 		dialog.show() ;
 	}

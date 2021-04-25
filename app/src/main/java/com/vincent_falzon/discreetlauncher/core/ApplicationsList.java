@@ -384,22 +384,22 @@ public class ApplicationsList
 
 
 	/**
+	 * For display in the drawer.
+	 * @return List of folders and applications not in folders
+	 */
+	public ArrayList<Application> getDrawer()
+	{
+		return drawer ;
+	}
+
+
+	/**
 	 * For display in the favorites panel.
 	 * @return List of favorites applications
 	 */
 	public ArrayList<Application> getFavorites()
 	{
 		return favorites ;
-	}
-
-
-	/**
-	 * For display in the drawer.
-	 * @return List of folders and applications not in folders
-	 */
-	public ArrayList<Application> getDrawer()
-	{
-		return drawer;
 	}
 
 
