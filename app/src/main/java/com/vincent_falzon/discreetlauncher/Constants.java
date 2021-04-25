@@ -47,6 +47,7 @@ public abstract class Constants
 
 	// Constants representing settings keys
 	public static final String DISPLAY_CLOCK = "display_clock" ;
+	public static final String CLOCK_FORMAT = "clock_format" ;
 	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	public static final String FORCE_PORTRAIT = "force_portrait" ;
 	public static final String HIDE_APP_NAMES = "hide_app_names" ;

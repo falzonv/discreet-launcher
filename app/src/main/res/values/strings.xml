@@ -68,6 +68,10 @@
     <string name="display_settings_general_title">Display > General</string>
     <string name="display_settings_home_screen_title">Display > Home screen</string>
     <string name="set_display_clock">Display the clock</string>
+    <string name="set_clock_format">Clock format</string>
+    <string name="set_clock_format_24h">24 hours</string>
+    <string name="set_clock_format_12h">12 hours</string>
+    <string name="set_clock_format_12h_ampm">12 hours + AM/PM</string>
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
     <string name="set_force_portrait">Force portrait mode</string>
@@ -114,6 +118,7 @@
         \n<b>v3.2.0</b>
         \n- Message suggesting to add favorites improved
         \n- <u><i>Option</i></u> hide applications names (idea tuch96)
+        \n- <u><i>Option</i></u> 12-hour format (idea drewski-00h)
         \n
         \n<b>v3.1.0 - 23/04/2021</b>
         \n- Folders (idea xi7)

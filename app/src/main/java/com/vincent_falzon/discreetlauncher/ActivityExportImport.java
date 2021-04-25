@@ -150,6 +150,7 @@ public class ActivityExportImport extends AppCompatActivity
 		// Save all settings
 		exportedData.add("# " + getString(R.string.button_settings)) ;
 		exportedData.add(exportBooleanSetting(Constants.DISPLAY_CLOCK, false)) ;
+		exportedData.add(Constants.CLOCK_FORMAT + ": " + settings.getString(Constants.CLOCK_FORMAT, "HH:mm")) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
@@ -246,6 +247,7 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
 				// Load the settings
 				else if(line.startsWith(Constants.DISPLAY_CLOCK)) loadBooleanSetting(Constants.DISPLAY_CLOCK, line) ;
+				else if(line.startsWith(Constants.CLOCK_FORMAT)) loadStringSetting(Constants.CLOCK_FORMAT, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.FORCE_PORTRAIT)) loadBooleanSetting(Constants.FORCE_PORTRAIT, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;

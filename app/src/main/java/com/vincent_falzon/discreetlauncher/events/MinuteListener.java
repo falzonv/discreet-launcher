@@ -27,8 +27,11 @@ import android.annotation.SuppressLint ;
 import android.content.BroadcastReceiver ;
 import android.content.Context ;
 import android.content.Intent ;
-import android.content.IntentFilter;
+import android.content.IntentFilter ;
+import android.content.SharedPreferences ;
 import android.widget.TextView ;
+import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.Constants ;
 import java.text.SimpleDateFormat ;
 import java.util.Date ;
 
@@ -42,16 +45,13 @@ public class MinuteListener extends BroadcastReceiver
 
 
 	/**
-	 * Constructor to update the clock TextView every minute (if the option is selected).
-	 * @param view The TextView representing the clock
+	 * Constructor.
+	 * @param view TextView representing the clock
 	 */
 	public MinuteListener(TextView view)
 	{
-		// Display the clock forcing a "HH:mm" format
 		clockText = view ;
-		@SuppressLint("SimpleDateFormat")
-		SimpleDateFormat clockFormat = new SimpleDateFormat("HH:mm") ;
-		clockText.setText(clockFormat.format(new Date())) ;
+		updateClock() ;
 	}
 
 
@@ -76,12 +76,24 @@ public class MinuteListener extends BroadcastReceiver
 		// Check if the intent as a valid action
 		if(intent.getAction() == null) return ;
 
-		// Check if the clock must be updated
-		if((clockText != null) && intent.getAction().equals(Intent.ACTION_TIME_TICK))
+		// Check if a minute change just happened
+		if(intent.getAction().equals(Intent.ACTION_TIME_TICK)) updateClock() ;
+	}
+
+
+	/**
+	 * Update the clock according to settings (displayed or not displayed, clock format).
+	 */
+	@SuppressLint("SimpleDateFormat")
+	public void updateClock()
+	{
+		// Check if the clock should be displayed or not
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(clockText.getContext()) ;
+		if(!settings.getBoolean(Constants.DISPLAY_CLOCK, false)) clockText.setText("") ;
+			else
 			{
-				// Update the clock forcing a "HH:mm" format
-				@SuppressLint("SimpleDateFormat")
-				SimpleDateFormat clockFormat = new SimpleDateFormat("HH:mm") ;
+				// Retrieve the selected format and update the clock
+				SimpleDateFormat clockFormat = new SimpleDateFormat(settings.getString(Constants.CLOCK_FORMAT, "HH:mm")) ;
 				clockText.setText(clockFormat.format(new Date())) ;
 			}
 	}

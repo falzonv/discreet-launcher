@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Text clock on the home screen -->
-    <dimen name="clock_font_size">80sp</dimen>
+    <dimen name="clock_font_size">70sp</dimen>
     <dimen name="clock_shadow_radius">20</dimen>
 
     <!-- Margins and paddings -->

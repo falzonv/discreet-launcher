@@ -68,6 +68,10 @@
     <string name="display_settings_general_title">Affichage > Général</string>
     <string name="display_settings_home_screen_title">Affichage > Écran d\'accueil</string>
     <string name="set_display_clock">Afficher l\'horloge</string>
+    <string name="set_clock_format">Format de l\'horloge</string>
+    <string name="set_clock_format_24h">24 heures</string>
+    <string name="set_clock_format_12h">12 heures</string>
+    <string name="set_clock_format_12h_ampm">12 heures + AM/PM</string>
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
     <string name="set_force_portrait">Forcer le mode portrait</string>
@@ -111,6 +115,7 @@
         \n<b>v3.2.0</b>
         \n- Message suggérant l\'ajout de favoris amélioré
         \n- <u><i>Option</i></u> cacher les noms des applis (idée tuch96)
+        \n- <u><i>Option</i></u> format 12 heures (idée drewski-00h)
         \n
         \n<b>v3.1.0 - 23/04/2021</b>
         \n- Dossiers (idée xi7)

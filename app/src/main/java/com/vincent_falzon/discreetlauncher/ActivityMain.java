@@ -74,7 +74,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private LinearLayout homeScreen ;
 	private LinearLayout favorites ;
 	private RecyclerAdapter favoritesAdapter ;
-	private TextView clock ;
 	private MinuteListener minuteListener ;
 
 	// Attributes related to the drawer
@@ -128,9 +127,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// If the option is selected, force the portrait mode
 		togglePortraitMode() ;
 
-		// Initialize the text clock
-		clock = findViewById(R.id.clock_text) ;
-		manageClock() ;
+		// Initialize the clock listener
+		minuteListener = new MinuteListener((TextView)findViewById(R.id.clock_text)) ;
+		registerReceiver(minuteListener, minuteListener.getFilter()) ;
 
 		// Prepare the notification menu
 		notificationMenu = new NotificationMenu(this) ;
@@ -173,34 +172,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			{
 				shortcutLegacyListener = new ShortcutLegacyListener() ;
 				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
-			}
-	}
-
-
-	/**
-	 * Display or hide the clock on the main screen according to the settings.
-	 */
-	private void manageClock()
-	{
-		// Check in the settings if the clock should be displayed or not
-		if(settings.getBoolean(Constants.DISPLAY_CLOCK, false))
-			{
-				// If not already done, display the clock and start to listen for updates (every minute)
-				if(minuteListener == null)
-					{
-						minuteListener = new MinuteListener(clock) ;
-						registerReceiver(minuteListener, minuteListener.getFilter()) ;
-					}
-			}
-			else
-			{
-				// Stop to listen for updates and hide the clock
-				if(minuteListener != null)
-					{
-						unregisterReceiver(minuteListener) ;
-						minuteListener = null ;
-					}
-				clock.setText("") ;
 			}
 	}
 
@@ -370,6 +341,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			{
 				// Update the applications list
 				updateList(this) ;
+				displayFavorites(false) ;
 				return true ;
 			}
 			else if(selection == R.id.menu_action_manage_favorites)
@@ -542,7 +514,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				adapters_update_needed = true ;
 				break ;
 			case Constants.ICON_PACK :
-			case Constants.HIDDEN_APPLICATIONS :
 				// Update the applications list
 				updateList(this) ;
 				break ;
@@ -675,7 +646,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		for(Folder folder : applicationsList.getFolders()) folder.closePopup() ;
 
 		// Update the display according to settings
-		manageClock() ;
+		minuteListener.updateClock() ;
 		togglePortraitMode() ;
 
 		// Update the favorites panel and applications drawer display if needed

@@ -36,6 +36,14 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <ListPreference
+            app:key="clock_format"
+            app:title="@string/set_clock_format"
+            app:iconSpaceReserved="false"
+            app:defaultValue="HH:mm"
+            app:dependency="display_clock"
+            app:useSimpleSummaryProvider="true"/>
+
         <SwitchPreference
             app:key="transparent_status_bar"
             app:title="@string/set_transparent_status_bar"

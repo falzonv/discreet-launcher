@@ -166,6 +166,24 @@ public class ActivitySettings extends AppCompatActivity
 					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
 					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
 				}
+
+			// Prepare the clock formats
+			ArrayList<String> formats = new ArrayList<>() ;
+			ArrayList<String> formatsNames = new ArrayList<>() ;
+			formatsNames.add(getString(R.string.set_clock_format_24h)) ;
+			formats.add("HH:mm") ;
+			formatsNames.add(getString(R.string.set_clock_format_12h)) ;
+			formats.add("h:mm") ;
+			formatsNames.add(getString(R.string.set_clock_format_12h_ampm)) ;
+			formats.add("h:mm a") ;
+
+			// Initialize the clock format selector
+			ListPreference clockFormat = findPreference(Constants.CLOCK_FORMAT) ;
+			if(clockFormat != null)
+				{
+					clockFormat.setEntries(formatsNames.toArray(new CharSequence[0])) ;
+					clockFormat.setEntryValues(formats.toArray(new CharSequence[0])) ;
+				}
 		}
 	}
 
