@@ -71,6 +71,7 @@
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
     <string name="set_force_portrait">Force portrait mode</string>
+    <string name="set_hide_app_names">Hide applications names</string>
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use the real icons)</string>
     <string name="notification_settings_title">Quick access notification</string>
@@ -110,6 +111,10 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog">
+        \n<b>v3.2.0</b>
+        \n- Message suggesting to add favorites improved
+        \n- <u><i>Option</i></u> hide applications names (idea tuch96)
+        \n
         \n<b>v3.1.0 - 23/04/2021</b>
         \n- Folders (idea xi7)
         \n- Improve hidden apps management

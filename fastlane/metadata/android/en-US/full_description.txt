@@ -15,6 +15,7 @@ Other features:
    > Force portrait mode
    > Clock on the home screen
    > Transparent status bar
+	> Hide applications names
    > Icon packs support
 - Export/import settings
 - Help and changelog

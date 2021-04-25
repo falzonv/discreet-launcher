@@ -28,7 +28,9 @@ import android.content.DialogInterface ;
 import android.content.Intent ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
+import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
+import android.content.SharedPreferences ;
 import android.net.Uri ;
 import android.view.LayoutInflater ;
 import android.view.View ;
@@ -39,21 +41,24 @@ import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
 import java.util.ArrayList ;
 
 /**
- * Fill a RecyclerView with the applications list (complete or favorites).
+ * Fill a RecyclerView with a list of applications.
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationView>
 {
 	// Attributes
 	private final ArrayList<Application> applicationsList ;
+	private final SharedPreferences settings ;
 
 
 	/**
 	 * Constructor to fill a RecyclerView with the applications list.
+	 * @param context To get the settings
 	 * @param applicationsList Applications to display in the recycler
 	 */
-	public RecyclerAdapter(ArrayList<Application> applicationsList)
+	public RecyclerAdapter(Context context, ArrayList<Application> applicationsList)
 	{
 		this.applicationsList = applicationsList ;
+		settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 	}
 
 
@@ -79,10 +84,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	 * @param i For incrementation
 	 */
 	@Override
-	public void onBindViewHolder(ApplicationView appView, int i)
+	public void onBindViewHolder(@NonNull ApplicationView appView, int i)
 	{
 		appView.name.setText(applicationsList.get(i).getDisplayName()) ;
 		appView.name.setCompoundDrawables(null, applicationsList.get(i).getIcon(), null, null) ;
+		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)) appView.name.setTextSize(0) ;
+			else appView.name.setTextSize(14) ;
 	}
 
 

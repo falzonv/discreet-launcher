@@ -71,6 +71,7 @@
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
     <string name="set_force_portrait">Forcer le mode portrait</string>
+    <string name="set_hide_app_names">Masquer les noms des applications</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
     <string name="notification_settings_title">Notification d\'accès rapide</string>
@@ -107,6 +108,10 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog">
+        \n<b>v3.2.0</b>
+        \n- Message suggérant l\'ajout de favoris amélioré
+        \n- <u><i>Option</i></u> cacher les noms des applis (idée tuch96)
+        \n
         \n<b>v3.1.0 - 23/04/2021</b>
         \n- Dossiers (idée xi7)
         \n- Gestion des applis cachées améliorée

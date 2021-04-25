@@ -15,6 +15,7 @@ Autres fonctionnalités :
     > Forcer le mode portrait
     > Heure sur l'écran d'accueil
     > Barre de statut transparente
+	 > Masquer les noms des applications
     > Support des packs d'icônes
 - Export/import des paramètres
 - Aide et journal des changements

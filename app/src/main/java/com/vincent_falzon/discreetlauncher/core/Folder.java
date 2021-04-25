@@ -167,7 +167,7 @@ public class Folder extends Application
 
 		// Prepare the folder content
 		RecyclerView popupRecycler = popupView.findViewById(R.id.popup_recycler) ;
-		popupRecycler.setAdapter(new RecyclerAdapter(applications)) ;
+		popupRecycler.setAdapter(new RecyclerAdapter(context, applications)) ;
 		int orientation = context.getResources().getConfiguration().orientation ;
 		popupRecycler.setLayoutManager(new GridLayoutManager(context,
 				orientation == Configuration.ORIENTATION_LANDSCAPE ? Constants.COLUMNS_LANDSCAPE : Constants.COLUMNS_PORTRAIT)) ;

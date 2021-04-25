@@ -149,17 +149,17 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			}
 
 		// Initialize the content of the favorites panel
-		favoritesAdapter = new RecyclerAdapter(applicationsList.getFavorites()) ;
+		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;
 		RecyclerView favoritesRecycler = findViewById(R.id.favorites_applications) ;
 		favoritesRecycler.setAdapter(favoritesAdapter) ;
 		favoritesRecycler.setLayoutManager(favoritesLayout) ;
 
 		// Initialize the content of the full applications list
-		drawerAdapter = new RecyclerAdapter(applicationsList.getDrawer()) ;
+		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer()) ;
 		drawer.setAdapter(drawerAdapter) ;
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;
-		
+
 		// Hide the favorites panel and the drawer by default
 		displayFavorites(false) ;
 		displayDrawer(false) ;
@@ -537,6 +537,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(ignore_settings_changes) return ;
 		switch(key)
 		{
+			case Constants.HIDE_APP_NAMES :
+				// Update the recycler views
+				adapters_update_needed = true ;
+				break ;
 			case Constants.ICON_PACK :
 			case Constants.HIDDEN_APPLICATIONS :
 				// Update the applications list

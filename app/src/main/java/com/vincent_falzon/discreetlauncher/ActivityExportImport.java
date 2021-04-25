@@ -152,6 +152,7 @@ public class ActivityExportImport extends AppCompatActivity
 		exportedData.add(exportBooleanSetting(Constants.DISPLAY_CLOCK, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(Constants.ICON_PACK + ": " + settings.getString(Constants.ICON_PACK, Constants.NONE)) ;
 		exportedData.add(exportBooleanSetting(Constants.DISPLAY_NOTIFICATION, true)) ;
 		String notification_text = settings.getString(Constants.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)) ;
@@ -247,6 +248,7 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(Constants.DISPLAY_CLOCK)) loadBooleanSetting(Constants.DISPLAY_CLOCK, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.FORCE_PORTRAIT)) loadBooleanSetting(Constants.FORCE_PORTRAIT, line) ;
+				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.DISPLAY_NOTIFICATION)) loadBooleanSetting(Constants.DISPLAY_NOTIFICATION, line) ;
 				else if(line.startsWith(Constants.NOTIFICATION_TEXT)) loadStringSetting(Constants.NOTIFICATION_TEXT, line.replace("\\n", "\n")) ;

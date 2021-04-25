@@ -11,6 +11,12 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <SwitchPreference
+            app:key="hide_app_names"
+            app:title="@string/set_hide_app_names"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
         <ListPreference
             app:key="icon_pack"
             app:title="@string/set_icon_pack"
