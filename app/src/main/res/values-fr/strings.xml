@@ -109,8 +109,8 @@
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_v3_text"><b>v3.2.0</b>
-        \n- Message mieux intégéré si aucun favori
+    <string name="changelog_v3_text"><b>v3.2.0 - 26/04/2021</b>
+        \n- Message \"aucun favori\" mieux intégéré
         \n- <u><i>Option</i></u> cacher noms des applis (idée tuch96)
         \n- <u><i>Option</i></u> format 12 heures (idée drewski-00h)
         \n

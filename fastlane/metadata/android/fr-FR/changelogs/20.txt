@@ -1,0 +1,3 @@
+- Message "aucun favori" mieux intégéré
+- Option : cacher noms des applis (idée tuch96)
+- Option : format 12 heures (idée drewski-00h)

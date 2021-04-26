@@ -113,8 +113,8 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
-    <string name="changelog_v3_text"><b>v3.2.0</b>
-        \n- Message better integrated if no favorites
+    <string name="changelog_v3_text"><b>v3.2.0 - 26/04/2021</b>
+        \n- Message \"no favorites yet\" better integrated
         \n- <u><i>Option</i></u> hide apps names (idea tuch96)
         \n- <u><i>Option</i></u> 12-hour format (idea drewski-00h)
         \n
