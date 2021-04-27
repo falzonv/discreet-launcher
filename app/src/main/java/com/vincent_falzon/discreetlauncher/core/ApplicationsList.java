@@ -25,15 +25,12 @@ package com.vincent_falzon.discreetlauncher.core ;
 // Imports
 import android.content.Context ;
 import android.content.Intent ;
-import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
-import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.util.ArrayList ;
 import java.util.Collections ;
@@ -80,21 +77,19 @@ public class ApplicationsList
 		// Define the icons size in pixels
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 
-		// If an icon pack is selected, load it
-		IconPack iconPack = loadIconPack(context) ;
-
 		// Browse the APK manager list and store the data of each application in the main list
+		IconPack iconPack = new IconPack(context, apkManager) ;
 		Drawable icon ;
 		for(ResolveInfo entry : apkManagerList)
 		{
 			// Load the application icon
-			if(iconPack == null) icon = entry.loadIcon(apkManager) ;
-				else
+			if(iconPack.isLoaded())
 				{
 					// Retrieve the icon in the pack, use the real icon if not found
 					icon = iconPack.searchIcon(entry.activityInfo.packageName, entry.activityInfo.name) ;
 					if(icon == null) icon = entry.loadIcon(apkManager) ;
 				}
+				else icon = entry.loadIcon(apkManager) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 
 			// Add the application to the list
@@ -152,42 +147,6 @@ public class ApplicationsList
 						break ;
 					}
 		}
-	}
-
-
-	/**
-	 * Check if an icon pack is selected and load it if it does.
-	 * @param context To get the settings and display alerts
-	 * @return An icon pack loaded or <code>null</code> if none is selected
-	 */
-	private IconPack loadIconPack(Context context)
-	{
-		// Check if an icon pack is selected
-		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext()) ;
-		String pack_name = settings.getString(Constants.ICON_PACK, Constants.NONE) ;
-		if((pack_name == null) || pack_name.equals(Constants.NONE)) return null ;
-
-		// Try to load the icon pack resources
-		IconPack iconPack = new IconPack(pack_name) ;
-		if(!iconPack.loadResources(context))
-			{
-				// Display an error message and set the icon pack to none
-				ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, pack_name)) ;
-				SharedPreferences.Editor editor = settings.edit() ;
-				editor.putString(Constants.ICON_PACK, Constants.NONE).apply() ;
-				return null ;
-			}
-
-		// Try to find the resource ID of the appfilter.xml file in the icon pack
-		if(!iconPack.findAppfilterID())
-			{
-				// Display an error message and do not use the icon pack
-				ShowDialog.toastLong(context, context.getString(R.string.error_appfilter_not_found, pack_name)) ;
-				return null ;
-			}
-
-		// Return the icon pack loaded
-		return iconPack ;
 	}
 
 

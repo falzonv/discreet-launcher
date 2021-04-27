@@ -24,10 +24,15 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 // Imports
 import android.content.Context ;
+import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.res.Resources ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
+import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import org.xmlpull.v1.XmlPullParser ;
 import org.xmlpull.v1.XmlPullParserException ;
 import java.io.IOException ;
@@ -38,55 +43,50 @@ import java.io.IOException ;
 class IconPack
 {
 	// Attributes
-	private final String pack_name;
-	private Resources pack_resources;
-	private int appfilter_id;
+	private final String pack_name ;
+	private Resources pack_resources ;
+	private int appfilter_id ;
 
 
 	/**
-	 * Constructor.
-	 * @param name Icon pack APK name
+	 * Constructor to load a selected icon pack.
+	 * @param context To get the settings and display alerts
+	 * @param apkManager To load the resources
 	 */
-	IconPack(String name)
+	IconPack(Context context, PackageManager apkManager)
 	{
-		pack_name = name ;
-		pack_resources = null ;
+		// Check if an icon pack is selected
 		appfilter_id = 0 ;
-	}
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
+		pack_name = settings.getString(Constants.ICON_PACK, Constants.NONE) ;
+		if((pack_name == null) || pack_name.equals(Constants.NONE)) return ;
 
-
-	/**
-	 * Try to load the icon pack resources.
-	 * @param context To get the package manager
-	 * @return <code>true</code> if successful, <code>false</code> otherwise
-	 */
-	boolean loadResources(Context context)
-	{
 		try
 		{
 			// Try to load the icon pack resources
-			PackageManager apkManager = context.getPackageManager() ;
 			pack_resources = apkManager.getResourcesForApplication(pack_name) ;
-			return true ;
 		}
 		catch(PackageManager.NameNotFoundException e)
 		{
-			return false ;
+			// Display an error message and set the icon pack to none
+			ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, pack_name)) ;
+			SharedPreferences.Editor editor = settings.edit() ;
+			editor.putString(Constants.ICON_PACK, Constants.NONE).apply() ;
+			return ;
 		}
+
+		// Try to get the appfilter.xml file (display an error message if not successful)
+		appfilter_id = pack_resources.getIdentifier("appfilter", "xml", pack_name) ;
+		if(!isLoaded()) ShowDialog.toastLong(context, context.getString(R.string.error_appfilter_not_found, pack_name)) ;
 	}
 
 
 	/**
-	 * Try to find the ID of the appfilter.xml file in the selected icon pack
-	 * @return <code>true</code> if successful, <code>false</code> otherwise
+	 * Check if an icon pack is loaded (<code>false</code> if no icon pack was selected).
+	 * @return <code>true</code> if an icon pack is loaded, <code>false</code> otherwise
 	 */
-	boolean findAppfilterID()
+	boolean isLoaded()
 	{
-		// Check if the resources are loaded
-		if(pack_resources == null) return false ;
-
-		// Try to get the appfilter.xml file
-		appfilter_id = pack_resources.getIdentifier("appfilter", "xml", pack_name) ;
 		return (appfilter_id > 0) ;
 	}
 
@@ -99,10 +99,8 @@ class IconPack
 	 */
 	Drawable searchIcon(String apk, String name)
 	{
-		// Check if appfilter.xml exists in the icon pack
-		if(appfilter_id <= 0) return null ;
-
-		// Initializations (XML file need to be reloaded for each icon)
+		// Initializations (the XML file need to be reloaded for each icon)
+		if(!isLoaded()) return null ;
 		XmlPullParser appfilter = pack_resources.getXml(appfilter_id) ;
 		String component_info = "ComponentInfo{" + apk + "/" + name ;
 		int i, j ;
@@ -125,7 +123,7 @@ class IconPack
 									if(appfilter.getAttributeValue(i).startsWith(component_info))
 										{
 											// Get the icon name in the pack
-											String icon_name = "";
+											String icon_name = "" ;
 											for(j = 0; j < appfilter.getAttributeCount() ; j++)
 												if(appfilter.getAttributeName(j).equals("drawable"))
 													icon_name = appfilter.getAttributeValue(j) ;
