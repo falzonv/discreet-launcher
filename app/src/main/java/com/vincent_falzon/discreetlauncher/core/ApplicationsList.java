@@ -107,9 +107,6 @@ public class ApplicationsList
 		// Hide application based on the internal file
 		manageHiddenApplications() ;
 
-		// Prepare folders according to files
-		prepareFolders(context) ;
-
 		// Sort the applications list in alphabetic order based on display name
 		Collections.sort(drawer, new Comparator<Application>()
 		{
@@ -120,6 +117,9 @@ public class ApplicationsList
 			}
 		}) ;
 
+		// Prepare folders according to files
+		prepareFolders(context) ;
+
 		// Update the favorites applications list
 		updateFavorites() ;
 	}
@@ -128,7 +128,7 @@ public class ApplicationsList
 	/**
 	 * Update the favorites applications list based on the favorites file and the complete list.
 	 */
-	public void updateFavorites()
+	private void updateFavorites()
 	{
 		// Initializations
 		favorites.clear() ;
@@ -165,6 +165,7 @@ public class ApplicationsList
 		if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// Browse the name of all folders files
+		ArrayList<Folder> folders = new ArrayList<>() ;
 		for(String filename : folders_files)
 		{
 			// Load the file, or skip it if it does not exist
@@ -189,17 +190,28 @@ public class ApplicationsList
 						}
 			}
 
-			// Sort the folder and add it to the general applications list
+			// Sort the folder content and add it to the list of folders
 			folder.sortFolder() ;
-			drawer.add(folder) ;
+			folders.add(folder) ;
 		}
+
+		// Sort the folders and add them at the beginning of the list
+		Collections.sort(folders, new Comparator<Folder>()
+		{
+			@Override
+			public int compare(Folder folder1, Folder folder2)
+			{
+				return folder1.getDisplayName().compareToIgnoreCase(folder2.getDisplayName()) ;
+			}
+		}) ;
+		drawer.addAll(0, folders) ;
 	}
 
 
 	/**
 	 * Hide applications based on the internal file (to apply before folders).
 	 */
-	void manageHiddenApplications()
+	private void manageHiddenApplications()
 	{
 		// Check if hidden applications have been defined
 		hidden.clear() ;
@@ -226,7 +238,7 @@ public class ApplicationsList
 	 * Add shortcuts to the applications list based on the shortcuts files.
 	 * @param context To get the icons
 	 */
-	void loadShortcuts(Context context)
+	private void loadShortcuts(Context context)
 	{
 		// Use the notification icon as default shortcut icon
 		Drawable default_icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
