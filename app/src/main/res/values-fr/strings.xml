@@ -44,7 +44,7 @@
 
     <!-- Dossiers -->
     <string name="folders_create_new">Nouveau dossier</string>
-    <string name="folders_create_new_help">Vous pouvez créer autant de dossier que vous voulez pour organiser vos applications.</string>
+    <string name="folders_create_new_help">Vous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.</string>
     <string name="folders_remove_help">Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.</string>
 
     <!-- Export / Import -->
@@ -104,12 +104,28 @@
     <string name="help_list_update_text">
         La liste des applications et leurs icônes ne sont actualisées qu\'après certains évènements
         (au démarrage, lorsqu\'une application est ajoutée ou supprimée, quand le pack d\'icônes est modifié).
-        Si quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
+        Quand cela se produit, un petit message apparaît dans une bulle pendant quelques instants.
+        \n
+        \nSi quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
+    </string>
+    <string name="help_folders_title">Dossiers</string>
+    <string name="help_folders_text">
+        Vous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.
+        Ces dossiers peuvent aussi être ajoutés dans les favoris.
+        Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.
+        \n
+        \nUne application ne peut être que dans un seul dossier à la fois (ou dans aucun dossier).
+        Cependant, vous pouvez avoir à la fois une application et le dossier contenant cette application dans les favoris.
     </string>
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_v3_text"><b>v3.2.0 - 26/04/2021</b>
+    <string name="changelog_v3_text"><b>v3.3.0</b>
+        \n- Dossiers en haut de la liste (idée xi7)
+        \n- Amélioration de l\'aide (merci AeOeAa)
+        \n- <u><i>Fix</i></u> bug renommage dossier (merci AeOeAa)
+        \n
+        \n<b>v3.2.0 - 26/04/2021</b>
         \n- Message \"aucun favori\" mieux intégéré
         \n- <u><i>Option</i></u> cacher noms des applis (idée tuch96)
         \n- <u><i>Option</i></u> format 12 heures (idée drewski-00h)

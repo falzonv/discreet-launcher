@@ -107,13 +107,29 @@
     <string name="help_list_update_text">
         The list of applications and their icons are refreshed only after some events
         (on start, when an application is added or removed, if the icon pack is modified).
-        If something does not feel right, you should try to refresh the applications list manually.
+        When this happens, a small popup message appears during a few moments.
+        \n
+        \nIf something does not feel right, you should try to refresh the applications list manually.
+    </string>
+    <string name="help_folders_title">Folders</string>
+    <string name="help_folders_text">
+        You can create as many folders as you want to organize your applications.
+        These folders can also be added in favorites.
+        If a folder is removed, its content will be put back in the main applications list.
+        \n
+        \nAn application can be in only one folder at a time (or not in a folder).
+        However, you can have both an application and the folder containing this application in favorites.
     </string>
 
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
-    <string name="changelog_v3_text"><b>v3.2.0 - 26/04/2021</b>
+    <string name="changelog_v3_text"><b>v3.3.0</b>
+        \n- Folders at the beginning of the list (idea xi7)
+        \n- Improve help section (thanks AeOeAa)
+        \n- <u><i>Fix</i></u> folders renaming bugs (thanks AeOeAa)
+        \n
+        \n<b>v3.2.0 - 26/04/2021</b>
         \n- Message \"no favorites yet\" better integrated
         \n- <u><i>Option</i></u> hide apps names (idea tuch96)
         \n- <u><i>Option</i></u> 12-hour format (idea drewski-00h)

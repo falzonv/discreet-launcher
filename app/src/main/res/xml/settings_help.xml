@@ -28,4 +28,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        app:title="@string/help_folders_title"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:title="@string/help_folders_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
