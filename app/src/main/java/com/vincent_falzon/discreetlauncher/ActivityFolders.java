@@ -239,7 +239,13 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 										// Rename the folder file
 										if(file.rename(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt"))
 											{
+												// Update the favorites if necessary
+												InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
+												boolean was_in_favorites = favorites.removeLine(folder.getName()) ;
 												folder.setDisplayName(new_folder_name) ;
+												if(was_in_favorites) favorites.writeLine(folder.getName()) ;
+
+												// Update the applications list
 												ActivityMain.updateList(context) ;
 												notifyDataSetChanged() ;
 											}

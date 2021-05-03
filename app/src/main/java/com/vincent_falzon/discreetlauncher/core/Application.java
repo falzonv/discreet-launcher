@@ -36,9 +36,9 @@ public class Application
 {
 	// Attributes
 	String display_name ;
-	final String name ;
-	final String apk ;
-	final Drawable icon ;
+	String name ;
+	String apk ;
+	Drawable icon ;
 
 
 	/**

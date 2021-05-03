@@ -222,7 +222,12 @@ public class ShortcutListener extends AppCompatActivity
 		{
 			// Extract the display name from the line and check if this is the shortcut to remove
 			shortcut = shortcut_line.split(Constants.SHORTCUT_SEPARATOR) ;
-			if(shortcut[0].equals(display_name)) continue ;
+			if(shortcut[0].equals(display_name))
+				{
+					// Remove the shortcut from the favorites if it was there
+					new InternalFileTXT(Constants.FILE_FAVORITES).removeLine(shortcut[1]) ;
+					continue ;
+				}
 
 			// Add all the other shortcuts to the list again
 			if(!file.writeLine(shortcut_line))

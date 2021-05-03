@@ -147,6 +147,16 @@ public class ApplicationsList
 						break ;
 					}
 		}
+
+		// Sort the favorites applications list by alphabetic order
+		Collections.sort(favorites, new Comparator<Application>()
+		{
+			@Override
+			public int compare(Application application1, Application application2)
+			{
+				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
+			}
+		}) ;
 	}
 
 
