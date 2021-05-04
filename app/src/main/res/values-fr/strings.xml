@@ -113,7 +113,7 @@
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_v3_text"><b>v3.3.0</b>
+    <string name="changelog_v3_text"><b>v3.3.0 - 04/05/2021</b>
         \n- Notification ouvre maintenant les favoris (idée xi7)
         \n- Dossiers en haut de la liste (idée xi7)
         \n- Amélioration de l\'aide (merci AeOeAa)

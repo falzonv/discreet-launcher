@@ -1,0 +1,5 @@
+- Notification ouvre maintenant les favoris (idée xi7)
+- Dossiers en haut de la liste (idée xi7)
+- Amélioration de l'aide (merci AeOeAa)
+- Plusieurs simplifications internes
+- Fix: bug renommage dossier (merci AeOeAa)

@@ -1,0 +1,5 @@
+- Notification now opens favorites (idea xi7)
+- Folders at the beginning of the list (idea xi7)
+- Improve help section (thanks AeOeAa)
+- Several internal simplifications
+- Fix: folders renaming bugs (thanks AeOeAa)

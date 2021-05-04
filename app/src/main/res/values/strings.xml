@@ -114,7 +114,7 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
-    <string name="changelog_v3_text"><b>v3.3.0</b>
+    <string name="changelog_v3_text"><b>v3.3.0 - 04/05/2021</b>
         \n- Notification now opens favorites (idea xi7)
         \n- Folders at the beginning of the list (idea xi7)
         \n- Improve help section (thanks AeOeAa)
