@@ -202,7 +202,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			dialog.setNeutralButton(R.string.button_open,
 				new DialogInterface.OnClickListener()
 				{
-					// Save the new list of favorites applications
 					@Override
 					public void onClick(DialogInterface dialogInterface, int i)
 					{
