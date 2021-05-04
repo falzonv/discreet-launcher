@@ -219,7 +219,6 @@ public class ActivityExportImport extends AppCompatActivity
 		settings.edit().clear().apply() ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_display, true) ;
-		PreferenceManager.setDefaultValues(this, R.xml.settings_notification, true) ;
 
 		// Browse the lines of the import file
 		editor = settings.edit() ;

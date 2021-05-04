@@ -179,25 +179,6 @@ public class ActivitySettings extends AppCompatActivity
 
 
 	/**
-	 * Load the notification settings from the XML file and prepare their values.
-	 */
-	public static class NotificationFragment extends PreferenceFragmentCompat
-	{
-		/**
-		 * Constructor.
-		 * @param savedInstanceState To retrieve the context
-		 * @param rootKey Root of the settings hierarchy
-		 */
-		@Override
-		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
-		{
-			// Load the settings from the XML file
-			setPreferencesFromResource(R.xml.settings_notification, rootKey) ;
-		}
-	}
-
-
-	/**
 	 * Load the help settings from the XML file.
 	 */
 	public static class HelpFragment extends PreferenceFragmentCompat

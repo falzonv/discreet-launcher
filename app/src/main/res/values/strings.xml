@@ -63,8 +63,13 @@
     <!-- Settings -->
     <string name="settings_title">Settings / Help</string>
     <string name="set_customization_title">Customization</string>
+    <string name="set_force_portrait">Force portrait mode</string>
+    <string name="set_notification">Notification for favorites access</string>
     <string name="display_settings_title">Display</string>
     <string name="display_settings_general_title">General</string>
+    <string name="set_hide_app_names">Hide applications names</string>
+    <string name="set_icon_pack">Use an installed icon pack</string>
+    <string name="set_icon_pack_none">None (use the real icons)</string>
     <string name="display_settings_home_screen_title">Home screen</string>
     <string name="set_display_clock">Display the clock</string>
     <string name="set_clock_format">Clock format</string>
@@ -73,13 +78,6 @@
     <string name="set_clock_format_12h_ampm">12 hours + AM/PM</string>
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
-    <string name="set_force_portrait">Force portrait mode</string>
-    <string name="set_hide_app_names">Hide applications names</string>
-    <string name="set_icon_pack">Use an installed icon pack</string>
-    <string name="set_icon_pack_none">None (use the real icons)</string>
-    <string name="notification_settings_title">Quick access notification</string>
-    <string name="notification_settings_help">A notification allowing to access favorites when the launcher is in background.</string>
-    <string name="set_display_notification">Display the notification</string>
 
     <!-- Help -->
     <string name="help_and_general_info_title">Help and general information</string>
@@ -117,8 +115,10 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.3.0</b>
+        \n- Notification now opens favorites (idea xi7)
         \n- Folders at the beginning of the list (idea xi7)
         \n- Improve help section (thanks AeOeAa)
+        \n- Several internal simplifications
         \n- <u><i>Fix</i></u> folders renaming bugs (thanks AeOeAa)
         \n
         \n<b>v3.2.0 - 26/04/2021</b>

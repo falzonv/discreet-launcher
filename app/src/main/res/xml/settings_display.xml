@@ -11,12 +11,6 @@
         app:iconSpaceReserved="false">
 
         <SwitchPreference
-            app:key="force_portrait"
-            app:title="@string/set_force_portrait"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
-        <SwitchPreference
             app:key="hide_app_names"
             app:title="@string/set_hide_app_names"
             app:iconSpaceReserved="false"

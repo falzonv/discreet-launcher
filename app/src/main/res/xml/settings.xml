@@ -7,15 +7,22 @@
         app:title="@string/set_customization_title"
         app:iconSpaceReserved="false">
 
+        <SwitchPreference
+            app:key="force_portrait"
+            app:title="@string/set_force_portrait"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="notification"
+            app:title="@string/set_notification"
+            app:iconSpaceReserved="false"
+            app:defaultValue="true"/>
+
         <Preference
             app:title="@string/display_settings_title"
             app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$DisplayFragment"
             app:icon="@android:drawable/ic_menu_gallery"/>
-
-        <Preference
-            app:title="@string/notification_settings_title"
-            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$NotificationFragment"
-            app:icon="@android:drawable/ic_menu_preferences"/>
 
         <MultiSelectListPreference
             app:key="hidden_applications"
