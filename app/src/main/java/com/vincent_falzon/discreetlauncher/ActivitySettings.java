@@ -35,7 +35,6 @@ import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
 import androidx.preference.PreferenceManager ;
-import com.vincent_falzon.discreetlauncher.core.Application ;
 import java.util.ArrayList ;
 import java.util.List ;
 
@@ -47,8 +46,6 @@ public class ActivitySettings extends AppCompatActivity
 	// Attributes
 	private static ArrayList<String> iconPacks ;
 	private static ArrayList<String> packsNames ;
-	private static ArrayList<String> applicationsNames ;
-	private static ArrayList<String> applicationsDisplayNames ;
 
 
 	/**
@@ -64,8 +61,6 @@ public class ActivitySettings extends AppCompatActivity
 		// Initializations
 		if(iconPacks == null) iconPacks = new ArrayList<>() ;
 		if(packsNames == null) packsNames = new ArrayList<>() ;
-		if(applicationsNames == null) applicationsNames = new ArrayList<>() ;
-		if(applicationsDisplayNames == null) applicationsDisplayNames = new ArrayList<>() ;
 
 		// Prepare the icon pack setting
 		iconPacks.clear() ;
@@ -73,11 +68,6 @@ public class ActivitySettings extends AppCompatActivity
 		iconPacks.add(Constants.NONE) ;
 		packsNames.add(getString(R.string.set_icon_pack_none)) ;
 		searchIconPacks() ;
-
-		// Prepare the applications lists
-		applicationsNames.clear() ;
-		applicationsDisplayNames.clear() ;
-		searchApplications() ;
 
 		// Load the general settings layout
 		setContentView(R.layout.activity_settings) ;
@@ -203,23 +193,6 @@ public class ActivitySettings extends AppCompatActivity
 		{
 			// Load the settings from the XML file
 			setPreferencesFromResource(R.xml.settings_notification, rootKey) ;
-
-			// Prepare the applications list
-			ArrayList<String> displayNames = new ArrayList<>() ;
-			ArrayList<String> names = new ArrayList<>() ;
-			names.add(Constants.NONE) ;
-			names.addAll(applicationsNames) ;
-			displayNames.add(getString(R.string.set_application_none)) ;
-			displayNames.addAll(applicationsDisplayNames) ;
-
-			// Initialize the notification applications selectors
-			for(int i = 0 ; i < 3 ; i++)
-			{
-				ListPreference notification_app = findPreference(Constants.NOTIFICATION_APP + (i + 1)) ;
-				if(notification_app == null) continue ;
-				notification_app.setEntries(displayNames.toArray(new CharSequence[0])) ;
-				notification_app.setEntryValues(names.toArray(new CharSequence[0])) ;
-			}
 		}
 	}
 
@@ -277,23 +250,6 @@ public class ActivitySettings extends AppCompatActivity
 		{
 			iconPacks.add(pack.activityInfo.packageName) ;
 			packsNames.add(pack.loadLabel(apkManager).toString()) ;
-		}
-	}
-
-
-	/**
-	 * Build a list of the installed applications.
-	 */
-	private void searchApplications()
-	{
-		// Browse the applications list and store their information in the lists
-		ArrayList<Application> applicationsList = ActivityMain.getApplicationsList().getApplications(false) ;
-		for(Application application : applicationsList)
-		{
-			applicationsNames.add(application.getDisplayName()
-					+ Constants.NOTIFICATION_SEPARATOR + application.getName()
-					+ Constants.NOTIFICATION_SEPARATOR + application.getApk()) ;
-			applicationsDisplayNames.add(application.getDisplayName()) ;
 		}
 	}
 }

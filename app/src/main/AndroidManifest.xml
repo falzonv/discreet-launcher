@@ -56,6 +56,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".events.NotificationListener"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:excludeFromRecents="true">
+        </activity>
+
 	</application>
 
 </manifest>

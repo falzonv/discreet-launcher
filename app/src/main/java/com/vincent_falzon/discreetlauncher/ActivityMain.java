@@ -264,7 +264,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 * Return the list of applications.
 	 * @return Contains the complete list, the favorites list and the last update timestamp
 	 */
-	static ApplicationsList getApplicationsList()
+	public static ApplicationsList getApplicationsList()
 	{
 		return applicationsList ;
 	}
@@ -517,19 +517,11 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				// Update the applications list
 				updateList(this) ;
 				break ;
-			case Constants.DISPLAY_NOTIFICATION :
+			case Constants.NOTIFICATION:
 				// Toggle the notification
-				if(settings.getBoolean(Constants.DISPLAY_NOTIFICATION, true))
+				if(settings.getBoolean(Constants.NOTIFICATION, true))
 						notificationMenu.display(this) ;
 					else notificationMenu.hide() ;
-				break ;
-			case Constants.NOTIFICATION_TEXT :
-			case Constants.NOTIFICATION_APP + "1" :
-			case Constants.NOTIFICATION_APP + "2" :
-			case Constants.NOTIFICATION_APP + "3" :
-				// Update the notification
-				notificationMenu.hide() ;
-				notificationMenu.display(this) ;
 				break ;
 		}
 	}
@@ -622,7 +614,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		super.onPause() ;
 
 		// If the option is selected, display the notification
-		if(settings.getBoolean(Constants.DISPLAY_NOTIFICATION, true))
+		if(settings.getBoolean(Constants.NOTIFICATION, true))
 			notificationMenu.display(this) ;
 	}
 

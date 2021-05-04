@@ -11,56 +11,10 @@
             app:iconSpaceReserved="false"/>
 
         <SwitchPreference
-            app:key="display_notification"
+            app:key="notification"
             app:title="@string/set_display_notification"
             app:iconSpaceReserved="false"
             app:defaultValue="true"/>
-
-        <EditTextPreference
-            app:key="notification_text"
-            app:title="@string/set_notification_text"
-            app:iconSpaceReserved="false"
-            app:defaultValue="@string/set_notification_text_default"
-            app:dependency="display_notification"
-            app:useSimpleSummaryProvider="true"/>
-
-        <SwitchPreference
-            app:key="hide_on_lock_screen"
-            app:title="@string/set_hide_on_lock_screen"
-            app:summary="@string/set_hide_on_lock_screen_hint"
-            app:iconSpaceReserved="false"
-            app:defaultValue="true"
-            app:dependency="display_notification"/>
-
-        <ListPreference
-            app:key="notification_app1"
-            app:title="@string/set_application1"
-            app:iconSpaceReserved="false"
-            app:defaultValue="none"
-            app:dependency="display_notification"
-            app:useSimpleSummaryProvider="true"/>
-
-        <ListPreference
-            app:key="notification_app2"
-            app:title="@string/set_application2"
-            app:iconSpaceReserved="false"
-            app:defaultValue="none"
-            app:dependency="display_notification"
-            app:useSimpleSummaryProvider="true"/>
-
-        <ListPreference
-            app:key="notification_app3"
-            app:title="@string/set_application3"
-            app:iconSpaceReserved="false"
-            app:defaultValue="none"
-            app:dependency="display_notification"
-            app:useSimpleSummaryProvider="true"/>
-
-        <Preference
-            app:summary="@string/set_applications_hint"
-            app:dependency="display_notification"
-            app:selectable="false"
-            app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
 

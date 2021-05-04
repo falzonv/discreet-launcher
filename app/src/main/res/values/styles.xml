@@ -11,6 +11,7 @@
 
 	</style>
 
+
 	<!-- Transparent backgroung theme -->
 	<style name="AppThemeTransparent" parent="AppTheme">
 
@@ -24,5 +25,11 @@
 		<item name="android:navigationBarColor">@color/transparent</item>
 
 	</style>
+
+
+    <!-- Notification popup theme -->
+    <style name="AppThemeNotification" parent="Theme.AppCompat.Dialog">
+        <item name="windowNoTitle">true</item>
+    </style>
 
 </resources>

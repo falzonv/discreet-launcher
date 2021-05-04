@@ -6,16 +6,17 @@ If you hold your finger a few moments on an application, you will be offered to 
 
 Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
 
-Other features:
+1/ Other features
 - Folders
 - Hide applications
-- Quick-access notification option
-- Web shortcuts support
-- Customization:
-   > Force portrait mode
-   > Clock on the home screen
-   > Transparent status bar
-	> Hide applications names
-   > Icon packs support
+- Notification for favorites access
+- Web applications support
 - Export/import settings
 - Help and changelog
+
+2/ Customization options
+- Force portrait mode
+- Clock on the home screen
+- Transparent status bar
+- Hide applications names
+- Icon packs support

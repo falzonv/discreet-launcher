@@ -19,6 +19,7 @@
 	<!-- Messages d'information -->
     <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton ci-dessous.</string>
 	<string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
+    <string name="info_favorites_access">Accès aux favoris</string>
 
     <!-- Messages d'erreur -->
     <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
@@ -77,14 +78,8 @@
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
     <string name="notification_settings_title">Notification d\'accès rapide</string>
-    <string name="notification_settings_help">Une notification permettant d\'ouvrir 3 applications peut être affichée quand le lanceur est en arrière-plan.</string>
+    <string name="notification_settings_help">Une notification permettant d\'accéder aux favoris quand le lanceur est en arrière-plan.</string>
     <string name="set_display_notification">Afficher la notification</string>
-    <string name="set_notification_text">Texte au dessus des boutons</string>
-    <string name="set_notification_text_default">(apps/texte réglables dans les paramètres)</string>
-    <string name="set_hide_on_lock_screen">Masquer sur l\'écran de verrouillage</string>
-    <string name="set_hide_on_lock_screen_hint">(Repassez par l\'accueil pour appliquer)</string>
-    <string name="set_applications_hint">(Limité à 3 applications car c\'est le nombre maximal de boutons affichables sur une notification)</string>
-    <string name="set_application_none">Aucune (masquer le bouton)</string>
 
     <!-- Aide -->
     <string name="help_and_general_info_title">Aide et informations générales</string>

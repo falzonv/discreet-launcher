@@ -19,6 +19,7 @@
 	<!-- Information messages -->
     <string name="info_no_favorites_yet">You can add your favorites applications here\nby clicking the button below.</string>
 	<string name="info_applications_list_refreshed">Applications list refreshed</string>
+    <string name="info_favorites_access">Access to favorites</string>
 
     <!-- Error messages -->
     <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
@@ -77,17 +78,8 @@
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use the real icons)</string>
     <string name="notification_settings_title">Quick access notification</string>
-    <string name="notification_settings_help">A notification allowing to open 3 applications can be displayed when the launcher is in background.</string>
+    <string name="notification_settings_help">A notification allowing to access favorites when the launcher is in background.</string>
     <string name="set_display_notification">Display the notification</string>
-    <string name="set_notification_text">Text above the buttons</string>
-    <string name="set_notification_text_default">(choose apps/text in the settings)</string>
-    <string name="set_hide_on_lock_screen">Hide on lock screen</string>
-    <string name="set_hide_on_lock_screen_hint">(Go to home screen to apply)</string>
-    <string name="set_applications_hint">(Limited to 3 applications because no more buttons can be shown on a notification)</string>
-    <string name="set_application1" translatable="false">Application 1</string>
-    <string name="set_application2" translatable="false">Application 2</string>
-    <string name="set_application3" translatable="false">Application 3</string>
-    <string name="set_application_none">None (hide the button)</string>
 
     <!-- Help -->
     <string name="help_and_general_info_title">Help and general information</string>

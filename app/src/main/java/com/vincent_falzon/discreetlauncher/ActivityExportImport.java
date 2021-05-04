@@ -155,14 +155,7 @@ public class ActivityExportImport extends AppCompatActivity
 		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(Constants.ICON_PACK + ": " + settings.getString(Constants.ICON_PACK, Constants.NONE)) ;
-		exportedData.add(exportBooleanSetting(Constants.DISPLAY_NOTIFICATION, true)) ;
-		String notification_text = settings.getString(Constants.NOTIFICATION_TEXT, getString(R.string.set_notification_text_default)) ;
-		if(notification_text == null) exportedData.add(Constants.NOTIFICATION_TEXT + ": " + getString(R.string.set_notification_text_default)) ;
-			else exportedData.add(Constants.NOTIFICATION_TEXT + ": " + notification_text.replace("\n", "\\n")) ;
-		exportedData.add(exportBooleanSetting(Constants.HIDE_ON_LOCK_SCREEN, true)) ;
-		exportedData.add(Constants.NOTIFICATION_APP + "1: " + settings.getString(Constants.NOTIFICATION_APP + "1", Constants.NONE)) ;
-		exportedData.add(Constants.NOTIFICATION_APP + "2: " + settings.getString(Constants.NOTIFICATION_APP + "2", Constants.NONE)) ;
-		exportedData.add(Constants.NOTIFICATION_APP + "3: " + settings.getString(Constants.NOTIFICATION_APP + "3", Constants.NONE)) ;
+		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
 		exportedData.add("#") ;
 
 		// Save all shortcuts icons
@@ -252,12 +245,7 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(Constants.FORCE_PORTRAIT)) loadBooleanSetting(Constants.FORCE_PORTRAIT, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
-				else if(line.startsWith(Constants.DISPLAY_NOTIFICATION)) loadBooleanSetting(Constants.DISPLAY_NOTIFICATION, line) ;
-				else if(line.startsWith(Constants.NOTIFICATION_TEXT)) loadStringSetting(Constants.NOTIFICATION_TEXT, line.replace("\\n", "\n")) ;
-				else if(line.startsWith(Constants.HIDE_ON_LOCK_SCREEN)) loadBooleanSetting(Constants.HIDE_ON_LOCK_SCREEN, line) ;
-				else if(line.startsWith(Constants.NOTIFICATION_APP + "1")) loadStringSetting(Constants.NOTIFICATION_APP + "1", line) ;
-				else if(line.startsWith(Constants.NOTIFICATION_APP + "2")) loadStringSetting(Constants.NOTIFICATION_APP + "2", line) ;
-				else if(line.startsWith(Constants.NOTIFICATION_APP + "3")) loadStringSetting(Constants.NOTIFICATION_APP + "3", line) ;
+				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
 				// Save the shortcuts icons
 				else if(line.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX))
 				{
