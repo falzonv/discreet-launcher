@@ -23,14 +23,21 @@ package com.vincent_falzon.discreetlauncher.core ;
  */
 
 // Imports
+import android.content.ActivityNotFoundException ;
+import android.content.Context ;
 import android.content.Intent ;
+import android.content.pm.LauncherApps ;
 import android.graphics.drawable.Drawable ;
+import android.os.Build ;
+import android.os.UserHandle ;
 import android.view.View ;
 import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import java.net.URISyntaxException ;
 
 /**
- * Represent a web shortcut with its name and icon.
+ * Represent a shortcut with its name and icon.
  */
 public class Shortcut extends Application
 {
@@ -48,34 +55,65 @@ public class Shortcut extends Application
 
 
 	/**
-	 * Get the specific activity intent.
-	 * @return An intent specially created to launch this activity as a new task
-	 */
-	public Intent getActivityIntent()
-	{
-		// If the application is a shortcut before Oreo, return its intent (cannot be null in practice)
-		if(apk.equals(Constants.APK_SHORTCUT_LEGACY))
-			{
-				try { return Intent.parseUri(name, 0) ; }
-				catch(URISyntaxException e) { return null ; }
-			}
-
-		// If the application is a shortcut with Oreo or higher, create a special Intent
-		Intent intent = new Intent() ;
-		intent.setClassName("com.vincent_falzon.discreetlauncher", "com.vincent_falzon.discreetlauncher.events.ShortcutListener") ;
-		intent.putExtra(Constants.APK_SHORTCUT, name) ;
-		return intent ;
-	}
-
-
-	/**
-	 * Start the web shortcut as a new task.
+	 * Start the shortcut as a new task.
 	 * @param view Element from which the event originates
-	 * @return <code>true</code> if the application was found, <code>false</code> otherwise
+	 * @return <code>true</code> if the shortcut was launched, <code>false</code> otherwise
 	 */
 	public boolean start(View view)
 	{
-		view.getContext().startActivity(getActivityIntent()) ;
-		return true ;
+		// Check the type of shortcut
+		Context context = view.getContext() ;
+		Intent intent ;
+
+		// If this is a shortcut before Oreo, launch it directly
+		if(apk.equals(Constants.APK_SHORTCUT_LEGACY))
+			{
+				try { intent = Intent.parseUri(name, 0) ; }
+				catch(URISyntaxException e) { return false ; }
+				context.startActivity(intent) ;
+				return true ;
+			}
+
+		// If this is a shortcut with Oreo or higher, extract the shortcut details
+		String[] shortcut = name.split(Constants.SHORTCUT_SEPARATOR) ;
+		if(shortcut.length != 3)
+			{
+				ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_missing_info)) ;
+				return false ;
+			}
+
+		// Try to retrieve the user ID, use 0 if not found (0 is "System", the most commonly used)
+		int user_id ;
+		try { user_id = Integer.parseInt(shortcut[2]) ; }
+		catch(NumberFormatException e) { user_id = 0 ; }
+
+		// Check if the system can manage these shortcuts
+		LauncherApps launcher = (LauncherApps)context.getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1)
+			{
+				// Check if the launcher can start shortcuts
+				if(!launcher.hasShortcutHostPermission())
+					{
+						ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_not_default_launcher)) ;
+						return false ;
+					}
+
+				try
+				{
+					// Try to launch the shortcut
+					launcher.startShortcut(shortcut[0], shortcut[1], null, null, UserHandle.getUserHandleForUid(user_id)) ;
+				}
+				catch(ActivityNotFoundException | IllegalStateException e)
+				{
+					ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_start)) ;
+					return false ;
+				}
+				return true ;
+			}
+			else
+			{
+				ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_start)) ;
+				return false ;
+			}
 	}
 }

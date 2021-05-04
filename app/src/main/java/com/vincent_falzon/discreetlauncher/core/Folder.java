@@ -110,16 +110,6 @@ public class Folder extends Application
 
 
 	/**
-	 * Get the specific activity intent.
-	 * @return Always <code>null</code> as it is not applicable to folders
-	 */
-	public Intent getActivityIntent()
-	{
-		return null ;
-	}
-
-
-	/**
 	 * Add an application to the folder if it is not already there.
 	 * @param application To add
 	 */
@@ -179,7 +169,7 @@ public class Folder extends Application
 		popupView.setOnTouchListener(new PopupTouchListener()) ;
 
 		// Display the popup
-		popup.showAtLocation(parent, Gravity.CENTER, 0, 0);
+		popup.showAtLocation(parent, Gravity.CENTER, 0, 0) ;
 		return true ;
 	}
 

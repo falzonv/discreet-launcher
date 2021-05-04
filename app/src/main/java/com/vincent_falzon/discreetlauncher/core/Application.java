@@ -37,8 +37,8 @@ public class Application
 	// Attributes
 	String display_name ;
 	String name ;
-	String apk ;
-	Drawable icon ;
+	final String apk ;
+	final Drawable icon ;
 
 
 	/**
@@ -98,20 +98,6 @@ public class Application
 
 
 	/**
-	 * Get the specific activity intent.
-	 * @return An intent specially created to launch this activity as a new task
-	 */
-	public Intent getActivityIntent()
-	{
-		Intent intent = new Intent(Intent.ACTION_MAIN) ;
-		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
-		intent.setClassName(apk, name) ;
-		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-		return intent ;
-	}
-
-
-	/**
 	 * Start the application as a new task.
 	 * @param view Element from which the event originates
 	 * @return <code>true</code> if the application was found, <code>false</code> otherwise
@@ -126,7 +112,10 @@ public class Application
 		if(packageIntent == null) return false ;
 
 		// Try to launch the specific intent of the application
-		Intent activityIntent = getActivityIntent() ;
+		Intent activityIntent = new Intent(Intent.ACTION_MAIN) ;
+		activityIntent.addCategory(Intent.CATEGORY_LAUNCHER) ;
+		activityIntent.setClassName(apk, name) ;
+		activityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 		if(activityIntent.resolveActivity(apkManager) != null) context.startActivity(activityIntent) ;
 			else
 			{

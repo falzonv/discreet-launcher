@@ -23,7 +23,6 @@ package com.vincent_falzon.discreetlauncher.events ;
  */
 
 // Imports
-import android.content.ActivityNotFoundException ;
 import android.content.Context ;
 import android.content.Intent ;
 import android.content.pm.LauncherApps ;
@@ -33,7 +32,6 @@ import android.graphics.Canvas ;
 import android.graphics.drawable.Drawable ;
 import android.os.Build ;
 import android.os.Bundle ;
-import android.os.UserHandle ;
 import androidx.appcompat.app.AppCompatActivity ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
@@ -103,68 +101,12 @@ public class ShortcutListener extends AppCompatActivity
 						else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
 
 						// Go back to the home screen
-						returnToHomeScreen() ;
-					}
-
-				// Check if a shortcut should be started
-				if(intent.getExtras() == null) returnToHomeScreen() ;
-					else
-					{
-						// Retrieve the shortcut line provided by the caller
-						String shortcut_line = intent.getExtras().getString(Constants.APK_SHORTCUT) ;
-						if(shortcut_line == null) returnToHomeScreen() ;
-							else
-							{
-								// Extract the shortcut details
-								String[] shortcut = shortcut_line.split(Constants.SHORTCUT_SEPARATOR) ;
-								if(shortcut.length == 3)
-									{
-										// Try to retrieve the user ID, use 0 if not found (0 is "System", the most commonly used)
-										int user_id ;
-										try { user_id = Integer.parseInt(shortcut[2]) ; }
-										catch(NumberFormatException e) { user_id = 0 ; }
-
-										// Check if the shortcut can be launched
-										LauncherApps launcher = (LauncherApps)getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
-										if(launcher.hasShortcutHostPermission())
-											{
-												try
-												{
-													// Try to launch the shortcut
-													launcher.startShortcut(shortcut[0], shortcut[1], null, null, UserHandle.getUserHandleForUid(user_id)) ;
-												}
-												catch(ActivityNotFoundException | IllegalStateException e)
-												{
-													ShowDialog.toastLong(this, getString(R.string.error_shortcut_start)) ;
-													returnToHomeScreen() ;
-												}
-											}
-											else
-											{
-												ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
-												returnToHomeScreen() ;
-											}
-									}
-									else
-									{
-										ShowDialog.toastLong(this, getString(R.string.error_shortcut_missing_info)) ;
-										returnToHomeScreen() ;
-									}
-							}
+						Intent homeIntent = new Intent() ;
+						homeIntent.setClass(this, ActivityMain.class) ;
+						homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+						startActivity(homeIntent) ;
 					}
 			}
-	}
-
-
-	/**
-	 * Return to the home screen activity.
-	 */
-	private void returnToHomeScreen()
-	{
-		Intent intent = new Intent() ;
-		intent.setClass(this, ActivityMain.class) ;
-		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-		startActivity(intent) ;
 	}
 
 
