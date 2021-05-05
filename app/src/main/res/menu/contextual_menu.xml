@@ -2,10 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<item
-		android:id="@+id/menu_action_refresh_list"
-		android:title="@string/button_refresh_list"/>
-
-	<item
 		android:id="@+id/menu_action_manage_favorites"
 		android:title="@string/button_manage_favorites"/>
 
@@ -16,6 +12,10 @@
     <item
         android:id="@+id/menu_action_hide_applications"
         android:title="@string/button_hide_applications"/>
+
+    <item
+        android:id="@+id/menu_action_refresh_list"
+        android:title="@string/button_refresh_list"/>
 
     <item
         android:id="@+id/menu_action_settings"
