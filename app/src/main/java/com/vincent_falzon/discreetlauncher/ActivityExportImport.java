@@ -131,7 +131,7 @@ public class ActivityExportImport extends AppCompatActivity
 	{
 		// Prepare the export file header
 		ArrayList<String> exportedData = new ArrayList<>() ;
-		exportedData.add("# Export " + getString(R.string.app_name) + " (" + SimpleDateFormat.getDateTimeInstance().format(new Date()) + ")") ;
+		exportedData.add("# Export " + getString(R.string.app_name) + " " + getString(R.string.app_version) + " (" + SimpleDateFormat.getDateTimeInstance().format(new Date()) + ")") ;
 		exportedData.add("# " + getString(R.string.export_import_file_edit_warning)) ;
 		exportedData.add("#") ;
 
@@ -158,12 +158,14 @@ public class ActivityExportImport extends AppCompatActivity
 		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
 		exportedData.add("#") ;
 
-		// Save all shortcuts icons
-		exportedData.add("# " + getString(R.string.export_import_shortcuts_icons)) ;
+		// Save all folders and shortcuts icons
+		exportedData.add("# " + getString(R.string.export_import_icons)) ;
+		String[] folders_icons = InternalFile.searchFilesStartingWith(this, Constants.FILE_ICON_FOLDER_PREFIX) ;
+		if(folders_icons != null)
+			for(String icon : folders_icons) exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;
 		String[] shortcuts_icons = InternalFile.searchFilesStartingWith(this, Constants.FILE_ICON_SHORTCUT_PREFIX) ;
 		if(shortcuts_icons != null)
-			for(String icon : shortcuts_icons)
-				exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;
+			for(String icon : shortcuts_icons) exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;
 		exportedData.add("#") ;
 
 		// Write all lines in the export file
@@ -245,6 +247,13 @@ public class ActivityExportImport extends AppCompatActivity
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
+				// Save the folders icons
+				else if(line.startsWith(Constants.FILE_ICON_FOLDER_PREFIX))
+				{
+					if(line.indexOf(": ") <= 0) continue ;
+					InternalFilePNG icon_file = new InternalFilePNG(line.substring(0, line.indexOf(": "))) ;
+					icon_file.loadFromImport(line) ;
+				}
 				// Save the shortcuts icons
 				else if(line.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX))
 				{

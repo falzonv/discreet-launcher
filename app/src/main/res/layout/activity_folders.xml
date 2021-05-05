@@ -41,6 +41,11 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:text="@string/folders_edit_help"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:text="@string/folders_remove_help"/>
 
     <androidx.recyclerview.widget.RecyclerView

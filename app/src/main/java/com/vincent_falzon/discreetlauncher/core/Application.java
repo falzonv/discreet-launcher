@@ -38,7 +38,7 @@ public class Application
 	String display_name ;
 	String name ;
 	final String apk ;
-	final Drawable icon ;
+	Drawable icon ;
 
 
 	/**
@@ -94,6 +94,16 @@ public class Application
 	public Drawable getIcon()
 	{
 		return icon ;
+	}
+
+
+	/**
+	 * Set a new icon for the application.
+	 * @param new_icon Icon displayed in the menus
+	 */
+	public void setIcon(Drawable new_icon)
+	{
+		icon = new_icon ;
 	}
 
 

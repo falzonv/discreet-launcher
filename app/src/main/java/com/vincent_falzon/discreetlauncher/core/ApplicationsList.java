@@ -169,10 +169,10 @@ public class ApplicationsList
 		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files == null) return ;
 
-		// Use the notification icon as folder icon
-		Drawable icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
+		// Use the notification icon as default folder icon
+		Drawable default_icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
-		if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
+		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// Browse the name of all folders files
 		ArrayList<Folder> folders = new ArrayList<>() ;
@@ -182,9 +182,15 @@ public class ApplicationsList
 			InternalFileTXT file = new InternalFileTXT(filename) ;
 			if(!file.exists()) continue ;
 
-			// Retrieve the name of the folder and create it
-			String display_name = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;
-			Folder folder = new Folder(display_name, icon) ;
+			// Try to retrieve the folder icon or use the default icon
+			String folder_name = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;
+			InternalFilePNG icon_file = new InternalFilePNG(Constants.FILE_ICON_FOLDER_PREFIX + folder_name + ".png") ;
+			Drawable icon = icon_file.convertBitmapToDrawable(context, icon_file.readFromFile()) ;
+			if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
+				else icon = default_icon ;
+
+			// Create the folder
+			Folder folder = new Folder(folder_name, icon) ;
 
 			// Browse the lines of the file to get the list of applications to put in the folder
 			for(String name : file.readAllLines())
