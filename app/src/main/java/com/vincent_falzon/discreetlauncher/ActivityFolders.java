@@ -105,9 +105,14 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 						return ;
 					}
 
+				// Use the notification icon as folder icon
+				Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.notification_icon, null) ;
+				int icon_size = Math.round(48 * getResources().getDisplayMetrics().density) ;
+				if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
+
 				// Create the folder and update the list
 				file.writeLine("") ;
-				folders.add(new Folder(new_folder_name, null)) ;
+				folders.add(new Folder(new_folder_name, icon)) ;
 				ActivityMain.updateList(this) ;
 				adapter.notifyDataSetChanged() ;
 			}
