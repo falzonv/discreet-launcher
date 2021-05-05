@@ -241,6 +241,9 @@ public class ApplicationsList
 			for(Application application : drawer)
 				if(application.getName().equals(name))
 					{
+						// Remove the application icon to lower memory footprint
+						application.setIcon(null) ;
+
 						// Move the application in the hidden list
 						hidden.add(application) ;
 						drawer.remove(application) ;
