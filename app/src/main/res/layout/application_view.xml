@@ -5,6 +5,6 @@
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
 	android:layout_marginVertical="@dimen/spacing_normal"
-	android:drawablePadding="@dimen/spacing_small"
-	android:gravity="center"
+	android:drawablePadding="@dimen/spacing_very_small"
+	android:gravity="center_horizontal"
 	android:textColor="@color/white"/>
