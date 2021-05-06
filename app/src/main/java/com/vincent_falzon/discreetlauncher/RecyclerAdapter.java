@@ -157,9 +157,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			// Get the clicked position and retrieve the selected application
 			if(view == null) return false ;
 			final Application application = applicationsList.get(getBindingAdapterPosition()) ;
+			final Context context = view.getContext() ;
+
+			// Show visual feedback (will be hidden after click or dismiss)
+			view.setBackgroundColor(context.getResources().getColor(R.color.translucent_white)) ;
 
 			// Prepare and display the selection dialog
-			final Context context = view.getContext() ;
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
 			if(application.getApk().startsWith(Constants.APK_SHORTCUT))
 				{
@@ -171,6 +174,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							public void onClick(DialogInterface dialogInterface, int i)
 							{
 								// Remove the shortcut from the file and update the applications list
+								view.setBackground(null) ;
 								ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
 								ActivityMain.updateList(context) ;
 								notifyDataSetChanged() ;
@@ -186,6 +190,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							@Override
 							public void onClick(DialogInterface dialogInterface, int i)
 							{
+								view.setBackground(null) ;
 								if(application.getApk().startsWith(Constants.APK_FOLDER))
 										context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
 									else
@@ -206,8 +211,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					public void onClick(DialogInterface dialogInterface, int i)
 					{
 						// Start the application and display an error message if it was not found
+						view.setBackground(null) ;
 						if(!application.start(view))
 							ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+					}
+				}) ;
+			dialog.setOnDismissListener(new DialogInterface.OnDismissListener()
+				{
+					@Override
+					public void onDismiss(DialogInterface dialog)
+					{
+						view.setBackground(null) ;
 					}
 				}) ;
 			dialog.show() ;
