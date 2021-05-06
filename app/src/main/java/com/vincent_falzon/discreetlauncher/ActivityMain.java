@@ -123,8 +123,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				applicationsList.update(this) ;
 			}
 
-		// If the option is selected, force the portrait mode
+		// Update the display according to settings
 		togglePortraitMode() ;
+		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
 
 		// Initialize the clock listener
 		minuteListener = new MinuteListener((TextView)findViewById(R.id.clock_text)) ;
@@ -256,6 +257,18 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				// Make the navigation bar transparent
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
 			}
+	}
+
+
+	/**
+	 * Display or hide the system bars (immersive mode).
+	 * @param display <code>true</code> to display, <code>false</code> to hide
+	 */
+	private void displaySystemBars(boolean display)
+	{
+		View decorView = getWindow().getDecorView() ;
+		if(display) decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE) ;
+			else decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 	}
 
 
@@ -494,6 +507,17 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			// Ignore other gestures
 			return false ;
 		}
+
+		/**
+		 * Detect a long click on the home screen.
+		 * @param event Click point
+		 */
+		@Override
+		public void onLongPress(MotionEvent event)
+		{
+			// Update the display according to settings
+			if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
+		}
 	}
 
 
@@ -612,6 +636,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Let the parent actions be performed
 		super.onPause() ;
 
+		// Always show the system bars
+		displaySystemBars(true) ;
+
 		// If the option is selected, display the notification
 		if(settings.getBoolean(Constants.NOTIFICATION, true))
 			notificationMenu.display(this) ;
@@ -639,6 +666,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Update the display according to settings
 		minuteListener.updateClock() ;
 		togglePortraitMode() ;
+		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
 
 		// Update the favorites panel and applications drawer display if needed
 		if(adapters_update_needed) updateAdapters() ;

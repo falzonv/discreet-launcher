@@ -70,6 +70,8 @@
     <string name="set_notification">Notification d\'accès aux favoris</string>
     <string name="display_settings_title">Affichage</string>
     <string name="display_settings_general_title">Général</string>
+    <string name="set_immersive_mode">Activer le mode immersif</string>
+    <string name="set_immersive_mode_help">Masque les barres systèmes (clic long sur l\'écran d\'accueil pour forcer si besoin)</string>
     <string name="set_hide_app_names">Masquer les noms des applications</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
@@ -118,6 +120,7 @@
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_v3_text"><b>v3.4.0</b>
         \n- Icônes pour les dossiers (idée AeOeAa)
+        \n- <u><i>Option</i></u> mode immersif (idée KaiFujiro)
         \n
         \n<b>v3.3.0 - 04/05/2021</b>
         \n- Notification ouvre maintenant les favoris (idée xi7)

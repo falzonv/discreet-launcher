@@ -14,8 +14,9 @@ Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile
 - Export/import des paramètres
 - Aide et journal des changements
 
-2/ Personnalisation
-- Forcer le mode portrait
+2/ Options de personnalisation
+- Mode portrait forcé
+- Mode immersif
 - Heure sur l'écran d'accueil
 - Barre de statut transparente
 - Masquer les noms des applications

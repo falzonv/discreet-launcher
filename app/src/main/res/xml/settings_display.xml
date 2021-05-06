@@ -11,6 +11,13 @@
         app:iconSpaceReserved="false">
 
         <SwitchPreference
+            app:key="immersive_mode"
+            app:title="@string/set_immersive_mode"
+            app:summary="@string/set_immersive_mode_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
             app:key="hide_app_names"
             app:title="@string/set_hide_app_names"
             app:iconSpaceReserved="false"
@@ -30,6 +37,13 @@
         app:iconSpaceReserved="false">
 
         <SwitchPreference
+            app:key="transparent_status_bar"
+            app:title="@string/set_transparent_status_bar"
+            app:summary="@string/set_transparent_status_bar_hint"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
             app:key="display_clock"
             app:title="@string/set_display_clock"
             app:iconSpaceReserved="false"
@@ -42,13 +56,6 @@
             app:defaultValue="HH:mm"
             app:dependency="display_clock"
             app:useSimpleSummaryProvider="true"/>
-
-        <SwitchPreference
-            app:key="transparent_status_bar"
-            app:title="@string/set_transparent_status_bar"
-            app:summary="@string/set_transparent_status_bar_hint"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
 
     </PreferenceCategory>
 

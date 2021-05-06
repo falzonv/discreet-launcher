@@ -70,6 +70,8 @@
     <string name="set_notification">Notification for favorites access</string>
     <string name="display_settings_title">Display</string>
     <string name="display_settings_general_title">General</string>
+    <string name="set_immersive_mode">Enable immersive mode</string>
+    <string name="set_immersive_mode_help">Hide system bars (long press on home screen to force if needed)</string>
     <string name="set_hide_app_names">Hide applications names</string>
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use the real icons)</string>
@@ -119,6 +121,7 @@
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.4.0</b>
         \n- Icons for folders (idea AeOeAa)
+        \n- <u><i>Option</i></u> immersive mode (idea KaiFujiro)
         \n
         \n<b>v3.3.0 - 04/05/2021</b>
         \n- Notification now opens favorites (idea xi7)
