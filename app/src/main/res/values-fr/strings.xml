@@ -71,6 +71,7 @@
     <string name="set_immersive_mode">Activer le mode immersif</string>
     <string name="set_immersive_mode_help">Masque les barres systèmes (clic long sur l\'écran d\'accueil pour forcer si besoin)</string>
     <string name="set_hide_app_names">Masquer les noms des applications</string>
+    <string name="set_hide_app_names_help">Les noms des dossiers seront toujours affichés</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
     <string name="display_settings_home_screen_title">Écran d\'accueil</string>
@@ -117,10 +118,14 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_v3_text"><b>v3.4.0</b>
+        \n- Réduire l\'écart icône-texte (idée xi7/AeOeAa)
+        \n- Retour visuel lors d\'un clic long (idée xi7)
+        \n- Bouton actualiser plus bas dans le menu
         \n- <u><i>Option</i></u> mode immersif (idée KaiFujiro)
+        \n- <u><i>Fix</i></u> noms dossiers masqués (merci AeOeAa)
         \n
         \n<b>v3.3.0 - 04/05/2021</b>
-        \n- Notification ouvre maintenant les favoris (idée xi7)
+        \n- Notification ouvre les favoris (idée xi7)
         \n- Dossiers en haut de la liste (idée xi7)
         \n- Amélioration de l\'aide (merci AeOeAa)
         \n- Plusieurs simplifications internes

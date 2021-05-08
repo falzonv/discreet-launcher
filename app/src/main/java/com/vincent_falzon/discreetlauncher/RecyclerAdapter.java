@@ -37,6 +37,7 @@ import android.view.View ;
 import android.view.ViewGroup ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
+import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
 import java.util.ArrayList ;
 
@@ -88,7 +89,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	{
 		appView.name.setText(applicationsList.get(i).getDisplayName()) ;
 		appView.name.setCompoundDrawables(null, applicationsList.get(i).getIcon(), null, null) ;
-		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)) appView.name.setTextSize(0) ;
+
+		// If the option is selected, hide applications names (but not folders names)
+		if(!(applicationsList.get(i) instanceof Folder) && settings.getBoolean(Constants.HIDE_APP_NAMES, false))
+				appView.name.setTextSize(0) ;
 			else appView.name.setTextSize(14) ;
 	}
 

@@ -20,6 +20,7 @@
         <SwitchPreference
             app:key="hide_app_names"
             app:title="@string/set_hide_app_names"
+            app:summary="@string/set_hide_app_names_help"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
