@@ -141,18 +141,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		@Override
 		public void onClick(View view)
 		{
-			// Start the application and close all potentially displayed folders
+			// Start the application
 			Application application = applicationsList.get(getBindingAdapterPosition()) ;
 			if(application.start(view))
 				{
+					// Close all potentially displayed folders
 					if(!(application instanceof Folder)) ActivityMain.closeFolders() ;
 					return ;
 				}
 
 			// Display an error message if the application was not found
 			Context context = view.getContext() ;
-			String display_name = applicationsList.get(getBindingAdapterPosition()).getDisplayName() ;
-			ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, display_name)) ;
+			ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
 		}
 
 

@@ -375,7 +375,7 @@ public class ApplicationsList
 
 	/**
 	 * For display in the drawer.
-	 * @return List of folders and applications not in folders
+	 * @return List of what should appear in the applications drawer
 	 */
 	public ArrayList<Application> getDrawer()
 	{

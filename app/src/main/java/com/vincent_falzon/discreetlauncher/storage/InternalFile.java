@@ -48,33 +48,12 @@ public class InternalFile
 
 
 	/**
-	 * Return the name of the internal file without the path.
-	 * @return Name of the file
-	 */
-	public String getName()
-	{
-		return file.getName() ;
-	}
-
-
-	/**
 	 * Check if the internal file exists on the system.
 	 * @return <code>true</code> if it exists, <code>false</code> otherwise
 	 */
 	public boolean exists()
 	{
 		return file.exists() ;
-	}
-
-
-	/**
-	 * Rename the internal file.
-	 * @param new_filename New name including the extension
-	 * @return <code>true</code> if successful, <code>false</code> otherwise
-	 */
-	public boolean rename(String new_filename)
-	{
-		return file.renameTo(new File(getInternalFolder(), new_filename)) ;
 	}
 
 
@@ -86,6 +65,27 @@ public class InternalFile
 	{
 		if(!exists()) return true ;
 		return file.delete() ;
+	}
+
+
+	/**
+	 * Return the name of the internal file without the path.
+	 * @return Name of the file
+	 */
+	public String getName()
+	{
+		return file.getName() ;
+	}
+
+
+	/**
+	 * Rename the internal file.
+	 * @param new_filename New name including the extension
+	 * @return <code>true</code> if successful, <code>false</code> otherwise
+	 */
+	public boolean rename(String new_filename)
+	{
+		return file.renameTo(new File(getInternalFolder(), new_filename)) ;
 	}
 
 
