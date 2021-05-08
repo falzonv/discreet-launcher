@@ -120,7 +120,9 @@
     <string name="changelog_v3_text"><b>v3.4.0</b>
         \n- Réduire l\'écart icône-texte (idée xi7/AeOeAa)
         \n- Retour visuel lors d\'un clic long (idée xi7)
+        \n- Dossiers premiers dans les favoris (idée xi7)
         \n- Bouton actualiser plus bas dans le menu
+        \n- Améliorations dans l\'organiseur de dossiers
         \n- <u><i>Option</i></u> mode immersif (idée KaiFujiro)
         \n- <u><i>Fix</i></u> noms dossiers masqués (merci AeOeAa)
         \n- <u><i>Fix</i></u> dossier reste ouvert (merci xi7)

@@ -121,7 +121,9 @@
     <string name="changelog_v3_text"><b>v3.4.0</b>
         \n- Reduce icon-text padding (idea xi7/AeOeAa)
         \n- Visual feedback on long click (idea xi7)
+        \n- Folders first in favorites (idea xi7)
         \n- Refresh button lower in the menu
+        \n- Improvements in folders organizer
         \n- <u><i>Option</i></u> immersive mode (idea KaiFujiro)
         \n- <u><i>Fix</i></u> hidden folder names (thanks AeOeAa)
         \n- <u><i>Fix</i></u> folder stays opened (thanks xi7)

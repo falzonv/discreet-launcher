@@ -132,31 +132,21 @@ public class ApplicationsList
 	{
 		// Initializations
 		favorites.clear() ;
-		InternalFileTXT file = new InternalFileTXT(Constants.FILE_FAVORITES) ;
-		if(!file.exists()) return ;
+		ArrayList<String> favorites_file = new InternalFileTXT(Constants.FILE_FAVORITES).readAllLines() ;
+		if(favorites_file == null) return ;
 
-		// Retrieve and browse the internal names of all favorites applications
-		for(String name : file.readAllLines())
+		// Browse the sorted applications list
+		for(Application application : getApplications(true))
 		{
-			// Search the internal name in the applications list
-			for(Application application : getApplications(true))
-				if(application.getName().equals(name))
+			// Search the internal name in the favorites file
+			for(String line : favorites_file)
+				if(application.getName().equals(line))
 					{
 						// Add the application to the favorites and move to the next line
 						if(!favorites.contains(application)) favorites.add(application) ;
 						break ;
 					}
 		}
-
-		// Sort the favorites applications list by alphabetic order
-		Collections.sort(favorites, new Comparator<Application>()
-		{
-			@Override
-			public int compare(Application application1, Application application2)
-			{
-				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
-			}
-		}) ;
 	}
 
 
@@ -341,13 +331,14 @@ public class ApplicationsList
 	{
 		// Aggregate all applications in one list
 		ArrayList<Application> allApplications = new ArrayList<>() ;
+		ArrayList<Folder> folders = new ArrayList<>() ;
 		for(Application application : drawer)
 		{
 			// Add all applications whether or not they are in folders
 			if(application instanceof Folder)
 				{
 					allApplications.addAll(((Folder)application).getApplications()) ;
-					if(with_folders) allApplications.add(application) ;
+					folders.add((Folder)application) ;
 				}
 				else allApplications.add(application) ;
 		}
@@ -361,6 +352,21 @@ public class ApplicationsList
 				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
 			}
 		}) ;
+
+		// If requested, add folders at the beginning of the list
+		if(with_folders)
+			{
+				// Sort the folders and add them at the beginning of the list
+				Collections.sort(folders, new Comparator<Folder>()
+				{
+					@Override
+					public int compare(Folder folder1, Folder folder2)
+					{
+						return folder1.getDisplayName().compareToIgnoreCase(folder2.getDisplayName()) ;
+					}
+				}) ;
+				allApplications.addAll(0, folders) ;
+			}
 
 		// Return the result
 		return allApplications ;
