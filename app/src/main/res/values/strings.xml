@@ -42,13 +42,11 @@
     <string name="dialog_open_or_settings">Do you want to open %1$s or its settings?</string>
     <string name="dialog_open_or_remove">Do you want to open %1$s or remove it?</string>
     <string name="dialog_edit_name">New name</string>
-    <string name="dialog_edit_icon">Choose an application to use its icon</string>
-    <string name="dialog_default_folder_icon">Default folder icon</string>
 
     <!-- Folders -->
     <string name="folders_create_new">New folder</string>
     <string name="folders_create_new_help">You can create as many folders as you want to organize your applications.</string>
-    <string name="folders_edit_help">Click on the icon or name of a folder to change it, the pen allows to edit the folder content.</string>
+    <string name="folders_edit_help">Click on the name of a folder to change it, the pen allows to edit the folder content.</string>
     <string name="folders_remove_help">If a folder is removed, its content will be put back in the main applications list.</string>
 
     <!-- Export / Import -->
@@ -56,7 +54,7 @@
     <string name="export_import_help">These buttons allow you to export the application data (favorites, shortcuts and settings) or to import a previous export.</string>
     <string name="export_import_file_edit_warning">Be careful: if you edit this file, it may produce unexpected results!</string>
     <string name="export_import_internal_files_header">Internal text files content</string>
-    <string name="export_import_icons">Folders and shortcuts icons</string>
+    <string name="export_import_icons">Saved icons</string>
     <string name="export_import_warning_shortcuts">
         (With Android Oreo (8) or higher, imported web applications may not work
         because they are managed by the system and are not supposed to be exported)
@@ -120,7 +118,6 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.4.0</b>
-        \n- Icons for folders (idea AeOeAa)
         \n- <u><i>Option</i></u> immersive mode (idea KaiFujiro)
         \n
         \n<b>v3.3.0 - 04/05/2021</b>

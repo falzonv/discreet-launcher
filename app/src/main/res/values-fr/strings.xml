@@ -42,13 +42,11 @@
     <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres ?</string>
     <string name="dialog_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
     <string name="dialog_edit_name">Nouveau nom</string>
-    <string name="dialog_edit_icon">Choisissez une application pour utiliser son icône</string>
-    <string name="dialog_default_folder_icon">Icône de dossier par défaut</string>
 
     <!-- Dossiers -->
     <string name="folders_create_new">Nouveau dossier</string>
     <string name="folders_create_new_help">Vous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.</string>
-    <string name="folders_edit_help">Cliquez sur l\'icône ou le nom d\'un dossier pour le changer, le crayon permet de modifier le contenu du dossier.</string>
+    <string name="folders_edit_help">Cliquez sur le nom d\'un dossier pour le changer, le crayon permet de modifier le contenu du dossier.</string>
     <string name="folders_remove_help">Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.</string>
 
     <!-- Export / Import -->
@@ -56,7 +54,7 @@
     <string name="export_import_help">Ces boutons permettent d\'exporter les données de l\'application (favoris, raccourcis et paramètres) ou d\'importer un export précédent.</string>
     <string name="export_import_file_edit_warning">Soyez prudent(e) : si vous éditez ce fichier, cela peut produire des résultats inattendus !</string>
     <string name="export_import_internal_files_header">Contenu des fichiers textes internes</string>
-    <string name="export_import_icons">Icônes des dossiers et raccourcis</string>
+    <string name="export_import_icons">Icônes sauvegardées</string>
     <string name="export_import_warning_shortcuts">
         (Avec Android Oreo (8) ou plus récent, les applications web importées peuvent ne pas marcher
         car elles sont gérées par le système et ne sont pas supposées être exportables)
@@ -119,7 +117,6 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_v3_text"><b>v3.4.0</b>
-        \n- Icônes pour les dossiers (idée AeOeAa)
         \n- <u><i>Option</i></u> mode immersif (idée KaiFujiro)
         \n
         \n<b>v3.3.0 - 04/05/2021</b>

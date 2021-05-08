@@ -7,19 +7,10 @@
     android:orientation="horizontal"
     android:gravity="center">
 
-    <ImageView
-        android:id="@+id/edit_folder_icon"
-        android:layout_height="48dp"
-        android:layout_width="48dp"
-        android:background="@color/translucent_gray"
-        android:scaleType="fitCenter"
-        android:contentDescription="@string/button_add"/>
-
     <TextView
         android:id="@+id/edit_folder_name"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:padding="@dimen/spacing_very_small"
         android:textStyle="bold"
         android:gravity="center_vertical"/>
 
