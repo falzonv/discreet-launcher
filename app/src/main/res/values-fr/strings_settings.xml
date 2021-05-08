@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Paramètres -->
+    <string name="settings_title">Paramètres / Aide</string>
+    <string name="set_customization_title">Personnalisation</string>
+    <string name="set_force_portrait">Forcer le mode portrait</string>
+    <string name="set_notification">Notification d\'accès aux favoris</string>
+    <string name="display_settings_title">Affichage</string>
+    <string name="display_settings_general_title">Général</string>
+    <string name="set_immersive_mode">Activer le mode immersif</string>
+    <string name="set_immersive_mode_help">Masque les barres systèmes (clic long sur l\'écran d\'accueil pour forcer si besoin)</string>
+    <string name="set_hide_app_names">Masquer les noms des applications</string>
+    <string name="set_hide_app_names_help">Les noms des dossiers seront toujours affichés</string>
+    <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
+    <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
+    <string name="display_settings_home_screen_title">Écran d\'accueil</string>
+    <string name="set_display_clock">Afficher l\'horloge</string>
+    <string name="set_clock_format">Format de l\'horloge</string>
+    <string name="set_clock_format_24h">24 heures</string>
+    <string name="set_clock_format_12h">12 heures</string>
+    <string name="set_clock_format_12h_ampm">12 heures + AM/PM</string>
+    <string name="set_transparent_status_bar">Barre de statut transparente</string>
+    <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
+
+    <!-- Export / Import -->
+    <string name="export_import_title">Exporter / Importer</string>
+    <string name="export_import_help">Ces boutons permettent d\'exporter les données de l\'application (favoris, raccourcis et paramètres) ou d\'importer un export précédent.</string>
+    <string name="export_import_file_edit_warning">Soyez prudent(e) : si vous éditez ce fichier, cela peut produire des résultats inattendus !</string>
+    <string name="export_import_internal_files_header">Contenu des fichiers textes internes</string>
+    <string name="export_import_icons">Icônes sauvegardées</string>
+    <string name="export_import_warning_shortcuts">
+        (Avec Android Oreo (8) ou plus récent, les applications web importées peuvent ne pas marcher
+        car elles sont gérées par le système et ne sont pas supposées être exportables)
+    </string>
+    <string name="export_completed">Export terminé</string>
+
+    <!-- Aide -->
+    <string name="help_and_general_info_title">Aide et informations générales</string>
+    <string name="help_title">Aide</string>
+    <string name="help_navigation_title">Navigation</string>
+    <string name="help_navigation_text">
+        Depuis l\'écran d\'accueil, tirez vers le bas pour afficher le panneau des favoris et vers le haut pour le masquer.
+        \n
+        \nSi vous tirez vers le haut quand le panneau des favoris est caché, la liste complète des applications s\'affiche.
+        Tirez vers le bas depuis le haut de cette liste pour revenir à l\'accueil.
+        \n
+        \nPressez le bouton sous le panneau des favoris pour afficher le menu du lanceur.
+        \n
+        \nEn maintenant le doigt quelques instants sur une application ou un dossier, il vous sera proposé d\'accéder à ses paramètres.
+    </string>
+    <string name="help_list_update_title">Mise à jour de la liste</string>
+    <string name="help_list_update_text">
+        La liste des applications et leurs icônes ne sont actualisées qu\'après certains évènements
+        (au démarrage, lorsqu\'une application est ajoutée ou supprimée, quand le pack d\'icônes est modifié).
+        Quand cela se produit, un petit message apparaît dans une bulle pendant quelques instants.
+        \n
+        \nSi quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
+    </string>
+    <string name="help_folders_title">Dossiers</string>
+    <string name="help_folders_text">
+        Vous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.
+        Ces dossiers peuvent aussi être ajoutés dans les favoris.
+        Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.
+        \n
+        \nUne application ne peut être que dans un seul dossier à la fois (ou dans aucun dossier).
+        Cependant, vous pouvez avoir à la fois une application et le dossier contenant cette application dans les favoris.
+    </string>
+
+    <!-- Journal des changements -->
+    <string name="changelog_title">Journal des changements</string>
+    <string name="changelog_v3_text"><b>v3.4.0</b>
+        \n- Réduire l\'écart icône-texte (idée xi7/AeOeAa)
+        \n- Retour visuel lors d\'un clic long (idée xi7)
+        \n- Dossiers premiers dans les favoris (idée xi7)
+        \n- Bouton actualiser plus bas dans le menu
+        \n- Améliorations dans l\'organiseur de dossiers
+        \n- <u><i>Option</i></u> mode immersif (idée KaiFujiro)
+        \n- <u><i>Fix</i></u> noms dossiers masqués (merci AeOeAa)
+        \n- <u><i>Fix</i></u> dossier reste ouvert (merci xi7)
+        \n
+        \n<b>v3.3.0 - 04/05/2021</b>
+        \n- Notification ouvre les favoris (idée xi7)
+        \n- Dossiers en haut de la liste (idée xi7)
+        \n- Amélioration de l\'aide (merci AeOeAa)
+        \n- Plusieurs simplifications internes
+        \n- <u><i>Fix</i></u> bug renommage dossier (merci AeOeAa)
+        \n
+        \n<b>v3.2.0 - 26/04/2021</b>
+        \n- Message \"aucun favori\" mieux intégéré
+        \n- <u><i>Option</i></u> cacher noms des applis (idée tuch96)
+        \n- <u><i>Option</i></u> format 12 heures (idée drewski-00h)
+        \n
+        \n<b>v3.1.0 - 23/04/2021</b>
+        \n- Dossiers (idée xi7)
+        \n- Gestion des applis cachées améliorée
+        \n- <u><i>Fix</i></u> fermeture imprévue du tiroir
+        \n- <u><i>Fix</i></u> favoris dupliqués
+        \n- <u><i>Fix</i></u> pack d\'icônes non lu pendant import
+        \n
+        \n<b>v3.0.2 - 17/04/2021</b>
+        \n- <u><i>Fix</i></u> favoris dupliqués (essai)
+        \n- <u><i>Fix</i></u> captures d\'écran sur F-Droid (essai)
+        \n
+        \n<b>v3.0.1 - 16/04/2021</b>
+        \n- <u><i>Fix</i></u> web apps ko (merci zcgrubb/johanbove)
+        \n
+        \n<b>v3.0.0 - 16/04/2021</b>
+        \n- Tiroir d\'applications s\'ouvre encore plus vite
+        \n- Apparence du tiroir plus simple (idée tuch96)
+        \n- Bouton de menu plus élégant (idée tuch96)
+        \n- Boutons export/import plus élégants
+        \n- Réorganisation interne majeure
+        \n- <u><i>Fix</i></u> portrait forcé fonctionne dans le tiroir
+    </string>
+    <string name="changelog_v2_text"><b>v2.6.0 - 11/04/2021</b>
+        \n- Affichage sur 5 colonnes en mode paysage
+        \n- Section pour paramètres d\'affichage
+        \n- <u><i>Option</i></u> portrait forcé à l\'accueil (idée c0bnut)
+        \n
+        \n<b>v2.5.1 - 09/04/2021</b>
+        \n- <u><i>Fix</i></u> possible bug à la création d\'apps web
+        \n
+        \n<b>v2.5.0 - 09/04/2021</b>
+        \n- Mise à jour de la liste après import
+        \n- Icônes pour les nouvelles applications web
+        \n- <u><i>Fix</i></u> favoris max selon écran (merci AeOeAa)
+        \n
+        \n<b>v2.4.0 - 05/04/2021</b>
+        \n- Export/import des paramètres
+        \n- Masquer des applications (idée gicofied9)
+        \n
+        \n<b>v2.3.0 - 02/04/2021</b>
+        \n- Refonte du menu \"Paramètres / Aide\"
+        \n- Intégration du journal des changements
+        \n- <u><i>Option</i></u> texte de notification personnalisable
+        \n- <u><i>Fix</i></u> menu inaccessible avec trop de favoris
+        \n
+        \n<b>v2.2.0 - 28/03/2021</b>
+        \n- Support des raccourcis web (idée johanbove)
+        \n- Plusieurs améliorations internes
+        \n- <u><i>Option</i></u> notification masquée si verrouillé
+        \n
+        \n<b>v2.1.0 - 23/03/2021</b>
+        \n- Notification d\'accès rapide (idée xi7)
+        \n- <u><i>Fix</i></u> mise à jour depuis l\'accueil (merci xi7)
+        \n
+        \n<b>v2.0.0 - 21/03/2021</b>
+        \n- Mise à jour automatique de la liste quand une application est installée ou désinstallée
+        \n- Réorganisation interne majeure
+    </string>
+    <string name="changelog_v1_text"><b>v1.3.1 - 20/03/2021</b>
+        \n- <u><i>Fix</i></u> crash en ouvrant une appli désinstallée
+        \n
+        \n<b>v1.3.0 - 20/03/2021</b>
+        \n- Mise à jour des icônes quand le pack change
+        \n- <u><i>Option</i></u> barre de statut transparente (idée xi7)
+        \n- <u><i>Option</i></u> horloge à l\'accueil (idée mateimm)
+        \n
+        \n<b>v1.2.0 - 16/03/2021</b>
+        \n- Clic long ouvre options d\'une appli (idée xi7)
+        \n- Amélioration des textes d\'aide
+        \n- <u><i>Fix</i></u> bugs apps du même package (merci xi7)
+        \n
+        \n<b>v1.1.0 - 10/03/2021</b>
+        \n- Support des packs d\'icônes (idée porosjp)
+        \n- Création du menu \"Paramètres / Aide\"
+        \n
+        \n<b>v1.0.2 - 07/03/2021</b>
+        \n- <u><i>Fix</i></u> bug bouton Retour (merci abou123)
+        \n
+        \n<b>v1.0.1 - 27/02/2021</b>
+        \n- Meilleur affichage dans F-Droid
+        \n
+        \n<b>v1.0.0 - 17/02/2021</b>
+        \n- Version initiale
+    </string>
+
+</resources>
