@@ -38,6 +38,7 @@ import android.view.ViewGroup ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
+import com.vincent_falzon.discreetlauncher.core.Shortcut ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
 import java.util.ArrayList ;
 
@@ -140,13 +141,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		@Override
 		public void onClick(View view)
 		{
-			if(!applicationsList.get(getBindingAdapterPosition()).start(view))
+			// Start the application and close all potentially displayed folders
+			Application application = applicationsList.get(getBindingAdapterPosition()) ;
+			if(application.start(view))
 				{
-					// Display an error message if the application was not found
-					Context context = view.getContext() ;
-					String display_name = applicationsList.get(getBindingAdapterPosition()).getDisplayName() ;
-					ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, display_name)) ;
+					if(!(application instanceof Folder)) ActivityMain.closeFolders() ;
+					return ;
 				}
+
+			// Display an error message if the application was not found
+			Context context = view.getContext() ;
+			String display_name = applicationsList.get(getBindingAdapterPosition()).getDisplayName() ;
+			ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, display_name)) ;
 		}
 
 
@@ -168,7 +174,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 			// Prepare and display the selection dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			if(application.getApk().startsWith(Constants.APK_SHORTCUT))
+			if(application instanceof Shortcut)
 				{
 					dialog.setMessage(context.getString(R.string.dialog_open_or_remove, application.getDisplayName())) ;
 					dialog.setPositiveButton(R.string.button_remove,
@@ -195,8 +201,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							public void onClick(DialogInterface dialogInterface, int i)
 							{
 								view.setBackground(null) ;
-								if(application.getApk().startsWith(Constants.APK_FOLDER))
-										context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+								if(application instanceof Folder) context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
 									else
 									{
 										// Open the application system settings
@@ -204,6 +209,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										intent.setData(Uri.parse("package:" + application.getApk())) ;
 										intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 										context.startActivity(intent) ;
+										ActivityMain.closeFolders() ;
 									}
 							}
 						}) ;
@@ -216,8 +222,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					{
 						// Start the application and display an error message if it was not found
 						view.setBackground(null) ;
-						if(!application.start(view))
-							ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+						if(application.start(view))
+								if(!(application instanceof Folder)) ActivityMain.closeFolders() ;
+							else ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
 					}
 				}) ;
 			dialog.setOnDismissListener(new DialogInterface.OnDismissListener()
