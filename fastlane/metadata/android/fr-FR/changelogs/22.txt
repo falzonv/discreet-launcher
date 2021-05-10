@@ -1,0 +1,8 @@
+- Réduire l'écart icône-texte (idée xi7/AeOeAa)
+- Retour visuel lors d'un clic long (idée xi7)
+- Dossiers premiers dans les favoris (idée xi7)
+- Bouton actualiser plus bas dans le menu
+- Améliorations dans l'organiseur de dossiers
+- Option : mode immersif (idée KaiFujiro)
+- Fix : noms dossiers masqués (merci AeOeAa)
+- Fix : dossier reste ouvert (merci xi7)

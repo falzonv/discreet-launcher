@@ -70,7 +70,7 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
-    <string name="changelog_v3_text"><b>v3.4.0</b>
+    <string name="changelog_v3_text"><b>v3.4.0 - 10/05/2021</b>
         \n- Reduce icon-text padding (idea xi7/AeOeAa)
         \n- Visual feedback on long click (idea xi7)
         \n- Folders first in favorites (idea xi7)

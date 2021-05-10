@@ -69,7 +69,7 @@
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_v3_text"><b>v3.4.0</b>
+    <string name="changelog_v3_text"><b>v3.4.0 - 10/05/2021</b>
         \n- Réduire l\'écart icône-texte (idée xi7/AeOeAa)
         \n- Retour visuel lors d\'un clic long (idée xi7)
         \n- Dossiers premiers dans les favoris (idée xi7)

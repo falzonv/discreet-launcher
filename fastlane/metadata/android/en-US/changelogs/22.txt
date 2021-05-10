@@ -1,0 +1,8 @@
+- Reduce icon-text padding (idea xi7/AeOeAa)
+- Visual feedback on long click (idea xi7)
+- Folders first in favorites (idea xi7)
+- Refresh button lower in the menu
+- Improvements in folders organizer
+- Option: immersive mode (idea KaiFujiro)
+- Fix: hidden folder names (thanks AeOeAa)
+- Fix: folder stays opened (thanks xi7)
