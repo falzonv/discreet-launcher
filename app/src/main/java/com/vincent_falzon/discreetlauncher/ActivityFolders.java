@@ -151,7 +151,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 		@Override
 		public void onBindViewHolder(FolderView folderView, int i)
 		{
-			folderView.name.setText(folders.get(i).getDisplayName()) ;
+			folderView.name.setText(folders.get(i).getDisplayNameWithCount()) ;
 		}
 
 
@@ -212,7 +212,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 					{
 						// Ask the user for the new name
 						final EditText newFolderName = new EditText(context) ;
-						newFolderName.setText(folder.getName().replace(Constants.APK_FOLDER, "")) ;
+						newFolderName.setText(folder.getDisplayName()) ;
 						dialog.setTitle(R.string.dialog_edit_name) ;
 						dialog.setView(newFolderName) ;
 						dialog.setPositiveButton(R.string.button_apply,
@@ -264,7 +264,8 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 						int i = 0 ;
 						for(Application application : applications)
 						{
-							app_names[i] = application.getDisplayName() ;
+							if(application instanceof Folder) app_names[i] = ((Folder)application).getDisplayNameWithCount() ;
+								else app_names[i] = application.getDisplayName() ;
 							i++ ;
 						}
 

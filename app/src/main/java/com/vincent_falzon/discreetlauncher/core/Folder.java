@@ -72,7 +72,7 @@ public class Folder extends Application
 	 * Get the display name of the folder followed by the number of elements inside.
 	 * @return Name displayed in the menus
 	 */
-	public String getDisplayName()
+	public String getDisplayNameWithCount()
 	{
 		return display_name + " (" + applications.size() + ")" ;
 	}
@@ -153,7 +153,7 @@ public class Folder extends Application
 
 		// Prepare the folder title
 		TextView popupTitle = popupView.findViewById(R.id.popup_title) ;
-		popupTitle.setText(getDisplayName()) ;
+		popupTitle.setText(getDisplayNameWithCount()) ;
 		popupTitle.setOnClickListener(new ManageFoldersAccessor()) ;
 
 		// Prepare the folder content

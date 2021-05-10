@@ -28,6 +28,7 @@ import android.content.DialogInterface ;
 import android.widget.Toast ;
 import androidx.appcompat.app.AlertDialog ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
+import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
@@ -76,7 +77,8 @@ public abstract class ShowDialog
 		int i = 0 ;
 		for(Application application : applications)
 		{
-			app_names[i] = application.getDisplayName() ;
+			if(application instanceof Folder) app_names[i] = ((Folder)application).getDisplayNameWithCount() ;
+				else app_names[i] = application.getDisplayName() ;
 			i++ ;
 		}
 
