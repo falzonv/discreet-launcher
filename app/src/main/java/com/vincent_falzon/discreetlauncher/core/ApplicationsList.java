@@ -156,13 +156,10 @@ public class ApplicationsList
 	 */
 	private void prepareFolders(Context context)
 	{
+		// Initializations
 		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files == null) return ;
-
-		// Use the notification icon as folder icon
-		Drawable icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
-		if(icon != null) icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// Browse the name of all folders files
 		ArrayList<Folder> folders = new ArrayList<>() ;
@@ -174,7 +171,7 @@ public class ApplicationsList
 
 			// Retrieve the name of the folder and create it
 			String folder_name = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;
-			Folder folder = new Folder(folder_name, icon) ;
+			Folder folder = new Folder(folder_name, null) ;
 
 			// Browse the lines of the file to get the list of applications to put in the folder
 			for(String name : file.readAllLines())
@@ -189,6 +186,11 @@ public class ApplicationsList
 							break ;
 						}
 			}
+
+			// Create the folder icon with the number of applications inside
+			Drawable icon = new FolderIcon(context, folder.getApplications().size()) ;
+			icon.setBounds(0, 0, icon_size, icon_size) ;
+			folder.setIcon(icon) ;
 
 			// Sort the folder content and add it to the list of folders
 			folder.sortFolder() ;
