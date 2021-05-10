@@ -40,6 +40,7 @@ public class FolderIcon extends Drawable
 {
 	// Attribute
 	private final Bitmap icon ;
+	private final int icon_zoom ;
 	private final String number ;
 	private final Paint paint ;
 	private final float density ;
@@ -54,7 +55,8 @@ public class FolderIcon extends Drawable
 	{
 		// Retrieve the folder icon and convert it into a bitmap
 		density = context.getResources().getDisplayMetrics().density ;
-		int icon_size = Math.round(48 * density) ;
+		icon_zoom = Math.round(10 * density) ;
+		int icon_size = Math.round(48 * density) + icon_zoom ;
 		Drawable folderIcon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.notification_icon, null) ;
 		if(folderIcon != null)
 			{
@@ -68,7 +70,7 @@ public class FolderIcon extends Drawable
 		this.number = "" + applications_number ;
 		paint = new Paint() ;
 		paint.setAntiAlias(true) ;
-		paint.setTextSize(14 * density) ;
+		paint.setTextSize(16 * density) ;
 		paint.setColor(context.getResources().getColor(R.color.white)) ;
 		paint.setTextAlign(Paint.Align.CENTER) ;
 	}
@@ -81,8 +83,9 @@ public class FolderIcon extends Drawable
 	@Override
 	public void draw(Canvas canvas)
 	{
-		canvas.drawBitmap(icon, 0, 0, paint);
-		canvas.drawText(number, 24 * density, 39 * density, paint);
+		int center = icon_zoom / 2 ;
+		canvas.drawBitmap(icon, -center, -center, paint);
+		canvas.drawText(number, 24 * density, 42 * density, paint);
 	}
 
 
