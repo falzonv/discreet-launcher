@@ -39,6 +39,7 @@ class NotificationMenu
 {
 	// Attributes
 	private final NotificationManagerCompat manager ;
+	private final Intent intent ;
 
 
 	/**
@@ -49,6 +50,10 @@ class NotificationMenu
 	{
 		// Initializations
 		manager = NotificationManagerCompat.from(context) ;
+
+		// Prepare the intent to display the favorites popup
+		intent = new Intent(Intent.ACTION_MAIN) ;
+		intent.setClassName(context.getPackageName(), context.getPackageName() + ".events.NotificationListener") ;
 
 		// If the Android version is Oreo or higher, create the notification channel
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
@@ -76,8 +81,6 @@ class NotificationMenu
 		builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ; // Hidden on lock screen
 
 		// Define the notification action
-		Intent intent = new Intent(Intent.ACTION_MAIN) ;
-		intent.setClassName(context.getPackageName(), "com.vincent_falzon.discreetlauncher.events.NotificationListener") ;
 		PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, 0) ;
 		builder.setContentIntent(pendingIntent) ;
 
