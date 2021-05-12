@@ -75,6 +75,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private LinearLayout favorites ;
 	private RecyclerAdapter favoritesAdapter ;
 	private MinuteListener minuteListener ;
+	private boolean reverse_interface ;
 
 	// Attributes related to the drawer
 	private RecyclerView drawer ;
@@ -95,15 +96,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Let the parent actions be performed
 		super.onCreate(savedInstanceState) ;
 
-		// Initializations related to the interface
-		setContentView(R.layout.activity_main) ;
-		homeScreen = findViewById(R.id.home_screen) ;
-		favorites = findViewById(R.id.favorites) ;
-		drawer = findViewById(R.id.drawer) ;
-		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
-		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
-
-		// Other initializations
+		// Initializations
 		internal_folder = getApplicationContext().getFilesDir().getAbsolutePath() ;
 
 		// Assign default values to settings not configured yet
@@ -115,6 +108,18 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		convertHiddenApplications() ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 		ignore_settings_changes = false ;
+
+		// Check if the interface should be reversed
+		reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
+
+		// Initializations related to the interface
+		if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
+			else setContentView(R.layout.activity_main) ;
+		homeScreen = findViewById(R.id.home_screen) ;
+		favorites = findViewById(R.id.favorites) ;
+		drawer = findViewById(R.id.drawer) ;
+		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
+		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
 
 		// If it does not exist yet, build the applications list
 		if(applicationsList == null)
@@ -205,9 +210,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				// Display the favorites panel
 				favorites.setVisibility(View.VISIBLE) ;
 
-				// If the status bar was transparent, make it translucent as the panel
-				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
-					getWindow().setStatusBarColor(getResources().getColor(R.color.translucent_gray)) ;
+				// Check if the interface is reversed and adjust the display accordingly
+				if(reverse_interface) getWindow().setNavigationBarColor(getResources().getColor(R.color.translucent_gray)) ;
+					else getWindow().setStatusBarColor(getResources().getColor(R.color.translucent_gray)) ;
 			}
 			else
 			{
@@ -217,6 +222,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
+
+				// Make the navigation bar transparent
+				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
 			}
 	}
 
@@ -500,8 +508,13 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			// Check if this is a vertical gesture over a distance and not a single tap
 			if((Math.abs(y_distance) > x_distance) && (Math.abs(y_distance) > 100))
 				{
-					// Check if the gesture is going up (if) or down (else)
-					if(y_distance > 0)
+					// Adapt the gesture direction to the interface direction
+					boolean swipe_drawer ;
+					if(reverse_interface) swipe_drawer = y_distance < 0 ;
+						else swipe_drawer = y_distance > 0 ;
+
+					// Check if the gesture is going up (if) or down (else), based on classic interface
+					if(swipe_drawer)
 						{
 							// Display the applications drawer only if the favorites panel is closed
 							if(favorites.getVisibility() == View.VISIBLE) displayFavorites(false) ;
@@ -541,6 +554,12 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(ignore_settings_changes) return ;
 		switch(key)
 		{
+			case Constants.REVERSE_INTERFACE:
+				// Change the interface direction
+				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
+				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
+					else setContentView(R.layout.activity_main) ;
+				recreate() ;
 			case Constants.HIDE_APP_NAMES :
 				// Update the recycler views
 				adapters_update_needed = true ;
@@ -551,8 +570,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				break ;
 			case Constants.NOTIFICATION:
 				// Toggle the notification
-				if(settings.getBoolean(Constants.NOTIFICATION, true))
-						notificationMenu.display(this) ;
+				if(settings.getBoolean(Constants.NOTIFICATION, true)) notificationMenu.display(this) ;
 					else notificationMenu.hide() ;
 				break ;
 		}

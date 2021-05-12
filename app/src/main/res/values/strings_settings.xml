@@ -15,13 +15,15 @@
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use the real icons)</string>
     <string name="display_settings_home_screen_title">Home screen</string>
+    <string name="set_transparent_status_bar">Transparent status bar</string>
+    <string name="set_transparent_status_bar_hint">When favorites are closed</string>
+    <string name="set_reverse_interface">Reverse interface</string>
+    <string name="set_reverse_interface_help">Display the favorites panel on bottom</string>
     <string name="set_display_clock">Display the clock</string>
     <string name="set_clock_format">Clock format</string>
     <string name="set_clock_format_24h">24 hours</string>
     <string name="set_clock_format_12h">12 hours</string>
     <string name="set_clock_format_12h_ampm">12 hours + AM/PM</string>
-    <string name="set_transparent_status_bar">Transparent status bar</string>
-    <string name="set_transparent_status_bar_hint">When favorites are closed</string>
 
     <!-- Export / Import -->
     <string name="export_import_title">Export / Import</string>
@@ -70,7 +72,12 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
-    <string name="changelog_v3_text"><b>v3.4.0 - 10/05/2021</b>
+    <string name="changelog_v3_text"><b>v3.5.0</b>
+        \n- <u><i>Option</i></u> reverse interface (idea tuch96)
+        \n- <u><i>Fix</i></u> folder popup cut (thanks xi7)
+        \n- <u><i>Fix</i></u> notification bug (try)
+        \n
+        \n<b>v3.4.0 - 10/05/2021</b>
         \n- Reduce icon-text padding (idea xi7/AeOeAa)
         \n- Visual feedback on long click (idea xi7)
         \n- Folders first in favorites (idea xi7)

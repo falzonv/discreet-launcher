@@ -17,7 +17,7 @@
     <string name="button_add">Ajouter</string>
 
 	<!-- Messages d'information -->
-    <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton ci-dessous.</string>
+    <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton du menu.</string>
 	<string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
     <string name="info_favorites_access">Accès aux favoris</string>
 
