@@ -164,7 +164,7 @@ public class Folder extends Application
 				orientation == Configuration.ORIENTATION_LANDSCAPE ? Constants.COLUMNS_LANDSCAPE : Constants.COLUMNS_PORTRAIT)) ;
 
 		// Create the popup representing the folder
-		int popup_height = context.getResources().getDisplayMetrics().heightPixels / 2 ;
+		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;
 		popup = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, popup_height, true) ;
 		popupView.setOnTouchListener(new PopupTouchListener()) ;
 
