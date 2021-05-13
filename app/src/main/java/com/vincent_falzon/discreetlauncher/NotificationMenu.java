@@ -39,7 +39,6 @@ class NotificationMenu
 {
 	// Attributes
 	private final NotificationManagerCompat manager ;
-	private final Intent intent ;
 
 
 	/**
@@ -50,11 +49,6 @@ class NotificationMenu
 	{
 		// Initializations
 		manager = NotificationManagerCompat.from(context) ;
-
-		// Prepare the intent to display the favorites popup
-		intent = new Intent(Intent.ACTION_MAIN) ;
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
-		intent.setClassName(context.getPackageName(), context.getPackageName() + ".events.NotificationListener") ;
 
 		// If the Android version is Oreo or higher, create the notification channel
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
@@ -80,6 +74,11 @@ class NotificationMenu
 		builder.setNotificationSilent() ; // No sound or vibration
 		builder.setPriority(NotificationCompat.PRIORITY_DEFAULT) ;    // Default priority
 		builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ; // Hidden on lock screen
+
+		// Prepare the intent to display the favorites popup
+		Intent intent = new Intent(Intent.ACTION_MAIN) ;
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
+		intent.setClassName(context.getPackageName(), context.getPackageName() + ".events.NotificationListener") ;
 
 		// Define the notification action
 		PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, 0) ;
