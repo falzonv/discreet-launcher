@@ -87,7 +87,7 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
-    <string name="changelog_v3_text"><b>v3.5.0</b>
+    <string name="changelog_v3_text"><b>v3.5.0 - 13/05/2021</b>
         \n- Folder items number in the icon (idea xi7)
         \n- Help section about notification
         \n- <u><i>Option</i></u> reverse interface (idea tuch96)

@@ -1,0 +1,4 @@
+- Folder items number in the icon (idea xi7)
+- Help section about notification
+- Option: reverse interface (idea tuch96)
+- Fix: notification bugs (thanks xi7)

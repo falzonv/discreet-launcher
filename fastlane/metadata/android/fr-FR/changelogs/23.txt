@@ -1,0 +1,4 @@
+- Nb d'apps du dossier dans l'icône (idée xi7)
+- Section d'aide sur la notification
+- Option : inverser l'interface (idée tuch96)
+- Fix : bugs notification (merci xi7)
