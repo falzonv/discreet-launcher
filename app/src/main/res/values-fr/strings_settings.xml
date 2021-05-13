@@ -51,6 +51,21 @@
         \n
         \nEn maintenant le doigt quelques instants sur une application ou un dossier, il vous sera proposé d\'accéder à ses paramètres.
     </string>
+    <string name="help_notification_title">Notification</string>
+    <string name="help_notification_text">
+        La notification permet d\'afficher les favoris au dessus d\'autres applications quand vous quitter l\'accueil.
+        Dans la plupart des cas, cela devrait fonctionner sans problèmes.
+        \n
+        \nCependant, dans certains cas vous pouvez être ramené(e) à l\'accueil au lieu d\'avoir l\'affichage au-dessus d\'autres applications.
+        \nSi vous avez ce souci, vous pouvez essayer deux choses :
+        \n- Cliquer sur le bouton \"tout effacer\" dans les applications récentes
+        \n- Redémarrer votre smartphone
+        \nAprès l\'une de ces actions, le problème ne devrait plus apparaître.
+        \nS\'il persiste, je suis désolé mais il semble que cela ne va pas marcher pour vous :-/
+        \n
+        \nEnfin, si vous changez le lanceur par défaut, il est possible que la notification soit toujours là.
+        Pour la cacher, vous pouvez ouvrir Lanceur Discret (pas besoin qu\'il soit le lanceur par défaut) et désactiver la notification dans les paramètres.
+    </string>
     <string name="help_list_update_title">Mise à jour de la liste</string>
     <string name="help_list_update_text">
         La liste des applications et leurs icônes ne sont actualisées qu\'après certains évènements
@@ -72,9 +87,10 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_v3_text"><b>v3.5.0</b>
+        \n- Nb d\'apps du dossier dans l\'icône (idée xi7)
+        \n- Section d\'aide sur la notification
         \n- <u><i>Option</i></u> inverser l\'interface (idée tuch96)
-        \n- <u><i>Fix</i></u> popup de dossier coupé (merci xi7)
-        \n- <u><i>Fix</i></u> bug notification (essai)
+        \n- <u><i>Fix</i></u> bugs notification (merci xi7)
         \n
         \n<b>v3.4.0 - 10/05/2021</b>
         \n- Réduire l\'écart icône-texte (idée xi7/AeOeAa)

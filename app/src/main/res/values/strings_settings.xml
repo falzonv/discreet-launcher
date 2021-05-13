@@ -51,6 +51,21 @@
         \n
         \nIf you hold your finger a few moments on an application or a folder, you will be offered to access its settings.
     </string>
+    <string name="help_notification_title">Notification</string>
+    <string name="help_notification_text">
+        The notification allows to display a popup with favorites above other applications when you leave the home screen.
+        In most cases, it should work directly and without issues.
+        \n
+        \nHowever, in some special cases it may bring back to the home screen instead of being displayed over other applications.
+        \nIf you are facing this issue, there are two things you can try:
+        \n- Press the \"clear all\" button in Recent Apps
+        \n- Reboot your smartphone
+        \nAfter one of these actions, the problem should not appear again.
+        \nIf it persists, I am sorry but it seems this will not work for you :-/
+        \n
+        \nFinally, if you change the default launcher, you may still see the notification.
+        To hide it, you can open Discreet Launcher (no need to be the default launcher) and disable the notification in the settings.
+    </string>
     <string name="help_list_update_title">List update</string>
     <string name="help_list_update_text">
         The list of applications and their icons are refreshed only after some events
@@ -73,9 +88,10 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.5.0</b>
+        \n- Folder items number in the icon (idea xi7)
+        \n- Help section about notification
         \n- <u><i>Option</i></u> reverse interface (idea tuch96)
-        \n- <u><i>Fix</i></u> folder popup cut (thanks xi7)
-        \n- <u><i>Fix</i></u> notification bug (try)
+        \n- <u><i>Fix</i></u> notification bugs (thanks xi7)
         \n
         \n<b>v3.4.0 - 10/05/2021</b>
         \n- Reduce icon-text padding (idea xi7/AeOeAa)

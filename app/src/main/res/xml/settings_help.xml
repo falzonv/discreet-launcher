@@ -18,6 +18,17 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        app:title="@string/help_notification_title"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:title="@string/help_notification_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         app:title="@string/help_list_update_title"
         app:iconSpaceReserved="false">
 
