@@ -332,15 +332,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		adapters_update_needed = false ;
 	}
 
-
-	/**
-	 * Close all folders currently displayed.
-	 */
-	public static void closeFolders()
-	{
-		for(Folder folder : applicationsList.getFolders()) folder.closePopup() ;
-	}
-
 	
 	/**
 	 * Create the contextual menu.
@@ -666,6 +657,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Always show the system bars
 		displaySystemBars(true) ;
 
+		// Hide folders if some are still opened
+		for(Folder folder : applicationsList.getFolders()) folder.closePopup() ;
+
 		// If the option is selected, display the notification
 		if(settings.getBoolean(Constants.NOTIFICATION, true))
 			notificationMenu.display(this) ;
@@ -686,7 +680,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		displayDrawer(false) ;
 		notificationMenu.hide() ;
 		closeContextMenu() ;
-		closeFolders() ;
 
 		// Update the display according to settings
 		minuteListener.updateClock() ;

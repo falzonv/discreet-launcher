@@ -143,12 +143,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		{
 			// Start the application
 			Application application = applicationsList.get(getBindingAdapterPosition()) ;
-			if(application.start(view))
-				{
-					// Close all potentially displayed folders
-					if(!(application instanceof Folder)) ActivityMain.closeFolders() ;
-					return ;
-				}
+			if(application.start(view)) return ;
 
 			// Display an error message if the application was not found
 			Context context = view.getContext() ;
@@ -209,7 +204,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										intent.setData(Uri.parse("package:" + application.getApk())) ;
 										intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 										context.startActivity(intent) ;
-										ActivityMain.closeFolders() ;
 									}
 							}
 						}) ;
@@ -222,9 +216,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					{
 						// Start the application and display an error message if it was not found
 						view.setBackground(null) ;
-						if(application.start(view))
-								if(!(application instanceof Folder)) ActivityMain.closeFolders() ;
-							else ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+						if(!application.start(view))
+							ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
 					}
 				}) ;
 			dialog.setOnDismissListener(new DialogInterface.OnDismissListener()
