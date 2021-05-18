@@ -17,6 +17,7 @@ Discreet Launcher is open source, doesn't require any unnecessary permission, wo
 2/ Customization options
 - Force portrait mode
 - Immersive mode
+- Reversed interface
 - Clock on the home screen
 - Transparent status bar
 - Hide applications names
