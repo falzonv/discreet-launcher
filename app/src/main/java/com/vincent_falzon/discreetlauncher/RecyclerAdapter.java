@@ -31,6 +31,8 @@ import androidx.appcompat.app.AlertDialog ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import android.content.SharedPreferences ;
+import android.graphics.PorterDuff ;
+import android.graphics.Typeface ;
 import android.net.Uri ;
 import android.view.LayoutInflater ;
 import android.view.View ;
@@ -165,7 +167,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			final Context context = view.getContext() ;
 
 			// Show visual feedback (will be hidden after click or dismiss)
-			view.setBackgroundColor(context.getResources().getColor(R.color.translucent_white)) ;
+			setVisualFeedback(context, true) ;
 
 			// Prepare and display the selection dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
@@ -179,7 +181,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							public void onClick(DialogInterface dialogInterface, int i)
 							{
 								// Remove the shortcut from the file and update the applications list
-								view.setBackground(null) ;
+								setVisualFeedback(context, false) ;
 								ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
 								ActivityMain.updateList(context) ;
 								notifyDataSetChanged() ;
@@ -195,7 +197,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							@Override
 							public void onClick(DialogInterface dialogInterface, int i)
 							{
-								view.setBackground(null) ;
+								setVisualFeedback(context, false) ;
 								if(application instanceof Folder) context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
 									else
 									{
@@ -215,7 +217,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					public void onClick(DialogInterface dialogInterface, int i)
 					{
 						// Start the application and display an error message if it was not found
-						view.setBackground(null) ;
+						setVisualFeedback(context, false) ;
 						if(!application.start(view))
 							ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
 					}
@@ -225,11 +227,31 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					@Override
 					public void onDismiss(DialogInterface dialog)
 					{
-						view.setBackground(null) ;
+						setVisualFeedback(context, false) ;
 					}
 				}) ;
 			dialog.show() ;
 			return true ;
+		}
+
+
+		/**
+		 * Show or hide visual feedback.
+		 * @param context To get the colors
+		 * @param display <code>true</code> to show, <code>false</code> to hide
+		 */
+		private void setVisualFeedback(Context context, boolean display)
+		{
+			if(display)
+				{
+					name.setTypeface(Typeface.DEFAULT_BOLD) ;
+					name.getCompoundDrawables()[1].setColorFilter(context.getResources().getColor(R.color.translucent_white), PorterDuff.Mode.SRC_ATOP) ;
+				}
+				else
+				{
+					name.setTypeface(Typeface.DEFAULT) ;
+					name.getCompoundDrawables()[1].clearColorFilter() ;
+				}
 		}
 	}
 }
