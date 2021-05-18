@@ -7,4 +7,5 @@
 	android:layout_marginVertical="@dimen/spacing_normal"
 	android:drawablePadding="@dimen/spacing_very_small"
 	android:gravity="center_horizontal"
+    android:maxLines="3"
 	android:textColor="@color/white"/>
