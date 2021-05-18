@@ -42,6 +42,7 @@ import android.view.GestureDetector ;
 import android.view.MenuItem ;
 import android.view.MotionEvent ;
 import android.view.View ;
+import android.view.WindowManager ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
@@ -276,7 +277,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		View decorView = getWindow().getDecorView() ;
 		if(display) decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE) ;
-			else decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+			else decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) ;
 	}
 
 

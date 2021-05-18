@@ -88,6 +88,7 @@
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_v3_text"><b>v3.6.0</b>
         \n- Max 3 lignes pour les noms d\'apps (idée xi7)
+        \n- <u><i>Fix</i></u> notch (merci drewski-00h/AeOeAa)
         \n- <u><i>Fix</i></u> barre nav Android 10+ (merci AeOeAa)
         \n- <u><i>Fix</i></u> dossier mal fermé (merci xi7)
         \n

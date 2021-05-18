@@ -89,6 +89,7 @@
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.6.0</b>
         \n- Max 3 lines for apps names (idea xi7)
+        \n- <u><i>Fix</i></u> notch (thanks drewski-00h/AeOeAa)
         \n- <u><i>Fix</i></u> nav bar Android 10+ (thanks AeOeAa)
         \n- <u><i>Fix</i></u> folder not closed (thanks xi7)
         \n
