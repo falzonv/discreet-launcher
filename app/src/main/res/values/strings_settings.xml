@@ -87,7 +87,12 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
-    <string name="changelog_v3_text"><b>v3.5.0 - 13/05/2021</b>
+    <string name="changelog_v3_text"><b>v3.6.0</b>
+        \n- Max 3 lines for apps names (idea xi7)
+        \n- <u><i>Fix</i></u> nav bar Android 10+ (thanks AeOeAa)
+        \n- <u><i>Fix</i></u> folder not closed (thanks xi7)
+        \n
+        \n<b>v3.5.0 - 13/05/2021</b>
         \n- Folder items number in the icon (idea xi7)
         \n- Help section about notification
         \n- <u><i>Option</i></u> reverse interface (idea tuch96)

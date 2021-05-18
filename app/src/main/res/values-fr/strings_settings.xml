@@ -86,7 +86,12 @@
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_v3_text"><b>v3.5.0 - 13/05/2021</b>
+    <string name="changelog_v3_text"><b>v3.6.0</b>
+        \n- Max 3 lignes pour les noms d\'apps (idée xi7)
+        \n- <u><i>Fix</i></u> barre nav Android 10+ (merci AeOeAa)
+        \n- <u><i>Fix</i></u> dossier mal fermé (merci xi7)
+        \n
+        \n<b>v3.5.0 - 13/05/2021</b>
         \n- Nb d\'apps du dossier dans l\'icône (idée xi7)
         \n- Section d\'aide sur la notification
         \n- <u><i>Option</i></u> inverser l\'interface (idée tuch96)

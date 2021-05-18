@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
 	<!-- Application theme -->
 	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -23,6 +23,7 @@
 		<item name="android:statusBarColor">@color/translucent_gray</item>
 		<item name="android:windowBackground">@color/transparent</item>
 		<item name="android:navigationBarColor">@color/transparent</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
 
 	</style>
 
