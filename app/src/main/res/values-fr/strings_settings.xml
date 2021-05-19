@@ -86,12 +86,12 @@
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_v3_text"><b>v3.6.0</b>
+    <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>
         \n- Meilleur retour visuel (idée xi7)
         \n- Max 3 lignes pour les noms d\'apps (idée xi7)
         \n- <u><i>Fix</i></u> notch (merci drewski-00h/AeOeAa)
         \n- <u><i>Fix</i></u> barre nav Android 10+ (merci AeOeAa)
-        \n- <u><i>Fix</i></u> dossier mal fermé (merci xi7)
+        \n- <u><i>Fix</i></u> blocage dossier (merci xi7)
         \n
         \n<b>v3.5.0 - 13/05/2021</b>
         \n- Nb d\'apps du dossier dans l\'icône (idée xi7)

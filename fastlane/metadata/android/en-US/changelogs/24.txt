@@ -1,0 +1,5 @@
+- Better visual feedback (idea xi7)
+- Max 3 lines for apps names (idea xi7)
+- Fix: notch (thanks drewski-00h/AeOeAa)
+- Fix: nav bar Android 10+ (thanks AeOeAa)
+- Fix: folder freeze (thanks xi7)

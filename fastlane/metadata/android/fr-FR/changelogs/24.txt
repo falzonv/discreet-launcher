@@ -1,0 +1,5 @@
+- Meilleur retour visuel (idée xi7)
+- Max 3 lignes pour les noms d'apps (idée xi7)
+- Fix : notch (merci drewski-00h/AeOeAa)
+- Fix : barre nav Android 10+ (merci AeOeAa)
+- Fix : blocage dossier (merci xi7)
