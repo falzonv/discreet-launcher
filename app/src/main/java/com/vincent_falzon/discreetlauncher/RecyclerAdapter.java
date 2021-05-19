@@ -245,11 +245,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			if(display)
 				{
 					name.setTypeface(Typeface.DEFAULT_BOLD) ;
+					name.setShadowLayer(15, 0, 0, context.getResources().getColor(R.color.white)) ;
 					name.getCompoundDrawables()[1].setColorFilter(context.getResources().getColor(R.color.translucent_white), PorterDuff.Mode.SRC_ATOP) ;
 				}
 				else
 				{
 					name.setTypeface(Typeface.DEFAULT) ;
+					name.setShadowLayer(0, 0, 0, 0) ;
 					name.getCompoundDrawables()[1].clearColorFilter() ;
 				}
 		}
