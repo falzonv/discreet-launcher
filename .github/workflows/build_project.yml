@@ -1,0 +1,27 @@
+name: Build Project
+
+on:
+  # Automatically run the workflow on push or pull request
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows to run the workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # Build the project with Gradle
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Build with Gradle
+        run: |
+          chmod +x gradlew
+          ./gradlew build
