@@ -44,7 +44,7 @@ import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
 /**
- * Allow to import and export settings, favorites applications and shortcuts.
+ * Allow to manage folders.
  */
 public class ActivityFolders extends AppCompatActivity implements View.OnClickListener
 {
@@ -138,7 +138,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 		public FolderView onCreateViewHolder(ViewGroup parent, int viewType)
 		{
 			LayoutInflater inflater = LayoutInflater.from(parent.getContext()) ;
-			View view = inflater.inflate(R.layout.folder_view, parent, false) ;
+			View view = inflater.inflate(R.layout.view_folder, parent, false) ;
 			return new FolderView(view) ;
 		}
 
