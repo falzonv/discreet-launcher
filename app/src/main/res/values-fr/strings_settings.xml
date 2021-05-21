@@ -86,6 +86,9 @@
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
+    <string name="changelog_v4_text"><b>v4.0.0</b>
+        \n- Permettre le tri manuel des favoris (idée tuch96)
+    </string>
     <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>
         \n- Meilleur retour visuel (idée xi7)
         \n- Max 3 lignes pour les noms d\'apps (idée xi7)

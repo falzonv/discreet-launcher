@@ -86,6 +86,10 @@
 
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
+    <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
+    <string name="changelog_v4_text"><b>v4.0.0</b>
+        \n- Allow manual sort of favorites (idea tuch96)
+    </string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>
         \n- Better visual feedback (idea xi7)

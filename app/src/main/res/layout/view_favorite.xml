@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_marginTop="@dimen/spacing_normal"
     android:layout_marginBottom="@dimen/spacing_small"
-    android:layout_marginHorizontal="@dimen/spacing_large"
+    android:layout_marginHorizontal="@dimen/spacing_very_large"
     android:padding="@dimen/spacing_normal"
     android:gravity="center_vertical"
     android:background="@color/translucent_gray"

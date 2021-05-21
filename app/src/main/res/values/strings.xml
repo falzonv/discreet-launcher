@@ -19,7 +19,7 @@
 
 	<!-- Information messages -->
     <string name="info_no_favorites_yet">You can add your favorites applications here\nby clicking the menu button.</string>
-    <string name="info_order_favorites">Once favorites are selected, you can order them as you wish below.</string>
+    <string name="info_order_favorites">You can modify the favorites order in the list below (use the empty areas on sides to scroll).</string>
 	<string name="info_applications_list_refreshed">Applications list refreshed</string>
     <string name="info_favorites_access">Access to favorites</string>
 
@@ -44,7 +44,7 @@
     <string name="dialog_open_or_settings">Do you want to open %1$s or its settings?</string>
     <string name="dialog_open_or_remove">Do you want to open %1$s or remove it?</string>
     <string name="dialog_edit_name">New name</string>
-    
+
     <!-- Folders -->
     <string name="folders_create_new">New folder</string>
     <string name="folders_create_new_help">You can create as many folders as you want to organize your applications.</string>

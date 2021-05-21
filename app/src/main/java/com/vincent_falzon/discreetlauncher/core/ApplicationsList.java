@@ -135,18 +135,18 @@ public class ApplicationsList
 	/**
 	 * Update the favorites applications list based on the favorites file and the complete list.
 	 */
-	private void updateFavorites()
+	public void updateFavorites()
 	{
 		// Initializations
 		favorites.clear() ;
 		ArrayList<String> favorites_file = new InternalFileTXT(Constants.FILE_FAVORITES).readAllLines() ;
 		if(favorites_file == null) return ;
 
-		// Browse the sorted applications list
-		for(Application application : getApplications(true))
+		// Browse the internal file
+		for(String line : favorites_file)
 		{
-			// Search the internal name in the favorites file
-			for(String line : favorites_file)
+			// Search the internal name in the applications list
+			for(Application application : getApplications(true))
 				if(application.getName().equals(line))
 					{
 						// Add the application to the favorites and move to the next line

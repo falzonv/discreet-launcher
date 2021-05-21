@@ -168,13 +168,32 @@ public class ActivityFavorites extends AppCompatActivity
 								}
 							}
 
-						// Update the applications list
-						ActivityMain.updateList(context) ;
+						// Update the favorites applications list
+						ActivityMain.updateFavorites() ;
 						adapter.notifyDataSetChanged() ;
 					}
 				}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;
 		dialog.show() ;
+	}
+
+
+	/**
+	 * Perform actions when the user leaves the activity.
+	 */
+	@Override
+	public void onPause()
+	{
+		// Let the parent actions be performed
+		super.onPause() ;
+
+		// Write the last favorites order in the file
+		InternalFileTXT file = new InternalFileTXT(Constants.FILE_FAVORITES) ;
+		if(file.remove())
+			for(Application application : favorites) file.writeLine(application.getName()) ;
+
+		// Update the favorites applications list
+		ActivityMain.updateFavorites() ;
 	}
 
 

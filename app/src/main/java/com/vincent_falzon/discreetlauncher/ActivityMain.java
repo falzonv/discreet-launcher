@@ -312,6 +312,17 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
+	 * Update the favorites applications list
+	 */
+	public static void updateFavorites()
+	{
+		System.out.println("call updateFavorites") ;
+		applicationsList.updateFavorites() ;
+		adapters_update_needed = true ;
+	}
+
+
+	/**
 	 * Update the applications list and inform the user.
 	 * @param context Needed to update the list
 	 */
