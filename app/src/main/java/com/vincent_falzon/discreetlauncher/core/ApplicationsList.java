@@ -46,6 +46,7 @@ public class ApplicationsList
 	private final ArrayList<Application> drawer ;
 	private final ArrayList<Application> hidden ;
 	private final ArrayList<Application> favorites ;
+	private boolean update_in_progress ;
 
 
 	/**
@@ -56,6 +57,7 @@ public class ApplicationsList
 		drawer = new ArrayList<>() ;
 		hidden = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
+		update_in_progress = false ;
 	}
 
 
@@ -65,9 +67,15 @@ public class ApplicationsList
 	 */
 	public void update(Context context)
 	{
+		// Check if an update is already in progress
+		if(update_in_progress) return ;
+		update_in_progress = true ;
+
 		// Initializations
 		PackageManager apkManager = context.getPackageManager() ;
 		drawer.clear() ;
+
+		System.out.println("update") ;
 
 		// Retrieve the list of applications that can be launched by the user
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
@@ -122,6 +130,7 @@ public class ApplicationsList
 
 		// Update the favorites applications list
 		updateFavorites() ;
+		update_in_progress = false ;
 	}
 
 
