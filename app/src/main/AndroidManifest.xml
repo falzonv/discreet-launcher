@@ -41,6 +41,12 @@
             android:theme="@style/AppTheme"/>
 
         <activity
+            android:name=".ActivityFavorites"
+            android:label="@string/button_manage_favorites"
+            android:parentActivityName=".ActivityMain"
+            android:theme="@style/AppTheme"/>
+
+        <activity
             android:name=".ActivityFolders"
             android:label="@string/button_organize_folders"
             android:parentActivityName=".ActivityMain"

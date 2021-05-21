@@ -75,8 +75,6 @@ public class ApplicationsList
 		PackageManager apkManager = context.getPackageManager() ;
 		drawer.clear() ;
 
-		System.out.println("update") ;
-
 		// Retrieve the list of applications that can be launched by the user
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
 		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;

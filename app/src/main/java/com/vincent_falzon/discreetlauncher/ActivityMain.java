@@ -317,6 +317,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 */
 	public static void updateList(Context context)
 	{
+		System.out.println("call updateList") ;
 		applicationsList.update(context) ;
 		adapters_update_needed = true ;
 		ShowDialog.toast(context, R.string.info_applications_list_refreshed) ;
@@ -349,7 +350,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 
 	/**
-	 * Detect a click on an item from the contextual menu
+	 * Detect a click on an item from the contextual menu.
 	 * @param item Entry clicked
 	 * @return <code>true</code> if event is consumed, <code>false</code> otherwise
 	 */
@@ -358,64 +359,24 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	{
 		// Identify which menu entry has been clicked
 		int selection = item.getItemId() ;
+
+		// Check if the applications list should be refreshed
 		if(selection == R.id.menu_action_refresh_list)
 			{
-				// Update the applications list
 				updateList(this) ;
 				displayFavorites(false) ;
-				return true ;
 			}
-			else if(selection == R.id.menu_action_manage_favorites)
-			{
-				// Display a menu to select the favorites applications
-				showDialogManageFavorites() ;
-				return true ;
-			}
-			else if(selection == R.id.menu_action_organize_folders)
-			{
-				// Display the Manage Folders activity
-				startActivity(new Intent().setClass(this, ActivityFolders.class)) ;
-				return true ;
-			}
-			else if(selection == R.id.menu_action_hide_applications)
-			{
-				// Display a menu to select the hidden applications
-				showDialogHideApplications() ;
-				return true ;
-			}
-			else if(selection == R.id.menu_action_settings)
-			{
-				// Display the Settings and Help activity
-				startActivity(new Intent().setClass(this, ActivitySettings.class)) ;
-				return true ;
-			}
-		return false ;
-	}
+			// Check if another activity should be started
+			else if(selection == R.id.menu_action_manage_favorites) startActivity(new Intent().setClass(this, ActivityFavorites.class)) ;
+			else if(selection == R.id.menu_action_organize_folders) startActivity(new Intent().setClass(this, ActivityFolders.class)) ;
+			else if(selection == R.id.menu_action_settings) startActivity(new Intent().setClass(this, ActivitySettings.class)) ;
+			// Check if the dialog to hide applications should be displayed
+			else if(selection == R.id.menu_action_hide_applications) showDialogHideApplications() ;
+			// In other cases, ignore the click
+			else return false ;
 
-
-	/**
-	 * Display the dialog allowing to select favorites applications.
-	 */
-	private void showDialogManageFavorites()
-	{
-		// Retrieve the total height available in portrait mode (navigation bar automatically removed)
-		DisplayMetrics metrics = getResources().getDisplayMetrics() ;
-		int button_height = findViewById(R.id.access_menu_button).getHeight() ;
-		int total_size = Math.max(metrics.heightPixels, metrics.widthPixels)
-				- Math.round(25 * metrics.density)	// Remove 25dp for the status bar
-				- Math.round(20 * metrics.density)  // Remove 20dp for button margins and spare
-				- button_height ;
-
-		// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
-		int app_size = button_height + Math.round(48 * metrics.density) + Math.round(20 * metrics.density) ;
-		int max_favorites = (total_size / app_size) * Constants.COLUMNS_PORTRAIT ;
-
-		// Prepare the list of applications
-		ArrayList<Application> applications = applicationsList.getApplications(true) ;
-
-		// Hide the favorites panel and display the selection dialog
-		displayFavorites(false) ;
-		ShowDialog.multiSelect(this, R.string.button_manage_favorites, applications, Constants.FILE_FAVORITES, max_favorites) ;
+		// Indicate that the event has been consumed
+		return true ;
 	}
 
 

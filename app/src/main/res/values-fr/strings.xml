@@ -5,6 +5,7 @@
 	<string name="button_access_menu">Accéder au menu</string>
 	<string name="button_refresh_list">Actualiser la liste des applications</string>
 	<string name="button_manage_favorites">Gérer les favoris</string>
+    <string name="button_select_favorites">Choisir les favoris</string>
     <string name="button_organize_folders">Organiser les dossiers</string>
     <string name="button_hide_applications">Masquer des applications</string>
 	<string name="button_apply">Valider</string>
@@ -18,6 +19,7 @@
 
 	<!-- Messages d'information -->
     <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton du menu.</string>
+    <string name="info_order_favorites">Une fois les favoris choisis, vous pouvez les ranger dans l\'ordre que vous voulez ci-dessous.</string>
 	<string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
     <string name="info_favorites_access">Accès aux favoris</string>
 
