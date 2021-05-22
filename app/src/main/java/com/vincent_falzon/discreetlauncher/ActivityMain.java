@@ -49,6 +49,7 @@ import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
+import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.Set ;
 
@@ -292,7 +293,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 * Allow to temporary disable the SharedPreference changes listener.
 	 * @param new_value <code>true</code> to disable, <code>false</code> to enable
 	 */
-	static void setIgnoreSettingsChanges(boolean new_value)
+	public static void setIgnoreSettingsChanges(boolean new_value)
 	{
 		ignore_settings_changes = new_value ;
 	}

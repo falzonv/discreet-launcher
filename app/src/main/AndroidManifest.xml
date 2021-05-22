@@ -29,15 +29,15 @@
 		</activity>
 
         <activity
-            android:name=".ActivitySettings"
+            android:name=".settings.ActivitySettings"
             android:label="@string/settings_title"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".ActivityExportImport"
+            android:name=".settings.ActivityExportImport"
             android:label="@string/export_import_title"
-            android:parentActivityName=".ActivitySettings"
+            android:parentActivityName=".settings.ActivitySettings"
             android:theme="@style/AppTheme"/>
 
         <activity

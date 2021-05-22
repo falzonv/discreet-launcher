@@ -21,7 +21,7 @@
 
         <Preference
             app:title="@string/display_settings_title"
-            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$DisplayFragment"
+            app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$DisplayFragment"
             app:icon="@android:drawable/ic_menu_gallery"/>
 
         <MultiSelectListPreference
@@ -33,7 +33,7 @@
             app:icon="@android:drawable/ic_menu_upload">
             <intent
                 android:targetPackage="com.vincent_falzon.discreetlauncher"
-                android:targetClass="com.vincent_falzon.discreetlauncher.ActivityExportImport"/>
+                android:targetClass="com.vincent_falzon.discreetlauncher.settings.ActivityExportImport"/>
         </Preference>
 
     </PreferenceCategory>
@@ -44,12 +44,12 @@
 
         <Preference
             app:title="@string/help_title"
-            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$HelpFragment"
+            app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$HelpFragment"
             app:icon="@android:drawable/ic_menu_help"/>
 
         <Preference
             app:title="@string/changelog_title"
-            app:fragment="com.vincent_falzon.discreetlauncher.ActivitySettings$ChangelogFragment"
+            app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$ChangelogFragment"
             app:icon="@android:drawable/ic_input_get"/>
 
         <Preference app:layout="@layout/settings_about"/>

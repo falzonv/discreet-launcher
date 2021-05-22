@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher ;
+package com.vincent_falzon.discreetlauncher.settings ;
 
 // License
 /*
@@ -35,6 +35,8 @@ import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.R ;
 import java.util.ArrayList ;
 import java.util.List ;
 

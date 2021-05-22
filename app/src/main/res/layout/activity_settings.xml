@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ActivitySettings"
+    tools:context=".settings.ActivitySettings"
     android:id="@+id/settings_container"
     android:orientation="vertical"
     android:layout_width="match_parent"

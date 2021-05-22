@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher ;
+package com.vincent_falzon.discreetlauncher.settings ;
 
 // License
 /*
@@ -32,6 +32,10 @@ import android.os.Bundle ;
 import android.view.View ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.ActivityMain ;
+import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
