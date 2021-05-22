@@ -47,7 +47,7 @@ import java.util.Collections ;
 /**
  * Allow to manage favorites.
  */
-public class ActivityFavorites extends AppCompatActivity
+public class ActivityFavorites extends AppCompatActivity implements View.OnClickListener
 {
 	// Attributes
 	private ArrayList<Application> favorites ;
@@ -68,6 +68,7 @@ public class ActivityFavorites extends AppCompatActivity
 		// Initializations
 		setContentView(R.layout.activity_favorites) ;
 		favorites = ActivityMain.getApplicationsList().getFavorites() ;
+		findViewById(R.id.select_favorites_button).setOnClickListener(this) ;
 
 		// Display the sortable list of favorites
 		RecyclerView recycler = findViewById(R.id.favorites_list) ;
@@ -103,11 +104,14 @@ public class ActivityFavorites extends AppCompatActivity
 
 
 	/**
-	 * Display the dialog allowing to select favorites applications.
-	 * @param view Clicked button
+	 * Perform an action when an element is clicked.
+	 * @param view Target element
 	 */
-	public void displayFavoritesSelectionDialog(View view)
+	public void onClick(View view)
 	{
+		// Do not continue if something else than the favorites selection button has been clicked
+		if(view.getId() != R.id.select_favorites_button) return ;
+
 		// Prepare the list of applications
 		final ArrayList<Application> applications = new ArrayList<>(ActivityMain.getApplicationsList().getFavorites()) ;
 		ArrayList<Application> allApplications = ActivityMain.getApplicationsList().getApplications(true) ;
@@ -233,11 +237,6 @@ public class ActivityFavorites extends AppCompatActivity
 			// Listen for dragging action on the view of this favorite
 			favoriteView.itemView.setOnTouchListener(new View.OnTouchListener()
 			{
-				/**
-				 * Detect a user action on the view.
-				 * @param event Gesture event
-				 * @return <code>true</code> if event is consumed, <code>false</code> otherwise
-				 */
 				@Override
 				public boolean onTouch(View view, MotionEvent event)
 				{

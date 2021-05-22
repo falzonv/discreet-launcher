@@ -36,4 +36,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <!-- Buttons -->
+    <style name="NormalButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:colorButtonNormal">@color/blue</item>
+    </style>
+    <style name="BorderlessButton">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
 </resources>

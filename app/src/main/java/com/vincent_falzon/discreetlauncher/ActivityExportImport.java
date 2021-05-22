@@ -40,7 +40,7 @@ import java.util.Date ;
 /**
  * Allow to import and export settings, favorites applications and shortcuts.
  */
-public class ActivityExportImport extends AppCompatActivity
+public class ActivityExportImport extends AppCompatActivity implements View.OnClickListener
 {
 	// Attributes
 	private SharedPreferences settings ;
@@ -60,6 +60,8 @@ public class ActivityExportImport extends AppCompatActivity
 		// Initializations
 		setContentView(R.layout.activity_export_import) ;
 		settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()) ;
+		findViewById(R.id.export_button).setOnClickListener(this) ;
+		findViewById(R.id.import_button).setOnClickListener(this) ;
 	}
 
 
@@ -67,7 +69,7 @@ public class ActivityExportImport extends AppCompatActivity
 	 * Detect a click on an element from the activity.
 	 * @param view Element clicked
 	 */
-	public void onClickExportImportActivity(View view)
+	public void onClick(View view)
 	{
 		// Identify which element has been clicked
 		int selection = view.getId() ;
