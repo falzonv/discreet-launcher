@@ -62,17 +62,18 @@ public abstract class ShowDialog
 
 
 	/**
-	 * Display an applications list in a multi-selection dialog with a title.
+	 * Display a multi-selection dialog allowing to select hidden applications.
 	 * @param context Provided by an activity
-	 * @param title R.string representing the dialog title
-	 * @param applications List of the choices
-	 * @param filename Reference to pre-select applications
-	 * @param max Maximum number of selections (-1 to disable)
 	 */
-	public static void multiSelect(final Context context, int title, final ArrayList<Application> applications, String filename, final int max)
+	public static void hideApplications(final Context context)
 	{
+		// Prepare the list of applications
+		if(context == null) return ;
+		final ArrayList<Application> applications = new ArrayList<>() ;
+		applications.addAll(ActivityMain.getApplicationsList().getHidden()) ;
+		applications.addAll(ActivityMain.getApplicationsList().getApplications(false)) ;
+
 		// List the names of all applications
-		if((context == null) || (applications == null)) return ;
 		CharSequence[] app_names = new CharSequence[applications.size()] ;
 		int i = 0 ;
 		for(Application application : applications)
@@ -83,18 +84,14 @@ public abstract class ShowDialog
 		}
 
 		// Retrieve the currently selected applications
-		final InternalFileTXT file = new InternalFileTXT(filename) ;
+		final InternalFileTXT file = new InternalFileTXT(Constants.FILE_HIDDEN) ;
 		final boolean[] selected = new boolean[app_names.length] ;
 		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
 			else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
 
-		// Prepare the title
-		String dialog_title = context.getString(title) ;
-		if(max != -1) dialog_title += " (max " + max + ")" ;
-
 		// Prepare and display the selection dialog
 		AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-		dialog.setTitle(dialog_title) ;
+		dialog.setTitle(context.getString(R.string.button_hide_applications)) ;
 		dialog.setMultiChoiceItems(app_names, selected,
 			new DialogInterface.OnMultiChoiceClickListener()
 			{
@@ -111,19 +108,8 @@ public abstract class ShowDialog
 					if(!file.remove()) return ;
 
 					// Write the new selected applications to the file
-					int selections_number = 0 ;
 					for(i = 0 ; i < selected.length ; i++)
-						if(selected[i])
-							{
-								// Add the application only if the maximum is not reached
-								selections_number++ ;
-								if((max == -1) || (selections_number <= max)) file.writeLine(applications.get(i).getName()) ;
-									else
-									{
-										toastLong(context, context.getString(R.string.error_too_many_selections, max)) ;
-										break ;
-									}
-							}
+						if(selected[i]) file.writeLine(applications.get(i).getName()) ;
 
 					// Update the applications list
 					ActivityMain.updateList(context) ;

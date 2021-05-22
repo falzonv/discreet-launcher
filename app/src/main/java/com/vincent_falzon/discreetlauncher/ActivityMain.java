@@ -36,23 +36,19 @@ import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
-import android.util.DisplayMetrics ;
 import android.view.ContextMenu ;
 import android.view.GestureDetector ;
 import android.view.MenuItem ;
 import android.view.MotionEvent ;
 import android.view.View ;
-import android.view.WindowManager ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
-import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
-import java.util.ArrayList ;
 import java.util.Set ;
 
 /**
@@ -382,28 +378,16 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 			else if(selection == R.id.menu_action_organize_folders) startActivity(new Intent().setClass(this, ActivityFolders.class)) ;
 			else if(selection == R.id.menu_action_settings) startActivity(new Intent().setClass(this, ActivitySettings.class)) ;
 			// Check if the dialog to hide applications should be displayed
-			else if(selection == R.id.menu_action_hide_applications) showDialogHideApplications() ;
+			else if(selection == R.id.menu_action_hide_applications)
+			{
+				displayFavorites(false) ;
+				ShowDialog.hideApplications(this) ;
+			}
 			// In other cases, ignore the click
 			else return false ;
 
 		// Indicate that the event has been consumed
 		return true ;
-	}
-
-
-	/**
-	 * Display the dialog allowing to select hidden applications.
-	 */
-	private void showDialogHideApplications()
-	{
-		// Prepare the list of applications
-		ArrayList<Application> applications = new ArrayList<>() ;
-		applications.addAll(applicationsList.getHidden()) ;
-		applications.addAll(applicationsList.getApplications(false)) ;
-
-		// Hide the favorites panel and display the selection dialog
-		displayFavorites(false) ;
-		ShowDialog.multiSelect(this, R.string.button_hide_applications, applications, Constants.FILE_HIDDEN, -1) ;
 	}
 
 
