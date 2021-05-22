@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher ;
+package com.vincent_falzon.discreetlauncher.notification ;
 
 // License
 /*
@@ -30,11 +30,12 @@ import android.app.PendingIntent ;
 import android.content.Context ;
 import android.content.Intent ;
 import android.os.Build ;
+import com.vincent_falzon.discreetlauncher.R ;
 
 /**
- * Display an Android notification with the favorites applications.
+ * Display or hide the Android notification giving access to the favorites applications.
  */
-class NotificationMenu
+public class NotificationDisplayer
 {
 	// Attributes
 	private final NotificationManager manager ;
@@ -44,7 +45,7 @@ class NotificationMenu
 	 * Constructor to build the notification.
 	 * @param context Provided by an activity
 	 */
-	NotificationMenu(Context context)
+	public NotificationDisplayer(Context context)
 	{
 		// Initialization
 		manager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE) ;
@@ -64,7 +65,7 @@ class NotificationMenu
 	 * Display the notification.
 	 * @param context Provided by an activity
 	 */
-	void display(Context context)
+	public void display(Context context)
 	{
 		// Define the notification settings
 		Notification.Builder builder = new Notification.Builder(context) ;
@@ -86,7 +87,7 @@ class NotificationMenu
 		// Prepare the intent to display the favorites popup
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
-		intent.setClassName(context.getPackageName(), context.getPackageName() + ".events.NotificationListener") ;
+		intent.setClassName(context.getPackageName(), context.getPackageName() + ".notification.ActivityNotification") ;
 
 		// Define the notification action
 		PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, 0) ;
@@ -100,7 +101,7 @@ class NotificationMenu
 	/**
 	 * Hide the notification.
 	 */
-	void hide()
+	public void hide()
 	{
 		manager.cancel(1) ;
 	}

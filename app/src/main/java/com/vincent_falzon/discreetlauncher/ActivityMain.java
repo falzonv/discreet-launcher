@@ -48,6 +48,7 @@ import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
+import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.Set ;
 
@@ -65,7 +66,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private ShortcutLegacyListener shortcutLegacyListener ;
 	private SharedPreferences settings ;
 	private GestureDetectorCompat gestureDetector ;
-	private NotificationMenu notificationMenu ;
+	private NotificationDisplayer notification ;
 
 	// Attributes related to the home screen
 	private LinearLayout homeScreen ;
@@ -133,8 +134,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		minuteListener = new MinuteListener((TextView)findViewById(R.id.clock_text)) ;
 		registerReceiver(minuteListener, minuteListener.getFilter()) ;
 
-		// Prepare the notification menu
-		notificationMenu = new NotificationMenu(this) ;
+		// Prepare the notification
+		notification = new NotificationDisplayer(this) ;
 
 		// Define the favorites panel and applications list layouts based on screen orientation
 		GridLayoutManager favoritesLayout ;
@@ -312,7 +313,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 */
 	public static void updateFavorites()
 	{
-		System.out.println("call updateFavorites") ;
 		applicationsList.updateFavorites() ;
 		adapters_update_needed = true ;
 	}
@@ -324,7 +324,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 */
 	public static void updateList(Context context)
 	{
-		System.out.println("call updateList") ;
 		applicationsList.update(context) ;
 		adapters_update_needed = true ;
 		ShowDialog.toast(context, R.string.info_applications_list_refreshed) ;
@@ -518,8 +517,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				break ;
 			case Constants.NOTIFICATION:
 				// Toggle the notification
-				if(settings.getBoolean(Constants.NOTIFICATION, true)) notificationMenu.display(this) ;
-					else notificationMenu.hide() ;
+				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
+					else notification.hide() ;
 				break ;
 		}
 	}
@@ -619,7 +618,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// If the option is selected, display the notification
 		if(settings.getBoolean(Constants.NOTIFICATION, true))
-			notificationMenu.display(this) ;
+			notification.display(this) ;
 	}
 
 
@@ -635,7 +634,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Hide the favorites panel, the drawer and the notification
 		displayFavorites(false) ;
 		displayDrawer(false) ;
-		notificationMenu.hide() ;
+		notification.hide() ;
 		closeContextMenu() ;
 
 		// Update the display according to settings

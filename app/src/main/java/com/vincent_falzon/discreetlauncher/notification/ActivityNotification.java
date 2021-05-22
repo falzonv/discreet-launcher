@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher.events;
+package com.vincent_falzon.discreetlauncher.notification ;
 
 // License
 /*
@@ -23,12 +23,12 @@ package com.vincent_falzon.discreetlauncher.events;
  */
 
 // Imports
+import android.app.Activity ;
 import android.content.Intent ;
 import android.content.res.Configuration ;
 import android.os.Bundle ;
 import android.view.View ;
 import android.widget.TextView ;
-import androidx.appcompat.app.AppCompatActivity ;
 import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityFavorites ;
@@ -40,7 +40,7 @@ import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
 /**
  * Activity called when the notification is clicked.
  */
-public class NotificationListener extends AppCompatActivity
+public class ActivityNotification extends Activity
 {
 	/**
 	 * Constructor.
@@ -60,13 +60,13 @@ public class NotificationListener extends AppCompatActivity
 		TextView title = findViewById(R.id.popup_title) ;
 		title.setText(R.string.info_favorites_access) ;
 		title.setOnClickListener(new View.OnClickListener()
-		{
-			@Override
-			public void onClick(View view)
 			{
-				view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFavorites.class)) ;
-			}
-		}) ;
+				@Override
+				public void onClick(View view)
+				{
+					view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFavorites.class)) ;
+				}
+			}) ;
 
 		// Display the list of favorites applications
 		RecyclerView recycler = findViewById(R.id.popup_recycler) ;
