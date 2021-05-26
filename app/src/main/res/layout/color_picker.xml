@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_small"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_color_picker_base"/>
+
+        <EditText
+            android:id="@+id/new_color_hexadecimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="#(AA)RRGGBB"
+            android:imeOptions="actionDone"
+            android:maxLength="9"
+            android:inputType="textCapCharacters"
+            android:autofillHints=""
+            tools:ignore="HardcodedText"/>
+
+        <Button
+            android:id="@+id/color_reset_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_reset"
+            android:theme="@style/BorderlessButton"
+            style="?android:borderlessButtonStyle"/>
+
+    </LinearLayout>
+
+    <com.vincent_falzon.discreetlauncher.settings.ColorPickerView
+        android:id="@+id/color_picker_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layerType="software"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/color_validate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_apply"
+            android:theme="@style/NormalButton"
+            style="?android:buttonStyle"/>
+
+        <Button
+            android:id="@+id/color_cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_cancel"
+            android:theme="@style/BorderlessButton"
+            style="?android:borderlessButtonStyle"/>
+
+    </LinearLayout>
+
+</LinearLayout>

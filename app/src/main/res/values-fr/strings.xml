@@ -16,6 +16,7 @@
     <string name="button_export">Exporter</string>
     <string name="button_import">Importer</string>
     <string name="button_add">Ajouter</string>
+    <string name="button_reset">Réinitialiser</string>
 
 	<!-- Messages d'information -->
     <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton du menu.</string>
@@ -39,11 +40,14 @@
     <string name="error_import">Une erreur est survenue durant la lecture du fichier d\'import !</string>
     <string name="error_folder_empty_name">Le nom ne peut pas être vide !</string>
     <string name="error_folder_already_exists">Ce dossier existe déjà !</string>
+    <string name="error_invalid_color_format">Cette couleur hexadécimale n\'est pas valide !</string>
 
 	<!-- Fenêtres de sélection -->
     <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres ?</string>
     <string name="dialog_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
     <string name="dialog_edit_name">Nouveau nom</string>
+    <string name="dialog_color_picker_base">Base :</string>
+    <string name="dialog_color_picker_preview">Aperçu</string>
 
     <!-- Dossiers -->
     <string name="folders_create_new">Nouveau dossier</string>
