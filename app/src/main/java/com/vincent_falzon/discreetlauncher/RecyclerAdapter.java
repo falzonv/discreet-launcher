@@ -34,6 +34,7 @@ import android.content.SharedPreferences ;
 import android.graphics.PorterDuff ;
 import android.graphics.Typeface ;
 import android.net.Uri ;
+import android.os.Handler ;
 import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
@@ -143,13 +144,25 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		@Override
 		public void onClick(View view)
 		{
+			// Enable visual feedback
+			final Context context = view.getContext() ;
+			setVisualFeedback(context, true) ;
+
 			// Start the application
 			Application application = applicationsList.get(getBindingAdapterPosition()) ;
-			if(application.start(view)) return ;
+			if(!application.start(view))
+				ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
 
-			// Display an error message if the application was not found
-			Context context = view.getContext() ;
-			ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+			// Disable visual feedback
+			Handler handler = new Handler() ;
+			handler.postDelayed(new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						setVisualFeedback(context, false) ;
+					}
+				}, 200) ;
 		}
 
 
