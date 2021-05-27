@@ -56,6 +56,7 @@ public abstract class Constants
 	public static final String ICON_PACK = "icon_pack" ;
 	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;
 	public static final String NOTIFICATION = "notification" ;
+	public static final String BACKGROUND_COLOR = "background_color" ;
 
 	// Constants related to settings without being settings keys
 	public static final String NONE = "none" ;

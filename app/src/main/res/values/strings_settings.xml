@@ -24,6 +24,8 @@
     <string name="set_clock_format_24h">24 hours</string>
     <string name="set_clock_format_12h">12 hours</string>
     <string name="set_clock_format_12h_ampm">12 hours + AM/PM</string>
+    <string name="set_background_color">Background color</string>
+    <string name="set_background_color_help">Favorites panel, menu button, applications drawer and status bar</string>
 
     <!-- Export / Import -->
     <string name="export_import_title">Export / Import</string>
@@ -76,7 +78,10 @@
     </string>
     <string name="help_folders_title">Folders</string>
     <string name="help_folders_text">
-        You can create as many folders as you want to organize your applications.
+        To create/rename/remove folders and put applications inside, you need to use the folders organizer.
+        It is accessible using the menu button or by clicking on the title of an open folder.
+        \n
+        \nYou can create as many folders as you want to organize your applications.
         These folders can also be added in favorites.
         If a folder is removed, its content will be put back in the main applications list.
         \n
@@ -89,6 +94,11 @@
     <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
     <string name="changelog_v4_text"><b>v4.0.0</b>
         \n- Allow manual sort of favorites (idea tuch96)
+        \n- Background color can be customized
+        \n- Visual feedback on short click (idea xi7)
+        \n- Help about folders improved (idea Steve M.)
+        \n- Major internal reorganization
+        \n- <u><i>Fix</i></u> long folder name (thanks xi7)
     </string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>

@@ -7,6 +7,17 @@
         app:iconSpaceReserved="false"/>
 
     <PreferenceCategory
+        app:title="@string/changelog_v4_title"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:title="@string/changelog_v4_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         app:title="@string/changelog_v3_title"
         app:iconSpaceReserved="false">
 

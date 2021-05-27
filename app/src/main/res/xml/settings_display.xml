@@ -37,6 +37,13 @@
         app:title="@string/display_settings_home_screen_title"
         app:iconSpaceReserved="false">
 
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="background_color"
+            app:title="@string/set_background_color"
+            app:summary="@string/set_background_color_help"
+            app:defaultValue="#66000000"
+            app:iconSpaceReserved="false"/>
+
         <SwitchPreference
             app:key="transparent_status_bar"
             app:title="@string/set_transparent_status_bar"

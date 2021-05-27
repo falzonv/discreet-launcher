@@ -164,6 +164,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(Constants.ICON_PACK + ": " + settings.getString(Constants.ICON_PACK, Constants.NONE)) ;
 		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
+		exportedData.add(Constants.BACKGROUND_COLOR + ": " + settings.getString(Constants.BACKGROUND_COLOR, Constants.NONE)) ;
 		exportedData.add("#") ;
 
 		// Save all custom icons
@@ -254,6 +255,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
+				else if(line.startsWith(Constants.BACKGROUND_COLOR)) loadStringSetting(Constants.BACKGROUND_COLOR, line) ;
 				// Save the shortcuts icons
 				else if(line.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX))
 				{

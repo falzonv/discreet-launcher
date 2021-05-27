@@ -235,4 +235,19 @@ public class ActivitySettings extends AppCompatActivity
 			packsNames.add(pack.loadLabel(apkManager).toString()) ;
 		}
 	}
+
+
+	/**
+	 * Retrieve the currently selected color for a preference key.
+	 * @param settings To get the settings
+	 * @param key Reference in the settings
+	 * @param fallback Color to display as fallback
+	 * @return Selected color, or the fallback if it was not found
+	 */
+	public static int getColor(SharedPreferences settings, String key, int fallback)
+	{
+		String hexadecimal = settings.getString(key, Constants.NONE) ;
+		if((hexadecimal == null) || hexadecimal.equals(Constants.NONE)) return fallback ;
+		return ColorPickerDialog.convertHexadecimalColorToInt(hexadecimal) ;
+	}
 }

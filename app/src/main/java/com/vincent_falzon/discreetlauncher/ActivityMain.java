@@ -175,7 +175,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
 				shortcutLegacyListener = new ShortcutLegacyListener() ;
-				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
+  				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
 			}
 	}
 
@@ -206,12 +206,15 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				if(applicationsList.getFavorites().size() == 0) findViewById(R.id.info_no_favorites_yet).setVisibility(View.VISIBLE) ;
 					else findViewById(R.id.info_no_favorites_yet).setVisibility(View.GONE) ;
 
+				// Check if the interface is reversed and adjust the display accordingly
+				int background_color = ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
+				if(reverse_interface) getWindow().setNavigationBarColor(background_color) ;
+					else getWindow().setStatusBarColor(background_color) ;
+				findViewById(R.id.favorites_applications).setBackgroundColor(background_color) ;
+				findViewById(R.id.access_menu_button).setBackgroundColor(background_color) ;
+
 				// Display the favorites panel
 				favorites.setVisibility(View.VISIBLE) ;
-
-				// Check if the interface is reversed and adjust the display accordingly
-				if(reverse_interface) getWindow().setNavigationBarColor(getResources().getColor(R.color.translucent_gray)) ;
-					else getWindow().setStatusBarColor(getResources().getColor(R.color.translucent_gray)) ;
 			}
 			else
 			{
@@ -220,7 +223,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
-					getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
+						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
+					else getWindow().setStatusBarColor(ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray))) ;
 
 				// Make the navigation bar transparent
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
@@ -239,9 +243,11 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				// Update the recyclers (favorites panel and applications drawer) if needed
 				if(adapters_update_needed) updateAdapters() ;
 
-				// Make the status and navigation bar translucent
-				getWindow().setStatusBarColor(getResources().getColor(R.color.translucent_gray)) ;
-				getWindow().setNavigationBarColor(getResources().getColor(R.color.translucent_gray)) ;
+				// Color the system bars and the drawer background
+				int background_color = ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
+				drawer.setBackgroundColor(background_color) ;
+				getWindow().setStatusBarColor(background_color) ;
+				getWindow().setNavigationBarColor(background_color) ;
 
 				// Display the applications drawer
 				drawer_position = 0 ;
@@ -516,7 +522,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				// Update the applications list
 				updateList(this) ;
 				break ;
-			case Constants.NOTIFICATION:
+			case Constants.NOTIFICATION :
 				// Toggle the notification
 				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
 					else notification.hide() ;
@@ -666,6 +672,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 	/**
 	 * Convert the hidden applications from settings to internal file.
+	 * (To remove after 31/06/2021)
 	 */
 	private void convertHiddenApplications()
 	{

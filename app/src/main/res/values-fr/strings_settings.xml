@@ -24,6 +24,8 @@
     <string name="set_clock_format_24h">24 heures</string>
     <string name="set_clock_format_12h">12 heures</string>
     <string name="set_clock_format_12h_ampm">12 heures + AM/PM</string>
+    <string name="set_background_color">Couleur de fond</string>
+    <string name="set_background_color_help">Panneau des favoris, bouton du menu, tiroir d\'applications et barre de statut</string>
 
     <!-- Export / Import -->
     <string name="export_import_title">Exporter / Importer</string>
@@ -76,7 +78,10 @@
     </string>
     <string name="help_folders_title">Dossiers</string>
     <string name="help_folders_text">
-        Vous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.
+        Pour créer/renommer/supprimer des dossiers et mettre des applications dedans, vous devez utiliser l\'organiseur de dossiers.
+        Il est accessible par le bouton de menu ou en cliquant sur le titre d\'un dossier ouvert.
+        \n
+        \nVous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.
         Ces dossiers peuvent aussi être ajoutés dans les favoris.
         Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.
         \n
@@ -87,7 +92,12 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_v4_text"><b>v4.0.0</b>
-        \n- Permettre le tri manuel des favoris (idée tuch96)
+        \n- Tri manuel des favoris possible (idée tuch96)
+        \n- Couleur de fond personnalisable
+        \n- Retour visuel lors d\'un clic court (idée xi7)
+        \n- Aide dossiers améliorées (idée Steve M.)
+        \n- Réorganisation interne majeure
+        \n- <u><i>Fix</i></u> nom de dossier long (merci xi7)
     </string>
     <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>
         \n- Meilleur retour visuel (idée xi7)
