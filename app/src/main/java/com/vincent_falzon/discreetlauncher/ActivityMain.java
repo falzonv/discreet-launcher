@@ -213,7 +213,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				if(reverse_interface) getWindow().setNavigationBarColor(background_color) ;
 					else getWindow().setStatusBarColor(background_color) ;
 				findViewById(R.id.favorites_applications).setBackgroundColor(background_color) ;
-				findViewById(R.id.access_menu_button).setBackgroundColor(background_color) ;
 
 				// Display the favorites panel
 				favorites.setVisibility(View.VISIBLE) ;
