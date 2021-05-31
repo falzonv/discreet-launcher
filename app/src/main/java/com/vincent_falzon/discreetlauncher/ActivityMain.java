@@ -137,6 +137,8 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Prepare the notification
 		notification = new NotificationDisplayer(this) ;
+		if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
+			else notification.hide() ;
 
 		// Define the favorites panel and applications list layouts based on screen orientation
 		GridLayoutManager favoritesLayout ;
@@ -622,10 +624,6 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 		// Hide folders if some are still opened
 		for(Folder folder : applicationsList.getFolders()) folder.closePopup() ;
-
-		// If the option is selected, display the notification
-		if(settings.getBoolean(Constants.NOTIFICATION, true))
-			notification.display(this) ;
 	}
 
 
@@ -638,10 +636,9 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		// Let the parent actions be performed
 		super.onResume() ;
 
-		// Hide the favorites panel, the drawer and the notification
+		// Hide the favorites panel, the drawer and the menu
 		displayFavorites(false) ;
 		displayDrawer(false) ;
-		notification.hide() ;
 		closeContextMenu() ;
 
 		// Update the display according to settings
@@ -672,7 +669,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 
 	/**
 	 * Convert the hidden applications from settings to internal file.
-	 * (To remove after 31/06/2021)
+	 * (Add in v3.1.0 on 23/04/2021, to remove after 31/07/2021)
 	 */
 	private void convertHiddenApplications()
 	{
