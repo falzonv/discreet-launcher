@@ -23,13 +23,14 @@ package com.vincent_falzon.discreetlauncher.notification ;
  */
 
 // Imports
-import android.app.Notification ;
 import android.app.NotificationChannel ;
 import android.app.NotificationManager ;
 import android.app.PendingIntent ;
 import android.content.Context ;
 import android.content.Intent ;
 import android.os.Build ;
+import android.widget.RemoteViews ;
+import androidx.core.app.NotificationCompat ;
 import com.vincent_falzon.discreetlauncher.R ;
 
 /**
@@ -53,10 +54,14 @@ public class NotificationDisplayer
 		// If the Android version is Oreo or higher, create the notification channel
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
 			{
-				NotificationChannel channel = new NotificationChannel("discreetlauncher", context.getString(R.string.app_name), NotificationManager.IMPORTANCE_LOW) ;
+				NotificationChannel channel = new NotificationChannel("Discreet Launcher", context.getString(R.string.app_name), NotificationManager.IMPORTANCE_LOW) ;
 				channel.setSound(null, null) ;
 				channel.setVibrationPattern(null) ;
+				channel.setShowBadge(false) ;
 				manager.createNotificationChannel(channel) ;
+
+				// Delete the former notification channel (to remove after 31/08/2021)
+				manager.deleteNotificationChannel("discreetlauncher") ;
 			}
 	}
 
@@ -68,21 +73,20 @@ public class NotificationDisplayer
 	public void display(Context context)
 	{
 		// Define the notification settings
-		Notification.Builder builder = new Notification.Builder(context) ;
+		NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Discreet Launcher") ;
 		builder.setSmallIcon(R.drawable.notification_icon) ;
-		builder.setContentTitle(context.getString(R.string.info_favorites_access)) ;
 		builder.setShowWhen(false) ; // Hide the notification timer
 		builder.setOngoing(true) ;   // Sticky notification
-		builder.setVisibility(Notification.VISIBILITY_SECRET) ; // Hidden on lock screen
+		builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ; // Hidden on lock screen
 
-		// Disable sound and vibration
-		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) builder.setChannelId("discreetlauncher") ;
-			else
-			{
-				builder.setPriority(Notification.PRIORITY_LOW) ;
-				builder.setSound(null) ;
-				builder.setVibrate(null) ;
-			}
+		// Define a custom layout for the notification
+		RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.notification) ;
+		builder.setCustomContentView(notificationLayout) ;
+
+		// Settings applied when the Android version doesn't support notification channels
+		builder.setPriority(NotificationCompat.PRIORITY_LOW) ;
+		builder.setSound(null) ;
+		builder.setVibrate(null) ;
 
 		// Prepare the intent to display the favorites popup
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
