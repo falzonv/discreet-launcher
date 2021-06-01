@@ -149,12 +149,13 @@ public class Folder extends Application
 		LayoutInflater inflater = LayoutInflater.from(context) ;
 
 		// Prepare the popup view
-		View popupView = inflater.inflate(R.layout.folder_popup, (ViewGroup)null) ;
+		View popupView = inflater.inflate(R.layout.popup, (ViewGroup)null) ;
 
 		// Prepare the folder title
 		TextView popupTitle = popupView.findViewById(R.id.popup_title) ;
 		popupTitle.setText(getDisplayNameWithCount()) ;
-		popupTitle.setOnClickListener(new ManageFoldersAccessor()) ;
+		popupTitle.setOnClickListener(new PopupClickListener()) ;
+		popupView.findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 
 		// Prepare the folder content
 		RecyclerView popupRecycler = popupView.findViewById(R.id.popup_recycler) ;
@@ -184,9 +185,9 @@ public class Folder extends Application
 
 
 	/**
-	 * Allow to access the activity to manage folders when clicking a view.
+	 * Listen for a click on the popup.
 	 */
-	private class ManageFoldersAccessor implements View.OnClickListener
+	private class PopupClickListener implements View.OnClickListener
 	{
 		/**
 		 * Detect a click on a view.
@@ -195,7 +196,11 @@ public class Folder extends Application
 		@Override
 		public void onClick(View view)
 		{
-			view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFolders.class)) ;
+			// If the title was clicked, open the interface to manage folders
+			if(view.getId() == R.id.popup_title)
+				view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFolders.class)) ;
+
+			// Close the popup
 			closePopup() ;
 		}
 	}

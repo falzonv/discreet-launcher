@@ -54,24 +54,40 @@ public class ActivityNotification extends Activity
 
 		// Initializations related to the interface
 		setTheme(R.style.AppThemeNotification) ;
-		setContentView(R.layout.folder_popup) ;
+		setContentView(R.layout.popup) ;
 
 		// Define the title and make it open the favorites manager when clicked
 		TextView title = findViewById(R.id.popup_title) ;
 		title.setText(R.string.info_favorites_access) ;
-		title.setOnClickListener(new View.OnClickListener()
-			{
-				@Override
-				public void onClick(View view)
-				{
-					view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFavorites.class)) ;
-				}
-			}) ;
+		title.setOnClickListener(new PopupClickListener()) ;
+		findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 
 		// Display the list of favorites applications
 		RecyclerView recycler = findViewById(R.id.popup_recycler) ;
 		recycler.setAdapter(new RecyclerAdapter(this, ActivityMain.getApplicationsList().getFavorites())) ;
 		boolean is_landscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ;
 		recycler.setLayoutManager(new GridLayoutManager(this, is_landscape ? Constants.COLUMNS_LANDSCAPE : Constants.COLUMNS_PORTRAIT)) ;
+	}
+
+
+	/**
+	 * Listen for a click on the popup.
+	 */
+	private class PopupClickListener implements View.OnClickListener
+	{
+		/**
+		 * Detect a click on a view.
+		 * @param view Target element
+		 */
+		@Override
+		public void onClick(View view)
+		{
+			// If the title was clicked, open the interface to manage favorites
+			if(view.getId() == R.id.popup_title)
+				view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFavorites.class)) ;
+
+			// Close the popup
+			finish() ;
+		}
 	}
 }
