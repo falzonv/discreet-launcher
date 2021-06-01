@@ -6,6 +6,7 @@
     <string name="set_customization_title">Customization</string>
     <string name="set_force_portrait">Force portrait mode</string>
     <string name="set_notification">Notification for favorites access</string>
+    <string name="set_notification_help">Uses a transparent icon</string>
     <string name="display_settings_title">Display</string>
     <string name="display_settings_general_title">General</string>
     <string name="set_immersive_mode">Enable immersive mode</string>
@@ -95,7 +96,9 @@
     <string name="changelog_v4_text"><b>v4.0.0</b>
         \n- Allow manual sort of favorites (idea tuch96)
         \n- Background color can be customized
+        \n- Hide notification icon (idea funnyflowerpot)
         \n- Visual feedback on short click (idea xi7)
+        \n- Menu button replaced with an icon
         \n- Help about folders improved (idea Steve M.)
         \n- Major internal reorganization
         \n- <u><i>Fix</i></u> long folder name (thanks xi7)

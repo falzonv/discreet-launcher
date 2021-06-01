@@ -6,6 +6,7 @@
     <string name="set_customization_title">Personnalisation</string>
     <string name="set_force_portrait">Forcer le mode portrait</string>
     <string name="set_notification">Notification d\'accès aux favoris</string>
+    <string name="set_notification_help">Utilise une icône transparente</string>
     <string name="display_settings_title">Affichage</string>
     <string name="display_settings_general_title">Général</string>
     <string name="set_immersive_mode">Activer le mode immersif</string>
@@ -94,7 +95,9 @@
     <string name="changelog_v4_text"><b>v4.0.0</b>
         \n- Tri manuel des favoris possible (idée tuch96)
         \n- Couleur de fond personnalisable
+        \n- Masquer icône notif. (idée funnyflowerpot)
         \n- Retour visuel lors d\'un clic court (idée xi7)
+        \n- Bouton de menu remplacé par une icône
         \n- Aide dossiers améliorées (idée Steve M.)
         \n- Réorganisation interne majeure
         \n- <u><i>Fix</i></u> nom de dossier long (merci xi7)
