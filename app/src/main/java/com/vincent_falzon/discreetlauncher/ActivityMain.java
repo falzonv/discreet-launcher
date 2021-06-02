@@ -43,6 +43,8 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
+import com.google.android.material.shape.MaterialShapeDrawable ;
+import com.google.android.material.shape.ShapeAppearanceModel ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
@@ -208,10 +210,31 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				if(applicationsList.getFavorites().size() == 0) findViewById(R.id.info_no_favorites_yet).setVisibility(View.VISIBLE) ;
 					else findViewById(R.id.info_no_favorites_yet).setVisibility(View.GONE) ;
 
-				// Check if the interface is reversed and adjust the display accordingly
+				// Retrieve the background color
 				int background_color = ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
-				if(reverse_interface) getWindow().setNavigationBarColor(background_color) ;
-					else getWindow().setStatusBarColor(background_color) ;
+
+				// Check if the interface is reversed and adjust the display accordingly
+				ShapeAppearanceModel menuButtonShape ;
+				float radius = getResources().getDimension(R.dimen.spacing_large) ;
+				if(reverse_interface)
+					{
+						// Reversed interface
+						getWindow().setNavigationBarColor(background_color) ;
+						menuButtonShape = new ShapeAppearanceModel().toBuilder()
+								.setTopLeftCornerSize(radius).setTopRightCornerSize(radius).build() ;
+					}
+					else
+					{
+						// Classic interface
+						getWindow().setStatusBarColor(background_color) ;
+						menuButtonShape = new ShapeAppearanceModel().toBuilder()
+								.setBottomLeftCornerSize(radius).setBottomRightCornerSize(radius).build() ;
+					}
+
+				// Color the menu button and favorites panel
+				MaterialShapeDrawable menuButtonBackground = new MaterialShapeDrawable(menuButtonShape) ;
+				menuButtonBackground.setTint(background_color) ;
+				findViewById(R.id.access_menu_button).setBackground(menuButtonBackground) ;
 				findViewById(R.id.favorites_applications).setBackgroundColor(background_color) ;
 
 				// Display the favorites panel
