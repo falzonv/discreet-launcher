@@ -48,6 +48,7 @@
     <string name="dialog_edit_name">Nouveau nom</string>
     <string name="dialog_color_picker_base">Base :</string>
     <string name="dialog_color_picker_preview">Aperçu</string>
+    <string name="dialog_search_hint">Chercher des applications</string>
 
     <!-- Dossiers -->
     <string name="folders_create_new">Nouveau dossier</string>
