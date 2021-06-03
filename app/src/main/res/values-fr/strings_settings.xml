@@ -66,6 +66,9 @@
         \nAprès l\'une de ces actions, le problème ne devrait plus apparaître.
         \nS\'il persiste, je suis désolé mais il semble que cela ne va pas marcher pour vous :-/
         \n
+        \nPour ne pas être intrusive, l\'icône de notification est transparente avec une faible priorité.
+        Avec certains applications encore moins prioritaires, cela peut générer un espace vide dans la barre de statut.
+        \n
         \nEnfin, si vous changez le lanceur par défaut, il est possible que la notification soit toujours là.
         Pour la cacher, vous pouvez ouvrir Lanceur Discret (pas besoin qu\'il soit le lanceur par défaut) et désactiver la notification dans les paramètres.
     </string>

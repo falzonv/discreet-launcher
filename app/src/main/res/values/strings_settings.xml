@@ -66,6 +66,9 @@
         \nAfter one of these actions, the problem should not appear again.
         \nIf it persists, I am sorry but it seems this will not work for you :-/
         \n
+        \nTo not be intrusive, the notification icon is transparent and low priority.
+        With some applications having even lower priorities, this may result in an empty space in the status bar.
+        \n
         \nFinally, if you change the default launcher, you may still see the notification.
         To hide it, you can open Discreet Launcher (no need to be the default launcher) and disable the notification in the settings.
     </string>
