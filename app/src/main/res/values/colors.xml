@@ -10,7 +10,7 @@
     <!-- Transparent/translucent colors -->
     <color name="transparent">#00000000</color>
     <color name="translucent_gray">#66000000</color>
-    <color name="translucent_dark_gray">#BB000000</color>
+    <color name="translucent_dark_gray">#ED353535</color>
     <color name="translucent_white">#BBFFFFFF</color>
 
 </resources>

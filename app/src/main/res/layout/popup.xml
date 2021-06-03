@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/popup_window"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:padding="1dp"
-    android:orientation="vertical"
-    android:background="@color/translucent_white">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginBottom="1dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@color/translucent_dark_gray">
+        android:background="@drawable/shape_popup">
 
         <TextView
             android:id="@+id/popup_title"
@@ -53,6 +49,7 @@
         android:id="@+id/popup_recycler"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:background="@color/translucent_dark_gray"/>
+        android:padding="1dp"
+        android:background="@drawable/shape_popup"/>
 
 </LinearLayout>
