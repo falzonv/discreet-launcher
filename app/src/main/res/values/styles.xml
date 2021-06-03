@@ -32,7 +32,7 @@
 
 
     <!-- Notification popup theme -->
-    <style name="AppThemeNotification" parent="Theme.AppCompat.Dialog">
+    <style name="AppThemeNotification" parent="Theme.AppCompat.Light.Dialog">
         <item name="windowNoTitle">true</item>
     </style>
 

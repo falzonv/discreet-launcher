@@ -23,12 +23,12 @@ package com.vincent_falzon.discreetlauncher.notification ;
  */
 
 // Imports
-import android.app.Activity ;
 import android.content.Intent ;
 import android.content.res.Configuration ;
 import android.os.Bundle ;
 import android.view.View ;
 import android.widget.TextView ;
+import androidx.appcompat.app.AppCompatActivity ;
 import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityFavorites ;
@@ -40,7 +40,7 @@ import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
 /**
  * Activity called when the notification is clicked.
  */
-public class ActivityNotification extends Activity
+public class ActivityNotification extends AppCompatActivity
 {
 	/**
 	 * Constructor.
@@ -53,7 +53,6 @@ public class ActivityNotification extends Activity
 		super.onCreate(savedInstanceState) ;
 
 		// Initializations related to the interface
-		setTheme(R.style.AppThemeNotification) ;
 		setContentView(R.layout.popup) ;
 
 		// Define the title and make it open the favorites manager when clicked

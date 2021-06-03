@@ -64,7 +64,7 @@
 
         <activity
             android:name=".notification.ActivityNotification"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:theme="@style/AppThemeNotification"
             android:excludeFromRecents="true">
         </activity>
 
