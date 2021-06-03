@@ -34,6 +34,7 @@ import android.os.Bundle ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.core.content.res.ResourcesCompat ;
+import androidx.core.graphics.drawable.DrawableCompat ;
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.GridLayoutManager ;
@@ -58,7 +59,7 @@ import java.util.Set ;
 /**
  * Main class activity managing the home screen and applications drawer.
  */
-public class ActivityMain extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
+public class ActivityMain extends AppCompatActivity implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener
 {
 	// Attributes
 	private static ApplicationsList applicationsList ;
@@ -76,6 +77,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	private LinearLayout favorites ;
 	private RecyclerAdapter favoritesAdapter ;
 	private MinuteListener minuteListener ;
+	private TextView menuButton ;
 	private boolean reverse_interface ;
 
 	// Attributes related to the drawer
@@ -119,8 +121,10 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 		homeScreen = findViewById(R.id.home_screen) ;
 		favorites = findViewById(R.id.favorites) ;
 		drawer = findViewById(R.id.drawer) ;
+		menuButton = findViewById(R.id.access_menu_button) ;
 		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
-		registerForContextMenu(findViewById(R.id.access_menu_button)) ;
+		registerForContextMenu(menuButton) ;
+		menuButton.setOnClickListener(this) ;
 
 		// If it does not exist yet, build the applications list
 		if(applicationsList == null)
@@ -218,19 +222,19 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 				if(reverse_interface)
 					{
 						// Reversed interface
-						menuButtonBackground = ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab_reverse, null) ;
+						menuButtonBackground = DrawableCompat.wrap(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab_reverse, null)) ;
 						getWindow().setNavigationBarColor(background_color) ;
 					}
 					else
 					{
 						// Classic interface
-						menuButtonBackground = ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab, null) ;
+						menuButtonBackground = DrawableCompat.wrap(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab, null)) ;
 						getWindow().setStatusBarColor(background_color) ;
 					}
 
 				// Color the menu button and favorites panel
-				if(menuButtonBackground != null) menuButtonBackground.setTint(background_color) ;
-				findViewById(R.id.access_menu_button).setBackground(menuButtonBackground) ;
+				menuButtonBackground.setTint(background_color) ;
+				menuButton.setBackground(DrawableCompat.unwrap(menuButtonBackground)) ;
 				findViewById(R.id.favorites_applications).setBackgroundColor(background_color) ;
 
 				// Display the favorites panel
@@ -421,7 +425,7 @@ public class ActivityMain extends AppCompatActivity implements SharedPreferences
 	 * Detect a click on an element from the activity.
 	 * @param view Element clicked
 	 */
-	public void onClickMainActivity(View view)
+	public void onClick(View view)
 	{
 		// Display the contextual menu after a short click
 		if(view.getId() == R.id.access_menu_button)
