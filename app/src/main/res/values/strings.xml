@@ -43,12 +43,17 @@
     <string name="error_invalid_color_format">This hexadecimal color is not valid!</string>
 
 	<!-- Selection dialogs -->
-    <string name="dialog_open_or_settings">Do you want to open %1$s or its settings?</string>
-    <string name="dialog_open_or_remove">Do you want to open %1$s or remove it?</string>
     <string name="dialog_edit_name">New name</string>
     <string name="dialog_color_picker_base">Base:</string>
     <string name="dialog_color_picker_preview">Preview</string>
     <string name="dialog_search_hint">Search applications</string>
+
+    <!-- Long click options -->
+    <string name="long_click_title">What do you want to do?</string>
+    <string name="long_click_open">> Open \"%1s\"</string>
+    <string name="long_click_store">> See its store page</string>
+    <string name="long_click_settings">> Access its settings</string>
+    <string name="long_click_remove">> Remove this shortcut</string>
 
     <!-- Folders -->
     <string name="folders_create_new">New folder</string>

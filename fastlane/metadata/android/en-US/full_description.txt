@@ -2,7 +2,7 @@ Discreet Launcher provides you a distraction-free home screen, allowing you to f
 
 From this clean home screen, simply slide your finger down to display your favorites applications or up to see the complete list of applications.
 
-If you hold your finger a few moments on an application, you will be offered to access its system settings.
+If you hold your finger a few moments on an application, you will be offered to access its system settings and its page in the store.
 
 Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
 
@@ -15,6 +15,7 @@ Discreet Launcher is open source, doesn't require any unnecessary permission, wo
 - Help and changelog
 
 2/ Customization options
+- Background color
 - Force portrait mode
 - Immersive mode
 - Reversed interface

@@ -184,57 +184,105 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 			// Prepare and display the selection dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+			dialog.setTitle(context.getString(R.string.long_click_title)) ;
 			if(application instanceof Shortcut)
 				{
-					dialog.setMessage(context.getString(R.string.dialog_open_or_remove, application.getDisplayName())) ;
-					dialog.setPositiveButton(R.string.button_remove,
-						new DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialogInterface, int i)
+					CharSequence[] options = {
+							context.getString(R.string.long_click_open, application.getDisplayName()),
+							context.getString(R.string.long_click_remove),
+						} ;
+					dialog.setItems(options,
+							new DialogInterface.OnClickListener()
 							{
-								// Remove the shortcut from the file and update the applications list
-								setVisualFeedback(context, false) ;
-								ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
-								ActivityMain.updateList(context) ;
-								notifyDataSetChanged() ;
-							}
-						}) ;
+								@Override
+								public void onClick(DialogInterface dialog, int selection)
+								{
+									// Check which option has been selected
+									setVisualFeedback(context, false) ;
+									switch(selection)
+									{
+										case 0 :
+											// Open the shortcut
+											application.start(view) ;
+											break ;
+										case 1 :
+											// Remove the shortcut from the file and update the applications list
+											ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
+											ActivityMain.updateList(context) ;
+											notifyDataSetChanged() ;
+											break ;
+									}
+								}
+							}) ;
+				}
+				else if(application instanceof Folder)
+				{
+					CharSequence[] options = {
+							context.getString(R.string.long_click_open, application.getDisplayName()),
+							context.getString(R.string.long_click_settings),
+						} ;
+					dialog.setItems(options,
+							new DialogInterface.OnClickListener()
+							{
+								@Override
+								public void onClick(DialogInterface dialog, int selection)
+								{
+									// Check which option has been selected
+									setVisualFeedback(context, false) ;
+									switch(selection)
+									{
+										case 0 :
+											// Open the folder
+											application.start(view) ;
+											break ;
+										case 1 :
+											// Open the folder organizer
+											context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+											break ;
+									}
+								}
+							}) ;
 				}
 				else
 				{
-					dialog.setMessage(context.getString(R.string.dialog_open_or_settings, application.getDisplayName())) ;
-					dialog.setPositiveButton(R.string.button_settings,
-						new DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialogInterface, int i)
+					CharSequence[] options = {
+							context.getString(R.string.long_click_open, application.getDisplayName()),
+							context.getString(R.string.long_click_store),
+							context.getString(R.string.long_click_settings),
+						} ;
+					dialog.setItems(options,
+							new DialogInterface.OnClickListener()
 							{
-								setVisualFeedback(context, false) ;
-								if(application instanceof Folder) context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
-									else
+								@Override
+								public void onClick(DialogInterface dialog, int selection)
+								{
+									// Check which option has been selected
+									setVisualFeedback(context, false) ;
+									switch(selection)
 									{
-										// Open the application system settings
-										Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-										intent.setData(Uri.parse("package:" + application.getApk())) ;
-										intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-										context.startActivity(intent) ;
+										case 0 :
+											// Start the application and display an error message if it was not found
+											if(!application.start(view))
+												ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+											break ;
+										case 1 :
+											// Open the application page in the store
+											Intent storeIntent = new Intent(Intent.ACTION_VIEW) ;
+											storeIntent.setData(Uri.parse("market://details?id=" + application.getApk())) ;
+											storeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+											context.startActivity(storeIntent) ;
+											break ;
+										case 2 :
+											// Open the application system settings
+											Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
+											settingsIntent.setData(Uri.parse("package:" + application.getApk())) ;
+											settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+											context.startActivity(settingsIntent) ;
+											break ;
 									}
-							}
-						}) ;
+								}
+							}) ;
 				}
-			dialog.setNeutralButton(R.string.button_open,
-				new DialogInterface.OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i)
-					{
-						// Start the application and display an error message if it was not found
-						setVisualFeedback(context, false) ;
-						if(!application.start(view))
-							ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
-					}
-				}) ;
 			dialog.setOnDismissListener(new DialogInterface.OnDismissListener()
 				{
 					@Override

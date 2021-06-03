@@ -43,12 +43,17 @@
     <string name="error_invalid_color_format">Cette couleur hexadécimale n\'est pas valide !</string>
 
 	<!-- Fenêtres de sélection -->
-    <string name="dialog_open_or_settings">Voulez-vous ouvrir %1$s ou ses paramètres ?</string>
-    <string name="dialog_open_or_remove">Voulez-vous ouvrir %1$s ou le supprimer ?</string>
     <string name="dialog_edit_name">Nouveau nom</string>
     <string name="dialog_color_picker_base">Base :</string>
     <string name="dialog_color_picker_preview">Aperçu</string>
     <string name="dialog_search_hint">Chercher des applications</string>
+
+    <!-- Long click options -->
+    <string name="long_click_title">Que voulez-vous faire ?</string>
+    <string name="long_click_open">> Ouvrir \"%1s\"</string>
+    <string name="long_click_store">> Voir sa page dans le magasin</string>
+    <string name="long_click_settings">> Accéder à ses paramètres</string>
+    <string name="long_click_remove">> Supprimer ce raccourci</string>
 
     <!-- Dossiers -->
     <string name="folders_create_new">Nouveau dossier</string>
