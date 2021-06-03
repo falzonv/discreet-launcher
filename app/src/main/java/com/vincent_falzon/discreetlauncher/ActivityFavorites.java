@@ -136,7 +136,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 		// Prepare the title
 		final int max_favorites = defineMaxFavorites() ;
-		String dialog_title = getString(R.string.button_select_favorites) + " (" + max_favorites + ")" ;
+		String dialog_title = getString(R.string.button_select_favorites) + " (max " + max_favorites + ")" ;
 
 		// Prepare and display the selection dialog
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
