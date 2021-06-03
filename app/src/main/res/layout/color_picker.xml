@@ -53,20 +53,20 @@
         android:gravity="end">
 
         <Button
-            android:id="@+id/color_validate_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_apply"
-            android:theme="@style/NormalButton"
-            style="?android:buttonStyle"/>
-
-        <Button
             android:id="@+id/color_cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_cancel"
             android:theme="@style/BorderlessButton"
             style="?android:borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/color_validate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_apply"
+            android:theme="@style/NormalButton"
+            style="?android:buttonStyle"/>
 
     </LinearLayout>
 
