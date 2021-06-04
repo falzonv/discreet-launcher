@@ -74,7 +74,7 @@ public class NotificationDisplayer
 	{
 		// Define the notification settings
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Discreet Launcher") ;
-		builder.setSmallIcon(R.drawable.notification_icon) ;
+		builder.setSmallIcon(R.drawable.icon_notification) ;
 		builder.setShowWhen(false) ; // Hide the notification timer
 		builder.setOngoing(true) ;   // Sticky notification
 		builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ; // Hidden on lock screen

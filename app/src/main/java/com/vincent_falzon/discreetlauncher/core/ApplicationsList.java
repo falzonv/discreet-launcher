@@ -253,7 +253,7 @@ public class ApplicationsList
 	private void loadShortcuts(Context context)
 	{
 		// Use the folder icon as default shortcut icon
-		Drawable default_icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.folder_icon, null) ;
+		Drawable default_icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.icon_folder, null) ;
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 

@@ -57,7 +57,7 @@ public class FolderIcon extends Drawable
 		density = context.getResources().getDisplayMetrics().density ;
 		icon_zoom = Math.round(10 * density) ;
 		int icon_size = Math.round(48 * density) + icon_zoom ;
-		Drawable folderIcon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.folder_icon, null) ;
+		Drawable folderIcon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.icon_folder, null) ;
 		if(folderIcon != null)
 			{
 				icon = Bitmap.createBitmap(folderIcon.getIntrinsicWidth(), folderIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
