@@ -23,9 +23,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="#(AA)RRGGBB"
+            android:hint="#RRGGBB"
             android:imeOptions="actionDone"
-            android:maxLength="9"
+            android:maxLength="7"
             android:inputType="textCapCharacters"
             android:autofillHints=""
             tools:ignore="HardcodedText"/>

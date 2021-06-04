@@ -390,11 +390,12 @@ public class ColorPickerView extends View
 	/**
 	 * Select a specific color on the color picker.
 	 * @param new_color The color to select
+	 * @param keep_alpha <code>true</code> to keep the currently selected alpha
 	 */
-	public void setColor(int new_color)
+	public void setColor(int new_color, boolean keep_alpha)
 	{
 		// Update the alpha, hue and saturation/value to the new color
-        alpha = Color.alpha(new_color) ;
+        if(!keep_alpha) alpha = Color.alpha(new_color) ;
 		Color.colorToHSV(new_color, hsv_color) ;
 
 		// If requested, notify that the color was changed

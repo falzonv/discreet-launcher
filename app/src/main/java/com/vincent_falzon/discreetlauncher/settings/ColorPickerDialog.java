@@ -109,7 +109,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 							{
 								// Try to read a color from the hexadecimal string
 								int new_color = convertHexadecimalColorToInt(newColorHexadecimal.getText().toString()) ;
-								colorPicker.setColor(new_color) ;
+								colorPicker.setColor(new_color, true) ;
 							}
 							catch (IllegalArgumentException e)
 							{
@@ -129,7 +129,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 		// Initialize the color picker
 		this.default_color = default_color ;
 		colorPicker.setOnColorChangedListener(this) ;
-		colorPicker.setColor(initial_color) ;
+		colorPicker.setColor(initial_color, false) ;
 
 		// Register the listener to notify when the selected color need to be saved
 		saveListener = listener ;
@@ -161,7 +161,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 		if(selection == R.id.color_reset_button)
 			{
 				// Reset the color picker and keep it displayed
-				colorPicker.setColor(convertHexadecimalColorToInt(default_color)) ;
+				colorPicker.setColor(convertHexadecimalColorToInt(default_color), false) ;
 				return ;
 			}
 
