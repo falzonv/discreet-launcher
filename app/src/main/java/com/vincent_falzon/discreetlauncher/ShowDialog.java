@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher ;
 // Imports
 import android.content.Context ;
 import android.content.DialogInterface ;
+import android.content.Intent ;
 import android.widget.Toast ;
 import androidx.appcompat.app.AlertDialog ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
@@ -69,9 +70,13 @@ public abstract class ShowDialog
 	{
 		// Prepare the list of applications
 		if(context == null) return ;
-		final ArrayList<Application> applications = new ArrayList<>() ;
-		applications.addAll(ActivityMain.getApplicationsList().getHidden()) ;
-		applications.addAll(ActivityMain.getApplicationsList().getApplications(false)) ;
+		final ArrayList<Application> applications = new ArrayList<>(ActivityMain.getApplicationsList().getHidden()) ;
+		for(Application application : ActivityMain.getApplicationsList().getApplications(false))
+		{
+			// Never hide the Discreet Launcher icon (as it can be the only access to the menu)
+			if(application.getApk().equals(context.getPackageName())) continue ;
+			applications.add(application) ;
+		}
 
 		// List the names of all applications
 		CharSequence[] app_names = new CharSequence[applications.size()] ;
@@ -113,6 +118,12 @@ public abstract class ShowDialog
 
 					// Update the applications list
 					ActivityMain.updateList(context) ;
+
+					// Go back to the home screen
+					Intent homeIntent = new Intent() ;
+					homeIntent.setClass(context, ActivityMain.class) ;
+					homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+					context.startActivity(homeIntent) ;
 				}
 			}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;

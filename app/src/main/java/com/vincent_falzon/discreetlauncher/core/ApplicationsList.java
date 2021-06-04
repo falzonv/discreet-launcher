@@ -86,6 +86,7 @@ public class ApplicationsList
 		// Browse the APK manager list and store the data of each application in the main list
 		IconPack iconPack = new IconPack(context, apkManager) ;
 		Drawable icon ;
+		String package_name = context.getPackageName() ;
 		for(ResolveInfo entry : apkManagerList)
 		{
 			// Load the application icon
@@ -98,12 +99,13 @@ public class ApplicationsList
 				else icon = entry.loadIcon(apkManager) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 
+			// Check if the application is the launcher to provide menu access using its icon
+			Application application ;
+			if(entry.activityInfo.packageName.equals(package_name))
+					application = new Menu(entry.loadLabel(apkManager).toString(), entry.activityInfo.name, entry.activityInfo.packageName, icon) ;
+				else application = new Application(entry.loadLabel(apkManager).toString(), entry.activityInfo.name, entry.activityInfo.packageName, icon) ;
+
 			// Add the application to the list
-			Application application = new Application(
-					entry.loadLabel(apkManager).toString(),
-					entry.activityInfo.name,
-					entry.activityInfo.packageName,
-					icon) ;
 			drawer.add(application) ;
 		}
 
@@ -230,6 +232,9 @@ public class ApplicationsList
 		// Browse the list of applications that should be hidden
 		for(String name : file.readAllLines())
 		{
+			// Never hide the Discreet Launcher icon (as it can be the only access to the menu)
+			if(name.equals("com.vincent_falzon.discreetlauncher.ActivityMain")) continue ;
+
 			// Search the internal name in the applications list
 			for(Application application : drawer)
 				if(application.getName().equals(name))

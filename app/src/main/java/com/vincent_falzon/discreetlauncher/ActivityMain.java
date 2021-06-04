@@ -24,7 +24,6 @@ package com.vincent_falzon.discreetlauncher ;
 
 // Imports
 import android.content.Context ;
-import android.content.Intent ;
 import android.content.SharedPreferences ;
 import android.content.pm.ActivityInfo ;
 import android.content.res.Configuration ;
@@ -39,15 +38,14 @@ import androidx.core.view.GestureDetectorCompat ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
-import android.view.ContextMenu ;
 import android.view.GestureDetector ;
-import android.view.MenuItem ;
 import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
+import com.vincent_falzon.discreetlauncher.core.Menu ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
@@ -122,9 +120,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		favorites = findViewById(R.id.favorites) ;
 		drawer = findViewById(R.id.drawer) ;
 		menuButton = findViewById(R.id.access_menu_button) ;
-		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
-		registerForContextMenu(menuButton) ;
 		menuButton.setOnClickListener(this) ;
+		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
 
 		// If it does not exist yet, build the applications list
 		if(applicationsList == null)
@@ -371,55 +368,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		adapters_update_needed = false ;
 	}
 
-	
-	/**
-	 * Create the contextual menu.
-	 * @param menu Used by the parent class
-	 * @param view Used by the parent class
-	 * @param menuInfo Used by the parent class
-	 */
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo)
-	{
-		super.onCreateContextMenu(menu, view, menuInfo) ;
-		getMenuInflater().inflate(R.menu.contextual_menu, menu) ;
-	}
-
-
-	/**
-	 * Detect a click on an item from the contextual menu.
-	 * @param item Entry clicked
-	 * @return <code>true</code> if event is consumed, <code>false</code> otherwise
-	 */
-	@Override
-	public boolean onContextItemSelected(MenuItem item)
-	{
-		// Identify which menu entry has been clicked
-		int selection = item.getItemId() ;
-
-		// Check if the applications list should be refreshed
-		if(selection == R.id.menu_action_refresh_list)
-			{
-				updateList(this) ;
-				displayFavorites(false) ;
-			}
-			// Check if another activity should be started
-			else if(selection == R.id.menu_action_manage_favorites) startActivity(new Intent().setClass(this, ActivityFavorites.class)) ;
-			else if(selection == R.id.menu_action_organize_folders) startActivity(new Intent().setClass(this, ActivityFolders.class)) ;
-			else if(selection == R.id.menu_action_settings) startActivity(new Intent().setClass(this, ActivitySettings.class)) ;
-			// Check if the dialog to hide applications should be displayed
-			else if(selection == R.id.menu_action_hide_applications)
-			{
-				displayFavorites(false) ;
-				ShowDialog.hideApplications(this) ;
-			}
-			// In other cases, ignore the click
-			else return false ;
-
-		// Indicate that the event has been consumed
-		return true ;
-	}
-
 
 	/**
 	 * Detect a click on an element from the activity.
@@ -427,12 +375,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	 */
 	public void onClick(View view)
 	{
-		// Display the contextual menu after a short click
-		if(view.getId() == R.id.access_menu_button)
-			{
-				if(Build.VERSION.SDK_INT < Build.VERSION_CODES.N) view.showContextMenu() ;
-					else view.showContextMenu(0, 0) ;
-			}
+		// If it was clicked, display the menu
+		if(view.getId() == R.id.access_menu_button) Menu.open(view) ;
 	}
 
 
@@ -661,7 +605,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Hide the favorites panel, the drawer and the menu
 		displayFavorites(false) ;
 		displayDrawer(false) ;
-		closeContextMenu() ;
 
 		// Update the display according to settings
 		minuteListener.updateClock() ;
