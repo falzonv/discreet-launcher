@@ -21,9 +21,8 @@
 #-renamesourcefileattribute SourceFile
 
 # Shrink and obfuscate only Android libraries
--keep class com.vincent_falzon.discreetlauncher.*
-{
-    <fields> ;
-    <init>() ;
-    <methods> ;
-}
+-keep class com.vincent_falzon.discreetlauncher** { * ; }
+
+# For shrinking troubleshooting, check these files in "app/build/outputs/mapping/release/"
+#   - "usage.txt" lists what ProGuard considers as dead code
+#   - "seeds.txt" exhaustively lists classes and classes members matched by "keep" rules
