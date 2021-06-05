@@ -78,10 +78,11 @@ public class InternalFileTXT extends InternalFile
 	/**
 	 * Check if a specific line exists in the file.
 	 * @param search Text of the line
-	 * @return <code>true</code> if it exists, <code>false</code> otherwis
+	 * @return <code>true</code> if it exists, <code>false</code> otherwise
 	 */
 	public boolean isLineExisting(String search)
 	{
+		if(!exists()) return false ;
 		return readAllLines().contains(search) ;
 	}
 
