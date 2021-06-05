@@ -20,8 +20,8 @@
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
     <string name="set_reverse_interface">Reverse interface</string>
     <string name="set_reverse_interface_help">Display the favorites panel on bottom</string>
-    <string name="set_display_clock">Display the clock</string>
     <string name="set_clock_format">Clock format</string>
+    <string name="set_clock_format_none">None (hide)</string>
     <string name="set_clock_format_24h">24 hours</string>
     <string name="set_clock_format_12h">12 hours</string>
     <string name="set_clock_format_12h_ampm">12 hours + AM/PM</string>
@@ -98,13 +98,15 @@
     <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
     <string name="changelog_v4_text"><b>v4.0.0</b>
         \n- Allow manual sort of favorites (idea tuch96)
-        \n- Background color can be customized
         \n- Hide notification icon (idea funnyflowerpot)
+        \n- Option to show app in store (idea esdreesh)
         \n- Visual feedback on short click (idea xi7)
         \n- Menu button replaced with an icon
         \n- Close button on folders and notification
+        \n- Merge clock settings
         \n- Help about folders improved (idea Steve M.)
         \n- Major internal reorganization
+        \n- <u><i>Option</i></u> custom background color
         \n- <u><i>Fix</i></u> long folder name (thanks xi7)
     </string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>

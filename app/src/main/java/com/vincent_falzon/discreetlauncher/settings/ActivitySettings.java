@@ -162,6 +162,8 @@ public class ActivitySettings extends AppCompatActivity
 			// Prepare the clock formats
 			ArrayList<String> formats = new ArrayList<>() ;
 			ArrayList<String> formatsNames = new ArrayList<>() ;
+			formatsNames.add(getString(R.string.set_clock_format_none)) ;
+			formats.add(Constants.NONE) ;
 			formatsNames.add(getString(R.string.set_clock_format_24h)) ;
 			formats.add("HH:mm") ;
 			formatsNames.add(getString(R.string.set_clock_format_12h)) ;

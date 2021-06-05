@@ -29,6 +29,11 @@
             app:key="hidden_applications"
             app:isPreferenceVisible="false"/>
 
+        <SwitchPreference
+            app:key="display_clock"
+            app:isPreferenceVisible="false"
+            app:defaultValue="false"/>
+
         <Preference
             app:title="@string/export_import_title"
             app:icon="@android:drawable/ic_menu_upload">

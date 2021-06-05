@@ -89,11 +89,12 @@ public class MinuteListener extends BroadcastReceiver
 	{
 		// Check if the clock should be displayed or not
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(clockText.getContext()) ;
-		if(!settings.getBoolean(Constants.DISPLAY_CLOCK, false)) clockText.setText("") ;
+		String clock_format = settings.getString(Constants.CLOCK_FORMAT, Constants.NONE) ;
+		if(clock_format.equals(Constants.NONE)) clockText.setText("") ;
 			else
 			{
 				// Retrieve the selected format and update the clock
-				SimpleDateFormat clockFormat = new SimpleDateFormat(settings.getString(Constants.CLOCK_FORMAT, "HH:mm")) ;
+				SimpleDateFormat clockFormat = new SimpleDateFormat(clock_format) ;
 				clockText.setText(clockFormat.format(new Date())) ;
 			}
 	}

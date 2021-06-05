@@ -20,8 +20,8 @@
     <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
     <string name="set_reverse_interface">Inverser l\'interface</string>
     <string name="set_reverse_interface_help">Affiche le panneau des favoris en bas</string>
-    <string name="set_display_clock">Afficher l\'horloge</string>
     <string name="set_clock_format">Format de l\'horloge</string>
+    <string name="set_clock_format_none">Aucune (masquer)</string>
     <string name="set_clock_format_24h">24 heures</string>
     <string name="set_clock_format_12h">12 heures</string>
     <string name="set_clock_format_12h_ampm">12 heures + AM/PM</string>
@@ -97,13 +97,15 @@
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_v4_text"><b>v4.0.0</b>
         \n- Tri manuel des favoris possible (idée tuch96)
-        \n- Couleur de fond personnalisable
         \n- Masquer icône notif. (idée funnyflowerpot)
+        \n- Option ouvrir dans le magasin (idée esdreesh)
         \n- Retour visuel lors d\'un clic court (idée xi7)
         \n- Bouton de menu remplacé par une icône
         \n- Bouton Fermer sur dossiers et notification
+        \n- Fusionner les paramètres d\'horloge
         \n- Aide dossiers améliorées (idée Steve M.)
         \n- Réorganisation interne majeure
+        \n- <u><i>Option</i></u> couleur de fond
         \n- <u><i>Fix</i></u> nom de dossier long (merci xi7)
     </string>
     <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>

@@ -58,17 +58,11 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
-        <SwitchPreference
-            app:key="display_clock"
-            app:title="@string/set_display_clock"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
         <ListPreference
             app:key="clock_format"
             app:title="@string/set_clock_format"
             app:iconSpaceReserved="false"
-            app:defaultValue="HH:mm"
+            app:defaultValue="none"
             app:dependency="display_clock"
             app:useSimpleSummaryProvider="true"/>
 

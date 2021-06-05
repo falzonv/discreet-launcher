@@ -107,6 +107,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Retrieve the current settings and start to listen for changes
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		convertHiddenApplications() ;
+		convertClockFormat() ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 		ignore_settings_changes = false ;
 
@@ -634,7 +635,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Convert the hidden applications from settings to internal file.
-	 * (Add in v3.1.0 on 23/04/2021, to remove after 31/07/2021)
+	 * (Added in v3.1.0 on 23/04/2021, to remove after 31/07/2021)
 	 */
 	private void convertHiddenApplications()
 	{
@@ -656,5 +657,22 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Remove the hidden applications settings
 		SharedPreferences.Editor editor = settings.edit() ;
 		editor.putStringSet(Constants.HIDDEN_APPLICATIONS, null).apply() ;
+	}
+
+
+	/**
+	 * Merge the two clock settings (enable/disable and format) into a single setting.
+	 * (Added in v4.0.0 beginning of 06/2021, to remove after 30/09/2021)
+	 */
+	private void convertClockFormat()
+	{
+		// If the clock is already enabled (or the setting is already converted), do nothing
+		if(settings.getBoolean(Constants.DISPLAY_CLOCK, false)) return ;
+
+		// Select the "none" value and indicate that the old setting has been converted
+		SharedPreferences.Editor editor = settings.edit() ;
+		editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
+		editor.putBoolean(Constants.DISPLAY_CLOCK, true) ;
+		editor.apply() ;
 	}
 }
