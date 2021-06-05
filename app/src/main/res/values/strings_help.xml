@@ -56,7 +56,7 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
-    <string name="changelog_v4_text"><b>v4.0.0</b>
+    <string name="changelog_v4_text"><b>v4.0.0 - 05/06/2021</b>
         \n- Allow manual sort of favorites (idea tuch96)
         \n- Hide notification icon (idea funnyflowerpot)
         \n- Option to show app in store (idea esdreesh)
@@ -70,6 +70,7 @@
         \n- <u><i>Option</i></u> custom background color
         \n- <u><i>Option</i></u> hide menu button (idea xi7)
         \n- <u><i>Fix</i></u> long folder name (thanks xi7)
+        \n- <u><i>Fix</i></u> press back folder (thanks xi7)
     </string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>

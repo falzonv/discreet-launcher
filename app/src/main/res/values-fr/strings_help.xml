@@ -55,7 +55,7 @@
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_v4_text"><b>v4.0.0</b>
+    <string name="changelog_v4_text"><b>v4.0.0 - 05/06/2021</b>
         \n- Tri manuel des favoris possible (idée tuch96)
         \n- Masquer icône notif. (idée funnyflowerpot)
         \n- Option ouvrir dans magasin (idée esdreesh)
@@ -69,6 +69,7 @@
         \n- <u><i>Option</i></u> couleur de fond personnalisée
         \n- <u><i>Option</i></u> bouton menu masqué (idée xi7)
         \n- <u><i>Fix</i></u> nom de dossier long (merci xi7)
+        \n- <u><i>Fix</i></u> bouton retour dossier (thanks xi7)
     </string>
     <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>
         \n- Meilleur retour visuel (idée xi7)

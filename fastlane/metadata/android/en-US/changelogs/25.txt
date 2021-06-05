@@ -1,0 +1,14 @@
+- Allow manual sort of favorites (idea tuch96)
+- Hide notification icon (idea funnyflowerpot)
+- Option to show app in store (idea esdreesh)
+- Visual feedback on short click (idea xi7)
+- Menu button replaced with an icon
+- Close button on folders and notification
+- Merge clock settings
+- Settings reorganization
+- Help about folders improved (idea Steve M.)
+- Major internal reorganization
+- Option: custom background color
+- Option: hide menu button (idea xi7)
+- Fix: long folder name (thanks xi7)
+- Fix: press back folder (thanks xi7)

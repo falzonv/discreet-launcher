@@ -1,0 +1,14 @@
+- Tri manuel des favoris possible (idée tuch96)
+- Masquer icône notification (idée funnyflowerpot)
+- Option ouvrir dans magasin (idée esdreesh)
+- Retour visuel lors d'un clic court (idée xi7)
+- Bouton de menu remplacé par une icône
+- Bouton Fermer sur dossiers et notification
+- Fusionner les paramètres d'horloge
+- Réorganisation des paramètres
+- Aide dossiers améliorées (idée Steve M.)
+- Réorganisation interne majeure
+- Option : couleur de fond personnalisée
+- Option : bouton menu masqué (idée xi7)
+- Fix : nom de dossier long (merci xi7)
+- Fix : bouton retour dossier (thanks xi7)
