@@ -235,6 +235,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				menuButton.setBackground(DrawableCompat.unwrap(menuButtonBackground)) ;
 				findViewById(R.id.favorites_applications).setBackgroundColor(background_color) ;
 
+				// If the option is selected, hide the menu button
+				if(settings.getBoolean(Constants.HIDE_MENU_BUTTON, false)) menuButton.setVisibility(View.GONE) ;
+					else menuButton.setVisibility(View.VISIBLE) ;
+
 				// Display the favorites panel
 				favorites.setVisibility(View.VISIBLE) ;
 			}
@@ -603,7 +607,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Let the parent actions be performed
 		super.onResume() ;
 
-		// Hide the favorites panel, the drawer and the menu
+		// Hide the favorites panel and the applications drawer
 		displayFavorites(false) ;
 		displayDrawer(false) ;
 

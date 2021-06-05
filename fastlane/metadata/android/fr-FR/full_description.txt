@@ -21,5 +21,6 @@ Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile
 - Interface inversée
 - Heure sur l'écran d'accueil
 - Barre de statut transparente
+- Masquer le bouton de menu
 - Masquer les noms des applications
 - Support des packs d'icônes

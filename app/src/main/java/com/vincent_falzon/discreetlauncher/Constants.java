@@ -46,7 +46,7 @@ public abstract class Constants
 	public static final int COLUMNS_LANDSCAPE = 5 ;
 
 	// Constants representing settings keys
-	public static final String DISPLAY_CLOCK = "display_clock" ;
+	public static final String NONE = "none" ;
 	public static final String CLOCK_FORMAT = "clock_format" ;
 	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	public static final String FORCE_PORTRAIT = "force_portrait" ;
@@ -54,11 +54,14 @@ public abstract class Constants
 	public static final String REVERSE_INTERFACE = "reverse_interface" ;
 	public static final String HIDE_APP_NAMES = "hide_app_names" ;
 	public static final String ICON_PACK = "icon_pack" ;
-	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;
 	public static final String NOTIFICATION = "notification" ;
 	public static final String BACKGROUND_COLOR = "background_color" ;
+	public static final String HIDE_MENU_BUTTON = "hide_menu_button" ;
 
-	// Constants related to settings without being settings keys
-	public static final String NONE = "none" ;
+	// To remove after 31/07/2021 (setting migrated to internal file)
+	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;
 	public static final String NOTIFICATION_SEPARATOR = "_discreet_" ;
+
+	// To remove after 30/09/2021 (setting merged with clock format)
+	public static final String DISPLAY_CLOCK = "display_clock" ;
 }

@@ -52,6 +52,13 @@
             app:defaultValue="false"/>
 
         <SwitchPreference
+            app:key="hide_menu_button"
+            app:title="@string/set_hide_menu_button"
+            app:summary="@string/set_hide_menu_button_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
             app:key="reverse_interface"
             app:title="@string/set_reverse_interface"
             app:summary="@string/set_reverse_interface_help"

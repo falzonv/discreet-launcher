@@ -67,6 +67,7 @@
         \n- Help about folders improved (idea Steve M.)
         \n- Major internal reorganization
         \n- <u><i>Option</i></u> custom background color
+        \n- <u><i>Option</i></u> hide menu button (idea xi7)
         \n- <u><i>Fix</i></u> long folder name (thanks xi7)
     </string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
