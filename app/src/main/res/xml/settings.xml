@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        app:title="@string/set_customization_title"
+        app:title="@string/title_customization"
         app:iconSpaceReserved="false">
 
         <SwitchPreference
@@ -21,7 +21,7 @@
             app:defaultValue="true"/>
 
         <Preference
-            app:title="@string/display_settings_title"
+            app:title="@string/title_display_settings"
             app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$DisplayFragment"
             app:icon="@android:drawable/ic_menu_gallery"/>
 
@@ -45,7 +45,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/help_and_general_info_title"
+        app:title="@string/title_help_and_general_info"
         app:iconSpaceReserved="false">
 
         <Preference

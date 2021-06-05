@@ -213,7 +213,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 						// Ask the user for the new name
 						final EditText newFolderName = new EditText(context) ;
 						newFolderName.setText(folder.getDisplayName()) ;
-						dialog.setTitle(R.string.dialog_edit_name) ;
+						dialog.setTitle(R.string.hint_rename_folder) ;
 						dialog.setView(newFolderName) ;
 						dialog.setPositiveButton(R.string.button_apply,
 								new DialogInterface.OnClickListener()
@@ -249,7 +249,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 												ActivityMain.updateList(context) ;
 												notifyDataSetChanged() ;
 											}
-											else ShowDialog.toastLong(context, context.getString(R.string.error_rename_file, file.getName())) ;
+											else ShowDialog.toastLong(context, context.getString(R.string.error_folder_rename)) ;
 									}
 								}) ;
 						dialog.show() ;
@@ -294,17 +294,9 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 												return ;
 											}
 
-										// Write the new folder file
+										// Add the selected applications in the folder
 										for(i = 0 ; i < selected.length ; i++)
-										{
-											// Add selected applications to the folder
-											if(selected[i])
-												if(!file.writeLine(applications.get(i).getName()))
-													{
-														ShowDialog.toastLong(context, context.getString(R.string.error_favorite, applications.get(i).getDisplayName())) ;
-														return ;
-													}
-										}
+											if(selected[i]) file.writeLine(applications.get(i).getName()) ;
 
 										// Update the display in the activity
 										folder.getApplications().clear() ;
@@ -330,8 +322,8 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 					else if(selection == R.id.remove_folder)
 					{
 						// Ask confirmation before removing the folder
-						dialog.setMessage(R.string.folders_remove_help) ;
-						dialog.setPositiveButton(R.string.button_remove,
+						dialog.setMessage(R.string.hint_remove_folder) ;
+						dialog.setPositiveButton(R.string.button_remove_folder,
 								new DialogInterface.OnClickListener()
 								{
 									// Save the new list of favorites applications

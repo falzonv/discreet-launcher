@@ -259,7 +259,7 @@ public class ColorPickerView extends View
 		if(alphaGridPaint != null) canvas.drawRect(colorPreviewPanel, alphaGridPaint) ;
 		colorPreviewPaint.setColor(Color.HSVToColor(alpha, hsv_color)) ;
 		canvas.drawRect(colorPreviewPanel, colorPreviewPaint) ;
-		canvas.drawText(getContext().getString(R.string.dialog_color_picker_preview),
+		canvas.drawText(getContext().getString(R.string.color_picker_preview),
 				colorPreviewPanel.left + 2 * density,
 				colorPreviewPanel.top + 16 * density,
 				colorPreviewText) ;

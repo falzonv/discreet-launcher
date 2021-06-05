@@ -21,7 +21,7 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/info_order_favorites"/>
+        android:text="@string/hint_favorites_order"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favorites_list"

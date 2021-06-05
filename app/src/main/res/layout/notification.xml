@@ -4,5 +4,5 @@
 	android:layout_height="wrap_content"
 	android:layout_width="match_parent"
 	android:padding="@dimen/spacing_large"
-	android:text="@string/info_favorites_access"
+	android:text="@string/notification_title"
 	style="@style/TextAppearance.Compat.Notification.Title"/>

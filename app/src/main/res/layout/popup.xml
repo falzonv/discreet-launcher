@@ -30,7 +30,7 @@
             android:singleLine="true"
             android:inputType="textNoSuggestions"
             android:autofillHints=""
-            android:hint="@string/dialog_search_hint"
+            android:hint="@string/search_hint"
             android:textColor="@color/white"
             android:textColorHint="@color/blue"
             android:visibility="gone"/>

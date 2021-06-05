@@ -20,13 +20,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:src="@android:drawable/ic_menu_edit"
-        android:contentDescription="@string/button_settings"/>
+        android:contentDescription="@string/export_import_header_settings"/>
 
     <ImageButton
         android:id="@+id/remove_folder"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:contentDescription="@string/button_remove"/>
+        android:contentDescription="@string/button_remove_folder"/>
 
 </LinearLayout>

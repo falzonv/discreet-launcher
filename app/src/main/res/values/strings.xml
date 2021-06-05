@@ -1,65 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!-- Buttons -->
-	<string name="button_access_menu">Access the menu</string>
-	<string name="button_refresh_list">Refresh the applications list</string>
-	<string name="button_manage_favorites">Manage favorites</string>
-    <string name="button_select_favorites">Select favorites</string>
-    <string name="button_organize_folders">Organize folders</string>
-    <string name="button_hide_applications">Hide applications</string>
-	<string name="button_apply">Apply</string>
-    <string name="button_open">Open</string>
-    <string name="button_remove">Remove</string>
-    <string name="button_settings">Settings</string>
-	<string name="button_cancel">Cancel</string>
-    <string name="button_export">Export</string>
-    <string name="button_import">Import</string>
-    <string name="button_add">Add</string>
-    <string name="button_reset">Reset</string>
-
-	<!-- Information messages -->
-    <string name="info_no_favorites_yet">You can add your favorites applications here\nby clicking the menu button.</string>
-    <string name="info_order_favorites">You can modify the favorites order in the list below (use the empty areas on sides to scroll).</string>
-	<string name="info_applications_list_refreshed">Applications list refreshed</string>
-    <string name="info_favorites_access">Access to favorites</string>
-
-    <!-- Error messages -->
-    <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
-    <string name="error_rename_file">An error happened while renaming the file %1$s!</string>
-    <string name="error_favorite">An error happened with the favorite %1$s!</string>
-    <string name="error_too_many_selections">Sorry, the number of selections is limited to %1$d!</string>
-    <string name="error_shortcut">An error happened with the shortcut %1$s!</string>
-    <string name="error_shortcut_invalid_request">The received request to add a shortcut is not valid!</string>
-    <string name="error_shortcut_missing_info">Some information are missing and the shortcut cannot be launched!</string>
-    <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts!</string>
-    <string name="error_shortcut_start">The Android system was not able to open the shortcut or it did not retrieved it!</string>
+    <!-- Applications list -->
+    <string name="info_applications_list_refreshed">Applications list refreshed</string>
+    <string name="button_refresh_list">Refresh the applications list</string>
     <string name="error_application_not_found">The application %1$s has not been found!</string>
-    <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
-    <string name="error_export">An error happened while creating the export file!</string>
-    <string name="error_import">An error happened while reading the import file!</string>
-    <string name="error_folder_empty_name">The name cannot be empty!</string>
-    <string name="error_folder_already_exists">This folder already exists!</string>
-    <string name="error_invalid_color_format">This hexadecimal color is not valid!</string>
 
-	<!-- Selection dialogs -->
-    <string name="dialog_edit_name">New name</string>
-    <string name="dialog_color_picker_base">Base:</string>
-    <string name="dialog_color_picker_preview">Preview</string>
-    <string name="dialog_search_hint">Search applications</string>
+    <!-- Favorites -->
+    <string name="info_no_favorites_yet">You can add your favorites applications here\nby clicking the menu button.</string>
+    <string name="button_manage_favorites">Manage favorites</string>
+    <string name="button_select_favorites">Select favorites</string>
+    <string name="hint_favorites_order">You can modify the favorites order in the list below (use the empty areas on sides to scroll).</string>
+    <string name="error_too_many_favorites">Sorry, the number of favorites is limited to %1$d!</string>
+
+    <!-- Dialogs buttons -->
+	<string name="button_apply">Apply</string>
+	<string name="button_cancel">Cancel</string>
 
     <!-- Long click options -->
     <string name="long_click_title">What do you want to do?</string>
-    <string name="long_click_open">> Open \"%1s\"</string>
-    <string name="long_click_store">> See its store page</string>
-    <string name="long_click_settings">> Access its settings</string>
-    <string name="long_click_remove">> Remove this shortcut</string>
-
-    <!-- Folders -->
-    <string name="folders_create_new">New folder</string>
-    <string name="folders_create_new_help">You can create as many folders as you want to organize your applications.</string>
-    <string name="folders_edit_help">Click on the name of a folder to change it, the pen allows to edit the folder content.</string>
-    <string name="folders_remove_help">If a folder is removed, its content will be put back in the main applications list.</string>
+    <string name="long_click_open">Open \"%1s\"</string>
+    <string name="long_click_store">See its store page</string>
+    <string name="long_click_settings">Access its settings</string>
+    <string name="long_click_remove">Remove it</string>
 
     <!-- About -->
     <string name="app_name">Discreet Launcher</string>

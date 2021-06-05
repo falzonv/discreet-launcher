@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_color_picker_base"/>
+            android:text="@string/color_picker_base"/>
 
         <EditText
             android:id="@+id/new_color_hexadecimal"
@@ -34,7 +34,7 @@
             android:id="@+id/color_reset_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_reset"
+            android:text="@string/color_picker_reset"
             android:theme="@style/BorderlessButton"
             style="?android:borderlessButtonStyle"/>
 

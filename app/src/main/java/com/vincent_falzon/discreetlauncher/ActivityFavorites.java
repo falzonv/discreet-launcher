@@ -165,11 +165,11 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 								// Add the application only if the maximum is not reached
 								selections_number++ ;
 								if((max_favorites == -1) || (selections_number <= max_favorites)) file.writeLine(applications.get(i).getName()) ;
-								else
-								{
-									ShowDialog.toastLong(context, context.getString(R.string.error_too_many_selections, max_favorites)) ;
-									break ;
-								}
+									else
+									{
+										ShowDialog.toastLong(context, context.getString(R.string.error_too_many_favorites, max_favorites)) ;
+										break ;
+									}
 							}
 
 						// Update the favorites applications list

@@ -138,11 +138,11 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		// Prepare the export file header
 		ArrayList<String> exportedData = new ArrayList<>() ;
 		exportedData.add("# Export " + getString(R.string.app_name) + " " + getString(R.string.app_version) + " (" + SimpleDateFormat.getDateTimeInstance().format(new Date()) + ")") ;
-		exportedData.add("# " + getString(R.string.export_import_file_edit_warning)) ;
+		exportedData.add("# " + getString(R.string.export_import_warning_file_edit)) ;
 		exportedData.add("#") ;
 
 		// Save the content of all internal files
-		exportedData.add("# " + getString(R.string.export_import_internal_files_header)) ;
+		exportedData.add("# " + getString(R.string.export_import_header_internal_files)) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_FAVORITES).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_HIDDEN).prepareForExport()) ;
 		String[] folders_files = InternalFile.searchFilesStartingWith(this, Constants.FILE_FOLDER_PREFIX) ;
@@ -154,7 +154,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY).prepareForExport()) ;
 
 		// Save all settings
-		exportedData.add("# " + getString(R.string.button_settings)) ;
+		exportedData.add("# " + getString(R.string.export_import_header_settings)) ;
 		exportedData.add(Constants.CLOCK_FORMAT + ": " + settings.getString(Constants.CLOCK_FORMAT, Constants.NONE)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
@@ -167,7 +167,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add("#") ;
 
 		// Save all custom icons
-		exportedData.add("# " + getString(R.string.export_import_icons)) ;
+		exportedData.add("# " + getString(R.string.export_import_header_icons)) ;
 		String[] shortcuts_icons = InternalFile.searchFilesStartingWith(this, Constants.FILE_ICON_SHORTCUT_PREFIX) ;
 		if(shortcuts_icons != null)
 			for(String icon : shortcuts_icons) exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Aide -->
+    <string name="help_title">Aide</string>
+    <string name="help_navigation_title">Navigation</string>
+    <string name="help_navigation_text">
+        Depuis l\'écran d\'accueil, tirez vers le bas pour afficher le panneau des favoris et vers le haut pour le masquer.
+        \n
+        \nSi vous tirez vers le haut quand le panneau des favoris est caché, la liste complète des applications s\'affiche.
+        Tirez vers le bas depuis le haut de cette liste pour revenir à l\'accueil.
+        \n
+        \nPressez le bouton sous le panneau des favoris pour afficher le menu du lanceur.
+        \n
+        \nEn maintenant le doigt quelques instants sur une application ou un dossier, il vous sera proposé d\'accéder à ses paramètres.
+    </string>
+    <string name="help_notification_title">Notification</string>
+    <string name="help_notification_text">
+        La notification permet d\'afficher les favoris au dessus d\'autres applications quand vous quitter l\'accueil.
+        Dans la plupart des cas, cela devrait fonctionner sans problèmes.
+        \n
+        \nCependant, dans certains cas vous pouvez être ramené(e) à l\'accueil au lieu d\'avoir l\'affichage au-dessus d\'autres applications.
+        \nSi vous avez ce souci, vous pouvez essayer deux choses :
+        \n- Cliquer sur le bouton \"tout effacer\" dans les applications récentes
+        \n- Redémarrer votre smartphone
+        \nAprès l\'une de ces actions, le problème ne devrait plus apparaître.
+        \nS\'il persiste, je suis désolé mais il semble que cela ne va pas marcher pour vous :-/
+        \n
+        \nPour ne pas être intrusive, l\'icône de notification est transparente avec une faible priorité.
+        Avec certains applications encore moins prioritaires, cela peut générer un espace vide dans la barre de statut.
+        \n
+        \nEnfin, si vous changez le lanceur par défaut, il est possible que la notification soit toujours là.
+        Pour la cacher, vous pouvez ouvrir Lanceur Discret (pas besoin qu\'il soit le lanceur par défaut) et désactiver la notification dans les paramètres.
+    </string>
+    <string name="help_list_update_title">Mise à jour de la liste</string>
+    <string name="help_list_update_text">
+        La liste des applications et leurs icônes ne sont actualisées qu\'après certains évènements
+        (au démarrage, lorsqu\'une application est ajoutée ou supprimée, quand le pack d\'icônes est modifié).
+        Quand cela se produit, un petit message apparaît dans une bulle pendant quelques instants.
+        \n
+        \nSi quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
+    </string>
+    <string name="help_folders_title">Dossiers</string>
+    <string name="help_folders_text">
+        Pour créer/renommer/supprimer des dossiers et mettre des applications dedans, vous devez utiliser l\'organiseur de dossiers.
+        Il est accessible par le bouton de menu ou en cliquant sur le titre d\'un dossier ouvert.
+        \n
+        \nVous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.
+        Ces dossiers peuvent aussi être ajoutés dans les favoris.
+        Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.
+        \n
+        \nUne application ne peut être que dans un seul dossier à la fois (ou dans aucun dossier).
+        Cependant, vous pouvez avoir à la fois une application et le dossier contenant cette application dans les favoris.
+    </string>
+
+    <!-- Journal des changements -->
+    <string name="changelog_title">Journal des changements</string>
+    <string name="changelog_v4_text"><b>v4.0.0</b>
+        \n- Tri manuel des favoris possible (idée tuch96)
+        \n- Masquer icône notif. (idée funnyflowerpot)
+        \n- Option ouvrir dans magasin (idée esdreesh)
+        \n- Retour visuel lors d\'un clic court (idée xi7)
+        \n- Bouton de menu remplacé par une icône
+        \n- Bouton Fermer sur dossiers et notification
+        \n- Fusionner les paramètres d\'horloge
+        \n- Aide dossiers améliorées (idée Steve M.)
+        \n- Réorganisation interne majeure
+        \n- <u><i>Option</i></u> couleur de fond
+        \n- <u><i>Fix</i></u> nom de dossier long (merci xi7)
+    </string>
+    <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>
+        \n- Meilleur retour visuel (idée xi7)
+        \n- Max 3 lignes pour les noms d\'apps (idée xi7)
+        \n- <u><i>Fix</i></u> notch (merci drewski-00h/AeOeAa)
+        \n- <u><i>Fix</i></u> barre nav Android 10+ (merci AeOeAa)
+        \n- <u><i>Fix</i></u> blocage dossier (merci xi7)
+        \n
+        \n<b>v3.5.0 - 13/05/2021</b>
+        \n- Nb d\'apps du dossier dans l\'icône (idée xi7)
+        \n- Section d\'aide sur la notification
+        \n- <u><i>Option</i></u> inverser l\'interface (idée tuch96)
+        \n- <u><i>Fix</i></u> bugs notification (merci xi7)
+        \n
+        \n<b>v3.4.0 - 10/05/2021</b>
+        \n- Réduire l\'écart icône-texte (idée xi7/AeOeAa)
+        \n- Retour visuel lors d\'un clic long (idée xi7)
+        \n- Dossiers premiers dans les favoris (idée xi7)
+        \n- Bouton actualiser plus bas dans le menu
+        \n- Améliorations dans l\'organiseur de dossiers
+        \n- <u><i>Option</i></u> mode immersif (idée KaiFujiro)
+        \n- <u><i>Fix</i></u> noms dossiers masqués (merci AeOeAa)
+        \n- <u><i>Fix</i></u> dossier reste ouvert (merci xi7)
+        \n
+        \n<b>v3.3.0 - 04/05/2021</b>
+        \n- Notification ouvre les favoris (idée xi7)
+        \n- Dossiers en haut de la liste (idée xi7)
+        \n- Amélioration de l\'aide (merci AeOeAa)
+        \n- Plusieurs simplifications internes
+        \n- <u><i>Fix</i></u> bug renommage dossier (merci AeOeAa)
+        \n
+        \n<b>v3.2.0 - 26/04/2021</b>
+        \n- Message \"aucun favori\" mieux intégéré
+        \n- <u><i>Option</i></u> cacher noms des applis (idée tuch96)
+        \n- <u><i>Option</i></u> format 12 heures (idée drewski-00h)
+        \n
+        \n<b>v3.1.0 - 23/04/2021</b>
+        \n- Dossiers (idée xi7)
+        \n- Gestion des applis cachées améliorée
+        \n- <u><i>Fix</i></u> fermeture imprévue du tiroir
+        \n- <u><i>Fix</i></u> favoris dupliqués
+        \n- <u><i>Fix</i></u> pack d\'icônes non lu pendant import
+        \n
+        \n<b>v3.0.2 - 17/04/2021</b>
+        \n- <u><i>Fix</i></u> favoris dupliqués (essai)
+        \n- <u><i>Fix</i></u> captures d\'écran sur F-Droid (essai)
+        \n
+        \n<b>v3.0.1 - 16/04/2021</b>
+        \n- <u><i>Fix</i></u> web apps ko (merci zcgrubb/johanbove)
+        \n
+        \n<b>v3.0.0 - 16/04/2021</b>
+        \n- Tiroir d\'applications s\'ouvre encore plus vite
+        \n- Apparence du tiroir plus simple (idée tuch96)
+        \n- Bouton de menu plus élégant (idée tuch96)
+        \n- Boutons export/import plus élégants
+        \n- Réorganisation interne majeure
+        \n- <u><i>Fix</i></u> portrait forcé fonctionne dans le tiroir
+    </string>
+    <string name="changelog_v2_text"><b>v2.6.0 - 11/04/2021</b>
+        \n- Affichage sur 5 colonnes en mode paysage
+        \n- Section pour paramètres d\'affichage
+        \n- <u><i>Option</i></u> portrait forcé à l\'accueil (idée c0bnut)
+        \n
+        \n<b>v2.5.1 - 09/04/2021</b>
+        \n- <u><i>Fix</i></u> possible bug à la création d\'apps web
+        \n
+        \n<b>v2.5.0 - 09/04/2021</b>
+        \n- Mise à jour de la liste après import
+        \n- Icônes pour les nouvelles applications web
+        \n- <u><i>Fix</i></u> favoris max selon écran (merci AeOeAa)
+        \n
+        \n<b>v2.4.0 - 05/04/2021</b>
+        \n- Export/import des paramètres
+        \n- Masquer des applications (idée gicofied9)
+        \n
+        \n<b>v2.3.0 - 02/04/2021</b>
+        \n- Refonte du menu \"Paramètres / Aide\"
+        \n- Intégration du journal des changements
+        \n- <u><i>Option</i></u> texte de notification personnalisable
+        \n- <u><i>Fix</i></u> menu inaccessible avec trop de favoris
+        \n
+        \n<b>v2.2.0 - 28/03/2021</b>
+        \n- Support des raccourcis web (idée johanbove)
+        \n- Plusieurs améliorations internes
+        \n- <u><i>Option</i></u> notification masquée si verrouillé
+        \n
+        \n<b>v2.1.0 - 23/03/2021</b>
+        \n- Notification d\'accès rapide (idée xi7)
+        \n- <u><i>Fix</i></u> mise à jour depuis l\'accueil (merci xi7)
+        \n
+        \n<b>v2.0.0 - 21/03/2021</b>
+        \n- Mise à jour automatique de la liste quand une application est installée ou désinstallée
+        \n- Réorganisation interne majeure
+    </string>
+    <string name="changelog_v1_text"><b>v1.3.1 - 20/03/2021</b>
+        \n- <u><i>Fix</i></u> crash en ouvrant une appli désinstallée
+        \n
+        \n<b>v1.3.0 - 20/03/2021</b>
+        \n- Mise à jour des icônes quand le pack change
+        \n- <u><i>Option</i></u> barre de statut transparente (idée xi7)
+        \n- <u><i>Option</i></u> horloge à l\'accueil (idée mateimm)
+        \n
+        \n<b>v1.2.0 - 16/03/2021</b>
+        \n- Clic long ouvre options d\'une appli (idée xi7)
+        \n- Amélioration des textes d\'aide
+        \n- <u><i>Fix</i></u> bugs apps du même package (merci xi7)
+        \n
+        \n<b>v1.1.0 - 10/03/2021</b>
+        \n- Support des packs d\'icônes (idée porosjp)
+        \n- Création du menu \"Paramètres / Aide\"
+        \n
+        \n<b>v1.0.2 - 07/03/2021</b>
+        \n- <u><i>Fix</i></u> bug bouton Retour (merci abou123)
+        \n
+        \n<b>v1.0.1 - 27/02/2021</b>
+        \n- Meilleur affichage dans F-Droid
+        \n
+        \n<b>v1.0.0 - 17/02/2021</b>
+        \n- Version initiale
+    </string>
+
+</resources>

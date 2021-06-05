@@ -1,65 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!-- Boutons -->
-	<string name="button_access_menu">Accéder au menu</string>
-	<string name="button_refresh_list">Actualiser la liste des applications</string>
-	<string name="button_manage_favorites">Gérer les favoris</string>
-    <string name="button_select_favorites">Choisir les favoris</string>
-    <string name="button_organize_folders">Organiser les dossiers</string>
-    <string name="button_hide_applications">Masquer des applications</string>
-	<string name="button_apply">Valider</string>
-    <string name="button_open">Ouvrir</string>
-    <string name="button_remove">Supprimer</string>
-    <string name="button_settings">Paramètres</string>
-	<string name="button_cancel">Annuler</string>
-    <string name="button_export">Exporter</string>
-    <string name="button_import">Importer</string>
-    <string name="button_add">Ajouter</string>
-    <string name="button_reset">Réinitialiser</string>
-
-	<!-- Messages d'information -->
-    <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton du menu.</string>
-    <string name="info_order_favorites">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez le vide sur les côtés pour défiler).</string>
-	<string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
-    <string name="info_favorites_access">Accès aux favoris</string>
-
-    <!-- Messages d'erreur -->
-    <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
-    <string name="error_rename_file">Une erreur est survenue en renommant le fichier %1$s !</string>
-    <string name="error_favorite">Une erreur est survenue avec le favori %1$s !</string>
-    <string name="error_too_many_selections">Désolé, le nombre de sélections est limité à %1$d !</string>
-    <string name="error_shortcut">Une erreur est survenue avec le raccourci %1$s !</string>
-    <string name="error_shortcut_invalid_request">La requête reçue pour ajouter un raccourci n\'est pas valide !</string>
-    <string name="error_shortcut_missing_info">Des informations sont manquantes et le raccourci ne peut pas être lancé !</string>
-    <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis !</string>
-    <string name="error_shortcut_start">Le système Android n\'a pas réussi à ouvrir le raccourci ou ne l\'a pas retrouvé !</string>
+    <!-- Liste d'applications -->
+    <string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
+    <string name="button_refresh_list">Actualiser la liste des applications</string>
     <string name="error_application_not_found">L\'application %1$s est introuvable !</string>
-    <string name="error_appfilter_not_found">Le fichier appfilter.xml est introuvable dans le pack d\'icônes sélectionné ! (%1$s)</string>
-    <string name="error_export">Une erreur est survenue durant la création du fichier d\'export !</string>
-    <string name="error_import">Une erreur est survenue durant la lecture du fichier d\'import !</string>
-    <string name="error_folder_empty_name">Le nom ne peut pas être vide !</string>
-    <string name="error_folder_already_exists">Ce dossier existe déjà !</string>
-    <string name="error_invalid_color_format">Cette couleur hexadécimale n\'est pas valide !</string>
 
-	<!-- Fenêtres de sélection -->
-    <string name="dialog_edit_name">Nouveau nom</string>
-    <string name="dialog_color_picker_base">Base :</string>
-    <string name="dialog_color_picker_preview">Aperçu</string>
-    <string name="dialog_search_hint">Chercher des applications</string>
+    <!-- Favoris -->
+    <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton du menu.</string>
+    <string name="button_manage_favorites">Gérer les favoris</string>
+    <string name="button_select_favorites">Choisir les favoris</string>
+    <string name="hint_favorites_order">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez le vide sur les côtés pour défiler).</string>
+    <string name="error_too_many_favorites">Désolé, le nombre de favoris est limité à %1$d !</string>
 
-    <!-- Long click options -->
+    <!-- Boutons des fenêtres -->
+    <string name="button_apply">Valider</string>
+    <string name="button_cancel">Annuler</string>
+
+    <!-- Options de clic long -->
     <string name="long_click_title">Que voulez-vous faire ?</string>
-    <string name="long_click_open">> Ouvrir \"%1s\"</string>
-    <string name="long_click_store">> Voir sa page dans le magasin</string>
-    <string name="long_click_settings">> Accéder à ses paramètres</string>
-    <string name="long_click_remove">> Supprimer ce raccourci</string>
-
-    <!-- Dossiers -->
-    <string name="folders_create_new">Nouveau dossier</string>
-    <string name="folders_create_new_help">Vous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.</string>
-    <string name="folders_edit_help">Cliquez sur le nom d\'un dossier pour le changer, le crayon permet de modifier le contenu du dossier.</string>
-    <string name="folders_remove_help">Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.</string>
+    <string name="long_click_open">Ouvrir \"%1s\"</string>
+    <string name="long_click_store">Voir sa page dans le magasin</string>
+    <string name="long_click_settings">Accéder à ses paramètres</string>
+    <string name="long_click_remove">Le supprimer</string>
 
     <!-- À propos -->
     <string name="app_name">Lanceur Discret</string>

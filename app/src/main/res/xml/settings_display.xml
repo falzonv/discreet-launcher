@@ -2,12 +2,12 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Preference
-        app:title="@string/display_settings_title"
+        app:title="@string/title_display_settings"
         app:selectable="false"
         app:iconSpaceReserved="false"/>
 
     <PreferenceCategory
-        app:title="@string/display_settings_general_title"
+        app:title="@string/title_display_settings_general"
         app:iconSpaceReserved="false">
 
         <SwitchPreference
@@ -34,7 +34,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/display_settings_home_screen_title"
+        app:title="@string/title_display_settings_home_screen"
         app:iconSpaceReserved="false">
 
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
@@ -63,7 +63,6 @@
             app:title="@string/set_clock_format"
             app:iconSpaceReserved="false"
             app:defaultValue="none"
-            app:dependency="display_clock"
             app:useSimpleSummaryProvider="true"/>
 
     </PreferenceCategory>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Help -->
+    <string name="help_title">Help</string>
+    <string name="help_navigation_title">Navigation</string>
+    <string name="help_navigation_text">
+        From the home screen, swipe down to display the favorites panel and swipe up to hide it.
+        \n
+        \nIf you swipe up when the favorites panel is hidden, it will display the complete list of applications.
+        Swipe down from the top of this list to come back to the home screen.
+        \n
+        \nPress the button below the favorites panel to display the menu of the launcher.
+        \n
+        \nIf you hold your finger a few moments on an application or a folder, you will be offered to access its settings.
+    </string>
+    <string name="help_notification_title">Notification</string>
+    <string name="help_notification_text">
+        The notification allows to display a popup with favorites above other applications when you leave the home screen.
+        In most cases, it should work directly and without issues.
+        \n
+        \nHowever, in some special cases it may bring back to the home screen instead of being displayed over other applications.
+        \nIf you are facing this issue, there are two things you can try:
+        \n- Press the \"clear all\" button in Recent Apps
+        \n- Reboot your smartphone
+        \nAfter one of these actions, the problem should not appear again.
+        \nIf it persists, I am sorry but it seems this will not work for you :-/
+        \n
+        \nTo not be intrusive, the notification icon is transparent and low priority.
+        With some applications having even lower priorities, this may result in an empty space in the status bar.
+        \n
+        \nFinally, if you change the default launcher, you may still see the notification.
+        To hide it, you can open Discreet Launcher (no need to be the default launcher) and disable the notification in the settings.
+    </string>
+    <string name="help_list_update_title">List update</string>
+    <string name="help_list_update_text">
+        The list of applications and their icons are refreshed only after some events
+        (on start, when an application is added or removed, if the icon pack is modified).
+        When this happens, a small popup message appears during a few moments.
+        \n
+        \nIf something does not feel right, you should try to refresh the applications list manually.
+    </string>
+    <string name="help_folders_title">Folders</string>
+    <string name="help_folders_text">
+        To create/rename/remove folders and put applications inside, you need to use the folders organizer.
+        It is accessible using the menu button or by clicking on the title of an open folder.
+        \n
+        \nYou can create as many folders as you want to organize your applications.
+        These folders can also be added in favorites.
+        If a folder is removed, its content will be put back in the main applications list.
+        \n
+        \nAn application can be in only one folder at a time (or not in a folder).
+        However, you can have both an application and the folder containing this application in favorites.
+    </string>
+
+    <!-- Changelog -->
+    <string name="changelog_title">Changelog</string>
+    <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
+    <string name="changelog_v4_text"><b>v4.0.0</b>
+        \n- Allow manual sort of favorites (idea tuch96)
+        \n- Hide notification icon (idea funnyflowerpot)
+        \n- Option to show app in store (idea esdreesh)
+        \n- Visual feedback on short click (idea xi7)
+        \n- Menu button replaced with an icon
+        \n- Close button on folders and notification
+        \n- Merge clock settings
+        \n- Help about folders improved (idea Steve M.)
+        \n- Major internal reorganization
+        \n- <u><i>Option</i></u> custom background color
+        \n- <u><i>Fix</i></u> long folder name (thanks xi7)
+    </string>
+    <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
+    <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>
+        \n- Better visual feedback (idea xi7)
+        \n- Max 3 lines for apps names (idea xi7)
+        \n- <u><i>Fix</i></u> notch (thanks drewski-00h/AeOeAa)
+        \n- <u><i>Fix</i></u> nav bar Android 10+ (thanks AeOeAa)
+        \n- <u><i>Fix</i></u> folder freeze (thanks xi7)
+        \n
+        \n<b>v3.5.0 - 13/05/2021</b>
+        \n- Folder items number in the icon (idea xi7)
+        \n- Help section about notification
+        \n- <u><i>Option</i></u> reverse interface (idea tuch96)
+        \n- <u><i>Fix</i></u> notification bugs (thanks xi7)
+        \n
+        \n<b>v3.4.0 - 10/05/2021</b>
+        \n- Reduce icon-text padding (idea xi7/AeOeAa)
+        \n- Visual feedback on long click (idea xi7)
+        \n- Folders first in favorites (idea xi7)
+        \n- Refresh button lower in the menu
+        \n- Improvements in folders organizer
+        \n- <u><i>Option</i></u> immersive mode (idea KaiFujiro)
+        \n- <u><i>Fix</i></u> hidden folder names (thanks AeOeAa)
+        \n- <u><i>Fix</i></u> folder stays opened (thanks xi7)
+        \n
+        \n<b>v3.3.0 - 04/05/2021</b>
+        \n- Notification now opens favorites (idea xi7)
+        \n- Folders at the beginning of the list (idea xi7)
+        \n- Improve help section (thanks AeOeAa)
+        \n- Several internal simplifications
+        \n- <u><i>Fix</i></u> folders renaming bugs (thanks AeOeAa)
+        \n
+        \n<b>v3.2.0 - 26/04/2021</b>
+        \n- Message \"no favorites yet\" better integrated
+        \n- <u><i>Option</i></u> hide apps names (idea tuch96)
+        \n- <u><i>Option</i></u> 12-hour format (idea drewski-00h)
+        \n
+        \n<b>v3.1.0 - 23/04/2021</b>
+        \n- Folders (idea xi7)
+        \n- Improve hidden apps management
+        \n- <u><i>Fix</i></u> unexpected drawer closure
+        \n- <u><i>Fix</i></u> duplicated favorites
+        \n- <u><i>Fix</i></u> icon pack not read during import
+        \n
+        \n<b>v3.0.2 - 17/04/2021</b>
+        \n- <u><i>Fix</i></u> duplicated favorites (try)
+        \n- <u><i>Fix</i></u> screenshots in F-Droid (try)
+        \n
+        \n<b>v3.0.1 - 16/04/2021</b>
+        \n- <u><i>Fix</i></u> web apps ko (thanks zcgrubb/johanbove)
+        \n
+        \n<b>v3.0.0 - 16/04/2021</b>
+        \n- Applications drawer opens even faster
+        \n- Drawer appearance is simpler (idea tuch96)
+        \n- More elegant menu button (idea tuch96)
+        \n- More elegant export/import buttons
+        \n- Major internal reorganization
+        \n- <u><i>Fix</i></u> force portrait works in the drawer
+    </string>
+    <string name="changelog_v2_title" translatable="false">Versions v2.x.x</string>
+    <string name="changelog_v2_text"><b>v2.6.0 - 11/04/2021</b>
+        \n- Display on 5 columns in landscape mode
+        \n- Section for display settings
+        \n- <u><i>Option</i></u> force portrait mode (idea c0bnut)
+        \n
+        \n<b>v2.5.1 - 09/04/2021</b>
+        \n- <u><i>Fix</i></u> possible bug when creating web apps
+        \n
+        \n<b>v2.5.0 - 09/04/2021</b>
+        \n- Update of the list after import
+        \n- New web applications will have icons
+        \n- <u><i>Fix</i></u> max favorites on screen (thanks AeOeAa)
+        \n
+        \n<b>v2.4.0 - 05/04/2021</b>
+        \n- Export/import settings
+        \n- Hide applications (idea from gicofied9)
+        \n
+        \n<b>v2.3.0 - 02/04/2021</b>
+        \n- Redesign of the \"Settings / Help\" menu
+        \n- Integration of the changelog
+        \n- <u><i>Option</i></u> notification text can be customized
+        \n- <u><i>Fix</i></u> menu access with too much favorites
+        \n
+        \n<b>v2.2.0 - 28/03/2021</b>
+        \n- Support web applications (idea johanbove)
+        \n- Several internal improvements
+        \n- <u><i>Option</i></u> hide notification on lock screen
+        \n
+        \n<b>v2.1.0 - 23/03/2021</b>
+        \n- Quick-access notification (idea xi7)
+        \n- <u><i>Fix</i></u> update from home screen (thanks xi7)
+        \n
+        \n<b>v2.0.0 - 21/03/2021</b>
+        \n- Automatic update of the list when an application is added or removed
+        \n- Major internal reorganization
+    </string>
+    <string name="changelog_v1_title" translatable="false">Versions v1.x.x</string>
+    <string name="changelog_v1_text"><b>v1.3.1 - 20/03/2021</b>
+        \n- <u><i>Fix</i></u> crash opening a removed application
+        \n
+        \n<b>v1.3.0 - 20/03/2021</b>
+        \n- Icons update when the pack changes
+        \n- <u><i>Option</i></u> transparent status bar (idea xi7)
+        \n- <u><i>Option</i></u> home screen clock (idea mateimm)
+        \n
+        \n<b>v1.2.0 - 16/03/2021</b>
+        \n- Long click opens app settings (idea xi7)
+        \n- Improvements of help texts
+        \n- <u><i>Fix</i></u> apps from same package (thanks xi7)
+        \n
+        \n<b>v1.1.0 - 10/03/2021</b>
+        \n- Icon packs support (idea porosjp)
+        \n- Create \"Settings / Help\" menu
+        \n
+        \n<b>v1.0.2 - 07/03/2021</b>
+        \n- <u><i>Fix</i></u> Back button bug (thanks abou123)
+        \n
+        \n<b>v1.0.1 - 27/02/2021</b>
+        \n- Better display in F-Droid
+        \n
+        \n<b>v1.0.0 - 17/02/2021</b>
+        \n- Initial release
+    </string>
+
+</resources>

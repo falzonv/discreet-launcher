@@ -12,7 +12,7 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/folders_create_new_help"/>
+        android:text="@string/hint_folders_number"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/folders_create_new"
+            android:hint="@string/hint_new_folder"
             android:autofillHints=""
             android:inputType="text"/>
 
@@ -33,7 +33,7 @@
             android:id="@+id/new_folder_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_add"
+            android:text="@string/button_new_folder"
             android:theme="@style/NormalButton"/>
 
     </LinearLayout>
@@ -41,12 +41,12 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/folders_edit_help"/>
+        android:text="@string/hint_folder_edit"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/folders_remove_help"/>
+        android:text="@string/hint_remove_folder"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/folders_list"
