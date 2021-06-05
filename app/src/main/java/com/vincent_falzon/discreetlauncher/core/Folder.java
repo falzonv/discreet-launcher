@@ -26,6 +26,8 @@ package com.vincent_falzon.discreetlauncher.core ;
 import android.content.Context ;
 import android.content.Intent ;
 import android.content.res.Configuration ;
+import android.graphics.Color ;
+import android.graphics.drawable.ColorDrawable ;
 import android.graphics.drawable.Drawable ;
 import android.view.Gravity ;
 import android.view.LayoutInflater ;
@@ -168,6 +170,9 @@ public class Folder extends Application
 		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;
 		popup = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, popup_height, true) ;
 		popupView.setOnTouchListener(new PopupTouchListener()) ;
+
+		// Fix popup not closing on press back with API 21
+		popup.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)) ;
 
 		// Display the popup
 		popup.showAtLocation(parent, Gravity.CENTER, 0, 0) ;
