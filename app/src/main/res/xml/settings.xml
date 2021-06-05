@@ -8,12 +8,6 @@
         app:iconSpaceReserved="false">
 
         <SwitchPreference
-            app:key="force_portrait"
-            app:title="@string/set_force_portrait"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
-        <SwitchPreference
             app:key="notification"
             app:title="@string/set_notification"
             app:summary="@string/set_notification_help"
@@ -21,9 +15,14 @@
             app:defaultValue="true"/>
 
         <Preference
-            app:title="@string/title_display_settings"
-            app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$DisplayFragment"
+            app:title="@string/title_appearance_settings"
+            app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$AppearanceFragment"
             app:icon="@android:drawable/ic_menu_gallery"/>
+
+        <Preference
+            app:title="@string/title_behavior_settings"
+            app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$OperationFragment"
+            app:icon="@android:drawable/ic_menu_preferences"/>
 
         <MultiSelectListPreference
             app:key="hidden_applications"

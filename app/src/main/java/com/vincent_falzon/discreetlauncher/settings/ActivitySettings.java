@@ -136,9 +136,9 @@ public class ActivitySettings extends AppCompatActivity
 
 
 	/**
-	 * Load the display settings from the XML file.
+	 * Load the appearance settings from the XML file.
 	 */
-	public static class DisplayFragment extends PreferenceFragmentCompat
+	public static class AppearanceFragment extends PreferenceFragmentCompat
 	{
 		/**
 		 * Constructor.
@@ -149,7 +149,7 @@ public class ActivitySettings extends AppCompatActivity
 		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
 		{
 			// Load the settings from the XML file
-			setPreferencesFromResource(R.xml.settings_display, rootKey) ;
+			setPreferencesFromResource(R.xml.settings_appearance, rootKey) ;
 
 			// Initialize the icon pack selector
 			ListPreference iconPack = findPreference(Constants.ICON_PACK) ;
@@ -183,7 +183,26 @@ public class ActivitySettings extends AppCompatActivity
 
 
 	/**
-	 * Load the help settings from the XML file.
+	 * Load the behavior settings from the XML file.
+	 */
+	public static class OperationFragment extends PreferenceFragmentCompat
+	{
+		/**
+		 * Constructor.
+		 * @param savedInstanceState To retrieve the context
+		 * @param rootKey Root of the settings hierarchy
+		 */
+		@Override
+		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
+		{
+			// Load the settings from the XML file
+			setPreferencesFromResource(R.xml.settings_operation, rootKey) ;
+		}
+	}
+
+
+	/**
+	 * Load the help from the XML file.
 	 */
 	public static class HelpFragment extends PreferenceFragmentCompat
 	{
@@ -202,7 +221,7 @@ public class ActivitySettings extends AppCompatActivity
 
 
 	/**
-	 * Load the changelog settings from the XML file.
+	 * Load the changelog from the XML file.
 	 */
 	public static class ChangelogFragment extends PreferenceFragmentCompat
 	{

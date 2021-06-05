@@ -102,7 +102,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Assign default values to settings not configured yet
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
-		PreferenceManager.setDefaultValues(this, R.xml.settings_display, true) ;
+		PreferenceManager.setDefaultValues(this, R.xml.settings_appearance, true) ;
+		PreferenceManager.setDefaultValues(this, R.xml.settings_operation, true) ;
 
 		// Retrieve the current settings and start to listen for changes
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;

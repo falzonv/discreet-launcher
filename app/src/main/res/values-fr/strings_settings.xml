@@ -4,9 +4,10 @@
     <!-- Interface des paramètres -->
     <string name="title_settings">Paramètres / Aide</string>
     <string name="title_customization">Personnalisation</string>
-    <string name="title_display_settings">Affichage</string>
-    <string name="title_display_settings_general">Général</string>
-    <string name="title_display_settings_home_screen">Écran d\'accueil</string>
+    <string name="title_appearance_settings">Apparence</string>
+    <string name="title_appearance_settings_general">Apparence générale</string>
+    <string name="title_appearance_settings_applications">Apparence des applications</string>
+    <string name="title_behavior_settings">Fonctionnement</string>
     <string name="title_help_and_general_info">Aide et informations générales</string>
 
     <!-- Notification -->
@@ -23,7 +24,7 @@
 
     <!-- Sélecteur de couleur -->
     <string name="set_background_color">Couleur de fond</string>
-    <string name="set_background_color_help">Panneau des favoris, bouton du menu, tiroir d\'applications et barre de statut</string>
+    <string name="set_background_color_help">Panneau des favoris, bouton du menu, tiroir d\'applications et barres systèmes</string>
     <string name="color_picker_base">Base :</string>
     <string name="color_picker_reset">Réinitialiser</string>
     <string name="color_picker_preview">Aperçu</string>
@@ -50,19 +51,20 @@
     <string name="error_shortcut_start">Le système Android n\'a pas réussi à ouvrir le raccourci ou ne l\'a pas retrouvé !</string>
 
     <!-- Autres paramètres -->
-    <string name="set_force_portrait">Forcer le mode portrait</string>
-    <string name="set_immersive_mode">Activer le mode immersif</string>
-    <string name="set_immersive_mode_help">Masque les barres systèmes (clic long sur l\'écran d\'accueil pour forcer si besoin)</string>
-    <string name="set_hide_app_names">Masquer les noms des applications</string>
-    <string name="set_hide_app_names_help">Les noms des dossiers seront toujours affichés</string>
-    <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
-    <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
-    <string name="set_reverse_interface">Inverser l\'interface</string>
-    <string name="set_reverse_interface_help">Affiche le panneau des favoris en bas</string>
     <string name="set_hide_menu_button">Masquer le bouton du menu</string>
     <string name="set_hide_menu_button_help">Il reste accessible par l\'icône du lanceur</string>
+    <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
+    <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
+    <string name="set_hide_app_names">Masquer les noms des applications</string>
+    <string name="set_hide_app_names_help">Les noms des dossiers seront toujours affichés</string>
+    <string name="set_force_portrait">Forcer le mode portrait</string>
+    <string name="set_force_portrait_help">Le lanceur ne pivotera pas même si la rotation automatique est activée</string>
+    <string name="set_immersive_mode">Utiliser le mode immersif</string>
+    <string name="set_immersive_mode_help">Masque les barres systèmes (clic long sur l\'écran d\'accueil pour forcer si besoin)</string>
+    <string name="set_reverse_interface">Inverser l\'interface</string>
+    <string name="set_reverse_interface_help">Affiche le panneau des favoris en bas</string>
     <string name="error_appfilter_not_found">Le fichier appfilter.xml est introuvable dans le pack d\'icônes sélectionné ! (%1$s)</string>
 
     <!-- Export / Import -->

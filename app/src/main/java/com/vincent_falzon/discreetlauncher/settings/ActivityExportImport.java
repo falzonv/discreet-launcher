@@ -155,16 +155,16 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Save all settings
 		exportedData.add("# " + getString(R.string.export_import_header_settings)) ;
-		exportedData.add(Constants.CLOCK_FORMAT + ": " + settings.getString(Constants.CLOCK_FORMAT, Constants.NONE)) ;
+		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
+		exportedData.add(Constants.BACKGROUND_COLOR + ": " + settings.getString(Constants.BACKGROUND_COLOR, Constants.NONE)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
+		exportedData.add(Constants.CLOCK_FORMAT + ": " + settings.getString(Constants.CLOCK_FORMAT, Constants.NONE)) ;
+		exportedData.add(Constants.ICON_PACK + ": " + settings.getString(Constants.ICON_PACK, Constants.NONE)) ;
+		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.IMMERSIVE_MODE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
-		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
-		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
-		exportedData.add(Constants.ICON_PACK + ": " + settings.getString(Constants.ICON_PACK, Constants.NONE)) ;
-		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
-		exportedData.add(Constants.BACKGROUND_COLOR + ": " + settings.getString(Constants.BACKGROUND_COLOR, Constants.NONE)) ;
 		exportedData.add("#") ;
 
 		// Save all custom icons
@@ -226,7 +226,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		// Reset the preference to default before importing the file
 		settings.edit().clear().apply() ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
-		PreferenceManager.setDefaultValues(this, R.xml.settings_display, true) ;
+		PreferenceManager.setDefaultValues(this, R.xml.settings_appearance, true) ;
+		PreferenceManager.setDefaultValues(this, R.xml.settings_operation, true) ;
 
 		// Browse the lines of the import file
 		editor = settings.edit() ;
@@ -247,6 +248,10 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.FILE_SHORTCUTS)) writeLineToInternalFile(shortcuts, line) ;
 				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
 				// Load the settings
+				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
+				else if(line.startsWith(Constants.BACKGROUND_COLOR)) loadStringSetting(Constants.BACKGROUND_COLOR, line) ;
+				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
+				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;
 				else if(line.startsWith(Constants.DISPLAY_CLOCK)) clock_toggle = line.replace(Constants.DISPLAY_CLOCK + ": ", "").equals("true") ;
 				else if(line.startsWith(Constants.CLOCK_FORMAT))
 				{
@@ -258,15 +263,11 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 							editor.putBoolean(Constants.DISPLAY_CLOCK, true) ;
 						}
 				}
-				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
+				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
+				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.FORCE_PORTRAIT)) loadBooleanSetting(Constants.FORCE_PORTRAIT, line) ;
 				else if(line.startsWith(Constants.IMMERSIVE_MODE)) loadBooleanSetting(Constants.IMMERSIVE_MODE, line) ;
 				else if(line.startsWith(Constants.REVERSE_INTERFACE)) loadBooleanSetting(Constants.REVERSE_INTERFACE, line) ;
-				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
-				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
-				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
-				else if(line.startsWith(Constants.BACKGROUND_COLOR)) loadStringSetting(Constants.BACKGROUND_COLOR, line) ;
-				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;
 				// Save the shortcuts icons
 				else if(line.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX))
 				{

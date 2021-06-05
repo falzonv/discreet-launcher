@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/title_appearance_settings_general"
+        app:iconSpaceReserved="false">
+
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="background_color"
+            app:title="@string/set_background_color"
+            app:summary="@string/set_background_color_help"
+            app:defaultValue="#66000000"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreference
+            app:key="transparent_status_bar"
+            app:title="@string/set_transparent_status_bar"
+            app:summary="@string/set_transparent_status_bar_hint"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="hide_menu_button"
+            app:title="@string/set_hide_menu_button"
+            app:summary="@string/set_hide_menu_button_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <ListPreference
+            app:key="clock_format"
+            app:title="@string/set_clock_format"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/title_appearance_settings_applications"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:key="icon_pack"
+            app:title="@string/set_icon_pack"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+        <SwitchPreference
+            app:key="hide_app_names"
+            app:title="@string/set_hide_app_names"
+            app:summary="@string/set_hide_app_names_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

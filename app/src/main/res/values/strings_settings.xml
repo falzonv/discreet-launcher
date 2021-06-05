@@ -4,9 +4,10 @@
     <!-- Settings interface -->
     <string name="title_settings">Settings / Help</string>
     <string name="title_customization">Customization</string>
-    <string name="title_display_settings">Display</string>
-    <string name="title_display_settings_general">General</string>
-    <string name="title_display_settings_home_screen">Home screen</string>
+    <string name="title_appearance_settings">Appareance</string>
+    <string name="title_appearance_settings_general">General appearance</string>
+    <string name="title_appearance_settings_applications">Applications appearance</string>
+    <string name="title_behavior_settings">Operation</string>
     <string name="title_help_and_general_info">Help and general information</string>
 
     <!-- Notification -->
@@ -23,7 +24,7 @@
 
     <!-- Color picker -->
     <string name="set_background_color">Background color</string>
-    <string name="set_background_color_help">Favorites panel, menu button, applications drawer and status bar</string>
+    <string name="set_background_color_help">Favorites panel, menu button, applications drawer and system bars</string>
     <string name="color_picker_base">Base:</string>
     <string name="color_picker_reset">Reset</string>
     <string name="color_picker_preview">Preview</string>
@@ -50,19 +51,20 @@
     <string name="error_shortcut_start">The Android system was not able to open the shortcut or it did not retrieved it!</string>
 
     <!-- Other settings -->
-    <string name="set_force_portrait">Force portrait mode</string>
-    <string name="set_immersive_mode">Enable immersive mode</string>
-    <string name="set_immersive_mode_help">Hide system bars (long press on home screen to force if needed)</string>
-    <string name="set_hide_app_names">Hide applications names</string>
-    <string name="set_hide_app_names_help">Folder names will still be displayed</string>
-    <string name="set_icon_pack">Use an installed icon pack</string>
-    <string name="set_icon_pack_none">None (use the real icons)</string>
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
-    <string name="set_reverse_interface">Reverse interface</string>
-    <string name="set_reverse_interface_help">Display the favorites panel on bottom</string>
     <string name="set_hide_menu_button">Hide the menu button</string>
     <string name="set_hide_menu_button_help">It stays accessible using the launcher icon</string>
+    <string name="set_icon_pack">Use an installed icon pack</string>
+    <string name="set_icon_pack_none">None (use the real icons)</string>
+    <string name="set_hide_app_names">Hide applications names</string>
+    <string name="set_hide_app_names_help">Folder names will still be displayed</string>
+    <string name="set_force_portrait">Force portrait mode</string>
+    <string name="set_force_portrait_help">The launcher will not rotate even if automatic rotation is enabled</string>
+    <string name="set_immersive_mode">Use immersive mode</string>
+    <string name="set_immersive_mode_help">Hide system bars (long press on home screen to force if needed)</string>
+    <string name="set_reverse_interface">Reverse interface</string>
+    <string name="set_reverse_interface_help">Display the favorites panel on bottom</string>
     <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
 
     <!-- Export / Import -->

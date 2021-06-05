@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/title_behavior_settings"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreference
+            app:key="force_portrait"
+            app:title="@string/set_force_portrait"
+            app:summary="@string/set_force_portrait_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="immersive_mode"
+            app:title="@string/set_immersive_mode"
+            app:summary="@string/set_immersive_mode_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="reverse_interface"
+            app:title="@string/set_reverse_interface"
+            app:summary="@string/set_reverse_interface_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
