@@ -56,12 +56,15 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
-    <string name="changelog_v4_text"><b>v4.0.0 - 05/06/2021</b>
-        \n- Allow manual sort of favorites (idea tuch96)
+    <string name="changelog_v4_text"><b>v4.0.1 - 06/06/2021</b>
+        \n- <u><i>Fix</i></u> possible menu crash (thanks xi7)
+        \n
+        \n<b>v4.0.0 - 05/06/2021</b>
+        \n- Manual sort of favorites (idea tuch96)
         \n- Hide notification icon (idea funnyflowerpot)
         \n- Option to show app in store (idea esdreesh)
         \n- Visual feedback on short click (idea xi7)
-        \n- Menu button replaced with an icon
+        \n- New menu button
         \n- Close button on folders and notification
         \n- Merge clock settings
         \n- Settings reorganization

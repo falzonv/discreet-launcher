@@ -24,11 +24,11 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 // Imports
 import android.content.Context ;
+import android.content.DialogInterface ;
 import android.content.Intent ;
 import android.graphics.drawable.Drawable ;
-import android.view.MenuItem ;
 import android.view.View ;
-import android.widget.PopupMenu ;
+import androidx.appcompat.app.AlertDialog ;
 import com.vincent_falzon.discreetlauncher.ActivityFavorites ;
 import com.vincent_falzon.discreetlauncher.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
@@ -72,44 +72,58 @@ public class Menu extends Application
 	 */
 	public static void open(View view)
 	{
-		// Create the popup menu
+		// Prepare the selection dialog
 		final Context context = view.getContext() ;
-		PopupMenu popupMenu = new PopupMenu(context, view) ;
-		popupMenu.inflate(R.menu.menu) ;
+		AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+		dialog.setTitle(context.getString(R.string.app_name)) ;
+		CharSequence[] options = {
+				context.getString(R.string.button_manage_favorites),
+				context.getString(R.string.button_organize_folders),
+				context.getString(R.string.button_hide_applications),
+				context.getString(R.string.button_refresh_list),
+				context.getString(R.string.title_settings)
+			} ;
 
-		// Start to listen for clicks on menu items
-		popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()
-		{
-			@Override
-			public boolean onMenuItemClick(MenuItem item)
+		// Assign actions to options and display the dialog
+		dialog.setItems(options,
+			new DialogInterface.OnClickListener()
 			{
-				// Identify which menu entry has been clicked
-				int selection = item.getItemId() ;
+				@Override
+				public void onClick(DialogInterface dialog, int selection)
+				{
+					// Hide folders if some are still opened
+					for(Folder folder : ActivityMain.getApplicationsList().getFolders()) folder.closePopup() ;
 
-				// Check if the applications list should be refreshed
-				if(selection == R.id.menu_action_refresh_list)
+					// Check which option has been selected
+					switch(selection)
 					{
-						ActivityMain.updateList(context) ;
-						Intent homeIntent = new Intent() ;
-						homeIntent.setClass(context, ActivityMain.class) ;
-						homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-						context.startActivity(homeIntent) ;
+						case 0 :
+							// Manage favorites
+							context.startActivity(new Intent().setClass(context, ActivityFavorites.class)) ;
+							break ;
+						case 1 :
+							// Organize folders
+							context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+							break ;
+						case 2 :
+							// Hide applications
+							ShowDialog.hideApplications(context) ;
+							break ;
+						case 3 :
+							// Refresh the applications list (and go back to the home screen)
+							ActivityMain.updateList(context) ;
+							Intent homeIntent = new Intent() ;
+							homeIntent.setClass(context, ActivityMain.class) ;
+							homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+							context.startActivity(homeIntent) ;
+							break ;
+						case 4 :
+							// Settings / Help
+							context.startActivity(new Intent().setClass(context, ActivitySettings.class)) ;
+							break ;
 					}
-					// Check if another activity should be started
-					else if(selection == R.id.menu_action_manage_favorites) context.startActivity(new Intent().setClass(context, ActivityFavorites.class)) ;
-					else if(selection == R.id.menu_action_organize_folders) context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
-					else if(selection == R.id.menu_action_settings) context.startActivity(new Intent().setClass(context, ActivitySettings.class)) ;
-					// Check if the dialog to hide applications should be displayed
-					else if(selection == R.id.menu_action_hide_applications) ShowDialog.hideApplications(context) ;
-					// In other cases, ignore the click
-					else return false ;
-
-				// Indicate that the event has been consumed
-				return true ;
-			}
-		}) ;
-
-		// Display the menu
-		popupMenu.show() ;
+				}
+			}) ;
+		dialog.show() ;
 	}
 }
