@@ -1,0 +1,13 @@
+v4.0.1
+- Fix : possible crash menu (merci xi7)
+
+v4.0.0
+- Tri manuel des favoris (idée tuch96)
+- Masquer icône notif. (idée funnyflowerpot)
+- Option ouvrir dans magasin (idée esdreesh)
+- Retour visuel clic court (idée xi7)
+- Nouveau bouton menu
+- Paramètres réorganisés
+- Option : couleur de fond personnalisée
+- Option : bouton menu masqué (idée xi7)
+- Fix : bugs dossiers (merci xi7)

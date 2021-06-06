@@ -1,0 +1,13 @@
+v4.0.1
+- Fix: possible menu crash (thanks xi7)
+
+v4.0.0
+- Manual sort of favorites (idea tuch96)
+- Hide notification icon (idea funnyflowerpot)
+- Option show app in store (idea esdreesh)
+- Visual feedback on short click (idea xi7)
+- New menu button
+- Settings reorganization
+- Option: custom background color
+- Option: hide menu button (idea xi7)
+- Fix: folders bugs (thanks xi7)
