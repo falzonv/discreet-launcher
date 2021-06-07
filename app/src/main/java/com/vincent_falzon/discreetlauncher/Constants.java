@@ -48,6 +48,7 @@ public abstract class Constants
 	// Constants representing settings keys
 	public static final String NONE = "none" ;
 	public static final String NOTIFICATION = "notification" ;
+	public static final String APPLICATION_THEME = "application_theme" ;
 	public static final String BACKGROUND_COLOR = "background_color" ;
 	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	public static final String HIDE_MENU_BUTTON = "hide_menu_button" ;

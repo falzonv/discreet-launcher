@@ -5,6 +5,13 @@
         app:title="@string/title_appearance_settings_general"
         app:iconSpaceReserved="false">
 
+        <ListPreference
+            app:key="application_theme"
+            app:title="@string/set_application_theme"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="background_color"
             app:title="@string/set_background_color"

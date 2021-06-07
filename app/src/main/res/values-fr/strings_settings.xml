@@ -15,6 +15,12 @@
     <string name="set_notification_help">Utilise une icône transparente</string>
     <string name="notification_title">Accès aux favoris</string>
 
+    <!-- Thème -->
+    <string name="set_application_theme">Thème</string>
+    <string name="set_application_theme_light">Clair</string>
+    <string name="set_application_theme_dark">Sombre</string>
+    <string name="set_application_theme_system">Utiliser le thème du système</string>
+
     <!-- Horloge -->
     <string name="set_clock_format">Format de l\'horloge</string>
     <string name="set_clock_format_none">Aucune (masquer)</string>

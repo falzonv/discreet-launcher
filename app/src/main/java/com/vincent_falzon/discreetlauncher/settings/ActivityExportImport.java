@@ -156,11 +156,12 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		// Save all settings
 		exportedData.add("# " + getString(R.string.export_import_header_settings)) ;
 		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
-		exportedData.add(Constants.BACKGROUND_COLOR + ": " + settings.getString(Constants.BACKGROUND_COLOR, Constants.NONE)) ;
+		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
+		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
-		exportedData.add(Constants.CLOCK_FORMAT + ": " + settings.getString(Constants.CLOCK_FORMAT, Constants.NONE)) ;
-		exportedData.add(Constants.ICON_PACK + ": " + settings.getString(Constants.ICON_PACK, Constants.NONE)) ;
+		exportedData.add(exportStringSetting(Constants.CLOCK_FORMAT)) ;
+		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.IMMERSIVE_MODE, false)) ;
@@ -189,6 +190,16 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	private String exportBooleanSetting(String setting, boolean default_value)
 	{
 		return setting + ": " + settings.getBoolean(setting, default_value) ;
+	}
+
+
+	/**
+	 * Prepare the line of a String setting for writing in an export file.
+	 * @param setting Key of the setting to export (default value is "none")
+	 */
+	private String exportStringSetting(String setting)
+	{
+		return setting + ": " + settings.getString(setting, Constants.NONE) ;
 	}
 
 
@@ -259,6 +270,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
 				// Load the settings
 				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
+				else if(line.startsWith(Constants.APPLICATION_THEME)) loadStringSetting(Constants.APPLICATION_THEME, line) ;
 				else if(line.startsWith(Constants.BACKGROUND_COLOR)) loadStringSetting(Constants.BACKGROUND_COLOR, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;

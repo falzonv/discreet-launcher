@@ -159,6 +159,16 @@ public class ActivitySettings extends AppCompatActivity
 					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
 				}
 
+			// Prepare the theme options
+			ArrayList<String> themes = new ArrayList<>() ;
+			ArrayList<String> themesNames = new ArrayList<>() ;
+			themesNames.add(getString(R.string.set_application_theme_light)) ;
+			themes.add("light") ;
+			themesNames.add(getString(R.string.set_application_theme_dark)) ;
+			themes.add("dark") ;
+			themesNames.add(getString(R.string.set_application_theme_system)) ;
+			themes.add(Constants.NONE) ;
+
 			// Prepare the clock formats
 			ArrayList<String> formats = new ArrayList<>() ;
 			ArrayList<String> formatsNames = new ArrayList<>() ;
@@ -170,6 +180,14 @@ public class ActivitySettings extends AppCompatActivity
 			formats.add("h:mm") ;
 			formatsNames.add(getString(R.string.set_clock_format_12h_ampm)) ;
 			formats.add("h:mm a") ;
+
+			// Initialize the theme selector
+			ListPreference theme = findPreference(Constants.APPLICATION_THEME) ;
+			if(theme != null)
+				{
+					theme.setEntries(themesNames.toArray(new CharSequence[0])) ;
+					theme.setEntryValues(themes.toArray(new CharSequence[0])) ;
+				}
 
 			// Initialize the clock format selector
 			ListPreference clockFormat = findPreference(Constants.CLOCK_FORMAT) ;

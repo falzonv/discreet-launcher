@@ -32,6 +32,7 @@ import android.os.Build ;
 import android.os.Bundle ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AppCompatActivity ;
+import androidx.appcompat.app.AppCompatDelegate ;
 import androidx.core.content.res.ResourcesCompat ;
 import androidx.core.graphics.drawable.DrawableCompat ;
 import androidx.core.view.GestureDetectorCompat ;
@@ -112,12 +113,15 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 		ignore_settings_changes = false ;
 
-		// Check if the interface should be reversed
-		reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
+		// Set the light or dark theme according to settings
+		setApplicationTheme() ;
 
-		// Initializations related to the interface
+		// Check if the interface should be reversed and define the appropriate layout
+		reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 		if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
 			else setContentView(R.layout.activity_main) ;
+
+		// Initializations related to the interface
 		homeScreen = findViewById(R.id.home_screen) ;
 		favorites = findViewById(R.id.favorites) ;
 		drawer = findViewById(R.id.drawer) ;
@@ -184,6 +188,26 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				shortcutLegacyListener = new ShortcutLegacyListener() ;
   				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
 			}
+	}
+
+
+	/**
+	 * Set the application theme to light or dark according to system settings.
+	 */
+	private void setApplicationTheme()
+	{
+		String theme = settings.getString(Constants.APPLICATION_THEME, Constants.NONE) ;
+		switch(theme)
+		{
+			case "light" :
+				AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) ;
+				break ;
+			case "dark" :
+				AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) ;
+				break ;
+			case Constants.NONE :
+				AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) ;
+		}
 	}
 
 
@@ -482,25 +506,29 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(ignore_settings_changes) return ;
 		switch(key)
 		{
-			case Constants.REVERSE_INTERFACE:
-				// Change the interface direction
-				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
-				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
-					else setContentView(R.layout.activity_main) ;
-				recreate() ;
-			case Constants.HIDE_APP_NAMES :
-				// Update the recycler views
-				adapters_update_needed = true ;
+			case Constants.NOTIFICATION :
+				// Toggle the notification
+				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
+				else notification.hide() ;
+				break ;
+			case Constants.APPLICATION_THEME :
+				// Update the theme
+				setApplicationTheme() ;
 				break ;
 			case Constants.ICON_PACK :
 				// Update the applications list
 				updateList(this) ;
 				break ;
-			case Constants.NOTIFICATION :
-				// Toggle the notification
-				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
-					else notification.hide() ;
+			case Constants.HIDE_APP_NAMES :
+				// Update the recycler views
+				adapters_update_needed = true ;
 				break ;
+			case Constants.REVERSE_INTERFACE:
+				// Change the interface direction
+				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
+				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
+				else setContentView(R.layout.activity_main) ;
+				recreate() ;
 		}
 	}
 
