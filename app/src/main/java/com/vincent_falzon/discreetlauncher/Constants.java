@@ -36,6 +36,7 @@ public abstract class Constants
 	public static final String FILE_ICON_SHORTCUT_PREFIX = "icon_shortcut_" ;
 
 	// Constants related to applications
+	public static final String APK_SEARCH = "discreetlauncher.search" ;
 	public static final String APK_FOLDER = "discreetlauncher.folder" ;
 	public static final String APK_SHORTCUT = "discreetlauncher.shortcut" ;
 	public static final String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;

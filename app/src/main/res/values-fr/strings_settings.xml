@@ -56,6 +56,10 @@
     <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis !</string>
     <string name="error_shortcut_start">Le système Android n\'a pas réussi à ouvrir le raccourci ou ne l\'a pas retrouvé !</string>
 
+    <!-- Search -->
+    <string name="search_icon_title">Recherche</string>
+    <string name="search_hint">Chercher des applications</string>
+
     <!-- Autres paramètres -->
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
@@ -92,7 +96,6 @@
 
     <!-- Autres -->
     <string name="button_hide_applications">Masquer des applications</string>
-    <string name="search_hint">Chercher des applications</string>
     <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
 
 </resources>

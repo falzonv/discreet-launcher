@@ -23,7 +23,7 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
-import android.content.ActivityNotFoundException;
+import android.content.ActivityNotFoundException ;
 import android.content.Context ;
 import android.content.DialogInterface ;
 import android.content.Intent ;
@@ -52,7 +52,7 @@ import java.util.ArrayList ;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationView>
 {
 	// Attributes
-	private final ArrayList<Application> applicationsList ;
+	public ArrayList<Application> applicationsList ;
 	private final SharedPreferences settings ;
 
 
@@ -92,6 +92,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	@Override
 	public void onBindViewHolder(@NonNull ApplicationView appView, int i)
 	{
+		// Display the application icon and text
 		appView.name.setText(applicationsList.get(i).getDisplayName()) ;
 		appView.name.setCompoundDrawables(null, applicationsList.get(i).getIcon(), null, null) ;
 
@@ -111,6 +112,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	{
 		return applicationsList.size() ;
 	}
+
 
 
 	/**

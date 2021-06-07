@@ -28,6 +28,7 @@ import android.content.Intent ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
 import android.graphics.drawable.Drawable ;
+import androidx.core.content.ContextCompat ;
 import androidx.core.content.res.ResourcesCompat ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
@@ -127,6 +128,11 @@ public class ApplicationsList
 
 		// Prepare folders according to files
 		prepareFolders(context) ;
+
+		// Add the search icon on top of the list
+		Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.icon_search) ;
+		searchIcon.setBounds(0, 0, icon_size, icon_size) ;
+		drawer.add(0, new Search(context.getString(R.string.search_icon_title), searchIcon)) ;
 
 		// Update the favorites applications list
 		updateFavorites() ;
@@ -348,6 +354,9 @@ public class ApplicationsList
 		ArrayList<Folder> folders = new ArrayList<>() ;
 		for(Application application : drawer)
 		{
+			// If folders are excluded, skip the search application
+			if(!with_folders && (application instanceof Search)) continue ;
+
 			// Add all applications whether or not they are in folders
 			if(application instanceof Folder)
 				{

@@ -32,7 +32,7 @@
             android:autofillHints=""
             android:hint="@string/search_hint"
             android:textColor="@color/white"
-            android:textColorHint="@color/blue"
+            android:textColorHint="@color/translucent_white"
             android:visibility="gone"/>
 
         <ImageButton
