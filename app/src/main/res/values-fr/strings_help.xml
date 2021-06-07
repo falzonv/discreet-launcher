@@ -55,7 +55,12 @@
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_v4_text"><b>v4.0.1 - 06/06/2021</b>
+    <string name="changelog_v4_text"><b>v4.1.0</b>
+        \n- Support du thème sombre (idée JM480)
+        \n- <u><i>Fix</i></u> nettoyer dossiers avant import
+        \n- <u><i>Fix</i></u> crash si aucun store (merci xi7)
+        \n
+        \n<b>v4.0.1 - 06/06/2021</b>
         \n- <u><i>Fix</i></u> possible crash menu (merci xi7)
         \n
         \n<b>v4.0.0 - 05/06/2021</b>
@@ -63,7 +68,7 @@
         \n- Masquer icône notif. (idée funnyflowerpot)
         \n- Option ouvrir dans magasin (idée esdreesh)
         \n- Retour visuel lors d\'un clic court (idée xi7)
-        \n- Nouveau bouton de menu
+        \n- Nouveau bouton de menu (idée drewski-00h)
         \n- Bouton Fermer sur dossiers et notification
         \n- Fusionner les paramètres d\'horloge
         \n- Réorganisation des paramètres

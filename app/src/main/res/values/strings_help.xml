@@ -56,7 +56,12 @@
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
-    <string name="changelog_v4_text"><b>v4.0.1 - 06/06/2021</b>
+    <string name="changelog_v4_text"><b>v4.1.0</b>
+        \n- Dark theme support (idea JM480)
+        \n- <u><i>Fix</i></u> clean folders before import
+        \n- <u><i>Fix</i></u> crash if no store (thanks xi7)
+        \n
+        \n<b>v4.0.1 - 06/06/2021</b>
         \n- <u><i>Fix</i></u> possible menu crash (thanks xi7)
         \n
         \n<b>v4.0.0 - 05/06/2021</b>
@@ -64,7 +69,7 @@
         \n- Hide notification icon (idea funnyflowerpot)
         \n- Option to show app in store (idea esdreesh)
         \n- Visual feedback on short click (idea xi7)
-        \n- New menu button
+        \n- New menu button (idea drewski-00h)
         \n- Close button on folders and notification
         \n- Merge clock settings
         \n- Settings reorganization

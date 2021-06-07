@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Make the blue less contrasting with black background -->
+    <color name="blue">#8E99D7</color>
+
+</resources>
