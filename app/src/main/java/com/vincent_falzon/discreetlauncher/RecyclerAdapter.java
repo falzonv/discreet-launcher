@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.content.ActivityNotFoundException;
 import android.content.Context ;
 import android.content.DialogInterface ;
 import android.content.Intent ;
@@ -270,7 +271,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 											Intent storeIntent = new Intent(Intent.ACTION_VIEW) ;
 											storeIntent.setData(Uri.parse("market://details?id=" + application.getApk())) ;
 											storeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-											context.startActivity(storeIntent) ;
+											try
+											{
+												context.startActivity(storeIntent) ;
+											}
+											catch (ActivityNotFoundException e)
+											{
+												ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, "{market}")) ;
+											}
 											break ;
 										case 2 :
 											// Open the application system settings
