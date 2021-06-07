@@ -223,6 +223,16 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		if(shortcuts != null) shortcuts.remove() ;
 		if(shortcuts_legacy != null) shortcuts_legacy.remove() ;
 
+		// Remove any existing folder
+		String[] folders_files = InternalFile.searchFilesStartingWith(this, Constants.FILE_FOLDER_PREFIX) ;
+		if(folders_files != null)
+			for(String folder : folders_files) new InternalFileTXT(folder).remove() ;
+
+		// Remove any existing shortcut icon
+		String[] shortcuts_icons = InternalFile.searchFilesStartingWith(this, Constants.FILE_ICON_SHORTCUT_PREFIX) ;
+		if(shortcuts_icons != null)
+			for(String icon : shortcuts_icons) new InternalFilePNG(icon).remove() ;
+
 		// Reset the preference to default before importing the file
 		settings.edit().clear().apply() ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
