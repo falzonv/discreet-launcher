@@ -44,9 +44,11 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.widget.LinearLayout ;
 import android.widget.TextView ;
+import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.core.Menu ;
+import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
@@ -622,8 +624,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Always show the system bars
 		displaySystemBars(true) ;
 
-		// Hide folders if some are still opened
-		for(Folder folder : applicationsList.getFolders()) folder.closePopup() ;
+		// Hide folders and search application if they are still opened
+		for(Application application : applicationsList.getDrawer())
+		{
+			if(application instanceof Folder) ((Folder)application).closePopup() ;
+			if(application instanceof Search) ((Search)application).closePopup() ;
+		}
 	}
 
 
