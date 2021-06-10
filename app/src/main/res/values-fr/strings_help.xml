@@ -56,7 +56,9 @@
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_v4_text"><b>v4.1.0</b>
+        \n- Recherche (idea xi7)
         \n- Support du thème sombre (idée JM480)
+        \n- Nb de colonnes selon taille d\'écran (idée xi7)
         \n- <u><i>Fix</i></u> nettoyer dossiers avant import
         \n- <u><i>Fix</i></u> crash si aucun store (merci xi7)
         \n

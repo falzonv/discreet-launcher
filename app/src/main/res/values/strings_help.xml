@@ -57,7 +57,9 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
     <string name="changelog_v4_text"><b>v4.1.0</b>
+        \n- Search (idea xi7)
         \n- Dark theme support (idea JM480)
+        \n- Columns nb based on screen size (idea xi7)
         \n- <u><i>Fix</i></u> clean folders before import
         \n- <u><i>Fix</i></u> crash if no store (thanks xi7)
         \n

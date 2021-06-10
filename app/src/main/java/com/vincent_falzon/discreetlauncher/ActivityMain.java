@@ -26,7 +26,6 @@ package com.vincent_falzon.discreetlauncher ;
 import android.content.Context ;
 import android.content.SharedPreferences ;
 import android.content.pm.ActivityInfo ;
-import android.content.res.Configuration ;
 import android.graphics.drawable.Drawable ;
 import android.os.Build ;
 import android.os.Bundle ;
@@ -151,28 +150,22 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
 			else notification.hide() ;
 
-		// Define the favorites panel and applications list layouts based on screen orientation
-		GridLayoutManager favoritesLayout ;
-		if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-			{
-				favoritesLayout = new GridLayoutManager(this, Constants.COLUMNS_LANDSCAPE) ;
-				drawerLayout = new GridLayoutManager(this, Constants.COLUMNS_LANDSCAPE) ;
-			}
-			else
-			{
-				favoritesLayout = new GridLayoutManager(this, Constants.COLUMNS_PORTRAIT) ;
-				drawerLayout = new GridLayoutManager(this, Constants.COLUMNS_PORTRAIT) ;
-			}
+		// Define the width of an application item
+		int application_width ;
+		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false))
+				application_width = Math.round(64 * getResources().getDisplayMetrics().density) ;
+			else application_width = Math.round(75 * getResources().getDisplayMetrics().density) ;
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;
 		RecyclerView favoritesRecycler = findViewById(R.id.favorites_applications) ;
 		favoritesRecycler.setAdapter(favoritesAdapter) ;
-		favoritesRecycler.setLayoutManager(favoritesLayout) ;
+		favoritesRecycler.setLayoutManager(new FlexibleGridLayout(this, application_width)) ;
 
 		// Initialize the content of the full applications list
 		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer()) ;
 		drawer.setAdapter(drawerAdapter) ;
+		drawerLayout = new FlexibleGridLayout(this, application_width) ;
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;
 
@@ -199,6 +192,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private void setApplicationTheme()
 	{
 		String theme = settings.getString(Constants.APPLICATION_THEME, Constants.NONE) ;
+		if(theme == null) return ;
 		switch(theme)
 		{
 			case "light" :
@@ -522,8 +516,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				updateList(this) ;
 				break ;
 			case Constants.HIDE_APP_NAMES :
-				// Update the recycler views
+				// Update the recycler views and recreate the display to update the column width
 				adapters_update_needed = true ;
+				recreate() ;
 				break ;
 			case Constants.REVERSE_INTERFACE:
 				// Change the interface direction
