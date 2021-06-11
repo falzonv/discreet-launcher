@@ -24,7 +24,6 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 // Imports
 import android.content.Context ;
-import android.content.res.Configuration ;
 import android.graphics.Color ;
 import android.graphics.drawable.ColorDrawable ;
 import android.graphics.drawable.Drawable ;
@@ -38,10 +37,10 @@ import android.view.ViewGroup ;
 import android.widget.EditText ;
 import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
-import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.FlexibleGridLayout;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.SearchAdapter ;
 
@@ -92,9 +91,7 @@ public class Search extends Application
 		RecyclerView recycler = popupView.findViewById(R.id.popup_recycler) ;
 		adapter = new SearchAdapter(context, ActivityMain.getApplicationsList().getApplications(false)) ;
 		recycler.setAdapter(adapter) ;
-		int orientation = context.getResources().getConfiguration().orientation ;
-		recycler.setLayoutManager(new GridLayoutManager(context,
-				orientation == Configuration.ORIENTATION_LANDSCAPE ? Constants.COLUMNS_LANDSCAPE : Constants.COLUMNS_PORTRAIT)) ;
+		recycler.setLayoutManager(new FlexibleGridLayout(context, ActivityMain.getApplicationWidth())) ;
 
 		// Create the popup representing the folder
 		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;

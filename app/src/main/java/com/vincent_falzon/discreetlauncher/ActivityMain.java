@@ -66,6 +66,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private static boolean ignore_settings_changes ;
 	private static boolean adapters_update_needed ;
 	private static String internal_folder ;
+	private static int application_width ;
 	private PackagesListener packagesListener ;
 	private ShortcutLegacyListener shortcutLegacyListener ;
 	private SharedPreferences settings ;
@@ -151,10 +152,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			else notification.hide() ;
 
 		// Define the width of an application item
-		int application_width ;
-		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false))
-				application_width = Math.round(64 * getResources().getDisplayMetrics().density) ;
-			else application_width = Math.round(75 * getResources().getDisplayMetrics().density) ;
+		int margins = 26 ; // Placeholder waiting for new "Remove margins" option
+		application_width = Math.round((50 + margins) * getResources().getDisplayMetrics().density) ;
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;
@@ -359,6 +358,16 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	public static String getInternalFolder()
 	{
 		return internal_folder ;
+	}
+
+
+	/**
+	 * Return the application width in pixels (must be initialized by ActivityMain).
+	 * @return Based on settings or 0 if not initialized
+	 */
+	public static int getApplicationWidth()
+	{
+		return application_width ;
 	}
 
 

@@ -42,10 +42,6 @@ public abstract class Constants
 	public static final String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
 	public static final String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
 
-	// Constants related to display
-	public static final int COLUMNS_PORTRAIT = 4 ;
-	public static final int COLUMNS_LANDSCAPE = 5 ;
-
 	// Constants representing settings keys
 	public static final String NONE = "none" ;
 	public static final String NOTIFICATION = "notification" ;

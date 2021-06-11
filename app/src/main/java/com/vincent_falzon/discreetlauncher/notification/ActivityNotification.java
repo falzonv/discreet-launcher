@@ -24,16 +24,14 @@ package com.vincent_falzon.discreetlauncher.notification ;
 
 // Imports
 import android.content.Intent ;
-import android.content.res.Configuration ;
 import android.os.Bundle ;
 import android.view.View ;
 import android.widget.TextView ;
 import androidx.appcompat.app.AppCompatActivity ;
-import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityFavorites ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
-import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.FlexibleGridLayout;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
 
@@ -61,11 +59,13 @@ public class ActivityNotification extends AppCompatActivity
 		title.setOnClickListener(new PopupClickListener()) ;
 		findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 
+		// Define the width of applications for the popup (with future option "Remove margins", keep the received value)
+		int application_width = Math.round(0.8f * ActivityMain.getApplicationWidth()) ;
+
 		// Display the list of favorites applications
 		RecyclerView recycler = findViewById(R.id.popup_recycler) ;
 		recycler.setAdapter(new RecyclerAdapter(this, ActivityMain.getApplicationsList().getFavorites())) ;
-		boolean is_landscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ;
-		recycler.setLayoutManager(new GridLayoutManager(this, is_landscape ? Constants.COLUMNS_LANDSCAPE : Constants.COLUMNS_PORTRAIT)) ;
+		recycler.setLayoutManager(new FlexibleGridLayout(this, application_width)) ;
 	}
 
 

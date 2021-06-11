@@ -25,7 +25,6 @@ package com.vincent_falzon.discreetlauncher.core ;
 // Imports
 import android.content.Context ;
 import android.content.Intent ;
-import android.content.res.Configuration ;
 import android.graphics.Color ;
 import android.graphics.drawable.ColorDrawable ;
 import android.graphics.drawable.Drawable ;
@@ -37,15 +36,16 @@ import android.view.ViewGroup ;
 import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
 import android.widget.TextView ;
-import androidx.recyclerview.widget.GridLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.Comparator ;
+import static com.vincent_falzon.discreetlauncher.ActivityMain.getApplicationWidth ;
 
 /**
  * Represent a folder and all the applications that this folder contains.
@@ -162,9 +162,7 @@ public class Folder extends Application
 		// Prepare the folder content
 		RecyclerView popupRecycler = popupView.findViewById(R.id.popup_recycler) ;
 		popupRecycler.setAdapter(new RecyclerAdapter(context, applications)) ;
-		int orientation = context.getResources().getConfiguration().orientation ;
-		popupRecycler.setLayoutManager(new GridLayoutManager(context,
-				orientation == Configuration.ORIENTATION_LANDSCAPE ? Constants.COLUMNS_LANDSCAPE : Constants.COLUMNS_PORTRAIT)) ;
+		popupRecycler.setLayoutManager(new FlexibleGridLayout(context, getApplicationWidth())) ;
 
 		// Create the popup representing the folder
 		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;

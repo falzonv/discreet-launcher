@@ -99,7 +99,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		int app_size = menu_button_height + Math.round(48 * metrics.density) + Math.round(20 * metrics.density) ;
 
 		// Define the maximum number of favorites that should be allowed
-		return (total_size / app_size) * Constants.COLUMNS_PORTRAIT ;
+		return 4 * (total_size / app_size) ;
 	}
 
 
