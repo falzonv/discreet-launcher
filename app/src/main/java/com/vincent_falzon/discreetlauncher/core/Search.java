@@ -44,6 +44,8 @@ import com.vincent_falzon.discreetlauncher.FlexibleGridLayout;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.SearchAdapter ;
 
+import java.util.ArrayList;
+
 /**
  * Represent the search application.
  */
@@ -87,9 +89,16 @@ public class Search extends Application
 		popupView.findViewById(R.id.popup_title).setVisibility(View.GONE) ;
 		popupView.findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 
-		// Prepare the folder content
+		// Retrieve all the applications without folders and the search
+		ArrayList<Application> applications = ActivityMain.getApplicationsList().getApplications(false) ;
+		Application search = null ;
+		for(Application application : applications)
+			if(application instanceof Search) search = application ;
+		if(search != null) applications.remove(search) ;
+
+		// Prepare the popup content
 		RecyclerView recycler = popupView.findViewById(R.id.popup_recycler) ;
-		adapter = new SearchAdapter(context, ActivityMain.getApplicationsList().getApplications(false)) ;
+		adapter = new SearchAdapter(context, applications) ;
 		recycler.setAdapter(adapter) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(context, ActivityMain.getApplicationWidth())) ;
 

@@ -113,9 +113,6 @@ public class ApplicationsList
 		// Add the shortcuts to the list as applications
 		loadShortcuts(context) ;
 
-		// Hide application based on the internal file
-		manageHiddenApplications() ;
-
 		// Sort the applications list in alphabetic order based on display name
 		Collections.sort(drawer, new Comparator<Application>()
 		{
@@ -133,6 +130,9 @@ public class ApplicationsList
 		Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.icon_search) ;
 		searchIcon.setBounds(0, 0, icon_size, icon_size) ;
 		drawer.add(0, new Search(context.getString(R.string.search_icon_title), searchIcon)) ;
+
+		// Hide application based on the internal file
+		manageHiddenApplications() ;
 
 		// Update the favorites applications list
 		updateFavorites() ;
@@ -337,7 +337,13 @@ public class ApplicationsList
 	{
 		ArrayList<Application> result = new ArrayList<>() ;
 		for(Application application : drawer)
+		{
+			// Skip the search application
+			if(application instanceof Search) continue ;
+
+			// Add all user applications outside folders
 			if(!(application instanceof Folder)) result.add(application) ;
+		}
 		return result ;
 	}
 
@@ -354,9 +360,6 @@ public class ApplicationsList
 		ArrayList<Folder> folders = new ArrayList<>() ;
 		for(Application application : drawer)
 		{
-			// If folders are excluded, skip the search application
-			if(!with_folders && (application instanceof Search)) continue ;
-
 			// Add all applications whether or not they are in folders
 			if(application instanceof Folder)
 				{
