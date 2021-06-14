@@ -19,7 +19,7 @@
     <string name="set_application_theme">Thème</string>
     <string name="set_application_theme_light">Clair</string>
     <string name="set_application_theme_dark">Sombre</string>
-    <string name="set_application_theme_system">Utiliser le thème du système</string>
+    <string name="set_application_theme_system">Préférence système</string>
 
     <!-- Horloge -->
     <string name="set_clock_format">Format de l\'horloge</string>

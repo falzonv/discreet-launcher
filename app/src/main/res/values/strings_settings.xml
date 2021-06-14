@@ -4,7 +4,7 @@
     <!-- Settings interface -->
     <string name="title_settings">Settings / Help</string>
     <string name="title_customization">Customization</string>
-    <string name="title_appearance_settings">Appareance</string>
+    <string name="title_appearance_settings">Appearance</string>
     <string name="title_appearance_settings_general">General appearance</string>
     <string name="title_appearance_settings_applications">Applications appearance</string>
     <string name="title_behavior_settings">Operation</string>
@@ -19,7 +19,7 @@
     <string name="set_application_theme">Theme</string>
     <string name="set_application_theme_light">Light</string>
     <string name="set_application_theme_dark">Dark</string>
-    <string name="set_application_theme_system">Use system theme</string>
+    <string name="set_application_theme_system">System preference</string>
 
     <!-- Clock -->
     <string name="set_clock_format">Clock format</string>
