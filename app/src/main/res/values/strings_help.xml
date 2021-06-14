@@ -57,69 +57,69 @@
     <string name="changelog_title">Changelog</string>
     <string name="changelog_v4_title" translatable="false">Versions v4.x.x</string>
     <string name="changelog_v4_text"><b>v4.1.0</b>
-        \n- Search (idea xi7)
-        \n- Dark theme support (idea JM480)
-        \n- Columns nb based on screen size (idea xi7)
+        \n- Search (@xi7)
+        \n- Dark theme support (@JM480)
+        \n- Columns nb based on screen size (@xi7)
         \n- <u><i>Fix</i></u> clean folders before import
-        \n- <u><i>Fix</i></u> crash if no store (thanks xi7)
+        \n- <u><i>Fix</i></u> crash if no store (@xi7)
         \n
         \n<b>v4.0.1 - 06/06/2021</b>
-        \n- <u><i>Fix</i></u> possible menu crash (thanks xi7)
+        \n- <u><i>Fix</i></u> possible menu crash (@xi7)
         \n
         \n<b>v4.0.0 - 05/06/2021</b>
-        \n- Manual sort of favorites (idea tuch96)
-        \n- Hide notification icon (idea funnyflowerpot)
-        \n- Option to show app in store (idea esdreesh)
-        \n- Visual feedback on short click (idea xi7)
-        \n- New menu button (idea drewski-00h)
+        \n- Manual sort of favorites (@tuch96)
+        \n- Hide notification icon (@funnyflowerpot)
+        \n- Option to show app in store (@esdreesh)
+        \n- Visual feedback on short click (@xi7)
+        \n- New menu button (@drewski-00h)
         \n- Close button on folders and notification
         \n- Merge clock settings
         \n- Settings reorganization
-        \n- Help about folders improved (idea Steve M.)
+        \n- Help about folders improved (@SteveM)
         \n- Major internal reorganization
         \n- <u><i>Option</i></u> custom background color
-        \n- <u><i>Option</i></u> hide menu button (idea xi7)
-        \n- <u><i>Fix</i></u> long folder name (thanks xi7)
-        \n- <u><i>Fix</i></u> press back folder (thanks xi7)
+        \n- <u><i>Option</i></u> hide menu button (@xi7)
+        \n- <u><i>Fix</i></u> long folder name (@xi7)
+        \n- <u><i>Fix</i></u> press back folder (@xi7)
     </string>
     <string name="changelog_v3_title" translatable="false">Versions v3.x.x</string>
     <string name="changelog_v3_text"><b>v3.6.0 - 19/05/2021</b>
-        \n- Better visual feedback (idea xi7)
-        \n- Max 3 lines for apps names (idea xi7)
-        \n- <u><i>Fix</i></u> notch (thanks drewski-00h/AeOeAa)
-        \n- <u><i>Fix</i></u> nav bar Android 10+ (thanks AeOeAa)
-        \n- <u><i>Fix</i></u> folder freeze (thanks xi7)
+        \n- Better visual feedback (@xi7)
+        \n- Max 3 lines for apps names (@xi7)
+        \n- <u><i>Fix</i></u> notch (@drewski-00h/AeOeAa)
+        \n- <u><i>Fix</i></u> nav bar Android 10+ (@AeOeAa)
+        \n- <u><i>Fix</i></u> folder freeze (@xi7)
         \n
         \n<b>v3.5.0 - 13/05/2021</b>
-        \n- Folder items number in the icon (idea xi7)
+        \n- Folder items number in the icon (@xi7)
         \n- Help section about notification
-        \n- <u><i>Option</i></u> reverse interface (idea tuch96)
-        \n- <u><i>Fix</i></u> notification bugs (thanks xi7)
+        \n- <u><i>Option</i></u> reverse interface (@tuch96)
+        \n- <u><i>Fix</i></u> notification bugs (@xi7)
         \n
         \n<b>v3.4.0 - 10/05/2021</b>
-        \n- Reduce icon-text padding (idea xi7/AeOeAa)
-        \n- Visual feedback on long click (idea xi7)
-        \n- Folders first in favorites (idea xi7)
+        \n- Reduce icon-text padding (@xi7/AeOeAa)
+        \n- Visual feedback on long click (@xi7)
+        \n- Folders first in favorites (@xi7)
         \n- Refresh button lower in the menu
         \n- Improvements in folders organizer
-        \n- <u><i>Option</i></u> immersive mode (idea KaiFujiro)
-        \n- <u><i>Fix</i></u> hidden folder names (thanks AeOeAa)
-        \n- <u><i>Fix</i></u> folder stays opened (thanks xi7)
+        \n- <u><i>Option</i></u> immersive mode (@KaiFujiro)
+        \n- <u><i>Fix</i></u> hidden folder names (@AeOeAa)
+        \n- <u><i>Fix</i></u> folder stays opened (@xi7)
         \n
         \n<b>v3.3.0 - 04/05/2021</b>
-        \n- Notification now opens favorites (idea xi7)
-        \n- Folders at the beginning of the list (idea xi7)
-        \n- Improve help section (thanks AeOeAa)
+        \n- Notification now opens favorites (@xi7)
+        \n- Folders at the beginning of the list (@xi7)
+        \n- Improve help section (@AeOeAa)
         \n- Several internal simplifications
-        \n- <u><i>Fix</i></u> folders renaming bugs (thanks AeOeAa)
+        \n- <u><i>Fix</i></u> folders renaming bugs (@AeOeAa)
         \n
         \n<b>v3.2.0 - 26/04/2021</b>
         \n- Message \"no favorites yet\" better integrated
-        \n- <u><i>Option</i></u> hide apps names (idea tuch96)
-        \n- <u><i>Option</i></u> 12-hour format (idea drewski-00h)
+        \n- <u><i>Option</i></u> hide apps names (@tuch96)
+        \n- <u><i>Option</i></u> 12-hour format (@drewski-00h)
         \n
         \n<b>v3.1.0 - 23/04/2021</b>
-        \n- Folders (idea xi7)
+        \n- Folders (@xi7)
         \n- Improve hidden apps management
         \n- <u><i>Fix</i></u> unexpected drawer closure
         \n- <u><i>Fix</i></u> duplicated favorites
@@ -130,12 +130,12 @@
         \n- <u><i>Fix</i></u> screenshots in F-Droid (try)
         \n
         \n<b>v3.0.1 - 16/04/2021</b>
-        \n- <u><i>Fix</i></u> web apps ko (thanks zcgrubb/johanbove)
+        \n- <u><i>Fix</i></u> web apps ko (@zcgrubb/johanbove)
         \n
         \n<b>v3.0.0 - 16/04/2021</b>
         \n- Applications drawer opens even faster
-        \n- Drawer appearance is simpler (idea tuch96)
-        \n- More elegant menu button (idea tuch96)
+        \n- Drawer appearance is simpler (@tuch96)
+        \n- More elegant menu button (@tuch96)
         \n- More elegant export/import buttons
         \n- Major internal reorganization
         \n- <u><i>Fix</i></u> force portrait works in the drawer
@@ -143,20 +143,20 @@
     <string name="changelog_v2_title" translatable="false">Versions v2.x.x</string>
     <string name="changelog_v2_text"><b>v2.6.0 - 11/04/2021</b>
         \n- Display on 5 columns in landscape mode
-        \n- Section for display settings
-        \n- <u><i>Option</i></u> force portrait mode (idea c0bnut)
+        \n- Section for Display settings
+        \n- <u><i>Option</i></u> force portrait mode (@c0bnut)
         \n
         \n<b>v2.5.1 - 09/04/2021</b>
         \n- <u><i>Fix</i></u> possible bug when creating web apps
         \n
         \n<b>v2.5.0 - 09/04/2021</b>
-        \n- Update of the list after import
         \n- New web applications will have icons
-        \n- <u><i>Fix</i></u> max favorites on screen (thanks AeOeAa)
+        \n- <u><i>Fix</i></u> update of the list after import
+        \n- <u><i>Fix</i></u> screen-based max favorites (@AeOeAa)
         \n
         \n<b>v2.4.0 - 05/04/2021</b>
         \n- Export/import settings
-        \n- Hide applications (idea from gicofied9)
+        \n- Hide applications (@gicofied9)
         \n
         \n<b>v2.3.0 - 02/04/2021</b>
         \n- Redesign of the \"Settings / Help\" menu
@@ -165,13 +165,13 @@
         \n- <u><i>Fix</i></u> menu access with too much favorites
         \n
         \n<b>v2.2.0 - 28/03/2021</b>
-        \n- Support web applications (idea johanbove)
+        \n- Web applications support (@johanbove)
         \n- Several internal improvements
         \n- <u><i>Option</i></u> hide notification on lock screen
         \n
         \n<b>v2.1.0 - 23/03/2021</b>
-        \n- Quick-access notification (idea xi7)
-        \n- <u><i>Fix</i></u> update from home screen (thanks xi7)
+        \n- Quick-access notification (@xi7)
+        \n- <u><i>Fix</i></u> update from home screen (@xi7)
         \n
         \n<b>v2.0.0 - 21/03/2021</b>
         \n- Automatic update of the list when an application is added or removed
@@ -183,20 +183,20 @@
         \n
         \n<b>v1.3.0 - 20/03/2021</b>
         \n- Icons update when the pack changes
-        \n- <u><i>Option</i></u> transparent status bar (idea xi7)
-        \n- <u><i>Option</i></u> home screen clock (idea mateimm)
+        \n- <u><i>Option</i></u> transparent status bar (@xi7)
+        \n- <u><i>Option</i></u> home screen clock (@mateimm)
         \n
         \n<b>v1.2.0 - 16/03/2021</b>
-        \n- Long click opens app settings (idea xi7)
+        \n- Long click opens application settings (@xi7)
         \n- Improvements of help texts
-        \n- <u><i>Fix</i></u> apps from same package (thanks xi7)
+        \n- <u><i>Fix</i></u> apps coming from same package (@xi7)
         \n
         \n<b>v1.1.0 - 10/03/2021</b>
-        \n- Icon packs support (idea porosjp)
         \n- Create \"Settings / Help\" menu
+        \n- <u><i>Option</i></u> icon pack selection (@porosjp)
         \n
         \n<b>v1.0.2 - 07/03/2021</b>
-        \n- <u><i>Fix</i></u> Back button bug (thanks abou123)
+        \n- <u><i>Fix</i></u> bug with Back button (@abou123)
         \n
         \n<b>v1.0.1 - 27/02/2021</b>
         \n- Better display in F-Droid
