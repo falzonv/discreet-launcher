@@ -8,6 +8,7 @@ Discreet Launcher is open source, doesn't require any unnecessary permission, wo
 
 1/ Other features
 - Folders
+- Search
 - Hide applications
 - Notification for favorites access
 - Web applications support

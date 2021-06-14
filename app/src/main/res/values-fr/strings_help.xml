@@ -52,6 +52,14 @@
         \nUne application ne peut être que dans un seul dossier à la fois (ou dans aucun dossier).
         Cependant, vous pouvez avoir à la fois une application et le dossier contenant cette application dans les favoris.
     </string>
+    <string name="help_search_title">Recherche</string>
+    <string name="help_search_text">
+        L\'icône de recherche permet de trouver une application dans la liste complète.
+        Vous pouvez l\'ajouter aux favoris de façon à y accéder aussi grâce à la notification.
+        Pour des raisons techniques, il n\'est pas possible de la mettre dans un dossier.
+        \n
+        \nSi vous ne pensez pas l\'utiliser, vous pouvez aussi la masquer comme n\'importe quelle application.
+    </string>
 
     <!-- Journal des changements -->
     <string name="changelog_title">Journal des changements</string>

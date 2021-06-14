@@ -50,4 +50,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        app:title="@string/help_search_title"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            app:title="@string/help_search_text"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

@@ -8,6 +8,7 @@ Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile
 
 1/ Autres fonctionnalités
 - Dossiers
+- Recherche
 - Masquer des applications
 - Notification d'accès aux favoris
 - Support des applications web

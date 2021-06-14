@@ -52,6 +52,14 @@
         \nAn application can be in only one folder at a time (or not in a folder).
         However, you can have both an application and the folder containing this application in favorites.
     </string>
+    <string name="help_search_title">Search</string>
+    <string name="help_search_text">
+        The search icon allows to find an application in the complete list.
+        You can add it to favorites in order to access it also using the notification.
+        For technical reasons, it is not possible to add it in a folder.
+        \n
+        \nIf you do not plan to use it, you can also hide it like any application.
+    </string>
 
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
