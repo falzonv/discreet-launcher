@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher.core ;
  */
 
 // Imports
+import android.app.Activity ;
 import android.content.Context ;
 import android.graphics.Color ;
 import android.graphics.drawable.ColorDrawable ;
@@ -34,6 +35,8 @@ import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
 import android.view.View ;
 import android.view.ViewGroup ;
+import android.view.inputmethod.InputMethod ;
+import android.view.inputmethod.InputMethodManager ;
 import android.widget.EditText ;
 import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
@@ -112,6 +115,7 @@ public class Search extends Application
 
 		// Display the popup and the keyboard
 		popup.showAtLocation(parent, Gravity.CENTER, 0, 0) ;
+		((InputMethodManager)context.getSystemService(Activity.INPUT_METHOD_SERVICE)).toggleSoftInputFromWindow(parent.getWindowToken(), InputMethod.SHOW_EXPLICIT, 0) ;
 		return true ;
 	}
 
