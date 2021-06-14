@@ -91,7 +91,9 @@ public abstract class ShowDialog
 		// Retrieve the currently selected applications
 		final InternalFileTXT file = new InternalFileTXT(Constants.FILE_HIDDEN) ;
 		final boolean[] selected = new boolean[app_names.length] ;
-		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
+		if(file.exists())
+				for(i = 0 ; i < app_names.length ; i++)
+					selected[i] = file.isLineExisting(applications.get(i).getComponentInfo()) ;
 			else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
 
 		// Prepare and display the selection dialog
@@ -114,7 +116,7 @@ public abstract class ShowDialog
 
 					// Write the new selected applications to the file
 					for(i = 0 ; i < selected.length ; i++)
-						if(selected[i]) file.writeLine(applications.get(i).getName()) ;
+						if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
 
 					// Update the applications list
 					ActivityMain.updateList(context) ;

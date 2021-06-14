@@ -150,12 +150,15 @@ public class ApplicationsList
 		ArrayList<String> favorites_file = new InternalFileTXT(Constants.FILE_FAVORITES).readAllLines() ;
 		if(favorites_file == null) return ;
 
+		// Convert the favorites from the name format to ComponentInfo format if needed
+		favorites_file = convertComponentInfo(Constants.FILE_FAVORITES, favorites_file) ;
+
 		// Browse the internal file
 		for(String line : favorites_file)
 		{
-			// Search the internal name in the applications list
+			// Search the ComponentInfo in the applications list
 			for(Application application : getApplications(true))
-				if(application.getName().equals(line))
+				if(application.getComponentInfo().equals(line))
 					{
 						// Add the application to the favorites and move to the next line
 						if(!favorites.contains(application)) favorites.add(application) ;
@@ -181,19 +184,22 @@ public class ApplicationsList
 		for(String filename : folders_files)
 		{
 			// Load the file, or skip it if it does not exist
-			InternalFileTXT file = new InternalFileTXT(filename) ;
-			if(!file.exists()) continue ;
+			ArrayList<String> folder_file = new InternalFileTXT(filename).readAllLines() ;
+			if(folder_file == null) continue ;
+
+			// Convert the folder from the name format to ComponentInfo format if needed
+			folder_file = convertComponentInfo(filename, folder_file) ;
 
 			// Retrieve the name of the folder and create it
 			String folder_name = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;
 			Folder folder = new Folder(folder_name, null) ;
 
 			// Browse the lines of the file to get the list of applications to put in the folder
-			for(String name : file.readAllLines())
+			for(String component_info : folder_file)
 			{
 				// Search the internal name in the applications list
 				for(Application application : drawer)
-					if(application.getName().equals(name))
+					if(application.getComponentInfo().equals(component_info))
 						{
 							// Move the application in the folder
 							folder.addToFolder(application) ;
@@ -232,18 +238,21 @@ public class ApplicationsList
 	{
 		// Check if hidden applications have been defined
 		hidden.clear() ;
-		InternalFileTXT file = new InternalFileTXT(Constants.FILE_HIDDEN) ;
-		if(!file.exists()) return ;
+		ArrayList<String> hidden_file = new InternalFileTXT(Constants.FILE_HIDDEN).readAllLines() ;
+		if(hidden_file == null) return ;
+
+		// Convert the hidden from the name format to ComponentInfo format if needed
+		hidden_file = convertComponentInfo(Constants.FILE_HIDDEN, hidden_file) ;
 
 		// Browse the list of applications that should be hidden
-		for(String name : file.readAllLines())
+		for(String line : hidden_file)
 		{
 			// Never hide the Discreet Launcher icon (as it can be the only access to the menu)
-			if(name.equals("com.vincent_falzon.discreetlauncher.ActivityMain")) continue ;
+			if(line.equals("{com.vincent_falzon.discreetlauncher/com.vincent_falzon.discreetlauncher.ActivityMain}")) continue ;
 
 			// Search the internal name in the applications list
 			for(Application application : drawer)
-				if(application.getName().equals(name))
+				if(application.getComponentInfo().equals(line))
 					{
 						// Remove the application icon to lower memory footprint
 						application.setIcon(null) ;
@@ -426,5 +435,43 @@ public class ApplicationsList
 	public ArrayList<Application> getHidden()
 	{
 		return hidden ;
+	}
+
+
+	/**
+	 * Convert an internal file from name format to ComponentInfo format if needed.
+	 * (Added in v4.1.0 middle of 06/2021, to remove after 30/09/2021)
+	 * @param filename Name of the internal file
+	 * @param content Current file content
+	 * @return Converted file content
+	 */
+	private ArrayList<String> convertComponentInfo(String filename, ArrayList<String> content)
+	{
+		// Browse the internal file
+		ArrayList<String> new_content = new ArrayList<>() ;
+		for(String line : content)
+		{
+			// Do not continue if the file has already been converted
+			if(line.startsWith("{")) return content ;
+
+			// Search the internal name in the applications list
+			for(Application application : getApplications(true))
+				if(application.getName().equals(line))
+					{
+						// Retrieve the ComponentInfo of the application
+						new_content.add(application.getComponentInfo()) ;
+						break ;
+					}
+		}
+
+		// If any, write the new content in the file
+		if(new_content.size() > 0)
+			{
+				InternalFileTXT file = new InternalFileTXT(filename) ;
+				if(file.remove()) for(String line : new_content) file.writeLine(line) ;
+			}
+
+		// Return the converted file
+		return new_content ;
 	}
 }

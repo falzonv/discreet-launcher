@@ -131,8 +131,10 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		// Retrieve the currently selected applications
 		final InternalFileTXT file = new InternalFileTXT(Constants.FILE_FAVORITES) ;
 		final boolean[] selected = new boolean[app_names.length] ;
-		if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
-		else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
+		if(file.exists())
+				for(i = 0 ; i < app_names.length ; i++)
+					selected[i] = file.isLineExisting(applications.get(i).getComponentInfo()) ;
+			else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
 
 		// Prepare the title
 		final int max_favorites = defineMaxFavorites() ;
@@ -164,7 +166,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 							{
 								// Add the application only if the maximum is not reached
 								selections_number++ ;
-								if((max_favorites == -1) || (selections_number <= max_favorites)) file.writeLine(applications.get(i).getName()) ;
+								if((max_favorites == -1) || (selections_number <= max_favorites))
+										file.writeLine(applications.get(i).getComponentInfo()) ;
 									else
 									{
 										ShowDialog.toastLong(context, context.getString(R.string.error_too_many_favorites, max_favorites)) ;
@@ -194,7 +197,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		// Write the last favorites order in the file
 		InternalFileTXT file = new InternalFileTXT(Constants.FILE_FAVORITES) ;
 		if(file.remove())
-			for(Application application : favorites) file.writeLine(application.getName()) ;
+			for(Application application : favorites) file.writeLine(application.getComponentInfo()) ;
 
 		// Update the favorites applications list
 		ActivityMain.updateFavorites() ;

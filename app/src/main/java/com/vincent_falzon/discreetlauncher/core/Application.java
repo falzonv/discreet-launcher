@@ -38,6 +38,7 @@ public class Application
 	String display_name ;
 	String name ;
 	final String apk ;
+	String component_info ;
 	Drawable icon ;
 
 
@@ -54,6 +55,7 @@ public class Application
 		this.name = name ;
 		this.apk = apk ;
 		this.icon = icon ;
+		component_info = "{" + apk + "/" + name + "}" ;
 	}
 
 
@@ -84,6 +86,16 @@ public class Application
 	public String getApk()
 	{
 		return apk ;
+	}
+
+
+	/**
+	 * Get the ComponentInfo{package/name} of the application.
+	 * @return Used internally
+	 */
+	public String getComponentInfo()
+	{
+		return component_info ;
 	}
 
 

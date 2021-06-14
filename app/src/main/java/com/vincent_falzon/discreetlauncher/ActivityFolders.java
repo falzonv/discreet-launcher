@@ -241,9 +241,9 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 											{
 												// Update the favorites if necessary
 												InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
-												boolean was_in_favorites = favorites.removeLine(folder.getName()) ;
+												boolean was_in_favorites = favorites.removeLine(folder.getComponentInfo()) ;
 												folder.setDisplayName(new_folder_name) ;
-												if(was_in_favorites) favorites.writeLine(folder.getName()) ;
+												if(was_in_favorites) favorites.writeLine(folder.getComponentInfo()) ;
 
 												// Update the applications list
 												ActivityMain.updateList(context) ;
@@ -269,9 +269,11 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 							i++ ;
 						}
 
-						// Retrieve the current favorites applications
+						// Retrieve the current folder applications
 						final boolean[] selected = new boolean[app_names.length] ;
-						if(file.exists()) for(i = 0 ; i < app_names.length ; i++) selected[i] = file.isLineExisting(applications.get(i).getName()) ;
+						if(file.exists())
+								for(i = 0 ; i < app_names.length ; i++)
+									selected[i] = file.isLineExisting(applications.get(i).getComponentInfo()) ;
 							else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
 
 						// Let the user select the folder content
@@ -296,15 +298,15 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 										// Add the selected applications in the folder
 										for(i = 0 ; i < selected.length ; i++)
-											if(selected[i]) file.writeLine(applications.get(i).getName()) ;
+											if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
 
 										// Update the display in the activity
 										folder.getApplications().clear() ;
-										for(String name : file.readAllLines())
+										for(String component_info : file.readAllLines())
 										{
 											// Search the internal name in the applications list
 											for(Application application : applications)
-												if(application.getName().equals(name))
+												if(application.getComponentInfo().equals(component_info))
 													{
 														// Add the application in the folder
 														folder.addToFolder(application) ;
