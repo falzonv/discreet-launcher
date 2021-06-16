@@ -50,11 +50,11 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/target_favorites"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/target_open_favorites"
-            android:visibility="gone"
             style="@style/TouchTarget"/>
 
         <TextView
@@ -66,11 +66,11 @@
             style="@style/TextClock"/>
 
         <TextView
+            android:id="@+id/target_applications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/target_open_applications"
-            android:visibility="gone"
             style="@style/TouchTarget"/>
 
     </LinearLayout>

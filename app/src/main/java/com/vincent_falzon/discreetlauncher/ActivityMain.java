@@ -129,6 +129,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		drawer = findViewById(R.id.drawer) ;
 		menuButton = findViewById(R.id.access_menu_button) ;
 		menuButton.setOnClickListener(this) ;
+		findViewById(R.id.target_favorites).setOnClickListener(this) ;
+		findViewById(R.id.target_applications).setOnClickListener(this) ;
 		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
 
 		// If it does not exist yet, build the applications list
@@ -261,11 +263,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 				// Display the favorites panel
 				favorites.setVisibility(View.VISIBLE) ;
+				((TextView)findViewById(R.id.target_favorites)).setText(R.string.target_close_favorites) ;
 			}
 			else
 			{
 				// Hide the favorites panel
 				favorites.setVisibility(View.GONE) ;
+				((TextView)findViewById(R.id.target_favorites)).setText(R.string.target_open_favorites) ;
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
@@ -410,8 +414,15 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	 */
 	public void onClick(View view)
 	{
-		// If it was clicked, display the menu
-		if(view.getId() == R.id.access_menu_button) Menu.open(view) ;
+		// Check which view was selected and react accordingly
+		int selection = view.getId() ;
+		if(selection == R.id.access_menu_button) Menu.open(view) ;
+			else if(selection == R.id.target_favorites) displayFavorites(favorites.getVisibility() != View.VISIBLE) ;
+			else if(selection == R.id.target_applications)
+			{
+				displayFavorites(false) ;
+				displayDrawer(true) ;
+			}
 	}
 
 
