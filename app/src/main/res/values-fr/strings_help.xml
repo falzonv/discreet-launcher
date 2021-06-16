@@ -67,8 +67,12 @@
         \n- Recherche (@xi7)
         \n- Support du thème sombre (@JM480)
         \n- Nb de colonnes selon taille d\'écran (@xi7)
+        \n- <u><i>Option</i></u> cibles de clic (@SteveM)
+        \n- <u><i>Option</i></u> supprimer marges (@xi7)
+        \n- <u><i>Fix</i></u> bug avec Chromium (@DynamicDonkey)
         \n- <u><i>Fix</i></u> nettoyer dossiers avant import
         \n- <u><i>Fix</i></u> crash si aucun store (@xi7)
+        \n- <u><i>Fix</i></u> taille notification (@xi7)
         \n- <u><i>Fix</i></u> désinstallation pack icônes (@drewski-00h)
         \n- <u><i>Fix</i></u> faute dans les paramètres (@drewski-00h)
         \n

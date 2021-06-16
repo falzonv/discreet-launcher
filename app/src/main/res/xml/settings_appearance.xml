@@ -60,6 +60,14 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <SwitchPreference
+            app:key="remove_padding"
+            app:title="@string/set_remove_padding"
+            app:summary="@string/set_remove_padding_help"
+            app:dependency="hide_app_names"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

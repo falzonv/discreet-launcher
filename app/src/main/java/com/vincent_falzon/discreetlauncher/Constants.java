@@ -52,6 +52,7 @@ public abstract class Constants
 	public static final String CLOCK_FORMAT = "clock_format" ;
 	public static final String ICON_PACK = "icon_pack" ;
 	public static final String HIDE_APP_NAMES = "hide_app_names" ;
+	public static final String REMOVE_PADDING = "remove_padding" ;
 	public static final String FORCE_PORTRAIT = "force_portrait" ;
 	public static final String IMMERSIVE_MODE = "immersive_mode" ;
 	public static final String REVERSE_INTERFACE = "reverse_interface" ;

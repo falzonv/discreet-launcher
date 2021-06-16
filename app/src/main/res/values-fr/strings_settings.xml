@@ -75,6 +75,8 @@
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
     <string name="set_hide_app_names">Masquer les noms des applications</string>
+    <string name="set_remove_padding">Supprimer les marges quand les noms sont masqués</string>
+    <string name="set_remove_padding_help">Peut donner des résultats inattendus avec les longs noms de dossiers</string>
     <string name="set_hide_app_names_help">Les noms des dossiers seront toujours affichés</string>
     <string name="set_force_portrait">Forcer le mode portrait</string>
     <string name="set_force_portrait_help">Le lanceur ne pivotera pas même si la rotation automatique est activée</string>

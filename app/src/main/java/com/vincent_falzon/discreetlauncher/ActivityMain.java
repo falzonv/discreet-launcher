@@ -159,8 +159,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			else notification.hide() ;
 
 		// Define the width of an application item
-		int margins = 30 ; // Placeholder waiting for new "Remove margins" option
-		application_width = Math.round((50 + margins) * getResources().getDisplayMetrics().density) ;
+		int padding ;
+		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)
+				&& settings.getBoolean(Constants.REMOVE_PADDING, false)) padding = 0 ;
+			else padding = 30 ;
+		application_width = Math.round((50 + padding) * getResources().getDisplayMetrics().density) ;
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;
@@ -559,8 +562,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				updateList(this) ;
 				break ;
 			case Constants.HIDE_APP_NAMES :
-				// Update the recycler views and recreate the display to update the column width
-				adapters_update_needed = true ;
+			case Constants.REMOVE_PADDING:
+				// Update the column width
 				recreate() ;
 				break ;
 			case Constants.REVERSE_INTERFACE:

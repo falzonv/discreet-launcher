@@ -54,6 +54,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	// Attributes
 	public ArrayList<Application> applicationsList ;
 	private final SharedPreferences settings ;
+	private final int padding ;
 
 
 	/**
@@ -65,6 +66,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	{
 		this.applicationsList = applicationsList ;
 		settings = PreferenceManager.getDefaultSharedPreferences(context) ;
+		padding = Math.round(context.getResources().getDimension(R.dimen.spacing_normal)) ;
 	}
 
 
@@ -96,10 +98,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		appView.name.setText(applicationsList.get(i).getDisplayName()) ;
 		appView.name.setCompoundDrawables(null, applicationsList.get(i).getIcon(), null, null) ;
 
-		// If the option is selected, hide applications names (but not folders names)
-		if(!(applicationsList.get(i) instanceof Folder) && settings.getBoolean(Constants.HIDE_APP_NAMES, false))
-				appView.name.setTextSize(0) ;
-			else appView.name.setTextSize(14) ;
+		// Check if applications names should be hidden
+		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false))
+			{
+				// Hide applications names except folders
+				if(applicationsList.get(i) instanceof Folder) appView.name.setTextSize(14) ;
+					else appView.name.setTextSize(0) ;
+
+				// If the option is selected, remove padding around the applications
+				if(settings.getBoolean(Constants.REMOVE_PADDING, false))
+						appView.name.setPadding(0, 0, 0, 0) ;
+					else appView.name.setPadding(0, padding, 0, padding) ;
+			}
+			else
+			{
+				appView.name.setTextSize(14) ;
+				appView.name.setPadding(0, padding, 0, padding) ;
+			}
 	}
 
 

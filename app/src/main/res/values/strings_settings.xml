@@ -76,6 +76,8 @@
     <string name="set_icon_pack_none">None (use the real icons)</string>
     <string name="set_hide_app_names">Hide applications names</string>
     <string name="set_hide_app_names_help">Folder names will still be displayed</string>
+    <string name="set_remove_padding">Remove padding when names are hidden</string>
+    <string name="set_remove_padding_help">May produce unexpected results with long folders names</string>
     <string name="set_force_portrait">Force portrait mode</string>
     <string name="set_force_portrait_help">The launcher will not rotate even if automatic rotation is enabled</string>
     <string name="set_immersive_mode">Use immersive mode</string>

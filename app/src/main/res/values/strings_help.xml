@@ -68,8 +68,12 @@
         \n- Search (@xi7)
         \n- Dark theme support (@JM480)
         \n- Columns nb based on screen size (@xi7)
+        \n- <u><i>Option</i></u> touch targets (@SteveM)
+        \n- <u><i>Option</i></u> remove padding (@xi7)
+        \n- <u><i>Fix</i></u> bug with Chromium (@DynamicDonkey)
         \n- <u><i>Fix</i></u> clean folders before import
         \n- <u><i>Fix</i></u> crash if no store (@xi7)
+        \n- <u><i>Fix</i></u> notification size (@xi7)
         \n- <u><i>Fix</i></u> icon pack uninstall (@drewski-00h)
         \n- <u><i>Fix</i></u> typo in settings (@drewski-00h)
         \n
