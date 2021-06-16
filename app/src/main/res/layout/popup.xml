@@ -49,6 +49,7 @@
         android:id="@+id/popup_recycler"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:minHeight="180dp"
         android:padding="1dp"
         android:background="@drawable/shape_popup"/>
 
