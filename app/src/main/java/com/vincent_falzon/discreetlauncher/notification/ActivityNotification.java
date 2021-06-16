@@ -59,13 +59,10 @@ public class ActivityNotification extends AppCompatActivity
 		title.setOnClickListener(new PopupClickListener()) ;
 		findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 
-		// Define the width of applications for the popup (with future option "Remove margins", keep the received value)
-		int application_width = Math.round(0.8f * ActivityMain.getApplicationWidth()) ;
-
 		// Display the list of favorites applications
 		RecyclerView recycler = findViewById(R.id.popup_recycler) ;
 		recycler.setAdapter(new RecyclerAdapter(this, ActivityMain.getApplicationsList().getFavorites())) ;
-		recycler.setLayoutManager(new FlexibleGridLayout(this, application_width)) ;
+		recycler.setLayoutManager(new FlexibleGridLayout(this, ActivityMain.getApplicationWidth())) ;
 	}
 
 
