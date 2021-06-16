@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Text clock on the home screen -->
-    <dimen name="clock_font_size">70sp</dimen>
-    <dimen name="clock_shadow_radius">20</dimen>
-
     <!-- Margins and paddings -->
     <dimen name="spacing_very_small">3dp</dimen>
     <dimen name="spacing_small">5dp</dimen>
     <dimen name="spacing_normal">10dp</dimen>
     <dimen name="spacing_large">20dp</dimen>
     <dimen name="spacing_very_large">40dp</dimen>
+
+    <!-- Text sizes (Android default size is 14sp) -->
+    <dimen name="text_size_big">18sp</dimen>
+    <dimen name="text_size_huge">70sp</dimen>
+
+    <!-- Float dimensions -->
+    <dimen name="shadow_radius">20</dimen>
 
 </resources>

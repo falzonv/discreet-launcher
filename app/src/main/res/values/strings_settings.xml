@@ -36,6 +36,11 @@
     <string name="color_picker_preview">Preview</string>
     <string name="error_invalid_color_format">This hexadecimal color is not valid!</string>
 
+    <!-- Touch targets (accessibility) -->
+    <string name="target_open_favorites">Open\nfavorites</string>
+    <string name="target_close_favorites">Close\nfavorites</string>
+    <string name="target_open_applications">Open\napplications</string>
+
     <!-- Folders -->
     <string name="button_organize_folders">Organize folders</string>
     <string name="button_new_folder">Add</string>

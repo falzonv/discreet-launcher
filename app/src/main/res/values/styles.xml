@@ -46,4 +46,27 @@
         <item name="android:textColor">@color/blue</item>
     </style>
 
+
+    <!-- Text clock -->
+    <style name="TextClock">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/text_size_huge</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/translucent_gray</item>
+        <item name="android:shadowRadius">@dimen/shadow_radius</item>
+    </style>
+
+
+    <!--- Touch targets -->
+    <style name="TouchTarget">
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/spacing_normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/translucent_gray</item>
+        <item name="android:shadowRadius">@dimen/shadow_radius</item>
+    </style>
+
 </resources>

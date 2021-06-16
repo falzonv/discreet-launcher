@@ -36,6 +36,11 @@
     <string name="color_picker_preview">Aperçu</string>
     <string name="error_invalid_color_format">Cette couleur hexadécimale n\'est pas valide !</string>
 
+    <!-- Cibles de clic (accessibilité) -->
+    <string name="target_open_favorites">Ouvrir les\nfavoris</string>
+    <string name="target_close_favorites">Fermer les\nfavoris</string>
+    <string name="target_open_applications">Ouvrir les\napplications</string>
+
     <!-- Dossiers -->
     <string name="button_organize_folders">Organiser les dossiers</string>
     <string name="button_new_folder">Ajouter</string>

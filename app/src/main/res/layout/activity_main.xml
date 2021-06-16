@@ -50,17 +50,28 @@
         </LinearLayout>
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/target_open_favorites"
+            android:visibility="gone"
+            style="@style/TouchTarget"/>
+
+        <TextView
             android:id="@+id/clock_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
             android:text=""
-            android:fontFamily="sans-serif-light"
-            android:textSize="@dimen/clock_font_size"
-            android:textColor="@color/white"
-            android:shadowColor="@color/translucent_gray"
-            android:shadowRadius="@dimen/clock_shadow_radius"/>
+            style="@style/TextClock"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/target_open_applications"
+            android:visibility="gone"
+            style="@style/TouchTarget"/>
 
     </LinearLayout>
 

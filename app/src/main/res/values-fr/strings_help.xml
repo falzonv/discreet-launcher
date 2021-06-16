@@ -69,6 +69,8 @@
         \n- Nb de colonnes selon taille d\'écran (@xi7)
         \n- <u><i>Fix</i></u> nettoyer dossiers avant import
         \n- <u><i>Fix</i></u> crash si aucun store (@xi7)
+        \n- <u><i>Fix</i></u> désinstallation pack icônes (@drewski-00h)
+        \n- <u><i>Fix</i></u> faute dans les paramètres (@drewski-00h)
         \n
         \n<b>v4.0.1 - 06/06/2021</b>
         \n- <u><i>Fix</i></u> possible crash menu (@xi7)

@@ -70,6 +70,8 @@
         \n- Columns nb based on screen size (@xi7)
         \n- <u><i>Fix</i></u> clean folders before import
         \n- <u><i>Fix</i></u> crash if no store (@xi7)
+        \n- <u><i>Fix</i></u> icon pack uninstall (@drewski-00h)
+        \n- <u><i>Fix</i></u> typo in settings (@drewski-00h)
         \n
         \n<b>v4.0.1 - 06/06/2021</b>
         \n- <u><i>Fix</i></u> possible menu crash (@xi7)
