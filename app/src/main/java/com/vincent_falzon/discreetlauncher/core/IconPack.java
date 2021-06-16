@@ -30,6 +30,7 @@ import android.content.res.Resources ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.ShowDialog ;
@@ -70,8 +71,10 @@ class IconPack
 		{
 			// Display an error message and set the icon pack to none
 			ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, pack_name)) ;
+			ActivityMain.setIgnoreSettingsChanges(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
 			editor.putString(Constants.ICON_PACK, Constants.NONE).apply() ;
+			ActivityMain.setIgnoreSettingsChanges(false) ;
 			return ;
 		}
 
