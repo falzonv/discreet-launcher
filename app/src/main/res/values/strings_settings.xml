@@ -37,6 +37,8 @@
     <string name="error_invalid_color_format">This hexadecimal color is not valid!</string>
 
     <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Use touch targets (accessibility option)</string>
+    <string name="set_touch_targets_help">Add clickable labels on the home screen</string>
     <string name="target_open_favorites">Open\nfavorites</string>
     <string name="target_close_favorites">Close\nfavorites</string>
     <string name="target_open_applications">Open\napplications</string>

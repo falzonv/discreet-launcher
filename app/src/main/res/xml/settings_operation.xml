@@ -26,6 +26,13 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <SwitchPreference
+            app:key="touch_targets"
+            app:title="@string/set_touch_targets"
+            app:summary="@string/set_touch_targets_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

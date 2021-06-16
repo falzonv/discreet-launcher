@@ -37,6 +37,8 @@
     <string name="error_invalid_color_format">Cette couleur hexadécimale n\'est pas valide !</string>
 
     <!-- Cibles de clic (accessibilité) -->
+    <string name="set_touch_targets">Utiliser les cibles de clic (option d\'accessibilité)</string>
+    <string name="set_touch_targets_help">Ajoute des indications cliquables sur l\'écran d\'accueil</string>
     <string name="target_open_favorites">Ouvrir les\nfavoris</string>
     <string name="target_close_favorites">Fermer les\nfavoris</string>
     <string name="target_open_applications">Ouvrir les\napplications</string>

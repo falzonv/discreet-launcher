@@ -79,6 +79,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private RecyclerAdapter favoritesAdapter ;
 	private MinuteListener minuteListener ;
 	private TextView menuButton ;
+	private TextView targetFavorites ;
+	private TextView targetApplications ;
 	private boolean reverse_interface ;
 
 	// Attributes related to the drawer
@@ -128,9 +130,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		favorites = findViewById(R.id.favorites) ;
 		drawer = findViewById(R.id.drawer) ;
 		menuButton = findViewById(R.id.access_menu_button) ;
+		targetFavorites = findViewById(R.id.target_favorites) ;
+		targetApplications = findViewById(R.id.target_applications) ;
 		menuButton.setOnClickListener(this) ;
-		findViewById(R.id.target_favorites).setOnClickListener(this) ;
-		findViewById(R.id.target_applications).setOnClickListener(this) ;
+		targetFavorites.setOnClickListener(this) ;
+		targetApplications.setOnClickListener(this) ;
 		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
 
 		// If it does not exist yet, build the applications list
@@ -142,6 +146,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Update the display according to settings
 		togglePortraitMode() ;
+		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
 
 		// Initialize the clock listener
@@ -154,7 +159,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			else notification.hide() ;
 
 		// Define the width of an application item
-		int margins = 26 ; // Placeholder waiting for new "Remove margins" option
+		int margins = 30 ; // Placeholder waiting for new "Remove margins" option
 		application_width = Math.round((50 + margins) * getResources().getDisplayMetrics().density) ;
 
 		// Initialize the content of the favorites panel
@@ -220,6 +225,24 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
+	 * Enable or disable the touch targets according to the settings.
+	 */
+	private void toggleTouchTargets()
+	{
+		if(settings.getBoolean(Constants.TOUCH_TARGETS, false))
+			{
+				targetFavorites.setVisibility(View.VISIBLE) ;
+				targetApplications.setVisibility(View.VISIBLE) ;
+			}
+			else
+			{
+				targetFavorites.setVisibility(View.GONE) ;
+				targetApplications.setVisibility(View.GONE) ;
+			}
+	}
+
+
+	/**
 	 * Display or hide the favorites panel.
 	 * @param display <code>true</code> to display, <code>false</code> to hide
 	 */
@@ -263,13 +286,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 				// Display the favorites panel
 				favorites.setVisibility(View.VISIBLE) ;
-				((TextView)findViewById(R.id.target_favorites)).setText(R.string.target_close_favorites) ;
+				targetFavorites.setText(R.string.target_close_favorites) ;
 			}
 			else
 			{
 				// Hide the favorites panel
 				favorites.setVisibility(View.GONE) ;
-				((TextView)findViewById(R.id.target_favorites)).setText(R.string.target_open_favorites) ;
+				targetFavorites.setText(R.string.target_open_favorites) ;
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
@@ -546,6 +569,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
 				else setContentView(R.layout.activity_main) ;
 				recreate() ;
+			case Constants.TOUCH_TARGETS :
+				// Display or not the touch targets
+				toggleTouchTargets() ;
+				break ;
 		}
 	}
 
