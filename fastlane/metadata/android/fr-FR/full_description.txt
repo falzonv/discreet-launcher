@@ -16,10 +16,11 @@ Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile
 - Aide et journal des changements
 
 2/ Options de personnalisation
-- Couleur de fond
+- Thème et couleur de fond
 - Forcer le mode portrait
 - Mode immersif
 - Interface inversée
+- Cibles de clic (accessibilité)
 - Heure sur l'écran d'accueil
 - Barre de statut transparente
 - Masquer le bouton de menu

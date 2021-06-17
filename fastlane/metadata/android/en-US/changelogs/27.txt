@@ -1,0 +1,16 @@
+v4.1.0 (27)
+NEW THINGS
+   - Search (@xi7)
+   - Dark theme support (@JM480)
+   - Accessibility option with touch targets (@SteveM)
+   - Option to remove padding (@xi7)
+IMPROVEMENTS
+   - Columns nb based on screen size (@xi7)
+   - Notification size same as folders (@xi7)
+	- Changelog reviewed
+CORRECTIONS
+   - Bug with Chromium browsers (@DynamicDonkey)
+   - Clean old folders before imports
+   - Open store crashes if none is installed (@xi7)
+   - Active icon pack uninstalled (@drewski-00h)
+   - Typo in settings (@drewski-00h)

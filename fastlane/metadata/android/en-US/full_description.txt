@@ -16,10 +16,11 @@ Discreet Launcher is open source, doesn't require any unnecessary permission, wo
 - Help and changelog
 
 2/ Customization options
-- Background color
+- Theme and background color
 - Force portrait mode
 - Immersive mode
 - Reversed interface
+- Touch targets (accessibility)
 - Clock on the home screen
 - Transparent status bar
 - Hide the menu button

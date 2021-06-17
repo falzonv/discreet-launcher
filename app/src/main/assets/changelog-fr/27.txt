@@ -1,0 +1,16 @@
+v4.1.0 (27)
+NOUVEAUTÉS
+   - Recherche (@xi7)
+   - Support du thème sombre (@JM480)
+   - Option d'accessibilité cibles de clic (@SteveM)
+   - Option pour supprimer les marges (@xi7)
+AMÉLIORATIONS
+   - Nb de colonnes selon taille d'écran (@xi7)
+   - Taille de notification comme les dossiers (@xi7)
+	- Journal des changements revu
+CORRECTIONS
+   - Bug navigateurs Chromium (@DynamicDonkey)
+   - Nettoyer dossiers précédents avant import
+   - Ouverture store crash si aucun installé (@xi7)
+   - Pack d'icônes actif désinstallé (@drewski-00h)
+   - Faute dans les paramètres (@drewski-00h)

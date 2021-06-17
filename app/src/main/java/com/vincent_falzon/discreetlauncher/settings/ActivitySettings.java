@@ -239,25 +239,6 @@ public class ActivitySettings extends AppCompatActivity
 
 
 	/**
-	 * Load the changelog from the XML file.
-	 */
-	public static class ChangelogFragment extends PreferenceFragmentCompat
-	{
-		/**
-		 * Constructor.
-		 * @param savedInstanceState To retrieve the context
-		 * @param rootKey Root of the settings hierarchy
-		 */
-		@Override
-		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
-		{
-			// Load the settings from the XML file
-			setPreferencesFromResource(R.xml.settings_changelog, rootKey) ;
-		}
-	}
-
-
-	/**
 	 * Build a list of the installed icon packs.
 	 */
 	private void searchIconPacks()

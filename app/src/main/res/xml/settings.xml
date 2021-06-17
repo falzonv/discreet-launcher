@@ -54,8 +54,11 @@
 
         <Preference
             app:title="@string/changelog_title"
-            app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$ChangelogFragment"
-            app:icon="@android:drawable/ic_input_get"/>
+            app:icon="@android:drawable/ic_input_get">
+            <intent
+                android:targetPackage="com.vincent_falzon.discreetlauncher"
+                android:targetClass="com.vincent_falzon.discreetlauncher.settings.ActivityChangelog"/>
+        </Preference>
 
         <Preference app:layout="@layout/settings_about"/>
 
