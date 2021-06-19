@@ -1,4 +1,4 @@
-v4.1.0 (27)
+v4.1.0 (27) - 19/06/2021
 NOUVEAUTÉS
    - Recherche (@xi7)
    - Support du thème sombre (@JM480)

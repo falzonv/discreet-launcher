@@ -1,4 +1,4 @@
-v4.1.0 (27)
+v4.1.0 (27) - 19/06/2021
 NEW THINGS
    - Search (@xi7)
    - Dark theme support (@JM480)
