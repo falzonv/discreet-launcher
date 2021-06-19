@@ -18,8 +18,8 @@ android
         targetSdkVersion 30
 
         // Versioning
-        versionCode 27
-        versionName "v4.1.0"
+        versionCode 28
+        versionName "v4.1.1"
     }
 
     // Build types always include debug (hidden by default)

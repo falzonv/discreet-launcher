@@ -1,0 +1,4 @@
+v4.1.1 (28) - 19/06/2021
+CORRECTIONS
+   - Renamed folder disappears from favorites
+   - Notification popup visual glitch (@xi7)
