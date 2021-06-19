@@ -37,6 +37,7 @@
         <item name="android:windowBackground">@color/white</item>
         <item name="windowMinWidthMajor">100%</item>
         <item name="windowMinWidthMinor">100%</item>
+        <item name="android:windowElevation">0dp</item>
     </style>
 
 
