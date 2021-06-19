@@ -207,7 +207,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 				{
 					CharSequence[] options = {
 							context.getString(R.string.long_click_open, application.getDisplayName()),
-							context.getString(R.string.long_click_remove),
+							context.getString(R.string.long_click_remove_shortcut),
 						} ;
 					dialog.setItems(options,
 							new DialogInterface.OnClickListener()

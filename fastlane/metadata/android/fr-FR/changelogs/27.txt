@@ -7,7 +7,7 @@ NOUVEAUTÉS
 AMÉLIORATIONS
    - Nb de colonnes selon taille d'écran (@xi7)
    - Taille de notification comme les dossiers (@xi7)
-	- Journal des changements revu
+   - Journal des changements revu
 CORRECTIONS
    - Bug navigateurs Chromium (@DynamicDonkey)
    - Nettoyer dossiers précédents avant import

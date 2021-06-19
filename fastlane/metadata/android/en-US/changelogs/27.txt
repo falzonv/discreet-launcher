@@ -7,7 +7,7 @@ NEW THINGS
 IMPROVEMENTS
    - Columns nb based on screen size (@xi7)
    - Notification size same as folders (@xi7)
-	- Changelog reviewed
+   - Changelog reviewed
 CORRECTIONS
    - Bug with Chromium browsers (@DynamicDonkey)
    - Clean old folders before imports

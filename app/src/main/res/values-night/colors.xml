@@ -2,6 +2,6 @@
 <resources>
 
 	<!-- Make the blue less contrasting with black background -->
-    <color name="blue">#7B88D1</color>
+	<color name="blue">#7B88D1</color>
 
 </resources>

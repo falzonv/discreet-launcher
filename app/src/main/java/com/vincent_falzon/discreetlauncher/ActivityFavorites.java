@@ -124,7 +124,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		for(Application application : applications)
 		{
 			if(application instanceof Folder) app_names[i] = ((Folder)application).getDisplayNameWithCount() ;
-			else app_names[i] = application.getDisplayName() ;
+				else app_names[i] = application.getDisplayName() ;
 			i++ ;
 		}
 

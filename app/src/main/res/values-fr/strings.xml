@@ -22,7 +22,7 @@
     <string name="long_click_open">Ouvrir \"%1s\"</string>
     <string name="long_click_store">Voir sa page dans le magasin</string>
     <string name="long_click_settings">Accéder à ses paramètres</string>
-    <string name="long_click_remove">Le supprimer</string>
+    <string name="long_click_remove_shortcut">Supprimer ce raccourci</string>
 
     <!-- À propos -->
     <string name="app_name">Lanceur Discret</string>
