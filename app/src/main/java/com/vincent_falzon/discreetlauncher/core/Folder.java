@@ -88,6 +88,7 @@ public class Folder extends Application
 	{
 		display_name = new_name ;
 		name = Constants.APK_FOLDER + display_name ;
+		component_info = "{" + apk + "/" + name + "}" ;
 	}
 
 
