@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Applications list -->
+    <string name="info_applications_list_refreshed">Список приложений обновлен</string>
+    <string name="button_refresh_list">Обновить список приложений</string>
+    <string name="error_application_not_found">Приложение %1$s не найдено!</string>
+
+    <!-- Favorites -->
+    <string name="info_no_favorites_yet">Вы можете добавить свои избранные приложения\n нажав на кнопку меню.</string>
+    <string name="button_manage_favorites">Управлять избранным</string>
+    <string name="button_select_favorites">Выбрать избранные</string>
+    <string name="hint_favorites_order">Вы можете изменить порядок избранного в списке ниже (для прокрутки используйте пустые области по бокам)</string>
+    <string name="error_too_many_favorites">К сожалению, количество избранных ограничено %1$d!</string>
+
+    <!-- Dialogs buttons -->
+	<string name="button_apply">Применить</string>
+	<string name="button_cancel">Отменить</string>
+
+    <!-- Long click options -->
+    <string name="long_click_title">Что вы хотите сделать?</string>
+    <string name="long_click_open">Открыть \"%1s\"</string>
+    <string name="long_click_store">Посмотреть страницу в магазине</string>
+    <string name="long_click_settings">Доступ к его настройкам</string>
+    <string name="long_click_remove_shortcut">Удалить этот ярлык</string>
+
+    <!-- About -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author" translatable="false">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Чтобы получить доступ к исходному коду, сообщить о проблеме или ознакомиться с другими моими проектами, посетите веб-сайт</string>
+    <string name="website_link" translatable="false">https://vincent-falzon.com</string>
+
+</resources>
