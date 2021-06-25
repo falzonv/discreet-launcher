@@ -58,7 +58,9 @@
         Vous pouvez l\'ajouter aux favoris de façon à y accéder aussi grâce à la notification.
         Pour des raisons techniques, il n\'est pas possible de la mettre dans un dossier.
         \n
-        \nSi vous ne pensez pas l\'utiliser, vous pouvez aussi la masquer comme n\'importe quelle application.
+        \nSi vous ne pensez pas l\'utiliser, vous pouvez aussi masquer la recherche comme n\'importe quelle application.
+        \n
+        \nEnfin, appuyer sur \"Entrée\" quand il n\'y a qu\'un seul résultat de recherche ouvrira celui-ci.
     </string>
 
     <!-- Journal des changements -->

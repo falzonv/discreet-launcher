@@ -33,7 +33,7 @@
             android:hint="@string/search_hint"
             android:textColor="@color/white"
             android:textColorHint="@color/translucent_white"
-            android:imeOptions="flagNoExtractUi"
+            android:imeOptions="flagNoExtractUi|actionDone"
             android:visibility="gone"/>
 
         <ImageButton

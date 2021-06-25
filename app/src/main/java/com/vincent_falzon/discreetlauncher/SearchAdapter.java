@@ -50,7 +50,10 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 	}
 
 
-
+	/**
+	 * Create the filter which will be used to search in the list.
+	 * @return Filter used to match the search
+	 */
 	@Override
 	public Filter getFilter()
 	{
@@ -95,5 +98,16 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 				notifyDataSetChanged() ;
 			}
 		} ;
+	}
+
+
+	/**
+	 * Provide the first item currently displayed in the adapter.
+	 * @return First item in the list, or <code>null</code> if the list is empty
+	 */
+	public Application getFirstItem()
+	{
+		if(getItemCount() < 1) return null ;
+		return applicationsList.get(0) ;
 	}
 }

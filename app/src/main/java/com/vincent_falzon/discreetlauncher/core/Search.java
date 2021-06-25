@@ -31,23 +31,25 @@ import android.graphics.drawable.Drawable ;
 import android.text.Editable ;
 import android.text.TextWatcher ;
 import android.view.Gravity ;
+import android.view.KeyEvent ;
 import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
 import android.view.View ;
 import android.view.ViewGroup ;
+import android.view.inputmethod.EditorInfo ;
 import android.view.inputmethod.InputMethod ;
 import android.view.inputmethod.InputMethodManager ;
 import android.widget.EditText ;
 import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
+import android.widget.TextView ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
-import com.vincent_falzon.discreetlauncher.FlexibleGridLayout;
+import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.SearchAdapter ;
-
-import java.util.ArrayList;
+import java.util.ArrayList ;
 
 /**
  * Represent the search application.
@@ -84,13 +86,31 @@ public class Search extends Application
 
 		// Prepare the popup view
 		View popupView = inflater.inflate(R.layout.popup, (ViewGroup)null) ;
+		popupView.findViewById(R.id.popup_title).setVisibility(View.GONE) ;
+		popupView.findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 
 		// Prepare the search bar
 		EditText searchBar = popupView.findViewById(R.id.search_bar) ;
 		searchBar.setVisibility(View.VISIBLE) ;
-		searchBar.addTextChangedListener(new TextChangeListener());
-		popupView.findViewById(R.id.popup_title).setVisibility(View.GONE) ;
-		popupView.findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
+		searchBar.addTextChangedListener(new TextChangeListener()) ;
+		searchBar.setOnEditorActionListener(new TextView.OnEditorActionListener()
+			{
+				@Override
+				public boolean onEditorAction(TextView view, int actionId, KeyEvent event)
+				{
+					// Perform an action when the user presses "Enter"
+					if(actionId == EditorInfo.IME_ACTION_DONE)
+						{
+							// If there is only one application remaining, start it
+							if(adapter.getItemCount() == 1)
+								{
+									adapter.getFirstItem().start(view) ;
+									return true ;
+								}
+						}
+					return false ;
+				}
+			}) ;
 
 		// Retrieve all the applications without folders and the search
 		ArrayList<Application> applications = ActivityMain.getApplicationsList().getApplications(false) ;
