@@ -222,19 +222,14 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Prepare the files that need to be replaced
 		ActivityMain.setIgnoreSettingsChanges(true) ;
-		InternalFileTXT favorites, hidden, shortcuts, shortcuts_legacy ;
-		if(importedData.contains(Constants.FILE_FAVORITES + ": " + Constants.NONE)) favorites = null ;
-			else favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
-		if(importedData.contains(Constants.FILE_HIDDEN + ": " + Constants.NONE)) hidden = null ;
-			else hidden = new InternalFileTXT(Constants.FILE_HIDDEN) ;
-		if(importedData.contains(Constants.FILE_SHORTCUTS + ": " + Constants.NONE)) shortcuts = null ;
-			else shortcuts = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
-		if(importedData.contains(Constants.FILE_SHORTCUTS_LEGACY + ": " + Constants.NONE)) shortcuts_legacy = null ;
-			else shortcuts_legacy = new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY) ;
-		if(favorites != null) favorites.remove() ;
-		if(hidden != null) hidden.remove() ;
-		if(shortcuts != null) shortcuts.remove() ;
-		if(shortcuts_legacy != null) shortcuts_legacy.remove() ;
+		InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
+		InternalFileTXT hidden = new InternalFileTXT(Constants.FILE_HIDDEN) ;
+		InternalFileTXT shortcuts = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
+		InternalFileTXT shortcuts_legacy = new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY) ;
+		favorites.remove() ;
+		hidden.remove() ;
+		shortcuts.remove() ;
+		shortcuts_legacy.remove() ;
 
 		// Remove any existing folder
 		String[] folders_files = InternalFile.searchFilesStartingWith(this, Constants.FILE_FOLDER_PREFIX) ;
@@ -326,8 +321,9 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	 */
 	private void writeLineToInternalFile(InternalFileTXT file, String line)
 	{
-		if(file == null) return ;
-		file.writeLine(line.replace(file.getName() + ": ", "")) ;
+		String value = line.replace(file.getName() + ": ", "") ;
+		if(value.equals(Constants.NONE)) return ;
+		file.writeLine(value) ;
 	}
 
 
