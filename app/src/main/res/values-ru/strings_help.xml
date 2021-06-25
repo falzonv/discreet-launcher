@@ -34,11 +34,11 @@
     </string>
     <string name="help_list_update_title">Обновление списка</string>
     <string name="help_list_update_text">
-        The list of applications and their icons are refreshed only after some events
-        (on start, when an application is added or removed, if the icon pack is modified).
-        When this happens, a small popup message appears during a few moments.
+        Список приложений и их значки обновляются только после некоторых событий
+        (при запуске, при добавлении или удалении приложения, при изменении пакета значков).
+        Когда это происходит, на несколько мгновений появляется небольшое всплывающее сообщение.
         \n
-        \nIf something does not feel right, you should try to refresh the applications list manually.
+        \nЕсли что-то не устраивает, попробуйте обновить список приложений вручную.
     </string>
     <string name="help_folders_title">Папки</string>
     <string name="help_folders_text">
