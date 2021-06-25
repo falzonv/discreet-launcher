@@ -444,8 +444,12 @@ public class ApplicationsList
 		ArrayList<String> new_content = new ArrayList<>() ;
 		for(String line : content)
 		{
-			// Do not continue if the file has already been converted
-			if(line.startsWith("{")) return content ;
+			// Do not modify the line if it is already converted
+			if(line.startsWith("{"))
+				{
+					new_content.add(line) ;
+					continue ;
+				}
 
 			// Search the internal name in the applications list
 			for(Application application : getApplications(true))
