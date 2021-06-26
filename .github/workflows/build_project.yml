@@ -1,10 +1,8 @@
 name: Build Project
 
 on:
-  # Automatically run the workflow on push or pull request
+  # Automatically run the workflow after a "git push"
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
   # Allows to run the workflow manually from the Actions tab
