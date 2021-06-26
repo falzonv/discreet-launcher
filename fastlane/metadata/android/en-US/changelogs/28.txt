@@ -2,14 +2,3 @@ v4.1.1 (28) - 19/06/2021
 CORRECTIONS
    - Renamed folder disappears from favorites
    - Notification popup visual glitch (@xi7)
-
-v4.1.0 (highlights)
-NEW THINGS
-   - Search (@xi7)
-   - Dark theme support (@JM480)
-   - Touch targets option (@SteveM)
-   - Remove padding option (@xi7)
-IMPROVEMENTS
-   - Columns nb based on screen size (@xi7)
-CORRECTIONS
-   - Bug with Chromium browsers (@DynamicDonkey)

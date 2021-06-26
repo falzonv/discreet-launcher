@@ -1,15 +1,4 @@
 v4.1.1 (28) - 19/06/2021
 CORRECTIONS
    - Dossier renommé disparaît des favoris
-   - Problème visual avec la notification (@xi7)
-
-v4.1.0 (faits marquants)
-NOUVEAUTÉS
-   - Recherche (@xi7)
-   - Support thème sombre (@JM480)
-   - Option cibles de clic (@SteveM)
-   - Option supprimer marges (@xi7)
-AMÉLIORATIONS
-   - Nb colonnes selon taille écran (@xi7)
-CORRECTIONS
-   - Bug navigateurs Chromium (@DynamicDonkey)
+   - Problème visuel avec la notification (@xi7)

@@ -1,0 +1,7 @@
+v4.2.0 (29)
+NEW THINGS
+   - "Enter" opens unique search result (@xi7)
+IMPROVEMENTS
+   - Search keyboard in landscape mode (@xi7)
+CORRECTIONS
+   - Bug when importing hidden applications (@xi7)
