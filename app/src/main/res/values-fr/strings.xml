@@ -28,5 +28,6 @@
     <string name="app_name">Lanceur Discret</string>
     <string name="licence_name">Licence publique générale GNU v3.0</string>
     <string name="website_description">Pour accéder au code source, signaler un problème ou voir mes autres projets, consulter le site</string>
+    <string name="translation_credit"/>
 
 </resources>

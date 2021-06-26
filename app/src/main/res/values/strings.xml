@@ -31,5 +31,6 @@
     <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">To access the source code, report an issue or see my other projects, visit the website</string>
     <string name="website_link" translatable="false">https://vincent-falzon.com</string>
+    <string name="translation_credit"/>
 
 </resources>

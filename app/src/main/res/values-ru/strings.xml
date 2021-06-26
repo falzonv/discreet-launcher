@@ -29,7 +29,12 @@
     <string name="author" translatable="false">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>
     <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">Чтобы получить доступ к исходному коду, сообщить о проблеме или ознакомиться с другими моими проектами, посетите веб-сайт \n Перевод на русский язык предоставил Artur Aiwasan \n Если вы хотите связаться с Винцетом (разработчик), пожалуйста, сделайте это на английском или французском языках.</string>
+    <string name="website_description">Чтобы получить доступ к исходному коду, сообщить о проблеме или ознакомиться с другими моими проектами, посетите веб-сайт</string>
     <string name="website_link" translatable="false">https://vincent-falzon.com</string>
+    <string name="translation_credit">
+        Перевод на русский язык предоставил Artur Aiwasan.
+        \nЕсли вы хотите связаться с Винцетом (разработчик), пожалуйста, сделайте это на английском или французском языках.
+        \n
+    </string>
 
 </resources>
