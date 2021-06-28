@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Applications list -->
+    <string name="info_applications_list_refreshed">Programliste gjenoppfrisket</string>
+    <string name="button_refresh_list">Gjenoppfrisk programlisten</string>
+    <string name="error_application_not_found">Fant ikke programlisten %1$s.</string>
+
+    <!-- Favorites -->
+    <string name="info_no_favorites_yet">Du kan legge til favorittprogrammer her\n ved å klikke på menyknappen.</string>
+    <string name="button_manage_favorites">Håndter favoritter</string>
+    <string name="button_select_favorites">Velg favoritter</string>
+    <string name="hint_favorites_order">Du kan endre favorittrekkefølgen i listen nedenfor. (Bruk de tomme områdene på siden for å rulle.)</string>
+    <string name="error_too_many_favorites">Du kan ikke ha mer enn %1$d favoritter.</string>
+
+    <!-- Dialogs buttons -->
+	<string name="button_apply">Bruk</string>
+	<string name="button_cancel">Avbryt</string>
+
+    <!-- Long click options -->
+    <string name="long_click_title">Hva ønsker du å gjøre?</string>
+    <string name="long_click_open">Åpne «%1s»</string>
+    <string name="long_click_store">Vis butikksiden</string>
+    <string name="long_click_settings">Gå til dens innstillinger</string>
+    <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
+
+    <!-- About -->
+    <string name="app_name">Diskret oppstarter</string>
+    <string name="author" translatable="false">Vincent Falzon</string>
+    <string name="licence_name">GPLv3+</string>
+    <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Besøk nettsiden for å sjekke kildekoden, andre progsjekter, og innrapportering av feil</string>
+    <string name="website_link" translatable="false">https://vincent-falzon.com</string>
+    <string name="translation_credit"/>
+
+</resources>
