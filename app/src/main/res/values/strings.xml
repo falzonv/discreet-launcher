@@ -2,16 +2,16 @@
 <resources>
 
     <!-- Applications list -->
-    <string name="info_applications_list_refreshed">Applications list refreshed</string>
-    <string name="button_refresh_list">Refresh the applications list</string>
-    <string name="error_application_not_found">The application %1$s has not been found!</string>
+    <string name="info_applications_list_refreshed">App list refreshed</string>
+    <string name="button_refresh_list">Refresh app list</string>
+    <string name="error_application_not_found">Could not find the %1$s app.</string>
 
     <!-- Favorites -->
-    <string name="info_no_favorites_yet">You can add your favorites applications here\nby clicking the menu button.</string>
-    <string name="button_manage_favorites">Manage favorites</string>
+    <string name="info_no_favorites_yet">Add your favorite apps here\nby clicking the menu button.</string>
+    <string name="button_manage_favorites">Favorites</string>
     <string name="button_select_favorites">Select favorites</string>
-    <string name="hint_favorites_order">You can modify the favorites order in the list below (use the empty areas on sides to scroll).</string>
-    <string name="error_too_many_favorites">Sorry, the number of favorites is limited to %1$d!</string>
+    <string name="hint_favorites_order">Modify the order of favorites in the list below. (Use the sides to scroll.)</string>
+    <string name="error_too_many_favorites">You can not have more than %1$d favorites.</string>
 
     <!-- Dialogs buttons -->
 	<string name="button_apply">Apply</string>
@@ -20,17 +20,17 @@
     <!-- Long click options -->
     <string name="long_click_title">What do you want to do?</string>
     <string name="long_click_open">Open \"%1s\"</string>
-    <string name="long_click_store">See its store page</string>
+    <string name="long_click_store">View store page</string>
     <string name="long_click_settings">Access its settings</string>
     <string name="long_click_remove_shortcut">Remove this shortcut</string>
 
     <!-- About -->
     <string name="app_name">Discreet Launcher</string>
     <string name="author" translatable="false">Vincent Falzon</string>
-    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="licence_name">GPLv3+</string>
     <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">To access the source code, report an issue or see my other projects, visit the website</string>
+    <string name="website_description">Improve the source code, other projects, and report issues on</string>
     <string name="website_link" translatable="false">https://vincent-falzon.com</string>
-    <string name="translation_credit"/>
+    <string name="translation_credit"/></string>
 
 </resources>
