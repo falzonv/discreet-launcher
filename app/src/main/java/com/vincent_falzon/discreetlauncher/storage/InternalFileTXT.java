@@ -113,24 +113,22 @@ public class InternalFileTXT extends InternalFile
 
 
 	/**
-	 * Search a line in a file and remove it if it exists.
-	 * @param to_remove Line to search and remove
-	 * @return <code>true</code> if found and removed, <code>false</code> otherwise
+	 * Search and remove lines starting with the provided pattern.
+	 * @param to_remove Pattern to identify lines that should be removed
+	 * @return <code>true</code> if something was removed, <code>false</code> otherwise
 	 */
 	public boolean removeLine(String to_remove)
 	{
-		// Check if the line exists in the file
-		if(!isLineExisting(to_remove)) return false ;
-
 		// Keep a copy of the file content and remove it
 		ArrayList<String> content = readAllLines() ;
+		if(content == null) return false ;
 		if(!remove()) return false ;
 
 		// Write back the content of the file except the line to remove
 		boolean result = false ;
 		for(String line : content)
 		{
-			if(line.equals(to_remove)) result = true ;
+			if(line.startsWith(to_remove)) result = true ;
 				else writeLine(line) ;
 		}
 		return result ;
