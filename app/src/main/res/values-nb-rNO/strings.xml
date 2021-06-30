@@ -31,6 +31,6 @@
     <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Besøk nettsiden for å sjekke kildekoden, andre progsjekter, og innrapportering av feil</string>
     <string name="website_link" translatable="false">https://vincent-falzon.com</string>
-    <string name="translation_credit"/>
+    <string name="translation_credit"/>Norsk oversettelse ved Allan Nordhøy</string>
 
 </resources>
