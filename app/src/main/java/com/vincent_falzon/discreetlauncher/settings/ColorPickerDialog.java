@@ -143,7 +143,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 	@Override
     public void onColorChanged(int color)
 	{
-		newColorHexadecimal.setText(convertIntColorToHexadecimal(color, false).toUpperCase()) ;
+		newColorHexadecimal.setText(convertIntColorToHexadecimal(color, false)) ;
     }
 
 
@@ -167,7 +167,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 
 		// Save the new color if it was asked
 		if(selection == R.id.color_validate_button)
-        	saveListener.onSaveRequest(convertIntColorToHexadecimal(colorPicker.getColor(), true).toUpperCase()) ;
+			saveListener.onSaveRequest(convertIntColorToHexadecimal(colorPicker.getColor(), true)) ;
 
 		// Dismiss the color picker
         dismiss() ;
@@ -180,7 +180,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 	 * @param with_alpha <code>true</code> to include alpha, <code>false</code> otherwise
 	 * @return Hexadecimal value with alpha (#AARRGGBB)
 	 */
-	private String convertIntColorToHexadecimal(int color, boolean with_alpha)
+	public static String convertIntColorToHexadecimal(int color, boolean with_alpha)
 	{
 		// Convert the color to its hexadecimal value with alpha
 		String alpha = Integer.toHexString(Color.alpha(color)) ;
@@ -195,8 +195,10 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 		if(blue.length() == 1) blue = "0" + blue ;
 
 		// Return the result
-		if(with_alpha) return "#" + alpha + red + green + blue ;
-		else return "#" + red + green + blue ;
+		String result ;
+		if(with_alpha) result = "#" + alpha + red + green + blue ;
+			else result = "#" + red + green + blue ;
+		return result.toUpperCase() ;
 	}
 
 
