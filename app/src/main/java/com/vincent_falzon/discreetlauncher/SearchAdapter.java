@@ -1,4 +1,4 @@
-package com.vincent_falzon.discreetlauncher;
+package com.vincent_falzon.discreetlauncher ;
 
 // License
 /*
