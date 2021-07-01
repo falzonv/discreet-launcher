@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Settings interface -->
+    <string name="title_settings">Innstillinger og hjelp</string>
+    <string name="title_customization">Tilpasning</string>
+    <string name="title_appearance_settings">Utseende</string>
+    <string name="title_appearance_settings_general">Generelt</string>
+    <string name="title_appearance_settings_applications">Programmer</string>
+    <string name="title_behavior_settings">Bruk</string>
+    <string name="title_help_and_general_info">Hjelp og generell info</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Merknad for tilgang til favoritter</string>
+    <string name="set_notification_help">Bruk av gjennomsiktig ikon</string>
+    <string name="notification_title">Tilgang til favoritter</string>
+
+    <!-- Theme -->
+    <string name="set_application_theme">Drakt</string>
+    <string name="set_application_theme_light">Lys</string>
+    <string name="set_application_theme_dark">Mørk</string>
+    <string name="set_application_theme_system">Systemforvalg</string>
+
+    <!-- Clock -->
+    <string name="set_clock_format">Klokkeformat</string>
+    <string name="set_clock_format_none">Ingen (skjul)</string>
+    <string name="set_clock_format_24h">24-timersklokke</string>
+    <string name="set_clock_format_12h">12-timersklokke</string>
+    <string name="set_clock_format_12h_ampm">12-timersklokke + AM/PM</string>
+
+    <!-- Color picker -->
+    <string name="set_background_color">Bakgrunnsfarge</string>
+    <string name="set_background_color_help">Favorittpanel, menyknapp, programskuff, og systembjelker</string>
+    <string name="color_picker_base">Grunnfarge:</string>
+    <string name="color_picker_reset">Tilbakestill</string>
+    <string name="color_picker_preview">Forhåndsvis</string>
+    <string name="error_invalid_color_format">Denne heksadesimale fargen er ugyldig.</string>
+
+    <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Pekemål (tilgjengelighetsvalg)</string>
+    <string name="set_touch_targets_help">Klikkbare etiketter på hjemmeskjermen</string>
+    <string name="target_open_favorites">Åpne\nfavoritter</string>
+    <string name="target_close_favorites">Lukk\nfavoritter</string>
+    <string name="target_open_applications">Åpne\nprogrammer</string>
+
+    <!-- Folders -->
+    <string name="button_organize_folders">Organiser mapper</string>
+    <string name="button_new_folder">Legg til</string>
+    <string name="button_remove_folder">Fjern</string>
+    <string name="hint_folders_number">Organiser programmene dine i så mange mapper du vil.</string>
+    <string name="hint_folder_edit">Klikk på navnet til en mappe for å endre det. Pennen lar deg redigere mappeinnholdet.</string>
+    <string name="hint_new_folder">Ny mappe</string>
+    <string name="hint_rename_folder">Gi mappe nytt navn</string>
+    <string name="hint_remove_folder">Hvis en mappe fjernes, vil innholdet puttes tilbake i hovedlisten av programmer.</string>
+    <string name="error_folder_empty_name">Du må velge et navn.</string>
+    <string name="error_folder_already_exists">Denne mappen finnes allerede.</string>
+    <string name="error_folder_rename">Kunne ikke gi mappen nytt navn.</string>
+
+    <!-- Shortcuts -->
+    <string name="error_shortcut">Noe gikk galt med snarveien %1$s.</string>
+    <string name="error_shortcut_invalid_request">Forespørselen om å legge til en snarvei er ugyldig.</string>
+    <string name="error_shortcut_missing_info">Noe info mangler og snarveien kan ikke brukes.</string>
+    <string name="error_shortcut_not_default_launcher">Kun forvalgt oppstarter kan åpne snarveier.</string>
+    <string name="error_shortcut_start">Android kunne ikke åpne snarveien, eller mottok ikke forespørselen.</string>
+
+    <!-- Search -->
+    <string name="search_icon_title">Søk</string>
+    <string name="search_hint">Programsøk</string>
+
+    <!-- Other settings -->
+    <string name="set_transparent_status_bar">Gjennomsiktig statusfelt</string>
+    <string name="set_transparent_status_bar_hint">Når favoritter lukkes</string>
+    <string name="set_hide_menu_button">Skjul menyknappen</string>
+    <string name="set_hide_menu_button_help">Den er fremdeles tilgjengelig i oppstarterikonet</string>
+    <string name="set_icon_pack">Bruk en installert ikonpakke</string>
+    <string name="set_icon_pack_none">Ingen (bruk opprinnelige ikoner)</string>
+    <string name="set_hide_app_names">Skjul programnavn</string>
+    <string name="set_hide_app_names_help">Mappenavn vil bli vist</string>
+    <string name="set_remove_padding">Fjern fyll når navn er skjult</string>
+    <string name="set_remove_padding_help">Kan ha uventede resultater med lange mappenavn</string>
+    <string name="set_force_portrait">Påtvunget stående sideretning</string>
+    <string name="set_force_portrait_help">Oppstarteren vil ikke rotere selv når auto-rotering er påslått</string>
+    <string name="set_immersive_mode">Oppslukende modus</string>
+    <string name="set_immersive_mode_help">Skjul systembjelker (trykk lenge på hjemmeskjermen for å påtvinge hvis nødvendig)</string>
+    <string name="set_reverse_interface">Omvendt grensesnitt</string>
+    <string name="set_reverse_interface_help">Vis favorittpanelet på bunnen</string>
+    <string name="error_appfilter_not_found">Fant ikke appfilter.xml.filen i angitt programpakke. (%1$s)</string>
+
+    <!-- Export / Import -->
+    <string name="export_import_title">Eksport og import</string>
+    <string name="export_import_help">Disse knappene lar deg eksportere programdataen (favoritter, snarveier, og innstillinger) eller importere tidligere eksport.</string>
+    <string name="button_export">Eksporter</string>
+    <string name="button_import">Importer</string>
+    <string name="export_import_header_internal_files">Internt tekstfilsinnhold</string>
+    <string name="export_import_header_settings">Innstillinger</string>
+    <string name="export_import_header_icons">Lagrede ikoner</string>
+    <string name="export_import_warning_file_edit">Obs, hvis du endrer denne filen kan det ha uventede resultater!</string>
+    <string name="export_import_warning_shortcuts">
+        (Med Android 8 (Oreo) og høyere, kan det hende nettprogrammer ikke virker,
+        fordi de håndteres av systemet og ikke er ment å eksporteres)
+    </string>
+    <string name="export_completed">Eksportert</string>
+    <string name="error_export">Kunne ikke opprette eksportfilen!</string>
+    <string name="error_import">Kunne ikke lese importfilen!</string>
+
+    <!-- Other -->
+    <string name="button_hide_applications">Skjul programmer</string>
+    <string name="error_remove_file">Kunne ikke tømme %1$s-filen!</string>
+
+</resources>
