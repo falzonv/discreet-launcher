@@ -117,9 +117,6 @@ public class ApplicationsList
 			}
 		}) ;
 
-		// Prepare folders according to files
-		prepareFolders(context) ;
-
 		// Add the search icon on top of the list
 		Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.icon_search) ;
 		searchIcon.setBounds(0, 0, icon_size, icon_size) ;
@@ -127,6 +124,9 @@ public class ApplicationsList
 
 		// Hide application based on the internal file
 		manageHiddenApplications() ;
+
+		// Prepare folders according to files
+		prepareFolders(context) ;
 
 		// Update the favorites applications list
 		updateFavorites() ;
