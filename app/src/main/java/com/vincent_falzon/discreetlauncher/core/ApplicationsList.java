@@ -183,9 +183,12 @@ public class ApplicationsList
 			// Convert the folder from the name format to ComponentInfo format if needed
 			folder_file = convertComponentInfo(filename, folder_file) ;
 
+			// Define the folder color (in preparation for user-defined color)
+			int color = context.getResources().getColor(R.color.white) ;
+
 			// Retrieve the name of the folder and create it
 			String folder_name = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;
-			Folder folder = new Folder(folder_name, null) ;
+			Folder folder = new Folder(folder_name, null, color) ;
 
 			// Browse the lines of the file to get the list of applications to put in the folder
 			for(String component_info : folder_file)
@@ -201,8 +204,8 @@ public class ApplicationsList
 						}
 			}
 
-			// Create the folder icon with the number of applications inside
-			Drawable icon = new FolderIcon(context, folder.getApplications().size()) ;
+			// Create the folder icon with the number of applications inside and the selected color
+			Drawable icon = new FolderIcon(context, folder.getApplications().size(), folder.getColor()) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
 
