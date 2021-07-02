@@ -7,7 +7,8 @@
     <string name="help_navigation_text">
         Swipe down from the home screen to display the favorites panel, and upwards to hide it.
         \n
-        \nSwipe up when the favorites panel is hidden, to show all apps in a list.
+        \nSwipe up to show all apps if the favorites panel is hidden.
+
         Swipe down from the top of it to return to the home screen.
         \n
         \nThe button below the favorites panel opens the launcher menu.
@@ -25,7 +26,8 @@
         \nUnintrusively, the notification icon is transparent and of low priority.
         With some apps having even lower priorities, this may result in empty space in the status bar.
         \n
-        \nIf the Discreet Launcher icon is still there after changing to a different launcher, you can
+        \nIf the Discreet Launcher notification is still there after changing to a different launcher, you can
+
         turn it off in the Discreet Launcher settings.
     </string>
     <string name="help_list_update_title">List update</string>
@@ -36,9 +38,9 @@
     <string name="help_folders_title">Folders</string>
     <string name="help_folders_text">
         Use the folder organizer from the menu button or click the title of an open folder
-        to create, rename, add it as a favorite, and/or put an app in it.
-        \nRemoving folders returns all their apps to the main app list, as apps can not be in multiple places
-        other than as favorites.
+        to create, rename, favorite it or any app, and/or put an app in it.
+        \nRemoving folders returns all their apps to the main app list, as apps can not be in multiple places.
+
     </string>
     <string name="help_search_title">Search</string>
     <string name="help_search_text">
