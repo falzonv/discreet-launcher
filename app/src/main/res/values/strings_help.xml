@@ -5,7 +5,7 @@
     <string name="help_title">Help</string>
     <string name="help_navigation_title">Navigation</string>
     <string name="help_navigation_text">
-        Swipe down from the home screen to display the favorites panel, and upwards to hide it.
+        Swipe down from the home screen to show favorites, and upwards to hide them.
         \n
         \nSwipe up to show all apps if the favorites panel is hidden.
 
@@ -39,12 +39,13 @@
     <string name="help_folders_text">
         Use the folder organizer from the menu button or click the title of an open folder
         to create, rename, favorite it or any app, and/or put an app in it.
-        \nRemoving folders returns all their apps to the main app list, as apps can not be in multiple places.
+        \nRemoving folders returns all their apps to the main app list, as apps can only exist in one place.
 
     </string>
     <string name="help_search_title">Search</string>
     <string name="help_search_text">
-        The search icon lets you find any app, and it can be favorited to available
+        The search icon lets you find any app, and can be favorited to be available
+
         from the notification, or hidden.
         \n
         \nIf there is only one search result, pressing \"Enter\" opens it.
