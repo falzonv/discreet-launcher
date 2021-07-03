@@ -277,7 +277,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					if(clock_toggle) loadStringSetting(Constants.CLOCK_FORMAT, line) ;
 						else
 						{
-							// Merge the two clock settings into a single one (to remove after 30/09/2021)
+							// Merge the two clock settings into a single one (to remove later)
 							editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
 							editor.putBoolean(Constants.DISPLAY_CLOCK, true) ;
 						}
@@ -296,7 +296,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					InternalFilePNG icon_file = new InternalFilePNG(line.substring(0, line.indexOf(": "))) ;
 					icon_file.loadFromImport(line) ;
 				}
-				// Convert the hidden applications from settings to internal file (to remove after 31/07/2021)
+				// Convert the hidden applications from settings to internal file (to remove later)
 				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS))
 				{
 					String value = line.replace(Constants.HIDDEN_APPLICATIONS + ": ", "") ;
@@ -304,7 +304,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					if(app_details.length < 2) continue ;
 					writeLineToInternalFile(hidden, Constants.FILE_HIDDEN + ": " + app_details[1]) ;
 				}
-				// Merge the two clock settings in one (to remove after 30/09/2021)
 		}
 		editor.apply() ;
 

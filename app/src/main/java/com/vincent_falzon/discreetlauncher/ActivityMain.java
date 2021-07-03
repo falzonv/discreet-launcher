@@ -551,7 +551,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			case Constants.NOTIFICATION :
 				// Toggle the notification
 				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
-				else notification.hide() ;
+					else notification.hide() ;
 				break ;
 			case Constants.APPLICATION_THEME :
 				// Update the theme
@@ -570,7 +570,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// Change the interface direction
 				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
-				else setContentView(R.layout.activity_main) ;
+					else setContentView(R.layout.activity_main) ;
 				recreate() ;
 			case Constants.TOUCH_TARGETS :
 				// Display or not the touch targets
@@ -719,7 +719,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Convert the hidden applications from settings to internal file.
-	 * (Added in v3.1.0 on 23/04/2021, to remove after 31/07/2021)
+	 * (Added in v3.1.0 on 23/04/2021, to remove later)
 	 */
 	private void convertHiddenApplications()
 	{
@@ -746,7 +746,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Merge the two clock settings (enable/disable and format) into a single setting.
-	 * (Added in v4.0.0 beginning of 06/2021, to remove after 30/09/2021)
+	 * (Added in v4.0.0 beginning of 06/2021, to remove later)
 	 */
 	private void convertClockFormat()
 	{

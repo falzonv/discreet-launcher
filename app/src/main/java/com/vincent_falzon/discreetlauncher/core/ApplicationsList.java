@@ -436,7 +436,7 @@ public class ApplicationsList
 
 	/**
 	 * Convert an internal file from name format to ComponentInfo format if needed.
-	 * (Added in v4.1.0 middle of 06/2021, to remove after 30/09/2021)
+	 * (Added in v4.1.0 middle of 06/2021, to remove later)
 	 * @param filename Name of the internal file
 	 * @param content Current file content
 	 * @return Converted file content
