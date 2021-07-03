@@ -1,0 +1,5 @@
+v4.3.0 (30) - 03/07/2021
+NEW THINGS
+   - Russian translation by Artur Aiwasan
+CORRECTIONS
+   - Bug when importing hidden applications (@xi7)

@@ -1,0 +1,5 @@
+v4.3.0 (30) - 03/07/2021
+NOUVEAUTÉS
+   - Traduction Russe par Artur Aiwasan
+CORRECTIONS
+   - Bug à l'import des applications masquées (@xi7)
