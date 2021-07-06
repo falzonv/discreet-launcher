@@ -12,10 +12,9 @@
     <string name="info_no_favorites_yet">Add your favorite apps here\nby clicking the menu button.</string>
     <string name="button_manage_favorites">Favorites</string>
     <string name="button_select_favorites">Select favorites</string>
-    <string name="hint_favorites_order">Modify the order of favorites in the list below (using the sides to scroll.)</string>
+    <string name="hint_favorites_order">Modify the order of favorites in the list below (using the sides to scroll).</string>
 
     <string name="error_too_many_favorites">You can not have more than %1$d favorites</string>
-
 
     <!-- Dialogs buttons -->
 	<string name="button_apply">Apply</string>
