@@ -32,7 +32,6 @@
     <string name="app_name">Discreet Launcher</string>
     <string name="author" translatable="false">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>
-
     <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Improve the source code, other projects, and report issues on</string>
     <string name="website_link" translatable="false">https://vincent-falzon.com</string>
