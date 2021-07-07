@@ -78,8 +78,13 @@ public class ShortcutLegacyListener extends BroadcastReceiver
 								return ;
 							}
 
+						// Serialize the intent and ignore the request if it is an app install (fix bug with Android 7)
+						String shortcut_intent = shortcutIntent.toUri(0) ;
+						if(shortcut_intent.contains("android.intent.action.MAIN") &&
+							shortcut_intent.contains("android.intent.category.LAUNCHER")) return ;
+
 						// Add the shortcut and update the applications list
-						String shortcut = display_name + Constants.SHORTCUT_SEPARATOR + shortcutIntent.toUri(0) ;
+						String shortcut = display_name + Constants.SHORTCUT_SEPARATOR + shortcut_intent ;
 						ShortcutListener.addShortcut(context, display_name, shortcut, icon, true) ;
 						updateList(context) ;
 					}
