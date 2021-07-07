@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.annotation.SuppressLint ;
 import android.content.ActivityNotFoundException ;
 import android.content.Context ;
 import android.content.DialogInterface ;
@@ -35,8 +36,8 @@ import android.content.SharedPreferences ;
 import android.graphics.PorterDuff ;
 import android.graphics.Typeface ;
 import android.net.Uri ;
-import android.os.Handler ;
 import android.view.LayoutInflater ;
+import android.view.MotionEvent ;
 import android.view.View ;
 import android.view.ViewGroup ;
 import android.widget.TextView ;
@@ -133,7 +134,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	/**
 	 * Represent a clickable application item in the RecyclerView.
 	 */
-	public class ApplicationView extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener
+	public class ApplicationView extends RecyclerView.ViewHolder implements View.OnTouchListener, View.OnClickListener, View.OnLongClickListener
 	{
 		// Attributes
 		private final TextView name ;
@@ -150,42 +151,58 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 			// Listen for a click on the application
 			name = view.findViewById(R.id.application_item) ;
+			view.setOnTouchListener(this) ;
 			view.setOnClickListener(this) ;
 			view.setOnLongClickListener(this) ;
 		}
 
 
 		/**
-		 * Start the application when it is clicked.
+		 * Called when the application is touched.
+		 * @param view Target element
+		 * @param event Type of event
+		 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
+		 */
+		@SuppressLint("ClickableViewAccessibility")
+		@Override
+		public boolean onTouch(View view, MotionEvent event)
+		{
+			final Context context = view.getContext() ;
+			switch(event.getAction())
+			{
+				// Gesture started
+				case MotionEvent.ACTION_DOWN :
+					setVisualFeedback(context, true) ;
+					break ;
+				// Gesture finished or aborted
+				case MotionEvent.ACTION_UP :
+				case MotionEvent.ACTION_CANCEL :
+					setVisualFeedback(context, false) ;
+					break ;
+			}
+			return false ;
+		}
+
+
+		/**
+		 * Called when the application is clicked.
 		 * @param view Target element
 		 */
 		@Override
 		public void onClick(View view)
 		{
-			// Enable visual feedback
-			final Context context = view.getContext() ;
-			setVisualFeedback(context, true) ;
-
 			// Start the application
 			Application application = applicationsList.get(getBindingAdapterPosition()) ;
 			if(!application.start(view))
-				ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
-
-			// Disable visual feedback
-			Handler handler = new Handler() ;
-			handler.postDelayed(new Runnable()
 				{
-					@Override
-					public void run()
-					{
-						setVisualFeedback(context, false) ;
-					}
-				}, 200) ;
+					final Context context = view.getContext() ;
+					ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+				}
 		}
 
 
 		/**
-		 * When the application is long clicked, propose to open its system settings.
+		 * Called when the application is long clicked.
 		 * @param view Target element
 		 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
 		 */
@@ -196,9 +213,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			if(view == null) return false ;
 			final Application application = applicationsList.get(getBindingAdapterPosition()) ;
 			final Context context = view.getContext() ;
-
-			// Show visual feedback (will be hidden after click or dismiss)
-			setVisualFeedback(context, true) ;
 
 			// Prepare and display the selection dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
@@ -216,7 +230,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 								public void onClick(DialogInterface dialog, int selection)
 								{
 									// Check which option has been selected
-									setVisualFeedback(context, false) ;
 									switch(selection)
 									{
 										case 0 :
@@ -246,7 +259,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 								public void onClick(DialogInterface dialog, int selection)
 								{
 									// Check which option has been selected
-									setVisualFeedback(context, false) ;
 									switch(selection)
 									{
 										case 0 :
@@ -275,7 +287,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 								public void onClick(DialogInterface dialog, int selection)
 								{
 									// Check which option has been selected
-									setVisualFeedback(context, false) ;
 									switch(selection)
 									{
 										case 0 :
@@ -308,14 +319,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 								}
 							}) ;
 				}
-			dialog.setOnDismissListener(new DialogInterface.OnDismissListener()
-				{
-					@Override
-					public void onDismiss(DialogInterface dialog)
-					{
-						setVisualFeedback(context, false) ;
-					}
-				}) ;
 			dialog.show() ;
 			return true ;
 		}
