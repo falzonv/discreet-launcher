@@ -2,7 +2,7 @@
 <resources>
 
     <!-- List of applications -->
-    <string name="info_applications_list_refreshed">App list refreshed</string>
+    <string name="info_applications_list_refreshed">List of apps refreshed</string>
     <string name="button_refresh_list">Refresh the list of apps</string>
     <string name="error_application_not_found">Could not find \"%1$s\"</string>
 
