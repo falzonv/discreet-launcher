@@ -119,7 +119,7 @@ public class ApplicationsList
 
 		// Add the search icon on top of the list
 		Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.icon_search) ;
-		searchIcon.setBounds(0, 0, icon_size, icon_size) ;
+		if(searchIcon != null) searchIcon.setBounds(0, 0, icon_size, icon_size) ;
 		drawer.add(0, new Search(context.getString(R.string.search_icon_title), searchIcon)) ;
 
 		// Hide application based on the internal file
@@ -342,13 +342,7 @@ public class ApplicationsList
 	{
 		ArrayList<Application> result = new ArrayList<>() ;
 		for(Application application : drawer)
-		{
-			// Skip the search application
-			if(application instanceof Search) continue ;
-
-			// Add all user applications outside folders
 			if(!(application instanceof Folder)) result.add(application) ;
-		}
 		return result ;
 	}
 
