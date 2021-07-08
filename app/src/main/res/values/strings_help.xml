@@ -27,8 +27,8 @@
     </string>
     <string name="help_folders_title">Folders</string>
     <string name="help_folders_text">
-        Manage folders from the 🔧 menu button, or click the title of an open folder
-        to create, rename, favorite it or any app, and/or put an app in it.
+        Manage folders or favorite them from the 🔧 menu button, or click the title of an open folder
+        to create, rename, favorite apps, and put apps in folders.
         \nRemoving folders puts all apps in them back in the main list.
     </string>
     <string name="help_search_title">Search</string>
