@@ -73,7 +73,8 @@
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
     <string name="set_hide_menu_button">Hide the 🔧 menu button</string>
 
-    <string name="set_hide_menu_button_help">Always accessible using the launcher icon</string>
+    <string name="set_hide_menu_button_help">Always accessible from the 🔧 menu button and the launcher app icon</string>
+
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use default icons)</string>
     <string name="set_hide_app_names">Hide app names</string>
