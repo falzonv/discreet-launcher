@@ -5,7 +5,7 @@
     <string name="help_title">Help</string>
     <string name="help_navigation_title">Navigation</string>
     <string name="help_navigation_text">
-        Swipe down from the home screen to show all apps, and upwards to go back.
+        Swipe up from the home screen to show all apps, and downwards to go back.
 
         \n
         \nSwipe down from the home screen to show favorites, and upwards to go back.
