@@ -221,7 +221,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 			}
 
 		// Prepare the files that need to be replaced
-		ActivityMain.setIgnoreSettingsChanges(true) ;
 		InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
 		InternalFileTXT hidden = new InternalFileTXT(Constants.FILE_HIDDEN) ;
 		InternalFileTXT shortcuts = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
@@ -309,9 +308,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		}
 		editor.apply() ;
 
-		// Indicate that the applications list should be updated and start to listen again for settings changes
+		// Update the applications list
 		ActivityMain.updateList(this) ;
-		ActivityMain.setIgnoreSettingsChanges(false) ;
 	}
 
 
