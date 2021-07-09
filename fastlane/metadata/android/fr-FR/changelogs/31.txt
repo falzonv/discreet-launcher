@@ -1,0 +1,8 @@
+v4.4.0 (31) - 09/07/2021
+AMÉLIORATIONS
+   - L'icône de recherche peut être dans un dossier
+   - Retour visuel lors d'un clic
+   - Titre du popup de notification (@comradekingu)
+CORRECTIONS
+   - Paramètres manquants après l'import (@xi7)
+   - Raccourci créé durant install appli (@NoémieF)
