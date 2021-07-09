@@ -249,7 +249,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Browse the lines of the import file
 		editor = settings.edit() ;
-		boolean clock_toggle = false ;
+		boolean old_clock_found = false ;
+		boolean old_clock_status = false ;
 		for(String line : importedData)
 		{
 			// Skip the comments
@@ -271,16 +272,17 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.BACKGROUND_COLOR)) loadStringSetting(Constants.BACKGROUND_COLOR, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;
-				else if(line.startsWith(Constants.DISPLAY_CLOCK)) clock_toggle = line.replace(Constants.DISPLAY_CLOCK + ": ", "").equals("true") ;
+				else if(line.startsWith(Constants.DISPLAY_CLOCK))
+				{
+					// Note the configuration of the old clock setting (to remove later)
+					old_clock_found = true ;
+					old_clock_status = line.replace(Constants.DISPLAY_CLOCK + ": ", "").equals("true") ;
+				}
 				else if(line.startsWith(Constants.CLOCK_FORMAT))
 				{
-					if(clock_toggle) loadStringSetting(Constants.CLOCK_FORMAT, line) ;
-						else
-						{
-							// Merge the two clock settings into a single one (to remove later)
-							editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
-							editor.putBoolean(Constants.DISPLAY_CLOCK, true) ;
-						}
+					// Merge the two clock settings into a single one (to remove later)
+					if(old_clock_found && !old_clock_status) editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
+						else loadStringSetting(Constants.CLOCK_FORMAT, line)  ;
 				}
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
