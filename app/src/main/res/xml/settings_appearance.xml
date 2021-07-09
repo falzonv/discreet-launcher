@@ -9,6 +9,8 @@
             app:key="application_theme"
             app:title="@string/set_application_theme"
             app:iconSpaceReserved="false"
+            app:entries="@array/set_application_theme_entries"
+            app:entryValues="@array/set_application_theme_values"
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
@@ -37,6 +39,8 @@
             app:key="clock_format"
             app:title="@string/set_clock_format"
             app:iconSpaceReserved="false"
+            app:entries="@array/set_clock_format_entries"
+            app:entryValues="@array/set_clock_format_values"
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 

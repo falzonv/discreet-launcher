@@ -18,16 +18,20 @@
 
     <!-- Theme -->
     <string name="set_application_theme">Тема</string>
-    <string name="set_application_theme_light">Светлая</string>
-    <string name="set_application_theme_dark">Темная</string>
-    <string name="set_application_theme_system">Системные настройки</string>
+    <string-array name="set_application_theme_entries">
+        <item>Светлая</item>
+        <item>Темная</item>
+        <item>Системные настройки</item>
+    </string-array>
 
     <!-- Clock -->
     <string name="set_clock_format">Формат часов</string>
-    <string name="set_clock_format_none">Нет (скрыто)</string>
-    <string name="set_clock_format_24h">24 часа</string>
-    <string name="set_clock_format_12h">12 часов</string>
-    <string name="set_clock_format_12h_ampm">12 часов + AM/PM</string>
+    <string-array name="set_clock_format_entries">
+        <item>Нет (скрыто)</item>
+        <item>24 часа</item>
+        <item>12 часов</item>
+        <item>12 часов + AM/PM</item>
+    </string-array>
 
     <!-- Color picker -->
     <string name="set_background_color">Цвет фона</string>

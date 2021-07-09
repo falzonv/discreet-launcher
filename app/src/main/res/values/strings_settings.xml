@@ -18,16 +18,20 @@
 
     <!-- Theme -->
     <string name="set_application_theme">Theme</string>
-    <string name="set_application_theme_light">Light</string>
-    <string name="set_application_theme_dark">Dark</string>
-    <string name="set_application_theme_system">System preference</string>
+    <string-array name="set_application_theme_entries">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>System preference</item>
+    </string-array>
 
     <!-- Clock -->
     <string name="set_clock_format">Clock format</string>
-    <string name="set_clock_format_none">None (hide)</string>
-    <string name="set_clock_format_24h">24 hours</string>
-    <string name="set_clock_format_12h">12 hours</string>
-    <string name="set_clock_format_12h_ampm">12 hours + AM/PM</string>
+    <string-array name="set_clock_format_entries">
+        <item>None (hide)</item>
+        <item>24 hours</item>
+        <item>12 hours</item>
+        <item>12 hours + AM/PM</item>
+    </string-array>
 
     <!-- Color picker -->
     <string name="set_background_color">Background color</string>
