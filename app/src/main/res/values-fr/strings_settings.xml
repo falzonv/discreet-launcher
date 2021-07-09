@@ -14,6 +14,7 @@
     <string name="set_notification">Notification d\'accès aux favoris</string>
     <string name="set_notification_help">Utilise une icône transparente</string>
     <string name="notification_title">Accès aux favoris</string>
+    <string name="notification_popup_title">&#128295; Gérer les favoris</string>
 
     <!-- Thème -->
     <string name="set_application_theme">Thème</string>
