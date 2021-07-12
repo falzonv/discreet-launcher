@@ -91,7 +91,7 @@
 
     <!-- Export / Import -->
     <string name="export_import_title">Export and import</string>
-    <string name="export_import_help">These buttons allow exporting the app data (favorites, shortcuts and settings) or importing them again.</string>
+    <string name="export_import_help">These buttons allow exporting the app data (favorites, folders, shortcuts and settings) or importing them again.</string>
     <string name="button_export">Export</string>
     <string name="button_import">Import</string>
     <string name="export_import_header_internal_files">Content of internal text files</string>
