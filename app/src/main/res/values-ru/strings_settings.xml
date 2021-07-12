@@ -14,7 +14,7 @@
     <string name="set_notification">Уведомление о доступе к избранному</string>
     <string name="set_notification_help">Используется прозрачный значок</string>
     <string name="notification_title">Доступ к избранному</string>
-    <string name="notification_popup_title">&#128295; Управлять избранным</string>
+    <string name="notification_popup_title">🔧 Управлять избранным</string>
 
     <!-- Theme -->
     <string name="set_application_theme">Тема</string>
