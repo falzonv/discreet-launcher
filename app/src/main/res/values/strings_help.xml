@@ -6,13 +6,10 @@
     <string name="help_navigation_title">Navigation</string>
     <string name="help_navigation_text">
         Swipe up from the home screen to show all apps, and downwards to go back.
-
         \n
         \nSwipe down from the home screen to show favorites, and upwards to go back.
-
         \n
         \nClick the 🔧 menu button (when showing favorites) to open the menu.
-
         \n
         \nLong-hold an app or folder to access its settings.
     </string>
@@ -34,7 +31,6 @@
     <string name="help_search_title">Search</string>
     <string name="help_search_text">
         Find any app from the 🔍 search icon. It can also be favorited to be available
-
         from the notification, or hidden.
         \n
         \nIf there is only one search result, pressing \"Enter\" opens it.

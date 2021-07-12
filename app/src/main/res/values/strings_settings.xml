@@ -14,7 +14,7 @@
     <string name="set_notification">Notification for access to favorites</string>
     <string name="set_notification_help">Uses a transparent icon</string>
     <string name="notification_title">Favorites</string>
-<string name="notification_popup_title">🔧 Manage favorites</string>
+    <string name="notification_popup_title">🔧 Manage favorites</string>
 
     <!-- Theme -->
     <string name="set_application_theme">Theme</string>
@@ -32,7 +32,6 @@
     <!-- Color picker -->
     <string name="set_background_color">Background color</string>
     <string name="set_background_color_help">Used for the 🔧 menu button, favorites, app drawer and system bars</string>
-
     <string name="color_picker_base">Base:</string>
     <string name="color_picker_reset">Reset</string>
     <string name="color_picker_preview">Preview</string>
@@ -73,9 +72,7 @@
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
     <string name="set_hide_menu_button">Hide the 🔧 menu button</string>
-
     <string name="set_hide_menu_button_help">Always accessible from the launcher app icon</string>
-
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use default icons)</string>
     <string name="set_hide_app_names">Hide app names</string>
