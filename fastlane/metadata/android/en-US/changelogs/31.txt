@@ -1,6 +1,5 @@
 v4.4.0 (31) - 09/07/2021
 IMPROVEMENTS
-   - Search icon can now be inside a folder
    - Visual feedback during click
    - Notification popup title (@comradekingu)
 CORRECTIONS
