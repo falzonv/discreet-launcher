@@ -56,6 +56,7 @@
     <string name="help_search_text">
         L\'icône de recherche permet de trouver une application dans la liste complète.
         Vous pouvez l\'ajouter aux favoris de façon à y accéder aussi grâce à la notification.
+        Pour des raisons techniques, il n\'est pas possible de la mettre dans un dossier.
         \n
         \nSi vous ne pensez pas l\'utiliser, vous pouvez aussi masquer la recherche comme n\'importe quelle application.
         \n

@@ -74,13 +74,6 @@
             android:excludeFromRecents="true">
         </activity>
 
-        <activity
-            android:name=".ActivitySearch"
-            android:theme="@style/AppThemeNotification"
-            android:excludeFromRecents="true"
-            android:windowSoftInputMode="stateAlwaysVisible">
-        </activity>
-
 	</application>
 
 </manifest>

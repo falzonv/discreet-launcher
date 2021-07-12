@@ -342,7 +342,13 @@ public class ApplicationsList
 	{
 		ArrayList<Application> result = new ArrayList<>() ;
 		for(Application application : drawer)
+		{
+			// Skip the search application
+			if(application instanceof Search) continue ;
+
+			// Add all user applications outside folders
 			if(!(application instanceof Folder)) result.add(application) ;
+		}
 		return result ;
 	}
 

@@ -91,9 +91,12 @@ public class Menu extends Application
 				@Override
 				public void onClick(DialogInterface dialog, int selection)
 				{
-					// Hide folders if some are still opened
+					// Hide popups if some are still opened
 					for(Application application : ActivityMain.getApplicationsList().getDrawer())
+					{
 						if(application instanceof Folder) ((Folder)application).closePopup() ;
+						if(application instanceof Search) ((Search)application).closePopup() ;
+					}
 
 					// Check which option has been selected
 					switch(selection)

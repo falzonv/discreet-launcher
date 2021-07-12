@@ -47,13 +47,12 @@ import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.core.Menu ;
+import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
 import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
-import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
-import java.util.Set ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -666,9 +665,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Always show the system bars
 		displaySystemBars(true) ;
 
-		// Hide folders if some are still opened
+		// Hide popups if some are still opened
 		for(Application application : applicationsList.getDrawer())
+		{
 			if(application instanceof Folder) ((Folder)application).closePopup() ;
+			if(application instanceof Search) ((Search)application).closePopup() ;
+		}
 	}
 
 
