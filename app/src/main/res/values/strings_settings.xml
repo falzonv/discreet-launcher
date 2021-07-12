@@ -45,7 +45,7 @@
     <string name="target_open_applications">Open\napps</string>
 
     <!-- Folders -->
-    <string name="button_organize_folders">Organize folders</string>
+    <string name="button_organize_folders">Folders</string>
     <string name="button_new_folder">Add</string>
     <string name="button_remove_folder">Remove</string>
     <string name="hint_folders_number">Create as many folders as you want to organize your apps.</string>
@@ -107,7 +107,7 @@
     <string name="error_import">Could not read the import file</string>
 
     <!-- Other -->
-    <string name="button_hide_applications">Hide apps</string>
+    <string name="button_hide_applications">Hidden apps</string>
     <string name="error_remove_file">Could not delete the %1$s file</string>
 
 </resources>
