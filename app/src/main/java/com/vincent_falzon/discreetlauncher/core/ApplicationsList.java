@@ -117,16 +117,16 @@ public class ApplicationsList
 			}
 		}) ;
 
-		// Prepare folders according to files
-		prepareFolders(context) ;
-
 		// Add the search icon on top of the list
 		Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.icon_search) ;
-		searchIcon.setBounds(0, 0, icon_size, icon_size) ;
+		if(searchIcon != null) searchIcon.setBounds(0, 0, icon_size, icon_size) ;
 		drawer.add(0, new Search(context.getString(R.string.search_icon_title), searchIcon)) ;
 
 		// Hide application based on the internal file
 		manageHiddenApplications() ;
+
+		// Prepare folders according to files
+		prepareFolders(context) ;
 
 		// Update the favorites applications list
 		updateFavorites() ;
@@ -183,9 +183,12 @@ public class ApplicationsList
 			// Convert the folder from the name format to ComponentInfo format if needed
 			folder_file = convertComponentInfo(filename, folder_file) ;
 
+			// Define the folder color (in preparation for user-defined color)
+			int color = context.getResources().getColor(R.color.white) ;
+
 			// Retrieve the name of the folder and create it
 			String folder_name = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;
-			Folder folder = new Folder(folder_name, null) ;
+			Folder folder = new Folder(folder_name, null, color) ;
 
 			// Browse the lines of the file to get the list of applications to put in the folder
 			for(String component_info : folder_file)
@@ -201,8 +204,8 @@ public class ApplicationsList
 						}
 			}
 
-			// Create the folder icon with the number of applications inside
-			Drawable icon = new FolderIcon(context, folder.getApplications().size()) ;
+			// Create the folder icon with the number of applications inside and the selected color
+			Drawable icon = new FolderIcon(context, folder.getApplications().size(), folder.getColor()) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
 
@@ -433,7 +436,7 @@ public class ApplicationsList
 
 	/**
 	 * Convert an internal file from name format to ComponentInfo format if needed.
-	 * (Added in v4.1.0 middle of 06/2021, to remove after 30/09/2021)
+	 * (Added in v4.1.0 middle of 06/2021, to remove later)
 	 * @param filename Name of the internal file
 	 * @param content Current file content
 	 * @return Converted file content

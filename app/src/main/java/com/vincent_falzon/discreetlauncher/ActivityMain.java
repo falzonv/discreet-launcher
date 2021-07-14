@@ -53,8 +53,6 @@ import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
 import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
-import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
-import java.util.Set ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -112,8 +110,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Retrieve the current settings and start to listen for changes
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
-		convertHiddenApplications() ;
-		convertClockFormat() ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
 		ignore_settings_changes = false ;
 
@@ -551,7 +547,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			case Constants.NOTIFICATION :
 				// Toggle the notification
 				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
-				else notification.hide() ;
+					else notification.hide() ;
 				break ;
 			case Constants.APPLICATION_THEME :
 				// Update the theme
@@ -562,7 +558,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				updateList(this) ;
 				break ;
 			case Constants.HIDE_APP_NAMES :
-			case Constants.REMOVE_PADDING:
+			case Constants.REMOVE_PADDING :
 				// Update the column width
 				recreate() ;
 				break ;
@@ -570,7 +566,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// Change the interface direction
 				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
-				else setContentView(R.layout.activity_main) ;
+					else setContentView(R.layout.activity_main) ;
 				recreate() ;
 			case Constants.TOUCH_TARGETS :
 				// Display or not the touch targets
@@ -669,7 +665,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Always show the system bars
 		displaySystemBars(true) ;
 
-		// Hide folders and search application if they are still opened
+		// Hide popups if some are still opened
 		for(Application application : applicationsList.getDrawer())
 		{
 			if(application instanceof Folder) ((Folder)application).closePopup() ;
@@ -714,49 +710,5 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Let the parent actions be performed
 		super.onDestroy() ;
-	}
-
-
-	/**
-	 * Convert the hidden applications from settings to internal file.
-	 * (Added in v3.1.0 on 23/04/2021, to remove after 31/07/2021)
-	 */
-	private void convertHiddenApplications()
-	{
-		// Check if there are still legacy hidden applications settings
-		Set<String> hiddenApplications = settings.getStringSet(Constants.HIDDEN_APPLICATIONS, null) ;
-		if(hiddenApplications == null) return ;
-
-		// Convert the settings to an internal file
-		InternalFileTXT file = new InternalFileTXT(Constants.FILE_HIDDEN) ;
-		file.remove() ;
-		String[] app_details ;
-		for(String hidden_application : hiddenApplications)
-		{
-			app_details = hidden_application.split(Constants.NOTIFICATION_SEPARATOR) ;
-			if(app_details.length < 2) continue ;
-			file.writeLine(app_details[1]) ;
-		}
-
-		// Remove the hidden applications settings
-		SharedPreferences.Editor editor = settings.edit() ;
-		editor.putStringSet(Constants.HIDDEN_APPLICATIONS, null).apply() ;
-	}
-
-
-	/**
-	 * Merge the two clock settings (enable/disable and format) into a single setting.
-	 * (Added in v4.0.0 beginning of 06/2021, to remove after 30/09/2021)
-	 */
-	private void convertClockFormat()
-	{
-		// If the clock is already enabled (or the setting is already converted), do nothing
-		if(settings.getBoolean(Constants.DISPLAY_CLOCK, false)) return ;
-
-		// Select the "none" value and indicate that the old setting has been converted
-		SharedPreferences.Editor editor = settings.edit() ;
-		editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
-		editor.putBoolean(Constants.DISPLAY_CLOCK, true) ;
-		editor.apply() ;
 	}
 }

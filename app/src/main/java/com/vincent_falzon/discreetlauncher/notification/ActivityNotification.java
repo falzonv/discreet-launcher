@@ -55,7 +55,7 @@ public class ActivityNotification extends AppCompatActivity
 
 		// Define the title and make it open the favorites manager when clicked
 		TextView title = findViewById(R.id.popup_title) ;
-		title.setText(R.string.notification_title) ;
+		title.setText(R.string.notification_popup_title) ;
 		title.setOnClickListener(new PopupClickListener()) ;
 		findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 

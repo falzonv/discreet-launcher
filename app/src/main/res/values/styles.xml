@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-	<!-- Application theme -->
-	<style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <!-- Application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
 
-		<!-- Main colors -->
-		<item name="colorPrimary">@color/dark_blue</item>
-		<item name="colorPrimaryDark">@color/very_dark_blue</item>
-		<item name="colorAccent">@color/blue</item>
+        <!-- Main colors -->
+        <item name="colorPrimary">@color/dark_blue</item>
+        <item name="colorPrimaryDark">@color/very_dark_blue</item>
+        <item name="colorAccent">@color/blue</item>
 
-	</style>
+    </style>
 
 
-	<!-- Transparent backgroung theme -->
-	<style name="AppThemeTransparent" parent="AppTheme">
+    <!-- Transparent backgroung theme -->
+    <style name="AppThemeTransparent" parent="AppTheme">
 
-		<!-- Hide the title bar -->
-		<item name="windowNoTitle">true</item>
+        <!-- Hide the title bar -->
+        <item name="windowNoTitle">true</item>
 
-		<!-- Display the user wallpaper -->
-		<item name="android:windowShowWallpaper">true</item>
+        <!-- Display the user wallpaper -->
+        <item name="android:windowShowWallpaper">true</item>
         <item name="android:windowBackground">@color/transparent</item>
 
         <!-- Improve the status and navigation bars display -->
-		<item name="android:statusBarColor">@color/translucent_gray</item>
-		<item name="android:navigationBarColor">@color/transparent</item>
+        <item name="android:statusBarColor">@color/translucent_gray</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
         <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="o_mr1">shortEdges</item>
 
-	</style>
+    </style>
 
 
     <!-- Notification popup theme -->

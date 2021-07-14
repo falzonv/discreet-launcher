@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Thème -->
+    <string-array name="set_application_theme_values">
+        <item>light</item>
+        <item>dark</item>
+        <item>none</item>
+    </string-array>
+
+    <!-- Clock -->
+    <string-array name="set_clock_format_values">
+        <item>none</item>
+        <item>HH:mm</item>
+        <item>h:mm</item>
+        <item>h:mm a</item>
+    </string-array>
+
+</resources>

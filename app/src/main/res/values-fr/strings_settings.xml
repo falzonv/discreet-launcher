@@ -14,19 +14,24 @@
     <string name="set_notification">Notification d\'accès aux favoris</string>
     <string name="set_notification_help">Utilise une icône transparente</string>
     <string name="notification_title">Accès aux favoris</string>
+    <string name="notification_popup_title">🔧 Gérer les favoris</string>
 
     <!-- Thème -->
     <string name="set_application_theme">Thème</string>
-    <string name="set_application_theme_light">Clair</string>
-    <string name="set_application_theme_dark">Sombre</string>
-    <string name="set_application_theme_system">Préférence système</string>
+    <string-array name="set_application_theme_entries">
+        <item>Clair</item>
+        <item>Sombre</item>
+        <item>Préférence système</item>
+    </string-array>
 
     <!-- Horloge -->
     <string name="set_clock_format">Format de l\'horloge</string>
-    <string name="set_clock_format_none">Aucune (masquer)</string>
-    <string name="set_clock_format_24h">24 heures</string>
-    <string name="set_clock_format_12h">12 heures</string>
-    <string name="set_clock_format_12h_ampm">12 heures + AM/PM</string>
+    <string-array name="set_clock_format_entries">
+        <item>Aucune (masquer)</item>
+        <item>24 heures</item>
+        <item>12 heures</item>
+        <item>12 heures + AM/PM</item>
+    </string-array>
 
     <!-- Sélecteur de couleur -->
     <string name="set_background_color">Couleur de fond</string>

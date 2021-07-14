@@ -221,7 +221,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 			}
 
 		// Prepare the files that need to be replaced
-		ActivityMain.setIgnoreSettingsChanges(true) ;
 		InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
 		InternalFileTXT hidden = new InternalFileTXT(Constants.FILE_HIDDEN) ;
 		InternalFileTXT shortcuts = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
@@ -249,7 +248,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Browse the lines of the import file
 		editor = settings.edit() ;
-		boolean clock_toggle = false ;
+		boolean old_clock_found = false ;
+		boolean old_clock_status = false ;
 		for(String line : importedData)
 		{
 			// Skip the comments
@@ -271,16 +271,17 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.BACKGROUND_COLOR)) loadStringSetting(Constants.BACKGROUND_COLOR, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;
-				else if(line.startsWith(Constants.DISPLAY_CLOCK)) clock_toggle = line.replace(Constants.DISPLAY_CLOCK + ": ", "").equals("true") ;
+				else if(line.startsWith(Constants.DISPLAY_CLOCK))
+				{
+					// Note the configuration of the old clock setting (to remove later)
+					old_clock_found = true ;
+					old_clock_status = line.replace(Constants.DISPLAY_CLOCK + ": ", "").equals("true") ;
+				}
 				else if(line.startsWith(Constants.CLOCK_FORMAT))
 				{
-					if(clock_toggle) loadStringSetting(Constants.CLOCK_FORMAT, line) ;
-						else
-						{
-							// Merge the two clock settings into a single one (to remove after 30/09/2021)
-							editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
-							editor.putBoolean(Constants.DISPLAY_CLOCK, true) ;
-						}
+					// Merge the two clock settings into a single one (to remove later)
+					if(old_clock_found && !old_clock_status) editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
+						else loadStringSetting(Constants.CLOCK_FORMAT, line)  ;
 				}
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
@@ -296,7 +297,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					InternalFilePNG icon_file = new InternalFilePNG(line.substring(0, line.indexOf(": "))) ;
 					icon_file.loadFromImport(line) ;
 				}
-				// Convert the hidden applications from settings to internal file (to remove after 31/07/2021)
+				// Convert the hidden applications from settings to internal file (to remove later)
 				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS))
 				{
 					String value = line.replace(Constants.HIDDEN_APPLICATIONS + ": ", "") ;
@@ -304,13 +305,11 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					if(app_details.length < 2) continue ;
 					writeLineToInternalFile(hidden, Constants.FILE_HIDDEN + ": " + app_details[1]) ;
 				}
-				// Merge the two clock settings in one (to remove after 30/09/2021)
 		}
 		editor.apply() ;
 
-		// Indicate that the applications list should be updated and start to listen again for settings changes
+		// Update the applications list
 		ActivityMain.updateList(this) ;
-		ActivityMain.setIgnoreSettingsChanges(false) ;
 	}
 
 

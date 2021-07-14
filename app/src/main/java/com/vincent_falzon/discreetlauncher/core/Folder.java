@@ -54,6 +54,7 @@ public class Folder extends Application
 {
 	// Attributes
 	private final ArrayList<Application> applications ;
+	private int color ;
 	private PopupWindow popup ;
 
 
@@ -62,10 +63,11 @@ public class Folder extends Application
 	 * @param display_name Displayed to the user
 	 * @param icon Displayed to the user
 	 */
-	public Folder(String display_name, Drawable icon)
+	public Folder(String display_name, Drawable icon, int color)
 	{
 		super(display_name, Constants.APK_FOLDER + display_name, Constants.APK_FOLDER, icon) ;
 		applications = new ArrayList<>() ;
+		this.color = color ;
 		popup = null ;
 	}
 
@@ -109,6 +111,26 @@ public class Folder extends Application
 	public ArrayList<Application> getApplications()
 	{
 		return applications ;
+	}
+
+
+	/**
+	 * Set the color to use for the folder icon.
+	 * @param new_color Color selected by the user
+	 */
+	public void setColor(int new_color)
+	{
+		color = new_color ;
+	}
+
+
+	/**
+	 * Get the color to use for the folder icon.
+	 * @return Color selected by the user
+	 */
+	public int getColor()
+	{
+		return color ;
 	}
 
 

@@ -101,7 +101,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 				// Create the folder and update the list
 				file.writeLine("") ;
-				folders.add(new Folder(new_folder_name, null)) ;
+				folders.add(new Folder(new_folder_name, null, getResources().getColor(R.color.white))) ;
 				ActivityMain.updateList(this) ;
 				adapter.notifyDataSetChanged() ;
 			}
@@ -184,8 +184,10 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 				// Let the parent actions be performed
 				super(view) ;
 
-				// Listen for clicks on elements
+				// Initializations
 				name = view.findViewById(R.id.edit_folder_name) ;
+
+				// Listen for clicks on elements
 				name.setOnClickListener(this) ;
 				view.findViewById(R.id.edit_folder_content).setOnClickListener(this) ;
 				view.findViewById(R.id.remove_folder).setOnClickListener(this) ;

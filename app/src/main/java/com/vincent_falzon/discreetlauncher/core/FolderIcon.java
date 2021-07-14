@@ -29,6 +29,8 @@ import android.graphics.Canvas ;
 import android.graphics.ColorFilter ;
 import android.graphics.Paint ;
 import android.graphics.PixelFormat ;
+import android.graphics.PorterDuff ;
+import android.graphics.PorterDuffColorFilter ;
 import android.graphics.drawable.Drawable ;
 import androidx.core.content.res.ResourcesCompat ;
 import com.vincent_falzon.discreetlauncher.R ;
@@ -49,18 +51,28 @@ public class FolderIcon extends Drawable
 	 * Constructor.
 	 * @param context To load the folder icon
 	 * @param applications_number To display in the icon
+	 * @param color To color the folder icon
 	 */
-	public FolderIcon(Context context, int applications_number)
+	public FolderIcon(Context context, int applications_number, int color)
 	{
-		// Retrieve the folder icon and convert it into a bitmap
+		// Initializations
 		density = context.getResources().getDisplayMetrics().density ;
 		int icon_size = Math.round(48 * density) ;
+
+		// Retrieve the folder icon
 		Drawable folderIcon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.icon_folder, null) ;
 		if(folderIcon != null)
 			{
-				icon = Bitmap.createBitmap(folderIcon.getIntrinsicWidth(), folderIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
+				// Convert the folder icon into a Bitmap of the correct size
+				Bitmap convertedIcon = Bitmap.createBitmap(folderIcon.getIntrinsicWidth(), folderIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
 				folderIcon.setBounds(0, 0, icon_size, icon_size) ;
-				folderIcon.draw(new Canvas(icon)) ;
+				folderIcon.draw(new Canvas(convertedIcon)) ;
+
+				// Get an editable copy of the Bitmap and change its color according to settings
+				icon = convertedIcon.copy(Bitmap.Config.ARGB_8888, true) ;
+				Paint iconPaint = new Paint() ;
+				iconPaint.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)) ;
+				new Canvas(icon).drawBitmap(icon, 0, 0, iconPaint) ;
 			}
 			else icon = null ;
 
@@ -81,8 +93,8 @@ public class FolderIcon extends Drawable
 	@Override
 	public void draw(Canvas canvas)
 	{
-		canvas.drawBitmap(icon, 0, 0, paint);
-		canvas.drawText(number, 24 * density, 42 * density, paint);
+		canvas.drawBitmap(icon, 0, 0, paint) ;
+		canvas.drawText(number, 24 * density, 42 * density, paint) ;
 	}
 
 

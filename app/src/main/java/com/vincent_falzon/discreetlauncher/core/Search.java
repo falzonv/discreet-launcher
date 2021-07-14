@@ -74,7 +74,7 @@ public class Search extends Application
 
 
 	/**
-	 * Display the content of the folder as a popup.
+	 * Display the search application as a popup.
 	 * @param parent Element from which the event originates
 	 * @return Always <code>true</code>
 	 */
@@ -125,7 +125,7 @@ public class Search extends Application
 		recycler.setAdapter(adapter) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(context, ActivityMain.getApplicationWidth())) ;
 
-		// Create the popup representing the folder
+		// Create the popup representing the search application
 		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;
 		popup = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, popup_height, true) ;
 		popupView.setOnTouchListener(new PopupTouchListener()) ;
