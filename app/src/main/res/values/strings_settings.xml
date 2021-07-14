@@ -14,7 +14,7 @@
     <string name="set_notification">Notification for access to favorites</string>
     <string name="set_notification_help">Uses a transparent icon</string>
     <string name="notification_title">Favorites</string>
-    <string name="notification_popup_title"Manage favorites</string>
+    <string name="notification_popup_title">Manage favorites</string>
 
     <!-- Theme -->
     <string name="set_application_theme">Theme</string>
