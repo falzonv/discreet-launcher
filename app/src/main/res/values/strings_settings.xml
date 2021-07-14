@@ -42,8 +42,8 @@
     <string name="error_invalid_color_format">Invalid hexadecimal color</string>
 
     <!-- Touch targets (accessibility) -->
-    <string name="set_touch_targets">Use touch targets (accessibility option)</string>
-    <string name="set_touch_targets_help">Add clickable labels on the home screen</string>
+    <string name="set_touch_targets">Touch targets (accessibility)</string>
+    <string name="set_touch_targets_help">Clickable labels on the home screen</string>
     <string name="target_open_favorites">Open\nfavorites</string>
     <string name="target_close_favorites">Close\nfavorites</string>
     <string name="target_open_applications">Open\napps</string>
@@ -75,19 +75,19 @@
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
-    <string name="set_hide_menu_button">Hide the 🔧 menu button</string>
+    <string name="set_hide_menu_button">No 🔧 menu button</string>
     <string name="set_hide_menu_button_help">Always accessible from the launcher app icon</string>
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use default icons)</string>
-    <string name="set_hide_app_names">Hide app names</string>
-    <string name="set_hide_app_names_help">Folder names are always shown</string>
-    <string name="set_remove_padding">Remove padding when names are hidden</string>
+    <string name="set_hide_app_names">No app names</string>
+    <string name="set_hide_app_names_help">Folder names are still shown</string>
+    <string name="set_remove_padding">No padding when app names are hidden</string>
     <string name="set_remove_padding_help">Can cause problems with long folders names</string>
-    <string name="set_force_portrait">Force portrait mode</string>
+    <string name="set_force_portrait">Forced portrait-mode</string>
     <string name="set_force_portrait_help">Prevents the launcher rotating even if auto-rotation is on</string>
-    <string name="set_immersive_mode">Use immersive mode</string>
-    <string name="set_immersive_mode_help">Hide system bars (long press on home screen to force if needed)</string>
-    <string name="set_reverse_interface">Reverse interface</string>
+    <string name="set_immersive_mode">Immersive mode</string>
+    <string name="set_immersive_mode_help">No system bars. (Can be changed by long pressing the home screen.)</string>
+    <string name="set_reverse_interface">Reversed interface</string>
     <string name="set_reverse_interface_help">Favorites below the apps</string>
     <string name="error_appfilter_not_found">Could not find appfilter.xml in the selected icon pack. (%1$s)</string>
 
