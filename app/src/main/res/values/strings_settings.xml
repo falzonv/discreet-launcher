@@ -85,6 +85,7 @@
     <string name="set_remove_padding_help">May produce unexpected results with long folders names</string>
     <string name="set_force_portrait">Force portrait mode</string>
     <string name="set_force_portrait_help">The launcher will not rotate even if automatic rotation is enabled</string>
+    <string name="set_always_show_favorites">Always show favorites</string>
     <string name="set_immersive_mode">Use immersive mode</string>
     <string name="set_immersive_mode_help">Hide system bars (long press on home screen to force if needed)</string>
     <string name="set_reverse_interface">Reverse interface</string>

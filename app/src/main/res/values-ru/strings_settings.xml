@@ -85,6 +85,7 @@
     <string name="set_remove_padding_help">Может давать неожиданные результаты при длинных именах папок</string>
     <string name="set_force_portrait">Принудительный портретный режим</string>
     <string name="set_force_portrait_help">Лаунчер не поворачивается, даже если включен автоматический поворот</string>
+    <string name="set_always_show_favorites">Always show favorites</string>
     <string name="set_immersive_mode">Использовать иммерсивный режим</string>
     <string name="set_immersive_mode_help">Скрыть системные панели (длительное нажатие на главном экране для принудительного включения при необходимости)</string>
     <string name="set_reverse_interface">Обратный интерфейс</string>

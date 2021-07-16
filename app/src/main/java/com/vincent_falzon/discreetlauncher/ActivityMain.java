@@ -174,6 +174,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;
 
+		// Load the favorites panel if it should always be shown
+		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
+
 		// Hide the favorites panel and the drawer by default
 		displayFavorites(false) ;
 		displayDrawer(false) ;
@@ -230,7 +233,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		if(settings.getBoolean(Constants.TOUCH_TARGETS, false))
 			{
-				targetFavorites.setVisibility(View.VISIBLE) ;
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+						targetFavorites.setVisibility(View.GONE) ;
+					else targetFavorites.setVisibility(View.VISIBLE) ;
 				targetApplications.setVisibility(View.VISIBLE) ;
 			}
 			else
@@ -289,6 +294,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			}
 			else
 			{
+				// Do not continue if the option to always show the panel is selected
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) return ;
+
 				// Hide the favorites panel
 				favorites.setVisibility(View.GONE) ;
 				targetFavorites.setText(R.string.target_open_favorites) ;
@@ -339,8 +347,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
 
-				// Make the navigation bar transparent
-				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
+				// Make the navigation bar transparent, unless in reverse interface with favorites always shown
+				if(!(reverse_interface && settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)))
+					getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
 			}
 	}
 
@@ -503,6 +512,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					if(reverse_interface) swipe_drawer = y_distance < 0 ;
 						else swipe_drawer = y_distance > 0 ;
 
+					// Check if the favorites panel should always be shown
+					if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false) && swipe_drawer)
+						{
+							displayDrawer(true) ;
+							return true ;
+						}
+
 					// Check if the gesture is going up (if) or down (else), based on classic interface
 					if(swipe_drawer)
 						{
@@ -568,6 +584,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
 					else setContentView(R.layout.activity_main) ;
 				recreate() ;
+			case Constants.ALWAYS_SHOW_FAVORITES :
 			case Constants.TOUCH_TARGETS :
 				// Display or not the touch targets
 				toggleTouchTargets() ;

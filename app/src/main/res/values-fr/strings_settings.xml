@@ -85,6 +85,7 @@
     <string name="set_hide_app_names_help">Les noms des dossiers seront toujours affichés</string>
     <string name="set_force_portrait">Forcer le mode portrait</string>
     <string name="set_force_portrait_help">Le lanceur ne pivotera pas même si la rotation automatique est activée</string>
+    <string name="set_always_show_favorites">Toujours afficher les favoris</string>
     <string name="set_immersive_mode">Utiliser le mode immersif</string>
     <string name="set_immersive_mode_help">Masque les barres systèmes (clic long sur l\'écran d\'accueil pour forcer si besoin)</string>
     <string name="set_reverse_interface">Inverser l\'interface</string>

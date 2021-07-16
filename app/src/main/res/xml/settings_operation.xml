@@ -13,6 +13,12 @@
             app:defaultValue="false"/>
 
         <SwitchPreference
+            app:key="always_show_favorites"
+            app:title="@string/set_always_show_favorites"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
             app:key="immersive_mode"
             app:title="@string/set_immersive_mode"
             app:summary="@string/set_immersive_mode_help"
