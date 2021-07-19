@@ -43,6 +43,7 @@ import android.view.ViewGroup ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
+import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.core.Shortcut ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
 import java.util.ArrayList ;
@@ -272,6 +273,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 									}
 								}
 							}) ;
+				}
+				else if(application instanceof Search)
+				{
+					// Start the search directly on long click
+					application.start(view) ;
+					return true ;
 				}
 				else
 				{
