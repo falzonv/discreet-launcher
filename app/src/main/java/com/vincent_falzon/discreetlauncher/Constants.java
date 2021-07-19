@@ -58,6 +58,7 @@ public abstract class Constants
 	public static final String IMMERSIVE_MODE = "immersive_mode" ;
 	public static final String REVERSE_INTERFACE = "reverse_interface" ;
 	public static final String TOUCH_TARGETS = "touch_targets" ;
+	public static final String DISABLE_APP_DRAWER = "disable_app_drawer" ;
 
 	// To remove after 31/07/2021 (setting migrated to internal file)
 	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;

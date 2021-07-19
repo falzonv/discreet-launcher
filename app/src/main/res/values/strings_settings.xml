@@ -90,6 +90,8 @@
     <string name="set_immersive_mode_help">Hide system bars (long press on home screen to force if needed)</string>
     <string name="set_reverse_interface">Reverse interface</string>
     <string name="set_reverse_interface_help">Display the favorites panel on bottom</string>
+    <string name="set_disable_app_drawer">Disable app drawer</string>
+    <string name="error_disable_app_drawer_not_safe">App drawer enabled to prevent you from losing menu access</string>
     <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
 
     <!-- Export / Import -->

@@ -90,6 +90,8 @@
     <string name="set_immersive_mode_help">Скрыть системные панели (длительное нажатие на главном экране для принудительного включения при необходимости)</string>
     <string name="set_reverse_interface">Обратный интерфейс</string>
     <string name="set_reverse_interface_help">Отображение панели избранного в нижней части</string>
+    <string name="set_disable_app_drawer">Disable app drawer</string>
+    <string name="error_disable_app_drawer_not_safe">App drawer enabled to prevent you from losing menu access</string>
     <string name="error_appfilter_not_found">Файл appfilter.xml не найден в выбранном пакете значков! (%1$s)</string>
 
     <!-- Export / Import -->
