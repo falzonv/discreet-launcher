@@ -88,7 +88,8 @@
     <string name="set_immersive_mode">Immersive mode</string>
     <string name="set_immersive_mode_help">No system bars. (Can be changed by long pressing the home screen.)</string>
     <string name="set_reverse_interface">Reversed interface</string>
-    <string name="set_reverse_interface_help">Apps atop, and favorites below the home screen</string>
+    <string name="set_reverse_interface_help">Apps above, and favorites below the home screen</string>
+
 
     <string name="error_appfilter_not_found">Could not find appfilter.xml in the selected icon pack. (%1$s)</string>
 
