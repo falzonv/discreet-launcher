@@ -91,7 +91,7 @@
     <string name="set_reverse_interface">Reversed interface</string>
     <string name="set_reverse_interface_help">Apps above, and favorites below the home screen</string>
     <string name="set_disable_app_drawer">No app drawer</string>
-    <string name="error_disable_app_drawer_not_safe">Keeping the app drawer prevents losing menu access.</string>
+    <string name="error_disable_app_drawer_not_safe">Reinstating the app drawer to keep menu access.</string>
     <string name="error_appfilter_not_found">Could not find appfilter.xml in the selected icon pack. (%1$s)</string>
 
     <!-- Export / Import -->
