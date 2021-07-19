@@ -2,6 +2,7 @@ v4.4.0 (31) - 09/07/2021
 IMPROVEMENTS
    - Visual feedback during click
    - Notification popup title (@comradekingu)
+   - Search converted from "Popup" to "Activity"
 CORRECTIONS
    - Missing settings after import (@xi7)
    - Shortcut created on app install (@NoémieF)

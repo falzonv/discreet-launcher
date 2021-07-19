@@ -1,4 +1,4 @@
 v4.5.0 (32) - 12/07/2021
 CORRECTIONS
-   - Search app very slow after v4.4.0 (@xi7)
+   - Rollback to the v4.3.0 Search (@xi7)
    - Notification popup title encoding (@xi7)

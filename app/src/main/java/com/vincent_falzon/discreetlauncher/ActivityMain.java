@@ -142,6 +142,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Update the display according to settings
 		togglePortraitMode() ;
+		makeAppDrawerDisablingSafe() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
 
@@ -173,6 +174,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		drawerLayout = new FlexibleGridLayout(this, application_width) ;
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;
+
+		// Load the favorites panel if it should always be shown
+		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
 
 		// Hide the favorites panel and the drawer by default
 		displayFavorites(false) ;
@@ -230,13 +234,64 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		if(settings.getBoolean(Constants.TOUCH_TARGETS, false))
 			{
-				targetFavorites.setVisibility(View.VISIBLE) ;
-				targetApplications.setVisibility(View.VISIBLE) ;
+				// Display or not targets according to the settings
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+						targetFavorites.setVisibility(View.GONE) ;
+					else targetFavorites.setVisibility(View.VISIBLE) ;
+				if(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false))
+						targetApplications.setVisibility(View.GONE) ;
+					else targetApplications.setVisibility(View.VISIBLE) ;
 			}
 			else
 			{
 				targetFavorites.setVisibility(View.GONE) ;
 				targetApplications.setVisibility(View.GONE) ;
+			}
+	}
+
+
+	/**
+	 * Make sure that the app drawer can be safely disabled.
+	 */
+	private void makeAppDrawerDisablingSafe()
+	{
+		// Do not continue if the setting to disable the app drawer is not enabled
+		if(!settings.getBoolean(Constants.DISABLE_APP_DRAWER, false)) return ;
+
+		// Do not continue if the menu button is not hidden
+		if(!settings.getBoolean(Constants.HIDE_MENU_BUTTON, false)) return ;
+
+		// Initializations
+		String launcher = "{com.vincent_falzon.discreetlauncher/com.vincent_falzon.discreetlauncher.ActivityMain}" ;
+		boolean safe = false ;
+
+		// Browse all favorites
+		for(Application application : applicationsList.getFavorites())
+		{
+			// Search if the launcher icon or Search app is in favorites
+			if(application instanceof Search) safe = true ;
+				else if(application.getComponentInfo().equals(launcher)) safe = true ;
+				else if(application instanceof Folder)
+				{
+					// Also search the launcher icon in folders
+					for(Application folder_application : ((Folder)application).getApplications())
+						if(folder_application.getComponentInfo().equals(launcher))
+							{
+								safe = true ;
+								break ;
+							}
+				}
+
+			// Do not continue after it has been found that the disabling is safe
+			if(safe) break ;
+		}
+
+		// If the drawer cannot be safely disabled, display a message and disable the setting
+		if(!safe)
+			{
+				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
+				SharedPreferences.Editor editor = settings.edit() ;
+				editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
 			}
 	}
 
@@ -289,6 +344,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			}
 			else
 			{
+				// Do not continue if the option to always show the panel is selected
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) return ;
+
 				// Hide the favorites panel
 				favorites.setVisibility(View.GONE) ;
 				targetFavorites.setText(R.string.target_open_favorites) ;
@@ -312,6 +370,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		if(display)
 			{
+				// Do not continue if the drawer has been disabled
+				if(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false)) return ;
+
 				// Update the recyclers (favorites panel and applications drawer) if needed
 				if(adapters_update_needed) updateAdapters() ;
 
@@ -339,8 +400,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 					getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
 
-				// Make the navigation bar transparent
-				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
+				// Make the navigation bar transparent, unless in reverse interface with favorites always shown
+				if(!(reverse_interface && settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)))
+					getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
 			}
 	}
 
@@ -503,6 +565,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					if(reverse_interface) swipe_drawer = y_distance < 0 ;
 						else swipe_drawer = y_distance > 0 ;
 
+					// Check if the favorites panel should always be shown
+					if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false) && swipe_drawer)
+						{
+							displayDrawer(true) ;
+							return true ;
+						}
+
 					// Check if the gesture is going up (if) or down (else), based on classic interface
 					if(swipe_drawer)
 						{
@@ -568,9 +637,14 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
 					else setContentView(R.layout.activity_main) ;
 				recreate() ;
+			case Constants.ALWAYS_SHOW_FAVORITES :
 			case Constants.TOUCH_TARGETS :
 				// Display or not the touch targets
 				toggleTouchTargets() ;
+				break ;
+			case Constants.DISABLE_APP_DRAWER :
+				// Check if the app drawer can be safely disabled
+				makeAppDrawerDisablingSafe() ;
 				break ;
 		}
 	}
@@ -684,12 +758,14 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		super.onResume() ;
 
 		// Hide the favorites panel and the applications drawer
+		makeAppDrawerDisablingSafe() ;
 		displayFavorites(false) ;
 		displayDrawer(false) ;
 
 		// Update the display according to settings
 		minuteListener.updateClock() ;
 		togglePortraitMode() ;
+		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
 
 		// Update the favorites panel and applications drawer display if needed
