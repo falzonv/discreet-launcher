@@ -5,69 +5,42 @@
     <string name="help_title">Help</string>
     <string name="help_navigation_title">Navigation</string>
     <string name="help_navigation_text">
-        From the home screen, swipe down to display the favorites panel and swipe up to hide it.
+        Swipe up from the home screen to show all apps, and downwards to go back.
         \n
-        \nIf you swipe up when the favorites panel is hidden, it will display the complete list of applications.
-        Swipe down from the top of this list to come back to the home screen.
+        \nSwipe down from the home screen to show favorites, and upwards to go back.
         \n
-        \nPress the button below the favorites panel to display the menu of the launcher.
+        \nClick the 🔧 menu button (when showing favorites) to open the menu.
         \n
-        \nIf you hold your finger a few moments on an application or a folder, you will be offered to access its settings.
+        \nLong-hold an app or folder to access its settings.
     </string>
     <string name="help_notification_title">Notification</string>
     <string name="help_notification_text">
-        The notification allows to display a popup with favorites above other applications when you leave the home screen.
-        In most cases, it should work directly and without issues.
-        \n
-        \nHowever, in some special cases it may bring back to the home screen instead of being displayed over other applications.
-        \nIf you are facing this issue, there are two things you can try:
-        \n- Press the \"clear all\" button in Recent Apps
-        \n- Reboot your smartphone
-        \nAfter one of these actions, the problem should not appear again.
-        \nIf it persists, I am sorry but it seems this will not work for you :-/
-        \n
-        \nTo not be intrusive, the notification icon is transparent and low priority.
-        With some applications having even lower priorities, this may result in an empty space in the status bar.
-        \n
-        \nFinally, if you change the default launcher, you may still see the notification.
-        To hide it, you can open Discreet Launcher (no need to be the default launcher) and disable the notification in the settings.
+        Shows a popup of favorites above other apps when you leave the home screen.
     </string>
     <string name="help_list_update_title">List update</string>
     <string name="help_list_update_text">
-        The list of applications and their icons are refreshed only after some events
-        (on start, when an application is added or removed, if the icon pack is modified).
-        When this happens, a small popup message appears during a few moments.
-        \n
-        \nIf something does not feel right, you should try to refresh the applications list manually.
+        A popup message is shown when refreshing the app list and icons,
+        when starting, adding or removing apps, or if the icon pack is modified.
     </string>
     <string name="help_folders_title">Folders</string>
     <string name="help_folders_text">
-        To create/rename/remove folders and put applications inside, you need to use the folders organizer.
-        It is accessible using the menu button or by clicking on the title of an open folder.
-        \n
-        \nYou can create as many folders as you want to organize your applications.
-        These folders can also be added in favorites.
-        If a folder is removed, its content will be put back in the main applications list.
-        \n
-        \nAn application can be in only one folder at a time (or not in a folder).
-        However, you can have both an application and the folder containing this application in favorites.
+        Manage folders or favorite them from the 🔧 menu button, or click the title of an open folder
+        to create, rename, and put apps in it.
+        \nRemoving folders puts all apps in them back in the main list.
     </string>
     <string name="help_search_title">Search</string>
     <string name="help_search_text">
-        The search icon allows to find an application in the complete list.
-        You can add it to favorites in order to access it also using the notification.
-        For technical reasons, it is not possible to add it in a folder.
+        Find any app from the 🔍 search icon. It can also be favorited to be available
+        from the notification, or hidden.
         \n
-        \nIf you do not plan to use it, you can also hide the search like any application.
-        \n
-        \nFinally, pressing the \"Enter\" button when there is only one search result will open it.
+        \nIf there is only one search result, pressing \"Enter\" opens it.
     </string>
 
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
     <string name="changelog_mentions">\"@pseudo\" indicates the user who suggested the idea or reported the bug</string>
     <string name="changelog_folder">changelog-en</string>
-    <string name="error_changelog_folder">The changelog folder was not found!</string>
-    <string name="error_changelog_file">Error while opening %1s!</string>
+    <string name="error_changelog_folder">Could not find the changelog folder</string>
+    <string name="error_changelog_file">Could not open %1s</string>
 
 </resources>

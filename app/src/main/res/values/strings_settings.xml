@@ -2,19 +2,19 @@
 <resources>
 
     <!-- Settings interface -->
-    <string name="title_settings">Settings / Help</string>
+    <string name="title_settings">Settings and help</string>
     <string name="title_customization">Customization</string>
     <string name="title_appearance_settings">Appearance</string>
     <string name="title_appearance_settings_general">General appearance</string>
-    <string name="title_appearance_settings_applications">Applications appearance</string>
+    <string name="title_appearance_settings_applications">Appearance of apps</string>
     <string name="title_behavior_settings">Operation</string>
-    <string name="title_help_and_general_info">Help and general information</string>
+    <string name="title_help_and_general_info">Help and general info</string>
 
     <!-- Notification -->
-    <string name="set_notification">Notification for favorites access</string>
+    <string name="set_notification">Notification for access to favorites</string>
     <string name="set_notification_help">Uses a transparent icon</string>
-    <string name="notification_title">Access to favorites</string>
-    <string name="notification_popup_title">🔧 Manage favorites</string>
+    <string name="notification_title">Favorites</string>
+    <string name="notification_popup_title">Manage favorites</string>
 
     <!-- Theme -->
     <string name="set_application_theme">Theme</string>
@@ -35,84 +35,84 @@
 
     <!-- Color picker -->
     <string name="set_background_color">Background color</string>
-    <string name="set_background_color_help">Favorites panel, menu button, applications drawer and system bars</string>
+    <string name="set_background_color_help">Used for the 🔧 menu button, favorites, app drawer and system bars</string>
     <string name="color_picker_base">Base:</string>
     <string name="color_picker_reset">Reset</string>
     <string name="color_picker_preview">Preview</string>
-    <string name="error_invalid_color_format">This hexadecimal color is not valid!</string>
+    <string name="error_invalid_color_format">Invalid hexadecimal color</string>
 
     <!-- Touch targets (accessibility) -->
-    <string name="set_touch_targets">Use touch targets (accessibility option)</string>
-    <string name="set_touch_targets_help">Add clickable labels on the home screen</string>
+    <string name="set_touch_targets">Touch targets (accessibility)</string>
+    <string name="set_touch_targets_help">Clickable labels on the home screen</string>
     <string name="target_open_favorites">Open\nfavorites</string>
     <string name="target_close_favorites">Close\nfavorites</string>
-    <string name="target_open_applications">Open\napplications</string>
+    <string name="target_open_applications">Open\napps</string>
 
     <!-- Folders -->
-    <string name="button_organize_folders">Organize folders</string>
+    <string name="button_organize_folders">Folders</string>
     <string name="button_new_folder">Add</string>
     <string name="button_remove_folder">Remove</string>
-    <string name="hint_folders_number">You can create as many folders as you want to organize your applications.</string>
-    <string name="hint_folder_edit">Click on the name of a folder to change it, the pen allows to edit the folder content.</string>
+    <string name="hint_folders_number">Create as many folders as you want to organize your apps.</string>
+    <string name="hint_folder_edit">Click on a folder name to change it. The pen allows editing folder content.</string>
     <string name="hint_new_folder">New folder</string>
     <string name="hint_rename_folder">Rename folder</string>
-    <string name="hint_remove_folder">If a folder is removed, its content will be put back in the main applications list.</string>
-    <string name="error_folder_empty_name">The name cannot be empty!</string>
-    <string name="error_folder_already_exists">This folder already exists!</string>
-    <string name="error_folder_rename">An error happened while renaming the folder!</string>
+    <string name="hint_remove_folder">If a folder is removed, its content will be put back in the main app list.</string>
+    <string name="error_folder_empty_name">Pick a name first</string>
+    <string name="error_folder_already_exists">Pick a name that doesn\'t exist already</string>
+    <string name="error_folder_rename">Could not rename the folder</string>
 
     <!-- Shortcuts -->
-    <string name="error_shortcut">An error happened with the shortcut %1$s!</string>
-    <string name="error_shortcut_invalid_request">The received request to add a shortcut is not valid!</string>
-    <string name="error_shortcut_missing_info">Some information are missing and the shortcut cannot be launched!</string>
-    <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts!</string>
-    <string name="error_shortcut_start">The Android system was not able to open the shortcut or it did not retrieved it!</string>
+    <string name="error_shortcut">Could not follow the %1$s shortcut</string>
+    <string name="error_shortcut_invalid_request">Could not add that as a shortcut</string>
+    <string name="error_shortcut_missing_info">Could not follow this shortcut</string>
+    <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts</string>
+    <string name="error_shortcut_start">The Android system could not open the shortcut</string>
 
     <!-- Search -->
     <string name="search_icon_title">Search</string>
-    <string name="search_hint">Search applications</string>
+    <string name="search_hint">Search for apps</string>
 
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_hint">When favorites are closed</string>
-    <string name="set_hide_menu_button">Hide the menu button</string>
-    <string name="set_hide_menu_button_help">It stays accessible using the launcher icon</string>
+    <string name="set_hide_menu_button">No 🔧 menu button</string>
+    <string name="set_hide_menu_button_help">Always accessible from the launcher app icon</string>
     <string name="set_icon_pack">Use an installed icon pack</string>
-    <string name="set_icon_pack_none">None (use the real icons)</string>
-    <string name="set_hide_app_names">Hide applications names</string>
-    <string name="set_hide_app_names_help">Folder names will still be displayed</string>
-    <string name="set_remove_padding">Remove padding when names are hidden</string>
-    <string name="set_remove_padding_help">May produce unexpected results with long folders names</string>
-    <string name="set_force_portrait">Force portrait mode</string>
-    <string name="set_force_portrait_help">The launcher will not rotate even if automatic rotation is enabled</string>
+    <string name="set_icon_pack_none">None (use default icons)</string>
+    <string name="set_hide_app_names">No app names</string>
+    <string name="set_hide_app_names_help">Folder names are still shown</string>
+    <string name="set_remove_padding">No padding when app names are hidden</string>
+    <string name="set_remove_padding_help">Can cause problems with long folders names</string>
+    <string name="set_force_portrait">Forced portrait-mode</string>
+    <string name="set_force_portrait_help">Prevents the launcher rotating even if auto-rotation is on</string>
     <string name="set_always_show_favorites">Always show favorites</string>
-    <string name="set_immersive_mode">Use immersive mode</string>
-    <string name="set_immersive_mode_help">Hide system bars (long press on home screen to force if needed)</string>
-    <string name="set_reverse_interface">Reverse interface</string>
-    <string name="set_reverse_interface_help">Display the favorites panel on bottom</string>
-    <string name="set_disable_app_drawer">Disable app drawer</string>
-    <string name="error_disable_app_drawer_not_safe">App drawer enabled to prevent you from losing menu access</string>
-    <string name="error_appfilter_not_found">The appfilter.xml file was not found in the selected icon pack! (%1$s)</string>
+    <string name="set_immersive_mode">Immersive mode</string>
+    <string name="set_immersive_mode_help">No system bars. (Can be forced by long-pressing the home screen.)</string>
+    <string name="set_reverse_interface">Reversed interface</string>
+    <string name="set_reverse_interface_help">Apps above, and favorites below the home screen</string>
+    <string name="set_disable_app_drawer">No app drawer</string>
+    <string name="error_disable_app_drawer_not_safe">Reinstating the app drawer to keep menu access.</string>
+    <string name="error_appfilter_not_found">Could not find appfilter.xml in the selected icon pack. (%1$s)</string>
 
     <!-- Export / Import -->
-    <string name="export_import_title">Export / Import</string>
-    <string name="export_import_help">These buttons allow you to export the application data (favorites, shortcuts and settings) or to import a previous export.</string>
+    <string name="export_import_title">Export and import</string>
+    <string name="export_import_help">These buttons allow exporting the app data (favorites, folders, shortcuts and settings) or importing them again.</string>
     <string name="button_export">Export</string>
     <string name="button_import">Import</string>
-    <string name="export_import_header_internal_files">Internal text files content</string>
+    <string name="export_import_header_internal_files">Content of internal text files</string>
     <string name="export_import_header_settings">Settings</string>
     <string name="export_import_header_icons">Saved icons</string>
-    <string name="export_import_warning_file_edit">Be careful: if you edit this file, it may produce unexpected results!</string>
+    <string name="export_import_warning_file_edit">Editing this file may cause problems</string>
     <string name="export_import_warning_shortcuts">
-        (With Android Oreo (8) or higher, imported web applications may not work
+        (On Android 8 (Oreo) and beyond, imported web apps may not work
         because they are managed by the system and are not supposed to be exported)
     </string>
     <string name="export_completed">Export completed</string>
-    <string name="error_export">An error happened while creating the export file!</string>
-    <string name="error_import">An error happened while reading the import file!</string>
+    <string name="error_export">Could not create export file</string>
+    <string name="error_import">Could not read the import file</string>
 
     <!-- Other -->
-    <string name="button_hide_applications">Hide applications</string>
-    <string name="error_remove_file">An error happened while cleaning the file %1$s!</string>
+    <string name="button_hide_applications">Hidden apps</string>
+    <string name="error_remove_file">Could not delete the %1$s file</string>
 
 </resources>
