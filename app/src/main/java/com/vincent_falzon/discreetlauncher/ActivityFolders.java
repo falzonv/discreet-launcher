@@ -87,7 +87,12 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 			{
 				// Retrieve the new folder name and check that it is not empty
 				String new_folder_name = ((EditText)findViewById(R.id.new_folder_name)).getText().toString() ;
-				if(new_folder_name.isEmpty()) return ;
+				if(new_folder_name.isEmpty())
+					{
+						// Display an error message and quit
+						ShowDialog.toastLong(this, getString(R.string.error_folder_empty_name)) ;
+						return ;
+					}
 
 				// Hide the keyboard and check if the folder already exists
 				((InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0) ;

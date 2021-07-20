@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Liste d'applications -->
-    <string name="info_applications_list_refreshed">Liste d\'application actualisée</string>
-    <string name="button_refresh_list">Actualiser la liste des applications</string>
-    <string name="error_application_not_found">L\'application %1$s est introuvable !</string>
+    <!-- List of applications -->
+    <string name="info_applications_list_refreshed">Liste d\'applications actualisée</string>
+    <string name="button_refresh_list">Actualiser la liste d\'applications</string>
+    <string name="error_application_not_found">Impossible de trouver \"%1$s\"</string>
 
-    <!-- Favoris -->
-    <string name="info_no_favorites_yet">Vous pouvez ajouter vos applications favorites ici\nen cliquant sur le bouton du menu.</string>
-    <string name="button_manage_favorites">Gérer les favoris</string>
-    <string name="button_select_favorites">Choisir les favoris</string>
-    <string name="hint_favorites_order">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez le vide sur les côtés pour défiler).</string>
-    <string name="error_too_many_favorites">Désolé, le nombre de favoris est limité à %1$d !</string>
+    <!-- Favorites -->
+    <string name="info_no_favorites_yet">Ajouter vos applications favorites ici\nen cliquant sur le bouton de menu 🔧.</string>
+    <string name="button_manage_favorites">Favoris</string>
+    <string name="button_select_favorites">Choisir des favoris</string>
+    <string name="hint_favorites_order">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez les côtés pour défiler).</string>
+    <string name="error_too_many_favorites">Vous ne pouvez pas avoir plus de %1$d favoris</string>
 
-    <!-- Boutons des fenêtres -->
+    <!-- Dialogs buttons -->
     <string name="button_apply">Valider</string>
     <string name="button_cancel">Annuler</string>
 
-    <!-- Options de clic long -->
+    <!-- Long click options -->
     <string name="long_click_title">Que voulez-vous faire ?</string>
     <string name="long_click_open">Ouvrir \"%1s\"</string>
-    <string name="long_click_store">Voir sa page dans le magasin</string>
+    <string name="long_click_store">Voir la page du magasin</string>
     <string name="long_click_settings">Accéder à ses paramètres</string>
     <string name="long_click_remove_shortcut">Supprimer ce raccourci</string>
 
-    <!-- À propos -->
+    <!-- About -->
     <string name="app_name">Lanceur Discret</string>
     <string name="licence_name">Licence publique générale GNU v3.0</string>
-    <string name="website_description">Pour accéder au code source, signaler un problème ou voir mes autres projets, consulter le site</string>
+    <string name="website_description">Suggérez des améliorations et signalez les problèmes sur</string>
     <string name="translation_credit"/>
 
 </resources>
