@@ -136,8 +136,12 @@ public class ShortcutListener extends AppCompatActivity
 
 		// If it was not existing, add the shortcut to the file and save its icon
 		InternalFilePNG icon_file = new InternalFilePNG(Constants.FILE_ICON_SHORTCUT_PREFIX + display_name + ".png") ;
-		if(!file.writeLine(shortcut) || !icon_file.writeToFile(icon))
-			ShowDialog.toastLong(context, context.getString(R.string.error_shortcut, display_name)) ;
+		if(!file.writeLine(shortcut))
+			{
+				ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_creation, display_name)) ;
+				return ;
+			}
+		icon_file.writeToFile(icon) ;
 	}
 
 
@@ -172,11 +176,7 @@ public class ShortcutListener extends AppCompatActivity
 				}
 
 			// Add all the other shortcuts to the list again
-			if(!file.writeLine(shortcut_line))
-				{
-					ShowDialog.toastLong(context, context.getString(R.string.error_shortcut, shortcut[0])) ;
-					return ;
-				}
+			file.writeLine(shortcut_line) ;
 		}
 
 		// Remove the shortcut icon

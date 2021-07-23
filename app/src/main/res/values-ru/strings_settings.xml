@@ -62,7 +62,7 @@
     <string name="error_folder_rename">При переименовании папки произошла ошибка!</string>
 
     <!-- Shortcuts -->
-    <string name="error_shortcut">Произошла ошибка с ярлыком %1$s!</string>
+    <string name="error_shortcut_creation">Произошла ошибка с ярлыком %1$s!</string>
     <string name="error_shortcut_invalid_request">Полученный запрос на добавление ярлыка не действителен!</string>
     <string name="error_shortcut_missing_info">Некоторая информация отсутствует и ярлык не может быть запущен!</string>
     <string name="error_shortcut_not_default_launcher">Только лаунчер по умолчанию может открывать ярлыки!</string>

@@ -62,7 +62,7 @@
     <string name="error_folder_rename">Impossible de renommer le dossier</string>
 
     <!-- Shortcuts -->
-    <string name="error_shortcut">Impossible de suivre le raccourci %1$s</string>
+    <string name="error_shortcut_creation">Impossible de créer \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Impossible d\'ajouter cela en raccourci</string>
     <string name="error_shortcut_missing_info">Impossible de suivre ce raccourci</string>
     <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis</string>
@@ -104,8 +104,8 @@
     <string name="export_import_header_icons">Icônes sauvegardées</string>
     <string name="export_import_warning_file_edit">Éditer ce fichier peut causer des problèmes</string>
     <string name="export_import_warning_shortcuts">
-        (Sur Android Oreo (8) et supérieur, les applications web importées peuvent ne pas marcher
-        car elles sont gérées par le système et ne sont pas supposées être exportables)
+        (Sur Android Oreo (8) et supérieur, les raccourcis importés peuvent ne pas marcher
+        car ils sont gérés par le système et ne sont pas supposés être exportables)
     </string>
     <string name="export_completed">Export terminé</string>
     <string name="error_export">Impossible de créer le fichier d\'export</string>
