@@ -62,7 +62,7 @@
     <string name="error_folder_rename">Не удалось переименовать папку</string>
 
     <!-- Shortcuts -->
-    <string name="error_shortcut">Не удалось выполнить ярлык %1$s</string>
+    <string name="error_shortcut_creation">Не удалось создать \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Не удалось добавить это в качестве ярлыка</string>
     <string name="error_shortcut_missing_info">Не удалось выполнить этот ярлык</string>
     <string name="error_shortcut_not_default_launcher">Открывать ярлыки может только программа запуска по умолчанию</string>
@@ -104,7 +104,7 @@
     <string name="export_import_header_icons">Сохраненные значки</string>
     <string name="export_import_warning_file_edit">Редактирование этого файла может вызвать проблемы</string>
     <string name="export_import_warning_shortcuts">
-        (На Android 8 (Oreo) и выше импортированные веб-приложения могут не работать.
+        (На Android 8 (Oreo) и выше импортированные ярлыки могут не работать.
         поскольку они управляются системой и не должны экспортироваться)
     </string>
     <string name="export_completed">Экспорт завершен</string>
