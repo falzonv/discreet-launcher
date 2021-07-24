@@ -35,7 +35,7 @@
 
     <!-- Color picker -->
     <string name="set_background_color">Цвет фона</string>
-    <string name="set_background_color_help">Используется для кнопки 🔧 меню, избранного, ящика приложений и системной панели</string>
+    <string name="set_background_color_help">Используется для кнопки меню, избранного, ящика приложений и системной панели</string>
     <string name="color_picker_base">База:</string>
     <string name="color_picker_reset">Сброк</string>
     <string name="color_picker_preview">Предпросмотр</string>
@@ -75,7 +75,7 @@
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Прозрачная строка состояния</string>
     <string name="set_transparent_status_bar_hint">Когда избранное закрыто</string>
-    <string name="set_hide_menu_button">Нет кнопки 🔧 меню</string>
+    <string name="set_hide_menu_button">Нет кнопки меню</string>
     <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
     <string name="set_icon_pack">Использовать установленный пакет значков</string>
     <string name="set_icon_pack_none">Нет (использовать значки по умолчанию)</string>

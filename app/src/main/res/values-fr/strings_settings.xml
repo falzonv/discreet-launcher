@@ -35,7 +35,7 @@
 
     <!-- Color picker -->
     <string name="set_background_color">Couleur de fond</string>
-    <string name="set_background_color_help">Utilisée pour le bouton de menu 🔧, les favoris, le tiroir d\'applications et les barres système</string>
+    <string name="set_background_color_help">Utilisée pour le bouton de menu, les favoris, le tiroir d\'applications et les barres système</string>
     <string name="color_picker_base">Base :</string>
     <string name="color_picker_reset">Réinitialiser</string>
     <string name="color_picker_preview">Aperçu</string>
@@ -75,7 +75,7 @@
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
-    <string name="set_hide_menu_button">Pas de bouton de menu 🔧</string>
+    <string name="set_hide_menu_button">Pas de bouton de menu</string>
     <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les icônes par défaut)</string>

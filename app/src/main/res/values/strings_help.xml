@@ -9,7 +9,7 @@
         \n
         \nSwipe down from the home screen to show favorites, and upwards to go back.
         \n
-        \nClick the 🔧 menu button (when showing favorites) to open the menu.
+        \nClick the menu button (when showing favorites) to open the menu.
         \n
         \nLong-hold an app or folder to access its settings.
     </string>
@@ -24,13 +24,13 @@
     </string>
     <string name="help_folders_title">Folders</string>
     <string name="help_folders_text">
-        Manage folders or favorite them from the 🔧 menu button, or click the title of an open folder
+        Manage folders or favorite them from the menu button, or click the title of an open folder
         to create, rename, and put apps in it.
         \nRemoving folders puts all apps in them back in the main list.
     </string>
     <string name="help_search_title">Search</string>
     <string name="help_search_text">
-        Find any app from the 🔍 search icon. It can also be favorited to be available
+        Find any app from the search icon. It can also be favorited to be available
         from the notification, or hidden.
         \n
         \nIf there is only one search result, pressing \"Enter\" opens it.

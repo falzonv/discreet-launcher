@@ -9,7 +9,7 @@
     <!-- Favorites -->
     <string name="button_favorites">Favoris</string>
     <string name="button_select_favorites">Choisir des favoris</string>
-    <string name="hint_no_favorites_yet">Ajouter vos applications favorites ici\nen cliquant sur le bouton de menu 🔧.</string>
+    <string name="hint_no_favorites_yet">Ajoutez vos applications favorites ici\nen cliquant sur le bouton de menu.</string>
     <string name="hint_modify_order_of_favorites">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez les côtés pour défiler).</string>
     <string name="error_max_favorites_reached">Vous ne pouvez pas avoir plus de %1$d favoris</string>
 

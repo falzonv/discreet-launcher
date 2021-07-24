@@ -9,7 +9,7 @@
         \n
         \nGlissez le doigt vers le bas depuis l\'écran d\'accueil pour afficher les favoris, et vers le haut pour les masquer.
         \n
-        \nCliquez sur le bouton de menu 🔧 (quand les favoris sont affichés) pour ouvrir le menu.
+        \nCliquez sur le bouton de menu (quand les favoris sont affichés) pour ouvrir le menu.
         \n
         \nAppuyez longuement sur une application ou un dossier pour accéder à ses paramètres.
     </string>
@@ -24,13 +24,13 @@
     </string>
     <string name="help_folders_title">Dossiers</string>
     <string name="help_folders_text">
-        Gérez les dossiers ou mettez les en favoris depuis le bouton de menu 🔧, ou cliquer sur le titre d\'un dossier ouvert
+        Gérez les dossiers ou mettez les en favoris depuis le bouton de menu, ou cliquer sur le titre d\'un dossier ouvert
         pour créer, renommer, et mettre des applications dedans.
         \nLa suppression d\'un dossier remet toutes ses applications dans la liste principale.
     </string>
     <string name="help_search_title">Recherche</string>
     <string name="help_search_text">
-        Trouver n\'importe quelle application depuis l\'icône de recherche 🔍. Elle peut aussi être mise dans les favoris pour être disponible
+        Trouver n\'importe quelle application depuis l\'icône de recherche. Elle peut aussi être mise dans les favoris pour être disponible
         depuis la notification, ou cachée.
         \n
         \nS\'il n\'y a qu\'un seul résultat de recherche, appuyez sur \"Entrée\" l\'ouvrira.
