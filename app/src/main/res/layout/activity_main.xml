@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/spacing_large"
                 android:gravity="center"
-                android:text="@string/info_no_favorites_yet"
+                android:text="@string/hint_no_favorites_yet"
                 android:textColor="@color/white"
                 android:background="@color/translucent_gray"
                 android:visibility="gone"/>

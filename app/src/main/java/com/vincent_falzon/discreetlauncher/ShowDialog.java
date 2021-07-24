@@ -98,7 +98,7 @@ public abstract class ShowDialog
 
 		// Prepare and display the selection dialog
 		AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-		dialog.setTitle(context.getString(R.string.button_hide_applications)) ;
+		dialog.setTitle(context.getString(R.string.button_hidden_applications)) ;
 		dialog.setMultiChoiceItems(app_names, selected,
 			new DialogInterface.OnMultiChoiceClickListener()
 			{

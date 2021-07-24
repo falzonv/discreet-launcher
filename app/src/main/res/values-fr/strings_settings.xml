@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Settings interface -->
-    <string name="title_settings">Paramètres et aide</string>
-    <string name="title_customization">Personnalisation</string>
+    <!-- Settings titles -->
+    <string name="title_settings_and_help">Paramètres et aide</string>
+    <string name="title_section_customization">Personnalisation</string>
+    <string name="title_section_help_and_general_info">Aide et informations générales</string>
     <string name="title_appearance_settings">Apparence</string>
     <string name="title_appearance_settings_general">Apparence générale</string>
     <string name="title_appearance_settings_applications">Apparence des applications</string>
     <string name="title_behavior_settings">Fonctionnement</string>
-    <string name="title_help_and_general_info">Aide et informations générales</string>
+    <string name="title_export_import">Exporter et importer</string>
 
     <!-- Notification -->
     <string name="set_notification">Notification d\'accès aux favoris</string>
     <string name="set_notification_help">Utilise une icône transparente</string>
-    <string name="notification_title">Favoris</string>
     <string name="notification_popup_title">Gérer les favoris</string>
 
-    <!-- Theme -->
+    <!-- Application theme -->
     <string name="set_application_theme">Thème</string>
     <string-array name="set_application_theme_entries">
         <item>Clair</item>
@@ -24,7 +24,7 @@
         <item>Préférence système</item>
     </string-array>
 
-    <!-- Clock -->
+    <!-- Clock format -->
     <string name="set_clock_format">Format de l\'horloge</string>
     <string-array name="set_clock_format_entries">
         <item>Aucune (masquer)</item>
@@ -49,7 +49,7 @@
     <string name="target_open_applications">Ouvrir les\napplications</string>
 
     <!-- Folders -->
-    <string name="button_organize_folders">Dossiers</string>
+    <string name="button_folders">Dossiers</string>
     <string name="button_new_folder">Ajouter</string>
     <string name="button_remove_folder">Supprimer</string>
     <string name="hint_folders_number">Créez autant de dossiers que vous voulez pour organiser vos applications.</string>
@@ -69,7 +69,7 @@
     <string name="error_shortcut_start">Le système Android n\'a pas pu ouvrir le raccourci</string>
 
     <!-- Search -->
-    <string name="search_icon_title">Recherche</string>
+    <string name="search_app_name">Recherche</string>
     <string name="search_hint">Chercher des applications</string>
 
     <!-- Other settings -->
@@ -94,8 +94,7 @@
     <string name="error_disable_app_drawer_not_safe">Tiroir d\'applications rétabli pour conserver l\'accès au menu</string>
     <string name="error_appfilter_not_found">Impossible de trouver appfilter.xml dans le pack d\'icônes sélectionné. (%1$s)</string>
 
-    <!-- Export / Import -->
-    <string name="export_import_title">Exporter et importer</string>
+    <!-- Export and import -->
     <string name="export_import_help">Ces boutons permettent d\'exporter les données de l\'application (favoris, dossiers, raccourcis et paramètres) ou de les réimporter.</string>
     <string name="button_export">Exporter</string>
     <string name="button_import">Importer</string>
@@ -112,7 +111,7 @@
     <string name="error_import">Impossible de lire le fichier d\'import</string>
 
     <!-- Other -->
-    <string name="button_hide_applications">Applications masquées</string>
+    <string name="button_hidden_applications">Applications masquées</string>
     <string name="error_remove_file">Impossible de supprimer le fichier %1$s</string>
 
 </resources>

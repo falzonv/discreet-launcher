@@ -170,7 +170,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 										file.writeLine(applications.get(i).getComponentInfo()) ;
 									else
 									{
-										ShowDialog.toastLong(context, context.getString(R.string.error_too_many_favorites, max_favorites)) ;
+										ShowDialog.toastLong(context, context.getString(R.string.error_max_favorites_reached, max_favorites)) ;
 										break ;
 									}
 							}

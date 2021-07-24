@@ -7,11 +7,11 @@
     <string name="error_application_not_found">Impossible de trouver \"%1$s\"</string>
 
     <!-- Favorites -->
-    <string name="info_no_favorites_yet">Ajouter vos applications favorites ici\nen cliquant sur le bouton de menu 🔧.</string>
-    <string name="button_manage_favorites">Favoris</string>
+    <string name="button_favorites">Favoris</string>
     <string name="button_select_favorites">Choisir des favoris</string>
-    <string name="hint_favorites_order">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez les côtés pour défiler).</string>
-    <string name="error_too_many_favorites">Vous ne pouvez pas avoir plus de %1$d favoris</string>
+    <string name="hint_no_favorites_yet">Ajouter vos applications favorites ici\nen cliquant sur le bouton de menu 🔧.</string>
+    <string name="hint_modify_order_of_favorites">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez les côtés pour défiler).</string>
+    <string name="error_max_favorites_reached">Vous ne pouvez pas avoir plus de %1$d favoris</string>
 
     <!-- Dialogs buttons -->
     <string name="button_apply">Valider</string>

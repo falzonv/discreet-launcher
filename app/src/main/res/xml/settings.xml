@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        app:title="@string/title_customization"
+        app:title="@string/title_section_customization"
         app:iconSpaceReserved="false">
 
         <SwitchPreference
@@ -25,7 +25,7 @@
             app:icon="@android:drawable/ic_menu_preferences"/>
 
         <Preference
-            app:title="@string/export_import_title"
+            app:title="@string/title_export_import"
             app:icon="@android:drawable/ic_menu_upload">
             <intent
                 android:targetPackage="com.vincent_falzon.discreetlauncher"
@@ -35,7 +35,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/title_help_and_general_info"
+        app:title="@string/title_section_help_and_general_info"
         app:iconSpaceReserved="false">
 
         <Preference

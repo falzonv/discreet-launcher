@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Settings interface -->
-    <string name="title_settings">Настройки и помощь</string>
-    <string name="title_customization">Персонализация</string>
+    <!-- Settings titles -->
+    <string name="title_settings_and_help">Настройки и помощь</string>
+    <string name="title_section_customization">Персонализация</string>
+    <string name="title_section_help_and_general_info">Помощь и общая информация</string>
     <string name="title_appearance_settings">Внешний вид</string>
     <string name="title_appearance_settings_general">Общий вид</string>
     <string name="title_appearance_settings_applications">Вид приложений</string>
     <string name="title_behavior_settings">Операция</string>
-    <string name="title_help_and_general_info">Помощь и общая информация</string>
+    <string name="title_export_import">Экспорт и импорт</string>
 
     <!-- Notification -->
     <string name="set_notification">Уведомление для доступа к избранному</string>
     <string name="set_notification_help">Использует прозрачный значок</string>
-    <string name="notification_title">Избранные</string>
     <string name="notification_popup_title">Управление избранным</string>
 
-    <!-- Theme -->
+    <!-- Application theme -->
     <string name="set_application_theme">Тема</string>
     <string-array name="set_application_theme_entries">
         <item>Светлая</item>
@@ -24,7 +24,7 @@
         <item>Системная</item>
     </string-array>
 
-    <!-- Clock -->
+    <!-- Clock format -->
     <string name="set_clock_format">Формат часов</string>
     <string-array name="set_clock_format_entries">
         <item>Нет (скрыть)</item>
@@ -49,7 +49,7 @@
     <string name="target_open_applications">Открыть\nприложения</string>
 
     <!-- Folders -->
-    <string name="button_organize_folders">Папки</string>
+    <string name="button_folders">Папки</string>
     <string name="button_new_folder">Добавить</string>
     <string name="button_remove_folder">Удалить</string>
     <string name="hint_folders_number">Создайте столько папок, сколько вам нужно для организации ваших приложений.</string>
@@ -69,7 +69,7 @@
     <string name="error_shortcut_start">Система Android не смогла открыть ярлык</string>
 
     <!-- Search -->
-    <string name="search_icon_title">Поиск</string>
+    <string name="search_app_name">Поиск</string>
     <string name="search_hint">Поиск приложений</string>
 
     <!-- Other settings -->
@@ -94,8 +94,7 @@
     <string name="error_disable_app_drawer_not_safe">Восстановление ящика приложений для сохранения доступа к меню</string>
     <string name="error_appfilter_not_found">Не удалось найти appfilter.xml в выбранном пакете иконок. (%1$s)</string>
 
-    <!-- Export / Import -->
-    <string name="export_import_title">Экспорт и импорт</string>
+    <!-- Export and import -->
     <string name="export_import_help">Эти кнопки позволяют экспортировать данные приложения (избранное, папки, ярлыки и настройки) или импортировать их.</string>
     <string name="button_export">Экспорт</string>
     <string name="button_import">Импорт</string>
@@ -112,7 +111,7 @@
     <string name="error_import">Не удалось прочитать файл импорта</string>
 
     <!-- Other -->
-    <string name="button_hide_applications">Скрытые приложения</string>
+    <string name="button_hidden_applications">Скрытые приложения</string>
     <string name="error_remove_file">Не удалось удалить файл %1$s</string>
 
 </resources>

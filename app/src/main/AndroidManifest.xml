@@ -30,13 +30,13 @@
 
         <activity
             android:name=".settings.ActivitySettings"
-            android:label="@string/title_settings"
+            android:label="@string/title_settings_and_help"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".settings.ActivityExportImport"
-            android:label="@string/export_import_title"
+            android:label="@string/title_export_import"
             android:parentActivityName=".settings.ActivitySettings"
             android:theme="@style/AppTheme"/>
 
@@ -48,13 +48,13 @@
 
         <activity
             android:name=".ActivityFavorites"
-            android:label="@string/button_manage_favorites"
+            android:label="@string/button_favorites"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".ActivityFolders"
-            android:label="@string/button_organize_folders"
+            android:label="@string/button_folders"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 

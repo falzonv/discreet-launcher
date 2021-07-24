@@ -77,11 +77,11 @@ public class Menu extends Application
 		AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
 		dialog.setTitle(context.getString(R.string.app_name)) ;
 		CharSequence[] options = {
-				context.getString(R.string.button_manage_favorites),
-				context.getString(R.string.button_organize_folders),
-				context.getString(R.string.button_hide_applications),
+				context.getString(R.string.button_favorites),
+				context.getString(R.string.button_folders),
+				context.getString(R.string.button_hidden_applications),
 				context.getString(R.string.button_refresh_list),
-				context.getString(R.string.title_settings)
+				context.getString(R.string.title_settings_and_help)
 			} ;
 
 		// Assign actions to options and display the dialog

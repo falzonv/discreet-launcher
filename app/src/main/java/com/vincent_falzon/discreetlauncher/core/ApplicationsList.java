@@ -120,7 +120,7 @@ public class ApplicationsList
 		// Add the search icon on top of the list
 		Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.icon_search) ;
 		if(searchIcon != null) searchIcon.setBounds(0, 0, icon_size, icon_size) ;
-		drawer.add(0, new Search(context.getString(R.string.search_icon_title), searchIcon)) ;
+		drawer.add(0, new Search(context.getString(R.string.search_app_name), searchIcon)) ;
 
 		// Hide application based on the internal file
 		manageHiddenApplications() ;

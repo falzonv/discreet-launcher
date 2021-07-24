@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Settings interface -->
-    <string name="title_settings">Settings and help</string>
-    <string name="title_customization">Customization</string>
+    <!-- Settings titles -->
+    <string name="title_settings_and_help">Settings and help</string>
+    <string name="title_section_customization">Customization</string>
+    <string name="title_section_help_and_general_info">Help and general info</string>
     <string name="title_appearance_settings">Appearance</string>
     <string name="title_appearance_settings_general">General appearance</string>
     <string name="title_appearance_settings_applications">Appearance of apps</string>
     <string name="title_behavior_settings">Operation</string>
-    <string name="title_help_and_general_info">Help and general info</string>
+    <string name="title_export_import">Export and import</string>
 
     <!-- Notification -->
     <string name="set_notification">Notification for access to favorites</string>
     <string name="set_notification_help">Uses a transparent icon</string>
-    <string name="notification_title">Favorites</string>
     <string name="notification_popup_title">Manage favorites</string>
 
-    <!-- Theme -->
+    <!-- Application theme -->
     <string name="set_application_theme">Theme</string>
     <string-array name="set_application_theme_entries">
         <item>Light</item>
@@ -24,7 +24,7 @@
         <item>System preference</item>
     </string-array>
 
-    <!-- Clock -->
+    <!-- Clock format -->
     <string name="set_clock_format">Clock format</string>
     <string-array name="set_clock_format_entries">
         <item>None (hide)</item>
@@ -49,7 +49,7 @@
     <string name="target_open_applications">Open\napps</string>
 
     <!-- Folders -->
-    <string name="button_organize_folders">Folders</string>
+    <string name="button_folders">Folders</string>
     <string name="button_new_folder">Add</string>
     <string name="button_remove_folder">Remove</string>
     <string name="hint_folders_number">Create as many folders as you want to organize your apps.</string>
@@ -69,7 +69,7 @@
     <string name="error_shortcut_start">The Android system could not open the shortcut</string>
 
     <!-- Search -->
-    <string name="search_icon_title">Search</string>
+    <string name="search_app_name">Search</string>
     <string name="search_hint">Search for apps</string>
 
     <!-- Other settings -->
@@ -94,8 +94,7 @@
     <string name="error_disable_app_drawer_not_safe">Reinstating the app drawer to keep menu access.</string>
     <string name="error_appfilter_not_found">Could not find appfilter.xml in the selected icon pack. (%1$s)</string>
 
-    <!-- Export / Import -->
-    <string name="export_import_title">Export and import</string>
+    <!-- Export and import -->
     <string name="export_import_help">These buttons allow exporting the app data (favorites, folders, shortcuts and settings) or importing them again.</string>
     <string name="button_export">Export</string>
     <string name="button_import">Import</string>
@@ -112,7 +111,7 @@
     <string name="error_import">Could not read the import file</string>
 
     <!-- Other -->
-    <string name="button_hide_applications">Hidden apps</string>
+    <string name="button_hidden_applications">Hidden apps</string>
     <string name="error_remove_file">Could not delete the %1$s file</string>
 
 </resources>
