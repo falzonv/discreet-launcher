@@ -384,6 +384,25 @@ public class ApplicationsList
 			}
 		}) ;
 
+		// Retrive the index of the Search
+		int search_index = 0 ;
+		for(int i = 0 ; i < allApplications.size() ; i++)
+		{
+			if(allApplications.get(i) instanceof Search)
+				{
+					search_index = i ;
+					break ;
+				}
+		}
+
+		// Move the Search at the beginning of the list if needed
+		if(search_index > 0)
+			{
+				Application search = allApplications.get(search_index) ;
+				allApplications.remove(search_index) ;
+				allApplications.add(0, search) ;
+			}
+
 		// If requested, add folders at the beginning of the list
 		if(with_folders)
 			{

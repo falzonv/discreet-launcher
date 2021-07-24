@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Interface des paramètres -->
-    <string name="title_settings">Paramètres / Aide</string>
+    <!-- Settings interface -->
+    <string name="title_settings">Paramètres et aide</string>
     <string name="title_customization">Personnalisation</string>
     <string name="title_appearance_settings">Apparence</string>
     <string name="title_appearance_settings_general">Apparence générale</string>
@@ -13,10 +13,10 @@
     <!-- Notification -->
     <string name="set_notification">Notification d\'accès aux favoris</string>
     <string name="set_notification_help">Utilise une icône transparente</string>
-    <string name="notification_title">Accès aux favoris</string>
-    <string name="notification_popup_title">🔧 Gérer les favoris</string>
+    <string name="notification_title">Favoris</string>
+    <string name="notification_popup_title">Gérer les favoris</string>
 
-    <!-- Thème -->
+    <!-- Theme -->
     <string name="set_application_theme">Thème</string>
     <string-array name="set_application_theme_entries">
         <item>Clair</item>
@@ -24,7 +24,7 @@
         <item>Préférence système</item>
     </string-array>
 
-    <!-- Horloge -->
+    <!-- Clock -->
     <string name="set_clock_format">Format de l\'horloge</string>
     <string-array name="set_clock_format_entries">
         <item>Aucune (masquer)</item>
@@ -33,86 +33,86 @@
         <item>12 heures + AM/PM</item>
     </string-array>
 
-    <!-- Sélecteur de couleur -->
+    <!-- Color picker -->
     <string name="set_background_color">Couleur de fond</string>
-    <string name="set_background_color_help">Panneau des favoris, bouton du menu, tiroir d\'applications et barres systèmes</string>
+    <string name="set_background_color_help">Utilisée pour le bouton de menu 🔧, les favoris, le tiroir d\'applications et les barres système</string>
     <string name="color_picker_base">Base :</string>
     <string name="color_picker_reset">Réinitialiser</string>
     <string name="color_picker_preview">Aperçu</string>
-    <string name="error_invalid_color_format">Cette couleur hexadécimale n\'est pas valide !</string>
+    <string name="error_invalid_color_format">Couleur hexadécimale invalide</string>
 
-    <!-- Cibles de clic (accessibilité) -->
-    <string name="set_touch_targets">Utiliser les cibles de clic (option d\'accessibilité)</string>
-    <string name="set_touch_targets_help">Ajoute des indications cliquables sur l\'écran d\'accueil</string>
+    <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Cibles de clic (accessibilité)</string>
+    <string name="set_touch_targets_help">Indications cliquables sur l\'écran d\'accueil</string>
     <string name="target_open_favorites">Ouvrir les\nfavoris</string>
     <string name="target_close_favorites">Fermer les\nfavoris</string>
     <string name="target_open_applications">Ouvrir les\napplications</string>
 
-    <!-- Dossiers -->
-    <string name="button_organize_folders">Organiser les dossiers</string>
+    <!-- Folders -->
+    <string name="button_organize_folders">Dossiers</string>
     <string name="button_new_folder">Ajouter</string>
     <string name="button_remove_folder">Supprimer</string>
-    <string name="hint_folders_number">Vous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.</string>
-    <string name="hint_folder_edit">Cliquez sur le nom d\'un dossier pour le changer, le crayon permet de modifier le contenu du dossier.</string>
+    <string name="hint_folders_number">Créez autant de dossiers que vous voulez pour organiser vos applications.</string>
+    <string name="hint_folder_edit">Cliquez sur le nom d\'un dossier pour le changer. Le crayon permet de modifier le contenu du dossier.</string>
     <string name="hint_new_folder">Nouveau dossier</string>
     <string name="hint_rename_folder">Renommer le dossier</string>
     <string name="hint_remove_folder">Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.</string>
-    <string name="error_folder_empty_name">Le nom ne peut pas être vide !</string>
-    <string name="error_folder_already_exists">Ce dossier existe déjà !</string>
-    <string name="error_folder_rename">Une erreur est survenue en renommant le dossier !</string>
+    <string name="error_folder_empty_name">Choisissez d\'abord un nom</string>
+    <string name="error_folder_already_exists">Choisissez un nom qui n\'existe pas déjà</string>
+    <string name="error_folder_rename">Impossible de renommer le dossier</string>
 
-    <!-- Raccourcis -->
-    <string name="error_shortcut">Une erreur est survenue avec le raccourci %1$s !</string>
-    <string name="error_shortcut_invalid_request">La requête reçue pour ajouter un raccourci n\'est pas valide !</string>
-    <string name="error_shortcut_missing_info">Des informations sont manquantes et le raccourci ne peut pas être lancé !</string>
-    <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis !</string>
-    <string name="error_shortcut_start">Le système Android n\'a pas réussi à ouvrir le raccourci ou ne l\'a pas retrouvé !</string>
+    <!-- Shortcuts -->
+    <string name="error_shortcut_creation">Impossible de créer \"%1$s\"</string>
+    <string name="error_shortcut_invalid_request">Impossible d\'ajouter cela en raccourci</string>
+    <string name="error_shortcut_missing_info">Impossible de suivre ce raccourci</string>
+    <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis</string>
+    <string name="error_shortcut_start">Le système Android n\'a pas pu ouvrir le raccourci</string>
 
     <!-- Search -->
     <string name="search_icon_title">Recherche</string>
     <string name="search_hint">Chercher des applications</string>
 
-    <!-- Autres paramètres -->
+    <!-- Other settings -->
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
-    <string name="set_hide_menu_button">Masquer le bouton du menu</string>
-    <string name="set_hide_menu_button_help">Il reste accessible par l\'icône du lanceur</string>
+    <string name="set_hide_menu_button">Pas de bouton de menu 🔧</string>
+    <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
-    <string name="set_icon_pack_none">Aucun (utiliser les vraies icônes)</string>
-    <string name="set_hide_app_names">Masquer les noms des applications</string>
-    <string name="set_remove_padding">Supprimer les marges quand les noms sont masqués</string>
-    <string name="set_remove_padding_help">Peut donner des résultats inattendus avec les longs noms de dossiers</string>
-    <string name="set_hide_app_names_help">Les noms des dossiers seront toujours affichés</string>
-    <string name="set_force_portrait">Forcer le mode portrait</string>
-    <string name="set_force_portrait_help">Le lanceur ne pivotera pas même si la rotation automatique est activée</string>
+    <string name="set_icon_pack_none">Aucun (utiliser les icônes par défaut)</string>
+    <string name="set_hide_app_names">Pas de noms d\'applications</string>
+    <string name="set_hide_app_names_help">Les noms des dossiers sont toujours affichés</string>
+    <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>
+    <string name="set_remove_padding_help">Peut causer des soucis avec les longs noms de dossiers</string>
+    <string name="set_force_portrait">Mode portrait forcé</string>
+    <string name="set_force_portrait_help">Empêche la rotation du lanceur même si la rotation automatique est activée</string>
     <string name="set_always_show_favorites">Toujours afficher les favoris</string>
-    <string name="set_immersive_mode">Utiliser le mode immersif</string>
-    <string name="set_immersive_mode_help">Masque les barres systèmes (clic long sur l\'écran d\'accueil pour forcer si besoin)</string>
-    <string name="set_reverse_interface">Inverser l\'interface</string>
-    <string name="set_reverse_interface_help">Affiche le panneau des favoris en bas</string>
-    <string name="set_disable_app_drawer">Désactiver le tiroir d\'applications</string>
-    <string name="error_disable_app_drawer_not_safe">Tiroir d\'applications activé pour que vous ne perdiez pas l\'accès au menu</string>
-    <string name="error_appfilter_not_found">Le fichier appfilter.xml est introuvable dans le pack d\'icônes sélectionné ! (%1$s)</string>
+    <string name="set_immersive_mode">Mode immersif</string>
+    <string name="set_immersive_mode_help">Pas de barres système. (Peut être forcé par un clic long sur l\'écran d\'accueil.)</string>
+    <string name="set_reverse_interface">Interface inversée</string>
+    <string name="set_reverse_interface_help">Applications au dessus, et favoris en dessous de l\'écran d\'accueil</string>
+    <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>
+    <string name="error_disable_app_drawer_not_safe">Tiroir d\'applications rétabli pour conserver l\'accès au menu</string>
+    <string name="error_appfilter_not_found">Impossible de trouver appfilter.xml dans le pack d\'icônes sélectionné. (%1$s)</string>
 
     <!-- Export / Import -->
-    <string name="export_import_title">Exporter / Importer</string>
-    <string name="export_import_help">Ces boutons permettent d\'exporter les données de l\'application (favoris, raccourcis et paramètres) ou d\'importer un export précédent.</string>
+    <string name="export_import_title">Exporter et importer</string>
+    <string name="export_import_help">Ces boutons permettent d\'exporter les données de l\'application (favoris, dossiers, raccourcis et paramètres) ou de les réimporter.</string>
     <string name="button_export">Exporter</string>
     <string name="button_import">Importer</string>
     <string name="export_import_header_internal_files">Contenu des fichiers textes internes</string>
     <string name="export_import_header_settings">Paramètres</string>
     <string name="export_import_header_icons">Icônes sauvegardées</string>
-    <string name="export_import_warning_file_edit">Soyez prudent(e) : si vous éditez ce fichier, cela peut produire des résultats inattendus !</string>
+    <string name="export_import_warning_file_edit">Éditer ce fichier peut causer des problèmes</string>
     <string name="export_import_warning_shortcuts">
-        (Avec Android Oreo (8) ou plus récent, les applications web importées peuvent ne pas marcher
-        car elles sont gérées par le système et ne sont pas supposées être exportables)
+        (Sur Android Oreo (8) et supérieur, les raccourcis importés peuvent ne pas marcher
+        car ils sont gérés par le système et ne sont pas supposés être exportables)
     </string>
     <string name="export_completed">Export terminé</string>
-    <string name="error_export">Une erreur est survenue durant la création du fichier d\'export !</string>
-    <string name="error_import">Une erreur est survenue durant la lecture du fichier d\'import !</string>
+    <string name="error_export">Impossible de créer le fichier d\'export</string>
+    <string name="error_import">Impossible de lire le fichier d\'import</string>
 
-    <!-- Autres -->
-    <string name="button_hide_applications">Masquer des applications</string>
-    <string name="error_remove_file">Une erreur est survenue en nettoyant le fichier %1$s !</string>
+    <!-- Other -->
+    <string name="button_hide_applications">Applications masquées</string>
+    <string name="error_remove_file">Impossible de supprimer le fichier %1$s</string>
 
 </resources>

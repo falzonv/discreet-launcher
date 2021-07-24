@@ -25,45 +25,45 @@ package com.vincent_falzon.discreetlauncher ;
 /**
  * Provide all the constants of the application.
  */
-public abstract class Constants
+public interface Constants
 {
 	// Constants related to internal files
-	public static final String FILE_FAVORITES = "favorites.txt" ;
-	public static final String FILE_FOLDER_PREFIX = "folder_" ;
-	public static final String FILE_HIDDEN = "hidden.txt" ;
-	public static final String FILE_SHORTCUTS = "shortcuts.txt" ;
-	public static final String FILE_SHORTCUTS_LEGACY = "shortcuts_legacy.txt" ;
-	public static final String FILE_ICON_SHORTCUT_PREFIX = "icon_shortcut_" ;
+	String FILE_FAVORITES = "favorites.txt" ;
+	String FILE_FOLDER_PREFIX = "folder_" ;
+	String FILE_HIDDEN = "hidden.txt" ;
+	String FILE_SHORTCUTS = "shortcuts.txt" ;
+	String FILE_SHORTCUTS_LEGACY = "shortcuts_legacy.txt" ;
+	String FILE_ICON_SHORTCUT_PREFIX = "icon_shortcut_" ;
 
 	// Constants related to applications
-	public static final String APK_SEARCH = "discreetlauncher.search" ;
-	public static final String APK_FOLDER = "discreetlauncher.folder" ;
-	public static final String APK_SHORTCUT = "discreetlauncher.shortcut" ;
-	public static final String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
-	public static final String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
+	String APK_SEARCH = "discreetlauncher.search" ;
+	String APK_FOLDER = "discreetlauncher.folder" ;
+	String APK_SHORTCUT = "discreetlauncher.shortcut" ;
+	String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
+	String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
 
 	// Constants representing settings keys
-	public static final String NONE = "none" ;
-	public static final String NOTIFICATION = "notification" ;
-	public static final String APPLICATION_THEME = "application_theme" ;
-	public static final String BACKGROUND_COLOR = "background_color" ;
-	public static final String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
-	public static final String HIDE_MENU_BUTTON = "hide_menu_button" ;
-	public static final String CLOCK_FORMAT = "clock_format" ;
-	public static final String ICON_PACK = "icon_pack" ;
-	public static final String HIDE_APP_NAMES = "hide_app_names" ;
-	public static final String REMOVE_PADDING = "remove_padding" ;
-	public static final String FORCE_PORTRAIT = "force_portrait" ;
-	public static final String ALWAYS_SHOW_FAVORITES = "always_show_favorites" ;
-	public static final String IMMERSIVE_MODE = "immersive_mode" ;
-	public static final String REVERSE_INTERFACE = "reverse_interface" ;
-	public static final String TOUCH_TARGETS = "touch_targets" ;
-	public static final String DISABLE_APP_DRAWER = "disable_app_drawer" ;
+	String NONE = "none" ;
+	String NOTIFICATION = "notification" ;
+	String APPLICATION_THEME = "application_theme" ;
+	String BACKGROUND_COLOR = "background_color" ;
+	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
+	String HIDE_MENU_BUTTON = "hide_menu_button" ;
+	String CLOCK_FORMAT = "clock_format" ;
+	String ICON_PACK = "icon_pack" ;
+	String HIDE_APP_NAMES = "hide_app_names" ;
+	String REMOVE_PADDING = "remove_padding" ;
+	String FORCE_PORTRAIT = "force_portrait" ;
+	String ALWAYS_SHOW_FAVORITES = "always_show_favorites" ;
+	String IMMERSIVE_MODE = "immersive_mode" ;
+	String REVERSE_INTERFACE = "reverse_interface" ;
+	String TOUCH_TARGETS = "touch_targets" ;
+	String DISABLE_APP_DRAWER = "disable_app_drawer" ;
 
-	// To remove after 31/07/2021 (setting migrated to internal file)
-	public static final String HIDDEN_APPLICATIONS = "hidden_applications" ;
-	public static final String NOTIFICATION_SEPARATOR = "_discreet_" ;
+	// To remove later (setting migrated to internal file)
+	String HIDDEN_APPLICATIONS = "hidden_applications" ;
+	String NOTIFICATION_SEPARATOR = "_discreet_" ;
 
-	// To remove after 30/09/2021 (setting merged with clock format)
-	public static final String DISPLAY_CLOCK = "display_clock" ;
+	// To remove later (setting merged with clock format)
+	String DISPLAY_CLOCK = "display_clock" ;
 }

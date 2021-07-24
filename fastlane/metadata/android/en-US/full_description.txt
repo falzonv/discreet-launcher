@@ -11,7 +11,7 @@ Discreet Launcher is open source, doesn't require any unnecessary permission, wo
 - Search
 - Hide applications
 - Notification for favorites access
-- Web applications support
+- Shortcuts (web apps) support
 - Export/import settings
 - Help and changelog
 
@@ -20,6 +20,8 @@ Discreet Launcher is open source, doesn't require any unnecessary permission, wo
 - Force portrait mode
 - Immersive mode
 - Reversed interface
+- Always show favorites
+- No app drawer
 - Touch targets (accessibility)
 - Clock on the home screen
 - Transparent status bar

@@ -1,73 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Aide -->
+    <!-- Help -->
     <string name="help_title">Aide</string>
     <string name="help_navigation_title">Navigation</string>
     <string name="help_navigation_text">
-        Depuis l\'écran d\'accueil, tirez vers le bas pour afficher le panneau des favoris et vers le haut pour le masquer.
+        Glissez le doigt vers le haut depuis l\'écran d\'accueil pour afficher toutes les applications, et vers le bas pour les masquer.
         \n
-        \nSi vous tirez vers le haut quand le panneau des favoris est caché, la liste complète des applications s\'affiche.
-        Tirez vers le bas depuis le haut de cette liste pour revenir à l\'accueil.
+        \nGlissez le doigt vers le bas depuis l\'écran d\'accueil pour afficher les favoris, et vers le haut pour les masquer.
         \n
-        \nPressez le bouton sous le panneau des favoris pour afficher le menu du lanceur.
+        \nCliquez sur le bouton de menu 🔧 (quand les favoris sont affichés) pour ouvrir le menu.
         \n
-        \nEn maintenant le doigt quelques instants sur une application ou un dossier, il vous sera proposé d\'accéder à ses paramètres.
+        \nAppuyez longuement sur une application ou un dossier pour accéder à ses paramètres.
     </string>
     <string name="help_notification_title">Notification</string>
     <string name="help_notification_text">
-        La notification permet d\'afficher les favoris au dessus d\'autres applications quand vous quitter l\'accueil.
-        Dans la plupart des cas, cela devrait fonctionner sans problèmes.
-        \n
-        \nCependant, dans certains cas vous pouvez être ramené(e) à l\'accueil au lieu d\'avoir l\'affichage au-dessus d\'autres applications.
-        \nSi vous avez ce souci, vous pouvez essayer deux choses :
-        \n- Cliquer sur le bouton \"tout effacer\" dans les applications récentes
-        \n- Redémarrer votre smartphone
-        \nAprès l\'une de ces actions, le problème ne devrait plus apparaître.
-        \nS\'il persiste, je suis désolé mais il semble que cela ne va pas marcher pour vous :-/
-        \n
-        \nPour ne pas être intrusive, l\'icône de notification est transparente avec une faible priorité.
-        Avec certains applications encore moins prioritaires, cela peut générer un espace vide dans la barre de statut.
-        \n
-        \nEnfin, si vous changez le lanceur par défaut, il est possible que la notification soit toujours là.
-        Pour la cacher, vous pouvez ouvrir Lanceur Discret (pas besoin qu\'il soit le lanceur par défaut) et désactiver la notification dans les paramètres.
+        Affiche une fenêtre avec les favoris au dessus des autres applications quand vous quittez l\'écran d\'accueil.
     </string>
     <string name="help_list_update_title">Mise à jour de la liste</string>
     <string name="help_list_update_text">
-        La liste des applications et leurs icônes ne sont actualisées qu\'après certains évènements
-        (au démarrage, lorsqu\'une application est ajoutée ou supprimée, quand le pack d\'icônes est modifié).
-        Quand cela se produit, un petit message apparaît dans une bulle pendant quelques instants.
-        \n
-        \nSi quelque chose semble incorrect, vous devriez essayer d\'actualiser la liste manuellement.
+        Un petit message s\'affiche lors de l\'actualisation de la liste des applications et de leurs icônes,
+        lors du démarrage, lors de l\'ajout ou de la suppression d\'applications, ou si le pack d\'icônes est modifié.
     </string>
     <string name="help_folders_title">Dossiers</string>
     <string name="help_folders_text">
-        Pour créer/renommer/supprimer des dossiers et mettre des applications dedans, vous devez utiliser l\'organiseur de dossiers.
-        Il est accessible par le bouton de menu ou en cliquant sur le titre d\'un dossier ouvert.
-        \n
-        \nVous pouvez créer autant de dossiers que vous voulez pour organiser vos applications.
-        Ces dossiers peuvent aussi être ajoutés dans les favoris.
-        Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.
-        \n
-        \nUne application ne peut être que dans un seul dossier à la fois (ou dans aucun dossier).
-        Cependant, vous pouvez avoir à la fois une application et le dossier contenant cette application dans les favoris.
+        Gérez les dossiers ou mettez les en favoris depuis le bouton de menu 🔧, ou cliquer sur le titre d\'un dossier ouvert
+        pour créer, renommer, et mettre des applications dedans.
+        \nLa suppression d\'un dossier remet toutes ses applications dans la liste principale.
     </string>
     <string name="help_search_title">Recherche</string>
     <string name="help_search_text">
-        L\'icône de recherche permet de trouver une application dans la liste complète.
-        Vous pouvez l\'ajouter aux favoris de façon à y accéder aussi grâce à la notification.
-        Pour des raisons techniques, il n\'est pas possible de la mettre dans un dossier.
+        Trouver n\'importe quelle application depuis l\'icône de recherche 🔍. Elle peut aussi être mise dans les favoris pour être disponible
+        depuis la notification, ou cachée.
         \n
-        \nSi vous ne pensez pas l\'utiliser, vous pouvez aussi masquer la recherche comme n\'importe quelle application.
-        \n
-        \nEnfin, appuyer sur \"Entrée\" quand il n\'y a qu\'un seul résultat de recherche ouvrira celui-ci.
+        \nS\'il n\'y a qu\'un seul résultat de recherche, appuyez sur \"Entrée\" l\'ouvrira.
     </string>
 
-    <!-- Journal des changements -->
+    <!-- Changelog -->
     <string name="changelog_title">Journal des changements</string>
     <string name="changelog_mentions"><i>@pseudo</i> indique l\'utilisateur(trice) qui a suggéré l\'idée ou signalé le bug</string>
     <string name="changelog_folder">changelog-fr</string>
-    <string name="error_changelog_folder">Le dossier du journal des changements est introuvable !</string>
-    <string name="error_changelog_file">Erreur d\'ouverture de %1s !</string>
+    <string name="error_changelog_folder">Impossible de trouver le dossier du journal des changements</string>
+    <string name="error_changelog_file">Impossible d\'ouvrir %1s</string>
 
 </resources>

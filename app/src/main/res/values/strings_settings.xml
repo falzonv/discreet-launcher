@@ -62,7 +62,7 @@
     <string name="error_folder_rename">Could not rename the folder</string>
 
     <!-- Shortcuts -->
-    <string name="error_shortcut">Could not follow the %1$s shortcut</string>
+    <string name="error_shortcut_creation">Could not create \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Could not add that as a shortcut</string>
     <string name="error_shortcut_missing_info">Could not follow this shortcut</string>
     <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts</string>
@@ -104,7 +104,7 @@
     <string name="export_import_header_icons">Saved icons</string>
     <string name="export_import_warning_file_edit">Editing this file may cause problems</string>
     <string name="export_import_warning_shortcuts">
-        (On Android 8 (Oreo) and beyond, imported web apps may not work
+        (On Android 8 (Oreo) and beyond, imported shortcuts may not work
         because they are managed by the system and are not supposed to be exported)
     </string>
     <string name="export_completed">Export completed</string>
