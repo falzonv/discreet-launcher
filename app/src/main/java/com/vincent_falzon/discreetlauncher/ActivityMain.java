@@ -70,6 +70,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private SharedPreferences settings ;
 	private GestureDetectorCompat gestureDetector ;
 	private NotificationDisplayer notification ;
+	private float density ;
 
 	// Attributes related to the home screen
 	private LinearLayout homeScreen ;
@@ -102,6 +103,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Initializations
 		internal_folder = getApplicationContext().getFilesDir().getAbsolutePath() ;
+		density = getResources().getDisplayMetrics().density ;
 
 		// Assign default values to settings not configured yet
 		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
@@ -558,7 +560,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			float y_distance = event1.getY() - event2.getY() ;
 
 			// Check if this is a vertical gesture over a distance and not a single tap
-			if((Math.abs(y_distance) > x_distance) && (Math.abs(y_distance) > 100))
+			if((Math.abs(y_distance) > x_distance) && (Math.abs(y_distance) > Math.round(34 * density)))
 				{
 					// Adapt the gesture direction to the interface direction
 					boolean swipe_drawer ;
