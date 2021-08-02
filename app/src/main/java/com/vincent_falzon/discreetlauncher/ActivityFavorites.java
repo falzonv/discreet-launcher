@@ -23,10 +23,8 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
-import android.content.Context ;
 import android.content.DialogInterface ;
 import android.os.Bundle ;
-import android.util.DisplayMetrics ;
 import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
 import android.view.View ;
@@ -82,28 +80,6 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 
 	/**
-	 * Define how many favorites could be displayed without issues on the home screen.
-	 * @return Maximum number of favorites
-	 */
-	private int defineMaxFavorites()
-	{
-		// Retrieve the total height available in portrait mode (navigation bar automatically removed)
-		DisplayMetrics metrics = getResources().getDisplayMetrics() ;
-		int menu_button_height = Math.round(32 * metrics.density) ;
-		int total_size = Math.max(metrics.heightPixels, metrics.widthPixels)
-				- Math.round(25 * metrics.density)	// Remove 25dp for the status bar
-				- Math.round(20 * metrics.density)  // Remove 20dp for button margins and spare
-				- menu_button_height ;
-
-		// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
-		int app_size = menu_button_height + Math.round(48 * metrics.density) + Math.round(20 * metrics.density) ;
-
-		// Define the maximum number of favorites that should be allowed
-		return 4 * (total_size / app_size) ;
-	}
-
-
-	/**
 	 * Perform an action when an element is clicked.
 	 * @param view Target element
 	 */
@@ -136,14 +112,9 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 					selected[i] = file.isLineExisting(applications.get(i).getComponentInfo()) ;
 			else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
 
-		// Prepare the title
-		final int max_favorites = defineMaxFavorites() ;
-		String dialog_title = getString(R.string.button_select_favorites) + " (max " + max_favorites + ")" ;
-
 		// Prepare and display the selection dialog
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
-		final Context context = this ;
-		dialog.setTitle(dialog_title) ;
+		dialog.setTitle(R.string.button_select_favorites) ;
 		dialog.setMultiChoiceItems(app_names, selected,
 				new DialogInterface.OnMultiChoiceClickListener()
 				{
@@ -160,20 +131,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 						if(!file.remove()) return ;
 
 						// Write the new selected applications to the file
-						int selections_number = 0 ;
 						for(i = 0 ; i < selected.length ; i++)
-							if(selected[i])
-							{
-								// Add the application only if the maximum is not reached
-								selections_number++ ;
-								if((max_favorites == -1) || (selections_number <= max_favorites))
-										file.writeLine(applications.get(i).getComponentInfo()) ;
-									else
-									{
-										ShowDialog.toastLong(context, context.getString(R.string.error_max_favorites_reached, max_favorites)) ;
-										break ;
-									}
-							}
+							if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
 
 						// Update the favorites applications list
 						ActivityMain.updateFavorites() ;

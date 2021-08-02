@@ -260,41 +260,46 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Do not continue if the setting to disable the app drawer is not enabled
 		if(!settings.getBoolean(Constants.DISABLE_APP_DRAWER, false)) return ;
 
-		// Do not continue if the menu button is not hidden
-		if(!settings.getBoolean(Constants.HIDE_MENU_BUTTON, false)) return ;
-
-		// Initializations
-		String launcher = "{com.vincent_falzon.discreetlauncher/com.vincent_falzon.discreetlauncher.ActivityMain}" ;
-		boolean safe = false ;
-
 		// Browse all favorites
+		String launcher = "{com.vincent_falzon.discreetlauncher/com.vincent_falzon.discreetlauncher.ActivityMain}" ;
 		for(Application application : applicationsList.getFavorites())
 		{
 			// Search if the launcher icon or Search app is in favorites
-			if(application instanceof Search) safe = true ;
-				else if(application.getComponentInfo().equals(launcher)) safe = true ;
+			if(application instanceof Search) return ;
+				else if(application.getComponentInfo().equals(launcher)) return ;
 				else if(application instanceof Folder)
 				{
 					// Also search the launcher icon in folders
 					for(Application folder_application : ((Folder)application).getApplications())
-						if(folder_application.getComponentInfo().equals(launcher))
-							{
-								safe = true ;
-								break ;
-							}
+						if(folder_application.getComponentInfo().equals(launcher)) return ;
 				}
-
-			// Do not continue after it has been found that the disabling is safe
-			if(safe) break ;
 		}
 
-		// If the drawer cannot be safely disabled, display a message and disable the setting
-		if(!safe)
+		// Check if the menu button is still enabled
+		if(!settings.getBoolean(Constants.HIDE_MENU_BUTTON, false))
 			{
-				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
-				SharedPreferences.Editor editor = settings.edit() ;
-				editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
+				// Consider it will always stays visible if applications names are hidden
+				if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)) return ;
+
+				// Retrieve the total height available in portrait mode (navigation bar automatically removed)
+				int menu_button_height = Math.round(32 * density) ;
+				int total_size = Math.max(getResources().getDisplayMetrics().heightPixels, getResources().getDisplayMetrics().widthPixels)
+						- Math.round(25 * density)	// Remove 25dp for the status bar
+						- Math.round(20 * density)  // Remove 20dp for button margins and spare
+						- menu_button_height ;
+
+				// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
+				int app_size = menu_button_height + Math.round(48 * density) + Math.round(20 * density) ;
+				int max_favorites = 4 * (total_size / app_size) ;
+
+				// Check if the number of favorites still allows to see the menu button
+				if(applicationsList.getFavorites().size() <= max_favorites) return ;
 			}
+
+		// If the drawer cannot be safely disabled, display a message and disable the setting
+		ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
+		SharedPreferences.Editor editor = settings.edit() ;
+		editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
 	}
 
 

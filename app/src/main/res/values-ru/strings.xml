@@ -11,7 +11,6 @@
     <string name="button_select_favorites">Выбрать избранные</string>
     <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
     <string name="hint_modify_order_of_favorites">Измените порядок избранного в списке ниже (используя стороны для прокрутки).</string>
-    <string name="error_max_favorites_reached">У вас не может быть больше %1$d избранного</string>
 
     <!-- Dialogs buttons -->
     <string name="button_apply">Применить</string>
