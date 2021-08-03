@@ -227,11 +227,13 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
 		InternalFileTXT folders_colors = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS) ;
 		InternalFileTXT hidden = new InternalFileTXT(Constants.FILE_HIDDEN) ;
+		InternalFileTXT rename_apps = new InternalFileTXT(Constants.FILE_RENAME_APPS) ;
 		InternalFileTXT shortcuts = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
 		InternalFileTXT shortcuts_legacy = new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY) ;
 		favorites.remove() ;
 		folders_colors.remove() ;
 		hidden.remove() ;
+		rename_apps.remove() ;
 		shortcuts.remove() ;
 		shortcuts_legacy.remove() ;
 
@@ -269,6 +271,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					writeLineToInternalFile(new InternalFileTXT(line.substring(0, line.indexOf(": "))), line) ;
 				}
 				else if(line.startsWith(Constants.FILE_HIDDEN)) writeLineToInternalFile(hidden, line) ;
+				else if(line.startsWith(Constants.FILE_RENAME_APPS)) writeLineToInternalFile(rename_apps, line) ;
 				else if(line.startsWith(Constants.FILE_SHORTCUTS)) writeLineToInternalFile(shortcuts, line) ;
 				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
 				// Load the settings

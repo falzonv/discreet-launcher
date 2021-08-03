@@ -115,6 +115,7 @@
 
     <!-- Other -->
     <string name="button_hidden_applications">Applications masquées</string>
+    <string name="button_rename">Renommer</string>
     <string name="error_remove_file">Impossible de supprimer le fichier %1$s</string>
 
 </resources>

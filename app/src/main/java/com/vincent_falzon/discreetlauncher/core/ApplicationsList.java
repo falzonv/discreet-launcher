@@ -108,6 +108,9 @@ public class ApplicationsList
 		// Add the shortcuts to the list as applications
 		loadShortcuts(context) ;
 
+		// Rename applications if needed
+		renameApplications() ;
+
 		// Sort the applications list in alphabetic order based on display name
 		Collections.sort(drawer, new Comparator<Application>()
 		{
@@ -329,6 +332,31 @@ public class ApplicationsList
 					drawer.add(new Shortcut(legacy_shortcut[0], legacy_shortcut[1], Constants.APK_SHORTCUT_LEGACY, icon)) ;
 				}
 			}
+	}
+
+
+	/**
+	 * Rename applications if needed.
+	 */
+	private void renameApplications()
+	{
+		// Check if apps have been renamed
+		ArrayList<String> rename_apps_file = new InternalFileTXT(Constants.FILE_RENAME_APPS).readAllLines() ;
+		if(rename_apps_file == null) return ;
+
+		// Browse the internal file
+		for(String line : rename_apps_file)
+		{
+			// Search the ComponentInfo in the applications list
+			for(Application application : drawer)
+				if(line.startsWith(application.getComponentInfo()))
+				{
+					// Rename the application and move to the next line
+					String new_name = line.replace(application.getComponentInfo() + Constants.SEPARATOR, "") ;
+					application.setDisplayName(new_name) ;
+					break ;
+				}
+		}
 	}
 
 

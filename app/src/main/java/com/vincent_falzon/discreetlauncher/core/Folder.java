@@ -86,6 +86,7 @@ public class Folder extends Application
 	 * Set the display name of the folder.
 	 * @param new_name New display name
 	 */
+	@Override
 	public void setDisplayName(String new_name)
 	{
 		display_name = new_name ;

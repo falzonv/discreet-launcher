@@ -32,6 +32,7 @@ public interface Constants
 	String FILE_FOLDER_PREFIX = "folder_" ;
 	String FILE_FOLDERS_COLORS = "folders_colors.txt" ;
 	String FILE_HIDDEN = "hidden.txt" ;
+	String FILE_RENAME_APPS = "rename_apps.txt" ;
 	String FILE_SHORTCUTS = "shortcuts.txt" ;
 	String FILE_SHORTCUTS_LEGACY = "shortcuts_legacy.txt" ;
 	String FILE_ICON_SHORTCUT_PREFIX = "icon_shortcut_" ;

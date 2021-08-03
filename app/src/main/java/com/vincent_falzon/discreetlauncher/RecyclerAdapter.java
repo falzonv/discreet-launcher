@@ -40,12 +40,15 @@ import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
 import android.view.View ;
 import android.view.ViewGroup ;
+import android.widget.EditText ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.core.Shortcut ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
+import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
+
 import java.util.ArrayList ;
 
 /**
@@ -284,8 +287,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 				{
 					CharSequence[] options = {
 							context.getString(R.string.long_click_open, application.getDisplayName()),
-							context.getString(R.string.long_click_store),
 							context.getString(R.string.long_click_settings),
+							context.getString(R.string.long_click_store),
+							context.getString(R.string.button_rename),
 						} ;
 					dialog.setItems(options,
 							new DialogInterface.OnClickListener()
@@ -302,6 +306,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 												ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
 											break ;
 										case 1 :
+											// Open the application system settings
+											Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
+											settingsIntent.setData(Uri.parse("package:" + application.getApk())) ;
+											settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+											context.startActivity(settingsIntent) ;
+											break ;
+										case 2 :
 											// Open the application page in the store
 											Intent storeIntent = new Intent(Intent.ACTION_VIEW) ;
 											storeIntent.setData(Uri.parse("market://details?id=" + application.getApk())) ;
@@ -315,12 +326,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 												ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, "{market}")) ;
 											}
 											break ;
-										case 2 :
-											// Open the application system settings
-											Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-											settingsIntent.setData(Uri.parse("package:" + application.getApk())) ;
-											settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-											context.startActivity(settingsIntent) ;
+										case 3 :
+											// Display the dialog to rename the application
+											showRenameDialog(context, application) ;
 											break ;
 									}
 								}
@@ -350,6 +358,45 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					name.setShadowLayer(0, 0, 0, 0) ;
 					name.getCompoundDrawables()[1].clearColorFilter() ;
 				}
+		}
+
+
+		/**
+		 * Display a dialog allowing to rename the application.
+		 * @param context To display the dialog and update the list.
+		 * @param application Target application
+		 */
+		private void showRenameDialog(final Context context, final Application application)
+		{
+			// Create the menu dialog
+			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+			dialog.setTitle(R.string.button_rename) ;
+			dialog.setNegativeButton(R.string.button_cancel, null) ;
+
+			// Prepare a text field containing the initial name
+			final EditText renameField = new EditText(context) ;
+			renameField.setText(application.getDisplayName()) ;
+
+			// Add the button to save a new name
+			dialog.setPositiveButton(R.string.button_apply, new DialogInterface.OnClickListener()
+				{
+					@Override
+					public void onClick(DialogInterface dialog, int which)
+					{
+						// Remove any existing name mapping
+						InternalFileTXT rename_apps_file = new InternalFileTXT(Constants.FILE_RENAME_APPS) ;
+						rename_apps_file.removeLine(application.getComponentInfo()) ;
+
+						// Save the new name and update the applications list
+						rename_apps_file.writeLine(application.getComponentInfo() + Constants.SEPARATOR + renameField.getText()) ;
+						ActivityMain.updateList(context) ;
+						notifyDataSetChanged() ;
+					}
+				}) ;
+
+			// Display the dialog
+			dialog.setView(renameField) ;
+			dialog.show() ;
 		}
 	}
 }

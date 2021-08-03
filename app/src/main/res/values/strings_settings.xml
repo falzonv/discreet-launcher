@@ -115,6 +115,7 @@
 
     <!-- Other -->
     <string name="button_hidden_applications">Hidden apps</string>
+    <string name="button_rename">Rename</string>
     <string name="error_remove_file">Could not delete the %1$s file</string>
 
 </resources>

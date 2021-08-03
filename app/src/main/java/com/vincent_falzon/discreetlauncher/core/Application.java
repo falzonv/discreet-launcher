@@ -70,6 +70,16 @@ public class Application
 
 
 	/**
+	 * Set the display name of the application.
+	 * @param new_name New display name
+	 */
+	public void setDisplayName(String new_name)
+	{
+		display_name = new_name ;
+	}
+
+
+	/**
 	 * Get the internal name of the application.
 	 * @return Application name used internally
 	 */
