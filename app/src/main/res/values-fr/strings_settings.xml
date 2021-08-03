@@ -53,7 +53,10 @@
     <string name="button_new_folder">Ajouter</string>
     <string name="button_remove_folder">Supprimer</string>
     <string name="hint_folders_number">Créez autant de dossiers que vous voulez pour organiser vos applications.</string>
-    <string name="hint_folder_edit">Cliquez sur le nom d\'un dossier pour le changer. Le crayon permet de modifier le contenu du dossier.</string>
+    <string name="hint_folder_edit">
+        Cliquez sur le nom d\'un dossier pour le changer, et sur l\'icône pour choisir sa couleur.
+        Le crayon permet de modifier le contenu du dossier.
+    </string>
     <string name="hint_new_folder">Nouveau dossier</string>
     <string name="hint_rename_folder">Renommer le dossier</string>
     <string name="hint_remove_folder">Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.</string>

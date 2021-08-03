@@ -53,7 +53,10 @@
     <string name="button_new_folder">Add</string>
     <string name="button_remove_folder">Remove</string>
     <string name="hint_folders_number">Create as many folders as you want to organize your apps.</string>
-    <string name="hint_folder_edit">Click on a folder name to change it. The pen allows editing folder content.</string>
+    <string name="hint_folder_edit">
+        Click on a folder name to change it, and on the icon to choose its color.
+        The pen allows editing folder content.
+    </string>
     <string name="hint_new_folder">New folder</string>
     <string name="hint_rename_folder">Rename folder</string>
     <string name="hint_remove_folder">If a folder is removed, its content will be put back in the main app list.</string>

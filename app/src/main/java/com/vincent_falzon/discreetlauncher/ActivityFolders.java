@@ -26,12 +26,14 @@ package com.vincent_falzon.discreetlauncher ;
 import android.app.Activity ;
 import android.content.Context ;
 import android.content.DialogInterface ;
+import android.graphics.drawable.Drawable ;
 import android.os.Bundle ;
 import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
 import android.view.inputmethod.InputMethodManager ;
 import android.widget.EditText ;
+import android.widget.ImageButton ;
 import android.widget.TextView ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
@@ -40,6 +42,8 @@ import androidx.recyclerview.widget.LinearLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
+import com.vincent_falzon.discreetlauncher.core.FolderIcon ;
+import com.vincent_falzon.discreetlauncher.settings.ColorPickerDialog ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
@@ -104,9 +108,14 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 						return ;
 					}
 
+				// Prepare the folder icon
+				Drawable icon = new FolderIcon(this, 0, getResources().getColor(R.color.white)) ;
+				int icon_size = Math.round(48 * getResources().getDisplayMetrics().density) ;
+				icon.setBounds(0, 0, icon_size, icon_size) ;
+
 				// Create the folder and update the list
 				file.writeLine("") ;
-				folders.add(new Folder(new_folder_name, null, getResources().getColor(R.color.white))) ;
+				folders.add(new Folder(new_folder_name, icon, getResources().getColor(R.color.white))) ;
 				ActivityMain.updateList(this) ;
 				adapter.notifyDataSetChanged() ;
 			}
@@ -157,6 +166,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 		public void onBindViewHolder(FolderView folderView, int i)
 		{
 			folderView.name.setText(folders.get(i).getDisplayNameWithCount()) ;
+			folderView.color.setImageDrawable(folders.get(i).getIcon()) ;
 		}
 
 
@@ -178,6 +188,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 		{
 			// Attributes
 			private final TextView name ;
+			private final ImageButton color ;
 
 
 			/**
@@ -191,9 +202,11 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 				// Initializations
 				name = view.findViewById(R.id.edit_folder_name) ;
+				color = view.findViewById(R.id.edit_folder_color) ;
 
 				// Listen for clicks on elements
 				name.setOnClickListener(this) ;
+				color.setOnClickListener(this) ;
 				view.findViewById(R.id.edit_folder_content).setOnClickListener(this) ;
 				view.findViewById(R.id.remove_folder).setOnClickListener(this) ;
 			}
@@ -215,7 +228,37 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 				// Identify which element has been clicked
 				int selection = view.getId() ;
-				if(selection == R.id.edit_folder_name)
+				if(selection == R.id.edit_folder_color)
+					{
+						ColorPickerDialog colorDialog = new ColorPickerDialog(context,
+								folder.getColor(),
+								ColorPickerDialog.convertIntColorToHexadecimal(context.getResources().getColor(R.color.white), true),
+								folder.getDisplayName(),
+								new ColorPickerDialog.SaveRequestListener()
+								{
+									@Override
+									public void onSaveRequest(String color)
+									{
+										// Remove the previous color from the mapping file
+										InternalFileTXT folders_colors = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS) ;
+										folders_colors.removeLine(folder.getFileName() + Constants.SEPARATOR) ;
+
+										// Registrer the new color and update the applications list
+										folders_colors.writeLine(folder.getFileName() + Constants.SEPARATOR + color) ;
+										ActivityMain.updateList(context) ;
+										notifyDataSetChanged() ;
+
+										// Update the preview in the folders organizer
+										folder.setColor(ColorPickerDialog.convertHexadecimalColorToInt(color)) ;
+										ArrayList<Folder> all_folders = ActivityMain.getApplicationsList().getFolders() ;
+										for(Folder the_folder : all_folders)
+											if(the_folder.getComponentInfo().equals(folder.getComponentInfo()))
+												folder.setIcon(the_folder.getIcon()) ;
+									}
+								}) ;
+						colorDialog.show() ;
+					}
+					else if(selection == R.id.edit_folder_name)
 					{
 						// Ask the user for the new name
 						final EditText newFolderName = new EditText(context) ;
@@ -236,7 +279,8 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 												ShowDialog.toastLong(context, context.getString(R.string.error_folder_empty_name)) ;
 												return ;
 											}
-										if(new InternalFileTXT(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt").exists())
+										String new_filename = Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt" ;
+										if(new InternalFileTXT(new_filename).exists())
 											{
 												// Display an error message and quit
 												ShowDialog.toastLong(context, context.getString(R.string.error_folder_already_exists)) ;
@@ -244,8 +288,26 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 											}
 
 										// Rename the folder file
+										String current_filename = folder.getFileName() ;
 										if(file.rename(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt"))
 											{
+												// If it exists, browse the file mapping folders and colors
+												InternalFileTXT folders_colors = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS) ;
+												ArrayList<String> file_content = folders_colors.readAllLines() ;
+												if(file_content != null)
+													{
+														// If a mapping already exists, reproduce it with the new name
+														for(String line : file_content)
+															if(line.startsWith(current_filename))
+																{
+																	String color = line.replace(current_filename + Constants.SEPARATOR, "") ;
+																	folders_colors.writeLine(new_filename + Constants.SEPARATOR + color) ;
+																}
+
+														// Remove the mapping with the previous name
+														folders_colors.removeLine(current_filename) ;
+													}
+
 												// Update the favorites if necessary
 												InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
 												boolean was_in_favorites = favorites.removeLine(folder.getComponentInfo()) ;
@@ -339,6 +401,9 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 									@Override
 									public void onClick(DialogInterface dialogInterface, int i)
 									{
+										// Remove any color affected to this folder from the mapping file
+										new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).removeLine(folder.getFileName() + Constants.SEPARATOR) ;
+
 										// Remove the folder file and update the applications list
 										if(!file.remove())
 											{

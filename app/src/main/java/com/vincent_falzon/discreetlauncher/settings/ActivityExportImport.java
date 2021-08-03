@@ -144,14 +144,15 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		// Save the content of all internal files
 		exportedData.add("# " + getString(R.string.export_import_header_internal_files)) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_FAVORITES).prepareForExport()) ;
-		exportedData.addAll(new InternalFileTXT(Constants.FILE_HIDDEN).prepareForExport()) ;
 		String[] folders_files = InternalFile.searchFilesStartingWith(this, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files != null)
 			for(String folder : folders_files)
 				exportedData.addAll(new InternalFileTXT(folder).prepareForExport()) ;
-		exportedData.add("#") ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_HIDDEN).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY).prepareForExport()) ;
+		exportedData.add("#") ;
 
 		// Save all settings
 		exportedData.add("# " + getString(R.string.export_import_header_settings)) ;
@@ -224,10 +225,12 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Prepare the files that need to be replaced
 		InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
+		InternalFileTXT folders_colors = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS) ;
 		InternalFileTXT hidden = new InternalFileTXT(Constants.FILE_HIDDEN) ;
 		InternalFileTXT shortcuts = new InternalFileTXT(Constants.FILE_SHORTCUTS) ;
 		InternalFileTXT shortcuts_legacy = new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY) ;
 		favorites.remove() ;
+		folders_colors.remove() ;
 		hidden.remove() ;
 		shortcuts.remove() ;
 		shortcuts_legacy.remove() ;
@@ -259,12 +262,13 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 			// Replace the content of the internal files
 			if(line.startsWith(Constants.FILE_FAVORITES)) writeLineToInternalFile(favorites, line) ;
-				else if(line.startsWith(Constants.FILE_HIDDEN)) writeLineToInternalFile(hidden, line) ;
+				else if(line.startsWith(Constants.FILE_FOLDERS_COLORS)) writeLineToInternalFile(folders_colors, line) ;
 				else if(line.startsWith(Constants.FILE_FOLDER_PREFIX))
 				{
 					if(line.indexOf(": ") <= 0) continue ;
 					writeLineToInternalFile(new InternalFileTXT(line.substring(0, line.indexOf(": "))), line) ;
 				}
+				else if(line.startsWith(Constants.FILE_HIDDEN)) writeLineToInternalFile(hidden, line) ;
 				else if(line.startsWith(Constants.FILE_SHORTCUTS)) writeLineToInternalFile(shortcuts, line) ;
 				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
 				// Load the settings

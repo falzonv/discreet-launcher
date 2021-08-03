@@ -30,6 +30,7 @@ public interface Constants
 	// Constants related to internal files
 	String FILE_FAVORITES = "favorites.txt" ;
 	String FILE_FOLDER_PREFIX = "folder_" ;
+	String FILE_FOLDERS_COLORS = "folders_colors.txt" ;
 	String FILE_HIDDEN = "hidden.txt" ;
 	String FILE_SHORTCUTS = "shortcuts.txt" ;
 	String FILE_SHORTCUTS_LEGACY = "shortcuts_legacy.txt" ;
@@ -40,6 +41,7 @@ public interface Constants
 	String APK_FOLDER = "discreetlauncher.folder" ;
 	String APK_SHORTCUT = "discreetlauncher.shortcut" ;
 	String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
+	String SEPARATOR = "--SEPARATOR--" ;
 	String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
 
 	// Constants representing settings keys

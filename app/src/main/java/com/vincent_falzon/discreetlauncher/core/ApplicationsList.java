@@ -32,6 +32,7 @@ import androidx.core.content.ContextCompat ;
 import androidx.core.content.res.ResourcesCompat ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.settings.ColorPickerDialog ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.util.ArrayList ;
 import java.util.Collections ;
@@ -172,6 +173,9 @@ public class ApplicationsList
 		if(folders_files == null) return ;
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 
+		// Retrieve fhe folders colors mapping file if it exists
+		ArrayList<String> folders_colors_file = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).readAllLines() ;
+
 		// Browse the name of all folders files
 		ArrayList<Folder> folders = new ArrayList<>() ;
 		for(String filename : folders_files)
@@ -183,8 +187,15 @@ public class ApplicationsList
 			// Convert the folder from the name format to ComponentInfo format if needed
 			folder_file = convertComponentInfo(filename, folder_file) ;
 
-			// Define the folder color (in preparation for user-defined color)
+			// Check if a color has beed defined for this folder or use the default white
 			int color = context.getResources().getColor(R.color.white) ;
+			if(folders_colors_file != null)
+				for(String mapping : folders_colors_file)
+					if(mapping.startsWith(filename))
+						{
+							color = ColorPickerDialog.convertHexadecimalColorToInt(mapping.replace(filename + Constants.SEPARATOR, "")) ;
+							break ;
+						}
 
 			// Retrieve the name of the folder and create it
 			String folder_name = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;

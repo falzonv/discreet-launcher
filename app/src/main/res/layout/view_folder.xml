@@ -7,12 +7,19 @@
     android:orientation="horizontal"
     android:gravity="center">
 
+    <ImageButton
+        android:id="@+id/edit_folder_color"
+        android:layout_height="48dp"
+        android:layout_width="48dp"
+        android:layout_marginHorizontal="@dimen/spacing_very_small"
+        android:background="@color/translucent_gray"
+        android:contentDescription="@string/color_picker_preview"/>
+
     <TextView
         android:id="@+id/edit_folder_name"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_marginStart="@dimen/spacing_very_small"
         android:textStyle="bold"
         android:gravity="center_vertical"/>
 
