@@ -79,7 +79,6 @@ public class Menu extends Application
 		CharSequence[] options = {
 				context.getString(R.string.button_favorites),
 				context.getString(R.string.button_folders),
-				context.getString(R.string.button_hidden_applications),
 				context.getString(R.string.button_refresh_list),
 				context.getString(R.string.title_settings_and_help)
 			} ;
@@ -110,10 +109,6 @@ public class Menu extends Application
 							context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
 							break ;
 						case 2 :
-							// Hide applications
-							ShowDialog.hideApplications(context) ;
-							break ;
-						case 3 :
 							// Refresh the applications list (and go back to the home screen)
 							ActivityMain.updateList(context) ;
 							Intent homeIntent = new Intent() ;
@@ -121,7 +116,7 @@ public class Menu extends Application
 							homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 							context.startActivity(homeIntent) ;
 							break ;
-						case 4 :
+						case 3 :
 							// Settings / Help
 							context.startActivity(new Intent().setClass(context, ActivitySettings.class)) ;
 							break ;

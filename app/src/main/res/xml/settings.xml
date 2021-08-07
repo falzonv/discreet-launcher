@@ -15,6 +15,14 @@
             app:defaultValue="true"/>
 
         <Preference
+            app:title="@string/button_hidden_applications"
+            app:iconSpaceReserved="false">
+            <intent
+                android:targetPackage="com.vincent_falzon.discreetlauncher"
+                android:targetClass="com.vincent_falzon.discreetlauncher.settings.ActivityHiddenApps"/>
+        </Preference>
+
+        <Preference
             app:title="@string/title_appearance_settings"
             app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$AppearanceFragment"
             app:icon="@android:drawable/ic_menu_gallery"/>
