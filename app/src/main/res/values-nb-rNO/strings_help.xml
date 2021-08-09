@@ -9,7 +9,7 @@
         \n
         \nDra nedover fra hjemmeskjermen for å vise favoritter, og opp for å gå tilbake.
         \n
-        \nTrykk på menyknappen (når du viser favoritter) eller oppstarterikonet for å åpne menyen.
+        \nTrykk på 🔧 menyknappen (når du viser favoritter) eller oppstarterikonet for å åpne menyen.
         \n
         \nKlikk-hold et program eller en mappe for å vise respektive innstillinger.
     </string>
@@ -24,7 +24,7 @@
     </string>
     <string name="help_folders_title">Mapper</string>
     <string name="help_folders_text">
-        Håndter mapper eller favorittmerk dem med menyknappen, eller klikk på tittelfeltet
+        Håndter mapper eller favorittmerk dem med 🔧 menyknappen, eller klikk på tittelfeltet
         til en åpen mappe for å opprette, gi nytt navn, eller putte programmer i den.
         \nFjerning av mapper putter alle programmer i dem tilbake i hovedlisten.
     </string>
