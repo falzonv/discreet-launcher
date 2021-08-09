@@ -5,62 +5,35 @@
     <string name="help_title">Hjelp</string>
     <string name="help_navigation_title">Navigasjon</string>
     <string name="help_navigation_text">
-        Dra nedover fra hjemmeskjermen for å vise favorittpanelet, og oppover for å skjule det.
+        Dra oppover fra hjemmeskjermen for å vise alle programmer, og ned for å gå tilbake.
         \n
-        \nDrar du nedover når favorittpanelet er skjult, vil det vise den fullstendige programlisten.
-        Dra nedover fra toppen av denne listen for å komme tilbake til hjemmeskjermen.
+        \nDra nedover fra hjemmeskjermen for å vise favoritter, og opp for å gå tilbake.
         \n
-        \nTrykk på knappen nedenfor favorittpanelet for å vise oppstarterens meny.
+        \nTrykk på menyknappen (når du viser favoritter) eller oppstarterikonet for å åpne menyen.
         \n
-        \nHvis du holder fingeren på et program eller en mappe et øyeblikk, vil du bli tilbud innstillingene for respektivt element.
+        \nKlikk-hold et program eller en mappe for å vise respektive innstillinger.
     </string>
-    <string name="help_notification_title">Notification</string>
+    <string name="help_notification_title">Merknad</string>
     <string name="help_notification_text">
-        Merknaden tillater visning av et oppsprett med favoritter over andre programmer når du forlater hjemmeskjermen.
-        Som oftest skal det virke umiddelbart uten problemer.
-        \n
-        \nDog, i noen spesialtilfeller kan det ta det tilbake til hjemmeskjermen istedenfor å vises over andre programmer.
-        \nHvis du har dette problemet, er det to ting du kan prøve:
-        \n- Trykk på \"Tøm alle\"-knappen i nylige programmer.
-        \n- Start enheten din på ny
-        \nEtter å ha gjort én eller begge disse tingene, kan det hende problemet ikke vedvarer.
-        \nOm ikke, er dette beklagelig :-/
-        \n
-        \nFor å ikke være i veien, er merknadsikonet gjennomsiktig og av lavere prioritet.
-        Når noen programmer har enda lavere prioritet, kan dette resultere i tomrom i statusfeltet.
-        \n
-        \nTil slutt, hvis du endrer forvalgt oppstarter, vil du fremdeles se merknaden.
-        For å skjule den, kan du åpne Diskret oppstarter (som ikke trenger å være forvalget) og skru av merknaden i dens innstillinger.
-    </string>
+        Viser et oppsprett av favoritter over andre programmer når du forlater hjemmeskjermen.
+        </string>
     <string name="help_list_update_title">Listegjenoppfriskning</string>
     <string name="help_list_update_text">
-        Listen over programmer og ikonene deres oppdateres etter noen handlinger
-        (ved oppstart, når et program legges til eller fjernes, og når ikonpakken endres).
-        Når dette skjer, vil en liten oppsprettsmelding vises noen øyeblikk.
-        \n
-        \nHvis noe ikke føles rett, bør du prøve å gjenoppfriske programlisten manuelt.
+        En oppsprettsmelding vises ved gjenoppfrisking av programlisten og ikoner,
+        når et program legges til eller fjernes, og når ikonpakken endres).
     </string>
     <string name="help_folders_title">Mapper</string>
     <string name="help_folders_text">
-        For å opprette-/gi nytt navn til-/fjerne mapper og putte programmer i dem, må du bruke mappeorganisatoren.
-        Den kan nås ved bruk av menyknappen, eller ved å klikke på tittellinjen til en åpen mappe.
-        \n
-        \nDu kan opprette så mange mapper du ønsker for å organisere programmene dine.
-        Disse mappene kan også legges til i favoritter.
-        Hvis en mappe fjernes, vil innholdet bli lagt tilbake i hovedlisten for programmer.
-        \n
-        \nEt program kan kun være i én mappe av gangen (eller ikke være i noen mappe).
-        Dog, kan du ha både et program og mappen som inneholder dette programmet i favorittene.
+        Håndter mapper eller favorittmerk dem med menyknappen, eller klikk på tittelfeltet
+        til en åpen mappe for å opprette, gi nytt navn, eller putte programmer i den.
+        \nFjerning av mapper putter alle programmer i dem tilbake i hovedlisten.
     </string>
     <string name="help_search_title">Søk</string>
     <string name="help_search_text">
-        Søkeikonet lar deg finne et program i den fullstendige listen.
-        Du kan legge den til i favoritter for å også nå den ved bruk av merknaden.
-        Av tekniske årsaker er det ikke mulig å legge det i en mappe.
+        Finn ethvert program med søkeikonet. Det kan også favorittmerkes for å være tilgjengelig
+        fra merknaden, eller skjules.
         \n
-        \nHvis du ikke planlegger å bruke det, kan du også skjule søket på samme vis som ethvert annet program.
-        \n
-        \Til slutt kan du trykke \"Enter\"-knappen når det kun er ett søkeresultat for å åpne det.
+        \nTrykk \"Enter\" for å åpne hvis det er kun ett søkeresultat.
     </string>
 
     <!-- Changelog -->
