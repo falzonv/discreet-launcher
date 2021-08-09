@@ -9,7 +9,7 @@
     <!-- Favorites -->
     <string name="button_manage_favorites">Favoritter</string>
     <string name="button_select_favorites">Velg favoritter</string>
-    <string name="hint_favorites_order">Legg til favorittprogrammer her\nved å klikke på menyknappen.</string>
+    <string name="hint_favorites_order">Legg til favorittprogrammer her\nved å klikke på 🔧 menyknappen.</string>
 <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor (og rull ved bruk av sidene).</string>
 
     <!-- Dialogs buttons -->
