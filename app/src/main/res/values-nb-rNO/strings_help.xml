@@ -39,7 +39,7 @@
     <!-- Changelog -->
     <string name="changelog_title">Endringslogg</string>
     <string name="changelog_mentions">\"@pseudo\" indikerer brukeren som foreslo idéen eller rapporterte feilen</string>
-    <string name="changelog_folder">changelog-nb</string>
+    <string name="changelog_folder">changelog-en</string>
     <string name="error_changelog_folder">Kunne ikke finne endringsloggmappen.</string>
     <string name="error_changelog_file">Kunne ikke åpne %1s.</string>
 
