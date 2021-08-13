@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Applications list -->
+    <string name="info_applications_list_refreshed">Programliste gjenoppfrisket</string>
+    <string name="button_refresh_list">Gjenoppfrisk programlisten</string>
+    <string name="error_application_not_found">Fant ikke «%1$s»</string>
+
+    <!-- Favorites -->
+    <string name="button_manage_favorites">Favoritter</string>
+    <string name="button_select_favorites">Velg favoritter</string>
+    <string name="hint_favorites_order">Legg til favorittprogrammer her\nved å klikke på menyknappen.</string>
+<string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor (og rull ved bruk av sidene).</string>
+
+    <!-- Dialogs buttons -->
+	<string name="button_apply">Bruk</string>
+	<string name="button_cancel">Avbryt</string>
+
+    <!-- Long click options -->
+    <string name="long_click_title">Hva ønsker du å gjøre?</string>
+    <string name="long_click_open">Åpne «%1s»</string>
+    <string name="long_click_store">Vis butikksiden</string>
+    <string name="long_click_settings">Vis til dens innstillinger</string>
+    <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
+
+    <!-- About -->
+    <string name="app_name">Diskret oppstarter</string>
+    <string name="author" translatable="false">Vincent Falzon</string>
+    <string name="licence_name">GPLv3+</string>
+    <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Foreslå forbedringer og innrapporter feil på</string>
+    <string name="website_link" translatable="false">https://vincent-falzon.com</string>
+    <string name="translation_credit"/>Norsk oversettelse ved Allan Nordhøy</string>
+
+</resources>
