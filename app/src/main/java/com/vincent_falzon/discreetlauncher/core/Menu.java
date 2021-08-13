@@ -33,7 +33,6 @@ import com.vincent_falzon.discreetlauncher.ActivityFavorites ;
 import com.vincent_falzon.discreetlauncher.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
 
 /**
