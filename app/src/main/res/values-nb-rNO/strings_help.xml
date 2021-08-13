@@ -16,7 +16,7 @@
     <string name="help_notification_title">Merknad</string>
     <string name="help_notification_text">
         Viser et oppsprett av favoritter over andre programmer når du forlater hjemmeskjermen.
-        </string>
+    </string>
     <string name="help_list_update_title">Listegjenoppfriskning</string>
     <string name="help_list_update_text">
         En oppsprettsmelding vises ved gjenoppfrisking av programlisten og ikoner,
