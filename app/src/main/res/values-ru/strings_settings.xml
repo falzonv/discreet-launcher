@@ -54,7 +54,7 @@
     <string name="button_remove_folder">Удалить</string>
     <string name="hint_folders_number">Создайте столько папок, сколько вам нужно для организации ваших приложений.</string>
     <string name="hint_folder_edit">
-        Нажмите на имя папки, чтобы изменить его.
+        Нажмите на имя папки, чтобы изменить его, и по значку, чтобы выбрать его цвет.
         Перо позволяет редактировать содержимое папки.
     </string>
     <string name="hint_new_folder">Новая папка</string>
@@ -115,7 +115,7 @@
 
     <!-- Other -->
     <string name="button_hidden_applications">Скрытые приложения</string>
-    <string name="button_rename">Rename</string>
+    <string name="button_rename">Переименовать</string>
     <string name="error_remove_file">Не удалось удалить файл %1$s</string>
 
 </resources>
