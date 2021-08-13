@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Settings interface -->
+    <!-- Setting titles -->
     <string name="title_settings_and_help">Innstillinger og hjelp</string>
     <string name="title_section_customization">Tilpasning</string>
     <string name="title_section_help_and_general_info">Hjelp og generell info</string>
