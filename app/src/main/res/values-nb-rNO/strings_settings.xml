@@ -2,12 +2,11 @@
 <resources>
 
     <!-- Settings interface -->
-    <string name="title_settings">Innstillinger og hjelp</string>
-    <string name="title_customization">Tilpasning</string>
+    <string name="title_settings_and_help">Innstillinger og hjelp</string>
+    <string name="title_section_customization">Tilpasning</string>
     <string name="title_section_help_and_general_info">Hjelp og generell info</string>
     <string name="title_appearance_settings">Utseende</string>
     <string name="title_appearance_settings_general">Generelt utseende</string>
-    <string name="title_appearance_settings_applications">Programmer</string>
     <string name="title_appearance_settings_applications">Programutseende</string>
     <string name="title_behavior_settings">Bruk</string>
     <string name="title_export_import">Eksport og import</string>
@@ -16,7 +15,6 @@
     <string name="set_notification">Merknad for tilgang til favoritter</string>
     <string name="set_notification_help">Bruker av gjennomsiktig ikon</string>
     <string name="notification_popup_title">Håndter favoritter</string>
-
 
     <!-- Application theme -->
     <string name="set_application_theme">Drakt</string>
@@ -51,7 +49,7 @@
     <string name="target_open_applications">Åpne\nprogrammer</string>
 
     <!-- Folders -->
-    <string name="button_organize_folders">Mapper</string>
+    <string name="button_folders">Mapper</string>
     <string name="button_new_folder">Legg til</string>
     <string name="button_remove_folder">Fjern</string>
     <string name="hint_folders_number">Organiser programmene dine i så mange mapper du vil.</string>
@@ -67,14 +65,14 @@
     <string name="error_folder_rename">Kunne ikke gi mappen nytt navn</string>
 
     <!-- Shortcuts -->
-    <string name="error_shortcut">Kunne ikke opprette «%1$s»</string>
+    <string name="error_shortcut_creation">Kunne ikke opprette \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Kunne ikke legge til det som snarvei</string>
     <string name="error_shortcut_missing_info">Kunne ikke følge denne snarveien</string>
     <string name="error_shortcut_not_default_launcher">Kun forvalgt oppstarter kan åpne snarveier</string>
     <string name="error_shortcut_start">Android-systemet kunne ikke åpne snarveien.</string>
 
     <!-- Search -->
-    <string name="search_icon_title">Søk</string>
+    <string name="search_app_name">Søk</string>
     <string name="search_hint">Programsøk</string>
 
     <!-- Other settings -->
@@ -95,9 +93,11 @@
     <string name="set_immersive_mode_help">Skjul systembjelker (lang-trykk på hjemmeskjermen for å påtvinge)</string>
     <string name="set_reverse_interface">Omvendt grensesnitt</string>
     <string name="set_reverse_interface_help">Programmer ovenfor, og favorittpanel på bunnen</string>
+    <string name="set_disable_app_drawer">No app drawer</string>
+    <string name="error_disable_app_drawer_not_safe">Reinstating the app drawer to keep menu access.</string>
     <string name="error_appfilter_not_found">Fant ikke appfilter.xml.filen i angitt programpakke. (%1$s)</string>
 
-    <!-- Export / Import -->
+    <!-- Export and import -->
     <string name="export_import_help">Disse knappene lar deg eksportere programdataen (favoritter, snarveier, og innstillinger) eller importere dem igjen.</string>
     <string name="button_export">Eksporter</string>
     <string name="button_import">Importer</string>
@@ -114,7 +114,7 @@
     <string name="error_import">Kunne ikke lese importfilen</string>
 
     <!-- Other -->
-    <string name="button_hide_applications">Skjulte programmer</string>
+    <string name="button_hidden_applications">Skjulte programmer</string>
     <string name="button_rename">Gi nytt navn</string>
     <string name="error_remove_file">Kunne ikke slette %1$s-filen</string>
 
