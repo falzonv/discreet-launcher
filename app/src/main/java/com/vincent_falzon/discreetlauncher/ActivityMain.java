@@ -144,7 +144,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Update the display according to settings
 		togglePortraitMode() ;
-		makeAppDrawerDisablingSafe() ;
+		keepMenuAccessible() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
 
@@ -253,12 +253,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Make sure that the app drawer can be safely disabled.
+	 * Make sure that the launcher menu always stays accessible.
 	 */
-	private void makeAppDrawerDisablingSafe()
+	private void keepMenuAccessible()
 	{
-		// Do not continue if the setting to disable the app drawer is not enabled
-		if(!settings.getBoolean(Constants.DISABLE_APP_DRAWER, false)) return ;
+		// Do not continue if none of the risky settings is enabled
+		if(!(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false) ||
+				settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))) return ;
 
 		// Browse all favorites
 		String launcher = "{com.vincent_falzon.discreetlauncher/com.vincent_falzon.discreetlauncher.ActivityMain}" ;
@@ -278,9 +279,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Check if the menu button is still enabled
 		if(!settings.getBoolean(Constants.HIDE_MENU_BUTTON, false))
 			{
-				// Consider it will always stays visible if applications names are hidden
-				if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)) return ;
-
 				// Retrieve the total height available in portrait mode (navigation bar automatically removed)
 				int menu_button_height = Math.round(32 * density) ;
 				int total_size = Math.max(getResources().getDisplayMetrics().heightPixels, getResources().getDisplayMetrics().widthPixels)
@@ -288,18 +286,30 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 						- Math.round(20 * density)  // Remove 20dp for button margins and spare
 						- menu_button_height ;
 
-				// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
-				int app_size = menu_button_height + Math.round(48 * density) + Math.round(20 * density) ;
+				// Define the size of an app (icon + margins + text estimation) and the maximum number of favorites
+				int app_size = Math.round(48 * density) ;
+				if(!settings.getBoolean(Constants.REMOVE_PADDING, false)) app_size += Math.round(20 * density) ;
+				if(!settings.getBoolean(Constants.HIDE_APP_NAMES, false)) app_size += menu_button_height ;
 				int max_favorites = 4 * (total_size / app_size) ;
 
 				// Check if the number of favorites still allows to see the menu button
 				if(applicationsList.getFavorites().size() <= max_favorites) return ;
 			}
 
-		// If the drawer cannot be safely disabled, display a message and disable the setting
-		ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
-		SharedPreferences.Editor editor = settings.edit() ;
-		editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
+		// Disable the risky setting(s) to keep the menu accessible
+		if(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false))
+			{
+				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
+				SharedPreferences.Editor editor = settings.edit() ;
+				editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
+			}
+		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+			{
+				// TODO: dedicated error string when disabling "always show favorites" (will need translations update)
+				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
+				SharedPreferences.Editor editor = settings.edit() ;
+				editor.putBoolean(Constants.ALWAYS_SHOW_FAVORITES, false).apply() ;
+			}
 	}
 
 
@@ -646,12 +656,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				recreate() ;
 			case Constants.ALWAYS_SHOW_FAVORITES :
 			case Constants.TOUCH_TARGETS :
-				// Display or not the touch targets
-				toggleTouchTargets() ;
-				break ;
 			case Constants.DISABLE_APP_DRAWER :
-				// Check if the app drawer can be safely disabled
-				makeAppDrawerDisablingSafe() ;
+				// Make safe-check and display or not the touch targets
+				keepMenuAccessible() ;
+				toggleTouchTargets() ;
 				break ;
 		}
 	}
@@ -765,7 +773,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		super.onResume() ;
 
 		// Hide the favorites panel and the applications drawer
-		makeAppDrawerDisablingSafe() ;
+		keepMenuAccessible() ;
 		displayFavorites(false) ;
 		displayDrawer(false) ;
 
