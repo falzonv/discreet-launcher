@@ -24,14 +24,7 @@ package com.vincent_falzon.discreetlauncher ;
 
 // Imports
 import android.content.Context ;
-import android.content.DialogInterface ;
-import android.content.Intent ;
 import android.widget.Toast ;
-import androidx.appcompat.app.AlertDialog ;
-import com.vincent_falzon.discreetlauncher.core.Application ;
-import com.vincent_falzon.discreetlauncher.core.Folder ;
-import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
-import java.util.ArrayList ;
 
 /**
  * Provide methods to display toasts and alert dialogs.
