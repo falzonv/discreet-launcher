@@ -4,7 +4,7 @@ NOUVEAUTÉS
    - Option pour désactiver le tiroir d'applis (@frpst)
 AMÉLIORATIONS
    - Tous les textes revus avec Allan Nordhøy
-   - Traduction russe mise à jour par Artur Aiwasan
+   - Traduction Russe mise à jour par Artur Aiwasan
    - Recherche plus facile à masquer (@n-ce)
 CORRECTIONS
    - Clic long sur Recherche
