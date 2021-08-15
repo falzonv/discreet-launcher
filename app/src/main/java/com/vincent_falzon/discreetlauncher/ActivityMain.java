@@ -332,23 +332,28 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				int background_color = ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
 
 				// Check if the interface is reversed and adjust the display accordingly
-				Drawable menuButtonBackground ;
+				Drawable tab_shape ;
 				if(reverse_interface)
 					{
 						// Reversed interface
-						menuButtonBackground = DrawableCompat.wrap(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab_reverse, null)) ;
+						tab_shape = ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab_reverse, null) ;
 						getWindow().setNavigationBarColor(background_color) ;
 					}
 					else
 					{
 						// Classic interface
-						menuButtonBackground = DrawableCompat.wrap(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab, null)) ;
+						tab_shape = ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab, null) ;
 						getWindow().setStatusBarColor(background_color) ;
 					}
 
 				// Color the menu button and favorites panel
-				menuButtonBackground.setTint(background_color) ;
-				menuButton.setBackground(DrawableCompat.unwrap(menuButtonBackground)) ;
+				Drawable menuButtonBackground ;
+				if(tab_shape != null)
+					{
+						menuButtonBackground = DrawableCompat.wrap(tab_shape) ;
+						menuButtonBackground.setTint(background_color) ;
+						menuButton.setBackground(DrawableCompat.unwrap(menuButtonBackground)) ;
+					}
 				findViewById(R.id.favorites_applications).setBackgroundColor(background_color) ;
 
 				// If the option is selected, hide the menu button
