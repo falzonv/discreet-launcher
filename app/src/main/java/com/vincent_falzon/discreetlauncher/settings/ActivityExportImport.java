@@ -150,6 +150,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				exportedData.addAll(new InternalFileTXT(folder).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_HIDDEN).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_RENAME_APPS).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY).prepareForExport()) ;
 		exportedData.add("#") ;
