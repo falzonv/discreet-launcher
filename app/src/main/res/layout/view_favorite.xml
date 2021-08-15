@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/favorite_item"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
@@ -10,4 +11,5 @@
     android:padding="@dimen/spacing_normal"
     android:gravity="center_vertical"
     android:background="@color/translucent_gray"
-    android:textColor="@color/white"/>
+    android:textColor="@color/white"
+    tools:ignore="Overdraw"/>

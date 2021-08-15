@@ -72,7 +72,8 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 	 * @param title Title of the dialog
 	 * @param listener To notify when the selected color need to be saved
 	 */
-    public ColorPickerDialog(Context context, int initial_color, String default_color, CharSequence title, SaveRequestListener listener)
+	@SuppressWarnings("RedundantCast")
+	public ColorPickerDialog(Context context, int initial_color, String default_color, CharSequence title, SaveRequestListener listener)
 	{
 		// Let the parent actions be performed
         super(context) ;

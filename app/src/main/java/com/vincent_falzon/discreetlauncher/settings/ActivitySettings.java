@@ -138,6 +138,7 @@ public class ActivitySettings extends AppCompatActivity
 	/**
 	 * Load the appearance settings from the XML file.
 	 */
+	@SuppressWarnings({"unused", "RedundantSuppression"})
 	public static class AppearanceFragment extends PreferenceFragmentCompat
 	{
 		/**
@@ -165,6 +166,7 @@ public class ActivitySettings extends AppCompatActivity
 	/**
 	 * Load the behavior settings from the XML file.
 	 */
+	@SuppressWarnings({"unused", "RedundantSuppression"})
 	public static class OperationFragment extends PreferenceFragmentCompat
 	{
 		/**
@@ -184,6 +186,7 @@ public class ActivitySettings extends AppCompatActivity
 	/**
 	 * Load the help from the XML file.
 	 */
+	@SuppressWarnings({"unused", "RedundantSuppression"})
 	public static class HelpFragment extends PreferenceFragmentCompat
 	{
 		/**

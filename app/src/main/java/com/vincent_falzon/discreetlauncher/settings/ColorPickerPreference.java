@@ -169,7 +169,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 			for(int j = i ; j < height ; j++)
 			{
 				// Check if the pixel is on a side (border) or the middle (color)
-				pixel = (i <= 1 || j <= 1 || i >= (width - 2) || j >= (height - 2)) ? Color.GRAY : current_color ;
+				pixel = (i <= 1 || i >= (width - 2) || j >= (height - 2)) ? Color.GRAY : current_color ;
 
 				// Draw the pixel and its counterpart across the diagonal
 				bitmap.setPixel(i, j, pixel) ;
