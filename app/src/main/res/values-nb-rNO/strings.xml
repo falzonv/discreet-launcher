@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Applications list -->
+    <!-- List of Applications -->
     <string name="info_applications_list_refreshed">Programliste gjenoppfrisket</string>
     <string name="button_refresh_list">Gjenoppfrisk programlisten</string>
     <string name="error_application_not_found">Fant ikke «%1$s»</string>
@@ -13,8 +13,8 @@
     <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor (og rull ved bruk av sidene).</string>
 
     <!-- Dialogs buttons -->
-	<string name="button_apply">Bruk</string>
-	<string name="button_cancel">Avbryt</string>
+    <string name="button_apply">Bruk</string>
+    <string name="button_cancel">Avbryt</string>
 
     <!-- Long click options -->
     <string name="long_click_title">Hva ønsker du å gjøre?</string>
@@ -27,6 +27,6 @@
     <string name="app_name">Diskret oppstarter</string>
     <string name="licence_name">GPLv3+</string>
     <string name="website_description">Foreslå forbedringer og innrapporter feil på</string>
-    <string name="translation_credit">Norsk oversettelse ved Allan Nordhøy</string>
+    <string name="translation_credit">Norsk oversettelse ved Allan Nordhøy, epost@anotheragency.no</string>
 
 </resources>
