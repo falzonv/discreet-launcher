@@ -10,7 +10,7 @@
     <string name="button_favorites">Favoriten</string>
     <string name="button_select_favorites">Favoriten wählen</string>
     <string name="hint_no_favorites_yet">Füge Favoriten Apps hinzu\ndurch klicken des Menü Buttons.</string>
-    <string name="hint_modify_order_of_favorites">Ändern Sie die Reihenfolge der Favoriten in der Liste (verwende die Seite zum scrollen).</string>
+    <string name="hint_modify_order_of_favorites">Ändern Sie die Reihenfolge der Favoriten in der Liste (verwende den Bildlauf zum scrollen).</string>
 
     <!-- Dialogs buttons -->
     <string name="button_apply">Bestätigen</string>
