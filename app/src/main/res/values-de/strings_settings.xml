@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Settings titles -->
+    <string name="title_settings_and_help">Einstellungen und Hilfe</string>
+    <string name="title_section_customization">Individuelle Anpassungen</string>
+    <string name="title_section_help_and_general_info">Hilfe und generelle Infos</string>
+    <string name="title_appearance_settings">Erscheinungsbild</string>
+    <string name="title_appearance_settings_general">Allgemeines Erscheinungsbild</string>
+    <string name="title_appearance_settings_applications">Darstellung von Apps</string>
+    <string name="title_behavior_settings">Darstellung</string>
+    <string name="title_export_import">Export und Import</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Benachrichtigung für Zugriff auf Favoriten</string>
+    <string name="set_notification_help">Verwendet ein transparentes Icon</string>
+    <string name="notification_popup_title">Favoriten Einstellungen</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Design</string>
+    <string-array name="set_application_theme_entries">
+        <item>Hell</item>
+        <item>Dunkel</item>
+        <item>System Vorgabe</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Uhrzeit Format</string>
+    <string-array name="set_clock_format_entries">
+        <item>Keins (ausblenden)</item>
+        <item>24 Stunden</item>
+        <item>12 Stunden</item>
+        <item>12 Stunden + AM/PM</item>
+    </string-array>
+
+    <!-- Color picker -->
+    <string name="set_background_color">Hintergrundfarbe</string>
+    <string name="set_background_color_help">Wird angewendet für Menütaste, Favoriten, App-Übersicht und Systemleiste</string>
+    <string name="color_picker_base">Basis:</string>
+    <string name="color_picker_reset">Löschen</string>
+    <string name="color_picker_preview">Vorschau</string>
+    <string name="error_invalid_color_format">Ungültige hexadezimale Farbe</string>
+
+    <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Berührungsziele (Barrierefreiheit)</string>
+    <string name="set_touch_targets_help">Anklickbare Labels auf dem Startbildschirm</string>
+    <string name="target_open_favorites">Favoriten\nöffnen</string>Favoriten\nöffnen
+    <string name="target_close_favorites">Favoriten\nschließen</string>
+    <string name="target_open_applications">Apps\nöffnen</string>
+
+    <!-- Folders -->
+    <string name="button_folders">Ordner</string>
+    <string name="button_new_folder">Hinzufügen</string>
+    <string name="button_remove_folder">Entfernen</string>
+    <string name="hint_folders_number">Erstelle so viele Ordner wie du willst, um deine Apps zu organisieren.</string>
+    <string name="hint_folder_edit">
+        Klick auf einen Ordnernamen um ihn zu ändern und auf das Symbol, um seine Farbe zu wählen. 
+		Über das Stiftsymbol kann der Inhalt des Ordners bearbeitet werden.
+    </string>
+    <string name="hint_new_folder">Neuer Ordner</string>
+    <string name="hint_rename_folder">Ordner umbenennen</string>
+    <string name="hint_remove_folder">Wenn ein Ordner entfernt wird, wird sein Inhalt wieder in die Liste der Hauptanwendungen aufgenommen.</string>
+    <string name="error_folder_empty_name">Vergebe zuerst einen Namen</string>
+    <string name="error_folder_already_exists">Verwende einen Namen der nicht bereits existiert</string>
+    <string name="error_folder_rename">Ordner konnte nicht umbenannt werden</string>
+
+    <!-- Shortcuts -->
+    <string name="error_shortcut_creation">\"%1$s\ konnte nicht erstellt werden"</string>
+    <string name="error_shortcut_invalid_request">Konnte nicht als Verknüpfung hinzugefügt werden</string>
+    <string name="error_shortcut_missing_info">Verknüpfung kann nicht gefolgt werden</string>
+    <string name="error_shortcut_not_default_launcher">Nur das Standard-Startprogramm kann Verknüpfungen öffnen</string>
+    <string name="error_shortcut_start">Das Android System kann die Verknüpfung nicht öffnen</string>
+
+    <!-- Search -->
+    <string name="search_app_name">Suche</string>
+    <string name="search_hint">Suche nach Apps</string>
+
+    <!-- Other settings -->
+    <string name="set_transparent_status_bar">Transparente Systemleiste</string>
+    <string name="set_transparent_status_bar_hint">Wenn Favoriten geschlossen sind</string>
+    <string name="set_hide_menu_button">Kein Menü Icon</string>
+    <string name="set_hide_menu_button_help">Immer über das Symbol der Startanwendung zugänglich</string>
+    <string name="set_icon_pack">Installierte Icon Packs verwenden</string>
+    <string name="set_icon_pack_none">Keins (Standard-Symbole verwenden)</string>
+    <string name="set_hide_app_names">Keine App Bezeichnungen</string>
+    <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
+    <string name="set_remove_padding">Kein Padding wenn App-Namen versteckt sind</string>
+    <string name="set_remove_padding_help">Kann Probleme mit langen Ordnernamen verursachen</string>
+    <string name="set_force_portrait">Erzwungener Hochformat-Modus</string>
+    <string name="set_force_portrait_help">Selbst wenn die automatische Drehung im Launcher aktiviert ist</string>
+    <string name="set_always_show_favorites">Favoritenleiste immer anzeigen</string>
+    <string name="set_immersive_mode">Immersiver Modus</string>
+    <string name="set_immersive_mode_help">Keine Systemleiste. (Kann durch langes Drücken auf den Startbildschirm erzwungen werden).</string>
+    <string name="set_reverse_interface">Umgekehrte Oberfläche</string>
+    <string name="set_reverse_interface_help">Apps oberhalb und Favoriten unterhalb des Startbildschirms.</string>
+    <string name="set_disable_app_drawer">App Übersicht nicht anzeigen</string>
+    <string name="error_disable_app_drawer_not_safe">Wiedereinführung der App Übersicht, um den Zugang zum Menü zu erhalten.</string>
+    <string name="error_appfilter_not_found">Die Datei appfilter.xml konnte im ausgewählten Icon Pack nicht gefunden werden. (%1$s)</string>
+
+    <!-- Export and import -->
+    <string name="export_import_help">Über die Button können die App-Daten (Favoriten, Ordner, Verknüpfungen und Einstellungen) exportiert oder wieder importiert werden.</string>
+    <string name="button_export">Export</string>
+    <string name="button_import">Import</string>
+    <string name="export_import_header_internal_files">Inhalt der internen Textdateien</string>
+    <string name="export_import_header_settings">Einstellungen</string>
+    <string name="export_import_header_icons">Gesicherte Icons</string>
+    <string name="export_import_warning_file_edit">Die Bearbeitung dieser Datei kann zu Problemen führen</string>
+    <string name="export_import_warning_shortcuts">
+       (Unter Android 8 (Oreo) und höher funktionieren importierte Verknüpfungen möglicherweise nicht
+        weil sie vom System verwaltet werden und nicht exportiert werden sollen)
+    </string>
+    <string name="export_completed">Export komplett</string>
+    <string name="error_export">Export Datei konnte nicht erstellt werden</string>
+    <string name="error_import">Import Datei konnte nicht gelesen werden</string>
+
+    <!-- Other -->
+    <string name="button_hidden_applications">Versteckte Apps</string>
+    <string name="button_rename">Umbenennen</string>
+    <string name="error_remove_file">Die Datei %1$s konnte nicht gespeichert werden</string>
+
+</resources>
