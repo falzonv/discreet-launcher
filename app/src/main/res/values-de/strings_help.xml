@@ -15,7 +15,7 @@
     </string>
     <string name="help_notification_title">Hinweise</string>
     <string name="help_notification_text">
-        Zeigt beim verlassen des Startbildschirms ein Popup der Favoriten über anderen Anwendungen an.
+        Zeigt beim verlassen des Startbildschirms ein Pop-up der Favoriten über anderen Anwendungen an.
     </string>
     <string name="help_list_update_title">Listen Aktualisierung</string>
     <string name="help_list_update_text">
