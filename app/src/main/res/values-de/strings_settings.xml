@@ -116,6 +116,6 @@
     <!-- Other -->
     <string name="button_hidden_applications">Versteckte Apps</string>
     <string name="button_rename">Umbenennen</string>
-    <string name="error_remove_file">Die Datei %1$s konnte nicht gespeichert werden</string>
+    <string name="error_remove_file">Die Datei „%1$s“ konnte nicht gespeichert werden</string>
 
 </resources>
