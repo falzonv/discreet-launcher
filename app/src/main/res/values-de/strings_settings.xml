@@ -78,7 +78,7 @@
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Transparente Systemleiste</string>
     <string name="set_transparent_status_bar_hint">Wenn Favoriten geschlossen sind</string>
-    <string name="set_hide_menu_button">Kein Menü Icon</string>
+    <string name="set_hide_menu_button">Kein Menü-Icon</string>
     <string name="set_hide_menu_button_help">Immer über das Symbol der Startanwendung zugänglich</string>
     <string name="set_icon_pack">Installierte Icon Packs verwenden</string>
     <string name="set_icon_pack_none">Keins (Standard-Symbole verwenden)</string>
