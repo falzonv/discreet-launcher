@@ -84,7 +84,7 @@
     <string name="set_icon_pack_none">Keins (Standard-Symbole verwenden)</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
     <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
-    <string name="set_remove_padding">Kein Padding wenn App-Namen versteckt sind</string>
+    <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
     <string name="set_remove_padding_help">Kann Probleme mit langen Ordnernamen verursachen</string>
     <string name="set_force_portrait">Erzwungener Hochformat-Modus</string>
     <string name="set_force_portrait_help">Selbst wenn die automatische Drehung im Launcher aktiviert ist</string>
