@@ -55,7 +55,7 @@
     <string name="hint_folders_number">Erstelle so viele Ordner wie du willst, um deine Apps zu organisieren.</string>
     <string name="hint_folder_edit">
         Klick auf einen Ordnernamen um ihn zu ändern und auf das Symbol, um seine Farbe zu wählen. 
-		Über das Stiftsymbol kann der Inhalt des Ordners bearbeitet werden.
+        Über das Stiftsymbol kann der Inhalt des Ordners bearbeitet werden.
     </string>
     <string name="hint_new_folder">Neuer Ordner</string>
     <string name="hint_rename_folder">Ordner umbenennen</string>
