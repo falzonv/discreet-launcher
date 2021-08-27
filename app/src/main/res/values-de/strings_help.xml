@@ -19,7 +19,7 @@
     </string>
     <string name="help_list_update_title">Listen Aktualisierung</string>
     <string name="help_list_update_text">
-        Beim Aktualisieren der App-Liste und der Symbole wird eine Popup-Meldung angezeigt,
+        Beim Aktualisieren der App-Liste und der Symbole wird eine Pop-up-Nachricht angezeigt,
         beim Starten, Hinzufügen oder Entfernen von Anwendungen oder wenn das Symbolpaket geändert wird.
     </string>
     <string name="help_folders_title">Ordner</string>
