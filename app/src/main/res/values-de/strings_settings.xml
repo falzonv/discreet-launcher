@@ -106,7 +106,7 @@
     <string name="export_import_header_icons">Gesicherte Icons</string>
     <string name="export_import_warning_file_edit">Die Bearbeitung dieser Datei kann zu Problemen führen</string>
     <string name="export_import_warning_shortcuts">
-       (Unter Android 8 (Oreo) und höher funktionieren importierte Verknüpfungen möglicherweise nicht
+        (Unter Android 8 (Oreo) und höher funktionieren importierte Verknüpfungen möglicherweise nicht
         weil sie vom System verwaltet werden und nicht exportiert werden sollen)
     </string>
     <string name="export_completed">Export komplett</string>
