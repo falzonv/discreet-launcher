@@ -43,7 +43,7 @@
 
     <!-- Touch targets (accessibility) -->
     <string name="set_touch_targets">Berührungsziele (Barrierefreiheit)</string>
-    <string name="set_touch_targets_help">Anklickbare Labels auf dem Startbildschirm</string>
+    <string name="set_touch_targets_help">Label-Buttons auf dem Startbildschirm</string>
     <string name="target_open_favorites">Favoriten\nöffnen</string>Favoriten\nöffnen
     <string name="target_close_favorites">Favoriten\nschließen</string>
     <string name="target_open_applications">Apps\nöffnen</string>
