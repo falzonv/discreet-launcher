@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/spacing_normal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/spacing_small"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="@string/help_navigation_title"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:text="@string/help_navigation_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/spacing_small"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="@string/help_notification_title"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:text="@string/help_notification_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/spacing_small"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="@string/help_list_update_title"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:text="@string/help_list_update_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/spacing_small"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="@string/help_folders_title"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:text="@string/help_folders_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/spacing_small"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="@string/help_search_title"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:text="@string/help_search_text"/>
+
+    </LinearLayout>
+
+</ScrollView>

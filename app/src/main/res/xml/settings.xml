@@ -41,8 +41,11 @@
 
         <Preference
             app:title="@string/help_title"
-            app:fragment="com.vincent_falzon.discreetlauncher.settings.ActivitySettings$HelpFragment"
-            app:icon="@android:drawable/ic_menu_help"/>
+            app:icon="@android:drawable/ic_menu_help">
+            <intent
+                android:targetPackage="com.vincent_falzon.discreetlauncher"
+                android:targetClass="com.vincent_falzon.discreetlauncher.settings.ActivityHelp"/>
+        </Preference>
 
         <Preference
             app:title="@string/changelog_title"

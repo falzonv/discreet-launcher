@@ -54,6 +54,12 @@
             android:theme="@style/AppTheme"/>
 
         <activity
+            android:name=".settings.ActivityHelp"
+            android:label="@string/help_title"
+            android:parentActivityName=".settings.ActivitySettings"
+            android:theme="@style/AppTheme"/>
+
+        <activity
             android:name=".ActivityFavorites"
             android:label="@string/button_favorites"
             android:parentActivityName=".ActivityMain"
