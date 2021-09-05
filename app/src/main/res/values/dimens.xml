@@ -9,7 +9,8 @@
     <dimen name="spacing_very_large">40dp</dimen>
 
     <!-- Text sizes (Android default size is 14sp) -->
-    <dimen name="text_size_big">18sp</dimen>
+    <dimen name="text_size_big">16sp</dimen>
+    <dimen name="text_size_bigger">18sp</dimen>
     <dimen name="text_size_huge">70sp</dimen>
 
     <!-- Float dimensions -->

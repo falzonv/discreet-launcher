@@ -46,11 +46,11 @@ import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
-import com.vincent_falzon.discreetlauncher.core.Menu ;
 import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
+import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
 import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
 import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
 
@@ -522,7 +522,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		// Check which view was selected and react accordingly
 		int selection = view.getId() ;
-		if(selection == R.id.access_menu_button) Menu.open(view) ;
+		if(selection == R.id.access_menu_button) new DialogMenu(this).show() ;
 			else if(selection == R.id.target_favorites) displayFavorites(favorites.getVisibility() != View.VISIBLE) ;
 			else if(selection == R.id.target_applications)
 			{

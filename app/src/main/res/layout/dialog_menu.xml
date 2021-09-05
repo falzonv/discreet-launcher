@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/menu_favorites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_favorites"
+            app:drawableStartCompat="@drawable/ic_menu_star"
+            style="@style/MenuEntry"/>
+
+        <TextView
+            android:id="@+id/menu_folders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_folders"
+            app:drawableStartCompat="@drawable/ic_menu_archive"
+            style="@style/MenuEntry"/>
+
+        <TextView
+            android:id="@+id/menu_refresh_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_refresh_list"
+            app:drawableStartCompat="@android:drawable/ic_menu_rotate"
+            style="@style/MenuEntry"/>
+
+        <TextView
+            android:id="@+id/menu_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_settings_and_help"
+            app:drawableStartCompat="@drawable/ic_menu_preferences"
+            style="@style/MenuEntry"/>
+
+    </LinearLayout>
+</ScrollView>

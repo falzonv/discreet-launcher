@@ -3,6 +3,7 @@
 
     <!-- Basic colors -->
     <color name="white">#FFFFFF</color>
+    <color name="light_blue">#D3DFF8</color>
     <color name="blue">#4081FF</color>
     <color name="dark_blue">#3F51B5</color>
     <color name="very_dark_blue">#303F9F</color>

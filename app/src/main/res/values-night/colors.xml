@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!-- Make the blue less contrasting with black background -->
+	<!-- Adjust/invert some colors to avoid having wrong constrasts -->
+	<color name="light_blue">#666F99</color>
 	<color name="blue">#7B88D1</color>
 
 </resources>

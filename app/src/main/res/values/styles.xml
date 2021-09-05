@@ -31,6 +31,15 @@
     </style>
 
 
+    <!-- Main menu entry -->
+    <style name="MenuEntry">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:padding">@dimen/spacing_normal</item>
+        <item name="android:drawablePadding">@dimen/spacing_normal</item>
+    </style>
+
+
     <!-- Notification popup theme -->
     <style name="AppThemeNotification" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="windowNoTitle">true</item>
@@ -67,7 +76,7 @@
         <item name="android:gravity">center</item>
         <item name="android:padding">@dimen/spacing_normal</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:textSize">@dimen/text_size_bigger</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:shadowColor">@color/translucent_gray</item>
         <item name="android:shadowRadius">@dimen/shadow_radius</item>
