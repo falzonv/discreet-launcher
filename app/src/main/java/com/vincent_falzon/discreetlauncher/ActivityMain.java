@@ -276,7 +276,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				}
 		}
 
-		// Check if the menu button is still enabled
+		// Check if the menu button is visible
 		if(!settings.getBoolean(Constants.HIDE_MENU_BUTTON, false))
 			{
 				// Retrieve the total height available in portrait mode (navigation bar automatically removed)
@@ -294,21 +294,22 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 				// Check if the number of favorites still allows to see the menu button
 				if(applicationsList.getFavorites().size() <= max_favorites) return ;
+
+				// If favorites cannot be always shown safely, display a message and disable the setting
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+					{
+						ShowDialog.toastLong(this, getString(R.string.error_always_show_favorites_not_safe)) ;
+						SharedPreferences.Editor editor = settings.edit() ;
+						editor.putBoolean(Constants.ALWAYS_SHOW_FAVORITES, false).apply() ;
+					}
 			}
 
-		// Disable the risky setting(s) to keep the menu accessible
+		// If the drawer cannot be safely disabled, display a message and disable the setting
 		if(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false))
 			{
 				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
 				editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
-			}
-		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
-			{
-				// TODO: dedicated error string when disabling "always show favorites" (will need translations update)
-				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
-				SharedPreferences.Editor editor = settings.edit() ;
-				editor.putBoolean(Constants.ALWAYS_SHOW_FAVORITES, false).apply() ;
 			}
 	}
 

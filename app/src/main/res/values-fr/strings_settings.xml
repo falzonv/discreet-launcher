@@ -94,7 +94,8 @@
     <string name="set_reverse_interface">Interface inversée</string>
     <string name="set_reverse_interface_help">Applications au dessus, et favoris en dessous de l\'écran d\'accueil</string>
     <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>
-    <string name="error_disable_app_drawer_not_safe">Tiroir d\'applications rétabli pour conserver l\'accès au menu</string>
+    <string name="error_always_show_favorites_not_safe">Favoris débloqués pour conserver l\'accès au menu.</string>
+    <string name="error_disable_app_drawer_not_safe">Tiroir d\'applications rétabli pour conserver l\'accès au menu.</string>
     <string name="error_appfilter_not_found">Impossible de trouver appfilter.xml dans le pack d\'icônes sélectionné. (%1$s)</string>
 
     <!-- Export and import -->
