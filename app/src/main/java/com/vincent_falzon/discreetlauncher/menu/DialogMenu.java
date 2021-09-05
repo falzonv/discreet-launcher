@@ -31,6 +31,7 @@ import android.view.MotionEvent ;
 import android.view.View ;
 import android.view.ViewGroup ;
 import android.widget.TextView ;
+import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatDialog ;
 import com.vincent_falzon.discreetlauncher.ActivityFavorites ;
 import com.vincent_falzon.discreetlauncher.ActivityFolders ;
@@ -43,12 +44,15 @@ import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
  */
 public class DialogMenu extends AppCompatDialog implements View.OnClickListener, View.OnTouchListener
 {
+	// Attributes
+	private final View dialogView ;
+
+
 	/**
 	 * Constructor.
 	 * @param context Provided by a preference
 	 *
 	 */
-	@SuppressLint("ClickableViewAccessibility")
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public DialogMenu(Context context)
 	{
@@ -56,25 +60,29 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
         super(context) ;
 
 		// Load the XML layout
-		View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_menu, (ViewGroup)null) ;
+		dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_menu, (ViewGroup)null) ;
 		setContentView(dialogView) ;
 
-		// Retrive the menu entries
-		TextView menuFavorites = dialogView.findViewById(R.id.menu_favorites) ;
-		TextView menuFolders = dialogView.findViewById(R.id.menu_folders) ;
-		TextView menuRefreshList = dialogView.findViewById(R.id.menu_refresh_list) ;
-		TextView menuSettings = dialogView.findViewById(R.id.menu_settings) ;
-
-		// Start to listen for events on menu entries
-		menuFavorites.setOnClickListener(this) ;
-		menuFavorites.setOnTouchListener(this) ;
-		menuFolders.setOnClickListener(this) ;
-		menuFolders.setOnTouchListener(this) ;
-		menuRefreshList.setOnClickListener(this) ;
-		menuRefreshList.setOnTouchListener(this) ;
-		menuSettings.setOnClickListener(this) ;
-		menuSettings.setOnTouchListener(this) ;
+		// Initializations
+		initializeMenuEntry(R.id.menu_favorites) ;
+		initializeMenuEntry(R.id.menu_folders) ;
+		initializeMenuEntry(R.id.menu_refresh_list) ;
+		initializeMenuEntry(R.id.menu_settings) ;
+		initializeMenuEntry(R.id.menu_help) ;
     }
+
+
+	/**
+	 * Initialize a menu entry.
+	 * @param id Resource ID of the menu entry
+	 */
+	@SuppressLint("ClickableViewAccessibility")
+	private void initializeMenuEntry(int id)
+	{
+		TextView menuEntry = dialogView.findViewById(id) ;
+		menuEntry.setOnClickListener(this) ;
+		menuEntry.setOnTouchListener(this) ;
+	}
 
 
 	/**
@@ -112,6 +120,15 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 			{
 				// Open the Settings and Help activity
 				context.startActivity(new Intent().setClass(context, ActivitySettings.class)) ;
+			}
+			else if(selection == R.id.menu_help)
+			{
+				// Display the Help without dismissing the menu
+				AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+				dialog.setView(R.layout.dialog_help) ;
+				dialog.setPositiveButton(R.string.button_close, null) ;
+				dialog.show() ;
+				return ;
 			}
 
 		// Dismiss the menu

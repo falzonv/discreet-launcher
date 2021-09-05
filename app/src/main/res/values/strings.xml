@@ -15,6 +15,7 @@
     <!-- Dialogs buttons -->
     <string name="button_apply">Apply</string>
     <string name="button_cancel">Cancel</string>
+    <string name="button_close">Close</string>
 
     <!-- Long click options -->
     <string name="long_click_title">What do you want to do?</string>

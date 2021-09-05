@@ -42,5 +42,13 @@
             app:drawableStartCompat="@drawable/ic_menu_preferences"
             style="@style/MenuEntry"/>
 
+        <TextView
+            android:id="@+id/menu_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/help_title"
+            app:drawableStartCompat="@drawable/ic_menu_help"
+            style="@style/MenuEntry"/>
+
     </LinearLayout>
 </ScrollView>

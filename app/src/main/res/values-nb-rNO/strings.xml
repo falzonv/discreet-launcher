@@ -15,6 +15,7 @@
     <!-- Dialogs buttons -->
     <string name="button_apply">Bruk</string>
     <string name="button_cancel">Avbryt</string>
+    <string name="button_close">Close</string>
 
     <!-- Long click options -->
     <string name="long_click_title">Hva ønsker du å gjøre?</string>

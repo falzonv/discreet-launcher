@@ -40,14 +40,6 @@
         app:iconSpaceReserved="false">
 
         <Preference
-            app:title="@string/help_title"
-            app:icon="@android:drawable/ic_menu_help">
-            <intent
-                android:targetPackage="com.vincent_falzon.discreetlauncher"
-                android:targetClass="com.vincent_falzon.discreetlauncher.settings.ActivityHelp"/>
-        </Preference>
-
-        <Preference
             app:title="@string/changelog_title"
             app:icon="@android:drawable/ic_input_get">
             <intent
