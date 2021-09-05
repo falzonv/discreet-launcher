@@ -25,6 +25,7 @@
     <string name="long_click_remove_shortcut">Supprimer ce raccourci</string>
 
     <!-- About -->
+    <string name="button_about">À propos</string>
     <string name="app_name">Lanceur Discret</string>
     <string name="licence_name">Licence publique générale GNU v3.0</string>
     <string name="website_description">Suggérez des améliorations et signalez les problèmes sur</string>

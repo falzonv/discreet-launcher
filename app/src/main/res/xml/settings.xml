@@ -47,8 +47,6 @@
                 android:targetClass="com.vincent_falzon.discreetlauncher.settings.ActivityChangelog"/>
         </Preference>
 
-        <Preference app:layout="@layout/settings_about"/>
-
     </PreferenceCategory>
 
 </PreferenceScreen>

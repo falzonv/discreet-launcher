@@ -50,5 +50,13 @@
             app:drawableStartCompat="@drawable/ic_menu_help"
             style="@style/MenuEntry"/>
 
+        <TextView
+            android:id="@+id/menu_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_about"
+            app:drawableStartCompat="@drawable/ic_menu_info_details"
+            style="@style/MenuEntry"/>
+
     </LinearLayout>
 </ScrollView>
