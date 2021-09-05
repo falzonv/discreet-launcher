@@ -6,6 +6,13 @@
         app:iconSpaceReserved="false">
 
         <SwitchPreference
+            app:key="notification"
+            app:title="@string/set_notification"
+            app:summary="@string/set_notification_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
             app:key="force_portrait"
             app:title="@string/set_force_portrait"
             app:summary="@string/set_force_portrait_help"

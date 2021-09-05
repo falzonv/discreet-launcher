@@ -7,13 +7,6 @@
         app:title="@string/title_section_customization"
         app:iconSpaceReserved="false">
 
-        <SwitchPreference
-            app:key="notification"
-            app:title="@string/set_notification"
-            app:summary="@string/set_notification_help"
-            app:iconSpaceReserved="false"
-            app:defaultValue="true"/>
-
         <Preference
             app:title="@string/button_hidden_applications"
             app:iconSpaceReserved="false">
