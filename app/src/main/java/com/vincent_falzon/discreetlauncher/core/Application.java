@@ -134,7 +134,6 @@ public class Application
 	 * @param view Element from which the event originates
 	 * @return <code>true</code> if the application was found, <code>false</code> otherwise
 	 */
-	@SuppressWarnings("BooleanMethodIsAlwaysInverted")
 	public boolean start(View view)
 	{
 		// Check if the application still exists (not uninstalled or disabled)

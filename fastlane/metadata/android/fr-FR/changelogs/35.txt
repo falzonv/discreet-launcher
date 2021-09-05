@@ -1,4 +1,4 @@
-v4.7.0 (35)
+v4.7.0 (35) - 15/08/2021
 NOUVEAUTÉS
    - Icônes de dossiers colorées (@drewski-00h)
    - Applications renommables (@MathieuA)

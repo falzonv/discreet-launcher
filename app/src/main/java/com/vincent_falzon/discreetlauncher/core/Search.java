@@ -78,7 +78,6 @@ public class Search extends Application
 	 * @param parent Element from which the event originates
 	 * @return Always <code>true</code>
 	 */
-	@SuppressWarnings("RedundantCast")
 	public boolean start(View parent)
 	{
 		// Initializations

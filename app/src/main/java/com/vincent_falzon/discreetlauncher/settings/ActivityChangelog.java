@@ -40,7 +40,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList ;
 
 /**
- * Activity called when the notification is clicked.
+ * Display the Discreet Launcher changelog.
  */
 public class ActivityChangelog extends AppCompatActivity
 {

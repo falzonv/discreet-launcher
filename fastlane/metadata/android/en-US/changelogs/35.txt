@@ -1,4 +1,4 @@
-v4.7.0 (35)
+v4.7.0 (35) - 15/08/2021
 NEW THINGS
    - Custom color for folders icons (@drewski-00h)
    - Rename applications (@MathieuA)
