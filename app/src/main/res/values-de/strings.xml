@@ -4,7 +4,7 @@
     <!-- List of applications -->
     <string name="info_applications_list_refreshed">App-Liste aktualisiert</string>
     <string name="button_refresh_list">App-Liste aktualisieren</string>
-    <string name="error_application_not_found">\"%1$s\ konnte nicht gefunden werden"</string>
+    <string name="error_application_not_found">\"%1$s\" konnte nicht gefunden werden</string>
 
     <!-- Favorites -->
     <string name="button_favorites">Favoriten</string>
