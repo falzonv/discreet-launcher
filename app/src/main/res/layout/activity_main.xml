@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingHorizontal="@dimen/spacing_large"
-                app:drawableStartCompat="@android:drawable/ic_menu_preferences"/>
+                app:drawableStartCompat="@drawable/ic_menu_preferences"/>
 
         </LinearLayout>
 
