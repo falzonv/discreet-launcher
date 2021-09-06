@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_hidden_applications"
-            app:drawableStartCompat="@drawable/ic_menu_archive"
+            app:drawableStartCompat="@drawable/ic_menu_cut"
             style="@style/MenuEntry"/>
 
         <TextView
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/changelog_title"
-            app:drawableStartCompat="@android:drawable/ic_input_get"
+            app:drawableStartCompat="@drawable/ic_menu_agenda"
             style="@style/MenuEntry"/>
 
         <TextView
