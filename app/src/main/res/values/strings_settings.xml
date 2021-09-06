@@ -71,6 +71,7 @@
     <!-- Search -->
     <string name="search_app_name">Search</string>
     <string name="search_hint">Search for apps</string>
+    <string name="search_long_press_hide">Hide</string>
 
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Transparent status bar</string>

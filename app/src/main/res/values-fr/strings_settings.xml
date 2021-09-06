@@ -71,6 +71,7 @@
     <!-- Search -->
     <string name="search_app_name">Recherche</string>
     <string name="search_hint">Chercher des applications</string>
+    <string name="search_long_press_hide">Masquer</string>
 
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
