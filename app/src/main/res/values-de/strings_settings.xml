@@ -30,7 +30,7 @@
         <item>Keins (ausblenden)</item>
         <item>24-Stunden-Zählung</item>
         <item>12 Stunden</item>
-        <item>12 Stunden + AM/PM</item>
+        <item>2-mal-12-Stunden-Zählung</item>
     </string-array>
 
     <!-- Color picker -->
