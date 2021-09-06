@@ -12,4 +12,5 @@
     android:gravity="center_vertical"
     android:background="@color/translucent_gray"
     android:textColor="@color/white"
+    android:text="@string/placeholder"
     tools:ignore="Overdraw"/>

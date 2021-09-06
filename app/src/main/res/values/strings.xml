@@ -33,12 +33,12 @@
     <string name="website_description">Suggest improvements and report issues on</string>
     <string name="website_link" translatable="false">https://vincent-falzon.com</string>
     <string name="translation_credit">
-        <!-- Replace this comment with something like the following:
-
-                 [Locale (ex: Russian)] translation provided by [first and last names].
-                 If you need to contact Vincent (developer), please do so in English or French.
-
+        <!-- Replace this comment with a translation of:
+                 [Locale] translation by [first and last names]      (example: Russian translation by Artur Aiwasan)
          -->
     </string>
+
+    <!-- Do not include this line in translations (used only for XML design in Android Studio) -->
+    <string name="placeholder" translatable="false">(placeholder)</string>
 
 </resources>

@@ -20,7 +20,8 @@
             android:gravity="center"
             android:textStyle="italic"
             android:textColor="@color/white"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            android:text="@string/placeholder"/>
 
         <EditText
             android:id="@+id/search_bar"

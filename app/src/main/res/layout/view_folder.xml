@@ -21,7 +21,8 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:textStyle="bold"
-        android:gravity="center_vertical"/>
+        android:gravity="center_vertical"
+        android:text="@string/placeholder"/>
 
     <ImageButton
         android:id="@+id/edit_folder_content"
