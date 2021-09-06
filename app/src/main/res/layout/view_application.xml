@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/application_item"
-	android:layout_height="wrap_content"
-	android:layout_width="match_parent"
-	android:paddingVertical="@dimen/spacing_normal"
-	android:drawablePadding="@dimen/spacing_very_small"
-	android:gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/application_item"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:paddingVertical="@dimen/spacing_normal"
+    android:drawablePadding="@dimen/spacing_very_small"
+    android:gravity="center_horizontal"
     android:maxLines="3"
-	android:textColor="@color/white"
+    android:textColor="@color/white"
     android:text="@string/placeholder"/>

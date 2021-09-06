@@ -51,7 +51,7 @@ public class ActivityNotification extends AppCompatActivity
 		super.onCreate(savedInstanceState) ;
 
 		// Initializations related to the interface
-		setContentView(R.layout.popup) ;
+		setContentView(R.layout.view_folder_popup) ;
 
 		// Define the title and make it open the favorites manager when clicked
 		TextView title = findViewById(R.id.popup_title) ;

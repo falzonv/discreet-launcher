@@ -82,7 +82,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 
 		// Load the color picker layout
 		LayoutInflater inflater = LayoutInflater.from(context) ;
-		final View dialogView = inflater.inflate(R.layout.color_picker, (ViewGroup)null) ;
+		final View dialogView = inflater.inflate(R.layout.dialog_color_picker, (ViewGroup)null) ;
 		setContentView(dialogView) ;
 
 		// Set the dialog title

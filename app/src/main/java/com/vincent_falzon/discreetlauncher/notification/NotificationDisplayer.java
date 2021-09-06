@@ -80,7 +80,7 @@ public class NotificationDisplayer
 		builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ; // Hidden on lock screen
 
 		// Define a custom layout for the notification
-		RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.notification) ;
+		RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.view_notification) ;
 		builder.setCustomContentView(notificationLayout) ;
 
 		// Settings applied when the Android version doesn't support notification channels
