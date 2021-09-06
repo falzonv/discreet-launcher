@@ -48,8 +48,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 
 	/**
 	 * Constructor.
-	 * @param context Provided by a preference
-	 *
+	 * @param context Provided by a dialog or activity
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public DialogMenu(Context context)
@@ -64,6 +63,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 		// Initializations
 		initializeMenuEntry(R.id.menu_favorites) ;
 		initializeMenuEntry(R.id.menu_folders) ;
+		initializeMenuEntry(R.id.menu_hidden_apps) ;
 		initializeMenuEntry(R.id.menu_refresh_list) ;
 		initializeMenuEntry(R.id.menu_settings) ;
 		initializeMenuEntry(R.id.menu_help) ;
@@ -106,6 +106,11 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 			{
 				// Open the Folders activity
 				context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+			}
+			else if(selection == R.id.menu_hidden_apps)
+			{
+				// Open the Hidden apps dialog
+				DialogHiddenApps.showHiddenAppsDialog(context) ;
 			}
 			else if(selection == R.id.menu_refresh_list)
 			{

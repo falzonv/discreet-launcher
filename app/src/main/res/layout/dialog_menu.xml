@@ -27,6 +27,14 @@
             style="@style/MenuEntry"/>
 
         <TextView
+            android:id="@+id/menu_hidden_apps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_hidden_applications"
+            app:drawableStartCompat="@drawable/ic_menu_archive"
+            style="@style/MenuEntry"/>
+
+        <TextView
             android:id="@+id/menu_refresh_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

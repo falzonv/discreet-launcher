@@ -36,12 +36,6 @@
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".settings.ActivityHiddenApps"
-            android:label="@string/button_hidden_applications"
-            android:parentActivityName=".settings.ActivityHiddenApps"
-            android:theme="@style/AppTheme"/>
-
-        <activity
             android:name=".settings.ActivityExportImport"
             android:label="@string/title_export_import"
             android:parentActivityName=".settings.ActivitySettings"

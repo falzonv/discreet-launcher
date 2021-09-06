@@ -50,8 +50,7 @@ public class DialogChangelog extends AlertDialog
 
 	/**
 	 * Constructor.
-	 * @param context Provided by a preference
-	 *
+	 * @param context Provided by a dialog or activity
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public DialogChangelog(Context context)
