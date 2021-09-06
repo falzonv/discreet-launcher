@@ -30,6 +30,6 @@
     <string name="license_link" translatable="false">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Verbesserungsvorschläge und mögliche Fehler bitte über folgende Webseite senden</string>
     <string name="website_link" translatable="false">https://vincent-falzon.com</string>
-    <string name="translation_credit">Deutsche Übersetzung von tuch96 (Marc).</string>
+    <string name="translation_credit">Deutsche Übersetzung von tuch96 (Marc)</string>
 
 </resources>
