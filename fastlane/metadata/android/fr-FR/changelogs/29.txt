@@ -1,6 +1,6 @@
 v4.2.0 (29) - 26/06/2021
 NOUVEAUTÉS
-   - "Entrée" ouvre seul résultat de recherche (@xi7)
+   - "Entrée" ouvre 1 résultat de recherche (@xi7)
 AMÉLIORATIONS
    - Clavier de recherche en mode paysage (@xi7)
-   - Meilleure conversion vers nouveau format interne
+   - Meilleure conversion de format interne

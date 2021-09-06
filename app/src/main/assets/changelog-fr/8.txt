@@ -1,5 +1,5 @@
 v2.0.0 (08) - 21/03/2021
 NOUVEAUTÉS
-   - Màj automatique de la liste des applications (@xi7)
+   - Màj auto de la liste des applications (@xi7)
 AMÉLIORATIONS
    - Réorganisation interne majeure

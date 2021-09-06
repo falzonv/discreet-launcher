@@ -3,4 +3,4 @@ NOUVEAUTÉS
    - Icônes pour les raccourcis web
 AMÉLIORATIONS
    - Màj automatique de la liste après import
-   - Favoris max selon la taille d'écran (@AeOeAa)
+   - Favoris max selon l'écran (@AeOeAa)

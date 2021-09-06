@@ -5,5 +5,5 @@ IMPROVEMENTS
    - Better visual feedback (@xi7)
    - Max 3 lines for apps names (@xi7)
 CORRECTIONS
-   - Transparent nav bar on Android 10+ (@AeOeAa)
+   - Navigation bar on Android 10+ (@AeOeAa)
    - Folder not closed properly (@xi7)

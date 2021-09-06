@@ -3,6 +3,6 @@ NEW THINGS
    - Transparent status bar option (@xi7)
    - Home screen clock option (@mateimm)
 IMPROVEMENTS
-   - Automatic icons update when the pack changes
+   - Auto update icons when the pack changes
 CORRECTIONS
    - Duplicate screenshots on F-Droid (try)

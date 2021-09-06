@@ -7,12 +7,12 @@ NOUVEAUTÉS
    - Bouton Fermer sur dossiers et notification
    - Option pour cacher le bouton de menu (@xi7)
 AMÉLIORATIONS
-   - Icône notification masquée (@unnyflowerpot)
+   - Icône notif transparente (@funnyflowerpot)
    - Nouveau bouton de menu (@drewski-00h)
    - Fusionner les paramètres d'horloge
    - Réorganisation des paramètres
    - Aide dossiers revue (@SteveM)
    - Réorganisation interne majeure
 CORRECTIONS
-   - Nom de dossier long casse la disposition (@xi7)
-   - Bouton Retour pour dossiers sur Android 5 (@xi7)
+   - Nom de dossier long et disposition (@xi7)
+   - Bouton Retour Android 5 et dossiers (@xi7)

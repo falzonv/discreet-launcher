@@ -1,4 +1,4 @@
 v2.2.0 (10) - 28/03/2021
 NEW THINGS
    - Web shortcuts support (@johanbove)
-   - Option to hide the notification on lock screen
+   - Option to hide notification on lock screen

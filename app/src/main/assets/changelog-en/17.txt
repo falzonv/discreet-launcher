@@ -1,3 +1,3 @@
 v3.0.1 (17) - 16/04/2021
 CORRECTIONS
-   - Web shortcuts not working (@zcgrubb/johanbove)
+   - Web shortcuts (@zcgrubb/johanbove)
