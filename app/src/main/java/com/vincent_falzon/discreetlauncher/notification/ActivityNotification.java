@@ -29,9 +29,9 @@ import android.view.View ;
 import android.widget.TextView ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.recyclerview.widget.RecyclerView ;
-import com.vincent_falzon.discreetlauncher.ActivityFavorites ;
+import com.vincent_falzon.discreetlauncher.menu.ActivityFavorites ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
-import com.vincent_falzon.discreetlauncher.FlexibleGridLayout;
+import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
 

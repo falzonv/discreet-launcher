@@ -54,7 +54,7 @@
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".ActivityFavorites"
+            android:name=".menu.ActivityFavorites"
             android:label="@string/button_favorites"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
