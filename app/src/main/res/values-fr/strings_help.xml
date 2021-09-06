@@ -38,7 +38,7 @@
 
     <!-- Changelog -->
     <string name="changelog_title">Journal des changements</string>
-    <string name="changelog_mentions"><i>@pseudo</i> indique l\'utilisateur(trice) qui a suggéré l\'idée ou signalé le bug</string>
+    <string name="changelog_mentions">\"@pseudo\" indique l\'utilisateur(trice) qui a suggéré l\'idée ou signalé le bug</string>
     <string name="changelog_folder">changelog-fr</string>
     <string name="error_changelog_folder">Impossible de trouver le dossier du journal des changements</string>
     <string name="error_changelog_file">Impossible d\'ouvrir %1s</string>

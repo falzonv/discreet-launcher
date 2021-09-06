@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Thème -->
+    <!-- Theme -->
     <string-array name="set_application_theme_values">
         <item>light</item>
         <item>dark</item>

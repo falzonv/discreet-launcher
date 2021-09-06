@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- List of Applications -->
+    <!-- List of applications -->
     <string name="info_applications_list_refreshed">Programliste gjenoppfrisket</string>
     <string name="button_refresh_list">Gjenoppfrisk programlisten</string>
     <string name="error_application_not_found">Fant ikke «%1$s»</string>
