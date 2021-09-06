@@ -58,6 +58,14 @@
             app:drawableStartCompat="@drawable/ic_menu_preferences"
             style="@style/MenuEntry"/>
 
+        <TextView
+            android:id="@+id/menu_export_import"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_export_import"
+            app:drawableStartCompat="@drawable/ic_menu_upload"
+            style="@style/MenuEntry"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

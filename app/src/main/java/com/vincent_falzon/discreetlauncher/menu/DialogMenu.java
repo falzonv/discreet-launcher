@@ -35,6 +35,7 @@ import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatDialog ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.settings.ActivityExportImport ;
 import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
 
 /**
@@ -66,6 +67,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 		initializeMenuEntry(R.id.menu_hidden_apps) ;
 		initializeMenuEntry(R.id.menu_refresh_list) ;
 		initializeMenuEntry(R.id.menu_settings) ;
+		initializeMenuEntry(R.id.menu_export_import) ;
 		initializeMenuEntry(R.id.menu_help) ;
 		initializeMenuEntry(R.id.menu_changelog) ;
 		initializeMenuEntry(R.id.menu_about) ;
@@ -125,6 +127,11 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 			{
 				// Open the Settings and Help activity
 				context.startActivity(new Intent().setClass(context, ActivitySettings.class)) ;
+			}
+			else if(selection == R.id.menu_export_import)
+			{
+				// Open the Export / Import activity
+				context.startActivity(new Intent().setClass(context, ActivityExportImport.class)) ;
 			}
 			else if(selection == R.id.menu_help)
 			{
