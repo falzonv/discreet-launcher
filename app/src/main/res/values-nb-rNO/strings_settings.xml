@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Setting titles -->
-    <string name="title_settings_and_help">Innstillinger og hjelp</string>
-    <string name="title_section_customization">Tilpasning</string>
-    <string name="title_section_help_and_general_info">Hjelp og generell info</string>
-    <string name="title_appearance_settings">Utseende</string>
-    <string name="title_appearance_settings_general">Generelt utseende</string>
-    <string name="title_appearance_settings_applications">Programutseende</string>
-    <string name="title_behavior_settings">Bruk</string>
-    <string name="title_export_import">Eksport og import</string>
+    <!-- Setting buttons and titles -->
+    <string name="button_settings_appearance">Utseende</string>
+    <string name="button_settings_operation">Bruk</string>
+    <string name="button_export_import">Eksport og import</string>
+    <string name="title_settings_appearance_general">Generelt utseende</string>
+    <string name="title_settings_appearance_applications">Programutseende</string>
 
     <!-- Notification -->
     <string name="set_notification">Merknad for tilgang til favoritter</string>

@@ -51,10 +51,18 @@
             android:background="@color/light_blue"/>
 
         <TextView
-            android:id="@+id/menu_settings"
+            android:id="@+id/menu_settings_appearance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_settings_and_help"
+            android:text="@string/button_settings_appearance"
+            app:drawableStartCompat="@drawable/ic_menu_gallery"
+            style="@style/MenuEntry"/>
+
+        <TextView
+            android:id="@+id/menu_settings_operation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_settings_operation"
             app:drawableStartCompat="@drawable/ic_menu_preferences"
             style="@style/MenuEntry"/>
 
@@ -62,7 +70,7 @@
             android:id="@+id/menu_export_import"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_export_import"
+            android:text="@string/button_export_import"
             app:drawableStartCompat="@drawable/ic_menu_upload"
             style="@style/MenuEntry"/>
 
@@ -99,4 +107,5 @@
             style="@style/MenuEntry"/>
 
     </LinearLayout>
+
 </ScrollView>

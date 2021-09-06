@@ -5,7 +5,7 @@
 
     <!-- Required for Android 11+ (<queries> not applicable for Launcher applications) -->
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
-        tools:ignore="QueryAllPackagesPermission" />
+        tools:ignore="QueryAllPackagesPermission"/>
 
 	<application
 		android:allowBackup="false"
@@ -21,25 +21,12 @@
             android:launchMode="singleTask"
             android:excludeFromRecents="true">
 			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-
-				<category android:name="android.intent.category.LAUNCHER" />
-				<category android:name="android.intent.category.HOME" />
-				<category android:name="android.intent.category.DEFAULT" />
+				<action android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+				<category android:name="android.intent.category.HOME"/>
+				<category android:name="android.intent.category.DEFAULT"/>
 			</intent-filter>
 		</activity>
-
-        <activity
-            android:name=".settings.ActivitySettings"
-            android:label="@string/title_settings_and_help"
-            android:parentActivityName=".ActivityMain"
-            android:theme="@style/AppTheme"/>
-
-        <activity
-            android:name=".settings.ActivityExportImport"
-            android:label="@string/title_export_import"
-            android:parentActivityName=".settings.ActivitySettings"
-            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".menu.ActivityFavorites"
@@ -54,19 +41,37 @@
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".events.ShortcutListener"
+            android:name=".settings.ActivitySettingsAppearance"
+            android:label="@string/button_settings_appearance"
             android:parentActivityName=".ActivityMain"
-            android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme"/>
+
+        <activity
+            android:name=".settings.ActivitySettingsOperation"
+            android:label="@string/button_settings_operation"
+            android:parentActivityName=".ActivityMain"
+            android:theme="@style/AppTheme"/>
+
+        <activity
+            android:name=".settings.ActivityExportImport"
+            android:label="@string/button_export_import"
+            android:parentActivityName=".settings.ActivitySettingsAppearance"
+            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".notification.ActivityNotification"
             android:theme="@style/AppThemeNotification"
             android:excludeFromRecents="true">
+        </activity>
+
+        <activity
+            android:name=".events.ShortcutListener"
+            android:parentActivityName=".ActivityMain"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.content.pm.action.CONFIRM_PIN_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
 
 	</application>

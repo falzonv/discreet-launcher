@@ -250,7 +250,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Reset the preference to default before importing the file
 		settings.edit().clear().apply() ;
-		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_appearance, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_operation, true) ;
 

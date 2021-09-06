@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Settings titles -->
-    <string name="title_settings_and_help">Settings and help</string>
-    <string name="title_section_customization">Customization</string>
-    <string name="title_section_help_and_general_info">Help and general info</string>
-    <string name="title_appearance_settings">Appearance</string>
-    <string name="title_appearance_settings_general">General appearance</string>
-    <string name="title_appearance_settings_applications">Appearance of apps</string>
-    <string name="title_behavior_settings">Operation</string>
-    <string name="title_export_import">Export and import</string>
+    <!-- Setting buttons and titles -->
+    <string name="button_settings_appearance">Appearance</string>
+    <string name="button_settings_operation">Operation</string>
+    <string name="button_export_import">Export and import</string>
+    <string name="title_settings_appearance_general">General appearance</string>
+    <string name="title_settings_appearance_applications">Appearance of apps</string>
 
     <!-- Notification -->
     <string name="set_notification">Notification for access to favorites</string>

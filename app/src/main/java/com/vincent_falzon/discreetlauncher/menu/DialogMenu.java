@@ -36,7 +36,8 @@ import androidx.appcompat.app.AppCompatDialog ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.settings.ActivityExportImport ;
-import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
+import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
+import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsOperation ;
 
 /**
  * Display the main menu of Discreet Launcher.
@@ -66,7 +67,8 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 		initializeMenuEntry(R.id.menu_folders) ;
 		initializeMenuEntry(R.id.menu_hidden_apps) ;
 		initializeMenuEntry(R.id.menu_refresh_list) ;
-		initializeMenuEntry(R.id.menu_settings) ;
+		initializeMenuEntry(R.id.menu_settings_appearance) ;
+		initializeMenuEntry(R.id.menu_settings_operation) ;
 		initializeMenuEntry(R.id.menu_export_import) ;
 		initializeMenuEntry(R.id.menu_help) ;
 		initializeMenuEntry(R.id.menu_changelog) ;
@@ -123,10 +125,15 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 				homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 				context.startActivity(homeIntent) ;
 			}
-			else if(selection == R.id.menu_settings)
+			else if(selection == R.id.menu_settings_appearance)
 			{
-				// Open the Settings and Help activity
-				context.startActivity(new Intent().setClass(context, ActivitySettings.class)) ;
+				// Open the Settings > Appearance activity
+				context.startActivity(new Intent().setClass(context, ActivitySettingsAppearance.class)) ;
+			}
+			else if(selection == R.id.menu_settings_operation)
+			{
+				// Open the Settings > Operation activity
+				context.startActivity(new Intent().setClass(context, ActivitySettingsOperation.class)) ;
 			}
 			else if(selection == R.id.menu_export_import)
 			{

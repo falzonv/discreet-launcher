@@ -25,16 +25,12 @@ package com.vincent_falzon.discreetlauncher.settings ;
 // Imports
 import android.content.Intent ;
 import android.content.SharedPreferences ;
-import android.content.pm.ActivityInfo ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
-import android.os.Build ;
 import android.os.Bundle ;
-import android.view.MenuItem ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
-import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
 import java.util.ArrayList ;
@@ -43,7 +39,7 @@ import java.util.List ;
 /**
  * Settings and Help activity.
  */
-public class ActivitySettings extends AppCompatActivity
+public class ActivitySettingsAppearance extends AppCompatActivity
 {
 	// Attributes
 	private static ArrayList<String> iconPacks ;
@@ -73,46 +69,7 @@ public class ActivitySettings extends AppCompatActivity
 
 		// Load the general settings layout
 		setContentView(R.layout.activity_settings) ;
-
-		// Display the settings
 		getSupportFragmentManager().beginTransaction().replace(R.id.settings_container, new SettingsFragment()).commit() ;
-	}
-
-
-	/**
-	 * Modify the arrow from action bar to allow navigation between fragments.
-	 * @param item Selected element
-	 * @return <code>true</code> if the event has been consumed, <code>false</code> otherwise
-	 */
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		// Make the arrow from the action bar do the same action than the Back button
-		if(item.getItemId() == android.R.id.home)
-			{
-				onBackPressed() ;
-				return true ;
-			}
-		return super.onOptionsItemSelected(item) ;
-	}
-
-
-	/**
-	 * Perfom actions when returning to the home screen.
-	 */
-	@Override
-	protected void onDestroy()
-	{
-		// Fix an Android Oreo 8.1 bug (orientation is sometimes kept from an activity to another)
-		if(Build.VERSION.SDK_INT == Build.VERSION_CODES.O_MR1)
-			{
-				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this) ;
-				if(settings.getBoolean(Constants.FORCE_PORTRAIT, false))
-						setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) ;
-					else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) ;
-			}
-
-		super.onDestroy() ;
 	}
 
 
@@ -120,26 +77,6 @@ public class ActivitySettings extends AppCompatActivity
 	 * Load the general settings from the XML file and prepare their values.
 	 */
 	public static class SettingsFragment extends PreferenceFragmentCompat
-	{
-		/**
-		 * Constructor.
-		 * @param savedInstanceState To retrieve the context
-		 * @param rootKey Root of the settings hierarchy
-		 */
-		@Override
-		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
-		{
-			// Load the settings from the XML file
-			setPreferencesFromResource(R.xml.settings, rootKey) ;
-		}
-	}
-
-
-	/**
-	 * Load the appearance settings from the XML file.
-	 */
-	@SuppressWarnings({"unused", "RedundantSuppression"})
-	public static class AppearanceFragment extends PreferenceFragmentCompat
 	{
 		/**
 		 * Constructor.
@@ -159,26 +96,6 @@ public class ActivitySettings extends AppCompatActivity
 					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
 					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
 				}
-		}
-	}
-
-
-	/**
-	 * Load the behavior settings from the XML file.
-	 */
-	@SuppressWarnings({"unused", "RedundantSuppression"})
-	public static class OperationFragment extends PreferenceFragmentCompat
-	{
-		/**
-		 * Constructor.
-		 * @param savedInstanceState To retrieve the context
-		 * @param rootKey Root of the settings hierarchy
-		 */
-		@Override
-		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
-		{
-			// Load the settings from the XML file
-			setPreferencesFromResource(R.xml.settings_operation, rootKey) ;
 		}
 	}
 

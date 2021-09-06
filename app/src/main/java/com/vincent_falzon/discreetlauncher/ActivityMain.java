@@ -52,7 +52,7 @@ import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
 import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
-import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
+import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -106,7 +106,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		density = getResources().getDisplayMetrics().density ;
 
 		// Assign default values to settings not configured yet
-		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_appearance, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_operation, true) ;
 
@@ -330,7 +329,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else findViewById(R.id.info_no_favorites_yet).setVisibility(View.GONE) ;
 
 				// Retrieve the background color
-				int background_color = ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
+				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
 
 				// Check if the interface is reversed and adjust the display accordingly
 				Drawable tab_shape ;
@@ -377,7 +376,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
-					else getWindow().setStatusBarColor(ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray))) ;
+					else getWindow().setStatusBarColor(ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray))) ;
 
 				// Make the navigation bar transparent
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
@@ -400,7 +399,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(adapters_update_needed) updateAdapters() ;
 
 				// Color the system bars and the drawer background
-				int background_color = ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
+				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
 				drawer.setBackgroundColor(background_color) ;
 				getWindow().setStatusBarColor(background_color) ;
 				getWindow().setNavigationBarColor(background_color) ;

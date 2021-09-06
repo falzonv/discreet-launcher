@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Settings titles -->
-    <string name="title_settings_and_help">Настройки и помощь</string>
-    <string name="title_section_customization">Персонализация</string>
-    <string name="title_section_help_and_general_info">Помощь и общая информация</string>
-    <string name="title_appearance_settings">Внешний вид</string>
-    <string name="title_appearance_settings_general">Общий вид</string>
-    <string name="title_appearance_settings_applications">Вид приложений</string>
-    <string name="title_behavior_settings">Операция</string>
-    <string name="title_export_import">Экспорт и импорт</string>
+    <!-- Setting buttons and titles -->
+    <string name="button_settings_appearance">Внешний вид</string>
+    <string name="button_settings_operation">Операция</string>
+    <string name="button_export_import">Экспорт и импорт</string>
+    <string name="title_settings_appearance_general">Общий вид</string>
+    <string name="title_settings_appearance_applications">Вид приложений</string>
 
     <!-- Notification -->
     <string name="set_notification">Уведомление для доступа к избранному</string>
