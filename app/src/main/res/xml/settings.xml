@@ -35,18 +35,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        app:title="@string/title_section_help_and_general_info"
-        app:iconSpaceReserved="false">
-
-        <Preference
-            app:title="@string/changelog_title"
-            app:icon="@android:drawable/ic_input_get">
-            <intent
-                android:targetPackage="com.vincent_falzon.discreetlauncher"
-                android:targetClass="com.vincent_falzon.discreetlauncher.settings.ActivityChangelog"/>
-        </Preference>
-
-    </PreferenceCategory>
-
 </PreferenceScreen>

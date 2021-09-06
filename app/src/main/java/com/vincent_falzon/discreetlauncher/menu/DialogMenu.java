@@ -67,6 +67,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 		initializeMenuEntry(R.id.menu_refresh_list) ;
 		initializeMenuEntry(R.id.menu_settings) ;
 		initializeMenuEntry(R.id.menu_help) ;
+		initializeMenuEntry(R.id.menu_changelog) ;
 		initializeMenuEntry(R.id.menu_about) ;
     }
 
@@ -126,6 +127,13 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 				AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
 				dialog.setView(R.layout.dialog_help) ;
 				dialog.setPositiveButton(R.string.button_close, null) ;
+				dialog.show() ;
+				return ;
+			}
+			else if(selection == R.id.menu_changelog)
+			{
+				// Display the Changelog without dismissing the menu
+				DialogChangelog dialog = new DialogChangelog(context) ;
 				dialog.show() ;
 				return ;
 			}

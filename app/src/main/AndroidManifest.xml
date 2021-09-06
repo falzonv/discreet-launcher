@@ -48,12 +48,6 @@
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".settings.ActivityChangelog"
-            android:label="@string/changelog_title"
-            android:parentActivityName=".settings.ActivitySettings"
-            android:theme="@style/AppTheme"/>
-
-        <activity
             android:name=".menu.ActivityFavorites"
             android:label="@string/button_favorites"
             android:parentActivityName=".ActivityMain"

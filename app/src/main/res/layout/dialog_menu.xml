@@ -34,6 +34,14 @@
             app:drawableStartCompat="@drawable/ic_menu_refresh"
             style="@style/MenuEntry"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_very_small"
+            android:layout_marginBottom="@dimen/spacing_very_small"
+            android:layout_marginHorizontal="@dimen/spacing_small"
+            android:background="@color/light_blue"/>
+
         <TextView
             android:id="@+id/menu_settings"
             android:layout_width="match_parent"
@@ -42,12 +50,28 @@
             app:drawableStartCompat="@drawable/ic_menu_preferences"
             style="@style/MenuEntry"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_very_small"
+            android:layout_marginBottom="@dimen/spacing_very_small"
+            android:layout_marginHorizontal="@dimen/spacing_small"
+            android:background="@color/light_blue"/>
+
         <TextView
             android:id="@+id/menu_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/help_title"
             app:drawableStartCompat="@drawable/ic_menu_help"
+            style="@style/MenuEntry"/>
+
+        <TextView
+            android:id="@+id/menu_changelog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/changelog_title"
+            app:drawableStartCompat="@android:drawable/ic_input_get"
             style="@style/MenuEntry"/>
 
         <TextView
