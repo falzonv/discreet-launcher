@@ -49,10 +49,10 @@ import com.vincent_falzon.discreetlauncher.ShowDialog ;
 public class ColorPickerDialog extends AppCompatDialog implements ColorPickerView.ColorChangeListener, View.OnClickListener
 {
 	// Attributes
-    private final ColorPickerView colorPicker ;
-    private final EditText newColorHexadecimal ;
+	private final ColorPickerView colorPicker ;
+	private final EditText newColorHexadecimal ;
 	private final String default_color ;
-    private final SaveRequestListener saveListener;
+	private final SaveRequestListener saveListener;
 
 
 	/**
@@ -60,8 +60,8 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 	 */
 	public interface SaveRequestListener
 	{
-        void onSaveRequest(String color) ;
-    }
+		void onSaveRequest(String color) ;
+	}
 
 
 	/**
@@ -75,7 +75,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 	public ColorPickerDialog(Context context, int initial_color, String default_color, CharSequence title, SaveRequestListener listener)
 	{
 		// Let the parent actions be performed
-        super(context) ;
+		super(context) ;
 
 		// Make sure to use the RGBA_8888 pixel format
 		if(getWindow() != null) getWindow().setFormat(PixelFormat.RGBA_8888) ;
@@ -133,7 +133,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 
 		// Register the listener to notify when the selected color need to be saved
 		saveListener = listener ;
-    }
+	}
 
 
 	/**
@@ -141,18 +141,18 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 	 * @param color New color
 	 */
 	@Override
-    public void onColorChanged(int color)
+	public void onColorChanged(int color)
 	{
 		newColorHexadecimal.setText(convertIntColorToHexadecimal(color, false)) ;
-    }
+	}
 
 
 	/**
 	 * Detect a click on a button.
 	 * @param view Element clicked
 	 */
-    @Override
-    public void onClick(View view)
+	@Override
+	public void onClick(View view)
 	{
 		// Identify which element has been clicked
 		int selection = view.getId() ;
@@ -170,8 +170,8 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 			saveListener.onSaveRequest(convertIntColorToHexadecimal(colorPicker.getColor(), true)) ;
 
 		// Dismiss the color picker
-        dismiss() ;
-    }
+		dismiss() ;
+	}
 
 
 	/**

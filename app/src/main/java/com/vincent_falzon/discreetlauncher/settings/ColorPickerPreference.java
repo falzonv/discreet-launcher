@@ -50,7 +50,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 	private final float density ;
 	private String default_color ;
 	private int current_color ;
-    ColorPickerDialog pickerDialog ;
+	ColorPickerDialog pickerDialog ;
 
 
 	/**
@@ -66,7 +66,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 		// Initializations
 		density = getContext().getResources().getDisplayMetrics().density ;
 		setOnPreferenceClickListener(this) ;
-    }
+	}
 
 
 	/**
@@ -74,7 +74,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 	 * @param defaultValue Result of onGetDefaultValue()
 	 */
 	@Override
-    protected void onSetInitialValue(Object defaultValue)
+	protected void onSetInitialValue(Object defaultValue)
 	{
 		onSaveRequest(getPersistedString((String)defaultValue)) ;
 	}
@@ -134,12 +134,12 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 	 * @param holder Provide references to the views of the preference
 	 */
 	@Override
-    public void onBindViewHolder(PreferenceViewHolder holder)
+	public void onBindViewHolder(PreferenceViewHolder holder)
 	{
 		// Let the parent actions be performed
-        super.onBindViewHolder(holder) ;
+		super.onBindViewHolder(holder) ;
 
-        // Retrieve the widget frame allowing to display a custom preview
+		// Retrieve the widget frame allowing to display a custom preview
 		LinearLayout widgetFrame = holder.itemView.findViewById(android.R.id.widget_frame) ;
 		if(widgetFrame == null) return ;
 

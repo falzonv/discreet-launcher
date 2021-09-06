@@ -56,7 +56,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 	public DialogMenu(Context context)
 	{
 		// Let the parent actions be performed
-        super(context) ;
+		super(context) ;
 
 		// Load the XML layout
 		dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_menu, (ViewGroup)null) ;
@@ -73,7 +73,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 		initializeMenuEntry(R.id.menu_help) ;
 		initializeMenuEntry(R.id.menu_changelog) ;
 		initializeMenuEntry(R.id.menu_about) ;
-    }
+	}
 
 
 	/**
@@ -93,8 +93,8 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 	 * Called when an element is clicked.
 	 * @param view Target element
 	 */
-    @Override
-    public void onClick(View view)
+	@Override
+	public void onClick(View view)
 	{
 		// Retrieve the clicked element
 		int selection = view.getId() ;
@@ -169,8 +169,8 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 			}
 
 		// Dismiss the menu
-        dismiss() ;
-    }
+		dismiss() ;
+	}
 
 
 	/**

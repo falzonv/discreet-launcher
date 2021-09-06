@@ -57,7 +57,7 @@ public class ColorPickerView extends View
 	// Attributes related to dimensions
 	private final float density ;
 	private final int view_width ;
-    private final int view_height ;
+	private final int view_height ;
 	private final RectF huePanel ;
 	private final RectF hueSlider ;
 	private final RectF satValPanel ;
@@ -77,7 +77,7 @@ public class ColorPickerView extends View
 	private final Paint pointerPaint ;
 
 	// Other attributes
-    private ColorChangeListener changeListener ;
+	private ColorChangeListener changeListener ;
 	private final Point gestureStart ;
 	private final float[] hsv_color ;
 	private int alpha ;
@@ -86,10 +86,10 @@ public class ColorPickerView extends View
 	/**
 	 * Notify the dialog that the selected color has changed to update the hexadecimal text.
 	 */
-    public interface ColorChangeListener
+	public interface ColorChangeListener
 	{
-        void onColorChanged(int color) ;
-    }
+		void onColorChanged(int color) ;
+	}
 
 
 	/**
@@ -100,9 +100,9 @@ public class ColorPickerView extends View
 	public ColorPickerView(Context context, AttributeSet attributes)
 	{
 		// Let the parent actions be performed
-        super(context, attributes) ;
+		super(context, attributes) ;
 
-        // Retrieve the density
+		// Retrieve the density
 		density = getContext().getResources().getDisplayMetrics().density ;
 
 		// Initializations
@@ -207,15 +207,15 @@ public class ColorPickerView extends View
 		colorPreviewText.setAntiAlias(true) ;
 		colorPreviewText.setTextSize(16 * density) ;
 		colorPreviewText.setColor(Color.WHITE) ;
-    }
+	}
 
 
 	/**
 	 * Draw the color picker interface and its sliders positionned onto the selected color.
 	 * @param canvas Where to draw
 	 */
-    @Override
-    protected void onDraw(Canvas canvas)
+	@Override
+	protected void onDraw(Canvas canvas)
 	{
 		// Update the hue slider position to match the selected color
 		float hue_position = huePanel.left + (hsv_color[0] * huePanel.width() / 360) ;
@@ -231,7 +231,7 @@ public class ColorPickerView extends View
 		alphaSlider.left = alpha_position - 2 * density ;
 		alphaSlider.right = alpha_position + 2 * density ;
 
-        // Prepare the saturation/value panel gradients
+		// Prepare the saturation/value panel gradients
 		Shader mSatShader = new LinearGradient(
 				satValPanel.left, satValPanel.top, satValPanel.right, satValPanel.top,
 				0xFFFFFFFF, Color.HSVToColor(new float[]{hsv_color[0], 1, 1}), TileMode.CLAMP) ;
@@ -263,7 +263,7 @@ public class ColorPickerView extends View
 				colorPreviewPanel.left + 2 * density,
 				colorPreviewPanel.top + 16 * density,
 				colorPreviewText) ;
-    }
+	}
 
 
 	/**
@@ -273,17 +273,17 @@ public class ColorPickerView extends View
 	 */
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
-    public boolean onTouchEvent(MotionEvent event)
+	public boolean onTouchEvent(MotionEvent event)
 	{
 		// Check the type of touch
-        switch(event.getAction())
+		switch(event.getAction())
 		{
-            case MotionEvent.ACTION_DOWN :
-                // Note where the gesture started
-                gestureStart.x = (int)event.getX() ;
+			case MotionEvent.ACTION_DOWN :
+				// Note where the gesture started
+				gestureStart.x = (int)event.getX() ;
 				gestureStart.y = (int)event.getY() ;
-            case MotionEvent.ACTION_MOVE :
-            	// Check if the selected color needs to be udpated
+			case MotionEvent.ACTION_MOVE :
+				// Check if the selected color needs to be udpated
 				if(updateColorFollowingGesture(event))
 					{
 						// Update the selected color
@@ -292,10 +292,10 @@ public class ColorPickerView extends View
 						invalidate() ;
 						return true ;
 					}
-                break ;
-        }
-        return super.onTouchEvent(event) ;
-    }
+				break ;
+		}
+		return super.onTouchEvent(event) ;
+	}
 
 
 	/**
@@ -305,8 +305,8 @@ public class ColorPickerView extends View
 	 */
 	private boolean updateColorFollowingGesture(MotionEvent event)
 	{
-        // Check where the gesture started
-        if(huePanel.contains(gestureStart.x, gestureStart.y))
+		// Check where the gesture started
+		if(huePanel.contains(gestureStart.x, gestureStart.y))
 			{
 				// Get the new position of the hue slider adjusted to the panel limits
 				float hue_position = event.getX() ;
@@ -317,7 +317,7 @@ public class ColorPickerView extends View
 				// Update the hue of the currently selected color
 				hsv_color[0] = hue_position * 360 / huePanel.width() ;
 			}
-        	else if(satValPanel.contains(gestureStart.x, gestureStart.y))
+			else if(satValPanel.contains(gestureStart.x, gestureStart.y))
 			{
 				// Get the new position of the saturation/value pointer adjusted to the panel limits
 				float saturation_position = event.getX() ;
@@ -333,7 +333,7 @@ public class ColorPickerView extends View
 				hsv_color[1] = 1 / satValPanel.width() * saturation_position ;
 				hsv_color[2] = 1 - (1 / satValPanel.height() * value_position) ;
 			}
-        	else if(alphaPanel.contains(gestureStart.x, gestureStart.y))
+			else if(alphaPanel.contains(gestureStart.x, gestureStart.y))
 			{
 				// Get the new position of the alpha slider adjusted to the panel limits
 				float alpha_position = event.getX() ;
@@ -344,15 +344,15 @@ public class ColorPickerView extends View
 				// Update the alpha of the currently selected color
 				alpha = Math.round(alpha_position * 0xFF / alphaPanel.width()) ;
 			}
-        	else
+			else
 			{
 				// Ignore gestures outside the panels
 				return false ;
 			}
 
-        // Notify that the display should be updated (selected color has changed)
-        return true ;
-    }
+		// Notify that the display should be updated (selected color has changed)
+		return true ;
+	}
 
 
 	/**
@@ -360,11 +360,11 @@ public class ColorPickerView extends View
 	 * @param widthMeasureSpec Horizontal requirements from the parent
 	 * @param heightMeasureSpec Vertical requirements from the parent
 	 */
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
 	{
-        setMeasuredDimension(view_width, view_height) ;
-    }
+		setMeasuredDimension(view_width, view_height) ;
+	}
 
 
 	/**
@@ -373,8 +373,8 @@ public class ColorPickerView extends View
 	 */
 	public void setOnColorChangedListener(ColorChangeListener listener)
 	{
-        changeListener = listener ;
-    }
+		changeListener = listener ;
+	}
 
 
 	/**
@@ -383,8 +383,8 @@ public class ColorPickerView extends View
 	 */
 	public int getColor()
 	{
-        return Color.HSVToColor(alpha, hsv_color) ;
-    }
+		return Color.HSVToColor(alpha, hsv_color) ;
+	}
 
 
 	/**
@@ -395,14 +395,14 @@ public class ColorPickerView extends View
 	public void setColor(int new_color, boolean keep_alpha)
 	{
 		// Update the alpha, hue and saturation/value to the new color
-        if(!keep_alpha) alpha = Color.alpha(new_color) ;
+		if(!keep_alpha) alpha = Color.alpha(new_color) ;
 		Color.colorToHSV(new_color, hsv_color) ;
 
 		// If requested, notify that the color was changed
-        if(changeListener != null)
-            changeListener.onColorChanged(Color.HSVToColor(alpha, hsv_color)) ;
+		if(changeListener != null)
+			changeListener.onColorChanged(Color.HSVToColor(alpha, hsv_color)) ;
 
-        // Refresh the view
-        invalidate() ;
-    }
+		// Refresh the view
+		invalidate() ;
+	}
 }

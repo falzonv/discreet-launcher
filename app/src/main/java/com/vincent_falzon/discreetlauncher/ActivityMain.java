@@ -191,7 +191,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
 				shortcutLegacyListener = new ShortcutLegacyListener() ;
-  				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
+				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
 			}
 	}
 

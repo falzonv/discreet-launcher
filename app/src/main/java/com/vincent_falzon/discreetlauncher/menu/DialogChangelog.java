@@ -116,7 +116,7 @@ public class DialogChangelog extends AlertDialog
 
 		// Add the close button
 		setButton(AlertDialog.BUTTON_POSITIVE, context.getString(R.string.button_close), (DialogInterface.OnClickListener)null) ;
-    }
+	}
 
 
 	/**
