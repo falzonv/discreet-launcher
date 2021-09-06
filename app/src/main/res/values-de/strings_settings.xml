@@ -28,7 +28,7 @@
     <string name="set_clock_format">Uhrzeit Format</string>
     <string-array name="set_clock_format_entries">
         <item>Keins (ausblenden)</item>
-        <item>24 Stunden</item>
+        <item>24-Stunden-Zählung</item>
         <item>12 Stunden</item>
         <item>12 Stunden + AM/PM</item>
     </string-array>
