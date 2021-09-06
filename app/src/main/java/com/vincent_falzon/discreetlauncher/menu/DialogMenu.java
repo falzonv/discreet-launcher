@@ -33,7 +33,6 @@ import android.view.ViewGroup ;
 import android.widget.TextView ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatDialog ;
-import com.vincent_falzon.discreetlauncher.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;

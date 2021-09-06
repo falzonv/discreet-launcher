@@ -37,7 +37,7 @@ import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
 import android.widget.TextView ;
 import androidx.recyclerview.widget.RecyclerView ;
-import com.vincent_falzon.discreetlauncher.ActivityFolders ;
+import com.vincent_falzon.discreetlauncher.menu.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;

@@ -60,7 +60,7 @@
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".ActivityFolders"
+            android:name=".menu.ActivityFolders"
             android:label="@string/button_folders"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
