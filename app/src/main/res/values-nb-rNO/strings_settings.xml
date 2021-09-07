@@ -71,7 +71,7 @@
     <!-- Search -->
     <string name="search_app_name">Søk</string>
     <string name="search_hint">Programsøk</string>
-    <string name="search_long_press_hide">Hide</string>
+    <string name="search_long_press_hide">Skjul</string>
 
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Gjennomsiktig statusfelt</string>
