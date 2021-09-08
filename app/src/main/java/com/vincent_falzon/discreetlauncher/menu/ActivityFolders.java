@@ -113,13 +113,13 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 					}
 
 				// Prepare the folder icon
-				Drawable icon = new FolderIcon(this, 0, getResources().getColor(R.color.white)) ;
+				Drawable icon = new FolderIcon(this, 0, getResources().getColor(R.color.for_icon_added_in_drawer)) ;
 				int icon_size = Math.round(48 * getResources().getDisplayMetrics().density) ;
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Create the folder and update the list
 				file.writeLine("") ;
-				folders.add(new Folder(new_folder_name, icon, getResources().getColor(R.color.white))) ;
+				folders.add(new Folder(new_folder_name, icon, getResources().getColor(R.color.for_icon_added_in_drawer))) ;
 				ActivityMain.updateList(this) ;
 				adapter.notifyDataSetChanged() ;
 			}
@@ -236,7 +236,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 					{
 						ColorPickerDialog colorDialog = new ColorPickerDialog(context,
 								folder.getColor(),
-								ColorPickerDialog.convertIntColorToHexadecimal(context.getResources().getColor(R.color.white), true),
+								ColorPickerDialog.convertIntColorToHexadecimal(context.getResources().getColor(R.color.for_icon_added_in_drawer), true),
 								folder.getDisplayName(),
 								new ColorPickerDialog.SaveRequestListener()
 								{

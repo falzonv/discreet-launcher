@@ -16,7 +16,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/blue"/>
+        android:background="@color/for_menu_highlight_and_dividers"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/changelog"

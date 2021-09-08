@@ -191,7 +191,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 		{
 			// Gesture started
 			case MotionEvent.ACTION_DOWN :
-				view.setBackgroundColor(view.getContext().getResources().getColor(R.color.light_blue)) ;
+				view.setBackgroundColor(view.getContext().getResources().getColor(R.color.for_menu_highlight_and_dividers)) ;
 				break ;
 			// Gesture finished or aborted
 			case MotionEvent.ACTION_UP :

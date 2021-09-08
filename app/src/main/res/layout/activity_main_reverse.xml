@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        android:background="@color/translucent_gray"/>
+        android:background="@color/for_overlay"/>
 
     <LinearLayout
         android:id="@+id/home_screen"
@@ -65,7 +65,7 @@
                 android:id="@+id/favorites_applications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/translucent_gray"/>
+                android:background="@color/for_overlay"/>
 
             <TextView
                 android:id="@+id/info_no_favorites_yet"
@@ -74,8 +74,8 @@
                 android:padding="@dimen/spacing_large"
                 android:gravity="center"
                 android:text="@string/hint_no_favorites_yet"
-                android:textColor="@color/white"
-                android:background="@color/translucent_gray"
+                android:textColor="@color/for_text_on_overlay"
+                android:background="@color/for_overlay"
                 android:visibility="gone"/>
 
         </LinearLayout>

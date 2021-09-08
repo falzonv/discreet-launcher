@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:layout_width="48dp"
         android:layout_marginHorizontal="@dimen/spacing_very_small"
-        android:background="@color/translucent_gray"
+        android:background="@color/for_overlay"
         android:contentDescription="@string/color_picker_preview"/>
 
     <TextView

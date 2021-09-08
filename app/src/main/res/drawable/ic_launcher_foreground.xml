@@ -20,20 +20,20 @@
                 android:strokeWidth="4"
                 android:strokeLineJoin="round"
                 android:strokeLineCap="round"
-                android:strokeColor="@color/blue"/>
+                android:strokeColor="@color/for_icon_discreet_launcher"/>
 
             <path
                 android:pathData="M30,62 L54,37 L77,62"
                 android:strokeWidth="4"
                 android:strokeLineJoin="round"
                 android:strokeLineCap="round"
-                android:strokeColor="@color/blue"/>
+                android:strokeColor="@color/for_icon_discreet_launcher"/>
 
             <path
                 android:pathData="M40,59 V80 H67 V59"
                 android:strokeWidth="4"
                 android:strokeLineJoin="round"
-                android:strokeColor="@color/blue"/>
+                android:strokeColor="@color/for_icon_discreet_launcher"/>
 
         </group>
 

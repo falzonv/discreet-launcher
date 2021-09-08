@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textStyle="italic"
-            android:textColor="@color/white"
+            android:textColor="@color/for_text_on_overlay"
             android:visibility="visible"
             android:text="@string/placeholder"/>
 
@@ -32,8 +32,8 @@
             android:inputType="textNoSuggestions"
             android:autofillHints=""
             android:hint="@string/search_app_hint"
-            android:textColor="@color/white"
-            android:textColorHint="@color/translucent_white"
+            android:textColor="@color/for_text_on_overlay"
+            android:textColorHint="@color/for_search_app_hint"
             android:imeOptions="flagNoExtractUi|actionDone"
             android:visibility="gone"/>
 

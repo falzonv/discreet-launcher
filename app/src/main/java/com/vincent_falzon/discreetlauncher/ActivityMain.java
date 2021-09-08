@@ -331,7 +331,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else findViewById(R.id.info_no_favorites_yet).setVisibility(View.GONE) ;
 
 				// Retrieve the background color
-				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
+				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.for_overlay)) ;
 
 				// Check if the interface is reversed and adjust the display accordingly
 				Drawable tab_shape ;
@@ -378,7 +378,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
-					else getWindow().setStatusBarColor(ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray))) ;
+					else getWindow().setStatusBarColor(ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.for_overlay))) ;
 
 				// Make the navigation bar transparent
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
@@ -401,7 +401,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(adapters_update_needed) updateAdapters() ;
 
 				// Color the system bars and the drawer background
-				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
+				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.for_overlay)) ;
 				drawer.setBackgroundColor(background_color) ;
 				getWindow().setStatusBarColor(background_color) ;
 				getWindow().setNavigationBarColor(background_color) ;

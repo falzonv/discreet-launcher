@@ -48,7 +48,7 @@
             android:layout_marginTop="@dimen/spacing_very_small"
             android:layout_marginBottom="@dimen/spacing_very_small"
             android:layout_marginHorizontal="@dimen/spacing_small"
-            android:background="@color/light_blue"/>
+            android:background="@color/for_menu_highlight_and_dividers"/>
 
         <TextView
             android:id="@+id/menu_settings_appearance"
@@ -80,7 +80,7 @@
             android:layout_marginTop="@dimen/spacing_very_small"
             android:layout_marginBottom="@dimen/spacing_very_small"
             android:layout_marginHorizontal="@dimen/spacing_small"
-            android:background="@color/light_blue"/>
+            android:background="@color/for_menu_highlight_and_dividers"/>
 
         <TextView
             android:id="@+id/menu_help"

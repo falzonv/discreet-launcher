@@ -10,19 +10,19 @@
             android:strokeWidth="6"
             android:strokeLineJoin="round"
             android:strokeLineCap="round"
-            android:strokeColor="#FFFFFF"/>
+            android:strokeColor="@color/for_icon_added_in_drawer"/>
 
         <path
             android:pathData="M8,70 L54,23 L99,70"
             android:strokeWidth="6"
             android:strokeLineJoin="round"
             android:strokeLineCap="round"
-            android:strokeColor="#FFFFFF"/>
+            android:strokeColor="@color/for_icon_added_in_drawer"/>
 
         <path
             android:pathData="M25,66 V104 H82 V66"
             android:strokeWidth="6"
             android:strokeLineJoin="round"
-            android:strokeColor="#FFFFFF"/>
+            android:strokeColor="@color/for_icon_added_in_drawer"/>
 
 </vector>

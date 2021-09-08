@@ -8,5 +8,5 @@
     android:drawablePadding="@dimen/spacing_very_small"
     android:gravity="center_horizontal"
     android:maxLines="3"
-    android:textColor="@color/white"
+    android:textColor="@color/for_text_on_overlay"
     android:text="@string/placeholder"/>
