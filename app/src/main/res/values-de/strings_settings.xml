@@ -71,7 +71,7 @@
     <!-- Search -->
     <string name="search_app_name">Suche</string>
     <string name="search_hint">Suche nach Apps</string>
-    <string name="search_long_press_hide">Hide</string>
+    <string name="search_long_press_hide">Ausblenden</string>
 
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Transparente Systemleiste</string>
@@ -92,7 +92,7 @@
     <string name="set_reverse_interface">Umgekehrte Oberfläche</string>
     <string name="set_reverse_interface_help">Apps oberhalb und Favoriten unterhalb des Startbildschirms.</string>
     <string name="set_disable_app_drawer">App Übersicht nicht anzeigen</string>
-    <string name="error_always_show_favorites_not_safe">Favorites unlocked to keep menu access.</string>
+    <string name="error_always_show_favorites_not_safe">Favoriten entsperren, um Zugriff auf das Menü zu bekommen.</string>
     <string name="error_disable_app_drawer_not_safe">Wiedereinführung der App Übersicht, um den Zugang zum Menü zu erhalten.</string>
     <string name="error_appfilter_not_found">Die Datei appfilter.xml konnte im ausgewählten Icon Pack nicht gefunden werden. (%1$s)</string>
 
