@@ -15,7 +15,7 @@
     <!-- Dialogs buttons -->
     <string name="button_apply">Bruk</string>
     <string name="button_cancel">Avbryt</string>
-    <string name="button_close">Close</string>
+    <string name="button_close">Lukk</string>
 
     <!-- Long click options -->
     <string name="long_click_title">Hva ønsker du å gjøre?</string>
@@ -25,7 +25,7 @@
     <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
 
     <!-- About -->
-    <string name="button_about">About</string>
+    <string name="button_about">Om</string>
     <string name="app_name">Diskret oppstarter</string>
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GPLv3+</string>

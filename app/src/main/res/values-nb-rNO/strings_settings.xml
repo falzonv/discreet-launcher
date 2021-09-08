@@ -71,7 +71,7 @@
     <!-- Search -->
     <string name="search_app_name">Søk</string>
     <string name="search_hint">Programsøk</string>
-    <string name="search_long_press_hide">Hide</string>
+    <string name="search_long_press_hide">Skjul</string>
 
     <!-- Other settings -->
     <string name="set_transparent_status_bar">Gjennomsiktig statusfelt</string>
@@ -92,7 +92,7 @@
     <string name="set_reverse_interface">Omvendt grensesnitt</string>
     <string name="set_reverse_interface_help">Programmer ovenfor, og favorittpanel på bunnen</string>
     <string name="set_disable_app_drawer">Ingen programkurv</string>
-    <string name="error_always_show_favorites_not_safe">Favorites unlocked to keep menu access.</string>
+    <string name="error_always_show_favorites_not_safe">Favoritter opplåst for å beholde menytilgang.</string>
     <string name="error_disable_app_drawer_not_safe">Legger inn programkurven igjen for å beholde menytilgang.</string>
     <string name="error_appfilter_not_found">Fant ikke appfilter.xml.filen i angitt programpakke. (%1$s)</string>
 
