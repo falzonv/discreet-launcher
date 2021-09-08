@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/color_picker_reset"
-            android:theme="@style/BorderlessButton"
+            android:theme="@style/Button_Borderless"
             style="?android:borderlessButtonStyle"/>
 
     </LinearLayout>
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_cancel"
-            android:theme="@style/BorderlessButton"
+            android:theme="@style/Button_Borderless"
             style="?android:borderlessButtonStyle"/>
 
         <Button
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_apply"
-            android:theme="@style/NormalButton"
+            android:theme="@style/Button_Normal"
             style="?android:buttonStyle"/>
 
     </LinearLayout>

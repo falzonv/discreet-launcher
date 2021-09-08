@@ -53,7 +53,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/target_open_favorites"
-            android:visibility="gone"
             style="@style/TouchTarget"/>
 
         <TextView
@@ -70,7 +69,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/target_open_applications"
-            android:visibility="gone"
             style="@style/TouchTarget"/>
 
     </LinearLayout>

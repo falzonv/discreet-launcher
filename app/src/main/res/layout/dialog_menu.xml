@@ -12,99 +12,67 @@
 
         <TextView
             android:id="@+id/menu_favorites"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_favorites"
             app:drawableStartCompat="@drawable/ic_menu_star"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
         <TextView
             android:id="@+id/menu_folders"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_folders"
             app:drawableStartCompat="@drawable/ic_menu_archive"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
         <TextView
             android:id="@+id/menu_hidden_apps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_hidden_apps"
             app:drawableStartCompat="@drawable/ic_menu_cut"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
         <TextView
             android:id="@+id/menu_refresh_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_refresh_list_apps"
             app:drawableStartCompat="@drawable/ic_menu_refresh"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/spacing_very_small"
-            android:layout_marginBottom="@dimen/spacing_very_small"
-            android:layout_marginHorizontal="@dimen/spacing_small"
-            android:background="@color/for_menu_highlight_and_dividers"/>
+        <View style="@style/MainMenu_Divider"/>
 
         <TextView
             android:id="@+id/menu_settings_appearance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_settings_appearance"
             app:drawableStartCompat="@drawable/ic_menu_gallery"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
         <TextView
             android:id="@+id/menu_settings_operation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_settings_operation"
             app:drawableStartCompat="@drawable/ic_menu_preferences"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
         <TextView
             android:id="@+id/menu_export_import"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_export_import"
             app:drawableStartCompat="@drawable/ic_menu_upload"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/spacing_very_small"
-            android:layout_marginBottom="@dimen/spacing_very_small"
-            android:layout_marginHorizontal="@dimen/spacing_small"
-            android:background="@color/for_menu_highlight_and_dividers"/>
+        <View style="@style/MainMenu_Divider"/>
 
         <TextView
             android:id="@+id/menu_help"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_help"
             app:drawableStartCompat="@drawable/ic_menu_help"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
         <TextView
             android:id="@+id/menu_changelog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_changelog"
             app:drawableStartCompat="@drawable/ic_menu_agenda"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
         <TextView
             android:id="@+id/menu_about"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/menu_about"
             app:drawableStartCompat="@drawable/ic_menu_info_details"
-            style="@style/MenuEntry"/>
+            style="@style/MainMenu_Entry"/>
 
     </LinearLayout>
 

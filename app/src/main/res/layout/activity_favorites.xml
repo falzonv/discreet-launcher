@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/spacing_large"
         android:text="@string/button_select_favorites"
-        android:theme="@style/NormalButton"/>
+        android:theme="@style/Button_Normal"/>
 
     <TextView
         android:layout_height="wrap_content"

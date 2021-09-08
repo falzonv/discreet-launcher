@@ -31,8 +31,10 @@
     </style>
 
 
-    <!-- Main menu entry -->
-    <style name="MenuEntry">
+    <!-- Main menu -->
+    <style name="MainMenu_Entry">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textSize">@dimen/text_size_big</item>
         <item name="android:paddingTop">@dimen/spacing_very_small</item>
@@ -40,6 +42,15 @@
         <item name="android:paddingStart">@dimen/spacing_small</item>
         <item name="android:paddingEnd">@dimen/spacing_small</item>
         <item name="android:drawablePadding">@dimen/spacing_normal</item>
+    </style>
+    <style name="MainMenu_Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">@dimen/spacing_very_small</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_very_small</item>
+        <item name="android:layout_marginStart">@dimen/spacing_small</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_small</item>
+        <item name="android:background">@color/for_menu_highlight_and_dividers</item>
     </style>
 
 
@@ -54,12 +65,23 @@
 
 
     <!-- Buttons -->
-    <style name="NormalButton">
+    <style name="Button_Normal">
         <item name="android:textColor">@color/for_button_text</item>
         <item name="android:colorButtonNormal">@color/for_buttons_and_controls</item>
     </style>
-    <style name="BorderlessButton">
+    <style name="Button_Borderless">
         <item name="android:textColor">@color/for_buttons_and_controls</item>
+    </style>
+
+
+    <!-- Help -->
+    <style name="Help_SectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/for_help_titles</item>
     </style>
 
 
@@ -83,7 +105,9 @@
         <item name="android:textColor">@color/for_text_on_shadow</item>
         <item name="android:shadowColor">@color/for_shadow</item>
         <item name="android:shadowRadius">@dimen/shadow_radius</item>
+        <item name="android:visibility">gone</item>
     </style>
+
 
     <!-- Placeholder for easier XML design in Android Studio -->
     <string name="placeholder" translatable="false">(placeholder)</string>
