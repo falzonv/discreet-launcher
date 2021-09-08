@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- List of applications -->
-    <string name="info_applications_list_refreshed">Programliste gjenoppfrisket</string>
-    <string name="button_refresh_list">Gjenoppfrisk programlisten</string>
-    <string name="error_application_not_found">Fant ikke «%1$s»</string>
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
 
-    <!-- Favorites -->
-    <string name="button_favorites">Favoritter</string>
-    <string name="button_select_favorites">Velg favoritter</string>
-    <string name="hint_no_favorites_yet">Legg til favorittprogrammer her\nved å klikke på menyknappen.</string>
-    <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor (og rull ved bruk av sidene).</string>
+    <!-- Main menu -->
+    <string name="menu_favorites">Favoritter</string>
+    <string name="menu_folders">Mapper</string>
+    <string name="menu_hidden_apps">Skjulte programmer</string>
+    <string name="menu_refresh_list_apps">Gjenoppfrisk programlisten</string>
+    <string name="menu_settings_appearance">Utseende</string>
+    <string name="menu_settings_operation">Bruk</string>
+    <string name="menu_export_import">Eksport og import</string>
+    <string name="menu_help">Hjelp</string>
+    <string name="menu_changelog">Endringslogg</string>
+    <string name="menu_about">Om</string>
 
-    <!-- Dialogs buttons -->
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Hva ønsker du å gjøre?</string>
+    <string name="long_click_open">Åpne «%1s»</string>
+    <string name="long_click_settings">Vis til dens innstillinger</string>
+    <string name="long_click_view_store">Vis butikksiden</string>
+    <string name="long_click_rename">Gi nytt navn</string>
+    <string name="long_click_hide_search">Skjul</string>
+    <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
+
+    <!-- General buttons used in several dialogs -->
     <string name="button_apply">Bruk</string>
     <string name="button_cancel">Avbryt</string>
     <string name="button_close">Lukk</string>
 
-    <!-- Long click options -->
-    <string name="long_click_title">Hva ønsker du å gjøre?</string>
-    <string name="long_click_open">Åpne «%1s»</string>
-    <string name="long_click_store">Vis butikksiden</string>
-    <string name="long_click_settings">Vis til dens innstillinger</string>
-    <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Programliste gjenoppfrisket</string>
+    <string name="error_app_not_found">Fant ikke «%1$s»</string>
 
-    <!-- About -->
-    <string name="button_about">Om</string>
+    <!-- Search app -->
+    <string name="search_app_name">Søk</string>
+    <string name="search_app_hint">Programsøk</string>
+
+    <!-- About dialog -->
     <string name="app_name">Diskret oppstarter</string>
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GPLv3+</string>

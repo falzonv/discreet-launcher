@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- List of applications -->
-    <string name="info_applications_list_refreshed">Список приложений обновлен</string>
-    <string name="button_refresh_list">Обновить список приложений</string>
-    <string name="error_application_not_found">Не удалось найти \"%1$s\"</string>
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
 
-    <!-- Favorites -->
-    <string name="button_favorites">Избранные</string>
-    <string name="button_select_favorites">Выбрать избранные</string>
-    <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
-    <string name="hint_modify_order_of_favorites">Измените порядок избранного в списке ниже (используя стороны для прокрутки).</string>
+    <!-- Main menu -->
+    <string name="menu_favorites">Избранные</string>
+    <string name="menu_folders">Папки</string>
+    <string name="menu_hidden_apps">Скрытые приложения</string>
+    <string name="menu_refresh_list_apps">Обновить список приложений</string>
+    <string name="menu_settings_appearance">Внешний вид</string>
+    <string name="menu_settings_operation">Операция</string>
+    <string name="menu_export_import">Экспорт и импорт</string>
+    <string name="menu_help">Помощь</string>
+    <string name="menu_changelog">Журнал изменений</string>
+    <string name="menu_about">О программе</string>
 
-    <!-- Dialogs buttons -->
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Что вы хотите сделать?</string>
+    <string name="long_click_open">Открыть \"%1s\"</string>
+    <string name="long_click_settings">Доступ к настройкам</string>
+    <string name="long_click_view_store">Просмотр страницы в магазине</string>
+    <string name="long_click_rename">Переименовать</string>
+    <string name="long_click_hide_search">Скрыть</string>
+    <string name="long_click_remove_shortcut">Удалить этот ярлык</string>
+
+    <!-- General buttons used in several dialogs -->
     <string name="button_apply">Применить</string>
     <string name="button_cancel">Отменить</string>
     <string name="button_close">Закрыть</string>
 
-    <!-- Long click options -->
-    <string name="long_click_title">Что вы хотите сделать?</string>
-    <string name="long_click_open">Открыть \"%1s\"</string>
-    <string name="long_click_store">Просмотр страницы в магазине</string>
-    <string name="long_click_settings">Доступ к настройкам</string>
-    <string name="long_click_remove_shortcut">Удалить этот ярлык</string>
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Список приложений обновлен</string>
+    <string name="error_app_not_found">Не удалось найти \"%1$s\"</string>
 
-    <!-- About -->
-    <string name="button_about">О программе</string>
+    <!-- Search app -->
+    <string name="search_app_name">Поиск</string>
+    <string name="search_app_hint">Поиск приложений</string>
+
+    <!-- About dialog -->
     <string name="app_name">Discreet Launcher</string>
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>

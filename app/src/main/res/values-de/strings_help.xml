@@ -2,9 +2,8 @@
 <resources>
 
     <!-- Help -->
-    <string name="help_title">Hilfe</string>
     <string name="help_navigation_title">Navigation</string>
-    <string name="help_navigation_text">
+    <string name="help_navigation">
         Wisch auf dem Startbildschirm nach oben, um alle Apps anzuzeigen, und nach unten, um zurückzugehen.
         \n
         \nWisch auf dem Startbildschirm nach unten, um die Favoriten anzuzeigen, und nach oben, um zurückzugehen.
@@ -14,33 +13,32 @@
         \nHalte eine Anwendung oder einen Ordner lange gedrückt, um die Einstellungen aufzurufen.
     </string>
     <string name="help_notification_title">Hinweise</string>
-    <string name="help_notification_text">
+    <string name="help_notification">
         Zeigt beim verlassen des Startbildschirms ein Pop-up der Favoriten über anderen Anwendungen an.
     </string>
     <string name="help_list_update_title">Listen Aktualisierung</string>
-    <string name="help_list_update_text">
+    <string name="help_list_update">
         Beim Aktualisieren der App-Liste und der Symbole wird eine Pop-up-Nachricht angezeigt,
         beim Starten, Hinzufügen oder Entfernen von Anwendungen oder wenn das Symbolpaket geändert wird.
     </string>
     <string name="help_folders_title">Ordner</string>
-    <string name="help_folders_text">
+    <string name="help_folders">
         Verwalte Ordner oder Favoriten über die Menütaste, oder klicke auf den Titel eines geöffneten Ordners
         um Anwendungen zu erstellen, umzubenennen und darin abzulegen.
         \nBeim Entfernen von Ordnern werden alle darin enthaltenen Anwendungen wieder in die Hauptliste aufgenommen.
     </string>
     <string name="help_search_title">Suche</string>
-    <string name="help_search_text">
+    <string name="help_search">
         Finde alle Apps über das Such-Icon. Kann auch als Favorit gesetzt werden, um 
-	in der Benachrichtigung verfügbar zu sein oder versteckte Apps zu finden.
+    in der Benachrichtigung verfügbar zu sein oder versteckte Apps zu finden.
         \n
         \nWenn es nur ein Suchergebnis gibt, wird es durch Drücken von \"Eingabe\" geöffnet.
     </string>
 
-    <!-- Changelog -->
-    <string name="changelog_title">Changelog</string>
+    <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
     <string name="changelog_mentions">\"@pseudo\" gibt den Benutzer an, der die Idee vorgeschlagen oder den Fehler gemeldet hat.</string>
     <string name="changelog_folder">changelog-en</string>
-    <string name="error_changelog_folder">Der Changelog Ordner konnte nicht gefunden werden</string>
-    <string name="error_changelog_file">%1s konnte nicht geöffnet werden</string>
+    <string name="error_changelog_missing_folder">Der Changelog Ordner konnte nicht gefunden werden</string>
+    <string name="error_changelog_missing_file">%1s konnte nicht geöffnet werden</string>
 
 </resources>

@@ -2,9 +2,8 @@
 <resources>
 
     <!-- Help -->
-    <string name="help_title">Помощь</string>
     <string name="help_navigation_title">Навигация</string>
-    <string name="help_navigation_text">
+    <string name="help_navigation">
         Проведите пальцем вверх от главного экрана, чтобы показать все приложения, и вниз, чтобы вернутсья назад.
         \n
         \nПроведите пальцем вниз с главного экрана, чтобы показать избранные приложения, и вверх, чтобы вернуться назад.
@@ -14,33 +13,32 @@
         \nДлительное удерживание приложения или папки открывает доступ к его настройкам.
     </string>
     <string name="help_notification_title">Уведомления</string>
-    <string name="help_notification_text">
+    <string name="help_notification">
         Показывает всплывающее окно избранного над другими приложениями при выходе с главного экрана.
     </string>
     <string name="help_list_update_title">Обновление списка</string>
-    <string name="help_list_update_text">
+    <string name="help_list_update">
         При обновлении списка приложений и значков отображается всплывающее сообщение,
         при запуске, добавлении/удалении приложений, а также при изменении пакета значков.
     </string>
     <string name="help_folders_title">Папки</string>
-    <string name="help_folders_text">
+    <string name="help_folders">
         Управляйте папками или избранными с помощью кнопки или щелкните на название открытой папки,
         чтобы создавать, переименовывать и помещать в нее приложения.
         \nУдаление папок возвращает все находящиеся в них приложения в основной список.
     </string>
     <string name="help_search_title">Поиск</string>
-    <string name="help_search_text">
+    <string name="help_search">
         Найдите любое приложение с помощью значка поиска. Его также можно выбрать, чтобы оно было доступно
         из уведомлений или скрыть.
         \n
         \nЕсли есть только один результат поиска, нажатие \"Ввод\" открывает его.
     </string>
 
-    <!-- Changelog -->
-    <string name="changelog_title">Журнал изменений</string>
+    <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
     <string name="changelog_mentions">\"@pseudo\" указывает на пользователя, который предложил идею или сообщил об ошибке</string>
     <string name="changelog_folder">changelog-en</string>
-    <string name="error_changelog_folder">Не удалось найти папку журнала изменений</string>
-    <string name="error_changelog_file">Не удалось открыть %1s</string>
+    <string name="error_changelog_missing_folder">Не удалось найти папку журнала изменений</string>
+    <string name="error_changelog_missing_file">Не удалось открыть %1s</string>
 
 </resources>

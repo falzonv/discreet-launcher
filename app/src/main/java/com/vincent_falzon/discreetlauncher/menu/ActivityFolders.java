@@ -363,11 +363,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 									public void onClick(DialogInterface dialogInterface, int i)
 									{
 										// Remove the current folder file
-										if(!file.remove())
-											{
-												ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
-												return ;
-											}
+										if(!file.remove()) return ;
 
 										// Add the selected applications in the folder
 										for(i = 0 ; i < selected.length ; i++)
@@ -409,11 +405,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 										new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).removeLine(folder.getFileName() + Constants.SEPARATOR) ;
 
 										// Remove the folder file and update the applications list
-										if(!file.remove())
-											{
-												ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
-												return ;
-											}
+										if(!file.remove()) return ;
 										folders.remove(getBindingAdapterPosition()) ;
 										ActivityMain.updateList(context) ;
 										notifyDataSetChanged() ;

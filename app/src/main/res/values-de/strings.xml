@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- List of applications -->
-    <string name="info_applications_list_refreshed">App-Liste aktualisiert</string>
-    <string name="button_refresh_list">App-Liste aktualisieren</string>
-    <string name="error_application_not_found">\"%1$s\" konnte nicht gefunden werden</string>
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
 
-    <!-- Favorites -->
-    <string name="button_favorites">Favoriten</string>
-    <string name="button_select_favorites">Favoriten wählen</string>
-    <string name="hint_no_favorites_yet">Füge Favoriten Apps hinzu\ndurch Klicken des Menü Buttons.</string>
-    <string name="hint_modify_order_of_favorites">Ändere die Reihenfolge der Favoriten in der Liste (verwende den Bildlauf zum Scrollen).</string>
+    <!-- Main menu -->
+    <string name="menu_favorites">Favoriten</string>
+    <string name="menu_folders">Ordner</string>
+    <string name="menu_hidden_apps">Versteckte Apps</string>
+    <string name="menu_refresh_list_apps">App-Liste aktualisieren</string>
+    <string name="menu_settings_appearance">Erscheinungsbild</string>
+    <string name="menu_settings_operation">Darstellung</string>
+    <string name="menu_export_import">Export und Import</string>
+    <string name="menu_help">Hilfe</string>
+    <string name="menu_changelog">Changelog</string>
+    <string name="menu_about">Über</string>
 
-    <!-- Dialogs buttons -->
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Bitte wähle aus!</string>
+    <string name="long_click_open">Öffne \"%1s\"</string>
+    <string name="long_click_settings">Zugang zu Einstellungen</string>
+    <string name="long_click_view_store">Store Seite anzeigen</string>
+    <string name="long_click_rename">Umbenennen</string>
+    <string name="long_click_hide_search">Ausblenden</string>
+    <string name="long_click_remove_shortcut">Verknüpfung entfernen</string>
+
+    <!-- General buttons used in several dialogs -->
     <string name="button_apply">Bestätigen</string>
     <string name="button_cancel">Abbrechen</string>
     <string name="button_close">Schließen</string>
 
-    <!-- Long click options -->
-    <string name="long_click_title">Bitte wähle aus!</string>
-    <string name="long_click_open">Öffne \"%1s\"</string>
-    <string name="long_click_store">Store Seite anzeigen</string>
-    <string name="long_click_settings">Zugang zu Einstellungen</string>
-    <string name="long_click_remove_shortcut">Verknüpfung entfernen</string>
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">App-Liste aktualisiert</string>
+    <string name="error_app_not_found">\"%1$s\" konnte nicht gefunden werden</string>
 
-    <!-- About -->
-    <string name="button_about">Über</string>
+    <!-- Search app -->
+    <string name="search_app_name">Suche</string>
+    <string name="search_app_hint">Suche nach Apps</string>
+
+    <!-- About dialog -->
     <string name="app_name">Discreet App-Starter</string>
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>

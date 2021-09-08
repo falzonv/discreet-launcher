@@ -4,6 +4,6 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:padding="@dimen/spacing_large"
-    android:text="@string/button_favorites"
+    android:text="@string/notification_text"
     android:textStyle="bold"
     style="@style/TextAppearance.Compat.Notification.Title"/>

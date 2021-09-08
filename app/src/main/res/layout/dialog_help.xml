@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:text="@string/help_navigation_text"/>
+            android:text="@string/help_navigation"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:text="@string/help_notification_text"/>
+            android:text="@string/help_notification"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:text="@string/help_list_update_text"/>
+            android:text="@string/help_list_update"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:text="@string/help_folders_text"/>
+            android:text="@string/help_folders"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:text="@string/help_search_text"/>
+            android:text="@string/help_search"/>
 
     </LinearLayout>
 

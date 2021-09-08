@@ -501,7 +501,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		applicationsList.update(context) ;
 		adapters_update_needed = true ;
-		ShowDialog.toast(context, R.string.info_applications_list_refreshed) ;
+		ShowDialog.toast(context, R.string.info_list_apps_refreshed) ;
 	}
 
 

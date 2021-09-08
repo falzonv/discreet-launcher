@@ -30,31 +30,31 @@
 
         <activity
             android:name=".menu.ActivityFavorites"
-            android:label="@string/button_favorites"
+            android:label="@string/menu_favorites"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".menu.ActivityFolders"
-            android:label="@string/button_folders"
+            android:label="@string/menu_folders"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".settings.ActivitySettingsAppearance"
-            android:label="@string/button_settings_appearance"
+            android:label="@string/menu_settings_appearance"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".settings.ActivitySettingsOperation"
-            android:label="@string/button_settings_operation"
+            android:label="@string/menu_settings_operation"
             android:parentActivityName=".ActivityMain"
             android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".settings.ActivityExportImport"
-            android:label="@string/button_export_import"
+            android:label="@string/menu_export_import"
             android:parentActivityName=".settings.ActivitySettingsAppearance"
             android:theme="@style/AppTheme"/>
 

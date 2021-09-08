@@ -35,7 +35,10 @@
     <style name="MenuEntry">
         <item name="android:gravity">center_vertical</item>
         <item name="android:textSize">@dimen/text_size_big</item>
-        <item name="android:padding">@dimen/spacing_small</item>
+        <item name="android:paddingTop">@dimen/spacing_very_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_very_small</item>
+        <item name="android:paddingStart">@dimen/spacing_small</item>
+        <item name="android:paddingEnd">@dimen/spacing_small</item>
         <item name="android:drawablePadding">@dimen/spacing_normal</item>
     </style>
 
@@ -81,5 +84,8 @@
         <item name="android:shadowColor">@color/translucent_gray</item>
         <item name="android:shadowRadius">@dimen/shadow_radius</item>
     </style>
+
+    <!-- Placeholder for easier XML design in Android Studio -->
+    <string name="placeholder" translatable="false">(placeholder)</string>
 
 </resources>

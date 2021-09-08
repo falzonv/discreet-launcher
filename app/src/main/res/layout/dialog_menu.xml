@@ -14,7 +14,7 @@
             android:id="@+id/menu_favorites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_favorites"
+            android:text="@string/menu_favorites"
             app:drawableStartCompat="@drawable/ic_menu_star"
             style="@style/MenuEntry"/>
 
@@ -22,7 +22,7 @@
             android:id="@+id/menu_folders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_folders"
+            android:text="@string/menu_folders"
             app:drawableStartCompat="@drawable/ic_menu_archive"
             style="@style/MenuEntry"/>
 
@@ -30,7 +30,7 @@
             android:id="@+id/menu_hidden_apps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_hidden_applications"
+            android:text="@string/menu_hidden_apps"
             app:drawableStartCompat="@drawable/ic_menu_cut"
             style="@style/MenuEntry"/>
 
@@ -38,7 +38,7 @@
             android:id="@+id/menu_refresh_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_refresh_list"
+            android:text="@string/menu_refresh_list_apps"
             app:drawableStartCompat="@drawable/ic_menu_refresh"
             style="@style/MenuEntry"/>
 
@@ -54,7 +54,7 @@
             android:id="@+id/menu_settings_appearance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_settings_appearance"
+            android:text="@string/menu_settings_appearance"
             app:drawableStartCompat="@drawable/ic_menu_gallery"
             style="@style/MenuEntry"/>
 
@@ -62,7 +62,7 @@
             android:id="@+id/menu_settings_operation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_settings_operation"
+            android:text="@string/menu_settings_operation"
             app:drawableStartCompat="@drawable/ic_menu_preferences"
             style="@style/MenuEntry"/>
 
@@ -70,7 +70,7 @@
             android:id="@+id/menu_export_import"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_export_import"
+            android:text="@string/menu_export_import"
             app:drawableStartCompat="@drawable/ic_menu_upload"
             style="@style/MenuEntry"/>
 
@@ -86,7 +86,7 @@
             android:id="@+id/menu_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/help_title"
+            android:text="@string/menu_help"
             app:drawableStartCompat="@drawable/ic_menu_help"
             style="@style/MenuEntry"/>
 
@@ -94,7 +94,7 @@
             android:id="@+id/menu_changelog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/changelog_title"
+            android:text="@string/menu_changelog"
             app:drawableStartCompat="@drawable/ic_menu_agenda"
             style="@style/MenuEntry"/>
 
@@ -102,7 +102,7 @@
             android:id="@+id/menu_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_about"
+            android:text="@string/menu_about"
             app:drawableStartCompat="@drawable/ic_menu_info_details"
             style="@style/MenuEntry"/>
 

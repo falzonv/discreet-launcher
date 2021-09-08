@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        app:title="@string/title_settings_appearance_general"
+        app:title="@string/appearance_settings_title_general"
         app:iconSpaceReserved="false">
 
         <ListPreference
@@ -25,7 +25,7 @@
         <SwitchPreference
             app:key="transparent_status_bar"
             app:title="@string/set_transparent_status_bar"
-            app:summary="@string/set_transparent_status_bar_hint"
+            app:summary="@string/set_transparent_status_bar_help"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
@@ -48,7 +48,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/title_settings_appearance_applications"
+        app:title="@string/appearance_settings_title_applications"
         app:iconSpaceReserved="false">
 
         <ListPreference

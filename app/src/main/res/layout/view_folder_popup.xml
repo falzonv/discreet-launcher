@@ -31,7 +31,7 @@
             android:singleLine="true"
             android:inputType="textNoSuggestions"
             android:autofillHints=""
-            android:hint="@string/search_hint"
+            android:hint="@string/search_app_hint"
             android:textColor="@color/white"
             android:textColorHint="@color/translucent_white"
             android:imeOptions="flagNoExtractUi|actionDone"

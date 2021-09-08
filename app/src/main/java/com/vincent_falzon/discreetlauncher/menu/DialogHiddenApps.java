@@ -76,7 +76,7 @@ public abstract class DialogHiddenApps
 
 		// Prepare and display the selection dialog
 		AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-		dialog.setTitle(context.getString(R.string.button_hidden_applications)) ;
+		dialog.setTitle(context.getString(R.string.menu_hidden_apps)) ;
 		dialog.setMultiChoiceItems(app_names, selected,
 			new DialogInterface.OnMultiChoiceClickListener()
 			{

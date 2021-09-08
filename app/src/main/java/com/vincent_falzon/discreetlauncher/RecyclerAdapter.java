@@ -201,7 +201,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			if(!application.start(view))
 				{
 					final Context context = view.getContext() ;
-					ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+					ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
 				}
 		}
 
@@ -221,7 +221,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 			// Prepare and display the selection dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			dialog.setTitle(context.getString(R.string.long_click_title)) ;
+			dialog.setTitle(context.getString(R.string.long_click_dialog_title)) ;
 			if(application instanceof Shortcut)
 				{
 					CharSequence[] options = {
@@ -282,7 +282,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 				{
 					CharSequence[] options = {
 							context.getString(R.string.long_click_open, application.getDisplayName()),
-							context.getString(R.string.search_long_press_hide),
+							context.getString(R.string.long_click_hide_search),
 						} ;
 					dialog.setItems(options,
 						new DialogInterface.OnClickListener()
@@ -310,8 +310,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					CharSequence[] options = {
 							context.getString(R.string.long_click_open, application.getDisplayName()),
 							context.getString(R.string.long_click_settings),
-							context.getString(R.string.long_click_store),
-							context.getString(R.string.button_rename),
+							context.getString(R.string.long_click_view_store),
+							context.getString(R.string.long_click_rename),
 						} ;
 					dialog.setItems(options,
 						new DialogInterface.OnClickListener()
@@ -325,7 +325,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 									case 0 :
 										// Start the application and display an error message if it was not found
 										if(!application.start(view))
-											ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+											ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
 										break ;
 									case 1 :
 										// Open the application system settings
@@ -345,7 +345,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										}
 										catch (ActivityNotFoundException e)
 										{
-											ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, "{market}")) ;
+											ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, "{market}")) ;
 										}
 										break ;
 									case 3 :
@@ -392,7 +392,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		{
 			// Create the menu dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			dialog.setTitle(R.string.button_rename) ;
+			dialog.setTitle(R.string.long_click_rename) ;
 			dialog.setNegativeButton(R.string.button_cancel, null) ;
 
 			// Prepare a text field containing the initial name

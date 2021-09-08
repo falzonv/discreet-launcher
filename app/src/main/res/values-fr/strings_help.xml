@@ -2,9 +2,8 @@
 <resources>
 
     <!-- Help -->
-    <string name="help_title">Aide</string>
     <string name="help_navigation_title">Navigation</string>
-    <string name="help_navigation_text">
+    <string name="help_navigation">
         Glissez le doigt vers le haut depuis l\'écran d\'accueil pour afficher toutes les applications, et vers le bas pour les masquer.
         \n
         \nGlissez le doigt vers le bas depuis l\'écran d\'accueil pour afficher les favoris, et vers le haut pour les masquer.
@@ -14,33 +13,32 @@
         \nAppuyez longuement sur une application ou un dossier pour accéder à ses paramètres.
     </string>
     <string name="help_notification_title">Notification</string>
-    <string name="help_notification_text">
+    <string name="help_notification">
         Affiche une fenêtre avec les favoris au dessus des autres applications quand vous quittez l\'écran d\'accueil.
     </string>
     <string name="help_list_update_title">Mise à jour de la liste</string>
-    <string name="help_list_update_text">
+    <string name="help_list_update">
         Un petit message s\'affiche lors de l\'actualisation de la liste des applications et de leurs icônes,
         lors du démarrage, lors de l\'ajout ou de la suppression d\'applications, ou si le pack d\'icônes est modifié.
     </string>
     <string name="help_folders_title">Dossiers</string>
-    <string name="help_folders_text">
+    <string name="help_folders">
         Gérez les dossiers ou mettez les en favoris depuis le bouton de menu, ou cliquez sur le titre d\'un dossier ouvert
         pour créer, renommer, et mettre des applications dedans.
         \nLa suppression d\'un dossier remet toutes ses applications dans la liste principale.
     </string>
     <string name="help_search_title">Recherche</string>
-    <string name="help_search_text">
+    <string name="help_search">
         Trouvez n\'importe quelle application depuis l\'icône de recherche. Elle peut aussi être mise dans les favoris pour être disponible
         depuis la notification, ou cachée.
         \n
         \nS\'il n\'y a qu\'un seul résultat de recherche, appuyer sur \"Entrée\" l\'ouvrira.
     </string>
 
-    <!-- Changelog -->
-    <string name="changelog_title">Journal des changements</string>
+    <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
     <string name="changelog_mentions">\"@pseudo\" indique l\'utilisateur(trice) qui a suggéré l\'idée ou signalé le bug</string>
     <string name="changelog_folder">changelog-fr</string>
-    <string name="error_changelog_folder">Impossible de trouver le dossier du journal des changements</string>
-    <string name="error_changelog_file">Impossible d\'ouvrir %1s</string>
+    <string name="error_changelog_missing_folder">Impossible de trouver le dossier du journal des changements</string>
+    <string name="error_changelog_missing_file">Impossible d\'ouvrir %1s</string>
 
 </resources>

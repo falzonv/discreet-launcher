@@ -81,7 +81,7 @@ public class DialogChangelog extends AlertDialog
 		{
 			// An error happened while listing the folder
 			ArrayList<String> error = new ArrayList<>() ;
-			error.add(context.getString(R.string.error_changelog_folder)) ;
+			error.add(context.getString(R.string.error_changelog_missing_folder)) ;
 			releases.add(error) ;
 		}
 
@@ -103,7 +103,7 @@ public class DialogChangelog extends AlertDialog
 			{
 				// An error happened while reading the file
 				ArrayList<String> error = new ArrayList<>() ;
-				error.add(context.getString(R.string.error_changelog_file, file)) ;
+				error.add(context.getString(R.string.error_changelog_missing_file, file)) ;
 				releases.add(error) ;
 			}
 			releases.add(release) ;

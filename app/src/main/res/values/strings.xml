@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- List of applications -->
-    <string name="info_applications_list_refreshed">List of apps refreshed</string>
-    <string name="button_refresh_list">Refresh the list of apps</string>
-    <string name="error_application_not_found">Could not find \"%1$s\"</string>
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
 
-    <!-- Favorites -->
-    <string name="button_favorites">Favorites</string>
-    <string name="button_select_favorites">Select favorites</string>
-    <string name="hint_no_favorites_yet">Add your favorite apps here\nby clicking the menu button.</string>
-    <string name="hint_modify_order_of_favorites">Modify the order of favorites in the list below (using the sides to scroll).</string>
+    <!-- Main menu -->
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_folders">Folders</string>
+    <string name="menu_hidden_apps">Hidden apps</string>
+    <string name="menu_refresh_list_apps">Refresh the list of apps</string>
+    <string name="menu_settings_appearance">Appearance</string>
+    <string name="menu_settings_operation">Operation</string>
+    <string name="menu_export_import">Export and import</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_changelog">Changelog</string>
+    <string name="menu_about">About</string>
 
-    <!-- Dialogs buttons -->
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">What do you want to do?</string>
+    <string name="long_click_open">Open \"%1s\"</string>
+    <string name="long_click_settings">Access its settings</string>
+    <string name="long_click_view_store">View store page</string>
+    <string name="long_click_rename">Rename</string>
+    <string name="long_click_hide_search">Hide</string>
+    <string name="long_click_remove_shortcut">Remove this shortcut</string>
+
+    <!-- General buttons used in several dialogs -->
     <string name="button_apply">Apply</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_close">Close</string>
 
-    <!-- Long click options -->
-    <string name="long_click_title">What do you want to do?</string>
-    <string name="long_click_open">Open \"%1s\"</string>
-    <string name="long_click_store">View store page</string>
-    <string name="long_click_settings">Access its settings</string>
-    <string name="long_click_remove_shortcut">Remove this shortcut</string>
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">List of apps refreshed</string>
+    <string name="error_app_not_found">Could not find \"%1$s\"</string>
 
-    <!-- About -->
-    <string name="button_about">About</string>
+    <!-- Search app -->
+    <string name="search_app_name">Search</string>
+    <string name="search_app_hint">Search for apps</string>
+
+    <!-- About dialog -->
     <string name="app_name">Discreet Launcher</string>
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Suggest improvements and report issues on</string>
     <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit">
-        <!-- Replace this comment with a translation of:
-                 [Locale] translation by [first and last names]      (example: Russian translation by Artur Aiwasan)
-         -->
-    </string>
-
-    <!-- Do not include this line in translations (used only for XML design in Android Studio) -->
-    <string name="placeholder" translatable="false">(placeholder)</string>
+    <string name="translation_credit"><!-- Replace this comment with a translation of: "[Locale] translation by [first and last names]" --></string>
 
 </resources>

@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Setting buttons and titles -->
-    <string name="button_settings_appearance">Внешний вид</string>
-    <string name="button_settings_operation">Операция</string>
-    <string name="button_export_import">Экспорт и импорт</string>
-    <string name="title_settings_appearance_general">Общий вид</string>
-    <string name="title_settings_appearance_applications">Вид приложений</string>
+    <!-- Favorites -->
+    <string name="button_select_favorites">Выбрать избранные</string>
+    <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
+    <string name="hint_modify_order_of_favorites">Измените порядок избранного в списке ниже (используя стороны для прокрутки).</string>
 
-    <!-- Notification -->
-    <string name="set_notification">Уведомление для доступа к избранному</string>
-    <string name="set_notification_help">Использует прозрачный значок</string>
-    <string name="notification_popup_title">Управление избранным</string>
+    <!-- Folders -->
+    <string name="button_new_folder">Добавить</string>
+    <string name="button_remove_folder">Удалить</string>
+    <string name="hint_folders_number">Создайте столько папок, сколько вам нужно для организации ваших приложений.</string>
+    <string name="hint_folder_edit">
+        Нажмите на имя папки, чтобы изменить его, и по значку, чтобы выбрать его цвет.
+        Перо позволяет редактировать содержимое папки.
+    </string>
+    <string name="hint_new_folder">Новая папка</string>
+    <string name="hint_rename_folder">Переименовать папку</string>
+    <string name="hint_remove_folder">Если папка удалена, её содержимое будет возвращено в основной список приложений.</string>
+    <string name="error_folder_empty_name">Сначала выберите имя</string>
+    <string name="error_folder_already_exists">Выберите имя, которое ещё не существует</string>
+    <string name="error_folder_rename">Не удалось переименовать папку</string>
+
+    <!-- Export and import -->
+    <string name="export_import_help">Эти кнопки позволяют экспортировать данные приложения (избранное, папки, ярлыки и настройки) или импортировать их.</string>
+    <string name="button_export">Экспорт</string>
+    <string name="button_import">Импорт</string>
+    <string name="export_import_header_internal_files">Содержание внутренних текстовых файлов</string>
+    <string name="export_import_header_settings">Настройки</string>
+    <string name="export_import_header_icons">Сохраненные значки</string>
+    <string name="export_import_warning_file_edit">Редактирование этого файла может вызвать проблемы</string>
+    <string name="export_import_warning_shortcuts">
+        (На Android 8 (Oreo) и выше импортированные ярлыки могут не работать.
+        поскольку они управляются системой и не должны экспортироваться)
+    </string>
+    <string name="export_completed">Экспорт завершен</string>
+    <string name="error_export">Не удалось создать файл экспорта</string>
+    <string name="error_import">Не удалось прочитать файл импорта</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_creation">Не удалось создать \"%1$s\"</string>
+    <string name="error_shortcut_invalid_request">Не удалось добавить это в качестве ярлыка</string>
+    <string name="error_shortcut_missing_info">Не удалось выполнить этот ярлык</string>
+    <string name="error_shortcut_not_default_launcher">Открывать ярлыки может только программа запуска по умолчанию</string>
+    <string name="error_shortcut_start">Система Android не смогла открыть ярлык</string>
+    <string name="error_shortcut_remove">Не удалось удалить файл %1$s</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_general">Общий вид</string>
+    <string name="appearance_settings_title_applications">Вид приложений</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">База:</string>
+    <string name="color_picker_reset">Сброк</string>
+    <string name="color_picker_preview">Предпросмотр</string>
+    <string name="error_invalid_color_format">Неправильный HEX цвет</string>
 
     <!-- Application theme -->
     <string name="set_application_theme">Тема</string>
@@ -30,52 +75,11 @@
         <item>12 часов + AM/PM</item>
     </string-array>
 
-    <!-- Color picker -->
+    <!-- Other appearance settings -->
     <string name="set_background_color">Цвет фона</string>
     <string name="set_background_color_help">Используется для кнопки меню, избранного, ящика приложений и системной панели</string>
-    <string name="color_picker_base">База:</string>
-    <string name="color_picker_reset">Сброк</string>
-    <string name="color_picker_preview">Предпросмотр</string>
-    <string name="error_invalid_color_format">Неправильный HEX цвет</string>
-
-    <!-- Touch targets (accessibility) -->
-    <string name="set_touch_targets">Цели касания (доступность)</string>
-    <string name="set_touch_targets_help">Нажимаемые ярлыки на главном экране</string>
-    <string name="target_open_favorites">Открыть\nизбранные</string>
-    <string name="target_close_favorites">Закрыть\nизбранные</string>
-    <string name="target_open_applications">Открыть\nприложения</string>
-
-    <!-- Folders -->
-    <string name="button_folders">Папки</string>
-    <string name="button_new_folder">Добавить</string>
-    <string name="button_remove_folder">Удалить</string>
-    <string name="hint_folders_number">Создайте столько папок, сколько вам нужно для организации ваших приложений.</string>
-    <string name="hint_folder_edit">
-        Нажмите на имя папки, чтобы изменить его, и по значку, чтобы выбрать его цвет.
-        Перо позволяет редактировать содержимое папки.
-    </string>
-    <string name="hint_new_folder">Новая папка</string>
-    <string name="hint_rename_folder">Переименовать папку</string>
-    <string name="hint_remove_folder">Если папка удалена, её содержимое будет возвращено в основной список приложений.</string>
-    <string name="error_folder_empty_name">Сначала выберите имя</string>
-    <string name="error_folder_already_exists">Выберите имя, которое ещё не существует</string>
-    <string name="error_folder_rename">Не удалось переименовать папку</string>
-
-    <!-- Shortcuts -->
-    <string name="error_shortcut_creation">Не удалось создать \"%1$s\"</string>
-    <string name="error_shortcut_invalid_request">Не удалось добавить это в качестве ярлыка</string>
-    <string name="error_shortcut_missing_info">Не удалось выполнить этот ярлык</string>
-    <string name="error_shortcut_not_default_launcher">Открывать ярлыки может только программа запуска по умолчанию</string>
-    <string name="error_shortcut_start">Система Android не смогла открыть ярлык</string>
-
-    <!-- Search -->
-    <string name="search_app_name">Поиск</string>
-    <string name="search_hint">Поиск приложений</string>
-    <string name="search_long_press_hide">Скрыть</string>
-
-    <!-- Other settings -->
     <string name="set_transparent_status_bar">Прозрачная строка состояния</string>
-    <string name="set_transparent_status_bar_hint">Когда избранное закрыто</string>
+    <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
     <string name="set_hide_menu_button">Нет кнопки меню</string>
     <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
     <string name="set_icon_pack">Использовать установленный пакет значков</string>
@@ -84,6 +88,27 @@
     <string name="set_hide_app_names_help">Имена папок все еще отображаются</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
     <string name="set_remove_padding_help">Может вызвать проблемы с длинными именами папок</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_icon_pack_appfilter_not_found">Не удалось найти appfilter.xml в выбранном пакете иконок. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Notification -->
+    <string name="set_notification">Уведомление для доступа к избранному</string>
+    <string name="set_notification_help">Использует прозрачный значок</string>
+    <string name="notification_text">Избранные</string>
+    <string name="notification_popup_title">Управление избранным</string>
+
+    <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Цели касания (доступность)</string>
+    <string name="set_touch_targets_help">Нажимаемые ярлыки на главном экране</string>
+    <string name="target_open_favorites">Открыть\nизбранные</string>
+    <string name="target_close_favorites">Закрыть\nизбранные</string>
+    <string name="target_open_applications">Открыть\nприложения</string>
+
+    <!-- Other operation settings -->
     <string name="set_force_portrait">Принудительный портретный режим</string>
     <string name="set_force_portrait_help">Предотвращает поворот лаунчера, даже если включен автоповорот</string>
     <string name="set_always_show_favorites">Всегда показывать избранное</string>
@@ -92,29 +117,9 @@
     <string name="set_reverse_interface">Обратный интерфейс</string>
     <string name="set_reverse_interface_help">Приложения выше, а избранное ниже главного экрана</string>
     <string name="set_disable_app_drawer">Нет ящика приложений</string>
+
+    <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Избранное разблокировано, чтобы сохранить доступ к меню.</string>
     <string name="error_disable_app_drawer_not_safe">Восстановление ящика приложений для сохранения доступа к меню.</string>
-    <string name="error_appfilter_not_found">Не удалось найти appfilter.xml в выбранном пакете иконок. (%1$s)</string>
-
-    <!-- Export and import -->
-    <string name="export_import_help">Эти кнопки позволяют экспортировать данные приложения (избранное, папки, ярлыки и настройки) или импортировать их.</string>
-    <string name="button_export">Экспорт</string>
-    <string name="button_import">Импорт</string>
-    <string name="export_import_header_internal_files">Содержание внутренних текстовых файлов</string>
-    <string name="export_import_header_settings">Настройки</string>
-    <string name="export_import_header_icons">Сохраненные значки</string>
-    <string name="export_import_warning_file_edit">Редактирование этого файла может вызвать проблемы</string>
-    <string name="export_import_warning_shortcuts">
-        (На Android 8 (Oreo) и выше импортированные ярлыки могут не работать.
-        поскольку они управляются системой и не должны экспортироваться)
-    </string>
-    <string name="export_completed">Экспорт завершен</string>
-    <string name="error_export">Не удалось создать файл экспорта</string>
-    <string name="error_import">Не удалось прочитать файл импорта</string>
-
-    <!-- Other -->
-    <string name="button_hidden_applications">Скрытые приложения</string>
-    <string name="button_rename">Переименовать</string>
-    <string name="error_remove_file">Не удалось удалить файл %1$s</string>
 
 </resources>
