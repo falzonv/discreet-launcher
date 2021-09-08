@@ -637,10 +637,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(ignore_settings_changes) return ;
 		switch(key)
 		{
-			case Constants.NOTIFICATION :
-				// Toggle the notification
-				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
-					else notification.hide() ;
+			// ========= Appearance settings ==========
+			case Constants.BACKGROUND_COLOR :
+				// Force update of favorites panel color if it is always shown
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+					displayFavorites(true) ;
 				break ;
 			case Constants.APPLICATION_THEME :
 				// Update the theme
@@ -655,13 +656,22 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// Update the column width
 				recreate() ;
 				break ;
+			// ========= Operation settings ==========
+			case Constants.NOTIFICATION :
+				// Toggle the notification
+				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
+					else notification.hide() ;
+				break ;
 			case Constants.REVERSE_INTERFACE:
 				// Change the interface direction
 				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
 					else setContentView(R.layout.activity_main) ;
 				recreate() ;
+				break ;
 			case Constants.ALWAYS_SHOW_FAVORITES :
+				// Cover cases where this setting is enabled while favorites were closed
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
 			case Constants.TOUCH_TARGETS :
 			case Constants.DISABLE_APP_DRAWER :
 				// Make safe-check and display or not the touch targets
