@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- List of applications -->
+    <string name="info_applications_list_refreshed">App-Liste aktualisiert</string>
+    <string name="button_refresh_list">App-Liste aktualisieren</string>
+    <string name="error_application_not_found">\"%1$s\" konnte nicht gefunden werden</string>
+
+    <!-- Favorites -->
+    <string name="button_favorites">Favoriten</string>
+    <string name="button_select_favorites">Favoriten wählen</string>
+    <string name="hint_no_favorites_yet">Füge Favoriten Apps hinzu\ndurch Klicken des Menü Buttons.</string>
+    <string name="hint_modify_order_of_favorites">Ändere die Reihenfolge der Favoriten in der Liste (verwende den Bildlauf zum Scrollen).</string>
+
+    <!-- Dialogs buttons -->
+    <string name="button_apply">Bestätigen</string>
+    <string name="button_cancel">Abbrechen</string>
+    <string name="button_close">Schließen</string>
+
+    <!-- Long click options -->
+    <string name="long_click_title">Bitte wähle aus!</string>
+    <string name="long_click_open">Öffne \"%1s\"</string>
+    <string name="long_click_store">Store Seite anzeigen</string>
+    <string name="long_click_settings">Zugang zu Einstellungen</string>
+    <string name="long_click_remove_shortcut">Verknüpfung entfernen</string>
+
+    <!-- About -->
+    <string name="button_about">Über</string>
+    <string name="app_name">Discreet App-Starter</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Verbesserungsvorschläge und mögliche Fehler bitte über folgende Webseite senden</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">Deutsche Übersetzung von tuch96 (Marc)</string>
+
+</resources>
