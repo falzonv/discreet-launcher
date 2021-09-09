@@ -80,8 +80,6 @@
     <string name="set_background_color_help">Utilisée pour le bouton de menu, les favoris, le tiroir d\'applications et les barres système</string>
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
-    <string name="set_hide_menu_button">Pas de bouton de menu</string>
-    <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les icônes par défaut)</string>
     <string name="set_hide_app_names">Pas de noms d\'applications</string>
@@ -116,6 +114,8 @@
     <string name="set_immersive_mode_help">Pas de barres système. (Peut être forcé par un clic long sur l\'écran d\'accueil.)</string>
     <string name="set_reverse_interface">Interface inversée</string>
     <string name="set_reverse_interface_help">Applications au dessus, et favoris en dessous de l\'écran d\'accueil</string>
+    <string name="set_hide_menu_button">Pas de bouton de menu</string>
+    <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
     <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>
 
     <!-- Error messages related to operation settings -->

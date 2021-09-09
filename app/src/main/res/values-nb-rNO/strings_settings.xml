@@ -80,8 +80,6 @@
     <string name="set_background_color_help">For menyknapp, favoritter, programskuff, og systembjelker</string>
     <string name="set_transparent_status_bar">Gjennomsiktig statusfelt</string>
     <string name="set_transparent_status_bar_help">Når favoritter lukkes</string>
-    <string name="set_hide_menu_button">Ingen menyknappen</string>
-    <string name="set_hide_menu_button_help">Fremdeles tilgjengelig i oppstarterikonet</string>
     <string name="set_icon_pack">Bruk en installert ikonpakke</string>
     <string name="set_icon_pack_none">Ingen (bruk opprinnelige ikoner)</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
@@ -116,6 +114,8 @@
     <string name="set_immersive_mode_help">Skjul systembjelker (lang-trykk på hjemmeskjermen for å påtvinge)</string>
     <string name="set_reverse_interface">Omvendt grensesnitt</string>
     <string name="set_reverse_interface_help">Programmer ovenfor, og favorittpanel på bunnen</string>
+    <string name="set_hide_menu_button">Ingen menyknappen</string>
+    <string name="set_hide_menu_button_help">Fremdeles tilgjengelig i oppstarterikonet</string>
     <string name="set_disable_app_drawer">Ingen programkurv</string>
 
     <!-- Error messages related to operation settings -->

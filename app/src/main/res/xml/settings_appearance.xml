@@ -29,13 +29,6 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
-        <SwitchPreference
-            app:key="hide_menu_button"
-            app:title="@string/set_hide_menu_button"
-            app:summary="@string/set_hide_menu_button_help"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
         <ListPreference
             app:key="clock_format"
             app:title="@string/set_clock_format"

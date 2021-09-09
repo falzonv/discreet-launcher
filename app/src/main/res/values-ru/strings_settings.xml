@@ -80,8 +80,6 @@
     <string name="set_background_color_help">Используется для кнопки меню, избранного, ящика приложений и системной панели</string>
     <string name="set_transparent_status_bar">Прозрачная строка состояния</string>
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
-    <string name="set_hide_menu_button">Нет кнопки меню</string>
-    <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
     <string name="set_icon_pack">Использовать установленный пакет значков</string>
     <string name="set_icon_pack_none">Нет (использовать значки по умолчанию)</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
@@ -116,6 +114,8 @@
     <string name="set_immersive_mode_help">Нет системных панелей. (Можно принудительно включить, долго нажимая на главный экран.)</string>
     <string name="set_reverse_interface">Обратный интерфейс</string>
     <string name="set_reverse_interface_help">Приложения выше, а избранное ниже главного экрана</string>
+    <string name="set_hide_menu_button">Нет кнопки меню</string>
+    <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
     <string name="set_disable_app_drawer">Нет ящика приложений</string>
 
     <!-- Error messages related to operation settings -->

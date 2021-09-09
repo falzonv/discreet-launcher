@@ -44,6 +44,13 @@
         app:defaultValue="false"/>
 
     <SwitchPreference
+        app:key="hide_menu_button"
+        app:title="@string/set_hide_menu_button"
+        app:summary="@string/set_hide_menu_button_help"
+        app:iconSpaceReserved="false"
+        app:defaultValue="false"/>
+
+    <SwitchPreference
         app:key="disable_app_drawer"
         app:title="@string/set_disable_app_drawer"
         app:iconSpaceReserved="false"
