@@ -639,6 +639,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		{
 			// ========= Appearance settings ==========
 			case Constants.BACKGROUND_COLOR :
+			case Constants.HIDE_MENU_BUTTON :
 				// Force update of favorites panel color if it is always shown
 				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
 					displayFavorites(true) ;
