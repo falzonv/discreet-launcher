@@ -18,8 +18,8 @@ android
         targetSdkVersion 30
 
         // Versioning
-        versionCode 35
-        versionName "v4.7.0"
+        versionCode 36
+        versionName "v5.0.0"
     }
 
     // Build types always include debug (hidden by default)
