@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Favorites -->
+    <string name="button_select_favorites">Pilih Favorit</string>
+    <string name="hint_no_favorites_yet">Tambahkan apl favorit disini\ndengan mengklik tombol menu.</string>
+    <string name="hint_modify_order_of_favorites">Ubah urutan favorit dari daftar dibawah (menggunakan sisi untuk menggulir).</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">Tambah</string>
+    <string name="button_remove_folder">Hapus</string>
+    <string name="hint_folders_number">Buatlah folder sebanyak yang kau mau untuk mengatur aplikasimu.</string>
+    <string name="hint_folder_edit">
+        Ketuk nama folder untuk mengganti namanya, dan klik ikon untuk memilih warnanya.
+        Ikon Pena untuk mengatur isinya.
+    </string>
+    <string name="hint_new_folder">Folder baru</string>
+    <string name="hint_rename_folder">Ganti nama folder</string>
+    <string name="hint_remove_folder">Jika folder dihilangkan, isinya akan ditaruh kembali di daftar aplikasi utama.</string>
+    <string name="error_folder_empty_name">Tentukan nama dulu</string>
+    <string name="error_folder_already_exists">Tentukan nama yang belum digunakan folder yang ada</string>
+    <string name="error_folder_rename">Tidak bisa mengganti nama folder</string>
+
+    <!-- Export and import -->
+    <string name="export_import_help">Tombol-tombol ini mengizinkan expor data aplikasi (favorit, folder-folder, pemintas dan pengaturan) atau mengimpornya lagi.</string>
+    <string name="button_export">Ekspor</string>
+    <string name="button_import">Impor</string>
+    <string name="export_import_header_internal_files">Isi dari berkas teks</string>
+    <string name="export_import_header_settings">Pengaturan</string>
+    <string name="export_import_header_icons">Ikon yang tersimpan</string>
+    <string name="export_import_warning_file_edit">Mengedit berkas ini memungkinkan terjadinya masalah</string>
+    <string name="export_import_warning_shortcuts">
+        (Di Android 8 (Oreo) keatas, pemintas yang di impor mingkin tidak bekerja
+        karena diatur oleh sistem dan tidak seharusnya diekspor)
+    </string>
+    <string name="export_completed">Ekspor Selesai</string>
+    <string name="error_export">Tidak bisa membuat berkas ekspor</string>
+    <string name="error_import">Tidak bisa membaca berkas impor</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_creation">Tidak bisa membuat \"%1$s\"</string>
+    <string name="error_shortcut_invalid_request">Tidak bisa menambahkannya sebagai pemintas</string>
+    <string name="error_shortcut_missing_info">Tidak bisa mengikuti pemintas ini</string>
+    <string name="error_shortcut_not_default_launcher">Hanya peluncur default yang bisa membuka pemintas</string>
+    <string name="error_shortcut_start">Sistem Android tidak bisa membuka pemintas</string>
+    <string name="error_shortcut_remove">Tidak bisa memghapus berkas %1$s</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_general">Tampilan Umum</string>
+    <string name="appearance_settings_title_applications">Tampilan aplikasi</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Dasar:</string>
+    <string name="color_picker_reset">Atur ulang</string>
+    <string name="color_picker_preview">Pratinjau</string>
+    <string name="error_invalid_color_format">Warna hexadecimal tidak valid</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Tema</string>
+    <string-array name="set_application_theme_entries">
+        <item>Terang</item>
+        <item>Gelap</item>
+        <item>Pilihan sistem</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Format Jam</string>
+    <string-array name="set_clock_format_entries">
+        <item>Tiada (Sembunyikan)</item>
+        <item>24 jam</item>
+        <item>12 jam</item>
+        <item>12 jam + AM/PM</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_background_color">Warna latar belakang</string>
+    <string name="set_background_color_help">Digunakan untuk tombol menu, favorit, laci aplikasi dan batang sistem</string>
+    <string name="set_transparent_status_bar">Batang sistem transparan</string>
+    <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
+    <string name="set_icon_pack">Gunakan paket ikon yang terpasang</string>
+    <string name="set_icon_pack_none">Tiada (gunakan ikon default)</string>
+    <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
+    <string name="set_hide_app_names_help">Nama folder tetap ditampilkan</string>
+    <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>
+    <string name="set_remove_padding_help">Bisa membuat masalah pada nama folder yang panjang</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_icon_pack_appfilter_not_found">Tida bisa menemukan appfilter.xml pada paket ikon yang terpilih. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Notification -->
+    <string name="set_notification">Notifikasi untuk mengakses favorit</string>
+    <string name="set_notification_help">Gunakan ikon transparan</string>
+    <string name="notification_text">Favorit</string>
+    <string name="notification_popup_title">Kelola favorit</string>
+
+    <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Target ketuk (aksesibilitas)</string>
+    <string name="set_touch_targets_help">Label yang dapat diklik di layar rumah</string>
+    <string name="target_open_favorites">Buka\nfavorit</string>
+    <string name="target_close_favorites">Tutup\nfavorit</string>
+    <string name="target_open_applications">Buka\nlaci apl</string>
+
+    <!-- Other operation settings -->
+    <string name="set_force_portrait">Paksa mode potret</string>
+    <string name="set_force_portrait_help">Memcegah rotasi layar meskipun rotasi otomatis dihidupkan</string>
+    <string name="set_always_show_favorites">Selalu tampilkan favorit</string>
+    <string name="set_immersive_mode">Mode menutup</string>
+    <string name="set_immersive_mode_help">Tidak ada batang sistem. (Bisa dipaksakan dengan tekan lama di layar rumah.)</string>
+    <string name="set_reverse_interface">Balikkan Antarmuka</string>
+    <string name="set_reverse_interface_help">Laci apl di atas, dan favorit dibawah layar rumah</string>
+    <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
+    <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon apl peluncur</string>
+    <string name="set_disable_app_drawer">Nonaktifkan Laci aplikasi</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Favorit terbuka untuk menjaga akses menu.</string>
+    <string name="error_disable_app_drawer_not_safe">Mengaktifkan kembali laci aplikasi untuk menjaga akses menu.</string>
+
+</resources>

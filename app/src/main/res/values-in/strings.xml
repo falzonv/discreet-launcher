@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu_favorites">Favorit</string>
+    <string name="menu_folders">Folder</string>
+    <string name="menu_hidden_apps">Aplikasi Tersembunyi</string>
+    <string name="menu_refresh_list_apps">Perbarui daftar apl</string>
+    <string name="menu_settings_appearance">Tampilan</string>
+    <string name="menu_settings_operation">Operasi</string>
+    <string name="menu_export_import">Ekspor dan impor</string>
+    <string name="menu_help">Bantuan</string>
+    <string name="menu_changelog">Jejak Perubahan</string>
+    <string name="menu_about">Tentang</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Mau ngapain?</string>
+    <string name="long_click_open">Buka \"%1s\"</string>
+    <string name="long_click_settings">Akses pengaturannya</string>
+    <string name="long_click_view_store">Lihat di Play Store</string>
+    <string name="long_click_rename">Ganti Name</string>
+    <string name="long_click_hide_search">Sembunyikan</string>
+    <string name="long_click_remove_shortcut">Hapus Pemintas</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Terapkan</string>
+    <string name="button_cancel">Batal</string>
+    <string name="button_close">Tutup</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Daftar aplikasi tersegarkan</string>
+    <string name="error_app_not_found">Tidak bisa menemukan \"%1$s\"</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Cari</string>
+    <string name="search_app_hint">Cari app</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Saran peningkatan dan lapor isu di</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">Indonesian translation by Dawud Irfan</string>
+
+</resources>
