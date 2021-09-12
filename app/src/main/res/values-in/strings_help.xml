@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Help -->
-    <string name="help_navigation_title">Navigation</string>
+    <string name="help_navigation_title">Navigasi</string>
     <string name="help_navigation">
         Geser keatas dari layar rumah untuk menampilkan seluruh aplikasi, dan kebawah untuk kembali.
         \n
@@ -10,7 +10,7 @@
         \n
         \nKlik tombol menu (saat menampilkan favorit) atau ikon peluncur untuk membuka menu.
         \n
-        \nTekan lama apl atau folder untuk mengakses pengaturannya.
+        \nTekan lama aplikasi atau folder untuk mengakses pengaturannya.
     </string>
     <string name="help_notification_title">Notifikasi</string>
     <string name="help_notification">
@@ -18,18 +18,18 @@
     </string>
     <string name="help_list_update_title">Perbaruan Daftar</string>
     <string name="help_list_update">
-        Pesan popup muncul saat menyegarkan daftar apl dan ikon,
-        saat memulai, menambah atau menghapus apl, atau jika paket ikon dimodifikasi.
+        Pesan popup muncul saat menyegarkan daftar aplikasi dan ikon,
+        saat memulai, menambah atau menghapus aplikasi, atau jika paket ikon dimodifikasi.
     </string>
     <string name="help_folders_title">Folder</string>
     <string name="help_folders">
-        Kelola folder atau favoritkan apl dengan tombol menu, atau klik judul dari folder yang terbuka
-        untuk membuat, mengganti nama, atau memasukan apl kedalamnya.
+        Kelola folder atau favoritkan aplikasi dengan tombol menu, atau klik judul dari folder yang terbuka
+        untuk membuat, mengganti nama, atau memasukan aplikasi kedalamnya.
         \nMenghapus folder akan meletakan kembali isinya ke daftar utama.
     </string>
-    <string name="help_search_title">Search</string>
+    <string name="help_search_title">Pencarian</string>
     <string name="help_search">
-        Temukan apl apapun dari ikon cari. itu juga bisa difavoritkan, untuk membuatnya tersedia
+        Temukan aplikasi apapun dari ikon cari. ikon cari juga bisa difavoritkan, untuk membuatnya tersedia
         dari notifikasi, dan tersembunyi.
         \n
         \nJika hanya ada satu hasil pencarian, menekan \"Enter\" akan membukanya.

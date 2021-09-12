@@ -7,7 +7,7 @@
     <string name="menu_favorites">Favorit</string>
     <string name="menu_folders">Folder</string>
     <string name="menu_hidden_apps">Aplikasi Tersembunyi</string>
-    <string name="menu_refresh_list_apps">Perbarui daftar apl</string>
+    <string name="menu_refresh_list_apps">Perbarui daftar aplikasi</string>
     <string name="menu_settings_appearance">Tampilan</string>
     <string name="menu_settings_operation">Operasi</string>
     <string name="menu_export_import">Ekspor dan impor</string>
@@ -35,7 +35,7 @@
 
     <!-- Search app -->
     <string name="search_app_name">Cari</string>
-    <string name="search_app_hint">Cari app</string>
+    <string name="search_app_hint">Cari aplikasi</string>
 
     <!-- About dialog -->
     <string name="app_name">Discreet Launcher</string>
