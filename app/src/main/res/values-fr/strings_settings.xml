@@ -93,6 +93,10 @@
 
     <!-- ========== Operation settings menu ========== -->
 
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Interface</string>
+    <string name="operation_settings_title_gestures">Gestes de l\'écran d\'accueil</string>
+
     <!-- Notification -->
     <string name="set_notification">Notification d\'accès aux favoris</string>
     <string name="set_notification_help">Utilise une icône transparente</string>
@@ -117,6 +121,9 @@
     <string name="set_hide_menu_button">Pas de bouton de menu</string>
     <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
     <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>
+    <string name="set_swipe_towards_left">Glisser vers la gauche</string>
+    <string name="set_swipe_towards_right">Glisser vers la droite</string>
+    <string name="set_swipe_towards_leftright_no_action">Aucune action</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favoris débloqués pour conserver l\'accès au menu.</string>

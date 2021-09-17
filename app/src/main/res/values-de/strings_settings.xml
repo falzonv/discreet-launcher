@@ -93,6 +93,10 @@
 
     <!-- ========== Operation settings menu ========== -->
 
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Interface</string>
+    <string name="operation_settings_title_gestures">Home screen gestures</string>
+
     <!-- Notification -->
     <string name="set_notification">Benachrichtigung für Zugriff auf Favoriten</string>
     <string name="set_notification_help">Verwendet ein transparentes Icon</string>
@@ -117,6 +121,9 @@
     <string name="set_hide_menu_button">Kein Menü-Icon</string>
     <string name="set_hide_menu_button_help">Immer über das Symbol der Startanwendung zugänglich</string>
     <string name="set_disable_app_drawer">App Übersicht nicht anzeigen</string>
+    <string name="set_swipe_towards_left">Swipe towards left</string>
+    <string name="set_swipe_towards_right">Swipe towards right</string>
+    <string name="set_swipe_towards_leftright_no_action">No action</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favoriten entsperren, um Zugriff auf das Menü zu bekommen.</string>

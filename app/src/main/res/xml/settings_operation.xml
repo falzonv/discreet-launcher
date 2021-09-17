@@ -9,51 +9,77 @@
         app:iconSpaceReserved="false"
         app:defaultValue="false"/>
 
-    <SwitchPreference
-        app:key="force_portrait"
-        app:title="@string/set_force_portrait"
-        app:summary="@string/set_force_portrait_help"
-        app:iconSpaceReserved="false"
-        app:defaultValue="false"/>
+    <PreferenceCategory
+        app:title="@string/operation_settings_title_interface"
+        app:iconSpaceReserved="false">
 
-    <SwitchPreference
-        app:key="always_show_favorites"
-        app:title="@string/set_always_show_favorites"
-        app:iconSpaceReserved="false"
-        app:defaultValue="false"/>
+        <SwitchPreference
+            app:key="force_portrait"
+            app:title="@string/set_force_portrait"
+            app:summary="@string/set_force_portrait_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
 
-    <SwitchPreference
-        app:key="immersive_mode"
-        app:title="@string/set_immersive_mode"
-        app:summary="@string/set_immersive_mode_help"
-        app:iconSpaceReserved="false"
-        app:defaultValue="false"/>
+        <SwitchPreference
+            app:key="always_show_favorites"
+            app:title="@string/set_always_show_favorites"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
 
-    <SwitchPreference
-        app:key="reverse_interface"
-        app:title="@string/set_reverse_interface"
-        app:summary="@string/set_reverse_interface_help"
-        app:iconSpaceReserved="false"
-        app:defaultValue="false"/>
+        <SwitchPreference
+            app:key="immersive_mode"
+            app:title="@string/set_immersive_mode"
+            app:summary="@string/set_immersive_mode_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
 
-    <SwitchPreference
-        app:key="touch_targets"
-        app:title="@string/set_touch_targets"
-        app:summary="@string/set_touch_targets_help"
-        app:iconSpaceReserved="false"
-        app:defaultValue="false"/>
+        <SwitchPreference
+            app:key="reverse_interface"
+            app:title="@string/set_reverse_interface"
+            app:summary="@string/set_reverse_interface_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
 
-    <SwitchPreference
-        app:key="hide_menu_button"
-        app:title="@string/set_hide_menu_button"
-        app:summary="@string/set_hide_menu_button_help"
-        app:iconSpaceReserved="false"
-        app:defaultValue="false"/>
+        <SwitchPreference
+            app:key="touch_targets"
+            app:title="@string/set_touch_targets"
+            app:summary="@string/set_touch_targets_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
 
-    <SwitchPreference
-        app:key="disable_app_drawer"
-        app:title="@string/set_disable_app_drawer"
-        app:iconSpaceReserved="false"
-        app:defaultValue="false"/>
+        <SwitchPreference
+            app:key="hide_menu_button"
+            app:title="@string/set_hide_menu_button"
+            app:summary="@string/set_hide_menu_button_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="disable_app_drawer"
+            app:title="@string/set_disable_app_drawer"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/operation_settings_title_gestures"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:key="swipe_towards_left"
+            app:title="@string/set_swipe_towards_left"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+        <ListPreference
+            app:key="swipe_towards_right"
+            app:title="@string/set_swipe_towards_right"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

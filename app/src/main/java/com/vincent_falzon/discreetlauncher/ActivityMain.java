@@ -134,7 +134,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		menuButton.setOnClickListener(this) ;
 		targetFavorites.setOnClickListener(this) ;
 		targetApplications.setOnClickListener(this) ;
-		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
+		gestureDetector = new GestureDetectorCompat(this, new GestureListener(homeScreen)) ;
 
 		// If it does not exist yet, build the applications list
 		if(applicationsList == null)
@@ -552,6 +552,20 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	 */
 	class GestureListener extends GestureDetector.SimpleOnGestureListener
 	{
+		// Attributes
+		private final View homeScreen ;
+
+
+		/**
+		 * Constructor.
+		 * @param homeScreen To launch activities with horizontal swipes
+		 */
+		GestureListener(View homeScreen)
+		{
+			this.homeScreen = homeScreen ;
+		}
+
+
 		/**
 		 * Implemented because all gestures start with an onDown() message.
 		 * @param event Gesture event
@@ -562,6 +576,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		{
 			return true ;
 		}
+
 
 		/**
 		 * Detect a gesture over a distance.
@@ -578,11 +593,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			if(drawer.getVisibility() == View.VISIBLE) return false ;
 
 			// Calculate the traveled distances on both axes
-			float x_distance = Math.abs(event1.getX() - event2.getX()) ;
+			float x_distance = event1.getX() - event2.getX() ;
 			float y_distance = event1.getY() - event2.getY() ;
 
 			// Check if this is a vertical gesture over a distance and not a single tap
-			if((Math.abs(y_distance) > x_distance) && (Math.abs(y_distance) > Math.round(34 * density)))
+			int swipe_trigger_distance = Math.round(34 * density) ;
+			if((Math.abs(y_distance) > Math.abs(x_distance)) && (Math.abs(y_distance) > swipe_trigger_distance))
 				{
 					// Adapt the gesture direction to the interface direction
 					boolean swipe_drawer ;
@@ -609,9 +625,47 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					return true ;
 				}
 
+			// Check if this is an horizontal gesture over a distance and not a single tap
+			if((Math.abs(x_distance) > Math.abs(y_distance)) && (Math.abs(x_distance) > swipe_trigger_distance))
+				{
+					// Check if the swipe is going towards left or right and retrieve the related setting
+					String component_info ;
+					if(x_distance > 0) component_info = settings.getString(Constants.SWIPE_TOWARDS_LEFT, Constants.NONE) ;
+						else component_info = settings.getString(Constants.SWIPE_TOWARDS_RIGHT, Constants.NONE) ;
+
+					// Do not continue if the setting is not set
+					if((component_info == null) || component_info.equals(Constants.NONE))
+						return false ;
+
+					// Try to start the application and consider the event as consumed
+					searchAndStartApplication(component_info) ;
+					return true ;
+				}
+
 			// Ignore other gestures
 			return false ;
 		}
+
+
+		/**
+		 * Start an app from the list using its ComponentInfo, or show an error message.
+		 */
+		private void searchAndStartApplication(String component_info)
+		{
+			// Search the application in the list
+			for(Application application : applicationsList.getApplications(false))
+				if(application.getComponentInfo().equals(component_info))
+					{
+						// Start the application
+						application.start(homeScreen) ;
+						return ;
+					}
+
+			// The application was not found, display an error message
+			Context context = homeScreen.getContext() ;
+			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, component_info)) ;
+		}
+
 
 		/**
 		 * Detect a long click on the home screen.
