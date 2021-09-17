@@ -111,7 +111,7 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 		List<ResolveInfo> packsList = apkManager.queryIntentActivities(filter, PackageManager.GET_META_DATA) ;
 
 		// Browse the retrieved packs and store their information in the lists
-		for(ResolveInfo pack:packsList)
+		for(ResolveInfo pack : packsList)
 		{
 			iconPacks.add(pack.activityInfo.packageName) ;
 			packsNames.add(pack.loadLabel(apkManager).toString()) ;

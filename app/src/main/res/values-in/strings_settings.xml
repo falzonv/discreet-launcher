@@ -50,6 +50,7 @@
 
     <!-- Sections titles -->
     <string name="appearance_settings_title_general">Tampilan umum</string>
+    <string name="appearance_settings_title_clock">Tampilan Jam</string>
     <string name="appearance_settings_title_applications">Tampilan aplikasi</string>
 
     <!-- Color picker -->
@@ -73,6 +74,16 @@
         <item>24 jam</item>
         <item>12 jam</item>
         <item>12 jam + AM/PM</item>
+        <item>Analog</item>
+        <item>Tanggal dan waktu</item>
+    </string-array>
+
+    <!-- Clock position -->
+    <string name="set_clock_position">Posisi Jam</string>
+    <string-array name="set_clock_position_entries">
+        <item>Atas</item>
+        <item>Tengah</item>
+        <item>Bawah</item>
     </string-array>
 
     <!-- Other appearance settings -->
@@ -80,6 +91,7 @@
     <string name="set_background_color_help">Digunakan untuk tombol menu, favorit, Laci Aplikasi dan batang sistem</string>
     <string name="set_transparent_status_bar">Batang sistem transparan</string>
     <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
+    <string name="set_clock_color">Warna Jam</string>
     <string name="set_icon_pack">Gunakan paket ikon yang terpasang</string>
     <string name="set_icon_pack_none">Tidak ada (gunakan ikon default)</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
@@ -92,6 +104,10 @@
 
 
     <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Antarmuka</string>
+    <string name="operation_settings_title_gestures">Gestur layar rumah</string>
 
     <!-- Notification -->
     <string name="set_notification">Notifikasi untuk mengakses favorit</string>
@@ -117,6 +133,10 @@
     <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
     <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
     <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>
+    <string name="set_swipe_towards_left">Geser ke kiri</string>
+    <string name="set_swipe_towards_right">Geser ke kanan</string>
+    <string name="set_swipe_towards_leftright_no_action">Tidak ada</string>
+
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favorit terbuka untuk menjaga akses menu.</string>

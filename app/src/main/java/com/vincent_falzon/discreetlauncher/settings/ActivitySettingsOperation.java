@@ -28,16 +28,25 @@ import android.content.pm.ActivityInfo ;
 import android.os.Build ;
 import android.os.Bundle ;
 import androidx.appcompat.app.AppCompatActivity ;
+import androidx.preference.ListPreference ;
 import androidx.preference.PreferenceFragmentCompat ;
 import androidx.preference.PreferenceManager ;
+import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.core.Application ;
+import java.util.ArrayList ;
 
 /**
  * Settings and Help activity.
  */
 public class ActivitySettingsOperation extends AppCompatActivity
 {
+	// Attributes
+	private static ArrayList<String> applicationsComponentInfos ;
+	private static ArrayList<String> applicationsNames ;
+
+
 	/**
 	 * Constructor.
 	 * @param savedInstanceState To retrieve the context
@@ -47,6 +56,17 @@ public class ActivitySettingsOperation extends AppCompatActivity
 	{
 		// Call the constructor of the parent class
 		super.onCreate(savedInstanceState) ;
+
+		// Initializations
+		if(applicationsComponentInfos == null) applicationsComponentInfos = new ArrayList<>() ;
+		if(applicationsNames == null) applicationsNames = new ArrayList<>() ;
+
+		// Prepare the icon pack setting
+		applicationsComponentInfos.clear() ;
+		applicationsNames.clear() ;
+		applicationsComponentInfos.add(Constants.NONE) ;
+		applicationsNames.add(getString(R.string.set_swipe_towards_leftright_no_action)) ;
+		loadInstalledApplications() ;
 
 		// Load the general settings layout
 		setContentView(R.layout.activity_settings) ;
@@ -67,7 +87,39 @@ public class ActivitySettingsOperation extends AppCompatActivity
 		@Override
 		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
 		{
+			// Load the settings from the XML file
 			setPreferencesFromResource(R.xml.settings_operation, rootKey) ;
+
+			// Initialize the gestures selectors
+			ListPreference swipeTowardsLeft = findPreference(Constants.SWIPE_TOWARDS_LEFT) ;
+			if(swipeTowardsLeft != null)
+				{
+					swipeTowardsLeft.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
+					swipeTowardsLeft.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
+				}
+			ListPreference swipeTowardsRight = findPreference(Constants.SWIPE_TOWARDS_RIGHT) ;
+				if(swipeTowardsRight != null)
+				{
+					swipeTowardsRight.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
+					swipeTowardsRight.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
+				}
+		}
+	}
+
+
+	/**
+	 * Build a list of all installed applications.
+	 */
+	private void loadInstalledApplications()
+	{
+		// Retrieve the list of all installed applications
+		ArrayList<Application> allApplications = ActivityMain.getApplicationsList().getApplications(false) ;
+
+		// Store the retrieved information in the lists
+		for(Application application : allApplications)
+		{
+			applicationsComponentInfos.add(application.getComponentInfo()) ;
+			applicationsNames.add(application.getDisplayName()) ;
 		}
 	}
 

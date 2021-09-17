@@ -29,6 +29,12 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/appearance_settings_title_clock"
+        app:iconSpaceReserved="false">
+
         <ListPreference
             app:key="clock_format"
             app:title="@string/set_clock_format"
@@ -36,6 +42,21 @@
             app:entries="@array/set_clock_format_entries"
             app:entryValues="@array/set_clock_format_values"
             app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="clock_color"
+            app:title="@string/set_clock_color"
+            app:defaultValue="#FFFFFFFF"
+            app:iconSpaceReserved="false"/>
+
+        <ListPreference
+            app:key="clock_position"
+            app:title="@string/set_clock_position"
+            app:iconSpaceReserved="false"
+            app:entries="@array/set_clock_position_entries"
+            app:entryValues="@array/set_clock_position_values"
+            app:defaultValue="top"
             app:useSimpleSummaryProvider="true"/>
 
     </PreferenceCategory>
