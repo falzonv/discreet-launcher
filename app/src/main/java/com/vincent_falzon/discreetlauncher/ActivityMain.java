@@ -48,7 +48,6 @@ import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
-import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
 import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
@@ -77,7 +76,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private LinearLayout homeScreen ;
 	private LinearLayout favorites ;
 	private RecyclerAdapter favoritesAdapter ;
-	private MinuteListener minuteListener ;
 	private TextView menuButton ;
 	private TextView targetFavorites ;
 	private TextView targetApplications ;
@@ -148,10 +146,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		keepMenuAccessible() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
-
-		// Initialize the clock listener
-		minuteListener = new MinuteListener((TextView)findViewById(R.id.clock_text)) ;
-		registerReceiver(minuteListener, minuteListener.getFilter()) ;
 
 		// Prepare the notification
 		notification = new NotificationDisplayer(this) ;
@@ -851,7 +845,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Update the display according to settings
 		dialogMenu.hide() ;
-		minuteListener.updateClock() ;
 		togglePortraitMode() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
@@ -868,7 +861,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	public void onDestroy()
 	{
 		// Unregister all remaining broadcast receivers
-		if(minuteListener != null) unregisterReceiver(minuteListener) ;
 		if(packagesListener != null) unregisterReceiver(packagesListener) ;
 		if(shortcutLegacyListener != null) unregisterReceiver(shortcutLegacyListener) ;
 

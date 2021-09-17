@@ -85,17 +85,6 @@
     </style>
 
 
-    <!-- Text clock -->
-    <style name="TextClock">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textSize">@dimen/text_size_huge</item>
-        <item name="android:textColor">@color/for_text_on_shadow</item>
-        <item name="android:shadowColor">@color/for_shadow</item>
-        <item name="android:shadowRadius">@dimen/shadow_radius</item>
-    </style>
-
-
     <!--- Touch targets -->
     <style name="TouchTarget">
         <item name="android:gravity">center</item>

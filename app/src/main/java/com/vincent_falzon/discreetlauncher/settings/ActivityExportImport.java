@@ -163,6 +163,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_FORMAT)) ;
+		exportedData.add(exportStringSetting(Constants.CLOCK_COLOR)) ;
+		exportedData.add(exportStringSetting(Constants.CLOCK_POSITION)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
@@ -294,6 +296,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					if(old_clock_found && !old_clock_status) editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
 						else loadStringSetting(Constants.CLOCK_FORMAT, line)  ;
 				}
+				else if(line.startsWith(Constants.CLOCK_COLOR)) loadStringSetting(Constants.CLOCK_COLOR, line) ;
+				else if(line.startsWith(Constants.CLOCK_POSITION)) loadStringSetting(Constants.CLOCK_POSITION, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.REMOVE_PADDING)) loadBooleanSetting(Constants.REMOVE_PADDING, line) ;
