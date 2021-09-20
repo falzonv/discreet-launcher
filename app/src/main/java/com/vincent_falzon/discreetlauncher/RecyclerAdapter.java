@@ -33,6 +33,8 @@ import androidx.appcompat.app.AlertDialog ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import android.content.SharedPreferences ;
+import android.content.pm.PackageManager ;
+import android.content.pm.ResolveInfo ;
 import android.graphics.PorterDuff ;
 import android.graphics.Typeface ;
 import android.net.Uri ;
@@ -395,9 +397,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			dialog.setTitle(R.string.long_click_rename) ;
 			dialog.setNegativeButton(R.string.button_cancel, null) ;
 
-			// Prepare a text field containing the initial name
+			// Prepare a text field that will be used to rename the application
 			final EditText renameField = new EditText(context) ;
 			renameField.setText(application.getDisplayName()) ;
+
+			// Retrieve the original name of the application
+			Intent intent = new Intent(Intent.ACTION_MAIN) ;
+			intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
+			PackageManager apkManager = context.getPackageManager() ;
+			for(ResolveInfo entry : apkManager.queryIntentActivities(intent, 0))
+				if(application.getComponentInfo().equals("{" + entry.activityInfo.packageName + "/" + entry.activityInfo.name + "}"))
+					{
+						renameField.setHint(entry.loadLabel(apkManager)) ;
+						break ;
+					}
 
 			// Add the button to save a new name
 			dialog.setPositiveButton(R.string.button_apply, new DialogInterface.OnClickListener()
@@ -409,8 +422,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 						InternalFileTXT rename_apps_file = new InternalFileTXT(Constants.FILE_RENAME_APPS) ;
 						rename_apps_file.removeLine(application.getComponentInfo()) ;
 
-						// Save the new name and update the applications list
-						rename_apps_file.writeLine(application.getComponentInfo() + Constants.SEPARATOR + renameField.getText()) ;
+						// Save the new name (an empty name will restore the original name)
+						if(!renameField.getText().toString().isEmpty())
+							rename_apps_file.writeLine(application.getComponentInfo() + Constants.SEPARATOR + renameField.getText()) ;
+
+						// Update the applications list
 						ActivityMain.updateList(context) ;
 						notifyDataSetChanged() ;
 					}
