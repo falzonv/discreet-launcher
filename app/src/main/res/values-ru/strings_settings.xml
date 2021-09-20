@@ -49,13 +49,13 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_general">Общий вид</string>
-    <string name="appearance_settings_title_clock">Clock</string>
-    <string name="appearance_settings_title_applications">Вид приложений</string>
+    <string name="appearance_settings_title_general">Общее</string>
+    <string name="appearance_settings_title_clock">Часы</string>
+    <string name="appearance_settings_title_applications">Приложения</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">База:</string>
-    <string name="color_picker_reset">Сброк</string>
+    <string name="color_picker_reset">Сброс</string>
     <string name="color_picker_preview">Предпросмотр</string>
     <string name="error_invalid_color_format">Неправильный HEX цвет</string>
 
@@ -74,16 +74,16 @@
         <item>24 часа</item>
         <item>12 часов</item>
         <item>12 часов + AM/PM</item>
-        <item>Analog</item>
-        <item>Date and time</item>
+        <item>Аналог</item>
+        <item>Дата и время</item>
     </string-array>
 
     <!-- Clock position -->
-    <string name="set_clock_position">Clock position</string>
+    <string name="set_clock_position">Положение часов</string>
     <string-array name="set_clock_position_entries">
-        <item>Top</item>
-        <item>Middle</item>
-        <item>Bottom</item>
+        <item>Наверху</item>
+        <item>Посередине</item>
+        <item>Внизу</item>
     </string-array>
 
     <!-- Other appearance settings -->
@@ -91,7 +91,7 @@
     <string name="set_background_color_help">Используется для кнопки меню, избранного, ящика приложений и системной панели</string>
     <string name="set_transparent_status_bar">Прозрачная строка состояния</string>
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
-    <string name="set_clock_color">Clock color</string>
+    <string name="set_clock_color">Цвет часов</string>
     <string name="set_icon_pack">Использовать установленный пакет значков</string>
     <string name="set_icon_pack_none">Нет (использовать значки по умолчанию)</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
@@ -106,8 +106,8 @@
     <!-- ========== Operation settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="operation_settings_title_interface">Interface</string>
-    <string name="operation_settings_title_gestures">Home screen gestures</string>
+    <string name="operation_settings_title_interface">Интерфейс</string>
+    <string name="operation_settings_title_gestures">Жесты главного экрана</string>
 
     <!-- Notification -->
     <string name="set_notification">Уведомление для доступа к избранному</string>
@@ -133,9 +133,9 @@
     <string name="set_hide_menu_button">Нет кнопки меню</string>
     <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
     <string name="set_disable_app_drawer">Нет ящика приложений</string>
-    <string name="set_swipe_towards_left">Swipe towards left</string>
-    <string name="set_swipe_towards_right">Swipe towards right</string>
-    <string name="set_swipe_towards_leftright_no_action">No action</string>
+    <string name="set_swipe_towards_left">Проведите влево</string>
+    <string name="set_swipe_towards_right">Проведите вправо</string>
+    <string name="set_swipe_towards_leftright_no_action">Нет действий</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Избранное разблокировано, чтобы сохранить доступ к меню.</string>
