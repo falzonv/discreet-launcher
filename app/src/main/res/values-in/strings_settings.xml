@@ -137,7 +137,6 @@
     <string name="set_swipe_towards_right">Geser ke kanan</string>
     <string name="set_swipe_towards_leftright_no_action">Tidak ada</string>
 
-
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favorit terbuka untuk menjaga akses menu.</string>
     <string name="error_disable_app_drawer_not_safe">Mengaktifkan kembali Laci Aplikasi untuk menjaga akses menu.</string>
