@@ -133,9 +133,9 @@
     <string name="set_hide_menu_button">Kein Menü-Icon</string>
     <string name="set_hide_menu_button_help">Immer über das Symbol der Startanwendung zugänglich</string>
     <string name="set_disable_app_drawer">App Übersicht nicht anzeigen</string>
-    <string name="set_swipe_towards_left">Nach links wischen</string>
-    <string name="set_swipe_towards_right">Nach rechts wischen</string>
-    <string name="set_swipe_towards_leftright_no_action">Keine Aktion</string>
+    <string name="set_swipe_leftwards">Nach links wischen</string>
+    <string name="set_swipe_rightwards">Nach rechts wischen</string>
+    <string name="set_swipe_leftrightwards_no_action">Keine Aktion</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favoriten entsperren, um Zugriff auf das Menü zu bekommen.</string>

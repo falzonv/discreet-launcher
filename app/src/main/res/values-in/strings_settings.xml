@@ -49,9 +49,9 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_general">Tampilan umum</string>
-    <string name="appearance_settings_title_clock">Tampilan Jam</string>
-    <string name="appearance_settings_title_applications">Tampilan aplikasi</string>
+    <string name="appearance_settings_title_general">Umum</string>
+    <string name="appearance_settings_title_clock">Jam</string>
+    <string name="appearance_settings_title_applications">Aplikasi</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Dasar:</string>
@@ -133,9 +133,9 @@
     <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
     <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
     <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>
-    <string name="set_swipe_towards_left">Geser ke kiri</string>
-    <string name="set_swipe_towards_right">Geser ke kanan</string>
-    <string name="set_swipe_towards_leftright_no_action">Tidak ada</string>
+    <string name="set_swipe_leftwards">Geser ke kiri</string>
+    <string name="set_swipe_rightwards">Geser ke kanan</string>
+    <string name="set_swipe_leftrightwards_no_action">Tidak ada</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favorit terbuka untuk menjaga akses menu.</string>

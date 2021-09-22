@@ -67,15 +67,15 @@
         app:iconSpaceReserved="false">
 
         <ListPreference
-            app:key="swipe_towards_left"
-            app:title="@string/set_swipe_towards_left"
+            app:key="swipe_leftwards"
+            app:title="@string/set_swipe_leftwards"
             app:iconSpaceReserved="false"
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
         <ListPreference
-            app:key="swipe_towards_right"
-            app:title="@string/set_swipe_towards_right"
+            app:key="swipe_rightwards"
+            app:title="@string/set_swipe_rightwards"
             app:iconSpaceReserved="false"
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>

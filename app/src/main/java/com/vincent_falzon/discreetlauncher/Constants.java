@@ -65,8 +65,8 @@ public interface Constants
 	String REVERSE_INTERFACE = "reverse_interface" ;
 	String TOUCH_TARGETS = "touch_targets" ;
 	String DISABLE_APP_DRAWER = "disable_app_drawer" ;
-	String SWIPE_TOWARDS_LEFT = "swipe_towards_left" ;
-	String SWIPE_TOWARDS_RIGHT = "swipe_towards_right" ;
+	String SWIPE_LEFTWARDS = "swipe_leftwards" ;
+	String SWIPE_RIGHTWARDS = "swipe_rightwards" ;
 
 	// To remove later (setting migrated to internal file)
 	String HIDDEN_APPLICATIONS = "hidden_applications" ;

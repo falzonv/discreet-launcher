@@ -65,7 +65,7 @@ public class ActivitySettingsOperation extends AppCompatActivity
 		applicationsComponentInfos.clear() ;
 		applicationsNames.clear() ;
 		applicationsComponentInfos.add(Constants.NONE) ;
-		applicationsNames.add(getString(R.string.set_swipe_towards_leftright_no_action)) ;
+		applicationsNames.add(getString(R.string.set_swipe_leftrightwards_no_action)) ;
 		loadInstalledApplications() ;
 
 		// Load the general settings layout
@@ -91,13 +91,13 @@ public class ActivitySettingsOperation extends AppCompatActivity
 			setPreferencesFromResource(R.xml.settings_operation, rootKey) ;
 
 			// Initialize the gestures selectors
-			ListPreference swipeTowardsLeft = findPreference(Constants.SWIPE_TOWARDS_LEFT) ;
+			ListPreference swipeTowardsLeft = findPreference(Constants.SWIPE_LEFTWARDS) ;
 			if(swipeTowardsLeft != null)
 				{
 					swipeTowardsLeft.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
 					swipeTowardsLeft.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
 				}
-			ListPreference swipeTowardsRight = findPreference(Constants.SWIPE_TOWARDS_RIGHT) ;
+			ListPreference swipeTowardsRight = findPreference(Constants.SWIPE_RIGHTWARDS) ;
 				if(swipeTowardsRight != null)
 				{
 					swipeTowardsRight.setEntries(applicationsNames.toArray(new CharSequence[0])) ;

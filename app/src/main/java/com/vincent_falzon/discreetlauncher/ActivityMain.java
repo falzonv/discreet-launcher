@@ -624,8 +624,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				{
 					// Check if the swipe is going towards left or right and retrieve the related setting
 					String component_info ;
-					if(x_distance > 0) component_info = settings.getString(Constants.SWIPE_TOWARDS_LEFT, Constants.NONE) ;
-						else component_info = settings.getString(Constants.SWIPE_TOWARDS_RIGHT, Constants.NONE) ;
+					if(x_distance > 0) component_info = settings.getString(Constants.SWIPE_LEFTWARDS, Constants.NONE) ;
+						else component_info = settings.getString(Constants.SWIPE_RIGHTWARDS, Constants.NONE) ;
 
 					// Do not continue if the setting is not set
 					if((component_info == null) || component_info.equals(Constants.NONE))

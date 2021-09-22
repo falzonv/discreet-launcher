@@ -174,8 +174,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.TOUCH_TARGETS, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DISABLE_APP_DRAWER, false)) ;
-		exportedData.add(exportStringSetting(Constants.SWIPE_TOWARDS_LEFT)) ;
-		exportedData.add(exportStringSetting(Constants.SWIPE_TOWARDS_RIGHT)) ;
+		exportedData.add(exportStringSetting(Constants.SWIPE_LEFTWARDS)) ;
+		exportedData.add(exportStringSetting(Constants.SWIPE_RIGHTWARDS)) ;
 		exportedData.add("#") ;
 
 		// Save all custom icons
@@ -307,8 +307,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.REVERSE_INTERFACE)) loadBooleanSetting(Constants.REVERSE_INTERFACE, line) ;
 				else if(line.startsWith(Constants.TOUCH_TARGETS)) loadBooleanSetting(Constants.TOUCH_TARGETS, line) ;
 				else if(line.startsWith(Constants.DISABLE_APP_DRAWER)) loadBooleanSetting(Constants.DISABLE_APP_DRAWER, line) ;
-				else if(line.startsWith(Constants.SWIPE_TOWARDS_LEFT)) loadStringSetting(Constants.SWIPE_TOWARDS_LEFT, line) ;
-				else if(line.startsWith(Constants.SWIPE_TOWARDS_RIGHT)) loadStringSetting(Constants.SWIPE_TOWARDS_RIGHT, line) ;
+				else if(line.startsWith(Constants.SWIPE_LEFTWARDS)) loadStringSetting(Constants.SWIPE_LEFTWARDS, line) ;
+				else if(line.startsWith(Constants.SWIPE_RIGHTWARDS)) loadStringSetting(Constants.SWIPE_RIGHTWARDS, line) ;
 				// Save the shortcuts icons
 				else if(line.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX))
 				{
