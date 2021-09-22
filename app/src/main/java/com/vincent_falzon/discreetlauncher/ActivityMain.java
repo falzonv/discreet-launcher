@@ -69,6 +69,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private SharedPreferences settings ;
 	private GestureDetectorCompat gestureDetector ;
 	private NotificationDisplayer notification ;
+	private DialogMenu dialogMenu ;
 	private float density ;
 
 	// Attributes related to the home screen
@@ -121,6 +122,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			else setContentView(R.layout.activity_main) ;
 
 		// Initializations related to the interface
+		dialogMenu = new DialogMenu(this) ;
 		homeScreen = findViewById(R.id.home_screen) ;
 		favorites = findViewById(R.id.favorites) ;
 		drawer = findViewById(R.id.drawer) ;
@@ -516,7 +518,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		// Check which view was selected and react accordingly
 		int selection = view.getId() ;
-		if(selection == R.id.access_menu_button) new DialogMenu(this).show() ;
+		if(selection == R.id.access_menu_button) dialogMenu.show() ;
 			else if(selection == R.id.target_favorites) displayFavorites(favorites.getVisibility() != View.VISIBLE) ;
 			else if(selection == R.id.target_applications)
 			{
@@ -842,6 +844,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		displayDrawer(false) ;
 
 		// Update the display according to settings
+		dialogMenu.hide() ;
 		togglePortraitMode() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;

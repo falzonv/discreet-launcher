@@ -147,12 +147,14 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 				dialog.setView(R.layout.dialog_help) ;
 				dialog.setPositiveButton(R.string.button_close, null) ;
 				dialog.show() ;
+				return ;
 			}
 			else if(selection == R.id.menu_changelog)
 			{
 				// Display the Changelog without dismissing the menu
 				DialogChangelog dialog = new DialogChangelog(context) ;
 				dialog.show() ;
+				return ;
 			}
 			else if(selection == R.id.menu_about)
 			{
@@ -163,8 +165,11 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 					else dialog.setView(R.layout.dialog_about_with_credit) ;
 				dialog.setPositiveButton(R.string.button_close, null) ;
 				dialog.show() ;
+				return ;
 			}
-			else dismiss() ;
+
+		// Dismiss the menu
+		dismiss() ;
 	}
 
 
