@@ -150,6 +150,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				exportedData.addAll(new InternalFileTXT(folder).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_HIDDEN).prepareForExport()) ;
+		exportedData.addAll(new InternalFileTXT(Constants.FILE_RENAME_APPS).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS).prepareForExport()) ;
 		exportedData.addAll(new InternalFileTXT(Constants.FILE_SHORTCUTS_LEGACY).prepareForExport()) ;
 		exportedData.add("#") ;
@@ -162,6 +163,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_FORMAT)) ;
+		exportedData.add(exportStringSetting(Constants.CLOCK_COLOR)) ;
+		exportedData.add(exportStringSetting(Constants.CLOCK_POSITION)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
@@ -171,6 +174,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.TOUCH_TARGETS, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DISABLE_APP_DRAWER, false)) ;
+		exportedData.add(exportStringSetting(Constants.SWIPE_TOWARDS_LEFT)) ;
+		exportedData.add(exportStringSetting(Constants.SWIPE_TOWARDS_RIGHT)) ;
 		exportedData.add("#") ;
 
 		// Save all custom icons
@@ -249,7 +254,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Reset the preference to default before importing the file
 		settings.edit().clear().apply() ;
-		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_appearance, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_operation, true) ;
 
@@ -292,6 +296,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					if(old_clock_found && !old_clock_status) editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
 						else loadStringSetting(Constants.CLOCK_FORMAT, line)  ;
 				}
+				else if(line.startsWith(Constants.CLOCK_COLOR)) loadStringSetting(Constants.CLOCK_COLOR, line) ;
+				else if(line.startsWith(Constants.CLOCK_POSITION)) loadStringSetting(Constants.CLOCK_POSITION, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.REMOVE_PADDING)) loadBooleanSetting(Constants.REMOVE_PADDING, line) ;
@@ -301,6 +307,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.REVERSE_INTERFACE)) loadBooleanSetting(Constants.REVERSE_INTERFACE, line) ;
 				else if(line.startsWith(Constants.TOUCH_TARGETS)) loadBooleanSetting(Constants.TOUCH_TARGETS, line) ;
 				else if(line.startsWith(Constants.DISABLE_APP_DRAWER)) loadBooleanSetting(Constants.DISABLE_APP_DRAWER, line) ;
+				else if(line.startsWith(Constants.SWIPE_TOWARDS_LEFT)) loadStringSetting(Constants.SWIPE_TOWARDS_LEFT, line) ;
+				else if(line.startsWith(Constants.SWIPE_TOWARDS_RIGHT)) loadStringSetting(Constants.SWIPE_TOWARDS_RIGHT, line) ;
 				// Save the shortcuts icons
 				else if(line.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX))
 				{

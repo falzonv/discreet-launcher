@@ -33,6 +33,8 @@ import androidx.appcompat.app.AlertDialog ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import android.content.SharedPreferences ;
+import android.content.pm.PackageManager ;
+import android.content.pm.ResolveInfo ;
 import android.graphics.PorterDuff ;
 import android.graphics.Typeface ;
 import android.net.Uri ;
@@ -47,6 +49,8 @@ import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.core.Shortcut ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
+import com.vincent_falzon.discreetlauncher.menu.ActivityFolders ;
+import com.vincent_falzon.discreetlauncher.menu.DialogHiddenApps ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
@@ -199,7 +203,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			if(!application.start(view))
 				{
 					final Context context = view.getContext() ;
-					ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
+					ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
 				}
 		}
 
@@ -219,7 +223,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 			// Prepare and display the selection dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			dialog.setTitle(context.getString(R.string.long_click_title)) ;
+			dialog.setTitle(context.getString(R.string.long_click_dialog_title)) ;
 			if(application instanceof Shortcut)
 				{
 					CharSequence[] options = {
@@ -227,27 +231,27 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(R.string.long_click_remove_shortcut),
 						} ;
 					dialog.setItems(options,
-							new DialogInterface.OnClickListener()
+						new DialogInterface.OnClickListener()
+						{
+							@Override
+							public void onClick(DialogInterface dialog, int selection)
 							{
-								@Override
-								public void onClick(DialogInterface dialog, int selection)
+								// Check which option has been selected
+								switch(selection)
 								{
-									// Check which option has been selected
-									switch(selection)
-									{
-										case 0 :
-											// Open the shortcut
-											application.start(view) ;
-											break ;
-										case 1 :
-											// Remove the shortcut from the file and update the applications list
-											ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
-											ActivityMain.updateList(context) ;
-											notifyDataSetChanged() ;
-											break ;
-									}
+									case 0 :
+										// Open the shortcut
+										application.start(view) ;
+										break ;
+									case 1 :
+										// Remove the shortcut from the file and update the applications list
+										ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
+										ActivityMain.updateList(context) ;
+										notifyDataSetChanged() ;
+										break ;
 								}
-							}) ;
+							}
+						}) ;
 				}
 				else if(application instanceof Folder)
 				{
@@ -256,82 +260,103 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(R.string.long_click_settings),
 						} ;
 					dialog.setItems(options,
-							new DialogInterface.OnClickListener()
+						new DialogInterface.OnClickListener()
+						{
+							@Override
+							public void onClick(DialogInterface dialog, int selection)
 							{
-								@Override
-								public void onClick(DialogInterface dialog, int selection)
+								// Check which option has been selected
+								switch(selection)
 								{
-									// Check which option has been selected
-									switch(selection)
-									{
-										case 0 :
-											// Open the folder
-											application.start(view) ;
-											break ;
-										case 1 :
-											// Open the folder organizer
-											context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
-											break ;
-									}
+									case 0 :
+										// Open the folder
+										application.start(view) ;
+										break ;
+									case 1 :
+										// Open the folder organizer
+										context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+										break ;
 								}
-							}) ;
+							}
+						}) ;
 				}
 				else if(application instanceof Search)
 				{
-					// Start the search directly on long click
-					application.start(view) ;
-					return true ;
+					CharSequence[] options = {
+							context.getString(R.string.long_click_open, application.getDisplayName()),
+							context.getString(R.string.long_click_hide_search),
+						} ;
+					dialog.setItems(options,
+						new DialogInterface.OnClickListener()
+						{
+							@Override
+							public void onClick(DialogInterface dialog, int selection)
+							{
+								// Check which option has been selected
+								switch(selection)
+								{
+									case 0 :
+										// Open the Search
+										application.start(view) ;
+										break ;
+									case 1 :
+										// Open the Hidden apps dialog
+										DialogHiddenApps.showHiddenAppsDialog(context) ;
+										break ;
+								}
+							}
+						}) ;
 				}
 				else
 				{
 					CharSequence[] options = {
 							context.getString(R.string.long_click_open, application.getDisplayName()),
 							context.getString(R.string.long_click_settings),
-							context.getString(R.string.long_click_store),
-							context.getString(R.string.button_rename),
+							context.getString(R.string.long_click_view_store),
+							context.getString(R.string.long_click_rename),
 						} ;
 					dialog.setItems(options,
-							new DialogInterface.OnClickListener()
+						new DialogInterface.OnClickListener()
+						{
+							@Override
+							public void onClick(DialogInterface dialog, int selection)
 							{
-								@Override
-								public void onClick(DialogInterface dialog, int selection)
+								// Check which option has been selected
+								switch(selection)
 								{
-									// Check which option has been selected
-									switch(selection)
-									{
-										case 0 :
-											// Start the application and display an error message if it was not found
-											if(!application.start(view))
-												ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, application.getDisplayName())) ;
-											break ;
-										case 1 :
-											// Open the application system settings
-											Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-											settingsIntent.setData(Uri.parse("package:" + application.getApk())) ;
-											settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-											context.startActivity(settingsIntent) ;
-											break ;
-										case 2 :
-											// Open the application page in the store
-											Intent storeIntent = new Intent(Intent.ACTION_VIEW) ;
-											storeIntent.setData(Uri.parse("market://details?id=" + application.getApk())) ;
-											storeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-											try
-											{
-												context.startActivity(storeIntent) ;
-											}
-											catch (ActivityNotFoundException e)
-											{
-												ShowDialog.toastLong(context, context.getString(R.string.error_application_not_found, "{market}")) ;
-											}
-											break ;
-										case 3 :
-											// Display the dialog to rename the application
-											showRenameDialog(context, application) ;
-											break ;
-									}
+									case 0 :
+										// Start the application and display an error message if it was not found
+										if(!application.start(view))
+											ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
+										break ;
+									case 1 :
+										// Open the application system settings
+										Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
+										settingsIntent.setData(Uri.parse("package:" + application.getApk())) ;
+										settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+										context.startActivity(settingsIntent) ;
+										break ;
+									case 2 :
+										// Open the application page in the store
+										Intent storeIntent = new Intent(Intent.ACTION_VIEW) ;
+										storeIntent.setData(Uri.parse("market://details?id=" + application.getApk())) ;
+										storeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+										try
+										{
+											context.startActivity(storeIntent) ;
+										}
+										catch (ActivityNotFoundException e)
+										{
+											ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, "{market}")) ;
+										}
+										break ;
+									case 3 :
+										// Display the dialog to rename the application
+										showRenameDialog(context, application) ;
+										break ;
 								}
-							}) ;
+							}
+						}) ;
 				}
 			dialog.show() ;
 			return true ;
@@ -348,8 +373,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			if(display)
 				{
 					name.setTypeface(Typeface.DEFAULT_BOLD) ;
-					name.setShadowLayer(15, 0, 0, context.getResources().getColor(R.color.white)) ;
-					name.getCompoundDrawables()[1].setColorFilter(context.getResources().getColor(R.color.translucent_white), PorterDuff.Mode.SRC_ATOP) ;
+					name.setShadowLayer(15, 0, 0, context.getResources().getColor(R.color.for_visual_feedback_shadow)) ;
+					name.getCompoundDrawables()[1].setColorFilter(context.getResources().getColor(R.color.for_visual_feedback_drawable), PorterDuff.Mode.SRC_ATOP) ;
 				}
 				else
 				{
@@ -369,12 +394,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		{
 			// Create the menu dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-			dialog.setTitle(R.string.button_rename) ;
+			dialog.setTitle(R.string.long_click_rename) ;
 			dialog.setNegativeButton(R.string.button_cancel, null) ;
 
-			// Prepare a text field containing the initial name
+			// Prepare a text field that will be used to rename the application
 			final EditText renameField = new EditText(context) ;
 			renameField.setText(application.getDisplayName()) ;
+
+			// Retrieve the original name of the application
+			Intent intent = new Intent(Intent.ACTION_MAIN) ;
+			intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
+			PackageManager apkManager = context.getPackageManager() ;
+			for(ResolveInfo entry : apkManager.queryIntentActivities(intent, 0))
+				if(application.getComponentInfo().equals("{" + entry.activityInfo.packageName + "/" + entry.activityInfo.name + "}"))
+					{
+						renameField.setHint(entry.loadLabel(apkManager)) ;
+						break ;
+					}
 
 			// Add the button to save a new name
 			dialog.setPositiveButton(R.string.button_apply, new DialogInterface.OnClickListener()
@@ -386,8 +422,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 						InternalFileTXT rename_apps_file = new InternalFileTXT(Constants.FILE_RENAME_APPS) ;
 						rename_apps_file.removeLine(application.getComponentInfo()) ;
 
-						// Save the new name and update the applications list
-						rename_apps_file.writeLine(application.getComponentInfo() + Constants.SEPARATOR + renameField.getText()) ;
+						// Save the new name (an empty name will restore the original name)
+						if(!renameField.getText().toString().isEmpty())
+							rename_apps_file.writeLine(application.getComponentInfo() + Constants.SEPARATOR + renameField.getText()) ;
+
+						// Update the applications list
 						ActivityMain.updateList(context) ;
 						notifyDataSetChanged() ;
 					}

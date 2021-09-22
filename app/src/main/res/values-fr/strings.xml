@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- List of applications -->
-    <string name="info_applications_list_refreshed">Liste d\'applications actualisée</string>
-    <string name="button_refresh_list">Actualiser la liste d\'applications</string>
-    <string name="error_application_not_found">Impossible de trouver \"%1$s\"</string>
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
 
-    <!-- Favorites -->
-    <string name="button_favorites">Favoris</string>
-    <string name="button_select_favorites">Choisir des favoris</string>
-    <string name="hint_no_favorites_yet">Ajoutez vos applications favorites ici\nen cliquant sur le bouton de menu.</string>
-    <string name="hint_modify_order_of_favorites">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez les côtés pour défiler).</string>
+    <!-- Main menu -->
+    <string name="menu_favorites">Favoris</string>
+    <string name="menu_folders">Dossiers</string>
+    <string name="menu_hidden_apps">Applications masquées</string>
+    <string name="menu_refresh_list_apps">Actualiser la liste d\'applications</string>
+    <string name="menu_settings_appearance">Apparence</string>
+    <string name="menu_settings_operation">Fonctionnement</string>
+    <string name="menu_export_import">Exporter et importer</string>
+    <string name="menu_help">Aide</string>
+    <string name="menu_changelog">Journal des changements</string>
+    <string name="menu_about">À propos</string>
 
-    <!-- Dialogs buttons -->
-    <string name="button_apply">Valider</string>
-    <string name="button_cancel">Annuler</string>
-
-    <!-- Long click options -->
-    <string name="long_click_title">Que voulez-vous faire ?</string>
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Que voulez-vous faire ?</string>
     <string name="long_click_open">Ouvrir \"%1s\"</string>
-    <string name="long_click_store">Voir la page du magasin</string>
     <string name="long_click_settings">Accéder à ses paramètres</string>
+    <string name="long_click_view_store">Voir la page du magasin</string>
+    <string name="long_click_rename">Renommer</string>
+    <string name="long_click_hide_search">Masquer</string>
     <string name="long_click_remove_shortcut">Supprimer ce raccourci</string>
 
-    <!-- About -->
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Valider</string>
+    <string name="button_cancel">Annuler</string>
+    <string name="button_close">Fermer</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Liste d\'applications actualisée</string>
+    <string name="error_app_not_found">Impossible de trouver \"%1$s\"</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Recherche</string>
+    <string name="search_app_hint">Chercher des applications</string>
+
+    <!-- About dialog -->
     <string name="app_name">Lanceur Discret</string>
+    <string name="author">Vincent Falzon</string>
     <string name="licence_name">Licence publique générale GNU v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Suggérez des améliorations et signalez les problèmes sur</string>
+    <string name="website_link">https://vincent-falzon.com</string>
     <string name="translation_credit"/>
 
 </resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/shape_popup">
+
+        <TextView
+            android:id="@+id/popup_title"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:textColor="@color/for_text_on_overlay"
+            android:visibility="visible"
+            android:text="@string/placeholder"/>
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:inputType="textNoSuggestions"
+            android:autofillHints=""
+            android:hint="@string/search_app_hint"
+            android:textColor="@color/for_text_on_overlay"
+            android:textColorHint="@color/for_search_app_hint"
+            android:imeOptions="flagNoExtractUi|actionDone"
+            android:visibility="gone"/>
+
+        <ImageButton
+            android:id="@+id/close_popup"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@android:drawable/btn_dialog"
+            android:background="@color/transparent"
+            android:contentDescription="@string/button_cancel"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/popup_recycler"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:minHeight="180dp"
+        android:padding="1dp"
+        android:background="@drawable/shape_popup"/>
+
+</LinearLayout>

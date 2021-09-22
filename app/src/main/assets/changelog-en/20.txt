@@ -3,4 +3,4 @@ NEW THINGS
    - Option to hide apps names (@tuch96)
    - 12h clock format (@drewski-00h)
 IMPROVEMENTS
-   - Message "no favorites yet" better integrated
+   - Better "no favorites yet" message

@@ -1,55 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Settings titles -->
-    <string name="title_settings_and_help">Settings and help</string>
-    <string name="title_section_customization">Customization</string>
-    <string name="title_section_help_and_general_info">Help and general info</string>
-    <string name="title_appearance_settings">Appearance</string>
-    <string name="title_appearance_settings_general">General appearance</string>
-    <string name="title_appearance_settings_applications">Appearance of apps</string>
-    <string name="title_behavior_settings">Operation</string>
-    <string name="title_export_import">Export and import</string>
-
-    <!-- Notification -->
-    <string name="set_notification">Notification for access to favorites</string>
-    <string name="set_notification_help">Uses a transparent icon</string>
-    <string name="notification_popup_title">Manage favorites</string>
-
-    <!-- Application theme -->
-    <string name="set_application_theme">Theme</string>
-    <string-array name="set_application_theme_entries">
-        <item>Light</item>
-        <item>Dark</item>
-        <item>System preference</item>
-    </string-array>
-
-    <!-- Clock format -->
-    <string name="set_clock_format">Clock format</string>
-    <string-array name="set_clock_format_entries">
-        <item>None (hide)</item>
-        <item>24 hours</item>
-        <item>12 hours</item>
-        <item>12 hours + AM/PM</item>
-    </string-array>
-
-    <!-- Color picker -->
-    <string name="set_background_color">Background color</string>
-    <string name="set_background_color_help">Used for the menu button, favorites, app drawer and system bars</string>
-    <string name="color_picker_base">Base:</string>
-    <string name="color_picker_reset">Reset</string>
-    <string name="color_picker_preview">Preview</string>
-    <string name="error_invalid_color_format">Invalid hexadecimal color</string>
-
-    <!-- Touch targets (accessibility) -->
-    <string name="set_touch_targets">Touch targets (accessibility)</string>
-    <string name="set_touch_targets_help">Clickable labels on the home screen</string>
-    <string name="target_open_favorites">Open\nfavorites</string>
-    <string name="target_close_favorites">Close\nfavorites</string>
-    <string name="target_open_applications">Open\napps</string>
+    <!-- Favorites -->
+    <string name="button_select_favorites">Select favorites</string>
+    <string name="hint_no_favorites_yet">Add your favorite apps here\nby clicking the menu button.</string>
+    <string name="hint_modify_order_of_favorites">Modify the order of favorites in the list below (using the sides to scroll).</string>
 
     <!-- Folders -->
-    <string name="button_folders">Folders</string>
     <string name="button_new_folder">Add</string>
     <string name="button_remove_folder">Remove</string>
     <string name="hint_folders_number">Create as many folders as you want to organize your apps.</string>
@@ -63,39 +20,6 @@
     <string name="error_folder_empty_name">Pick a name first</string>
     <string name="error_folder_already_exists">Pick a name that doesn\'t exist already</string>
     <string name="error_folder_rename">Could not rename the folder</string>
-
-    <!-- Shortcuts -->
-    <string name="error_shortcut_creation">Could not create \"%1$s\"</string>
-    <string name="error_shortcut_invalid_request">Could not add that as a shortcut</string>
-    <string name="error_shortcut_missing_info">Could not follow this shortcut</string>
-    <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts</string>
-    <string name="error_shortcut_start">The Android system could not open the shortcut</string>
-
-    <!-- Search -->
-    <string name="search_app_name">Search</string>
-    <string name="search_hint">Search for apps</string>
-
-    <!-- Other settings -->
-    <string name="set_transparent_status_bar">Transparent status bar</string>
-    <string name="set_transparent_status_bar_hint">When favorites are closed</string>
-    <string name="set_hide_menu_button">No menu button</string>
-    <string name="set_hide_menu_button_help">Always accessible from the launcher app icon</string>
-    <string name="set_icon_pack">Use an installed icon pack</string>
-    <string name="set_icon_pack_none">None (use default icons)</string>
-    <string name="set_hide_app_names">No app names</string>
-    <string name="set_hide_app_names_help">Folder names are still shown</string>
-    <string name="set_remove_padding">No padding when app names are hidden</string>
-    <string name="set_remove_padding_help">Can cause problems with long folders names</string>
-    <string name="set_force_portrait">Forced portrait-mode</string>
-    <string name="set_force_portrait_help">Prevents the launcher rotating even if auto-rotation is on</string>
-    <string name="set_always_show_favorites">Always show favorites</string>
-    <string name="set_immersive_mode">Immersive mode</string>
-    <string name="set_immersive_mode_help">No system bars. (Can be forced by long-pressing the home screen.)</string>
-    <string name="set_reverse_interface">Reversed interface</string>
-    <string name="set_reverse_interface_help">Apps above, and favorites below the home screen</string>
-    <string name="set_disable_app_drawer">No app drawer</string>
-    <string name="error_disable_app_drawer_not_safe">Reinstating the app drawer to keep menu access.</string>
-    <string name="error_appfilter_not_found">Could not find appfilter.xml in the selected icon pack. (%1$s)</string>
 
     <!-- Export and import -->
     <string name="export_import_help">These buttons allow exporting the app data (favorites, folders, shortcuts and settings) or importing them again.</string>
@@ -113,9 +37,108 @@
     <string name="error_export">Could not create export file</string>
     <string name="error_import">Could not read the import file</string>
 
-    <!-- Other -->
-    <string name="button_hidden_applications">Hidden apps</string>
-    <string name="button_rename">Rename</string>
-    <string name="error_remove_file">Could not delete the %1$s file</string>
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_creation">Could not create \"%1$s\"</string>
+    <string name="error_shortcut_invalid_request">Could not add that as a shortcut</string>
+    <string name="error_shortcut_missing_info">Could not follow this shortcut</string>
+    <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts</string>
+    <string name="error_shortcut_start">The Android system could not open the shortcut</string>
+    <string name="error_shortcut_remove">Could not delete the %1$s file</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_general">General</string>
+    <string name="appearance_settings_title_clock">Clock</string>
+    <string name="appearance_settings_title_applications">Apps</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Base:</string>
+    <string name="color_picker_reset">Reset</string>
+    <string name="color_picker_preview">Preview</string>
+    <string name="error_invalid_color_format">Invalid hexadecimal color</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Theme</string>
+    <string-array name="set_application_theme_entries">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>System preference</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Clock format</string>
+    <string-array name="set_clock_format_entries">
+        <item>None (hide)</item>
+        <item>24 hours</item>
+        <item>12 hours</item>
+        <item>12 hours + AM/PM</item>
+        <item>Analog</item>
+        <item>Date and time</item>
+    </string-array>
+
+    <!-- Clock position -->
+    <string name="set_clock_position">Clock position</string>
+    <string-array name="set_clock_position_entries">
+        <item>Top</item>
+        <item>Middle</item>
+        <item>Bottom</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_background_color">Background color</string>
+    <string name="set_background_color_help">Used for the menu button, favorites, app drawer and system bars</string>
+    <string name="set_transparent_status_bar">Transparent status bar</string>
+    <string name="set_transparent_status_bar_help">When favorites are closed</string>
+    <string name="set_clock_color">Clock color</string>
+    <string name="set_icon_pack">Use an installed icon pack</string>
+    <string name="set_icon_pack_none">None (use default icons)</string>
+    <string name="set_hide_app_names">No app names</string>
+    <string name="set_hide_app_names_help">Folder names are still shown</string>
+    <string name="set_remove_padding">No padding when app names are hidden</string>
+    <string name="set_remove_padding_help">Can cause problems with long folders names</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_icon_pack_appfilter_not_found">Could not find appfilter.xml in the selected icon pack. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Interface</string>
+    <string name="operation_settings_title_gestures">Home screen gestures</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Notification for access to favorites</string>
+    <string name="set_notification_help">Uses a transparent icon</string>
+    <string name="notification_text">Favorites</string>
+    <string name="notification_popup_title">Manage favorites</string>
+
+    <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Touch targets (accessibility)</string>
+    <string name="set_touch_targets_help">Clickable labels on the home screen</string>
+    <string name="target_open_favorites">Open\nfavorites</string>
+    <string name="target_close_favorites">Close\nfavorites</string>
+    <string name="target_open_applications">Open\napps</string>
+
+    <!-- Other operation settings -->
+    <string name="set_force_portrait">Forced portrait-mode</string>
+    <string name="set_force_portrait_help">Prevents the launcher rotating even if auto-rotation is on</string>
+    <string name="set_always_show_favorites">Always show favorites</string>
+    <string name="set_immersive_mode">Immersive mode</string>
+    <string name="set_immersive_mode_help">No system bars. (Can be forced by long-pressing the home screen.)</string>
+    <string name="set_reverse_interface">Reversed interface</string>
+    <string name="set_reverse_interface_help">Apps above, and favorites below the home screen</string>
+    <string name="set_hide_menu_button">No menu button</string>
+    <string name="set_hide_menu_button_help">Always accessible from the launcher app icon</string>
+    <string name="set_disable_app_drawer">No app drawer</string>
+    <string name="set_swipe_towards_left">Swipe towards left</string>
+    <string name="set_swipe_towards_right">Swipe towards right</string>
+    <string name="set_swipe_towards_leftright_no_action">No action</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Favorites unlocked to keep menu access.</string>
+    <string name="error_disable_app_drawer_not_safe">Reinstating the app drawer to keep menu access.</string>
 
 </resources>

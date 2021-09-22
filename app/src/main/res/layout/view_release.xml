@@ -10,11 +10,13 @@
         android:id="@+id/release_title"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:text="@string/placeholder"/>
 
     <TextView
         android:id="@+id/release_details"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:layout_width="match_parent"
+        android:text="@string/placeholder"/>
 
 </LinearLayout>

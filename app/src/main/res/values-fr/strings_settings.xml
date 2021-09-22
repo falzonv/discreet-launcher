@@ -1,55 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Settings titles -->
-    <string name="title_settings_and_help">Paramètres et aide</string>
-    <string name="title_section_customization">Personnalisation</string>
-    <string name="title_section_help_and_general_info">Aide et informations générales</string>
-    <string name="title_appearance_settings">Apparence</string>
-    <string name="title_appearance_settings_general">Apparence générale</string>
-    <string name="title_appearance_settings_applications">Apparence des applications</string>
-    <string name="title_behavior_settings">Fonctionnement</string>
-    <string name="title_export_import">Exporter et importer</string>
-
-    <!-- Notification -->
-    <string name="set_notification">Notification d\'accès aux favoris</string>
-    <string name="set_notification_help">Utilise une icône transparente</string>
-    <string name="notification_popup_title">Gérer les favoris</string>
-
-    <!-- Application theme -->
-    <string name="set_application_theme">Thème</string>
-    <string-array name="set_application_theme_entries">
-        <item>Clair</item>
-        <item>Sombre</item>
-        <item>Préférence système</item>
-    </string-array>
-
-    <!-- Clock format -->
-    <string name="set_clock_format">Format de l\'horloge</string>
-    <string-array name="set_clock_format_entries">
-        <item>Aucune (masquer)</item>
-        <item>24 heures</item>
-        <item>12 heures</item>
-        <item>12 heures + AM/PM</item>
-    </string-array>
-
-    <!-- Color picker -->
-    <string name="set_background_color">Couleur de fond</string>
-    <string name="set_background_color_help">Utilisée pour le bouton de menu, les favoris, le tiroir d\'applications et les barres système</string>
-    <string name="color_picker_base">Base :</string>
-    <string name="color_picker_reset">Réinitialiser</string>
-    <string name="color_picker_preview">Aperçu</string>
-    <string name="error_invalid_color_format">Couleur hexadécimale invalide</string>
-
-    <!-- Touch targets (accessibility) -->
-    <string name="set_touch_targets">Cibles de clic (accessibilité)</string>
-    <string name="set_touch_targets_help">Indications cliquables sur l\'écran d\'accueil</string>
-    <string name="target_open_favorites">Ouvrir les\nfavoris</string>
-    <string name="target_close_favorites">Fermer les\nfavoris</string>
-    <string name="target_open_applications">Ouvrir les\napplications</string>
+    <!-- Favorites -->
+    <string name="button_select_favorites">Choisir des favoris</string>
+    <string name="hint_no_favorites_yet">Ajoutez vos applications favorites ici\nen cliquant sur le bouton de menu.</string>
+    <string name="hint_modify_order_of_favorites">Modifiez l\'ordre des favoris dans la liste ci-dessous (utilisez les côtés pour défiler).</string>
 
     <!-- Folders -->
-    <string name="button_folders">Dossiers</string>
     <string name="button_new_folder">Ajouter</string>
     <string name="button_remove_folder">Supprimer</string>
     <string name="hint_folders_number">Créez autant de dossiers que vous voulez pour organiser vos applications.</string>
@@ -63,39 +20,6 @@
     <string name="error_folder_empty_name">Choisissez d\'abord un nom</string>
     <string name="error_folder_already_exists">Choisissez un nom qui n\'existe pas déjà</string>
     <string name="error_folder_rename">Impossible de renommer le dossier</string>
-
-    <!-- Shortcuts -->
-    <string name="error_shortcut_creation">Impossible de créer \"%1$s\"</string>
-    <string name="error_shortcut_invalid_request">Impossible d\'ajouter cela en raccourci</string>
-    <string name="error_shortcut_missing_info">Impossible de suivre ce raccourci</string>
-    <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis</string>
-    <string name="error_shortcut_start">Le système Android n\'a pas pu ouvrir le raccourci</string>
-
-    <!-- Search -->
-    <string name="search_app_name">Recherche</string>
-    <string name="search_hint">Chercher des applications</string>
-
-    <!-- Other settings -->
-    <string name="set_transparent_status_bar">Barre de statut transparente</string>
-    <string name="set_transparent_status_bar_hint">Quand les favoris sont fermés</string>
-    <string name="set_hide_menu_button">Pas de bouton de menu</string>
-    <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
-    <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
-    <string name="set_icon_pack_none">Aucun (utiliser les icônes par défaut)</string>
-    <string name="set_hide_app_names">Pas de noms d\'applications</string>
-    <string name="set_hide_app_names_help">Les noms des dossiers sont toujours affichés</string>
-    <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>
-    <string name="set_remove_padding_help">Peut causer des soucis avec les longs noms de dossiers</string>
-    <string name="set_force_portrait">Mode portrait forcé</string>
-    <string name="set_force_portrait_help">Empêche la rotation du lanceur même si la rotation automatique est activée</string>
-    <string name="set_always_show_favorites">Toujours afficher les favoris</string>
-    <string name="set_immersive_mode">Mode immersif</string>
-    <string name="set_immersive_mode_help">Pas de barres système. (Peut être forcé par un clic long sur l\'écran d\'accueil.)</string>
-    <string name="set_reverse_interface">Interface inversée</string>
-    <string name="set_reverse_interface_help">Applications au dessus, et favoris en dessous de l\'écran d\'accueil</string>
-    <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>
-    <string name="error_disable_app_drawer_not_safe">Tiroir d\'applications rétabli pour conserver l\'accès au menu</string>
-    <string name="error_appfilter_not_found">Impossible de trouver appfilter.xml dans le pack d\'icônes sélectionné. (%1$s)</string>
 
     <!-- Export and import -->
     <string name="export_import_help">Ces boutons permettent d\'exporter les données de l\'application (favoris, dossiers, raccourcis et paramètres) ou de les réimporter.</string>
@@ -113,9 +37,108 @@
     <string name="error_export">Impossible de créer le fichier d\'export</string>
     <string name="error_import">Impossible de lire le fichier d\'import</string>
 
-    <!-- Other -->
-    <string name="button_hidden_applications">Applications masquées</string>
-    <string name="button_rename">Renommer</string>
-    <string name="error_remove_file">Impossible de supprimer le fichier %1$s</string>
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_creation">Impossible de créer \"%1$s\"</string>
+    <string name="error_shortcut_invalid_request">Impossible d\'ajouter cela en raccourci</string>
+    <string name="error_shortcut_missing_info">Impossible de suivre ce raccourci</string>
+    <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis</string>
+    <string name="error_shortcut_start">Le système Android n\'a pas pu ouvrir le raccourci</string>
+    <string name="error_shortcut_remove">Impossible de supprimer le fichier %1$s</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_general">Général</string>
+    <string name="appearance_settings_title_clock">Horloge</string>
+    <string name="appearance_settings_title_applications">Applications</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Base :</string>
+    <string name="color_picker_reset">Réinitialiser</string>
+    <string name="color_picker_preview">Aperçu</string>
+    <string name="error_invalid_color_format">Couleur hexadécimale invalide</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Thème</string>
+    <string-array name="set_application_theme_entries">
+        <item>Clair</item>
+        <item>Sombre</item>
+        <item>Préférence système</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Format de l\'horloge</string>
+    <string-array name="set_clock_format_entries">
+        <item>Aucune (masquer)</item>
+        <item>24 heures</item>
+        <item>12 heures</item>
+        <item>12 heures + AM/PM</item>
+        <item>Analogique</item>
+        <item>Date et heure</item>
+    </string-array>
+
+    <!-- Clock position -->
+    <string name="set_clock_position">Position de l\'horloge</string>
+    <string-array name="set_clock_position_entries">
+        <item>Haut</item>
+        <item>Milieu</item>
+        <item>Bas</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_background_color">Couleur de fond</string>
+    <string name="set_background_color_help">Utilisée pour le bouton de menu, les favoris, le tiroir d\'applications et les barres système</string>
+    <string name="set_transparent_status_bar">Barre de statut transparente</string>
+    <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
+    <string name="set_clock_color">Couleur de l\'horloge</string>
+    <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
+    <string name="set_icon_pack_none">Aucun (utiliser les icônes par défaut)</string>
+    <string name="set_hide_app_names">Pas de noms d\'applications</string>
+    <string name="set_hide_app_names_help">Les noms des dossiers sont toujours affichés</string>
+    <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>
+    <string name="set_remove_padding_help">Peut causer des soucis avec les longs noms de dossiers</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_icon_pack_appfilter_not_found">Impossible de trouver appfilter.xml dans le pack d\'icônes sélectionné. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Interface</string>
+    <string name="operation_settings_title_gestures">Gestes de l\'écran d\'accueil</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Notification d\'accès aux favoris</string>
+    <string name="set_notification_help">Utilise une icône transparente</string>
+    <string name="notification_text">Favoris</string>
+    <string name="notification_popup_title">Gérer les favoris</string>
+
+    <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Cibles de clic (accessibilité)</string>
+    <string name="set_touch_targets_help">Indications cliquables sur l\'écran d\'accueil</string>
+    <string name="target_open_favorites">Ouvrir les\nfavoris</string>
+    <string name="target_close_favorites">Fermer les\nfavoris</string>
+    <string name="target_open_applications">Ouvrir les\napplications</string>
+
+    <!-- Other operation settings -->
+    <string name="set_force_portrait">Mode portrait forcé</string>
+    <string name="set_force_portrait_help">Empêche la rotation du lanceur même si la rotation automatique est activée</string>
+    <string name="set_always_show_favorites">Toujours afficher les favoris</string>
+    <string name="set_immersive_mode">Mode immersif</string>
+    <string name="set_immersive_mode_help">Pas de barres système. (Peut être forcé par un clic long sur l\'écran d\'accueil.)</string>
+    <string name="set_reverse_interface">Interface inversée</string>
+    <string name="set_reverse_interface_help">Applications au dessus, et favoris en dessous de l\'écran d\'accueil</string>
+    <string name="set_hide_menu_button">Pas de bouton de menu</string>
+    <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
+    <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>
+    <string name="set_swipe_towards_left">Glisser vers la gauche</string>
+    <string name="set_swipe_towards_right">Glisser vers la droite</string>
+    <string name="set_swipe_towards_leftright_no_action">Aucune action</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Favoris débloqués pour conserver l\'accès au menu.</string>
+    <string name="error_disable_app_drawer_not_safe">Tiroir d\'applications rétabli pour conserver l\'accès au menu.</string>
 
 </resources>

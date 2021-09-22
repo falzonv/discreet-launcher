@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<!-- Make the blue less contrasting with black background -->
-	<color name="blue">#7B88D1</color>
+    <!-- Color assignments -->
+    <color name="for_buttons_and_controls">@color/blue_pastel</color>
+    <color name="for_help_titles">@color/blue_pastel</color>
+    <color name="for_menu_highlight_and_dividers">@color/blue_gray</color>
 
 </resources>

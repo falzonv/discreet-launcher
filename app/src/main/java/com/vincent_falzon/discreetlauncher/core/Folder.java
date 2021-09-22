@@ -37,7 +37,7 @@ import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
 import android.widget.TextView ;
 import androidx.recyclerview.widget.RecyclerView ;
-import com.vincent_falzon.discreetlauncher.ActivityFolders ;
+import com.vincent_falzon.discreetlauncher.menu.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
@@ -48,7 +48,7 @@ import java.util.Comparator ;
 import static com.vincent_falzon.discreetlauncher.ActivityMain.getApplicationWidth ;
 
 /**
- * Represent a folder and all the applications that this folder contains.
+ * Represent a folder and all the applications it contains.
  */
 public class Folder extends Application
 {
@@ -62,6 +62,7 @@ public class Folder extends Application
 	 * Constructor to represent a folder
 	 * @param display_name Displayed to the user
 	 * @param icon Displayed to the user
+	 * @param color Displayed to the user
 	 */
 	public Folder(String display_name, Drawable icon, int color)
 	{
@@ -106,8 +107,8 @@ public class Folder extends Application
 
 
 	/**
-	 * Get the applications list.
-	 * @return List of applications contained in the folder
+	 * Get the list of applications that this folder contains.
+	 * @return Content of the folder
 	 */
 	public ArrayList<Application> getApplications()
 	{
@@ -175,7 +176,7 @@ public class Folder extends Application
 		LayoutInflater inflater = LayoutInflater.from(context) ;
 
 		// Prepare the popup view
-		View popupView = inflater.inflate(R.layout.popup, (ViewGroup)null) ;
+		View popupView = inflater.inflate(R.layout.view_folder_popup, (ViewGroup)null) ;
 
 		// Prepare the folder title
 		TextView popupTitle = popupView.findViewById(R.id.popup_title) ;

@@ -52,7 +52,7 @@ import com.vincent_falzon.discreetlauncher.SearchAdapter ;
 import java.util.ArrayList ;
 
 /**
- * Represent the search application.
+ * Represent the Search application.
  */
 public class Search extends Application
 {
@@ -62,7 +62,7 @@ public class Search extends Application
 
 
 	/**
-	 * Constructor to represent the search application.
+	 * Constructor to represent the Search application.
 	 * @param display_name Displayed to the user
 	 * @param icon Displayed to the user
 	 */
@@ -74,7 +74,7 @@ public class Search extends Application
 
 
 	/**
-	 * Display the search application as a popup.
+	 * Display the Search application as a popup.
 	 * @param parent Element from which the event originates
 	 * @return Always <code>true</code>
 	 */
@@ -85,7 +85,7 @@ public class Search extends Application
 		LayoutInflater inflater = LayoutInflater.from(context) ;
 
 		// Prepare the popup view
-		View popupView = inflater.inflate(R.layout.popup, (ViewGroup)null) ;
+		View popupView = inflater.inflate(R.layout.view_folder_popup, (ViewGroup)null) ;
 		popupView.findViewById(R.id.popup_title).setVisibility(View.GONE) ;
 		popupView.findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 
@@ -112,7 +112,7 @@ public class Search extends Application
 				}
 			}) ;
 
-		// Retrieve all the applications without folders and the search
+		// Retrieve all the applications without folders and the Search
 		ArrayList<Application> applications = ActivityMain.getApplicationsList().getApplications(false) ;
 		Application search = null ;
 		for(Application application : applications)
@@ -125,7 +125,7 @@ public class Search extends Application
 		recycler.setAdapter(adapter) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(context, ActivityMain.getApplicationWidth())) ;
 
-		// Create the popup representing the search application
+		// Create the popup representing the Search application
 		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;
 		popup = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, popup_height, true) ;
 		popupView.setOnTouchListener(new PopupTouchListener()) ;

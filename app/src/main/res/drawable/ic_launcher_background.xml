@@ -5,9 +5,8 @@
     android:viewportHeight="108"
     android:viewportWidth="108">
 
-    <!-- Background color -->
     <path
         android:pathData="M0,0 H108 V108 H-108 Z"
-        android:fillColor="#FFFFFF"/>
+        android:fillColor="@color/for_shape_neutral_background"/>
 
 </vector>

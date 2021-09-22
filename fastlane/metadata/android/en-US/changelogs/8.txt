@@ -1,5 +1,5 @@
 v2.0.0 (08) - 21/03/2021
 NEW THINGS
-   - Automatic update of the applications list (@xi7)
+   - Auto update of the list of apps (@xi7)
 IMPROVEMENTS
    - Major internal reorganization

@@ -1,6 +1,6 @@
 v3.2.0 (20) - 26/04/2021
 NOUVEAUTÉS
-   - Option pour masquer les noms des applis (@tuch96)
+   - Option masquer les noms d'applis (@tuch96)
    - Format d'horloge 12h (@drewski-00h)
 AMÉLIORATIONS
    - Message "aucun favori" mieux intégéré

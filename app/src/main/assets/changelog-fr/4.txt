@@ -3,4 +3,4 @@ NOUVEAUTÉS
    - Menu "Paramètres / Aide"
    - Support des packs d'icônes (@porosjp)
 AMÉLIORATIONS
-   - Texte "À propos" déplacé avec les paramètres
+   - "À propos" déplacé avec les paramètres

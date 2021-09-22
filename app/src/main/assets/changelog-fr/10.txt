@@ -1,4 +1,4 @@
 v2.2.0 (10) - 28/03/2021
 NOUVEAUTÉS
    - Support des raccourcis web (@johanbove)
-   - Option pour masquer la notification si verrouillé
+   - Notification masquable si verrouillé

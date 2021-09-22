@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Basic colors -->
-    <color name="white">#FFFFFF</color>
-    <color name="blue">#4081FF</color>
-    <color name="dark_blue">#3F51B5</color>
-    <color name="very_dark_blue">#303F9F</color>
-
-    <!-- Transparent/translucent colors -->
+    <!-- Color palette -->
+    <color name="blue_discreet_launcher">#4081FF</color>
+    <color name="blue_pastel">#7B88D1</color>
+    <color name="blue_lavender">#D3DFF8</color>
+    <color name="blue_gray">#666F99</color>
+    <color name="blue_violet">#3F51B5</color>
+    <color name="blue_marine">#303F9F</color>
+    <color name="gray_very_light">#CCCCCC</color>
     <color name="transparent">#00000000</color>
+    <color name="transparent_white">#00FFFFFF</color>
     <color name="translucent_gray">#66000000</color>
-    <color name="translucent_dark_gray">#ED353535</color>
+    <color name="translucent_gray_black">#ED353535</color>
     <color name="translucent_white">#BBFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Color assignments -->
+    <color name="for_action_bar">@color/blue_violet</color>
+    <color name="for_color_picker_preview_grid">@color/gray_very_light</color>
+    <color name="for_button_text">@color/white</color>
+    <color name="for_buttons_and_controls">@color/blue_discreet_launcher</color>
+    <color name="for_help_titles">@color/blue_discreet_launcher</color>
+    <color name="for_icon_discreet_launcher">@color/blue_discreet_launcher</color>
+    <color name="for_icon_added_in_drawer">@color/white</color>
+    <color name="for_menu_highlight_and_dividers">@color/blue_lavender</color>
+    <color name="for_notification_icon">@color/transparent_white</color>
+    <color name="for_notification_background">@color/white</color>
+    <color name="for_overlay">@color/translucent_gray</color>
+    <color name="for_popup_background">@color/translucent_gray_black</color>
+    <color name="for_popup_border">@color/translucent_white</color>
+    <color name="for_search_app_hint">@color/translucent_white</color>
+    <color name="for_shadow">@color/translucent_gray</color>
+    <color name="for_shape_neutral_background">@color/white</color>
+    <color name="for_system_bars">@color/blue_marine</color>
+    <color name="for_text_on_overlay">@color/white</color>
+    <color name="for_text_on_shadow">@color/white</color>
+    <color name="for_visual_feedback_drawable">@color/translucent_white</color>
+    <color name="for_visual_feedback_shadow">@color/white</color>
 
 </resources>

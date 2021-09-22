@@ -53,6 +53,9 @@ public interface Constants
 	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	String HIDE_MENU_BUTTON = "hide_menu_button" ;
 	String CLOCK_FORMAT = "clock_format" ;
+	String CLOCK_COLOR = "clock_color" ;
+	String CLOCK_POSITION = "clock_position" ;
+	String CLOCK_POSITION_DEFAULT = "top" ;
 	String ICON_PACK = "icon_pack" ;
 	String HIDE_APP_NAMES = "hide_app_names" ;
 	String REMOVE_PADDING = "remove_padding" ;
@@ -62,6 +65,8 @@ public interface Constants
 	String REVERSE_INTERFACE = "reverse_interface" ;
 	String TOUCH_TARGETS = "touch_targets" ;
 	String DISABLE_APP_DRAWER = "disable_app_drawer" ;
+	String SWIPE_TOWARDS_LEFT = "swipe_towards_left" ;
+	String SWIPE_TOWARDS_RIGHT = "swipe_towards_right" ;
 
 	// To remove later (setting migrated to internal file)
 	String HIDDEN_APPLICATIONS = "hidden_applications" ;

@@ -4,7 +4,6 @@ NEW THINGS
    - Option to disable app drawer (@frpst)
 IMPROVEMENTS
    - All strings reviewed with Allan Nordhøy
-   - Russian translation updated by Artur Aiwasan
    - Search app easier to hide (@n-ce)
 CORRECTIONS
    - Lonc-click on Search

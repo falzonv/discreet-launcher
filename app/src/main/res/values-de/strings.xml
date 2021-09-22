@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu_favorites">Favoriten</string>
+    <string name="menu_folders">Ordner</string>
+    <string name="menu_hidden_apps">Versteckte Apps</string>
+    <string name="menu_refresh_list_apps">App-Liste aktualisieren</string>
+    <string name="menu_settings_appearance">Erscheinungsbild</string>
+    <string name="menu_settings_operation">Darstellung</string>
+    <string name="menu_export_import">Export und Import</string>
+    <string name="menu_help">Hilfe</string>
+    <string name="menu_changelog">Changelog</string>
+    <string name="menu_about">Über</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Bitte wähle aus!</string>
+    <string name="long_click_open">Öffne \"%1s\"</string>
+    <string name="long_click_settings">Zugang zu Einstellungen</string>
+    <string name="long_click_view_store">Store Seite anzeigen</string>
+    <string name="long_click_rename">Umbenennen</string>
+    <string name="long_click_hide_search">Ausblenden</string>
+    <string name="long_click_remove_shortcut">Verknüpfung entfernen</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Bestätigen</string>
+    <string name="button_cancel">Abbrechen</string>
+    <string name="button_close">Schließen</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">App-Liste aktualisiert</string>
+    <string name="error_app_not_found">\"%1$s\" konnte nicht gefunden werden</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Suche</string>
+    <string name="search_app_hint">Suche nach Apps</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet App-Starter</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Verbesserungsvorschläge und mögliche Fehler bitte über folgende Webseite senden</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">Deutsche Übersetzung von tuch96 (Marc)</string>
+
+</resources>

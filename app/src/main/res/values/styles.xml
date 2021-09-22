@@ -5,9 +5,9 @@
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
 
         <!-- Main colors -->
-        <item name="colorPrimary">@color/dark_blue</item>
-        <item name="colorPrimaryDark">@color/very_dark_blue</item>
-        <item name="colorAccent">@color/blue</item>
+        <item name="colorPrimary">@color/for_action_bar</item>
+        <item name="colorPrimaryDark">@color/for_system_bars</item>
+        <item name="colorAccent">@color/for_buttons_and_controls</item>
 
     </style>
 
@@ -23,7 +23,7 @@
         <item name="android:windowBackground">@color/transparent</item>
 
         <!-- Improve the status and navigation bars display -->
-        <item name="android:statusBarColor">@color/translucent_gray</item>
+        <item name="android:statusBarColor">@color/for_overlay</item>
         <item name="android:navigationBarColor">@color/transparent</item>
         <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="o_mr1">shortEdges</item>
@@ -31,10 +31,33 @@
     </style>
 
 
+    <!-- Main menu -->
+    <style name="MainMenu_Entry">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:paddingTop">@dimen/spacing_very_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_very_small</item>
+        <item name="android:paddingStart">@dimen/spacing_small</item>
+        <item name="android:paddingEnd">@dimen/spacing_small</item>
+        <item name="android:drawablePadding">@dimen/spacing_normal</item>
+    </style>
+    <style name="MainMenu_Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">@dimen/spacing_very_small</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_very_small</item>
+        <item name="android:layout_marginStart">@dimen/spacing_small</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_small</item>
+        <item name="android:background">@color/for_menu_highlight_and_dividers</item>
+    </style>
+
+
     <!-- Notification popup theme -->
     <style name="AppThemeNotification" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@color/for_notification_background</item>
         <item name="windowMinWidthMajor">100%</item>
         <item name="windowMinWidthMinor">100%</item>
         <item name="android:windowElevation">0dp</item>
@@ -42,23 +65,23 @@
 
 
     <!-- Buttons -->
-    <style name="NormalButton">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:colorButtonNormal">@color/blue</item>
+    <style name="Button_Normal">
+        <item name="android:textColor">@color/for_button_text</item>
+        <item name="android:colorButtonNormal">@color/for_buttons_and_controls</item>
     </style>
-    <style name="BorderlessButton">
-        <item name="android:textColor">@color/blue</item>
+    <style name="Button_Borderless">
+        <item name="android:textColor">@color/for_buttons_and_controls</item>
     </style>
 
 
-    <!-- Text clock -->
-    <style name="TextClock">
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textSize">@dimen/text_size_huge</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:shadowColor">@color/translucent_gray</item>
-        <item name="android:shadowRadius">@dimen/shadow_radius</item>
+    <!-- Help -->
+    <style name="Help_SectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/for_help_titles</item>
     </style>
 
 
@@ -67,10 +90,15 @@
         <item name="android:gravity">center</item>
         <item name="android:padding">@dimen/spacing_normal</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/text_size_big</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:shadowColor">@color/translucent_gray</item>
+        <item name="android:textSize">@dimen/text_size_bigger</item>
+        <item name="android:textColor">@color/for_text_on_shadow</item>
+        <item name="android:shadowColor">@color/for_shadow</item>
         <item name="android:shadowRadius">@dimen/shadow_radius</item>
+        <item name="android:visibility">gone</item>
     </style>
+
+
+    <!-- Placeholder for easier XML design in Android Studio -->
+    <string name="placeholder" translatable="false">(placeholder)</string>
 
 </resources>

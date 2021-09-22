@@ -1,0 +1,9 @@
+v4.7.0 (35) - 15/08/2021
+NEW THINGS
+   - Custom color for folders (@drewski-00h)
+   - Rename applications (@MathieuA)
+   - Norwegian translation by Allan Nordhøy
+IMPROVEMENTS
+   - "Hidden apps" in settings (@drewski-00h)
+   - Remove the favorites limit (@xi7)
+   - Minor internal improvements

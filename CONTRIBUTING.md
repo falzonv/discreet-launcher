@@ -54,8 +54,8 @@ Here are some guidelines about translations:
 
 - All the strings of Discreet Launcher are located in the folder [app/src/main/res/values](https://github.com/falzonv/discreet-launcher/tree/main/app/src/main/res/values) and distributed over files `strings.xml`, `strings_settings.xml` and `strings_help.xml`.
 - The changelog is not intended to be translated, the string *changelog_folder* has to contain the value `changelog-en`.
-- At the end of `strings.xml`, you will find a string named *translation_credit* which will be displayed below the *About* section and should contain a translation of the following text:
-> [Locale (ex: Russian)] translation provided by [first and last names].  
-> If you need to contact Vincent (developer), please do so in English or French.
+- At the end of `strings.xml`, you will find a string named *translation_credit* which will be displayed at the end of the *About* section and should contain a translation of the following text:
+> "[Locale] translation by [first and last names]"  
+> *(example: Russian translation by Artur Aiwasan)*
 
 Finally, I should also warn you that create and maintain a translation over time can be time-consuming because almost every release introduces a few new strings or modify some of the existing ones.

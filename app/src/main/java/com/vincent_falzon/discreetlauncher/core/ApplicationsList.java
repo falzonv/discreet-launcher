@@ -191,7 +191,7 @@ public class ApplicationsList
 			folder_file = convertComponentInfo(filename, folder_file) ;
 
 			// Check if a color has beed defined for this folder or use the default white
-			int color = context.getResources().getColor(R.color.white) ;
+			int color = context.getResources().getColor(R.color.for_icon_added_in_drawer) ;
 			if(folders_colors_file != null)
 				for(String mapping : folders_colors_file)
 					if(mapping.startsWith(filename))

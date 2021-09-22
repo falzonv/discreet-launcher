@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
@@ -9,33 +10,33 @@
             android:strokeWidth="6"
             android:strokeLineJoin="round"
             android:strokeLineCap="round"
-            android:strokeColor="#FFFFFF"/>
+            android:strokeColor="@color/for_icon_added_in_drawer"/>
 
         <path
             android:pathData="M8,70 L54,23 L99,70"
             android:strokeWidth="6"
             android:strokeLineJoin="round"
             android:strokeLineCap="round"
-            android:strokeColor="#FFFFFF"/>
+            android:strokeColor="@color/for_icon_added_in_drawer"/>
 
         <path
             android:pathData="M25,66 V104 H82 V66"
             android:strokeWidth="6"
             android:strokeLineJoin="round"
-            android:strokeColor="#FFFFFF"/>
+            android:strokeColor="@color/for_icon_added_in_drawer"/>
 
         <path
             android:pathData="M42,55
                 A10,10 0 1,1 68,75
                 A10,10 0 1,1 42,55 z"
             android:strokeWidth="4"
-            android:strokeColor="#FFFFFF"/>
+            android:strokeColor="@color/for_icon_added_in_drawer"/>
 
         <path
             android:pathData="M35,91 L45,79"
             android:strokeWidth="4"
             android:strokeLineJoin="round"
             android:strokeLineCap="round"
-            android:strokeColor="#FFFFFF"/>
+            android:strokeColor="@color/for_icon_added_in_drawer"/>
 
 </vector>

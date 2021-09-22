@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	tools:context=".ActivityFavorites"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
     android:padding="@dimen/spacing_large"
@@ -16,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/spacing_large"
         android:text="@string/button_select_favorites"
-        android:theme="@style/NormalButton"/>
+        android:theme="@style/Button_Normal"/>
 
     <TextView
         android:layout_height="wrap_content"

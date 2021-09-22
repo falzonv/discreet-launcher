@@ -1,0 +1,9 @@
+v4.7.0 (35) - 15/08/2021
+NOUVEAUTÉS
+   - Icônes de dossiers colorées (@drewski-00h)
+   - Applications renommables (@MathieuA)
+   - Traduction Norvégienne par Allan Nordhøy
+AMÉLIORATIONS
+   - Option "Applis masquées" (@drewski-00h)
+   - Suppression de la limite de favoris (@xi7)
+   - Améliorations internes mineures

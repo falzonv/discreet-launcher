@@ -158,7 +158,7 @@ public class ShortcutListener extends AppCompatActivity
 		ArrayList<String> currentShortcuts = file.readAllLines() ;
 		if(!file.remove())
 			{
-				ShowDialog.toastLong(context, context.getString(R.string.error_remove_file, file.getName())) ;
+				ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_remove, file.getName())) ;
 				return ;
 			}
 

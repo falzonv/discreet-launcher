@@ -46,13 +46,12 @@ import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.ApplicationsList ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
-import com.vincent_falzon.discreetlauncher.core.Menu ;
 import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
-import com.vincent_falzon.discreetlauncher.events.MinuteListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
+import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
 import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
-import com.vincent_falzon.discreetlauncher.settings.ActivitySettings ;
+import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -76,7 +75,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private LinearLayout homeScreen ;
 	private LinearLayout favorites ;
 	private RecyclerAdapter favoritesAdapter ;
-	private MinuteListener minuteListener ;
 	private TextView menuButton ;
 	private TextView targetFavorites ;
 	private TextView targetApplications ;
@@ -106,7 +104,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		density = getResources().getDisplayMetrics().density ;
 
 		// Assign default values to settings not configured yet
-		PreferenceManager.setDefaultValues(this, R.xml.settings, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_appearance, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_operation, true) ;
 
@@ -133,7 +130,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		menuButton.setOnClickListener(this) ;
 		targetFavorites.setOnClickListener(this) ;
 		targetApplications.setOnClickListener(this) ;
-		gestureDetector = new GestureDetectorCompat(this, new GestureListener()) ;
+		gestureDetector = new GestureDetectorCompat(this, new GestureListener(homeScreen)) ;
 
 		// If it does not exist yet, build the applications list
 		if(applicationsList == null)
@@ -144,13 +141,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Update the display according to settings
 		togglePortraitMode() ;
-		makeAppDrawerDisablingSafe() ;
+		keepMenuAccessible() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
-
-		// Initialize the clock listener
-		minuteListener = new MinuteListener((TextView)findViewById(R.id.clock_text)) ;
-		registerReceiver(minuteListener, minuteListener.getFilter()) ;
 
 		// Prepare the notification
 		notification = new NotificationDisplayer(this) ;
@@ -192,7 +185,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
 				shortcutLegacyListener = new ShortcutLegacyListener() ;
-  				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
+				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
 			}
 	}
 
@@ -253,12 +246,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Make sure that the app drawer can be safely disabled.
+	 * Make sure that the launcher menu always stays accessible.
 	 */
-	private void makeAppDrawerDisablingSafe()
+	private void keepMenuAccessible()
 	{
-		// Do not continue if the setting to disable the app drawer is not enabled
-		if(!settings.getBoolean(Constants.DISABLE_APP_DRAWER, false)) return ;
+		// Do not continue if none of the risky settings is enabled
+		if(!(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false) ||
+				settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))) return ;
 
 		// Browse all favorites
 		String launcher = "{com.vincent_falzon.discreetlauncher/com.vincent_falzon.discreetlauncher.ActivityMain}" ;
@@ -275,12 +269,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				}
 		}
 
-		// Check if the menu button is still enabled
+		// Check if the menu button is visible
 		if(!settings.getBoolean(Constants.HIDE_MENU_BUTTON, false))
 			{
-				// Consider it will always stays visible if applications names are hidden
-				if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)) return ;
-
 				// Retrieve the total height available in portrait mode (navigation bar automatically removed)
 				int menu_button_height = Math.round(32 * density) ;
 				int total_size = Math.max(getResources().getDisplayMetrics().heightPixels, getResources().getDisplayMetrics().widthPixels)
@@ -288,18 +279,31 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 						- Math.round(20 * density)  // Remove 20dp for button margins and spare
 						- menu_button_height ;
 
-				// Define the size of an app (text estimation + icon + margins) and the maximum number of favorites
-				int app_size = menu_button_height + Math.round(48 * density) + Math.round(20 * density) ;
+				// Define the size of an app (icon + margins + text estimation) and the maximum number of favorites
+				int app_size = Math.round(48 * density) ;
+				if(!settings.getBoolean(Constants.REMOVE_PADDING, false)) app_size += Math.round(20 * density) ;
+				if(!settings.getBoolean(Constants.HIDE_APP_NAMES, false)) app_size += menu_button_height ;
 				int max_favorites = 4 * (total_size / app_size) ;
 
 				// Check if the number of favorites still allows to see the menu button
 				if(applicationsList.getFavorites().size() <= max_favorites) return ;
+
+				// If favorites cannot be always shown safely, display a message and disable the setting
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+					{
+						ShowDialog.toastLong(this, getString(R.string.error_always_show_favorites_not_safe)) ;
+						SharedPreferences.Editor editor = settings.edit() ;
+						editor.putBoolean(Constants.ALWAYS_SHOW_FAVORITES, false).apply() ;
+					}
 			}
 
 		// If the drawer cannot be safely disabled, display a message and disable the setting
-		ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
-		SharedPreferences.Editor editor = settings.edit() ;
-		editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
+		if(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false))
+			{
+				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
+				SharedPreferences.Editor editor = settings.edit() ;
+				editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
+			}
 	}
 
 
@@ -319,26 +323,31 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else findViewById(R.id.info_no_favorites_yet).setVisibility(View.GONE) ;
 
 				// Retrieve the background color
-				int background_color = ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
+				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.for_overlay)) ;
 
 				// Check if the interface is reversed and adjust the display accordingly
-				Drawable menuButtonBackground ;
+				Drawable tab_shape ;
 				if(reverse_interface)
 					{
 						// Reversed interface
-						menuButtonBackground = DrawableCompat.wrap(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab_reverse, null)) ;
+						tab_shape = ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab_reverse, null) ;
 						getWindow().setNavigationBarColor(background_color) ;
 					}
 					else
 					{
 						// Classic interface
-						menuButtonBackground = DrawableCompat.wrap(ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab, null)) ;
+						tab_shape = ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab, null) ;
 						getWindow().setStatusBarColor(background_color) ;
 					}
 
 				// Color the menu button and favorites panel
-				menuButtonBackground.setTint(background_color) ;
-				menuButton.setBackground(DrawableCompat.unwrap(menuButtonBackground)) ;
+				Drawable menuButtonBackground ;
+				if(tab_shape != null)
+					{
+						menuButtonBackground = DrawableCompat.wrap(tab_shape) ;
+						menuButtonBackground.setTint(background_color) ;
+						menuButton.setBackground(DrawableCompat.unwrap(menuButtonBackground)) ;
+					}
 				findViewById(R.id.favorites_applications).setBackgroundColor(background_color) ;
 
 				// If the option is selected, hide the menu button
@@ -361,7 +370,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
-					else getWindow().setStatusBarColor(ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray))) ;
+					else getWindow().setStatusBarColor(ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.for_overlay))) ;
 
 				// Make the navigation bar transparent
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
@@ -384,7 +393,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(adapters_update_needed) updateAdapters() ;
 
 				// Color the system bars and the drawer background
-				int background_color = ActivitySettings.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.translucent_gray)) ;
+				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.for_overlay)) ;
 				drawer.setBackgroundColor(background_color) ;
 				getWindow().setStatusBarColor(background_color) ;
 				getWindow().setNavigationBarColor(background_color) ;
@@ -484,7 +493,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		applicationsList.update(context) ;
 		adapters_update_needed = true ;
-		ShowDialog.toast(context, R.string.info_applications_list_refreshed) ;
+		ShowDialog.toast(context, R.string.info_list_apps_refreshed) ;
 	}
 
 
@@ -507,7 +516,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		// Check which view was selected and react accordingly
 		int selection = view.getId() ;
-		if(selection == R.id.access_menu_button) Menu.open(view) ;
+		if(selection == R.id.access_menu_button) new DialogMenu(this).show() ;
 			else if(selection == R.id.target_favorites) displayFavorites(favorites.getVisibility() != View.VISIBLE) ;
 			else if(selection == R.id.target_applications)
 			{
@@ -535,6 +544,20 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	 */
 	class GestureListener extends GestureDetector.SimpleOnGestureListener
 	{
+		// Attributes
+		private final View homeScreen ;
+
+
+		/**
+		 * Constructor.
+		 * @param homeScreen To launch activities with horizontal swipes
+		 */
+		GestureListener(View homeScreen)
+		{
+			this.homeScreen = homeScreen ;
+		}
+
+
 		/**
 		 * Implemented because all gestures start with an onDown() message.
 		 * @param event Gesture event
@@ -545,6 +568,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		{
 			return true ;
 		}
+
 
 		/**
 		 * Detect a gesture over a distance.
@@ -561,11 +585,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			if(drawer.getVisibility() == View.VISIBLE) return false ;
 
 			// Calculate the traveled distances on both axes
-			float x_distance = Math.abs(event1.getX() - event2.getX()) ;
+			float x_distance = event1.getX() - event2.getX() ;
 			float y_distance = event1.getY() - event2.getY() ;
 
 			// Check if this is a vertical gesture over a distance and not a single tap
-			if((Math.abs(y_distance) > x_distance) && (Math.abs(y_distance) > Math.round(34 * density)))
+			int swipe_trigger_distance = Math.round(34 * density) ;
+			if((Math.abs(y_distance) > Math.abs(x_distance)) && (Math.abs(y_distance) > swipe_trigger_distance))
 				{
 					// Adapt the gesture direction to the interface direction
 					boolean swipe_drawer ;
@@ -592,9 +617,47 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					return true ;
 				}
 
+			// Check if this is an horizontal gesture over a distance and not a single tap
+			if((Math.abs(x_distance) > Math.abs(y_distance)) && (Math.abs(x_distance) > swipe_trigger_distance))
+				{
+					// Check if the swipe is going towards left or right and retrieve the related setting
+					String component_info ;
+					if(x_distance > 0) component_info = settings.getString(Constants.SWIPE_TOWARDS_LEFT, Constants.NONE) ;
+						else component_info = settings.getString(Constants.SWIPE_TOWARDS_RIGHT, Constants.NONE) ;
+
+					// Do not continue if the setting is not set
+					if((component_info == null) || component_info.equals(Constants.NONE))
+						return false ;
+
+					// Try to start the application and consider the event as consumed
+					searchAndStartApplication(component_info) ;
+					return true ;
+				}
+
 			// Ignore other gestures
 			return false ;
 		}
+
+
+		/**
+		 * Start an app from the list using its ComponentInfo, or show an error message.
+		 */
+		private void searchAndStartApplication(String component_info)
+		{
+			// Search the application in the list
+			for(Application application : applicationsList.getApplications(false))
+				if(application.getComponentInfo().equals(component_info))
+					{
+						// Start the application
+						application.start(homeScreen) ;
+						return ;
+					}
+
+			// The application was not found, display an error message
+			Context context = homeScreen.getContext() ;
+			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, component_info)) ;
+		}
+
 
 		/**
 		 * Detect a long click on the home screen.
@@ -620,10 +683,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(ignore_settings_changes) return ;
 		switch(key)
 		{
-			case Constants.NOTIFICATION :
-				// Toggle the notification
-				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
-					else notification.hide() ;
+			// ========= Appearance settings ==========
+			case Constants.BACKGROUND_COLOR :
+			case Constants.HIDE_MENU_BUTTON :
+				// Force update of favorites panel color if it is always shown
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+					displayFavorites(true) ;
 				break ;
 			case Constants.APPLICATION_THEME :
 				// Update the theme
@@ -638,20 +703,27 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// Update the column width
 				recreate() ;
 				break ;
+			// ========= Operation settings ==========
+			case Constants.NOTIFICATION :
+				// Toggle the notification
+				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
+					else notification.hide() ;
+				break ;
 			case Constants.REVERSE_INTERFACE:
 				// Change the interface direction
 				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
 					else setContentView(R.layout.activity_main) ;
 				recreate() ;
-			case Constants.ALWAYS_SHOW_FAVORITES :
-			case Constants.TOUCH_TARGETS :
-				// Display or not the touch targets
-				toggleTouchTargets() ;
 				break ;
+			case Constants.ALWAYS_SHOW_FAVORITES :
+				// Cover cases where this setting is enabled while favorites were closed
+				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
+			case Constants.TOUCH_TARGETS :
 			case Constants.DISABLE_APP_DRAWER :
-				// Check if the app drawer can be safely disabled
-				makeAppDrawerDisablingSafe() ;
+				// Make safe-check and display or not the touch targets
+				keepMenuAccessible() ;
+				toggleTouchTargets() ;
 				break ;
 		}
 	}
@@ -765,12 +837,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		super.onResume() ;
 
 		// Hide the favorites panel and the applications drawer
-		makeAppDrawerDisablingSafe() ;
+		keepMenuAccessible() ;
 		displayFavorites(false) ;
 		displayDrawer(false) ;
 
 		// Update the display according to settings
-		minuteListener.updateClock() ;
 		togglePortraitMode() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
@@ -787,7 +858,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	public void onDestroy()
 	{
 		// Unregister all remaining broadcast receivers
-		if(minuteListener != null) unregisterReceiver(minuteListener) ;
 		if(packagesListener != null) unregisterReceiver(packagesListener) ;
 		if(shortcutLegacyListener != null) unregisterReceiver(shortcutLegacyListener) ;
 

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreference
+        app:key="notification"
+        app:title="@string/set_notification"
+        app:summary="@string/set_notification_help"
+        app:iconSpaceReserved="false"
+        app:defaultValue="false"/>
 
     <PreferenceCategory
-        app:title="@string/title_behavior_settings"
+        app:title="@string/operation_settings_title_interface"
         app:iconSpaceReserved="false">
 
         <SwitchPreference
@@ -40,10 +48,37 @@
             app:defaultValue="false"/>
 
         <SwitchPreference
+            app:key="hide_menu_button"
+            app:title="@string/set_hide_menu_button"
+            app:summary="@string/set_hide_menu_button_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
             app:key="disable_app_drawer"
             app:title="@string/set_disable_app_drawer"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/operation_settings_title_gestures"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:key="swipe_towards_left"
+            app:title="@string/set_swipe_towards_left"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+        <ListPreference
+            app:key="swipe_towards_right"
+            app:title="@string/set_swipe_towards_right"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
 
     </PreferenceCategory>
 

@@ -1,10 +1,9 @@
 v4.6.0 (33) - 24/07/2021
 NOUVEAUTÉS
-   - Option pour toujours afficher les favoris (@tuch96)
-   - Option pour désactiver le tiroir d'applis (@frpst)
+   - Option toujours afficher les favoris (@tuch96)
+   - Option désactiver le tiroir d'applis (@frpst)
 AMÉLIORATIONS
    - Tous les textes revus avec Allan Nordhøy
-   - Traduction russe mise à jour par Artur Aiwasan
    - Recherche plus facile à masquer (@n-ce)
 CORRECTIONS
    - Clic long sur Recherche

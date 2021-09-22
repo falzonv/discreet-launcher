@@ -5,5 +5,5 @@ AMÉLIORATIONS
    - Meilleur retour visuel (@xi7)
    - Max 3 lignes pour les noms d'apps (@xi7)
 CORRECTIONS
-   - Barre nav transparente sur Android 10+ (@AeOeAa)
+   - Barre navigation Android 10+ (@AeOeAa)
    - Dossier pas fermé correctement (@xi7)

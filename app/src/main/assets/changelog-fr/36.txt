@@ -1,0 +1,11 @@
+v5.0.0 (36) - 09/09/2021
+NOUVEAUTÉS
+   - Nouveau menu principal (@comradekingu)
+   - Traduction Allemande par Marc (tuch96)
+AMÉLIORATIONS
+   - Section d'aide améliorée (@comradekingu)
+   - "Recherche" facile à masquer (@dgcampea)
+   - Notification masquée par défaut
+   - Réorganisation interne majeure
+CORRECTIONS
+   - Bugs favoris toujours affichés (@tuch96)

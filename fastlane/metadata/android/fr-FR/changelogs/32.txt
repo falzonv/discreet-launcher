@@ -1,4 +1,4 @@
 v4.5.0 (32) - 12/07/2021
 CORRECTIONS
    - Retour à la Recherche de la v4.3.0 (@xi7)
-   - Encodage du titre du popup de notification (@xi7)
+   - Encodage titre popup de notification (@xi7)

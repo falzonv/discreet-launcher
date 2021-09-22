@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="8dp"
     android:height="8dp"
@@ -6,14 +7,14 @@
 
     <path
         android:pathData="M0,0 H8 V8 H0 z"
-        android:fillColor="#FFFFFF"/>
+        android:fillColor="@color/for_shape_neutral_background"/>
 
     <path
         android:pathData="M0,0 h4 v4 h-4 z"
-        android:fillColor="#CCCCCC"/>
+        android:fillColor="@color/for_color_picker_preview_grid"/>
 
     <path
         android:pathData="M4,4 h4 v4 h-4 z"
-        android:fillColor="#CCCCCC"/>
+        android:fillColor="@color/for_color_picker_preview_grid"/>
 
 </vector>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        app:title="@string/title_appearance_settings_general"
+        app:title="@string/appearance_settings_title_general"
         app:iconSpaceReserved="false">
 
         <ListPreference
@@ -24,16 +25,15 @@
         <SwitchPreference
             app:key="transparent_status_bar"
             app:title="@string/set_transparent_status_bar"
-            app:summary="@string/set_transparent_status_bar_hint"
+            app:summary="@string/set_transparent_status_bar_help"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
-        <SwitchPreference
-            app:key="hide_menu_button"
-            app:title="@string/set_hide_menu_button"
-            app:summary="@string/set_hide_menu_button_help"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/appearance_settings_title_clock"
+        app:iconSpaceReserved="false">
 
         <ListPreference
             app:key="clock_format"
@@ -44,10 +44,25 @@
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="clock_color"
+            app:title="@string/set_clock_color"
+            app:defaultValue="#FFFFFFFF"
+            app:iconSpaceReserved="false"/>
+
+        <ListPreference
+            app:key="clock_position"
+            app:title="@string/set_clock_position"
+            app:iconSpaceReserved="false"
+            app:entries="@array/set_clock_position_entries"
+            app:entryValues="@array/set_clock_position_values"
+            app:defaultValue="top"
+            app:useSimpleSummaryProvider="true"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/title_appearance_settings_applications"
+        app:title="@string/appearance_settings_title_applications"
         app:iconSpaceReserved="false">
 
         <ListPreference

@@ -1,6 +1,6 @@
 Discreet Launcher provides you a distraction-free home screen, allowing you to fully enjoy your wallpaper (only the status and navigation bars have been kept for convenience).
 
-From this clean home screen, simply slide your finger down to display your favorites applications or up to see the complete list of applications.
+From this clean home screen, simply slide your finger down to display your favorites applications, or up to see the complete list of applications.
 
 If you hold your finger a few moments on an application, you will be offered to access its system settings and its page in the store.
 
@@ -9,22 +9,22 @@ Discreet Launcher is open source, doesn't require any unnecessary permission, wo
 1/ Other features
 - Folders
 - Search
-- Hide applications
-- Notification for favorites access
-- Shortcuts (web apps) support
-- Export/import settings
+- Rename and hide apps
+- Notification for access to favorites
+- Shortcuts support (web apps)
+- Export and import settings
 - Help and changelog
 
 2/ Customization options
 - Theme and background color
-- Force portrait mode
-- Immersive mode
-- Reversed interface
-- Always show favorites
-- No app drawer
-- Touch targets (accessibility)
-- Clock on the home screen
+- Forced portrait-mode
 - Transparent status bar
-- Hide the menu button
-- Hide applications names
+- No system bars (immersive mode)
+- Clock on the home screen
+- Touch targets (accessibility)
+- Always show favorites
+- Reversed interface
+- No menu button
+- No app drawer
+- No app names
 - Icon packs support

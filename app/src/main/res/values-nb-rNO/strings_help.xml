@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Help -->
+    <string name="help_navigation_title">Navigasjon</string>
+    <string name="help_navigation">
+        Dra oppover fra hjemmeskjermen for å vise alle programmer, og ned for å gå tilbake.
+        \n
+        \nDra nedover fra hjemmeskjermen for å vise favoritter, og opp for å gå tilbake.
+        \n
+        \nTrykk på menyknappen (når du viser favoritter) eller oppstarterikonet for å åpne menyen.
+        \n
+        \nKlikk-hold et program eller en mappe for å vise respektive innstillinger.
+    </string>
+    <string name="help_notification_title">Merknad</string>
+    <string name="help_notification">
+        Viser et oppsprett av favoritter over andre programmer når du forlater hjemmeskjermen.
+    </string>
+    <string name="help_list_update_title">Listegjenoppfriskning</string>
+    <string name="help_list_update">
+        En oppsprettsmelding vises ved gjenoppfrisking av programlisten og ikoner,
+        når et program legges til eller fjernes, og når ikonpakken endres).
+    </string>
+    <string name="help_folders_title">Mapper</string>
+    <string name="help_folders">
+        Håndter mapper eller favorittmerk dem med menyknappen, eller klikk på tittelfeltet
+        til en åpen mappe for å opprette, gi nytt navn, eller putte programmer i den.
+        \nFjerning av mapper putter alle programmer i dem tilbake i hovedlisten.
+    </string>
+    <string name="help_search_title">Søk</string>
+    <string name="help_search">
+        Finn ethvert program med søkeikonet. Det kan også favorittmerkes for å være tilgjengelig
+        fra merknaden, eller skjules.
+        \n
+        \nTrykk \"Enter\" for å åpne hvis det er kun ett søkeresultat.
+    </string>
+
+    <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
+    <string name="changelog_mentions">\"@pseudo\" indikerer brukeren som foreslo idéen eller rapporterte feilen</string>
+    <string name="changelog_folder">changelog-en</string>
+    <string name="error_changelog_missing_folder">Kunne ikke finne endringsloggmappen.</string>
+    <string name="error_changelog_missing_file">Kunne ikke åpne %1s.</string>
+
+</resources>

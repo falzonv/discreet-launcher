@@ -5,7 +5,7 @@ NOUVEAUTÉS
 AMÉLIORATIONS
    - Réduire l'écart icône-texte (@xi7/AeOeAa)
    - Dossiers premiers dans les favoris (@xi7)
-   - Toujours afficher les noms de dossiers (@AeOeAa)
+   - Garder les noms des dossiers (@AeOeAa)
    - Bouton actualiser plus bas dans le menu
    - Organiseur de dossiers revu
 CORRECTIONS

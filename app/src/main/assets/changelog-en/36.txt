@@ -1,0 +1,11 @@
+v5.0.0 (36) - 09/09/2021
+NEW THINGS
+   - New main menu (@comradekingu)
+   - German translation by Marc (tuch96)
+IMPROVEMENTS
+   - Help section improved (@comradekingu)
+   - "Search" app easier to hide (@dgcampea)
+   - Hide notification by default
+   - Major internal reorganization
+CORRECTIONS
+   - Bugs with always show favorites (@tuch96)

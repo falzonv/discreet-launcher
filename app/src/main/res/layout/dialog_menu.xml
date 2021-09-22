@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/menu_favorites"
+            android:text="@string/menu_favorites"
+            app:drawableStartCompat="@drawable/ic_menu_star"
+            style="@style/MainMenu_Entry"/>
+
+        <TextView
+            android:id="@+id/menu_folders"
+            android:text="@string/menu_folders"
+            app:drawableStartCompat="@drawable/ic_menu_archive"
+            style="@style/MainMenu_Entry"/>
+
+        <TextView
+            android:id="@+id/menu_hidden_apps"
+            android:text="@string/menu_hidden_apps"
+            app:drawableStartCompat="@drawable/ic_menu_cut"
+            style="@style/MainMenu_Entry"/>
+
+        <TextView
+            android:id="@+id/menu_refresh_list"
+            android:text="@string/menu_refresh_list_apps"
+            app:drawableStartCompat="@drawable/ic_menu_refresh"
+            style="@style/MainMenu_Entry"/>
+
+        <View style="@style/MainMenu_Divider"/>
+
+        <TextView
+            android:id="@+id/menu_settings_appearance"
+            android:text="@string/menu_settings_appearance"
+            app:drawableStartCompat="@drawable/ic_menu_gallery"
+            style="@style/MainMenu_Entry"/>
+
+        <TextView
+            android:id="@+id/menu_settings_operation"
+            android:text="@string/menu_settings_operation"
+            app:drawableStartCompat="@drawable/ic_menu_preferences"
+            style="@style/MainMenu_Entry"/>
+
+        <TextView
+            android:id="@+id/menu_export_import"
+            android:text="@string/menu_export_import"
+            app:drawableStartCompat="@drawable/ic_menu_upload"
+            style="@style/MainMenu_Entry"/>
+
+        <View style="@style/MainMenu_Divider"/>
+
+        <TextView
+            android:id="@+id/menu_help"
+            android:text="@string/menu_help"
+            app:drawableStartCompat="@drawable/ic_menu_help"
+            style="@style/MainMenu_Entry"/>
+
+        <TextView
+            android:id="@+id/menu_changelog"
+            android:text="@string/menu_changelog"
+            app:drawableStartCompat="@drawable/ic_menu_agenda"
+            style="@style/MainMenu_Entry"/>
+
+        <TextView
+            android:id="@+id/menu_about"
+            android:text="@string/menu_about"
+            app:drawableStartCompat="@drawable/ic_menu_info_details"
+            style="@style/MainMenu_Entry"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -51,12 +51,11 @@ public class InternalFilePNG extends InternalFile
 	/**
 	 * Write a Bitmap image to the internal file.
 	 * @param bitmap The image to write
-	 * @return <code>true</code> if successful, <code>false</code> otherwise
 	 */
-	public boolean writeToFile(Bitmap bitmap)
+	public void writeToFile(Bitmap bitmap)
 	{
 		// Do not continue if the bitmap is empty
-		if(bitmap == null) return false ;
+		if(bitmap == null) return;
 
 		try
 		{
@@ -64,12 +63,10 @@ public class InternalFilePNG extends InternalFile
 			FileOutputStream output_file = new FileOutputStream(file) ;
 			bitmap.compress(Bitmap.CompressFormat.PNG, 100, output_file) ;
 			output_file.close() ;
-			return true ;
 		}
 		catch(IOException e)
 		{
 			// An error happened
-			return false ;
 		}
 	}
 

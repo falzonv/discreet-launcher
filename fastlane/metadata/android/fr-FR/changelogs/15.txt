@@ -1,6 +1,6 @@
 v2.6.0 (15) - 11/04/2021
 NOUVEAUTÉS
-   - Option pour forcer le mode portrait (@c0bnut)
+   - Option forcer le mode portrait (@c0bnut)
 AMÉLIORATIONS
    - Affichage sur 5 colonnes en mode paysage
    - Section pour paramètres d'affichage
