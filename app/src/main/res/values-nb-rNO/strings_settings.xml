@@ -49,9 +49,9 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_general">Generelt utseende</string>
-    <string name="appearance_settings_title_clock">Clock</string>
-    <string name="appearance_settings_title_applications">Programutseende</string>
+    <string name="appearance_settings_title_general">Generelt</string>
+    <string name="appearance_settings_title_clock">Klokke</string>
+    <string name="appearance_settings_title_applications">Programmer</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Grunnfarge:</string>
@@ -75,15 +75,15 @@
         <item>12-timersklokke</item>
         <item>12-timersklokke + AM/PM</item>
         <item>Analog</item>
-        <item>Date and time</item>
+        <item>Dato og klokkeslett</item>
     </string-array>
 
     <!-- Clock position -->
-    <string name="set_clock_position">Clock position</string>
+    <string name="set_clock_position">Klokkeplassering</string>
     <string-array name="set_clock_position_entries">
-        <item>Top</item>
-        <item>Middle</item>
-        <item>Bottom</item>
+        <item>Topp</item>
+        <item>Midten</item>
+        <item>Bunn</item>
     </string-array>
 
     <!-- Other appearance settings -->
@@ -91,7 +91,7 @@
     <string name="set_background_color_help">For menyknapp, favoritter, programskuff, og systembjelker</string>
     <string name="set_transparent_status_bar">Gjennomsiktig statusfelt</string>
     <string name="set_transparent_status_bar_help">Når favoritter lukkes</string>
-    <string name="set_clock_color">Clock color</string>
+    <string name="set_clock_color">Klokkefarge</string>
     <string name="set_icon_pack">Bruk en installert ikonpakke</string>
     <string name="set_icon_pack_none">Ingen (bruk opprinnelige ikoner)</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
@@ -106,12 +106,12 @@
     <!-- ========== Operation settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="operation_settings_title_interface">Interface</string>
-    <string name="operation_settings_title_gestures">Home screen gestures</string>
+    <string name="operation_settings_title_interface">Grensesnitt</string>
+    <string name="operation_settings_title_gestures">Hjemmeskjermshåndvendinger</string>
 
     <!-- Notification -->
     <string name="set_notification">Merknad for tilgang til favoritter</string>
-    <string name="set_notification_help">Bruker av gjennomsiktig ikon</string>
+    <string name="set_notification_help">Bruker et gjennomsiktig ikon</string>
     <string name="notification_text">Favoritter</string>
     <string name="notification_popup_title">Håndter favoritter</string>
 
@@ -125,16 +125,16 @@
     <!-- Other operation settings -->
     <string name="set_force_portrait">Påtvunget stående sideretning</string>
     <string name="set_force_portrait_help">Oppstarteren vil ikke rotere selv når auto-rotering er påslått</string>
-    <string name="set_always_show_favorites">Always show favorites</string>
+    <string name="set_always_show_favorites">Alltid vis favoritter</string>
     <string name="set_immersive_mode">Oppslukende modus</string>
     <string name="set_immersive_mode_help">Skjul systembjelker (lang-trykk på hjemmeskjermen for å påtvinge)</string>
     <string name="set_reverse_interface">Omvendt grensesnitt</string>
     <string name="set_reverse_interface_help">Programmer ovenfor, og favorittpanel på bunnen</string>
-    <string name="set_hide_menu_button">Ingen menyknappen</string>
+    <string name="set_hide_menu_button">Ingen menyknapp</string>
     <string name="set_hide_menu_button_help">Fremdeles tilgjengelig i oppstarterikonet</string>
     <string name="set_disable_app_drawer">Ingen programkurv</string>
-    <string name="set_swipe_towards_left">Swipe towards left</string>
-    <string name="set_swipe_towards_right">Swipe towards right</string>
+    <string name="set_swipe_towards_left">Dra mot venstre</string>
+    <string name="set_swipe_towards_right">Dra mot høyre</string>
     <string name="set_swipe_towards_leftright_no_action">No action</string>
 
     <!-- Error messages related to operation settings -->
