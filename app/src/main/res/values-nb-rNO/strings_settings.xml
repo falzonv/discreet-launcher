@@ -111,7 +111,7 @@
 
     <!-- Notification -->
     <string name="set_notification">Merknad for tilgang til favoritter</string>
-    <string name="set_notification_help">Bruker av gjennomsiktig ikon</string>
+    <string name="set_notification_help">Bruker et gjennomsiktig ikon</string>
     <string name="notification_text">Favoritter</string>
     <string name="notification_popup_title">Håndter favoritter</string>
 
@@ -125,12 +125,12 @@
     <!-- Other operation settings -->
     <string name="set_force_portrait">Påtvunget stående sideretning</string>
     <string name="set_force_portrait_help">Oppstarteren vil ikke rotere selv når auto-rotering er påslått</string>
-    <string name="set_always_show_favorites">Always show favorites</string>
+    <string name="set_always_show_favorites">Alltid vis favoritter</string>
     <string name="set_immersive_mode">Oppslukende modus</string>
     <string name="set_immersive_mode_help">Skjul systembjelker (lang-trykk på hjemmeskjermen for å påtvinge)</string>
     <string name="set_reverse_interface">Omvendt grensesnitt</string>
     <string name="set_reverse_interface_help">Programmer ovenfor, og favorittpanel på bunnen</string>
-    <string name="set_hide_menu_button">Ingen menyknappen</string>
+    <string name="set_hide_menu_button">Ingen menyknapp</string>
     <string name="set_hide_menu_button_help">Fremdeles tilgjengelig i oppstarterikonet</string>
     <string name="set_disable_app_drawer">Ingen programkurv</string>
     <string name="set_swipe_towards_left">Dra mot venstre</string>
