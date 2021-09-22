@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Transparent backgroung theme -->
+    <style name="AppThemeTransparent" parent="AppTheme">
+
+        <!-- Hide the title bar -->
+        <item name="windowNoTitle">true</item>
+
+        <!-- Display the user wallpaper -->
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+
+        <!-- Improve the status and navigation bars display -->
+        <item name="android:statusBarColor">@color/for_overlay</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="o_mr1">never</item>
+
+    </style>
+
+</resources>
