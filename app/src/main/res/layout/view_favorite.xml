@@ -12,5 +12,5 @@
     android:gravity="center_vertical"
     android:background="@color/for_overlay"
     android:textColor="@color/for_text_on_overlay"
-    android:text="@string/placeholder"
+    tools:text="@string/app_name"
     tools:ignore="Overdraw"/>

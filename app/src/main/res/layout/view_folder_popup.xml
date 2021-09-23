@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical">
@@ -21,7 +22,7 @@
             android:textStyle="italic"
             android:textColor="@color/for_text_on_overlay"
             android:visibility="visible"
-            android:text="@string/placeholder"/>
+            tools:text="@string/hint_new_folder"/>
 
         <EditText
             android:id="@+id/search_bar"
@@ -53,6 +54,9 @@
         android:layout_width="match_parent"
         android:minHeight="180dp"
         android:padding="1dp"
-        android:background="@drawable/shape_popup"/>
+        android:background="@drawable/shape_popup"
+        tools:layoutManager="GridLayoutManager"
+        tools:spanCount="4"
+        tools:listitem="@layout/view_application"/>
 
 </LinearLayout>

@@ -98,8 +98,4 @@
         <item name="android:shadowRadius">@dimen/shadow_radius</item>
     </style>
 
-
-    <!-- Placeholder for easier XML design in Android Studio -->
-    <string name="placeholder" translatable="false">(placeholder)</string>
-
 </resources>

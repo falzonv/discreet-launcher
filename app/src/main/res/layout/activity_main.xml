@@ -42,7 +42,10 @@
                 android:id="@+id/favorites_applications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/for_overlay"/>
+                android:background="@color/for_overlay"
+                tools:layoutManager="GridLayoutManager"
+                tools:spanCount="4"
+                tools:listitem="@layout/view_application"/>
 
             <TextView
                 android:id="@+id/access_menu_button"
