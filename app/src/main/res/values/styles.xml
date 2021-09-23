@@ -9,6 +9,9 @@
         <item name="colorPrimaryDark">@color/for_system_bars</item>
         <item name="colorAccent">@color/for_buttons_and_controls</item>
 
+        <!-- Support notch -->
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="o_mr1">shortEdges</item>
+
     </style>
 
 
@@ -26,7 +29,6 @@
         <item name="android:statusBarColor">@color/for_overlay</item>
         <item name="android:navigationBarColor">@color/transparent</item>
         <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
-        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="o_mr1">shortEdges</item>
 
     </style>
 
