@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,7 +15,7 @@
         android:visibility="gone"
         android:background="@color/for_overlay"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/home_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,29 +26,35 @@
             android:id="@+id/target_applications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
             android:text="@string/target_open_applications"
             android:visibility="gone"
+            tools:visibility="visible"
             style="@style/TouchTarget"/>
 
         <com.vincent_falzon.discreetlauncher.ViewClock
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="match_parent"
+            android:layout_below="@id/target_applications"/>
 
         <TextView
             android:id="@+id/target_favorites"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/favorites"
+            android:layout_alignWithParentIfMissing="true"
             android:text="@string/target_open_favorites"
             android:visibility="gone"
+            tools:visibility="visible"
             style="@style/TouchTarget"/>
 
         <LinearLayout
             android:id="@+id/favorites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:orientation="vertical">
 
             <TextView
@@ -77,6 +84,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
