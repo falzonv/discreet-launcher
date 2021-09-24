@@ -96,9 +96,13 @@ public class ViewClock extends View
 		clock_tick_length = resources.getDimension(R.dimen.spacing_small) + clock_stroke_width_tick ;
 
 		// Prepare the TextPaint used to draw the time and date
+		int text_shadow_color = resources.getColor(R.color.for_shadow) ;
+		float text_shadow_radius = resources.getDimension(R.dimen.spacing_normal) ;
 		textClock = new TextPaint() ;
 		textClock.setAntiAlias(true) ;
 		textClock.setTypeface(Typeface.SANS_SERIF) ;
+		textClock.setShadowLayer(text_shadow_radius, 0, 0, text_shadow_color) ;
+
 
 		// Prepare the Paint used to draw the analog clock, its ticks and its hands
 		analogClock = new Paint() ;
