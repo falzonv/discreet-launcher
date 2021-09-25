@@ -1,4 +1,4 @@
-Lanceur Discret vous offre un écran d'accueil sans distractions, vous permettant de profiter pleinement de votre fond d'écran (seules les barres de statut et de navigation ont été conservées pour plus de commodité).
+Lanceur Discret vous offre un écran d'accueil sans distractions, vous permettant de profiter pleinement de votre fond d'écran.
 
 Depuis cet écran d'accueil épuré, glissez simplement le doigt vers le bas pour afficher vos applications favorites, ou vers le haut pour voir la liste complète des applications.
 
@@ -11,6 +11,7 @@ Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile
 - Recherche
 - Renommer et masquer des applications
 - Notification d'accès aux favoris
+- Ouvrir appli par glissement horizontal
 - Support des raccourcis (applis web)
 - Export et import des paramètres
 - Aide et journal des changements
@@ -20,7 +21,7 @@ Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile
 - Mode portrait forcé
 - Barre de statut transparente
 - Pas de barres système (mode immersif)
-- Heure sur l'écran d'accueil
+- Horloge personnalisable
 - Cibles de clic (accessibilité)
 - Toujours afficher les favoris
 - Interface inversée
