@@ -1,0 +1,14 @@
+v5.1.0 (37) - 25/09/2021
+NEW THINGS
+   - Horizontal swipes open apps (@bob-u)
+   - Clock format: analog (@JeanSté)
+   - Clock format: date and time (@gbdomubpkm)
+   - Clock position (@n-ce)
+   - Clock color
+   - Indonesian translation by Dawud Irfan
+IMPROVEMENTS
+   - Avoid moving clock (@comradekingu)
+   - Rename easier to cancel (@xi7)
+CORRECTIONS
+   - Notch in landscape mode (@comradekingu)
+   - Color picker dialog in landscape (@xi7)

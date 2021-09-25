@@ -1,0 +1,14 @@
+v5.1.0 (37) - 25/09/2021
+NOUVEAUTÉS
+   - Horizontal swipes open apps (@bob-u)
+   - Horloge analogique (@JeanSté)
+   - Horloge avec date (@gbdomubpkm)
+   - Position de l'horloge (@n-ce)
+   - Couleur de l'horloge
+   - Traduction Indonésienne par Dawud Irfan
+AMÉLIORATIONS
+   - Horloge ne bouge plus (@comradekigu)
+   - Renommage plus facile à annuler (@xi7)
+CORRECTIONS
+   - Notch en mode paysage (@comradekingu)
+   - Sélecteur de couleur en paysage (@xi7)
