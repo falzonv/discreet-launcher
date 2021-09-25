@@ -12,8 +12,8 @@
     <string name="menu_settings_operation">Bruk</string>
     <string name="menu_export_import">Eksport og import</string>
     <string name="menu_help">Hjelp</string>
-    <string name="menu_changelog">Endringslogg</string>
     <string name="menu_about">Om</string>
+    <string name="menu_changelog">Endringslogg</string>
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Hva ønsker du å gjøre?</string>

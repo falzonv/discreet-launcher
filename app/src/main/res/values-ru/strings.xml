@@ -12,8 +12,8 @@
     <string name="menu_settings_operation">Операция</string>
     <string name="menu_export_import">Экспорт и импорт</string>
     <string name="menu_help">Помощь</string>
-    <string name="menu_changelog">Журнал изменений</string>
     <string name="menu_about">О программе</string>
+    <string name="menu_changelog">Журнал изменений</string>
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Что вы хотите сделать?</string>

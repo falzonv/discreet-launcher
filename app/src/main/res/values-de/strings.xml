@@ -12,8 +12,8 @@
     <string name="menu_settings_operation">Darstellung</string>
     <string name="menu_export_import">Export und Import</string>
     <string name="menu_help">Hilfe</string>
-    <string name="menu_changelog">Changelog</string>
     <string name="menu_about">Über</string>
+    <string name="menu_changelog">Changelog</string>
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Bitte wähle aus!</string>

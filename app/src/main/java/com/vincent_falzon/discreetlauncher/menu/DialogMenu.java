@@ -71,8 +71,8 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 		initializeMenuEntry(R.id.menu_settings_operation) ;
 		initializeMenuEntry(R.id.menu_export_import) ;
 		initializeMenuEntry(R.id.menu_help) ;
-		initializeMenuEntry(R.id.menu_changelog) ;
 		initializeMenuEntry(R.id.menu_about) ;
+		initializeMenuEntry(R.id.menu_changelog) ;
 	}
 
 
@@ -149,13 +149,6 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 				dialog.show() ;
 				return ;
 			}
-			else if(selection == R.id.menu_changelog)
-			{
-				// Display the Changelog without dismissing the menu
-				DialogChangelog dialog = new DialogChangelog(context) ;
-				dialog.show() ;
-				return ;
-			}
 			else if(selection == R.id.menu_about)
 			{
 				// Display the About without dismissing the menu
@@ -164,6 +157,13 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 						dialog.setView(R.layout.dialog_about) ;
 					else dialog.setView(R.layout.dialog_about_with_credit) ;
 				dialog.setPositiveButton(R.string.button_close, null) ;
+				dialog.show() ;
+				return ;
+			}
+			else if(selection == R.id.menu_changelog)
+			{
+				// Display the Changelog without dismissing the menu
+				DialogChangelog dialog = new DialogChangelog(context) ;
 				dialog.show() ;
 				return ;
 			}

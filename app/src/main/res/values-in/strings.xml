@@ -12,8 +12,8 @@
     <string name="menu_settings_operation">Operasi</string>
     <string name="menu_export_import">Ekspor dan impor</string>
     <string name="menu_help">Bantuan</string>
-    <string name="menu_changelog">Jejak Perubahan</string>
     <string name="menu_about">Tentang</string>
+    <string name="menu_changelog">Jejak Perubahan</string>
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Mau ngapain?</string>

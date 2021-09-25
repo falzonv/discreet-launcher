@@ -63,15 +63,15 @@
             style="@style/MainMenu_Entry"/>
 
         <TextView
-            android:id="@+id/menu_changelog"
-            android:text="@string/menu_changelog"
-            app:drawableStartCompat="@drawable/ic_menu_agenda"
-            style="@style/MainMenu_Entry"/>
-
-        <TextView
             android:id="@+id/menu_about"
             android:text="@string/menu_about"
             app:drawableStartCompat="@drawable/ic_menu_info_details"
+            style="@style/MainMenu_Entry"/>
+
+        <TextView
+            android:id="@+id/menu_changelog"
+            android:text="@string/menu_changelog"
+            app:drawableStartCompat="@drawable/ic_menu_agenda"
             style="@style/MainMenu_Entry"/>
 
     </LinearLayout>
