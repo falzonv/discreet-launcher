@@ -180,7 +180,7 @@ public class ViewClock extends View
 			else if(clock_format.equals("datetime"))
 			{
 				// Prepare the date and time texts
-				String date_text = SimpleDateFormat.getDateInstance(DateFormat.LONG).format(current_time.getTime()) ;
+				String date_text = SimpleDateFormat.getDateInstance(DateFormat.FULL).format(current_time.getTime()) ;
 				String time_text = SimpleDateFormat.getTimeInstance(DateFormat.SHORT).format(current_time.getTime()) ;
 
 				// Compute the date and time dimensions
@@ -188,7 +188,8 @@ public class ViewClock extends View
 				textClock.getTextBounds(time_text, 0, time_text.length(), rect) ;
 				float time_text_height = rect.height() ;
 				float time_text_center = center_x - rect.width() / 2f ;
-				textClock.setTextSize(time_text_size * 0.5f) ;
+				textClock.setFakeBoldText(true) ;
+				textClock.setTextSize(time_text_size * 0.35f) ;
 				textClock.getTextBounds(date_text, 0, date_text.length(), rect) ;
 				float date_text_height = rect.height() ;
 				float date_text_center = center_x - rect.width() / 2f ;
@@ -199,11 +200,13 @@ public class ViewClock extends View
 					else offset_y = vertical_padding + time_text_height ;
 
 				// Draw the time text
+				textClock.setFakeBoldText(false) ;
 				textClock.setTextSize(time_text_size) ;
 				canvas.drawText(time_text, time_text_center, offset_y, textClock) ;
 
 				// Draw the date text
-				textClock.setTextSize(time_text_size * 0.5f) ;
+				textClock.setFakeBoldText(true) ;
+				textClock.setTextSize(time_text_size * 0.35f) ;
 				canvas.drawText(date_text, date_text_center, offset_y + 0.5f * vertical_padding + date_text_height, textClock) ;
 			}
 			else
