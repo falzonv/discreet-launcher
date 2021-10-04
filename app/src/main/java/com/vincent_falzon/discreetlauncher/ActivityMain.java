@@ -623,18 +623,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// Check if this is an horizontal gesture over a distance and not a single tap
 			if((Math.abs(x_distance) > Math.abs(y_distance)) && (Math.abs(x_distance) > swipe_trigger_distance))
 				{
-					// Check if the swipe is going towards left or right and retrieve the related setting
-					String component_info ;
-					if(x_distance > 0) component_info = settings.getString(Constants.SWIPE_LEFTWARDS, Constants.NONE) ;
-						else component_info = settings.getString(Constants.SWIPE_RIGHTWARDS, Constants.NONE) ;
+					// Check if the swipe is going towards left or right
+					String swipe_direction ;
+					if(x_distance > 0) swipe_direction = Constants.SWIPE_LEFTWARDS ;
+						else swipe_direction = Constants.SWIPE_RIGHTWARDS ;
 
-					// Do not continue if the setting is not set
-					if((component_info == null) || component_info.equals(Constants.NONE))
-						return false ;
-
-					// Try to start the application and consider the event as consumed
-					searchAndStartApplication(component_info) ;
-					return true ;
+					// Try to start the related application
+					return searchAndStartApplication(swipe_direction) ;
 				}
 
 			// Ignore other gestures
@@ -644,21 +639,35 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * Start an app from the list using its ComponentInfo, or show an error message.
+		 * @param swipe_direction String preference indicating a left or right swipe.
+		 * @return <code>true</code> if the event was consumed, <code>false</code> otherwise.
 		 */
-		private void searchAndStartApplication(String component_info)
+		private boolean searchAndStartApplication(String swipe_direction)
 		{
+			// Retrieve the app to launch based on the direction
+			String component_info = settings.getString(swipe_direction, Constants.NONE) ;
+
+			// Do not continue if the setting is not set
+			if((component_info == null) || component_info.equals(Constants.NONE))
+				return false ;
+
 			// Search the application in the list
 			for(Application application : applicationsList.getApplications(false))
 				if(application.getComponentInfo().equals(component_info))
 					{
 						// Start the application
 						application.start(homeScreen) ;
-						return ;
+						return true ;
 					}
 
-			// The application was not found, display an error message
+			// The application was not found, display an error message and reset the swipe to none
 			Context context = homeScreen.getContext() ;
 			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, component_info)) ;
+			setIgnoreSettingsChanges(true) ;
+			SharedPreferences.Editor editor = settings.edit() ;
+			editor.putString(swipe_direction, Constants.NONE).apply() ;
+			setIgnoreSettingsChanges(false) ;
+			return true ;
 		}
 
 
