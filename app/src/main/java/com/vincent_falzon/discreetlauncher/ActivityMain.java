@@ -687,12 +687,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		switch(key)
 		{
 			// ========= Appearance settings ==========
-			case Constants.BACKGROUND_COLOR :
-			case Constants.HIDE_MENU_BUTTON :
-				// Force update of favorites panel color if it is always shown
-				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
-					displayFavorites(true) ;
-				break ;
 			case Constants.APPLICATION_THEME :
 				// Update the theme
 				setApplicationTheme() ;
@@ -718,15 +712,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
 					else setContentView(R.layout.activity_main) ;
 				recreate() ;
-				break ;
-			case Constants.ALWAYS_SHOW_FAVORITES :
-				// Cover cases where this setting is enabled while favorites were closed
-				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
-			case Constants.TOUCH_TARGETS :
-			case Constants.DISABLE_APP_DRAWER :
-				// Make safe-check and display or not the touch targets
-				keepMenuAccessible() ;
-				toggleTouchTargets() ;
 				break ;
 		}
 	}
@@ -849,6 +834,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		togglePortraitMode() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
+		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
 
 		// Update the favorites panel and applications drawer display if needed
 		if(adapters_update_needed) updateAdapters() ;
