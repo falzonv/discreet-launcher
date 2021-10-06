@@ -1,0 +1,6 @@
+v5.1.1 (38) - 06/10/2021
+AMÉLIORATIONS
+   - Jour pour date de l'horloge (@gbdomubpkm)
+   - Réinitialiser glissement si appli masquée
+CORRECTIONS
+   - Message "pas encore de favoris" (@xi7)

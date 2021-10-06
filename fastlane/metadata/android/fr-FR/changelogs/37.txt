@@ -1,6 +1,6 @@
 v5.1.0 (37) - 25/09/2021
 NOUVEAUTÉS
-   - Horizontal swipes open apps (@bob-u)
+   - Ouvrir par glissement horizontal (@bob-u)
    - Horloge analogique (@JeanSté)
    - Horloge avec date (@gbdomubpkm)
    - Position de l'horloge (@n-ce)

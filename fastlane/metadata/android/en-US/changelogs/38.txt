@@ -1,0 +1,6 @@
+v5.1.1 (38) - 06/10/2021
+IMPROVEMENTS
+   - Day of week in date clock (@gbdomubpkm)
+   - Reset swipe if app hidden/removed
+CORRECTIONS
+   - "No favorites yet" message (@xi7)
