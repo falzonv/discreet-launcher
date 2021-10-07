@@ -1,0 +1,31 @@
+Diskret oppstarter gir deg en distraksjonsfri hjemmeskjerm, og du kan oppleve hele bakgrunnsbildet ditt.
+
+Fra den rene hjemmeksjermen kan du dra fingeren nedover for å vise favorittprogrammer, eller oppover for å se en fullstendig programliste.
+
+Hvis du holder fingeren din på et program i noen sekunder, blir du tilbudt tilgang til dens systemstillinger, og tilhørende side i programbutikken.
+
+Fri programvare, og ingen unødvendige tilganger. Fungerer fullstendig frakoblet og har ingen reklame.
+
+1/ Andre funksjoner
+- Mapper
+- Søk
+- Endre navn på programmer og skjul dem
+- Merknad for tilgang til dine favoritter
+- Åpne programmet med vannrett dragning
+- Snarveisstøtte (nettprogrammer)
+- Eksporter og importer innstillinger
+- Hjelp og endringslogg
+
+2/ Tilpasningsvalg
+- Drakt og bakgrunnsstøtte
+- Påtvunget stående modus
+- Gjennomsiktig statusfelt
+- Ingen systembjelker (oppslukende modus)
+- Tilpassbar klokke
+- Trykkbare mål (tilgjengelighet)
+- Kontinuerlig visning av favoritter
+- Omvendt grensesnitt
+- Ingen menyknapp
+- Ingen programskuff
+- Ingen programnavn
+- Støtte for ikonpakker
