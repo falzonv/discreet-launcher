@@ -257,6 +257,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(!(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false) ||
 				settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))) return ;
 
+		// Check if the menu button is visible
+		if(!settings.getBoolean(Constants.HIDE_MENU_BUTTON, false)) return ;
+
 		// Browse all favorites
 		String launcher = "{com.vincent_falzon.discreetlauncher/com.vincent_falzon.discreetlauncher.ActivityMain}" ;
 		for(Application application : applicationsList.getFavorites())
@@ -272,40 +275,37 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				}
 		}
 
-		// Check if the menu button is visible
-		if(!settings.getBoolean(Constants.HIDE_MENU_BUTTON, false))
-			{
-				// Retrieve the total height available in portrait mode (navigation bar automatically removed)
-				int menu_button_height = Math.round(32 * density) ;
-				int total_size = Math.max(getResources().getDisplayMetrics().heightPixels, getResources().getDisplayMetrics().widthPixels)
-						- Math.round(25 * density)	// Remove 25dp for the status bar
-						- Math.round(20 * density)  // Remove 20dp for button margins and spare
-						- menu_button_height ;
-
-				// Define the size of an app (icon + margins + text estimation) and the maximum number of favorites
-				int app_size = Math.round(48 * density) ;
-				if(!settings.getBoolean(Constants.REMOVE_PADDING, false)) app_size += Math.round(20 * density) ;
-				if(!settings.getBoolean(Constants.HIDE_APP_NAMES, false)) app_size += menu_button_height ;
-				int max_favorites = 4 * (total_size / app_size) ;
-
-				// Check if the number of favorites still allows to see the menu button
-				if(applicationsList.getFavorites().size() <= max_favorites) return ;
-
-				// If favorites cannot be always shown safely, display a message and disable the setting
-				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
-					{
-						ShowDialog.toastLong(this, getString(R.string.error_always_show_favorites_not_safe)) ;
-						SharedPreferences.Editor editor = settings.edit() ;
-						editor.putBoolean(Constants.ALWAYS_SHOW_FAVORITES, false).apply() ;
-					}
-			}
-
 		// If the drawer cannot be safely disabled, display a message and disable the setting
 		if(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false))
 			{
 				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
 				editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
+				return ;
+			}
+
+		// Retrieve the total height available in portrait mode (navigation bar automatically removed)
+		int menu_button_height = Math.round(32 * density) ;
+		int total_size = Math.max(getResources().getDisplayMetrics().heightPixels, getResources().getDisplayMetrics().widthPixels)
+				- Math.round(25 * density)	// Remove 25dp for the status bar
+				- Math.round(20 * density)  // Remove 20dp for button margins and spare
+				- menu_button_height ;
+
+		// Define the size of an app (icon + margins + text estimation) and the maximum number of favorites
+		int app_size = Math.round(48 * density) ;
+		if(!settings.getBoolean(Constants.REMOVE_PADDING, false)) app_size += Math.round(20 * density) ;
+		if(!settings.getBoolean(Constants.HIDE_APP_NAMES, false)) app_size += menu_button_height ;
+		int max_favorites = 4 * (total_size / app_size) ;
+
+		// Check if the number of favorites still allows to see the menu button
+		if(applicationsList.getFavorites().size() <= max_favorites) return ;
+
+		// If favorites cannot be always shown safely, display a message and disable the setting
+		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+			{
+				ShowDialog.toastLong(this, getString(R.string.error_always_show_favorites_not_safe)) ;
+				SharedPreferences.Editor editor = settings.edit() ;
+				editor.putBoolean(Constants.ALWAYS_SHOW_FAVORITES, false).apply() ;
 			}
 	}
 
