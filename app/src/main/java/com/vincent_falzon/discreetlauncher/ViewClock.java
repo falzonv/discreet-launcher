@@ -23,7 +23,10 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.content.BroadcastReceiver ;
 import android.content.Context ;
+import android.content.Intent ;
+import android.content.IntentFilter ;
 import android.content.SharedPreferences ;
 import android.content.res.Resources ;
 import android.graphics.Canvas ;
@@ -81,7 +84,7 @@ public class ViewClock extends View
 	public ViewClock(Context context, AttributeSet attrs, int defStyleAttr)
 	{
 		// Let the parent actions be performed
-        super(context, attrs, defStyleAttr) ;
+		super(context, attrs, defStyleAttr) ;
 
 		// Retrieve the settings
 		settings = PreferenceManager.getDefaultSharedPreferences(getContext()) ;
@@ -103,10 +106,13 @@ public class ViewClock extends View
 		textClock.setTypeface(Typeface.SANS_SERIF) ;
 		textClock.setShadowLayer(text_shadow_radius, 0, 0, text_shadow_color) ;
 
-
 		// Prepare the Paint used to draw the analog clock, its ticks and its hands
 		analogClock = new Paint() ;
 		analogClock.setAntiAlias(true) ;
+
+		// Start to listen for clock changes
+		MinuteListener minuteListener = new MinuteListener() ;
+		context.registerReceiver(minuteListener, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
 
 		// Other initializations
 		rect = new Rect() ;
@@ -117,7 +123,7 @@ public class ViewClock extends View
 	 * Called when the view must be (re)drawn.
 	 */
 	@Override
-    protected void onDraw(Canvas canvas)
+	protected void onDraw(Canvas canvas)
 	{
 		// Let the parent actions be performed
 		super.onDraw(canvas) ;
@@ -227,5 +233,22 @@ public class ViewClock extends View
 					else offset_y = vertical_padding + rect.height() ;
 				canvas.drawText(time_text, center_x - rect.width() / 2f, offset_y, textClock) ;
 			}
-    }
+	}
+
+
+	/**
+	 * Listen for every minute on the system clock.
+	 */
+	private class MinuteListener extends BroadcastReceiver
+	{
+		@Override
+		public void onReceive(Context context, Intent intent)
+		{
+			// Do not continue if the intent has no valid action
+			if(intent.getAction() == null) return ;
+
+			// Check if a minute change just happened
+			if(intent.getAction().equals(Intent.ACTION_TIME_TICK)) invalidate() ;
+		}
+	}
 }
