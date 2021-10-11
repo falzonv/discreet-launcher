@@ -12,72 +12,87 @@
         android:id="@+id/home_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:visibility="visible">
 
         <com.vincent_falzon.discreetlauncher.ViewClock
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/target_applications"/>
+            android:layout_alignParentTop="true"/>
 
         <LinearLayout
-            android:id="@+id/favorites"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/info_no_favorites_yet"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/spacing_large"
-                android:gravity="center"
-                android:text="@string/hint_no_favorites_yet"
-                android:textColor="@color/for_text_on_overlay"
-                android:background="@color/for_overlay"
-                android:visibility="gone"/>
+                android:layout_height="wrap_content">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/favorites_applications"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/info_no_favorites_yet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing_large"
+                        android:gravity="center"
+                        android:text="@string/hint_no_favorites_yet"
+                        android:textColor="@color/for_text_on_overlay"
+                        android:background="@color/for_overlay"
+                        android:visibility="gone"
+                        tools:visibility="visible"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/favorites"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/for_overlay"
+                        tools:layoutManager="GridLayoutManager"
+                        tools:spanCount="4"
+                        tools:listitem="@layout/view_application"/>
+
+                    <TextView
+                        android:id="@+id/access_menu_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingHorizontal="@dimen/spacing_large"
+                        app:drawableStartCompat="@drawable/ic_menu_preferences"/>
+
+                    <TextView
+                        android:id="@+id/target_favorites"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/target_open_favorites"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        style="@style/TouchTarget"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/for_overlay"
-                tools:layoutManager="GridLayoutManager"
-                tools:spanCount="4"
-                tools:listitem="@layout/view_application"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
 
             <TextView
-                android:id="@+id/access_menu_button"
+                android:id="@+id/target_applications"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingHorizontal="@dimen/spacing_large"
-                app:drawableStartCompat="@drawable/ic_menu_preferences"/>
+                android:layout_gravity="center_horizontal"
+                android:text="@string/target_open_applications"
+                android:visibility="gone"
+                tools:visibility="visible"
+                style="@style/TouchTarget"/>
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/target_favorites"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/favorites"
-            android:text="@string/target_open_favorites"
-            android:visibility="gone"
-            tools:visibility="visible"
-            style="@style/TouchTarget"/>
-
-        <TextView
-            android:id="@+id/target_applications"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:text="@string/target_open_applications"
-            android:visibility="gone"
-            tools:visibility="visible"
-            style="@style/TouchTarget"/>
 
     </RelativeLayout>
 

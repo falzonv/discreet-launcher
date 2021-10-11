@@ -41,7 +41,6 @@ import androidx.recyclerview.widget.RecyclerView ;
 import android.view.GestureDetector ;
 import android.view.MotionEvent ;
 import android.view.View ;
-import android.widget.LinearLayout ;
 import android.widget.RelativeLayout ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
@@ -75,9 +74,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	// Attributes related to the home screen
 	private RelativeLayout homeScreen ;
-	private LinearLayout favorites ;
+	private RecyclerView favorites ;
 	private RecyclerAdapter favoritesAdapter ;
 	private TextView menuButton ;
+	private TextView noFavoritesYet ;
 	private TextView targetFavorites ;
 	private TextView targetApplications ;
 	private boolean reverse_interface ;
@@ -126,6 +126,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		dialogMenu = new DialogMenu(this) ;
 		homeScreen = findViewById(R.id.home_screen) ;
 		favorites = findViewById(R.id.favorites) ;
+		noFavoritesYet = findViewById(R.id.info_no_favorites_yet) ;
 		drawer = findViewById(R.id.drawer) ;
 		menuButton = findViewById(R.id.access_menu_button) ;
 		targetFavorites = findViewById(R.id.target_favorites) ;
@@ -162,9 +163,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;
-		RecyclerView favoritesRecycler = findViewById(R.id.favorites_applications) ;
-		favoritesRecycler.setAdapter(favoritesAdapter) ;
-		favoritesRecycler.setLayoutManager(new FlexibleGridLayout(this, application_width)) ;
+		favorites.setAdapter(favoritesAdapter) ;
+		favorites.setLayoutManager(new FlexibleGridLayout(this, application_width)) ;
 
 		// Initialize the content of the full applications list
 		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer()) ;
@@ -322,8 +322,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(adapters_update_needed) updateAdapters() ;
 
 				// Display a message if the user does not have any favorites applications yet
-				if(applicationsList.getFavorites().size() == 0) findViewById(R.id.info_no_favorites_yet).setVisibility(View.VISIBLE) ;
-					else findViewById(R.id.info_no_favorites_yet).setVisibility(View.GONE) ;
+				if(applicationsList.getFavorites().size() == 0) noFavoritesYet.setVisibility(View.VISIBLE) ;
+					else noFavoritesYet.setVisibility(View.GONE) ;
 
 				// Retrieve the background color
 				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, getResources().getColor(R.color.for_overlay)) ;
@@ -351,7 +351,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 						menuButtonBackground.setTint(background_color) ;
 						menuButton.setBackground(DrawableCompat.unwrap(menuButtonBackground)) ;
 					}
-				findViewById(R.id.favorites_applications).setBackgroundColor(background_color) ;
+				findViewById(R.id.favorites).setBackgroundColor(background_color) ;
 
 				// If the option is selected, hide the menu button
 				if(settings.getBoolean(Constants.HIDE_MENU_BUTTON, false)) menuButton.setVisibility(View.GONE) ;
@@ -368,6 +368,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 				// Hide the favorites panel
 				favorites.setVisibility(View.GONE) ;
+				menuButton.setVisibility(View.GONE) ;
+				noFavoritesYet.setVisibility(View.GONE) ;
 				targetFavorites.setText(R.string.target_open_favorites) ;
 
 				// If the option is selected, make the status bar fully transparent
