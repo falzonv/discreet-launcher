@@ -35,7 +35,7 @@
             android:hint="@string/search_app_hint"
             android:textColor="@color/for_text_on_overlay"
             android:textColorHint="@color/for_search_app_hint"
-            android:imeOptions="flagNoExtractUi|actionDone"
+            android:imeOptions="flagNoExtractUi|actionSearch"
             android:visibility="gone"/>
 
         <ImageButton

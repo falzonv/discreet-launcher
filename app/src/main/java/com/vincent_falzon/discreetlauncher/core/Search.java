@@ -100,7 +100,7 @@ public class Search extends Application
 				public boolean onEditorAction(TextView view, int actionId, KeyEvent event)
 				{
 					// Perform an action when the user presses "Enter"
-					if(actionId == EditorInfo.IME_ACTION_DONE)
+					if(actionId == EditorInfo.IME_ACTION_SEARCH)
 						{
 							// If there is only one application remaining, start it
 							if(adapter.getItemCount() == 1)

@@ -42,6 +42,7 @@ import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
 import android.view.View ;
 import android.view.ViewGroup ;
+import android.view.inputmethod.EditorInfo ;
 import android.widget.EditText ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
@@ -400,6 +401,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			// Prepare a text field that will be used to rename the application
 			final EditText renameField = new EditText(context) ;
 			renameField.setText(application.getDisplayName()) ;
+			renameField.setSingleLine() ;
+			renameField.setImeOptions(EditorInfo.IME_ACTION_DONE) ;
 
 			// Retrieve the original name of the application
 			Intent intent = new Intent(Intent.ACTION_MAIN) ;

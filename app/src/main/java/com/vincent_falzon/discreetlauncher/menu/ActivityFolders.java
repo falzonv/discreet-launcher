@@ -31,6 +31,7 @@ import android.os.Bundle ;
 import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
+import android.view.inputmethod.EditorInfo ;
 import android.view.inputmethod.InputMethodManager ;
 import android.widget.EditText ;
 import android.widget.ImageButton ;
@@ -267,6 +268,8 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 						// Ask the user for the new name
 						final EditText newFolderName = new EditText(context) ;
 						newFolderName.setText(folder.getDisplayName()) ;
+						newFolderName.setSingleLine() ;
+						newFolderName.setImeOptions(EditorInfo.IME_ACTION_DONE) ;
 						dialog.setTitle(R.string.hint_rename_folder) ;
 						dialog.setView(newFolderName) ;
 						dialog.setPositiveButton(R.string.button_apply,
