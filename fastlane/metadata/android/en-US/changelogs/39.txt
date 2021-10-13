@@ -1,0 +1,6 @@
+v5.1.2 (39) - 13/10/2021
+IMPROVEMENTS
+   - Appropriate "Enter" key on text fields
+CORRECTIONS
+   - Menu button with many favorites (@xi7)
+   - Clock not updating (@xi7)

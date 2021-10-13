@@ -1,0 +1,6 @@
+v5.1.2 (39) - 13/10/2021
+AMÉLIORATIONS
+   - Touche "Entrée" des champs texte
+CORRECTIONS
+   - Bouton menu avec trop de favoris (@xi7)
+   - Horloge non mise à jour (@xi7)
