@@ -189,14 +189,25 @@ public class ViewClock extends View
 				String date_text = SimpleDateFormat.getDateInstance(DateFormat.FULL).format(current_time.getTime()) ;
 				String time_text = SimpleDateFormat.getTimeInstance(DateFormat.SHORT).format(current_time.getTime()) ;
 
-				// Compute the date and time dimensions
+				// Compute the time text dimensions
 				textClock.setTextSize(time_text_size) ;
 				textClock.getTextBounds(time_text, 0, time_text.length(), rect) ;
 				float time_text_height = rect.height() ;
 				float time_text_center = center_x - rect.width() / 2f ;
+
+				// Compute the date text dimensions, making it fit in the screen width
+				float date_text_size_factor = 0.4f ;
 				textClock.setFakeBoldText(true) ;
-				textClock.setTextSize(time_text_size * 0.35f) ;
+				textClock.setTextSize(time_text_size * date_text_size_factor) ;
 				textClock.getTextBounds(date_text, 0, date_text.length(), rect) ;
+				while((rect.width() > (getWidth() - 30)) && (date_text_size_factor > 0))
+				{
+					// Progressively lower the size of the date text size
+					date_text_size_factor -= 0.01 ;
+					textClock.setTextSize(time_text_size * date_text_size_factor) ;
+					textClock.getTextBounds(date_text, 0, date_text.length(), rect) ;
+					System.out.println(date_text_size_factor + " ==> " + rect.width() + " vs " + (getWidth() - 30)) ;
+				}
 				float date_text_height = rect.height() ;
 				float date_text_center = center_x - rect.width() / 2f ;
 
@@ -212,7 +223,7 @@ public class ViewClock extends View
 
 				// Draw the date text
 				textClock.setFakeBoldText(true) ;
-				textClock.setTextSize(time_text_size * 0.35f) ;
+				textClock.setTextSize(time_text_size * date_text_size_factor) ;
 				canvas.drawText(date_text, date_text_center, offset_y + 0.5f * vertical_padding + date_text_height, textClock) ;
 			}
 			else
