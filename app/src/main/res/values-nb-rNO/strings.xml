@@ -21,6 +21,8 @@
     <string name="long_click_settings">Vis til dens innstillinger</string>
     <string name="long_click_view_store">Vis butikksiden</string>
     <string name="long_click_rename">Gi nytt navn</string>
+    <string name="long_click_add_favorites">Add to favorites</string>
+    <string name="long_click_remove_favorites">Remove from favorites</string>
     <string name="long_click_hide_search">Skjul</string>
     <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
 
@@ -31,6 +33,7 @@
 
     <!-- Popup messages related to apps -->
     <string name="info_list_apps_refreshed">Programliste gjenoppfrisket</string>
+    <string name="info_favorites_refreshed">Favorites refreshed</string>
     <string name="error_app_not_found">Fant ikke «%1$s»</string>
 
     <!-- Search app -->

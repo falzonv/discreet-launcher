@@ -222,6 +222,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			final Application application = applicationsList.get(getBindingAdapterPosition()) ;
 			final Context context = view.getContext() ;
 
+			// Check if the application is in the favorites panel
+			final boolean is_favorite = new InternalFileTXT(Constants.FILE_FAVORITES).isLineExisting(application.getComponentInfo()) ;
+
 			// Prepare and display the selection dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
 			dialog.setTitle(context.getString(R.string.long_click_dialog_title)) ;
@@ -230,6 +233,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					CharSequence[] options = {
 							context.getString(R.string.long_click_open, application.getDisplayName()),
 							context.getString(R.string.long_click_remove_shortcut),
+							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
 						} ;
 					dialog.setItems(options,
 						new DialogInterface.OnClickListener()
@@ -250,6 +254,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										ActivityMain.updateList(context) ;
 										notifyDataSetChanged() ;
 										break ;
+									case 2 :
+										// Toggle the presence of the shortcut in the favorites panel
+										toggleFavorite(context, application, is_favorite) ;
+										break ;
 								}
 							}
 						}) ;
@@ -259,6 +267,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					CharSequence[] options = {
 							context.getString(R.string.long_click_open, application.getDisplayName()),
 							context.getString(R.string.long_click_settings),
+							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
 						} ;
 					dialog.setItems(options,
 						new DialogInterface.OnClickListener()
@@ -277,6 +286,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										// Open the folder organizer
 										context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
 										break ;
+									case 2 :
+										// Toggle the presence of the folder in the favorites panel
+										toggleFavorite(context, application, is_favorite) ;
+										break ;
 								}
 							}
 						}) ;
@@ -286,6 +299,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					CharSequence[] options = {
 							context.getString(R.string.long_click_open, application.getDisplayName()),
 							context.getString(R.string.long_click_hide_search),
+							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
 						} ;
 					dialog.setItems(options,
 						new DialogInterface.OnClickListener()
@@ -304,6 +318,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										// Open the Hidden apps dialog
 										DialogHiddenApps.showHiddenAppsDialog(context) ;
 										break ;
+									case 2 :
+										// Toggle the presence of the search in the favorites panel
+										toggleFavorite(context, application, is_favorite) ;
+										break ;
 								}
 							}
 						}) ;
@@ -315,6 +333,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(R.string.long_click_settings),
 							context.getString(R.string.long_click_view_store),
 							context.getString(R.string.long_click_rename),
+							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
 						} ;
 					dialog.setItems(options,
 						new DialogInterface.OnClickListener()
@@ -355,6 +374,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										// Display the dialog to rename the application
 										showRenameDialog(context, application) ;
 										break ;
+									case 4 :
+										// Toggle the presence of the application in the favorites panel
+										toggleFavorite(context, application, is_favorite) ;
+										break ;
 								}
 							}
 						}) ;
@@ -388,7 +411,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 		/**
 		 * Display a dialog allowing to rename the application.
-		 * @param context To display the dialog and update the list.
+		 * @param context To display the dialog and update the list
 		 * @param application Target application
 		 */
 		private void showRenameDialog(final Context context, final Application application)
@@ -438,6 +461,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			// Display the dialog
 			dialog.setView(renameField) ;
 			dialog.show() ;
+		}
+
+
+		/**
+		 * Toggle the presence of an application in the favorites panel.
+		 * @param context To display an information message
+		 * @param application Target application
+		 * @param is_favorite Current status to toggle
+		 */
+		private void toggleFavorite(Context context, Application application, boolean is_favorite)
+		{
+			// Retrieve the file and the application ComponentInfo
+			InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
+			String component_info = application.getComponentInfo() ;
+
+			// Toggle the presence of the application in the favorites panel
+			if(is_favorite) favorites.removeLine(component_info) ;
+				else favorites.writeLine(component_info) ;
+
+			// Update the favorites list
+			ActivityMain.updateFavorites(context) ;
+			notifyDataSetChanged() ;
 		}
 	}
 }

@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher.menu ;
  */
 
 // Imports
+import android.content.Context ;
 import android.content.DialogInterface ;
 import android.os.Bundle ;
 import android.view.LayoutInflater ;
@@ -138,7 +139,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 							if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
 
 						// Update the favorites applications list
-						ActivityMain.updateFavorites() ;
+						ActivityMain.updateFavorites(null) ;
 						adapter.notifyDataSetChanged() ;
 					}
 				}) ;
@@ -162,7 +163,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 			for(Application application : favorites) file.writeLine(application.getComponentInfo()) ;
 
 		// Update the favorites applications list
-		ActivityMain.updateFavorites() ;
+		ActivityMain.updateFavorites(this) ;
 	}
 
 

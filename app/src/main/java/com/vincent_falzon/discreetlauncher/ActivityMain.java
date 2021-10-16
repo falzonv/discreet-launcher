@@ -482,11 +482,14 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Update the favorites applications list
+	 * @param context To display an information message (provide <code>null</code> to hide it)
 	 */
-	public static void updateFavorites()
+	public static void updateFavorites(Context context)
 	{
 		applicationsList.updateFavorites() ;
 		adapters_update_needed = true ;
+		if(context != null)
+			ShowDialog.toast(context, R.string.info_favorites_refreshed) ;
 	}
 
 
