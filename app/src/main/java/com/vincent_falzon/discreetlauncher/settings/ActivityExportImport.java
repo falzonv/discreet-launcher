@@ -24,12 +24,16 @@ package com.vincent_falzon.discreetlauncher.settings ;
 
 // Imports
 import android.annotation.SuppressLint ;
-import android.app.Activity ;
+import android.content.Context;
 import android.content.Intent ;
 import android.content.SharedPreferences ;
 import android.net.Uri ;
 import android.os.Bundle ;
 import android.view.View ;
+import androidx.activity.result.ActivityResultCallback ;
+import androidx.activity.result.ActivityResultLauncher ;
+import androidx.activity.result.contract.ActivityResultContracts ;
+import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
@@ -49,6 +53,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	// Attributes
 	private SharedPreferences settings ;
 	private SharedPreferences.Editor editor ;
+	private ActivityResultLauncher<String> exportFilePicker ;
+	private ActivityResultLauncher<String> importFilePicker ;
 
 
 	/**
@@ -66,6 +72,28 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()) ;
 		findViewById(R.id.export_button).setOnClickListener(this) ;
 		findViewById(R.id.import_button).setOnClickListener(this) ;
+
+		// Prepare the file pickers callbacks
+		exportFilePicker = registerForActivityResult(new ContractCreateTextDocument(), new ActivityResultCallback<Uri>()
+			{
+				@Override
+				public void onActivityResult(Uri result)
+				{
+					// Unless the selection has been cancelled, create the export file
+					if(result != null)
+						writeToExportFile(result) ;
+				}
+			}) ;
+		importFilePicker = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>()
+			{
+				@Override
+				public void onActivityResult(Uri result)
+				{
+					// Unless the selection has been cancelled, read and load the import file
+					if(result != null)
+						readFromImportFile(result) ;
+				}
+			}) ;
 	}
 
 
@@ -84,48 +112,13 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				String timestamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date()) ;
 
 				// Display the file selector for the user to select where the export file should be saved
-				Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT) ;
-				intent.addCategory(Intent.CATEGORY_OPENABLE) ;
-				intent.setType("text/plain") ;
-				intent.putExtra(Intent.EXTRA_TITLE, timestamp + "_discreetlauncher.txt") ;
-				startActivityForResult(intent, 100) ;
+				exportFilePicker.launch(timestamp + "_discreetlauncher.txt") ;
 			}
 			else if (selection == R.id.import_button)
 			{
 				// Display the file selector for the user to select the import file
-				Intent intent = new Intent(Intent.ACTION_GET_CONTENT) ;
-				intent.addCategory(Intent.CATEGORY_OPENABLE) ;
-				intent.setType("text/plain") ;
-				startActivityForResult(intent, 110) ;
+				importFilePicker.launch("text/plain") ;
 			}
-	}
-
-
-	/**
-	 * Method called after an activity has been performed.
-	 * @param request Code provided when starting the finished activity
-	 * @param result Result code of the activity
-	 * @param data Data provided along with the result code
-	 */
-	@Override
-	protected void onActivityResult(int request, int result, Intent data)
-	{
-		// Let the parent actions be performed
-		super.onActivityResult(request, result, data) ;
-
-		// Check if the activity was successful and if the data are valid
-		if((result != Activity.RESULT_OK) || (data == null) || (data.getData() == null)) return ;
-
-		// Check the type of request and perform the related actions
-		switch(request)
-		{
-			case 100 :
-				writeToExportFile(data.getData()) ;
-				break ;
-			case 110 :
-				readFromImportFile(data.getData()) ;
-				break ;
-		}
 	}
 
 
@@ -364,5 +357,28 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	private void loadStringSetting(String setting, String line)
 	{
 		editor.putString(setting, line.replace(setting + ": ", "")) ;
+	}
+
+
+	/**
+	 * Create a custom ActivityResultContract to create a text/plain file.
+	 */
+	private static class ContractCreateTextDocument extends ActivityResultContracts.CreateDocument
+	{
+		/**
+		 * Create the Intent that will be used to start the file picker activity.
+		 * @param context Needed to create the Intent
+		 * @param input Suggested file name when opening the file picker
+		 * @return Intent that will be used to start the activity
+		 */
+		@NonNull
+		@Override
+		public Intent createIntent(@NonNull Context context, @NonNull String input)
+		{
+			// Retrieve the Intent from the parent and adjust its mime type
+			Intent intent = super.createIntent(context, input) ;
+			intent.setType("text/plain") ;
+			return intent ;
+		}
 	}
 }
