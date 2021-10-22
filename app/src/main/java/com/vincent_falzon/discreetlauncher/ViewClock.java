@@ -145,8 +145,8 @@ public class ViewClock extends View
 		int minute = current_time.get(Calendar.MINUTE) ;
 
 		// Retrieve the clock position
-		String clock_position = settings.getString(Constants.CLOCK_POSITION, Constants.CLOCK_POSITION_DEFAULT) ;
-		if(clock_position == null) clock_position = Constants.CLOCK_POSITION_DEFAULT ;
+		String clock_position = settings.getString(Constants.CLOCK_POSITION, "top") ;
+		if(clock_position == null) clock_position = "top" ;
 
 		// Draw the selected clock
 		float offset_y ;

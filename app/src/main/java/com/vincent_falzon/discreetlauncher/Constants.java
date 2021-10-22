@@ -55,7 +55,6 @@ public interface Constants
 	String CLOCK_FORMAT = "clock_format" ;
 	String CLOCK_COLOR = "clock_color" ;
 	String CLOCK_POSITION = "clock_position" ;
-	String CLOCK_POSITION_DEFAULT = "top" ;
 	String ICON_PACK = "icon_pack" ;
 	String HIDE_APP_NAMES = "hide_app_names" ;
 	String REMOVE_PADDING = "remove_padding" ;
@@ -68,10 +67,10 @@ public interface Constants
 	String SWIPE_LEFTWARDS = "swipe_leftwards" ;
 	String SWIPE_RIGHTWARDS = "swipe_rightwards" ;
 
-	// To remove later (setting migrated to internal file)
+	// --- Constants representing old settings keys for compatibility ---
+	// Removed in v3.1.0 (migrated to internal file hidden.txt)
 	String HIDDEN_APPLICATIONS = "hidden_applications" ;
 	String NOTIFICATION_SEPARATOR = "_discreet_" ;
-
-	// To remove later (setting merged with clock format)
+	// Removed in v4.0.0 (merged with CLOCK_FORMAT)
 	String DISPLAY_CLOCK = "display_clock" ;
 }
