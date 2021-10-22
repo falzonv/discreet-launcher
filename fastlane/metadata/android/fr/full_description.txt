@@ -18,7 +18,7 @@ Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile
 
 2/ Options de personnalisation
 - Thème et couleur de fond
-- Mode portrait forcé
+- Orientation forcée
 - Barre de statut transparente
 - Pas de barres système (mode immersif)
 - Horloge personnalisable

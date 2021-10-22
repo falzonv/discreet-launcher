@@ -115,6 +115,15 @@
     <string name="notification_text">Favoriten</string>
     <string name="notification_popup_title">Favoriten Einstellungen</string>
 
+    <!-- Forced_orientation -->
+    <string name="set_forced_orientation">Forced orientation</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>None</item>
+        <item>Portrait</item>
+        <item>Landscape</item>
+        <item>Reverse landscape</item>
+    </string-array>
+
     <!-- Touch targets (accessibility) -->
     <string name="set_touch_targets">Berührungsziele (Barrierefreiheit)</string>
     <string name="set_touch_targets_help">Label-Buttons auf dem Startbildschirm</string>
@@ -123,8 +132,6 @@
     <string name="target_open_applications">Apps\nöffnen</string>
 
     <!-- Other operation settings -->
-    <string name="set_force_portrait">Erzwungener Hochformat-Modus</string>
-    <string name="set_force_portrait_help">Selbst wenn die automatische Drehung im Launcher aktiviert ist</string>
     <string name="set_always_show_favorites">Favoritenleiste immer anzeigen</string>
     <string name="set_immersive_mode">Immersiver Modus</string>
     <string name="set_immersive_mode_help">Keine Systemleiste. (Kann durch langes Drücken auf den Startbildschirm erzwungen werden).</string>

@@ -115,6 +115,15 @@
     <string name="notification_text">Favorites</string>
     <string name="notification_popup_title">Manage favorites</string>
 
+    <!-- Forced_orientation -->
+    <string name="set_forced_orientation">Forced orientation</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>None</item>
+        <item>Portrait</item>
+        <item>Landscape</item>
+        <item>Reverse landscape</item>
+    </string-array>
+
     <!-- Touch targets (accessibility) -->
     <string name="set_touch_targets">Touch targets (accessibility)</string>
     <string name="set_touch_targets_help">Clickable labels on the home screen</string>
@@ -123,8 +132,6 @@
     <string name="target_open_applications">Open\napps</string>
 
     <!-- Other operation settings -->
-    <string name="set_force_portrait">Forced portrait-mode</string>
-    <string name="set_force_portrait_help">Prevents the launcher rotating even if auto-rotation is on</string>
     <string name="set_always_show_favorites">Always show favorites</string>
     <string name="set_immersive_mode">Immersive mode</string>
     <string name="set_immersive_mode_help">No system bars. (Can be forced by long-pressing the home screen.)</string>

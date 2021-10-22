@@ -161,7 +161,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
-		exportedData.add(exportBooleanSetting(Constants.FORCE_PORTRAIT, false)) ;
+		exportedData.add(exportStringSetting(Constants.FORCED_ORIENTATION)) ;
 		exportedData.add(exportBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.IMMERSIVE_MODE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
@@ -294,7 +294,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.REMOVE_PADDING)) loadBooleanSetting(Constants.REMOVE_PADDING, line) ;
-				else if(line.startsWith(Constants.FORCE_PORTRAIT)) loadBooleanSetting(Constants.FORCE_PORTRAIT, line) ;
+				else if(line.startsWith(Constants.FORCE_PORTRAIT)) migrateFromOldFormat(Constants.FORCE_PORTRAIT, line) ;
+				else if(line.startsWith(Constants.FORCED_ORIENTATION)) loadStringSetting(Constants.FORCED_ORIENTATION, line) ;
 				else if(line.startsWith(Constants.ALWAYS_SHOW_FAVORITES)) loadBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, line) ;
 				else if(line.startsWith(Constants.IMMERSIVE_MODE)) loadBooleanSetting(Constants.IMMERSIVE_MODE, line) ;
 				else if(line.startsWith(Constants.REVERSE_INTERFACE)) loadBooleanSetting(Constants.REVERSE_INTERFACE, line) ;
@@ -313,7 +314,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS))
 				{
 					String value = line.replace(Constants.HIDDEN_APPLICATIONS + ": ", "") ;
-					String[] app_details = value.split(Constants.NOTIFICATION_SEPARATOR) ;
+					String[] app_details = value.split(Constants.HIDDEN_APPS_SEPARATOR) ;
 					if(app_details.length < 2) continue ;
 					writeLineToInternalFile(hidden, Constants.FILE_HIDDEN + ": " + app_details[1]) ;
 				}
@@ -357,6 +358,23 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	private void loadStringSetting(String setting, String line)
 	{
 		editor.putString(setting, line.replace(setting + ": ", "")) ;
+	}
+
+
+	/**
+	 * Migrate a removed/modified setting from its older format to the current one.
+	 * @param setting Key of the setting to migrate
+	 * @param line Line containing the value
+	 */
+	private void migrateFromOldFormat(String setting, String line)
+	{
+		switch(setting)
+		{
+			case Constants.FORCE_PORTRAIT :
+				if(line.replace(setting + ": ", "").equals("true"))
+					loadStringSetting(Constants.FORCED_ORIENTATION, "portrait") ;
+				break ;
+		}
 	}
 
 

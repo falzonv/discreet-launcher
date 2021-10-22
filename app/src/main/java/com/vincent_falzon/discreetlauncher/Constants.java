@@ -47,22 +47,22 @@ public interface Constants
 
 	// Constants representing settings keys
 	String NONE = "none" ;
-	String NOTIFICATION = "notification" ;
 	String APPLICATION_THEME = "application_theme" ;
 	String BACKGROUND_COLOR = "background_color" ;
 	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
-	String HIDE_MENU_BUTTON = "hide_menu_button" ;
 	String CLOCK_FORMAT = "clock_format" ;
 	String CLOCK_COLOR = "clock_color" ;
 	String CLOCK_POSITION = "clock_position" ;
 	String ICON_PACK = "icon_pack" ;
 	String HIDE_APP_NAMES = "hide_app_names" ;
 	String REMOVE_PADDING = "remove_padding" ;
-	String FORCE_PORTRAIT = "force_portrait" ;
+	String NOTIFICATION = "notification" ;
+	String FORCED_ORIENTATION = "forced_orientation" ;
 	String ALWAYS_SHOW_FAVORITES = "always_show_favorites" ;
 	String IMMERSIVE_MODE = "immersive_mode" ;
 	String REVERSE_INTERFACE = "reverse_interface" ;
 	String TOUCH_TARGETS = "touch_targets" ;
+	String HIDE_MENU_BUTTON = "hide_menu_button" ;
 	String DISABLE_APP_DRAWER = "disable_app_drawer" ;
 	String SWIPE_LEFTWARDS = "swipe_leftwards" ;
 	String SWIPE_RIGHTWARDS = "swipe_rightwards" ;
@@ -70,7 +70,9 @@ public interface Constants
 	// --- Constants representing old settings keys for compatibility ---
 	// Removed in v3.1.0 (migrated to internal file hidden.txt)
 	String HIDDEN_APPLICATIONS = "hidden_applications" ;
-	String NOTIFICATION_SEPARATOR = "_discreet_" ;
+	String HIDDEN_APPS_SEPARATOR = "_discreet_" ;
 	// Removed in v4.0.0 (merged with CLOCK_FORMAT)
 	String DISPLAY_CLOCK = "display_clock" ;
+	// Removed in v5.2.0 (merged with FORCED_ORIENTATION)
+	String FORCE_PORTRAIT = "force_portrait" ;
 }

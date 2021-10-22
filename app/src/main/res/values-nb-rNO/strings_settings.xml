@@ -115,6 +115,15 @@
     <string name="notification_text">Favoritter</string>
     <string name="notification_popup_title">Håndter favoritter</string>
 
+    <!-- Forced_orientation -->
+    <string name="set_forced_orientation">Forced orientation</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>None</item>
+        <item>Portrait</item>
+        <item>Landscape</item>
+        <item>Reverse landscape</item>
+    </string-array>
+
     <!-- Touch targets (accessibility) -->
     <string name="set_touch_targets">Pekemål (tilgjengelighetsvalg)</string>
     <string name="set_touch_targets_help">Klikkbare etiketter på hjemmeskjermen</string>
@@ -123,8 +132,6 @@
     <string name="target_open_applications">Åpne\nprogrammer</string>
 
     <!-- Other operation settings -->
-    <string name="set_force_portrait">Påtvunget stående sideretning</string>
-    <string name="set_force_portrait_help">Oppstarteren vil ikke rotere selv når auto-rotering er påslått</string>
     <string name="set_always_show_favorites">Alltid vis favoritter</string>
     <string name="set_immersive_mode">Oppslukende modus</string>
     <string name="set_immersive_mode_help">Skjul systembjelker (lang-trykk på hjemmeskjermen for å påtvinge)</string>

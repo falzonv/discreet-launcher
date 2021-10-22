@@ -144,7 +144,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			}
 
 		// Update the display according to settings
-		togglePortraitMode() ;
+		maybeForceOrientation() ;
 		keepMenuAccessible() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
@@ -215,13 +215,40 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Force or not the portrait mode according to the settings.
+	 * Maybe apply a forced orientation according to the settings.
 	 */
-	private void togglePortraitMode()
+	private void maybeForceOrientation()
 	{
+		// Retrieve the current orientation setting
+		String forced_orientation = settings.getString(Constants.FORCED_ORIENTATION, Constants.NONE) ;
+		if(forced_orientation == null) forced_orientation = Constants.NONE ;
+
+		// Migrate from the old setting if needed (to remove later)
 		if(settings.getBoolean(Constants.FORCE_PORTRAIT, false))
+			{
+				forced_orientation = "portrait" ;
+				SharedPreferences.Editor editor = settings.edit() ;
+				editor.putBoolean(Constants.FORCE_PORTRAIT, false) ;
+				editor.putString(Constants.FORCED_ORIENTATION, forced_orientation) ;
+				editor.apply() ;
+			}
+
+		// Apply the requested orientation
+		switch(forced_orientation)
+		{
+			case "portrait" :
 				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) ;
-			else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) ;
+				break ;
+			case "landscape" :
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) ;
+				break ;
+			case "reverse_landscape" :
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE) ;
+				break ;
+			default :
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED) ;
+				break ;
+		}
 	}
 
 
@@ -845,7 +872,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Update the display according to settings
 		dialogMenu.hide() ;
-		togglePortraitMode() ;
+		maybeForceOrientation() ;
 		toggleTouchTargets() ;
 		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
 		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;

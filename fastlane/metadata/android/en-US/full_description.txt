@@ -18,7 +18,7 @@ Discreet Launcher is open source, doesn't require any unnecessary permission, wo
 
 2/ Customization options
 - Theme and background color
-- Forced portrait-mode
+- Forced orientation
 - Transparent status bar
 - No system bars (immersive mode)
 - Customizable clock

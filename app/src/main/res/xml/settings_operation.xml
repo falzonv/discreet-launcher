@@ -13,12 +13,20 @@
         app:title="@string/operation_settings_title_interface"
         app:iconSpaceReserved="false">
 
+        <!-- Integrated in "forced_orientation" (v5.2.0), to remove later -->
         <SwitchPreference
             app:key="force_portrait"
-            app:title="@string/set_force_portrait"
-            app:summary="@string/set_force_portrait_help"
+            app:defaultValue="false"
+            app:isPreferenceVisible="false"/>
+
+        <ListPreference
+            app:key="forced_orientation"
+            app:title="@string/set_forced_orientation"
             app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
+            app:entries="@array/set_forced_orientation_entries"
+            app:entryValues="@array/set_forced_orientation_values"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
 
         <SwitchPreference
             app:key="always_show_favorites"
