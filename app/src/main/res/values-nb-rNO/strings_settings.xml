@@ -92,6 +92,7 @@
     <string name="set_transparent_status_bar">Gjennomsiktig statusfelt</string>
     <string name="set_transparent_status_bar_help">Når favoritter lukkes</string>
     <string name="set_clock_color">Klokkefarge</string>
+    <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Bruk en installert ikonpakke</string>
     <string name="set_icon_pack_none">Ingen (bruk opprinnelige ikoner)</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
@@ -115,7 +116,7 @@
     <string name="notification_text">Favoritter</string>
     <string name="notification_popup_title">Håndter favoritter</string>
 
-    <!-- Forced_orientation -->
+    <!-- Forced orientation -->
     <string name="set_forced_orientation">Forced orientation</string>
     <string-array name="set_forced_orientation_entries">
         <item>None</item>

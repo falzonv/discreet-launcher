@@ -52,6 +52,7 @@ public interface Constants
 	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	String CLOCK_FORMAT = "clock_format" ;
 	String CLOCK_COLOR = "clock_color" ;
+	String CLOCK_SHADOW_COLOR = "clock_shadow_color" ;
 	String CLOCK_POSITION = "clock_position" ;
 	String ICON_PACK = "icon_pack" ;
 	String HIDE_APP_NAMES = "hide_app_names" ;

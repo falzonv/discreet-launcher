@@ -157,6 +157,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_FORMAT)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_COLOR)) ;
+		exportedData.add(exportStringSetting(Constants.CLOCK_SHADOW_COLOR)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_POSITION)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
@@ -290,6 +291,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 						else loadStringSetting(Constants.CLOCK_FORMAT, line)  ;
 				}
 				else if(line.startsWith(Constants.CLOCK_COLOR)) loadStringSetting(Constants.CLOCK_COLOR, line) ;
+				else if(line.startsWith(Constants.CLOCK_SHADOW_COLOR)) loadStringSetting(Constants.CLOCK_SHADOW_COLOR, line) ;
 				else if(line.startsWith(Constants.CLOCK_POSITION)) loadStringSetting(Constants.CLOCK_POSITION, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
@@ -372,7 +374,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		{
 			case Constants.FORCE_PORTRAIT :
 				if(line.replace(setting + ": ", "").equals("true"))
-					loadStringSetting(Constants.FORCED_ORIENTATION, "portrait") ;
+					editor.putString(Constants.FORCED_ORIENTATION, "portrait") ;
 				break ;
 		}
 	}

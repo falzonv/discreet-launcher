@@ -57,6 +57,7 @@ public class ViewClock extends View
 	private final float clock_tick_length ;
 	private final float clock_stroke_width_circle ;
 	private final float clock_stroke_width_tick ;
+	private final float clock_shadow_radius ;
 	private final Rect rect ;
 
 
@@ -97,14 +98,12 @@ public class ViewClock extends View
 		clock_stroke_width_circle = resources.getDimension(R.dimen.spacing_very_small) ;
 		clock_stroke_width_tick = resources.getDimension(R.dimen.spacing_small) * 0.8f ;
 		clock_tick_length = resources.getDimension(R.dimen.spacing_small) + clock_stroke_width_tick ;
+		clock_shadow_radius = resources.getDimension(R.dimen.spacing_normal) ;
 
 		// Prepare the TextPaint used to draw the time and date
-		int text_shadow_color = resources.getColor(R.color.for_shadow) ;
-		float text_shadow_radius = resources.getDimension(R.dimen.spacing_normal) ;
 		textClock = new TextPaint() ;
 		textClock.setAntiAlias(true) ;
 		textClock.setTypeface(Typeface.SANS_SERIF) ;
-		textClock.setShadowLayer(text_shadow_radius, 0, 0, text_shadow_color) ;
 
 		// Prepare the Paint used to draw the analog clock, its ticks and its hands
 		analogClock = new Paint() ;
@@ -135,7 +134,9 @@ public class ViewClock extends View
 		// Initializations
 		float center_x = getWidth() / 2f ;
 		int clock_color = ActivitySettingsAppearance.getColor(settings, Constants.CLOCK_COLOR, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
+		int shadow_color = ActivitySettingsAppearance.getColor(settings, Constants.CLOCK_SHADOW_COLOR, Constants.COLOR_FOR_OVERLAY) ;
 		textClock.setColor(clock_color) ;
+		textClock.setShadowLayer(clock_shadow_radius, 0, 0, shadow_color) ;
 		analogClock.setColor(clock_color) ;
 
 		// Retrieve the current date and time

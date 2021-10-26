@@ -92,6 +92,7 @@
     <string name="set_transparent_status_bar">Прозрачная строка состояния</string>
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
     <string name="set_clock_color">Цвет часов</string>
+    <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Использовать установленный пакет значков</string>
     <string name="set_icon_pack_none">Нет (использовать значки по умолчанию)</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
@@ -115,7 +116,7 @@
     <string name="notification_text">Избранные</string>
     <string name="notification_popup_title">Управление избранным</string>
 
-    <!-- Forced_orientation -->
+    <!-- Forced orientation -->
     <string name="set_forced_orientation">Forced orientation</string>
     <string-array name="set_forced_orientation_entries">
         <item>None</item>

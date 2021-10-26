@@ -92,6 +92,7 @@
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_help">When favorites are closed</string>
     <string name="set_clock_color">Clock color</string>
+    <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use default icons)</string>
     <string name="set_hide_app_names">No app names</string>
@@ -115,7 +116,7 @@
     <string name="notification_text">Favorites</string>
     <string name="notification_popup_title">Manage favorites</string>
 
-    <!-- Forced_orientation -->
+    <!-- Forced orientation -->
     <string name="set_forced_orientation">Forced orientation</string>
     <string-array name="set_forced_orientation_entries">
         <item>None</item>

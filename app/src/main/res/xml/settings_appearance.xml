@@ -50,6 +50,12 @@
             app:defaultValue="#FFFFFFFF"
             app:iconSpaceReserved="false"/>
 
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="clock_shadow_color"
+            app:title="@string/set_clock_shadow_color"
+            app:defaultValue="#66000000"
+            app:iconSpaceReserved="false"/>
+
         <ListPreference
             app:key="clock_position"
             app:title="@string/set_clock_position"

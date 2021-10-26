@@ -92,6 +92,7 @@
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
     <string name="set_clock_color">Couleur de l\'horloge</string>
+    <string name="set_clock_shadow_color">Couleur de l\'ombre du texte</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les icônes par défaut)</string>
     <string name="set_hide_app_names">Pas de noms d\'applications</string>
@@ -115,7 +116,7 @@
     <string name="notification_text">Favoris</string>
     <string name="notification_popup_title">Gérer les favoris</string>
 
-    <!-- Forced_orientation -->
+    <!-- Forced orientation -->
     <string name="set_forced_orientation">Orientation forcée</string>
     <string-array name="set_forced_orientation_entries">
         <item>Aucune</item>

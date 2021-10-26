@@ -92,6 +92,7 @@
     <string name="set_transparent_status_bar">Batang sistem transparan</string>
     <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
     <string name="set_clock_color">Warna Jam</string>
+    <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Gunakan paket ikon yang terpasang</string>
     <string name="set_icon_pack_none">Tidak ada (gunakan ikon default)</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
@@ -115,7 +116,7 @@
     <string name="notification_text">Favorit</string>
     <string name="notification_popup_title">Kelola favorit</string>
 
-    <!-- Forced_orientation -->
+    <!-- Forced orientation -->
     <string name="set_forced_orientation">Forced orientation</string>
     <string-array name="set_forced_orientation_entries">
         <item>None</item>
