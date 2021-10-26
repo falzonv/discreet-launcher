@@ -134,7 +134,7 @@ public class ViewClock extends View
 
 		// Initializations
 		float center_x = getWidth() / 2f ;
-		int clock_color = ActivitySettingsAppearance.getColor(settings, Constants.CLOCK_COLOR, getResources().getColor(R.color.for_text_on_overlay)) ;
+		int clock_color = ActivitySettingsAppearance.getColor(settings, Constants.CLOCK_COLOR, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
 		textClock.setColor(clock_color) ;
 		analogClock.setColor(clock_color) ;
 

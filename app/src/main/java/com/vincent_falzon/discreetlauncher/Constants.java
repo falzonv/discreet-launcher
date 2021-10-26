@@ -67,6 +67,10 @@ public interface Constants
 	String SWIPE_LEFTWARDS = "swipe_leftwards" ;
 	String SWIPE_RIGHTWARDS = "swipe_rightwards" ;
 
+	// Constants represetings fallback colors
+	String COLOR_FOR_OVERLAY = "#66000000" ;
+	String COLOR_FOR_TEXT_ON_OVERLAY = "#FFFFFFFF" ;
+
 	// --- Constants representing old settings keys for compatibility ---
 	// Removed in v3.1.0 (migrated to internal file hidden.txt)
 	String HIDDEN_APPLICATIONS = "hidden_applications" ;

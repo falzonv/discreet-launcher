@@ -126,10 +126,14 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 	 * @param fallback Color to display as fallback
 	 * @return Selected color, or the fallback if it was not found
 	 */
-	public static int getColor(SharedPreferences settings, String key, int fallback)
+	public static int getColor(SharedPreferences settings, String key, String fallback)
 	{
+		// Try to load the color at the given key, or use the provided fallback
 		String hexadecimal = settings.getString(key, Constants.NONE) ;
-		if((hexadecimal == null) || hexadecimal.equals(Constants.NONE)) return fallback ;
+		if((hexadecimal == null) || hexadecimal.equals(Constants.NONE))
+			hexadecimal = fallback ;
+
+		// Convert the hexadecimal color to an "int" color
 		return ColorPickerDialog.convertHexadecimalColorToInt(hexadecimal) ;
 	}
 }
