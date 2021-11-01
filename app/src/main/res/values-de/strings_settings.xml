@@ -87,10 +87,10 @@
     </string-array>
 
     <!-- Other appearance settings -->
-    <string name="set_background_color">Hintergrundfarbe</string>
-    <string name="set_background_color_help">Wird angewendet für Menütaste, Favoriten, App-Übersicht und Systemleiste</string>
     <string name="set_transparent_status_bar">Transparente Systemleiste</string>
     <string name="set_transparent_status_bar_help">Wenn Favoriten geschlossen sind</string>
+    <string name="set_background_color_favorites">Favorites background color</string>
+    <string name="set_background_color_drawer">App drawer background color</string>
     <string name="set_clock_color">Farbe der Uhr</string>
     <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Installierte Icon Packs verwenden</string>

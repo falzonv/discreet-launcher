@@ -48,8 +48,9 @@ public interface Constants
 	// Constants representing settings keys
 	String NONE = "none" ;
 	String APPLICATION_THEME = "application_theme" ;
-	String BACKGROUND_COLOR = "background_color" ;
 	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
+	String BACKGROUND_COLOR_FAVORITES = "background_color_favorites" ;
+	String BACKGROUND_COLOR_DRAWER = "background_color_drawer" ;
 	String CLOCK_FORMAT = "clock_format" ;
 	String CLOCK_COLOR = "clock_color" ;
 	String CLOCK_SHADOW_COLOR = "clock_shadow_color" ;
@@ -80,4 +81,6 @@ public interface Constants
 	String DISPLAY_CLOCK = "display_clock" ;
 	// Removed in v5.2.0 (merged with FORCED_ORIENTATION)
 	String FORCE_PORTRAIT = "force_portrait" ;
+	// Removed in v5.2.0 (splitted between favorites and app drawer)
+	String BACKGROUND_COLOR = "background_color" ;
 }

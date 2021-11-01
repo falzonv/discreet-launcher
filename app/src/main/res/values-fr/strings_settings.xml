@@ -87,10 +87,10 @@
     </string-array>
 
     <!-- Other appearance settings -->
-    <string name="set_background_color">Couleur de fond</string>
-    <string name="set_background_color_help">Utilisée pour le bouton de menu, les favoris, le tiroir d\'applications et les barres système</string>
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
+    <string name="set_background_color_favorites">Couleur de fond des favoris</string>
+    <string name="set_background_color_drawer">Couleur de fond du tiroir d\'applications</string>
     <string name="set_clock_color">Couleur de l\'horloge</string>
     <string name="set_clock_shadow_color">Couleur de l\'ombre du texte</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>

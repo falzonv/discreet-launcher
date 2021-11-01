@@ -87,10 +87,10 @@
     </string-array>
 
     <!-- Other appearance settings -->
-    <string name="set_background_color">Цвет фона</string>
-    <string name="set_background_color_help">Используется для кнопки меню, избранного, ящика приложений и системной панели</string>
     <string name="set_transparent_status_bar">Прозрачная строка состояния</string>
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
+    <string name="set_background_color_favorites">Favorites background color</string>
+    <string name="set_background_color_drawer">App drawer background color</string>
     <string name="set_clock_color">Цвет часов</string>
     <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Использовать установленный пакет значков</string>

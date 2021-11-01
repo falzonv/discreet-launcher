@@ -152,9 +152,9 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add("# " + getString(R.string.export_import_header_settings)) ;
 		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
-		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
-		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
+		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_FAVORITES)) ;
+		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_DRAWER)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_FORMAT)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_COLOR)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_SHADOW_COLOR)) ;
@@ -167,6 +167,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.IMMERSIVE_MODE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.TOUCH_TARGETS, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DISABLE_APP_DRAWER, false)) ;
 		exportedData.add(exportStringSetting(Constants.SWIPE_LEFTWARDS)) ;
 		exportedData.add(exportStringSetting(Constants.SWIPE_RIGHTWARDS)) ;
@@ -275,9 +276,9 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				// Load the settings
 				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
 				else if(line.startsWith(Constants.APPLICATION_THEME)) loadStringSetting(Constants.APPLICATION_THEME, line) ;
-				else if(line.startsWith(Constants.BACKGROUND_COLOR)) loadStringSetting(Constants.BACKGROUND_COLOR, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
-				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;
+				else if(line.startsWith(Constants.BACKGROUND_COLOR_FAVORITES)) loadStringSetting(Constants.BACKGROUND_COLOR_FAVORITES, line) ;
+				else if(line.startsWith(Constants.BACKGROUND_COLOR_DRAWER)) loadStringSetting(Constants.BACKGROUND_COLOR_DRAWER, line) ;
 				else if(line.startsWith(Constants.DISPLAY_CLOCK))
 				{
 					// Note the configuration of the old clock setting (to remove later)
@@ -296,12 +297,12 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.REMOVE_PADDING)) loadBooleanSetting(Constants.REMOVE_PADDING, line) ;
-				else if(line.startsWith(Constants.FORCE_PORTRAIT)) migrateFromOldFormat(Constants.FORCE_PORTRAIT, line) ;
 				else if(line.startsWith(Constants.FORCED_ORIENTATION)) loadStringSetting(Constants.FORCED_ORIENTATION, line) ;
 				else if(line.startsWith(Constants.ALWAYS_SHOW_FAVORITES)) loadBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, line) ;
 				else if(line.startsWith(Constants.IMMERSIVE_MODE)) loadBooleanSetting(Constants.IMMERSIVE_MODE, line) ;
 				else if(line.startsWith(Constants.REVERSE_INTERFACE)) loadBooleanSetting(Constants.REVERSE_INTERFACE, line) ;
 				else if(line.startsWith(Constants.TOUCH_TARGETS)) loadBooleanSetting(Constants.TOUCH_TARGETS, line) ;
+				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;
 				else if(line.startsWith(Constants.DISABLE_APP_DRAWER)) loadBooleanSetting(Constants.DISABLE_APP_DRAWER, line) ;
 				else if(line.startsWith(Constants.SWIPE_LEFTWARDS)) loadStringSetting(Constants.SWIPE_LEFTWARDS, line) ;
 				else if(line.startsWith(Constants.SWIPE_RIGHTWARDS)) loadStringSetting(Constants.SWIPE_RIGHTWARDS, line) ;
@@ -320,6 +321,9 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 					if(app_details.length < 2) continue ;
 					writeLineToInternalFile(hidden, Constants.FILE_HIDDEN + ": " + app_details[1]) ;
 				}
+				// Convert old settings for compatibility
+				else if(line.startsWith(Constants.FORCE_PORTRAIT)) migrateFromOldFormat(Constants.FORCE_PORTRAIT, line) ;
+				else if(line.startsWith(Constants.BACKGROUND_COLOR)) migrateFromOldFormat(Constants.BACKGROUND_COLOR, line) ;
 		}
 		editor.apply() ;
 
@@ -372,6 +376,11 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	{
 		switch(setting)
 		{
+			case Constants.BACKGROUND_COLOR :
+				String background_color = line.replace(setting + ": ", "") ;
+				editor.putString(Constants.BACKGROUND_COLOR_FAVORITES, background_color) ;
+				editor.putString(Constants.BACKGROUND_COLOR_DRAWER, background_color) ;
+				break ;
 			case Constants.FORCE_PORTRAIT :
 				if(line.replace(setting + ": ", "").equals("true"))
 					editor.putString(Constants.FORCED_ORIENTATION, "portrait") ;

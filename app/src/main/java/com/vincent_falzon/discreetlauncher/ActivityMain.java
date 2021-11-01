@@ -173,6 +173,18 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new DrawerScrollListener()) ;
 
+		// Check if the legacy background color setting is still used (to remove later)
+		String background_color = settings.getString(Constants.BACKGROUND_COLOR, Constants.NONE) ;
+		if((background_color != null) && !background_color.equals("#0000FF88"))
+			{
+				// Migrate the legacy setting to splitted background colors for favorites and drawer
+				SharedPreferences.Editor editor = settings.edit() ;
+				editor.putString(Constants.BACKGROUND_COLOR_FAVORITES, background_color) ;
+				editor.putString(Constants.BACKGROUND_COLOR_DRAWER, background_color) ;
+				editor.putString(Constants.BACKGROUND_COLOR, "#0000FF88") ;
+				editor.apply() ;
+			}
+
 		// Load the favorites panel if it should always be shown
 		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
 
@@ -353,7 +365,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else noFavoritesYet.setVisibility(View.GONE) ;
 
 				// Retrieve the background color
-				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, Constants.COLOR_FOR_OVERLAY) ;
+				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
 
 				// Check if the interface is reversed and adjust the display accordingly
 				Drawable tab_shape ;
@@ -378,7 +390,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 						menuButtonBackground.setTint(background_color) ;
 						menuButton.setBackground(DrawableCompat.unwrap(menuButtonBackground)) ;
 					}
-				findViewById(R.id.favorites).setBackgroundColor(background_color) ;
+				favorites.setBackgroundColor(background_color) ;
+				noFavoritesYet.setBackgroundColor(background_color) ;
 
 				// If the option is selected, hide the menu button
 				if(settings.getBoolean(Constants.HIDE_MENU_BUTTON, false)) menuButton.setVisibility(View.GONE) ;
@@ -402,7 +415,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
-					else getWindow().setStatusBarColor(ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, Constants.COLOR_FOR_OVERLAY)) ;
+					else getWindow().setStatusBarColor(ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY)) ;
 
 				// Make the navigation bar transparent
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
@@ -425,7 +438,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(adapters_update_needed) updateAdapters() ;
 
 				// Color the system bars and the drawer background
-				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR, Constants.COLOR_FOR_OVERLAY) ;
+				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
 				drawer.setBackgroundColor(background_color) ;
 				getWindow().setStatusBarColor(background_color) ;
 				getWindow().setNavigationBarColor(background_color) ;
@@ -444,13 +457,18 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				homeScreen.setVisibility(View.VISIBLE) ;
 				drawer.setVisibility(View.GONE) ;
 
+				// Retrieve the background color for favorites
+				int favorites_background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
+
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
-					getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
+						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
+					else getWindow().setStatusBarColor(favorites_background_color) ;
 
 				// Make the navigation bar transparent, unless in reverse interface with favorites always shown
-				if(!(reverse_interface && settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)))
-					getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
+				if(reverse_interface && settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
+						getWindow().setNavigationBarColor(favorites_background_color) ;
+					else getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
 			}
 	}
 

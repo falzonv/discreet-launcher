@@ -15,12 +15,11 @@
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
+        <!-- Splitted between favorites and drawer (v5.2.0), to remove later -->
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="background_color"
-            app:title="@string/set_background_color"
-            app:summary="@string/set_background_color_help"
             app:defaultValue="#66000000"
-            app:iconSpaceReserved="false"/>
+            app:isPreferenceVisible="false"/>
 
         <SwitchPreference
             app:key="transparent_status_bar"
@@ -28,6 +27,18 @@
             app:summary="@string/set_transparent_status_bar_help"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
+
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="background_color_favorites"
+            app:title="@string/set_background_color_favorites"
+            app:defaultValue="#66000000"
+            app:iconSpaceReserved="false"/>
+
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="background_color_drawer"
+            app:title="@string/set_background_color_drawer"
+            app:defaultValue="#66000000"
+            app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
 

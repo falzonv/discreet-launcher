@@ -87,10 +87,10 @@
     </string-array>
 
     <!-- Other appearance settings -->
-    <string name="set_background_color">Warna latar belakang</string>
-    <string name="set_background_color_help">Digunakan untuk tombol menu, favorit, Laci Aplikasi dan batang sistem</string>
     <string name="set_transparent_status_bar">Batang sistem transparan</string>
     <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
+    <string name="set_background_color_favorites">Favorites background color</string>
+    <string name="set_background_color_drawer">App drawer background color</string>
     <string name="set_clock_color">Warna Jam</string>
     <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Gunakan paket ikon yang terpasang</string>
