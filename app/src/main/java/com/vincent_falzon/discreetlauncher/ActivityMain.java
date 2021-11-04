@@ -163,11 +163,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;
+		favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		favorites.setAdapter(favoritesAdapter) ;
 		favorites.setLayoutManager(new FlexibleGridLayout(this, application_width)) ;
 
 		// Initialize the content of the full applications list
 		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer()) ;
+		drawerAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		drawer.setAdapter(drawerAdapter) ;
 		drawerLayout = new FlexibleGridLayout(this, application_width) ;
 		drawer.setLayoutManager(drawerLayout) ;
@@ -749,6 +751,14 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			case Constants.APPLICATION_THEME :
 				// Update the theme
 				setApplicationTheme() ;
+				break ;
+			case Constants.TEXT_COLOR_FAVORITES :
+				// Update the text color of the favorites panel
+				favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+				break ;
+			case Constants.TEXT_COLOR_DRAWER :
+				// Update the text color of the drawer
+				drawerAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 				break ;
 			case Constants.ICON_PACK :
 				// Update the applications list

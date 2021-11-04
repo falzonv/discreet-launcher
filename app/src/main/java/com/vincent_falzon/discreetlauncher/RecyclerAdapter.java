@@ -64,6 +64,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	public ArrayList<Application> applicationsList ;
 	private final SharedPreferences settings ;
 	private final int padding ;
+	private int text_color ;
 
 
 	/**
@@ -76,6 +77,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		this.applicationsList = applicationsList ;
 		settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 		padding = Math.round(context.getResources().getDimension(R.dimen.spacing_normal)) ;
+		text_color = context.getResources().getColor(R.color.for_text_on_overlay) ;
+	}
+
+
+	/**
+	 * Set a new text color and refresh the recycler content.
+	 * @param new_text_color The new text color
+	 */
+	public void setTextColor(int new_text_color)
+	{
+		text_color = new_text_color ;
+		notifyDataSetChanged() ;
 	}
 
 
@@ -104,6 +117,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	public void onBindViewHolder(@NonNull ApplicationView appView, int i)
 	{
 		// Display the application icon and text
+		appView.name.setTextColor(text_color) ;
 		appView.name.setText(applicationsList.get(i).getDisplayName()) ;
 		appView.name.setCompoundDrawables(null, applicationsList.get(i).getIcon(), null, null) ;
 

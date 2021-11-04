@@ -50,7 +50,9 @@ public interface Constants
 	String APPLICATION_THEME = "application_theme" ;
 	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	String BACKGROUND_COLOR_FAVORITES = "background_color_favorites" ;
+	String TEXT_COLOR_FAVORITES = "text_color_favorites" ;
 	String BACKGROUND_COLOR_DRAWER = "background_color_drawer" ;
+	String TEXT_COLOR_DRAWER = "text_color_drawer" ;
 	String CLOCK_FORMAT = "clock_format" ;
 	String CLOCK_COLOR = "clock_color" ;
 	String CLOCK_SHADOW_COLOR = "clock_shadow_color" ;

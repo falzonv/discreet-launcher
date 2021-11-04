@@ -154,7 +154,9 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_FAVORITES)) ;
+		exportedData.add(exportStringSetting(Constants.TEXT_COLOR_FAVORITES)) ;
 		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_DRAWER)) ;
+		exportedData.add(exportStringSetting(Constants.TEXT_COLOR_DRAWER)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_FORMAT)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_COLOR)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_SHADOW_COLOR)) ;
@@ -278,7 +280,9 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.APPLICATION_THEME)) loadStringSetting(Constants.APPLICATION_THEME, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.BACKGROUND_COLOR_FAVORITES)) loadStringSetting(Constants.BACKGROUND_COLOR_FAVORITES, line) ;
+				else if(line.startsWith(Constants.TEXT_COLOR_FAVORITES)) loadStringSetting(Constants.TEXT_COLOR_FAVORITES, line) ;
 				else if(line.startsWith(Constants.BACKGROUND_COLOR_DRAWER)) loadStringSetting(Constants.BACKGROUND_COLOR_DRAWER, line) ;
+				else if(line.startsWith(Constants.TEXT_COLOR_DRAWER)) loadStringSetting(Constants.TEXT_COLOR_DRAWER, line) ;
 				else if(line.startsWith(Constants.DISPLAY_CLOCK))
 				{
 					// Note the configuration of the old clock setting (to remove later)

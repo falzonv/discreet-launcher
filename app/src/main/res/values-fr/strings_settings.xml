@@ -49,7 +49,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_general">Général</string>
+    <string name="appearance_settings_title_theme_and_colors">Thème et couleurs</string>
     <string name="appearance_settings_title_clock">Horloge</string>
     <string name="appearance_settings_title_applications">Applications</string>
 
@@ -89,8 +89,10 @@
     <!-- Other appearance settings -->
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
-    <string name="set_background_color_favorites">Couleur de fond des favoris</string>
-    <string name="set_background_color_drawer">Couleur de fond du tiroir d\'applications</string>
+    <string name="set_background_color_favorites">Fond des favoris</string>
+    <string name="set_text_color_favorites">Texte des favoris</string>
+    <string name="set_background_color_drawer">Fond du tiroir d\'applications</string>
+    <string name="set_text_color_drawer">Texte du tiroir d\'applications</string>
     <string name="set_clock_color">Couleur de l\'horloge</string>
     <string name="set_clock_shadow_color">Couleur de l\'ombre du texte</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>

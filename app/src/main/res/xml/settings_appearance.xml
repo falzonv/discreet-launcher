@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
-        app:title="@string/appearance_settings_title_general"
+        app:title="@string/appearance_settings_title_theme_and_colors"
         app:iconSpaceReserved="false">
 
         <ListPreference
@@ -35,9 +35,21 @@
             app:iconSpaceReserved="false"/>
 
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="text_color_favorites"
+            app:title="@string/set_text_color_favorites"
+            app:defaultValue="#FFFFFFFF"
+            app:iconSpaceReserved="false"/>
+
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="background_color_drawer"
             app:title="@string/set_background_color_drawer"
             app:defaultValue="#66000000"
+            app:iconSpaceReserved="false"/>
+
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="text_color_drawer"
+            app:title="@string/set_text_color_drawer"
+            app:defaultValue="#FFFFFFFF"
             app:iconSpaceReserved="false"/>
 
     </PreferenceCategory>
