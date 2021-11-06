@@ -28,6 +28,13 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <SwitchPreference
+            app:key="dark_status_bar_icons"
+            app:title="@string/set_dark_status_bar_icons"
+            app:summary="@string/set_dark_status_bar_icons_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="background_color_favorites"
             app:title="@string/set_background_color_favorites"

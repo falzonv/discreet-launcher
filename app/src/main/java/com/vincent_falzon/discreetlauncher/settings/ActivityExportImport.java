@@ -153,6 +153,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
 		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_FAVORITES)) ;
 		exportedData.add(exportStringSetting(Constants.TEXT_COLOR_FAVORITES)) ;
 		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_DRAWER)) ;
@@ -279,6 +280,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
 				else if(line.startsWith(Constants.APPLICATION_THEME)) loadStringSetting(Constants.APPLICATION_THEME, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
+				else if(line.startsWith(Constants.DARK_STATUS_BAR_ICONS)) loadBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, line) ;
 				else if(line.startsWith(Constants.BACKGROUND_COLOR_FAVORITES)) loadStringSetting(Constants.BACKGROUND_COLOR_FAVORITES, line) ;
 				else if(line.startsWith(Constants.TEXT_COLOR_FAVORITES)) loadStringSetting(Constants.TEXT_COLOR_FAVORITES, line) ;
 				else if(line.startsWith(Constants.BACKGROUND_COLOR_DRAWER)) loadStringSetting(Constants.BACKGROUND_COLOR_DRAWER, line) ;

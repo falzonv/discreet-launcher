@@ -89,6 +89,8 @@
     <!-- Other appearance settings -->
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
+    <string name="set_dark_status_bar_icons">Icônes de la barre de statut foncées</string>
+    <string name="set_dark_status_bar_icons_help">Ne fonctionne pas sur Android 5 (Lollipop)</string>
     <string name="set_background_color_favorites">Fond des favoris</string>
     <string name="set_text_color_favorites">Texte des favoris</string>
     <string name="set_background_color_drawer">Fond du tiroir d\'applications</string>

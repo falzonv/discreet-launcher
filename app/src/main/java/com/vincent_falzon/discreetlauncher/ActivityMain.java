@@ -147,7 +147,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		maybeForceOrientation() ;
 		keepMenuAccessible() ;
 		toggleTouchTargets() ;
-		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
+		maybeHideSystemBars(false) ;
 
 		// Prepare the notification
 		notification = new NotificationDisplayer(this) ;
@@ -476,14 +476,27 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Display or hide the system bars (immersive mode).
-	 * @param display <code>true</code> to display, <code>false</code> to hide
+	 * Display or hide the system bars based on settings, also sets and unsets the dark icons.
+	 * @param force_display To force the system bars display even in immersive mode
 	 */
-	private void displaySystemBars(boolean display)
+	private void maybeHideSystemBars(boolean force_display)
 	{
-		View decorView = getWindow().getDecorView() ;
-		if(display) decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE) ;
-			else decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) ;
+		// Check if the status bar icons must be displayed darker
+		int dark_icons_flag = 0 ;
+		if(settings.getBoolean(Constants.DARK_STATUS_BAR_ICONS, false))
+			{
+				// Use dark icons wherever it is possible
+				if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) dark_icons_flag = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR ;
+					else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) dark_icons_flag = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR ;
+			}
+
+		// Check if the system bars must be hidden (immersive mode)
+		int immersive_mode_flag = View.SYSTEM_UI_FLAG_LAYOUT_STABLE ;
+		if(!force_display && settings.getBoolean(Constants.IMMERSIVE_MODE, false))
+			immersive_mode_flag = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION ;
+
+		// Update the system bars flags
+		getWindow().getDecorView().setSystemUiVisibility(immersive_mode_flag | dark_icons_flag) ;
 	}
 
 
@@ -731,7 +744,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		public void onLongPress(MotionEvent event)
 		{
 			// Update the display according to settings
-			if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
+			maybeHideSystemBars(false) ;
 		}
 	}
 
@@ -873,7 +886,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		super.onPause() ;
 
 		// Always show the system bars
-		displaySystemBars(true) ;
+		maybeHideSystemBars(true) ;
 
 		// Hide popups if some are still opened
 		for(Application application : applicationsList.getDrawer())
@@ -902,7 +915,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		dialogMenu.hide() ;
 		maybeForceOrientation() ;
 		toggleTouchTargets() ;
-		if(settings.getBoolean(Constants.IMMERSIVE_MODE, false)) displaySystemBars(false) ;
+		maybeHideSystemBars(false) ;
 		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
 
 		// Update the favorites panel and applications drawer display if needed

@@ -89,6 +89,8 @@
     <!-- Other appearance settings -->
     <string name="set_transparent_status_bar">Transparent status bar</string>
     <string name="set_transparent_status_bar_help">When favorites are closed</string>
+    <string name="set_dark_status_bar_icons">Dark status bar icons</string>
+    <string name="set_dark_status_bar_icons_help">Not working on Android 5 (Lollipop)</string>
     <string name="set_background_color_favorites">Favorites background</string>
     <string name="set_text_color_favorites">Favorites text</string>
     <string name="set_background_color_drawer">App drawer background</string>
