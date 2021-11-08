@@ -21,8 +21,8 @@
     <string name="long_click_settings">Zugang zu Einstellungen</string>
     <string name="long_click_view_store">Store Seite anzeigen</string>
     <string name="long_click_rename">Umbenennen</string>
-    <string name="long_click_add_favorites">Add to favorites</string>
-    <string name="long_click_remove_favorites">Remove from favorites</string>
+    <string name="long_click_add_favorites">Zu Favoriten hinzufügen</string>
+    <string name="long_click_remove_favorites">Aus Favoriten entfernen</string>
     <string name="long_click_hide_search">Ausblenden</string>
     <string name="long_click_remove_shortcut">Verknüpfung entfernen</string>
 
@@ -33,7 +33,7 @@
 
     <!-- Popup messages related to apps -->
     <string name="info_list_apps_refreshed">App-Liste aktualisiert</string>
-    <string name="info_favorites_refreshed">Favorites refreshed</string>
+    <string name="info_favorites_refreshed">Favoriten aktualisiert</string>
     <string name="error_app_not_found">\"%1$s\" konnte nicht gefunden werden</string>
 
     <!-- Search app -->
