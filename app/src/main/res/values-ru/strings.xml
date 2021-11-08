@@ -21,8 +21,8 @@
     <string name="long_click_settings">Доступ к настройкам</string>
     <string name="long_click_view_store">Просмотр страницы в магазине</string>
     <string name="long_click_rename">Переименовать</string>
-    <string name="long_click_add_favorites">Add to favorites</string>
-    <string name="long_click_remove_favorites">Remove from favorites</string>
+    <string name="long_click_add_favorites">Добавить в избранное</string>
+    <string name="long_click_remove_favorites">Удалить из избранного</string>
     <string name="long_click_hide_search">Скрыть</string>
     <string name="long_click_remove_shortcut">Удалить этот ярлык</string>
 
@@ -33,7 +33,7 @@
 
     <!-- Popup messages related to apps -->
     <string name="info_list_apps_refreshed">Список приложений обновлен</string>
-    <string name="info_favorites_refreshed">Favorites refreshed</string>
+    <string name="info_favorites_refreshed">Избранное обновлено</string>
     <string name="error_app_not_found">Не удалось найти \"%1$s\"</string>
 
     <!-- Search app -->
@@ -47,6 +47,6 @@
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Предлагайте улучшения и сообщайте о проблемах на</string>
     <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit">Русский перевод от Artur Aiwasan</string>
+    <string name="translation_credit">Русский перевод от Artur Ajvasjan</string>
 
 </resources>
