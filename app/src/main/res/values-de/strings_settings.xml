@@ -49,7 +49,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Theme and colors</string>
+    <string name="appearance_settings_title_theme_and_colors">Design und Farben</string>
     <string name="appearance_settings_title_clock">Uhr</string>
     <string name="appearance_settings_title_applications">Apps</string>
 
@@ -89,14 +89,14 @@
     <!-- Other appearance settings -->
     <string name="set_transparent_status_bar">Transparente Systemleiste</string>
     <string name="set_transparent_status_bar_help">Wenn Favoriten geschlossen sind</string>
-    <string name="set_dark_status_bar_icons">Dark status bar icons</string>
-    <string name="set_dark_status_bar_icons_help">Not working on Android 5 (Lollipop)</string>
-    <string name="set_background_color_favorites">Favorites background</string>
-    <string name="set_text_color_favorites">Favorites text</string>
-    <string name="set_background_color_drawer">App drawer background</string>
-    <string name="set_text_color_drawer">App drawer text</string>
+    <string name="set_dark_status_bar_icons">Dunkle Statusleisten-Symbole</string>
+    <string name="set_dark_status_bar_icons_help">Funktioniert nicht unter Android 5 (Lollipop)</string>
+    <string name="set_background_color_favorites">Favoriten-Hintergrund</string>
+    <string name="set_text_color_favorites">Favoriten Text</string>
+    <string name="set_background_color_drawer">Hintergrund der App Übersicht</string>
+    <string name="set_text_color_drawer">Text der App Übersicht</string>
     <string name="set_clock_color">Farbe der Uhr</string>
-    <string name="set_clock_shadow_color">Text shadow color</string>
+    <string name="set_clock_shadow_color">Farbe des Textschattens</string>
     <string name="set_icon_pack">Installierte Icon Packs verwenden</string>
     <string name="set_icon_pack_none">Keins (Standard-Symbole verwenden)</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
@@ -121,12 +121,12 @@
     <string name="notification_popup_title">Favoriten Einstellungen</string>
 
     <!-- Forced orientation -->
-    <string name="set_forced_orientation">Forced orientation</string>
+    <string name="set_forced_orientation">Bildschirmausrichtung</string>
     <string-array name="set_forced_orientation_entries">
-        <item>None</item>
-        <item>Portrait</item>
-        <item>Landscape</item>
-        <item>Reverse landscape</item>
+        <item>Keine</item>
+        <item>Hochformat</item>
+        <item>Querformat</item>
+        <item>Querformat umkehren</item>
     </string-array>
 
     <!-- Touch targets (accessibility) -->
