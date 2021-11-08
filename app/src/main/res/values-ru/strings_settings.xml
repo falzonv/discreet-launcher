@@ -49,12 +49,12 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Theme and colors</string>
+    <string name="appearance_settings_title_theme_and_colors">Тема и цвета</string>
     <string name="appearance_settings_title_clock">Часы</string>
     <string name="appearance_settings_title_applications">Приложения</string>
 
     <!-- Color picker -->
-    <string name="color_picker_base">База:</string>
+    <string name="color_picker_base">Цвет:</string>
     <string name="color_picker_reset">Сброс</string>
     <string name="color_picker_preview">Предпросмотр</string>
     <string name="error_invalid_color_format">Неправильный HEX цвет</string>
@@ -89,12 +89,12 @@
     <!-- Other appearance settings -->
     <string name="set_transparent_status_bar">Прозрачная строка состояния</string>
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
-    <string name="set_dark_status_bar_icons">Dark status bar icons</string>
-    <string name="set_dark_status_bar_icons_help">Not working on Android 5 (Lollipop)</string>
-    <string name="set_background_color_favorites">Favorites background</string>
-    <string name="set_text_color_favorites">Favorites text</string>
-    <string name="set_background_color_drawer">App drawer background</string>
-    <string name="set_text_color_drawer">App drawer text</string>
+    <string name="set_dark_status_bar_icons">Темные значки строки состояния</string>
+    <string name="set_dark_status_bar_icons_help">Не работает на Android 5 (Lollipop)</string>
+    <string name="set_background_color_favorites">Избранный фон</string>
+    <string name="set_text_color_favorites">Избранный текст</string>
+    <string name="set_background_color_drawer">Фон ящика приложений</string>
+    <string name="set_text_color_drawer">Текст ящика приложений</string>
     <string name="set_clock_color">Цвет часов</string>
     <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Использовать установленный пакет значков</string>
@@ -121,12 +121,12 @@
     <string name="notification_popup_title">Управление избранным</string>
 
     <!-- Forced orientation -->
-    <string name="set_forced_orientation">Forced orientation</string>
+    <string name="set_forced_orientation">Принудительная ориентация</string>
     <string-array name="set_forced_orientation_entries">
-        <item>None</item>
-        <item>Portrait</item>
-        <item>Landscape</item>
-        <item>Reverse landscape</item>
+        <item>Нет</item>
+        <item>Портретная</item>
+        <item>Горизонтальная</item>
+        <item>Перевернутая горизонтальная</item>
     </string-array>
 
     <!-- Touch targets (accessibility) -->
