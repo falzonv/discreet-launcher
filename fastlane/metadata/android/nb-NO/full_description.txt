@@ -17,8 +17,8 @@ Fri programvare, og ingen unødvendige tilganger. Fungerer fullstendig frakoblet
 - Hjelp og endringslogg
 
 2/ Tilpasningsvalg
-- Drakt og bakgrunnsstøtte
-- Påtvunget stående modus
+- Drakt og farger
+- Påtvunget sideretning
 - Gjennomsiktig statusfelt
 - Ingen systembjelker (oppslukende modus)
 - Tilpassbar klokke
