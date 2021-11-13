@@ -1,0 +1,12 @@
+v5.2.0 (40) - 13/11/2021
+NEW THINGS
+   - Long click toggle favorites (@Gurkenglas)
+   - Forced landscape-mode (@KKMK)
+   - Clock text shadow color (@janTaja)
+   - App names color (@janTaja)
+   - Dark status bar icons (@janTaja)
+IMPROVEMENTS
+   - Background colors splitted (@tuch96)
+   - Export and import internal process
+CORRECTIONS
+   - Width of the date clock (@xi7)

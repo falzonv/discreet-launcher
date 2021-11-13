@@ -1,0 +1,12 @@
+v5.2.0 (40) - 13/11/2021
+NOUVEAUTÉS
+   - Clic long bascule favoris (@Gurkenglas)
+   - Mode paysage forcé (@KKMK)
+   - Couleur d'ombre horloge texte (@janTaja)
+   - Couleur des noms d'applications (@janTaja)
+   - Icônes barre de statut foncées (@janTaja)
+AMÉLIORATIONS
+   - Couleurs de fond séparées (@tuch96)
+   - Processus interne d'export et import
+CORRECTIONS
+   - Largeur de la date de l'horloge (@xi7)
