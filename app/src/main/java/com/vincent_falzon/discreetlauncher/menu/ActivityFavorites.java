@@ -23,7 +23,6 @@ package com.vincent_falzon.discreetlauncher.menu ;
  */
 
 // Imports
-import android.content.Context ;
 import android.content.DialogInterface ;
 import android.os.Bundle ;
 import android.view.LayoutInflater ;
