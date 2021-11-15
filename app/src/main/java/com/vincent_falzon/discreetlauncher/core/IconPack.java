@@ -50,21 +50,22 @@ class IconPack
 
 
 	/**
-	 * Constructor to load a selected icon pack.
-	 * @param context To get the settings and display alerts
-	 * @param apkManager To load the resources
+	 * Constructor.
+	 * @param context To retrieve settings, load resources and display alerts
+	 * @param setting_key To retrieve the name of the selected icon pack (if any)
 	 */
-	IconPack(Context context, PackageManager apkManager)
+	IconPack(Context context, String setting_key)
 	{
 		// Check if an icon pack is selected
 		appfilter_id = 0 ;
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
-		pack_name = settings.getString(Constants.ICON_PACK, Constants.NONE) ;
+		pack_name = settings.getString(setting_key, Constants.NONE) ;
 		if((pack_name == null) || pack_name.equals(Constants.NONE)) return ;
 
 		try
 		{
 			// Try to load the icon pack resources
+			PackageManager apkManager = context.getPackageManager() ;
 			pack_resources = apkManager.getResourcesForApplication(pack_name) ;
 		}
 		catch(PackageManager.NameNotFoundException e)
@@ -73,24 +74,14 @@ class IconPack
 			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, pack_name)) ;
 			ActivityMain.setIgnoreSettingsChanges(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
-			editor.putString(Constants.ICON_PACK, Constants.NONE).apply() ;
+			editor.putString(setting_key, Constants.NONE).apply() ;
 			ActivityMain.setIgnoreSettingsChanges(false) ;
 			return ;
 		}
 
 		// Try to get the appfilter.xml file (display an error message if not successful)
 		appfilter_id = pack_resources.getIdentifier("appfilter", "xml", pack_name) ;
-		if(!isLoaded()) ShowDialog.toastLong(context, context.getString(R.string.error_icon_pack_appfilter_not_found, pack_name)) ;
-	}
-
-
-	/**
-	 * Check if an icon pack is loaded (<code>false</code> if no icon pack was selected).
-	 * @return <code>true</code> if an icon pack is loaded, <code>false</code> otherwise
-	 */
-	boolean isLoaded()
-	{
-		return (appfilter_id > 0) ;
+		if(appfilter_id <= 0) ShowDialog.toastLong(context, context.getString(R.string.error_icon_pack_appfilter_not_found, pack_name)) ;
 	}
 
 
@@ -102,8 +93,10 @@ class IconPack
 	 */
 	Drawable searchIcon(String apk, String name)
 	{
+		// Do not continue if no icon pack is loaded
+		if(appfilter_id <= 0) return null ;
+
 		// Initializations (the XML file need to be reloaded for each icon)
-		if(!isLoaded()) return null ;
 		XmlPullParser appfilter = pack_resources.getXml(appfilter_id) ;
 		String component_info = "ComponentInfo{" + apk + "/" + name ;
 		int i, j ;

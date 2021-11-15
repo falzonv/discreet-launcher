@@ -80,19 +80,14 @@ public class ApplicationsList
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 
 		// Browse the APK manager list and store the data of each application in the main list
-		IconPack iconPack = new IconPack(context, apkManager) ;
+		IconPack iconPack = new IconPack(context, Constants.ICON_PACK) ;
 		Drawable icon ;
 		String package_name = context.getPackageName() ;
 		for(ResolveInfo entry : apkManagerList)
 		{
-			// Load the application icon
-			if(iconPack.isLoaded())
-				{
-					// Retrieve the icon in the pack, use the real icon if not found
-					icon = iconPack.searchIcon(entry.activityInfo.packageName, entry.activityInfo.name) ;
-					if(icon == null) icon = entry.loadIcon(apkManager) ;
-				}
-				else icon = entry.loadIcon(apkManager) ;
+			// Try to find the icon in the pack, use the default icon if not found
+			icon = iconPack.searchIcon(entry.activityInfo.packageName, entry.activityInfo.name) ;
+			if(icon == null) icon = entry.loadIcon(apkManager) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 
 			// Check if the application is the launcher to provide menu access using its icon
