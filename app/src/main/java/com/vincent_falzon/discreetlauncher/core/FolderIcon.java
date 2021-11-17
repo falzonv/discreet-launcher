@@ -81,7 +81,7 @@ public class FolderIcon extends Drawable
 		paint = new Paint() ;
 		paint.setAntiAlias(true) ;
 		paint.setTextSize(16 * density) ;
-		paint.setColor(context.getResources().getColor(R.color.for_icon_added_in_drawer)) ;
+		paint.setColor(color) ;
 		paint.setTextAlign(Paint.Align.CENTER) ;
 	}
 
