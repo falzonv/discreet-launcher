@@ -2,7 +2,7 @@ v5.1.0 (37) - 25/09/2021
 NEW THINGS
    - Horizontal swipes open apps (@bob-u)
    - Clock format: analog (@JeanSté)
-   - Clock format: date and time (@gbdomubpkm)
+   - Clock format: date/time (@gbdomubpkm)
    - Clock position (@n-ce)
    - Clock color
    - Indonesian translation by Dawud Irfan
