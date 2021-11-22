@@ -68,7 +68,7 @@ public class Search extends Application
 	 */
 	public Search(String display_name, Drawable icon)
 	{
-		super(display_name, Constants.APK_SEARCH, Constants.APK_SEARCH, icon) ;
+		super(display_name, Constants.APK_SEARCH, Constants.APK_SEARCH, icon, null) ;
 		popup = null ;
 	}
 

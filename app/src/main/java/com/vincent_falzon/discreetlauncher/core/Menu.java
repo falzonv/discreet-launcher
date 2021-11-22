@@ -41,7 +41,7 @@ public class Menu extends Application
 	 */
 	public Menu(String display_name, String name, String apk, Drawable icon)
 	{
-		super(display_name, name, apk, icon) ;
+		super(display_name, name, apk, icon, null) ;
 	}
 
 

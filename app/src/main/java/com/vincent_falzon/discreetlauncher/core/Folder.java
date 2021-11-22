@@ -66,7 +66,7 @@ public class Folder extends Application
 	 */
 	public Folder(String display_name, Drawable icon, int color)
 	{
-		super(display_name, Constants.APK_FOLDER + display_name, Constants.APK_FOLDER, icon) ;
+		super(display_name, Constants.APK_FOLDER + display_name, Constants.APK_FOLDER, icon,  null) ;
 		applications = new ArrayList<>() ;
 		this.color = color ;
 		popup = null ;
@@ -227,7 +227,7 @@ public class Folder extends Application
 		{
 			// If the title was clicked, open the interface to manage folders
 			if(view.getId() == R.id.popup_title)
-				view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFolders.class)) ;
+				showSettings(view.getContext()) ;
 
 			// Close the popup
 			closePopup() ;
@@ -253,5 +253,16 @@ public class Folder extends Application
 			closePopup() ;
 			return true ;
 		}
+	}
+
+
+	/**
+	 * Open the interface to manage folders.
+	 * @param context To launch the Intent
+	 */
+	@Override
+	public void showSettings(Context context)
+	{
+		context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
 	}
 }

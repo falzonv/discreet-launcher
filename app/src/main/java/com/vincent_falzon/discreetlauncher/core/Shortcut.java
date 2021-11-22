@@ -50,7 +50,7 @@ public class Shortcut extends Application
 	 */
 	public Shortcut(String display_name, String name, String apk, Drawable icon)
 	{
-		super(display_name, name, apk, icon) ;
+		super(display_name, name, apk, icon, null) ;
 	}
 
 

@@ -50,7 +50,6 @@ import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.core.Shortcut ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
-import com.vincent_falzon.discreetlauncher.menu.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.menu.DialogHiddenApps ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
@@ -298,7 +297,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										break ;
 									case 1 :
 										// Open the folder organizer
-										context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+										application.showSettings(context) ;
 										break ;
 									case 2 :
 										// Toggle the presence of the folder in the favorites panel
@@ -365,10 +364,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										break ;
 									case 1 :
 										// Open the application system settings
-										Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
-										settingsIntent.setData(Uri.parse("package:" + application.getApk())) ;
-										settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-										context.startActivity(settingsIntent) ;
+										application.showSettings(context) ;
 										break ;
 									case 2 :
 										// Open the application page in the store

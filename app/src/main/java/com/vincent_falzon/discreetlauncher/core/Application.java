@@ -23,10 +23,14 @@ package com.vincent_falzon.discreetlauncher.core ;
  */
 
 // Imports
+import android.content.ComponentName ;
 import android.content.Context ;
 import android.content.Intent ;
+import android.content.pm.LauncherApps ;
 import android.content.pm.PackageManager ;
 import android.graphics.drawable.Drawable ;
+import android.net.Uri ;
+import android.os.UserHandle ;
 import android.view.View ;
 
 /**
@@ -40,6 +44,7 @@ public class Application
 	final String apk ;
 	String component_info ;
 	Drawable icon ;
+	UserHandle userHandle ;
 
 
 	/**
@@ -48,13 +53,15 @@ public class Application
 	 * @param name Application name used internally
 	 * @param apk Package name used internally
 	 * @param icon Displayed to the user
+	 * @param userHandle Used internally for work profile apps
 	 */
-	public Application(String display_name, String name, String apk, Drawable icon)
+	public Application(String display_name, String name, String apk, Drawable icon, UserHandle userHandle)
 	{
 		this.display_name = display_name ;
 		this.name = name ;
 		this.apk = apk ;
 		this.icon = icon ;
+		this.userHandle = userHandle ;
 		component_info = "{" + apk + "/" + name + "}" ;
 	}
 
@@ -136,8 +143,29 @@ public class Application
 	 */
 	public boolean start(View view)
 	{
-		// Check if the application still exists (not uninstalled or disabled)
+		// Check if the application is in a work profile
 		Context context = view.getContext() ;
+		if(userHandle != null)
+			{
+				try
+				{
+					// Try to launch the work profile application
+					LauncherApps launcherApps = (LauncherApps)context.getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
+					launcherApps.startMainActivity(new ComponentName(apk, name), userHandle, null, null) ;
+				}
+				catch(Exception exception)
+				{
+					// An error happened (ex: application not found)
+					return false ;
+				}
+				return true ;
+			}
+
+		// Applications not in work profiles can be launched directly with Intents like below.
+		// This is preferred as it allows to resume the application to its previous state.
+		// (Not possible with LauncherApps which sets the FLAG_ACTIVITY_RESET_TASK_IF_NEEDED.)
+
+		// Check if the application still exists (not removed or disabled)
 		PackageManager apkManager = context.getPackageManager() ;
 		Intent packageIntent = apkManager.getLaunchIntentForPackage(apk) ;
 		if(packageIntent == null) return false ;
@@ -155,5 +183,28 @@ public class Application
 				context.startActivity(packageIntent) ;
 			}
 		return true ;
+	}
+
+
+	/**
+	 * Open the application system settings.
+	 * @param context To launch the settings Intent
+	 */
+	public void showSettings(Context context)
+	{
+		// Check if the application is in a work profile
+		if(userHandle != null)
+			{
+				// Open the application system settings
+				LauncherApps launcherApps = (LauncherApps)context.getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
+				launcherApps.startAppDetailsActivity(new ComponentName(apk, name), userHandle, null, null) ;
+				return ;
+			}
+
+		// Open the application system settings
+		Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS) ;
+		settingsIntent.setData(Uri.parse("package:" + apk)) ;
+		settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+		context.startActivity(settingsIntent) ;
 	}
 }

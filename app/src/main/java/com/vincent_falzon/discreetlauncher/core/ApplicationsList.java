@@ -24,10 +24,11 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 // Imports
 import android.content.Context ;
-import android.content.Intent ;
-import android.content.pm.PackageManager ;
-import android.content.pm.ResolveInfo ;
+import android.content.pm.LauncherActivityInfo ;
+import android.content.pm.LauncherApps ;
 import android.graphics.drawable.Drawable ;
+import android.os.UserHandle ;
+import android.os.UserManager ;
 import androidx.core.content.ContextCompat ;
 import androidx.core.content.res.ResourcesCompat ;
 import com.vincent_falzon.discreetlauncher.Constants ;
@@ -68,36 +69,47 @@ public class ApplicationsList
 	public void update(Context context)
 	{
 		// Initializations
-		PackageManager apkManager = context.getPackageManager() ;
+		String apk_discreet_launcher = context.getPackageName() ;
+		IconPack iconPack = new IconPack(context, Constants.ICON_PACK) ;
 		drawer.clear() ;
-
-		// Retrieve the list of applications that can be launched by the user
-		Intent intent = new Intent(Intent.ACTION_MAIN) ;
-		intent.addCategory(Intent.CATEGORY_LAUNCHER) ;
-		List<ResolveInfo> apkManagerList = apkManager.queryIntentActivities(intent, 0) ;
 
 		// Define the icons size in pixels
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
-
-		// Browse the APK manager list and store the data of each application in the main list
-		IconPack iconPack = new IconPack(context, Constants.ICON_PACK) ;
 		Drawable icon ;
-		String package_name = context.getPackageName() ;
-		for(ResolveInfo entry : apkManagerList)
+
+		// Retrieve the list of user profiles
+		UserManager userManager = (UserManager)context.getSystemService(Context.USER_SERVICE) ;
+		List<UserHandle> userProfiles = userManager.getUserProfiles() ;
+
+		// Browse all user profiles
+		LauncherApps launcherApps = (LauncherApps)context.getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
+		for(UserHandle profile : userProfiles)
 		{
-			// Try to find the icon in the pack, use the default icon if not found
-			icon = iconPack.searchIcon(entry.activityInfo.packageName, entry.activityInfo.name) ;
-			if(icon == null) icon = entry.loadIcon(apkManager) ;
-			icon.setBounds(0, 0, icon_size, icon_size) ;
+			// Check if a specific user handle must be stored (for work profile apps)
+			UserHandle userHandle = (userManager.getSerialNumberForUser(profile) == 0) ? null : profile ;
 
-			// Check if the application is the launcher to provide menu access using its icon
-			Application application ;
-			if(entry.activityInfo.packageName.equals(package_name))
-					application = new Menu(entry.loadLabel(apkManager).toString(), entry.activityInfo.name, entry.activityInfo.packageName, icon) ;
-				else application = new Application(entry.loadLabel(apkManager).toString(), entry.activityInfo.name, entry.activityInfo.packageName, icon) ;
+			// Browse all the activities of the current profile
+			for(LauncherActivityInfo activity : launcherApps.getActivityList(null, profile))
+			{
+				// Retrieve information about the application
+				String display_name = activity.getLabel().toString() ;
+				String name = activity.getName() ;
+				String apk = activity.getApplicationInfo().packageName ;
 
-			// Add the application to the list
-			drawer.add(application) ;
+				// Try to find the icon in the pack, use the default icon if not found
+				icon = iconPack.searchIcon(apk, name) ;
+				if(icon == null) icon = activity.getIcon(0) ;
+				icon.setBounds(0, 0, icon_size, icon_size) ;
+
+				// Check if the application is the launcher to provide menu access using its icon
+				Application application ;
+				if(apk.equals(apk_discreet_launcher))
+					application = new Menu(display_name, name, apk, icon) ;
+				else application = new Application(display_name, name, apk, icon, userHandle) ;
+
+				// Add the application to the list
+				drawer.add(application) ;
+			}
 		}
 
 		// Add the shortcuts to the list as applications
