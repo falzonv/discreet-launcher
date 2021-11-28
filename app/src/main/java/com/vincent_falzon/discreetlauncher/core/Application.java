@@ -57,12 +57,17 @@ public class Application
 	 */
 	public Application(String display_name, String name, String apk, Drawable icon, UserHandle userHandle)
 	{
+		// Initializations
 		this.display_name = display_name ;
 		this.name = name ;
 		this.apk = apk ;
 		this.icon = icon ;
 		this.userHandle = userHandle ;
+
+		// Build the ComponentInfo
 		component_info = "{" + apk + "/" + name + "}" ;
+		if(userHandle != null)
+			component_info += userHandle.toString() ;
 	}
 
 
