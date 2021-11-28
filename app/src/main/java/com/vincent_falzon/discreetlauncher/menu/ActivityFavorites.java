@@ -24,6 +24,7 @@ package com.vincent_falzon.discreetlauncher.menu ;
 
 // Imports
 import android.content.DialogInterface ;
+import android.graphics.drawable.Drawable ;
 import android.os.Bundle ;
 import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
@@ -54,6 +55,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	private ArrayList<Application> favorites ;
 	private final RecyclerAdapter adapter = new RecyclerAdapter() ;
 	private ItemTouchHelper touchManager ;
+	private int icon_size ;
 
 
 	/**
@@ -64,10 +66,11 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		// Let the parent actions be performed
-		super.onCreate(savedInstanceState);
+		super.onCreate(savedInstanceState) ;
 
 		// Initializations
 		setContentView(R.layout.activity_favorites) ;
+		icon_size = Math.round(32 * getResources().getDisplayMetrics().density) ;
 		favorites = ActivityMain.getApplicationsList().getFavorites() ;
 		findViewById(R.id.select_favorites_button).setOnClickListener(this) ;
 
@@ -198,6 +201,16 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 			if(favorites.get(i) instanceof Folder)
 					favoriteView.name.setText(((Folder)favorites.get(i)).getDisplayNameWithCount()) ;
 				else favoriteView.name.setText(favorites.get(i).getDisplayName()) ;
+
+			// Display the icon of the favorite
+			Drawable.ConstantState iconState = favorites.get(i).getIcon().getConstantState() ;
+			if(iconState != null)
+				{
+					// Create a copy to not downsize the real favorite icon
+					Drawable icon = iconState.newDrawable(getResources()).mutate() ;
+					icon.setBounds(0, 0, icon_size, icon_size) ;
+					favoriteView.name.setCompoundDrawables(icon, null, null, null) ;
+				}
 
 			// Listen for dragging action on the view of this favorite
 			favoriteView.itemView.setOnTouchListener(new View.OnTouchListener()
