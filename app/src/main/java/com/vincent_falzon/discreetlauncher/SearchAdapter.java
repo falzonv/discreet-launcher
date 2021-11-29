@@ -27,6 +27,7 @@ import android.content.Context ;
 import android.widget.Filter ;
 import android.widget.Filterable ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
+import java.text.Collator ;
 import java.util.ArrayList ;
 
 /**
@@ -36,6 +37,7 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 {
 	// Attributes
 	private final ArrayList<Application> initialApplicationsList ;
+	private final Collator collator ;
 
 
 	/**
@@ -45,8 +47,13 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 	 */
 	public SearchAdapter(Context context, ArrayList<Application> applicationsList)
 	{
+		// Let the parent actions be performed
 		super(context, applicationsList) ;
+
+		// Initializations
 		initialApplicationsList = applicationsList ;
+		collator = Collator.getInstance() ;
+		collator.setStrength(Collator.PRIMARY) ;
 	}
 
 
@@ -67,14 +74,16 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 			@Override
 			protected FilterResults performFiltering(CharSequence filter)
 			{
-				// Filter the results based on the search pattern
-				String search = filter.toString().toLowerCase() ;
+				// Check if there is a search pattern
+				String search = filter.toString() ;
 				if(search.isEmpty()) applicationsList = initialApplicationsList ;
 					else
 					{
+						// Filter the results based on the search pattern
 						applicationsList = new ArrayList<>() ;
+						int search_length = search.length() ;
 						for(Application application : initialApplicationsList)
-							if(application.getDisplayName().toLowerCase().contains(search))
+							if(searchIncludingVariants(search, search_length, application.getDisplayName()))
 								applicationsList.add(application) ;
 					}
 
@@ -109,5 +118,28 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 	{
 		if(getItemCount() < 1) return null ;
 		return applicationsList.get(0) ;
+	}
+
+
+	/**
+	 * Check if a text contains the searched sequence ignoring case and accents.
+	 * @param search Sequence to search
+	 * @param search_length For optimization in loops
+	 * @param text Tested text
+	 * @return <code>true</code> if the sequence is in the text, <code>false</code> otherwise
+	 */
+	private boolean searchIncludingVariants(String search, int search_length, String text)
+	{
+		// Do not continue if the searched sequence is longer than the text itself
+		int text_length = text.length() ;
+		if(search_length > text_length) return false ;
+
+		// Search the sequence at all possible positions in the text
+		for(int i = 0 ; i <= (text_length - search_length) ; i++)
+			if(collator.compare(text.substring(i, i + search_length), search) == 0)
+				return true ;
+
+		// The searched sequence was not found
+		return false ;
 	}
 }
