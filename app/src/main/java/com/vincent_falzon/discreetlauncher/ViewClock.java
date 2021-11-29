@@ -231,7 +231,11 @@ public class ViewClock extends View
 			{
 				// Prepare the time text according to the selected format
 				String time_text ;
-				if(clock_format.startsWith("h:")) time_text = hour12 + ":" ;
+				if(clock_format.startsWith("h:"))
+					{
+						if(hour12 == 0) time_text = "12:" ;
+							else time_text = hour12 + ":" ;
+					}
 					else time_text = ((hour24 < 10) ? "0" : "") + hour24 + ":" ;
 				time_text += ((minute < 10) ? "0" : "") + minute ;
 				if(clock_format.equals("h:mm a"))
