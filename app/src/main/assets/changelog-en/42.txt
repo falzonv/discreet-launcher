@@ -1,0 +1,8 @@
+v5.3.0 (42) - 29/11/2021
+NEW THINGS
+   - Work profiles apps support (@ZachIndigo)
+IMPROVEMENTS
+   - Icons to sort favorites (@comradekingu)
+   - Extend search to accents (@yukulele)
+CORRECTIONS
+   - 12th hour in 12h clock format

@@ -1,0 +1,8 @@
+v5.3.0 (42) - 29/11/2021
+NOUVEAUTÉS
+   - Support applis profil de travail (@ZachIndigo)
+AMÉLIORATIONS
+   - Icônes pour trier les favoris (@comradekigu)
+   - Étendre la recherche aux accents (@yukulele)
+CORRECTIONS
+   - 12ème heure dans l'horloge format 12h
