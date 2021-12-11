@@ -59,6 +59,7 @@ public interface Constants
 	String CLOCK_SHADOW_COLOR = "clock_shadow_color" ;
 	String CLOCK_POSITION = "clock_position" ;
 	String ICON_PACK = "icon_pack" ;
+	String ICON_COLOR_TINT = "icon_color_tint" ;
 	String HIDE_APP_NAMES = "hide_app_names" ;
 	String REMOVE_PADDING = "remove_padding" ;
 	String NOTIFICATION = "notification" ;
@@ -75,6 +76,7 @@ public interface Constants
 	// Constants represetings fallback colors
 	String COLOR_FOR_OVERLAY = "#66000000" ;
 	String COLOR_FOR_TEXT_ON_OVERLAY = "#FFFFFFFF" ;
+	String COLOR_TRANSPARENT = "#00000000" ;
 
 	// --- Constants representing old settings keys for compatibility ---
 	// Removed in v3.1.0 (migrated to internal file hidden.txt)

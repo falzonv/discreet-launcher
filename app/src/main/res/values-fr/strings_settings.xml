@@ -99,6 +99,7 @@
     <string name="set_clock_shadow_color">Couleur de l\'ombre du texte</string>
     <string name="set_icon_pack">Utiliser un pack d\'icônes installé</string>
     <string name="set_icon_pack_none">Aucun (utiliser les icônes par défaut)</string>
+    <string name="set_icon_color_tint">Couleur sur les icônes par défaut</string>
     <string name="set_hide_app_names">Pas de noms d\'applications</string>
     <string name="set_hide_app_names_help">Les noms des dossiers sont toujours affichés</string>
     <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>

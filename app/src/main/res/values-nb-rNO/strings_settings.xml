@@ -99,6 +99,7 @@
     <string name="set_clock_shadow_color">Tekstskyggefarge</string>
     <string name="set_icon_pack">Bruk en installert ikonpakke</string>
     <string name="set_icon_pack_none">Ingen (bruk opprinnelige ikoner)</string>
+    <string name="set_icon_color_tint">Color on default icons</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
     <string name="set_hide_app_names_help">Mappenavn vil bli vist</string>
     <string name="set_remove_padding">Fjern fyll når navn er skjult</string>

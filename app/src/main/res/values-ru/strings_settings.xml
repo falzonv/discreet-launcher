@@ -99,6 +99,7 @@
     <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Использовать установленный пакет значков</string>
     <string name="set_icon_pack_none">Нет (использовать значки по умолчанию)</string>
+    <string name="set_icon_color_tint">Color on default icons</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
     <string name="set_hide_app_names_help">Имена папок все еще отображаются</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>

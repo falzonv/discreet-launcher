@@ -99,6 +99,7 @@
     <string name="set_clock_shadow_color">Warna bayangan teks</string>
     <string name="set_icon_pack">Gunakan paket ikon yang terpasang</string>
     <string name="set_icon_pack_none">Tidak ada (gunakan ikon default)</string>
+    <string name="set_icon_color_tint">Color on default icons</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
     <string name="set_hide_app_names_help">Nama folder tetap ditampilkan</string>
     <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>

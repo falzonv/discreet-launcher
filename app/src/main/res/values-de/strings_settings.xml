@@ -99,6 +99,7 @@
     <string name="set_clock_shadow_color">Farbe des Textschattens</string>
     <string name="set_icon_pack">Installierte Icon Packs verwenden</string>
     <string name="set_icon_pack_none">Keins (Standard-Symbole verwenden)</string>
+    <string name="set_icon_color_tint">Color on default icons</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
     <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
     <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>

@@ -24,13 +24,23 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 // Imports
 import android.content.Context ;
+import android.content.SharedPreferences ;
 import android.content.pm.LauncherActivityInfo ;
 import android.content.pm.LauncherApps ;
+import android.content.res.Resources ;
+import android.graphics.Bitmap ;
+import android.graphics.Canvas ;
+import android.graphics.ColorMatrix ;
+import android.graphics.ColorMatrixColorFilter ;
+import android.graphics.Paint ;
+import android.graphics.PorterDuff ;
+import android.graphics.drawable.BitmapDrawable ;
 import android.graphics.drawable.Drawable ;
 import android.os.UserHandle ;
 import android.os.UserManager ;
 import androidx.core.content.ContextCompat ;
 import androidx.core.content.res.ResourcesCompat ;
+import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.settings.ColorPickerDialog ;
@@ -41,7 +51,7 @@ import java.util.Comparator ;
 import java.util.List ;
 
 /**
- * Provide and manage applications lists.
+ * Provide and manage lists of applications.
  */
 public class ApplicationsList
 {
@@ -49,16 +59,24 @@ public class ApplicationsList
 	private final ArrayList<Application> drawer ;
 	private final ArrayList<Application> hidden ;
 	private final ArrayList<Application> favorites ;
+	private final Paint grayscalePaint ;
 
 
 	/**
-	 * Constructor to create the applications list.
+	 * Constructor.
 	 */
 	public ApplicationsList()
 	{
+		// Create the lists of applications
 		drawer = new ArrayList<>() ;
 		hidden = new ArrayList<>() ;
 		favorites = new ArrayList<>() ;
+
+		// Initialize the grayscale Paint used by the icon color filter
+		ColorMatrix colorMatrix = new ColorMatrix() ;
+		colorMatrix.setSaturation(0) ;
+		grayscalePaint = new Paint() ;
+		grayscalePaint.setColorFilter(new ColorMatrixColorFilter(colorMatrix)) ;
 	}
 
 
@@ -74,8 +92,16 @@ public class ApplicationsList
 		drawer.clear() ;
 
 		// Define the icons size in pixels
-		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
+		Resources resources = context.getResources() ;
+		int icon_size = Math.round(48 * resources.getDisplayMetrics().density) ;
 		Drawable icon ;
+
+		// Check if a color tint must be applied to icons and retrive it if needed
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
+		String color_tint_setting = settings.getString(Constants.ICON_COLOR_TINT, Constants.COLOR_TRANSPARENT) ;
+		int color_tint ;
+		if(color_tint_setting.equals(Constants.COLOR_TRANSPARENT)) color_tint = -1 ;
+			else color_tint = ColorPickerDialog.convertHexadecimalColorToInt(color_tint_setting) ;
 
 		// Retrieve the list of user profiles
 		UserManager userManager = (UserManager)context.getSystemService(Context.USER_SERVICE) ;
@@ -98,7 +124,12 @@ public class ApplicationsList
 
 				// Try to find the icon in the pack, use the default icon if not found
 				icon = iconPack.searchIcon(apk, name) ;
-				if(icon == null) icon = activity.getIcon(0) ;
+				if(icon == null)
+					{
+						// Check if a color tint must be applied on the default icon
+						if(color_tint > 0) icon = applyColorTint(resources, activity.getIcon(0), color_tint) ;
+							else icon = activity.getIcon(0) ;
+					}
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Check if the application is the launcher to provide menu access using its icon
@@ -141,6 +172,40 @@ public class ApplicationsList
 
 		// Update the favorites applications list
 		updateFavorites() ;
+	}
+
+
+	/**
+	 * Apply the given color tint over an icon.
+	 * @param resources Used to generate the resulting Drawable
+	 * @param originalIcon Source icon on which the tint must be applied
+	 * @param color_tint Color to apply as a tint
+	 * @return Icon with a color tint applied on it
+	 */
+	private Drawable applyColorTint(Resources resources, Drawable originalIcon, int color_tint)
+	{
+		// Retrieve the original icon dimensions
+		int height = originalIcon.getMinimumHeight() ;
+		int width = originalIcon.getMinimumWidth() ;
+
+		// Create a Bitmap from the original icon
+		Bitmap bitmapOriginal = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888) ;
+		originalIcon.setBounds(0, 0, width, height) ;
+		originalIcon.draw(new Canvas(bitmapOriginal)) ;
+
+		// Create a grayscale Bitmap
+		Bitmap bitmapGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888) ;
+		Canvas canvas = new Canvas(bitmapGrayscale) ;
+		canvas.drawBitmap(bitmapOriginal, 0, 0, grayscalePaint) ;
+
+		// Create the resulting drawable and apply the color tint
+		Drawable newIcon = new BitmapDrawable(resources, bitmapGrayscale) ;
+		newIcon.setTintMode(PorterDuff.Mode.MULTIPLY) ;
+		newIcon.setTint(color_tint) ;
+
+		// Perform cleanup and return the result
+		bitmapOriginal.recycle() ;
+		return newIcon ;
 	}
 
 

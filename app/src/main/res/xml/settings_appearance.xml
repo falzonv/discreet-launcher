@@ -108,6 +108,12 @@
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="icon_color_tint"
+            app:title="@string/set_icon_color_tint"
+            app:defaultValue="#00000000"
+            app:iconSpaceReserved="false"/>
+
         <SwitchPreference
             app:key="hide_app_names"
             app:title="@string/set_hide_app_names"

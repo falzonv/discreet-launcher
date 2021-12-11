@@ -99,6 +99,7 @@
     <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack">Use an installed icon pack</string>
     <string name="set_icon_pack_none">None (use default icons)</string>
+    <string name="set_icon_color_tint">Color on default icons</string>
     <string name="set_hide_app_names">No app names</string>
     <string name="set_hide_app_names_help">Folder names are still shown</string>
     <string name="set_remove_padding">No padding when app names are hidden</string>
