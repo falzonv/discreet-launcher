@@ -41,14 +41,14 @@ public class Application
 	// Attributes
 	String display_name ;
 	String name ;
-	final String apk ;
 	String component_info ;
+	final String apk ;
+	final UserHandle userHandle ;
 	Drawable icon ;
-	UserHandle userHandle ;
 
 
 	/**
-	 * Constructor to represent an Android application
+	 * Constructor to represent an Android application.
 	 * @param display_name Displayed to the user
 	 * @param name Application name used internally
 	 * @param apk Package name used internally
