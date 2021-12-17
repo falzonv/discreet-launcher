@@ -98,19 +98,39 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        app:title="@string/appearance_settings_title_applications"
+        app:title="@string/appearance_settings_title_icon_packs"
         app:iconSpaceReserved="false">
+
+        <Preference
+            app:key="no_icon_pack_installed"
+            app:summary="@string/error_no_icon_pack_installed"
+            app:selectable="false"
+            app:iconSpaceReserved="false"/>
 
         <ListPreference
             app:key="icon_pack"
-            app:title="@string/set_icon_pack"
+            app:title="@string/set_icon_pack_primary"
             app:iconSpaceReserved="false"
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
+        <ListPreference
+            app:key="icon_pack_secondary"
+            app:title="@string/set_icon_pack_secondary"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/appearance_settings_title_applications"
+        app:iconSpaceReserved="false">
+
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="icon_color_tint"
-            app:title="@string/set_icon_color_tint"
+            app:title="@string/set_icon_color_filter"
+            app:summary="@string/set_icon_color_filter_help"
             app:defaultValue="#00000000"
             app:iconSpaceReserved="false"/>
 

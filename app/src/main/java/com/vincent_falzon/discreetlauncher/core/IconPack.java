@@ -111,7 +111,7 @@ class IconPack
 				if((event == XmlPullParser.START_TAG) && appfilter.getName().equals("item"))
 					{
 						// Browse up to the "component" attribute
-						for(i = 0; i < appfilter.getAttributeCount() ; i++)
+						for(i = 0 ; i < appfilter.getAttributeCount() ; i++)
 						{
 							if(appfilter.getAttributeName(i).equals("component"))
 								{
@@ -120,7 +120,7 @@ class IconPack
 										{
 											// Get the icon name in the pack
 											String icon_name = "" ;
-											for(j = 0; j < appfilter.getAttributeCount() ; j++)
+											for(j = 0 ; j < appfilter.getAttributeCount() ; j++)
 												if(appfilter.getAttributeName(j).equals("drawable"))
 													icon_name = appfilter.getAttributeValue(j) ;
 

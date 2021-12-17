@@ -30,6 +30,7 @@ import android.content.pm.ResolveInfo ;
 import android.os.Bundle ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
+import androidx.preference.Preference ;
 import androidx.preference.PreferenceFragmentCompat ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
@@ -89,12 +90,27 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 			// Load the settings from the XML file
 			setPreferencesFromResource(R.xml.settings_appearance, rootKey) ;
 
-			// Initialize the icon pack selector
-			ListPreference iconPack = findPreference(Constants.ICON_PACK) ;
-			if(iconPack != null)
+			// Retrieve preferences that need a special setup
+			ListPreference iconPack1 = findPreference(Constants.ICON_PACK) ;
+			ListPreference iconPack2 = findPreference(Constants.ICON_PACK_SECONDARY) ;
+			Preference noIconPackMessage = findPreference("no_icon_pack_installed") ;
+
+			// Check if icon packs are installed (start at 1 to count the "none" option)
+			boolean icon_packs_installed = (iconPacks.size() > 1) ;
+			if(noIconPackMessage != null) noIconPackMessage.setVisible(!icon_packs_installed) ;
+
+			// Initialize the icon pack selectors
+			if(iconPack1 != null)
 				{
-					iconPack.setEntries(packsNames.toArray(new CharSequence[0])) ;
-					iconPack.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
+					iconPack1.setEntries(packsNames.toArray(new CharSequence[0])) ;
+					iconPack1.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
+					iconPack1.setEnabled(icon_packs_installed) ;
+				}
+			if(iconPack2 != null)
+				{
+					iconPack2.setEntries(packsNames.toArray(new CharSequence[0])) ;
+					iconPack2.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
+					iconPack2.setEnabled(icon_packs_installed) ;
 				}
 		}
 	}

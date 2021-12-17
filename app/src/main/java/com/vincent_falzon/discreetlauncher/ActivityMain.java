@@ -774,6 +774,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				drawerAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 				break ;
 			case Constants.ICON_PACK :
+			case Constants.ICON_PACK_SECONDARY :
 			case Constants.ICON_COLOR_TINT :
 				// Update the applications list
 				updateList(this) ;

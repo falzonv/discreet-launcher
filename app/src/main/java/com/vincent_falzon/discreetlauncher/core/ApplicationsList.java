@@ -88,7 +88,8 @@ public class ApplicationsList
 	{
 		// Initializations
 		String apk_discreet_launcher = context.getPackageName() ;
-		IconPack iconPack = new IconPack(context, Constants.ICON_PACK) ;
+		IconPack iconPack1 = new IconPack(context, Constants.ICON_PACK) ;
+		IconPack iconPack2 = new IconPack(context, Constants.ICON_PACK_SECONDARY) ;
 		drawer.clear() ;
 
 		// Define the icons size in pixels
@@ -122,8 +123,9 @@ public class ApplicationsList
 				String name = activity.getName() ;
 				String apk = activity.getApplicationInfo().packageName ;
 
-				// Try to find the icon in the pack, use the default icon if not found
-				icon = iconPack.searchIcon(apk, name) ;
+				// Try to find the icon in the packs, use the default icon if not found
+				icon = iconPack1.searchIcon(apk, name) ;
+				if(icon == null) icon = iconPack2.searchIcon(apk, name) ;
 				if(icon == null)
 					{
 						// Check if a color tint must be applied on the default icon
