@@ -51,7 +51,7 @@
     <!-- Sections titles -->
     <string name="appearance_settings_title_theme_and_colors">Тема и цвета</string>
     <string name="appearance_settings_title_clock">Часы</string>
-    <string name="appearance_settings_title_icon_packs">Icon packs</string>
+    <string name="appearance_settings_title_icon_packs">Пакеты значков</string>
     <string name="appearance_settings_title_applications">Приложения</string>
 
     <!-- Color picker -->
@@ -97,19 +97,19 @@
     <string name="set_background_color_drawer">Фон ящика приложений</string>
     <string name="set_text_color_drawer">Текст ящика приложений</string>
     <string name="set_clock_color">Цвет часов</string>
-    <string name="set_clock_shadow_color">Text shadow color</string>
-    <string name="set_icon_pack_primary">Primary</string>
-    <string name="set_icon_pack_secondary">Secondary</string>
+    <string name="set_clock_shadow_color">Цвет тени текста</string>
+    <string name="set_icon_pack_primary">Основной</string>
+    <string name="set_icon_pack_secondary">Второй</string>
     <string name="set_icon_pack_none">Нет (использовать значки по умолчанию)</string>
-    <string name="set_icon_color_filter">Color filter on icons</string>
-    <string name="set_icon_color_filter_help">Only applies to default icons, can be used in addition to icon packs</string>
+    <string name="set_icon_color_filter">Цветовой фильтр на значках</string>
+    <string name="set_icon_color_filter_help">Применяется только к значкам по умолчанию, может использоваться в дополнение к пакетам значков</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
     <string name="set_hide_app_names_help">Имена папок все еще отображаются</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
     <string name="set_remove_padding_help">Может вызвать проблемы с длинными именами папок</string>
 
     <!-- Error messages related to appearance settings -->
-    <string name="error_no_icon_pack_installed">Install some from your app store first</string>
+    <string name="error_no_icon_pack_installed">Установите несколько из вашего магазина приложений</string>
     <string name="error_icon_pack_appfilter_not_found">Не удалось найти appfilter.xml в выбранном пакете иконок. (%1$s)</string>
 
 
