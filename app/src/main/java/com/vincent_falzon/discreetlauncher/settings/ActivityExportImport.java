@@ -164,7 +164,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.CLOCK_POSITION)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK_SECONDARY)) ;
-		exportedData.add(exportStringSetting(Constants.ICON_COLOR_TINT)) ;
+		exportedData.add(exportStringSetting(Constants.ICON_COLOR_FILTER)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
 		exportedData.add(exportStringSetting(Constants.FORCED_ORIENTATION)) ;
@@ -304,7 +304,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.CLOCK_POSITION)) loadStringSetting(Constants.CLOCK_POSITION, line) ;
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.ICON_PACK_SECONDARY)) loadStringSetting(Constants.ICON_PACK_SECONDARY, line) ;
-				else if(line.startsWith(Constants.ICON_COLOR_TINT)) loadStringSetting(Constants.ICON_COLOR_TINT, line) ;
+				else if(line.startsWith(Constants.ICON_COLOR_FILTER)) loadStringSetting(Constants.ICON_COLOR_FILTER, line) ;
 				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
 				else if(line.startsWith(Constants.REMOVE_PADDING)) loadBooleanSetting(Constants.REMOVE_PADDING, line) ;
 				else if(line.startsWith(Constants.FORCED_ORIENTATION)) loadStringSetting(Constants.FORCED_ORIENTATION, line) ;

@@ -775,7 +775,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				break ;
 			case Constants.ICON_PACK :
 			case Constants.ICON_PACK_SECONDARY :
-			case Constants.ICON_COLOR_TINT :
+			case Constants.ICON_COLOR_FILTER :
 				// Update the applications list
 				updateList(this) ;
 				break ;

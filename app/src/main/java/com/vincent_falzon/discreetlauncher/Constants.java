@@ -60,7 +60,7 @@ public interface Constants
 	String CLOCK_POSITION = "clock_position" ;
 	String ICON_PACK = "icon_pack" ;
 	String ICON_PACK_SECONDARY = "icon_pack_secondary" ;
-	String ICON_COLOR_TINT = "icon_color_tint" ;
+	String ICON_COLOR_FILTER = "icon_color_filter" ;
 	String HIDE_APP_NAMES = "hide_app_names" ;
 	String REMOVE_PADDING = "remove_padding" ;
 	String NOTIFICATION = "notification" ;

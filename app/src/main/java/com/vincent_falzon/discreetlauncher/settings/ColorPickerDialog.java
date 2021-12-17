@@ -166,12 +166,12 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 				return ;
 			}
 
+		// Dismiss the color picker
+		dismiss() ;
+
 		// Save the new color if it was asked
 		if(selection == R.id.color_validate_button)
 			saveListener.onSaveRequest(convertIntColorToHexadecimal(colorPicker.getColor(), true)) ;
-
-		// Dismiss the color picker
-		dismiss() ;
 	}
 
 

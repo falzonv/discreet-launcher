@@ -99,9 +99,9 @@ public class ApplicationsList
 
 		// Check if a color tint must be applied to icons and retrive it if needed
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
-		String color_tint_setting = settings.getString(Constants.ICON_COLOR_TINT, Constants.COLOR_TRANSPARENT) ;
+		String color_tint_setting = settings.getString(Constants.ICON_COLOR_FILTER, Constants.COLOR_TRANSPARENT) ;
 		int color_tint ;
-		if(color_tint_setting.equals(Constants.COLOR_TRANSPARENT)) color_tint = -1 ;
+		if((color_tint_setting == null) || color_tint_setting.equals(Constants.COLOR_TRANSPARENT)) color_tint = 0 ;
 			else color_tint = ColorPickerDialog.convertHexadecimalColorToInt(color_tint_setting) ;
 
 		// Retrieve the list of user profiles
@@ -129,8 +129,8 @@ public class ApplicationsList
 				if(icon == null)
 					{
 						// Check if a color tint must be applied on the default icon
-						if(color_tint > 0) icon = applyColorTint(resources, activity.getIcon(0), color_tint) ;
-							else icon = activity.getIcon(0) ;
+						if(color_tint == 0) icon = activity.getIcon(0) ;
+							else icon = applyColorTint(resources, activity.getIcon(0), color_tint) ;
 					}
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 

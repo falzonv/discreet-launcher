@@ -128,7 +128,7 @@
         app:iconSpaceReserved="false">
 
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
-            app:key="icon_color_tint"
+            app:key="icon_color_filter"
             app:title="@string/set_icon_color_filter"
             app:summary="@string/set_icon_color_filter_help"
             app:defaultValue="#00000000"
