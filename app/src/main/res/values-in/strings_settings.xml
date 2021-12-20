@@ -51,7 +51,7 @@
     <!-- Sections titles -->
     <string name="appearance_settings_title_theme_and_colors">Tema dan warna</string>
     <string name="appearance_settings_title_clock">Jam</string>
-    <string name="appearance_settings_title_icon_packs">Icon packs</string>
+    <string name="appearance_settings_title_icon_packs">Paket ikon</string>
     <string name="appearance_settings_title_applications">Aplikasi</string>
 
     <!-- Color picker -->
@@ -98,18 +98,18 @@
     <string name="set_text_color_drawer">Teks Laci Aplikasi</string>
     <string name="set_clock_color">Warna Jam</string>
     <string name="set_clock_shadow_color">Warna bayangan teks</string>
-    <string name="set_icon_pack_primary">Primary</string>
-    <string name="set_icon_pack_secondary">Secondary</string>
+    <string name="set_icon_pack_primary">Primer</string>
+    <string name="set_icon_pack_secondary">Sekunder</string>
     <string name="set_icon_pack_none">Tidak ada (gunakan ikon default)</string>
-    <string name="set_icon_color_filter">Color filter on icons</string>
-    <string name="set_icon_color_filter_help">Only applies to default icons, can be used in addition to icon packs</string>
+    <string name="set_icon_color_filter">Filter warna pada ikon</string>
+    <string name="set_icon_color_filter_help">Hanya terterapkan pada ikon default, bisa digunakan sebagai tambahan paket ikon</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
     <string name="set_hide_app_names_help">Nama folder tetap ditampilkan</string>
     <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>
     <string name="set_remove_padding_help">Bisa membuat masalah pada nama folder yang panjang</string>
 
     <!-- Error messages related to appearance settings -->
-    <string name="error_no_icon_pack_installed">Install some from your app store first</string>
+    <string name="error_no_icon_pack_installed">Tidak ada paket ikon yang terpasang, install dulu dari app store pilihanmu</string>
     <string name="error_icon_pack_appfilter_not_found">Tida bisa menemukan appfilter.xml pada paket ikon yang terpilih. (%1$s)</string>
 
 
