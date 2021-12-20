@@ -51,7 +51,7 @@
     <!-- Sections titles -->
     <string name="appearance_settings_title_theme_and_colors">Design und Farben</string>
     <string name="appearance_settings_title_clock">Uhr</string>
-    <string name="appearance_settings_title_icon_packs">Icon packs</string>
+    <string name="appearance_settings_title_icon_packs">Symbolpakete</string>
     <string name="appearance_settings_title_applications">Apps</string>
 
     <!-- Color picker -->
@@ -98,19 +98,19 @@
     <string name="set_text_color_drawer">Text der App Übersicht</string>
     <string name="set_clock_color">Farbe der Uhr</string>
     <string name="set_clock_shadow_color">Farbe des Textschattens</string>
-    <string name="set_icon_pack_primary">Primary</string>
-    <string name="set_icon_pack_secondary">Secondary</string>
+    <string name="set_icon_pack_primary">Erstrangig</string>
+    <string name="set_icon_pack_secondary">Zweitrangig</string>
     <string name="set_icon_pack_none">Keins (Standard-Symbole verwenden)</string>
-    <string name="set_icon_color_filter">Color filter on icons</string>
-    <string name="set_icon_color_filter_help">Only applies to default icons, can be used in addition to icon packs</string>
+    <string name="set_icon_color_filter">Farbfilter für Symbole</string>
+    <string name="set_icon_color_filter_help">Gilt nur für Standardsymbole, kann zusätzlich zu Symbolpaketen verwendet werden</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
     <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
     <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
     <string name="set_remove_padding_help">Kann Probleme mit langen Ordnernamen verursachen</string>
 
     <!-- Error messages related to appearance settings -->
-    <string name="error_no_icon_pack_installed">Install some from your app store first</string>
-    <string name="error_icon_pack_appfilter_not_found">Die Datei appfilter.xml konnte im ausgewählten Icon Pack nicht gefunden werden. (%1$s)</string>
+    <string name="error_no_icon_pack_installed">Installiere zunächst einige über Deinen App Store</string>
+    <string name="error_icon_pack_appfilter_not_found">Die Datei appfilter.xml konnte im ausgewählten Symbolpaket nicht gefunden werden. (%1$s)</string>
 
 
     <!-- ========== Operation settings menu ========== -->
