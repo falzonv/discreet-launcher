@@ -109,7 +109,7 @@
     <string name="set_remove_padding_help">Bisa membuat masalah pada nama folder yang panjang</string>
 
     <!-- Error messages related to appearance settings -->
-    <string name="error_no_icon_pack_installed">Tidak ada paket ikon yang terpasang, install dulu dari Play Store</string>
+    <string name="error_no_icon_pack_installed">Tidak ada paket ikon yang terpasang, install dulu dari app store pilihanmu</string>
     <string name="error_icon_pack_appfilter_not_found">Tida bisa menemukan appfilter.xml pada paket ikon yang terpilih. (%1$s)</string>
 
 
