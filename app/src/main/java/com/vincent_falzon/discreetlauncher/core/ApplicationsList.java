@@ -97,7 +97,7 @@ public class ApplicationsList
 		int icon_size = Math.round(48 * resources.getDisplayMetrics().density) ;
 		Drawable icon ;
 
-		// Check if a color tint must be applied to icons and retrive it if needed
+		// Check if a color tint must be applied to icons and retrieve it if needed
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 		String color_tint_setting = settings.getString(Constants.ICON_COLOR_FILTER, Constants.COLOR_TRANSPARENT) ;
 		int color_tint ;
