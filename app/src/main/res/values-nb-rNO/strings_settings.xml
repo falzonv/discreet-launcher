@@ -101,15 +101,15 @@
     <string name="set_icon_pack_primary">Primær</string>
     <string name="set_icon_pack_secondary">Sekundær</string>
     <string name="set_icon_pack_none">Ingen (bruk opprinnelige ikoner)</string>
-    <string name="set_icon_color_filter">Fargefilter på ikoner</string>
-    <string name="set_icon_color_filter_help">Gjelder kun standardikoner, kan brukes i tillegg til ikonpakker</string>
+    <string name="set_icon_color_filter">Fargefilter for ikoner</string>
+    <string name="set_icon_color_filter_help">Har kun innvirkning på forvalgte ikoner, kan brukes i tillegg til ikonpakker</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
     <string name="set_hide_app_names_help">Mappenavn vil bli vist</string>
     <string name="set_remove_padding">Fjern fyll når navn er skjult</string>
     <string name="set_remove_padding_help">Kan ha uventede resultater med lange mappenavn</string>
 
     <!-- Error messages related to appearance settings -->
-    <string name="error_no_icon_pack_installed">Installer noen fra appbutikken din først</string>
+    <string name="error_no_icon_pack_installed">Installer noen fra programbutikken din først</string>
     <string name="error_icon_pack_appfilter_not_found">Fant ikke appfilter.xml.filen i angitt programpakke. (%1$s)</string>
 
 
