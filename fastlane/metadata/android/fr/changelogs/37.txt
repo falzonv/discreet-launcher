@@ -7,7 +7,7 @@ NOUVEAUTÉS
    - Couleur de l'horloge
    - Traduction Indonésienne par Dawud Irfan
 AMÉLIORATIONS
-   - Horloge ne bouge plus (@comradekigu)
+   - Horloge ne bouge plus (@comradekingu)
    - Renommage plus facile à annuler (@xi7)
 CORRECTIONS
    - Notch en mode paysage (@comradekingu)

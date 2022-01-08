@@ -1,4 +1,4 @@
 v5.4.0 (43) - 21/12/2021
 NEW THINGS
    - Color filter option for icons (@xi7)
-   - Secondary icon pack (@comradekigu)
+   - Secondary icon pack (@comradekingu)
