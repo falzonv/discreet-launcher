@@ -15,7 +15,7 @@
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
-        <!-- Splitted between favorites and drawer (v5.2.0), to remove later -->
+        <!-- Split between favorites and drawer (v5.2.0), to remove later -->
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="background_color"
             app:defaultValue="#66000000"
@@ -34,14 +34,14 @@
             app:summary="@string/set_dark_status_bar_icons_help"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
-        
+
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="icon_color_filter"
             app:title="@string/set_icon_color_filter"
             app:summary="@string/set_icon_color_filter_help"
             app:defaultValue="#00000000"
             app:iconSpaceReserved="false"/>
-        
+
         <SwitchPreference
             app:key="remove_padding"
             app:title="@string/set_remove_padding"
@@ -49,20 +49,20 @@
             app:dependency="hide_app_names"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
-        
+
         <SwitchPreference
             app:key="hide_app_names"
             app:title="@string/set_hide_app_names"
             app:summary="@string/set_hide_app_names_help"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
-        
+
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="text_color_favorites"
             app:title="@string/set_text_color_favorites"
             app:defaultValue="#FFFFFFFF"
             app:iconSpaceReserved="false"/>        
-        
+
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="text_color_drawer"
             app:title="@string/set_text_color_drawer"
