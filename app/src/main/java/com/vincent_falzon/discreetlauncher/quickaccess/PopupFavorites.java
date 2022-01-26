@@ -1,11 +1,11 @@
-package com.vincent_falzon.discreetlauncher.notification ;
+package com.vincent_falzon.discreetlauncher.quickaccess ;
 
 // License
 /*
 
 	This file is part of Discreet Launcher.
 
-	Copyright (C) 2019-2021 Vincent Falzon
+	Copyright (C) 2019-2022 Vincent Falzon
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -36,9 +36,9 @@ import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
 
 /**
- * Activity called when the notification is clicked.
+ * Display a popup containing the favorites.
  */
-public class ActivityNotification extends AppCompatActivity
+public class PopupFavorites extends AppCompatActivity
 {
 	/**
 	 * Constructor.

@@ -59,9 +59,21 @@
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".notification.ActivityNotification"
+            android:name=".quickaccess.PopupFavorites"
             android:theme="@style/AppThemeNotification"
             android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".quickaccess.ShortcutCreator"
+            android:label="@string/notification_text"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
         </activity>
 
         <activity

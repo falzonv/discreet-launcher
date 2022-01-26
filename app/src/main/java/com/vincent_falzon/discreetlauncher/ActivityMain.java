@@ -5,7 +5,7 @@ package com.vincent_falzon.discreetlauncher ;
 
 	This file is part of Discreet Launcher.
 
-	Copyright (C) 2019-2021 Vincent Falzon
+	Copyright (C) 2019-2022 Vincent Falzon
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -50,7 +50,7 @@ import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
-import com.vincent_falzon.discreetlauncher.notification.NotificationDisplayer ;
+import com.vincent_falzon.discreetlauncher.quickaccess.NotificationDisplayer ;
 import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 
 /**
@@ -159,7 +159,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)
 				&& settings.getBoolean(Constants.REMOVE_PADDING, false)) padding = 0 ;
 			else padding = 30 ;
-		application_width = Math.round((50 + padding) * getResources().getDisplayMetrics().density) ;
+		application_width = Math.round((50 + padding) * density) ;
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;

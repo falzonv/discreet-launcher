@@ -1,11 +1,11 @@
-package com.vincent_falzon.discreetlauncher.notification ;
+package com.vincent_falzon.discreetlauncher.quickaccess ;
 
 // License
 /*
 
 	This file is part of Discreet Launcher.
 
-	Copyright (C) 2019-2021 Vincent Falzon
+	Copyright (C) 2019-2022 Vincent Falzon
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ import androidx.core.app.NotificationCompat ;
 import com.vincent_falzon.discreetlauncher.R ;
 
 /**
- * Display or hide the Android notification giving access to the favorites applications.
+ * Display or hide the Android notification giving access to the favorites popup.
  */
 public class NotificationDisplayer
 {
@@ -59,9 +59,6 @@ public class NotificationDisplayer
 				channel.setVibrationPattern(null) ;
 				channel.setShowBadge(false) ;
 				manager.createNotificationChannel(channel) ;
-
-				// Delete the former notification channel (to remove after 31/08/2021)
-				manager.deleteNotificationChannel("discreetlauncher") ;
 			}
 	}
 
@@ -91,7 +88,7 @@ public class NotificationDisplayer
 		// Prepare the intent to display the favorites popup
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
-		intent.setClassName(context.getPackageName(), context.getPackageName() + ".notification.ActivityNotification") ;
+		intent.setClassName(context.getPackageName(), context.getPackageName() + ".quickaccess.PopupFavorites") ;
 
 		// Define the notification action
 		PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, 0) ;
