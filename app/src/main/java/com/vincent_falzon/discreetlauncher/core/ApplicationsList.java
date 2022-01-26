@@ -5,7 +5,7 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 	This file is part of Discreet Launcher.
 
-	Copyright (C) 2019-2021 Vincent Falzon
+	Copyright (C) 2019-2022 Vincent Falzon
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -568,7 +568,6 @@ public class ApplicationsList
 
 	/**
 	 * Convert an internal file from name format to ComponentInfo format if needed.
-	 * (Added in v4.1.0 middle of 06/2021, to remove later)
 	 * @param filename Name of the internal file
 	 * @param content Current file content
 	 * @return Converted file content

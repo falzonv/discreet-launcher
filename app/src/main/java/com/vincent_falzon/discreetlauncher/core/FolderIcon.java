@@ -5,7 +5,7 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 	This file is part of Discreet Launcher.
 
-	Copyright (C) 2019-2021 Vincent Falzon
+	Copyright (C) 2019-2022 Vincent Falzon
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -41,8 +41,8 @@ import com.vincent_falzon.discreetlauncher.R ;
 public class FolderIcon extends Drawable
 {
 	// Attribute
-	private final Bitmap icon ;
 	private final String number ;
+	private final Bitmap icon ;
 	private final Paint paint ;
 	private final float density ;
 

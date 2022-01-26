@@ -5,7 +5,7 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 	This file is part of Discreet Launcher.
 
-	Copyright (C) 2019-2021 Vincent Falzon
+	Copyright (C) 2019-2022 Vincent Falzon
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -54,8 +54,8 @@ public class Folder extends Application
 {
 	// Attributes
 	private final ArrayList<Application> applications ;
-	private int color ;
 	private PopupWindow popup ;
+	private int color ;
 
 
 	/**
@@ -68,8 +68,8 @@ public class Folder extends Application
 	{
 		super(display_name, Constants.APK_FOLDER + display_name, Constants.APK_FOLDER, icon,  null) ;
 		applications = new ArrayList<>() ;
-		this.color = color ;
 		popup = null ;
+		this.color = color ;
 	}
 
 
