@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_marginStart="@dimen/spacing_small"
             android:singleLine="true"
             android:inputType="textNoSuggestions"
             android:autofillHints=""
@@ -36,6 +37,7 @@
             android:textColor="@color/for_text_on_overlay"
             android:textColorHint="@color/for_search_app_hint"
             android:imeOptions="flagNoExtractUi|actionSearch"
+            android:background="@color/transparent"
             android:visibility="gone"/>
 
         <ImageButton
