@@ -446,8 +446,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				getWindow().setNavigationBarColor(background_color) ;
 
 				// Display the applications drawer
-				drawer_position = 0 ;
-				drawer_last_position = 0 ;
+				if(reverse_interface) drawer_position = applicationsList.getDrawer().size() - 1 ;
+					else drawer_position = 0 ;
+				drawer_last_position = drawer_position ;
 				drawer_close_gesture = 0 ;
 				homeScreen.setVisibility(View.GONE) ;
 				drawer.setVisibility(View.VISIBLE) ;
@@ -455,7 +456,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			else
 			{
 				// Hide the applications drawer
-				drawer.scrollToPosition(0) ;
+				if(reverse_interface) drawer.scrollToPosition(applicationsList.getDrawer().size() - 1) ;
+					else drawer.scrollToPosition(0) ;
 				homeScreen.setVisibility(View.VISIBLE) ;
 				drawer.setVisibility(View.GONE) ;
 
@@ -836,12 +838,28 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// Wait for the gesture to be finished
 			if(newState == RecyclerView.SCROLL_STATE_IDLE)
 				{
-					// If the scrolling is stuck on top, close the drawer activity
-					if((drawer_position == 0) && (drawer_last_position == 0) && (drawer_close_gesture == 3))
-						displayDrawer(false) ;
+					// Check if this was a complete closure gesture
+					if(drawer_close_gesture == 3)
+						{
+							// Check if the scrolling is stuck
+							if(drawer_last_position == drawer_position)
+								{
+									// Check if the interface is reversed
+									if(reverse_interface)
+										{
+											// If the scrolling is stuck on bottom, close the drawer activity
+											if(drawer_position == (applicationsList.getDrawer().size() - 1)) displayDrawer(false) ;
+										}
+										else
+										{
+											// If the scrolling is stuck on top, close the drawer activity
+											if(drawer_position == 0) displayDrawer(false) ;
+										}
+								}
 
-					// Consider the gesture finished
-					if(drawer_close_gesture == 3) drawer_close_gesture = 0 ;
+							// Reset the closure gesture tracking
+							drawer_close_gesture = 0 ;
+						}
 
 					// Update the last position to detect the stuck state
 					drawer_last_position = drawer_position ;
@@ -861,8 +879,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// Let the parent actions be performed
 			super.onScrolled(recyclerView, dx, dy) ;
 
-			// Update the position of the first visible item
-			drawer_position = drawerLayout.findFirstCompletelyVisibleItemPosition() ;
+			// Update the position of the last/first visible item (based on layout)
+			if(reverse_interface) drawer_position = drawerLayout.findLastCompletelyVisibleItemPosition() ;
+				else drawer_position = drawerLayout.findFirstCompletelyVisibleItemPosition() ;
 		}
 	}
 
