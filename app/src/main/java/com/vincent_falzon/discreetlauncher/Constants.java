@@ -44,6 +44,8 @@ public interface Constants
 	String APK_SHORTCUT_LEGACY = "discreetlauncher.shortcut_legacy" ;
 	String SEPARATOR = "--SEPARATOR--" ;
 	String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
+	int FAVORITES_PANEL = 0 ;
+	int APP_DRAWER = 1 ;
 
 	// Constants representing settings keys
 	String NONE = "none" ;

@@ -71,24 +71,25 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private NotificationDisplayer notification ;
 	private DialogMenu dialogMenu ;
 	private float density ;
+	private int scroll_position ;
+	private int scroll_last_position ;
+	private int scroll_close_gesture ;
+	private boolean reverse_interface ;
 
 	// Attributes related to the home screen
 	private RelativeLayout homeScreen ;
 	private RecyclerView favorites ;
 	private RecyclerAdapter favoritesAdapter ;
+	private GridLayoutManager favoritesLayout ;
 	private TextView menuButton ;
 	private TextView noFavoritesYet ;
 	private TextView targetFavorites ;
 	private TextView targetApplications ;
-	private boolean reverse_interface ;
 
 	// Attributes related to the drawer
 	private RecyclerView drawer ;
 	private RecyclerAdapter drawerAdapter ;
 	private GridLayoutManager drawerLayout ;
-	private int drawer_position ;
-	private int drawer_last_position ;
-	private int drawer_close_gesture ;
 
 	
 	/**
@@ -165,7 +166,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;
 		favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		favorites.setAdapter(favoritesAdapter) ;
-		favorites.setLayoutManager(new FlexibleGridLayout(this, application_width)) ;
+		favoritesLayout = new FlexibleGridLayout(this, application_width) ;
+		favorites.setLayoutManager(favoritesLayout) ;
+		favorites.addOnScrollListener(new ScrollListener(Constants.FAVORITES_PANEL)) ;
 
 		// Initialize the content of the full applications list
 		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer()) ;
@@ -173,7 +176,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		drawer.setAdapter(drawerAdapter) ;
 		drawerLayout = new FlexibleGridLayout(this, application_width) ;
 		drawer.setLayoutManager(drawerLayout) ;
-		drawer.addOnScrollListener(new DrawerScrollListener()) ;
+		drawer.addOnScrollListener(new ScrollListener(Constants.APP_DRAWER)) ;
 
 		// Check if the legacy background color setting is still used (to remove later)
 		String background_color = settings.getString(Constants.BACKGROUND_COLOR, Constants.NONE) ;
@@ -400,6 +403,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else menuButton.setVisibility(View.VISIBLE) ;
 
 				// Display the favorites panel
+				if(reverse_interface) scroll_position = 0 ;
+					else scroll_position = applicationsList.getFavorites().size() - 1 ;
+				scroll_last_position = scroll_position ;
+				scroll_close_gesture = 0 ;
 				favorites.setVisibility(View.VISIBLE) ;
 				targetFavorites.setText(R.string.target_close_favorites) ;
 			}
@@ -446,10 +453,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				getWindow().setNavigationBarColor(background_color) ;
 
 				// Display the applications drawer
-				if(reverse_interface) drawer_position = applicationsList.getDrawer().size() - 1 ;
-					else drawer_position = 0 ;
-				drawer_last_position = drawer_position ;
-				drawer_close_gesture = 0 ;
+				if(reverse_interface) scroll_position = applicationsList.getDrawer().size() - 1 ;
+					else scroll_position = 0 ;
+				scroll_last_position = scroll_position ;
+				scroll_close_gesture = 0 ;
 				homeScreen.setVisibility(View.GONE) ;
 				drawer.setVisibility(View.VISIBLE) ;
 			}
@@ -804,12 +811,26 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Detect a scrolling action on the applications drawer.
+	 * Listen for scrolls on the app drawer or the favorites panel.
 	 */
-	class DrawerScrollListener extends RecyclerView.OnScrollListener
+	class ScrollListener extends RecyclerView.OnScrollListener
 	{
+		// Attributes
+		private final int target ;
+
+
 		/**
-		 * When the scrolling ends, check if it is stuck on top.
+		 * Constructor.
+		 * @param target Whether we listen on the app drawer or the favorites panel
+		 */
+		ScrollListener(int target)
+		{
+			this.target = target ;
+		}
+
+
+		/**
+		 * When the scrolling ends, check if it is stuck on top/bottom.
 		 * @param recyclerView Scrolled RecyclerView
 		 * @param newState 1 (Active scrolling) then 2 (Scrolling inerty) then 0 (Not scrolling)
 		 */
@@ -819,56 +840,70 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// Let the parent actions be performed
 			super.onScrollStateChanged(recyclerView, newState) ;
 
-			// Keep track of the state to avoid accidental drawer closure
+			// Keep track of the state to limit accidental closures
 			switch(newState)
 			{
 				case RecyclerView.SCROLL_STATE_DRAGGING :
-					if(drawer_close_gesture == 0) drawer_close_gesture = 1 ;
-						else drawer_close_gesture = 0 ;
+					if(scroll_close_gesture == 0) scroll_close_gesture = 1 ;
+						else scroll_close_gesture = 0 ;
 					break ;
 				case RecyclerView.SCROLL_STATE_SETTLING :
-					if(drawer_close_gesture == 1) drawer_close_gesture = 2 ;
-						else drawer_close_gesture = 0 ;
+					if(scroll_close_gesture == 1) scroll_close_gesture = 2 ;
+						else scroll_close_gesture = 0 ;
 					break ;
 				case RecyclerView.SCROLL_STATE_IDLE :
-					if(drawer_close_gesture == 2) drawer_close_gesture = 3 ;
-						else drawer_close_gesture = 0 ;
+					if(scroll_close_gesture == 2) scroll_close_gesture = 3 ;
+						else scroll_close_gesture = 0 ;
 			}
 
 			// Wait for the gesture to be finished
 			if(newState == RecyclerView.SCROLL_STATE_IDLE)
 				{
 					// Check if this was a complete closure gesture
-					if(drawer_close_gesture == 3)
+					if(scroll_close_gesture == 3)
 						{
 							// Check if the scrolling is stuck
-							if(drawer_last_position == drawer_position)
+							if(scroll_last_position == scroll_position)
 								{
-									// Check if the interface is reversed
-									if(reverse_interface)
+									// Check if we are listening the scroll of the favorites panel or the app drawer
+									if(target == Constants.FAVORITES_PANEL)
 										{
-											// If the scrolling is stuck on bottom, close the drawer activity
-											if(drawer_position == (applicationsList.getDrawer().size() - 1)) displayDrawer(false) ;
+											// If the scrolling is stuck on top/bottom (based on layout), close the favorites panel
+											if(reverse_interface)
+												{
+													if(scroll_position == 0) displayFavorites(false) ;
+												}
+												else
+												{
+													if(scroll_position == (applicationsList.getFavorites().size() - 1)) displayFavorites(false) ;
+												}
 										}
 										else
 										{
-											// If the scrolling is stuck on top, close the drawer activity
-											if(drawer_position == 0) displayDrawer(false) ;
+											// If the scrolling is stuck on bottom/top (based on layout), close the app drawer
+											if(reverse_interface)
+												{
+													if(scroll_position == (applicationsList.getDrawer().size() - 1)) displayDrawer(false) ;
+												}
+												else
+												{
+													if(scroll_position == 0) displayDrawer(false) ;
+												}
 										}
 								}
 
 							// Reset the closure gesture tracking
-							drawer_close_gesture = 0 ;
+							scroll_close_gesture = 0 ;
 						}
 
 					// Update the last position to detect the stuck state
-					drawer_last_position = drawer_position ;
+					scroll_last_position = scroll_position ;
 				}
 		}
 
 
 		/**
-		 * Update the position of the first visible item as the user is scrolling.
+		 * Update the position of the first/last visible item as the user is scrolling.
 		 * @param recyclerView Scrolled RecyclerView
 		 * @param dx Horizontal distance
 		 * @param dy Vertical distance
@@ -879,9 +914,19 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// Let the parent actions be performed
 			super.onScrolled(recyclerView, dx, dy) ;
 
-			// Update the position of the last/first visible item (based on layout)
-			if(reverse_interface) drawer_position = drawerLayout.findLastCompletelyVisibleItemPosition() ;
-				else drawer_position = drawerLayout.findFirstCompletelyVisibleItemPosition() ;
+			// Check if we are listening the scroll of the favorites panel or the app drawer
+			if(target == Constants.FAVORITES_PANEL)
+				{
+					// Update the position of the first/last visible item (based on layout)
+					if(reverse_interface) scroll_position = favoritesLayout.findFirstCompletelyVisibleItemPosition() ;
+						else scroll_position = favoritesLayout.findLastCompletelyVisibleItemPosition() ;
+				}
+				else
+				{
+					// Update the position of the last/first visible item (based on layout)
+					if(reverse_interface) scroll_position = drawerLayout.findLastCompletelyVisibleItemPosition() ;
+						else scroll_position = drawerLayout.findFirstCompletelyVisibleItemPosition() ;
+				}
 		}
 	}
 
