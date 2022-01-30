@@ -767,6 +767,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
 	{
 		if(ignore_settings_changes) return ;
+		if(key == null) return ;
 		switch(key)
 		{
 			// ========= Appearance settings ==========
