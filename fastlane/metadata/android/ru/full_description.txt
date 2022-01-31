@@ -1,31 +1,31 @@
-Discreet Launcher provides you a distraction-free home screen, allowing you to fully enjoy your wallpaper.
+Discreet Launcher - это домашний экран, который не отвлекает, позволяя в полной мере насладиться обоями.
 
-From this clean home screen, simply slide your finger down to display your favorites applications, or up to see the complete list of applications.
+На главном экране просто проведите пальцем вниз, чтобы отобразить избранные приложения, или вверх, чтобы увидеть полный список приложений.
 
-If you hold your finger a few moments on an application, you will be offered to access its system settings and its page in the store.
+Если вы задержите палец на приложении на несколько мгновений, вам будет предложено перейти к его системным настройкам и странице в магазине.
 
-Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
+Discreet Launcher имеет открытый исходный код, не требует никаких лишних разрешений, работает полностью автономно и не содержит рекламы.
 
-1/ Other features
-- Folders
-- Search
-- Rename and hide apps
-- Notification for access to favorites
-- Open app with horizontal swipe
-- Shortcuts support (web apps)
-- Export and import settings
-- Help and changelog
+1/ Другие возможности
+- Папки
+- Поиск
+- Переименование и скрытие приложений
+- Уведомление для доступа к избранным приложениям
+- Открытие приложения горизонтальным пролистыванием
+- Поддержка ярлыков (веб-приложения)
+- Экспорт и импорт настроек
+- Справка и журнал изменений
 
-2/ Customization options
-- Theme and colors
-- Forced orientation
-- Transparent status bar
-- No system bars (immersive mode)
-- Customizable clock
-- Touch targets (accessibility)
-- Always show favorites
-- Reversed interface
-- No menu button
-- No app drawer
-- No app names
-- Icon packs support
+2/ Параметры персонализации
+- Тема и цвета
+- Принудительная ориентация
+- Прозрачная строка состояния
+- Отсутствие системных баров (режим погружения)
+- Настраиваемые часы
+- Сенсорные цели (Touch targets; доступность)
+- Всегда показывать избранное
+- Перевернутый интерфейс
+- Без кнопки меню
+- Без ящика приложений
+- Без названий приложений
+- Поддержка пакетов значков
