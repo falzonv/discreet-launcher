@@ -1,31 +1,30 @@
-Discreet Launcher provides you a distraction-free home screen, allowing you to fully enjoy your wallpaper.
+Discreet Launcher memberi Anda layar beranda bebas gangguan, memungkinkan Anda menikmati wallpaper sepenuhnya.
 
-From this clean home screen, simply slide your finger down to display your favorites applications, or up to see the complete list of applications.
+Dari layar beranda yang bersih ini, cukup geser jari Anda ke bawah untuk menampilkan aplikasi favorit Anda, atau ke atas untuk melihat daftar lengkap aplikasi.
 
-If you hold your finger a few moments on an application, you will be offered to access its system settings and its page in the store.
+Jika Anda menahan jari Anda beberapa saat pada suatu aplikasi, Anda akan ditawari untuk mengakses pengaturan sistemnya dan halamannya di app store.
 
-Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
+Discreet Launcher bersifat open source, tidak memerlukan izin yang tidak perlu, bekerja sepenuhnya offline dan tidak menyertakan iklan apa pun.
 
-1/ Other features
-- Folders
-- Search
-- Rename and hide apps
-- Notification for access to favorites
-- Open app with horizontal swipe
-- Shortcuts support (web apps)
-- Export and import settings
-- Help and changelog
+1/ Fitur lainnya
+- Folder
+- Mencari
+- Ganti nama dan sembunyikan aplikasi
+- Notifikasi untuk akses ke favorit
+- Buka aplikasi dengan sapuan horizontal
+- Dukungan pintasan (aplikasi web)
+- Pengaturan ekspor dan impor
+- Bantuan dan changelog
 
-2/ Customization options
-- Theme and colors
-- Forced orientation
-- Transparent status bar
-- No system bars (immersive mode)
-- Customizable clock
-- Touch targets (accessibility)
-- Always show favorites
-- Reversed interface
-- No menu button
-- No app drawer
-- No app names
-- Icon packs support
+2/ Opsi penyesuaian
+- Tema dan warna
+- Orientasi paksa
+- Batang status transparan
+- Sembunyikan batang sistem (mode imersif)
+- Jam yang dapat disesuaikan
+- Target sentuh (aksesibilitas)
+- Selalu tampilkan favorit - Antarmuka terbalik
+- Sembunyikan tombol menu
+- Sembunyikan laci aplikasi
+- Sembunyikan nama aplikasi
+- Dukungan paket ikon
