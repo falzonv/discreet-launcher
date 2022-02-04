@@ -1,31 +1,31 @@
-Discreet Launcher provides you a distraction-free home screen, allowing you to fully enjoy your wallpaper.
+Discreet Launcher bietet Dir einen ablenkungsfreien Startbildschirm, so dass Du Dein Hintergrundbild in vollen Zügen genießen kannst.
 
-From this clean home screen, simply slide your finger down to display your favorites applications, or up to see the complete list of applications.
+Wische auf diesem übersichtlichen Startbildschirm einfach mit dem Finger nach unten, um Deine bevorzugten Anwendungen anzuzeigen, oder nach oben, um die vollständige Liste der Anwendungen zu sehen.
 
-If you hold your finger a few moments on an application, you will be offered to access its system settings and its page in the store.
+Wenn Du Deinen Finger einige Augenblicke auf einer Anwendung belässt, kannst Du über ein Menü auf die Systemeinstellungen und die Seite im Store zugreifen.
 
-Discreet Launcher is open source, doesn't require any unnecessary permission, works completely offline and doesn't include any advertisements.
+Discreet Launcher ist Open Source , erfordert keine unnötigen Berechtigungen, funktioniert vollständig offline und enthält keine Werbung.
 
-1/ Other features
-- Folders
-- Search
-- Rename and hide apps
-- Notification for access to favorites
-- Open app with horizontal swipe
-- Shortcuts support (web apps)
-- Export and import settings
-- Help and changelog
+1/ Weitere Funktionen
+- Verzeichnisse
+- Suchen
+- Umbenennen und Ausblenden von Anwendungen
+- Benachrichtigung für den Zugriff auf Favoriten
+- Öffnen einer App durch horizontales wischen
+- Unterstützung von Shortcuts (Web-Apps)
+- Einstellungen exportieren und importieren
+- Hilfe und Änderungsprotokoll
 
-2/ Customization options
-- Theme and colors
-- Forced orientation
-- Transparent status bar
-- No system bars (immersive mode)
-- Customizable clock
-- Touch targets (accessibility)
-- Always show favorites
-- Reversed interface
-- No menu button
-- No app drawer
-- No app names
-- Icon packs support
+2/ Anpassungsmöglichkeiten
+- Thema und Farben
+- Erzwungene Ausrichtung
+- Transparente Statusleiste
+- Keine Systemleisten (immersiver Modus)
+- Anpassbare Uhr
+- Touch-Ziele (Barrierefreiheit)
+- Favoriten immer anzeigen
+- Umgekehrte Schnittstelle
+- Keine Menütaste
+- Keine App-Schublade
+- Keine App-Namen
+- Unterstützung von Symbolpakete
