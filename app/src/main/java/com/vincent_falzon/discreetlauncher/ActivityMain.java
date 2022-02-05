@@ -403,9 +403,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else menuButton.setVisibility(View.VISIBLE) ;
 
 				// Display the favorites panel
-				if(reverse_interface) scroll_position = 0 ;
-					else scroll_position = applicationsList.getFavorites().size() - 1 ;
-				scroll_last_position = scroll_position ;
+				scroll_position = 0 ;
+				scroll_last_position = 0 ;
 				scroll_close_gesture = 0 ;
 				favorites.setVisibility(View.VISIBLE) ;
 				targetFavorites.setText(R.string.target_close_favorites) ;
@@ -869,15 +868,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 									// Check if we are listening the scroll of the favorites panel or the app drawer
 									if(target == Constants.FAVORITES_PANEL)
 										{
-											// If the scrolling is stuck on top/bottom (based on layout), close the favorites panel
-											if(reverse_interface)
-												{
-													if(scroll_position == 0) displayFavorites(false) ;
-												}
-												else
-												{
-													if(scroll_position == (applicationsList.getFavorites().size() - 1)) displayFavorites(false) ;
-												}
+											// If the scrolling is stuck on top, close the favorites panel
+											if(scroll_position == 0) displayFavorites(false) ;
 										}
 										else
 										{
@@ -918,9 +910,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// Check if we are listening the scroll of the favorites panel or the app drawer
 			if(target == Constants.FAVORITES_PANEL)
 				{
-					// Update the position of the first/last visible item (based on layout)
-					if(reverse_interface) scroll_position = favoritesLayout.findFirstCompletelyVisibleItemPosition() ;
-						else scroll_position = favoritesLayout.findLastCompletelyVisibleItemPosition() ;
+					// Update the position of the first visible item
+					scroll_position = favoritesLayout.findFirstCompletelyVisibleItemPosition() ;
 				}
 				else
 				{
