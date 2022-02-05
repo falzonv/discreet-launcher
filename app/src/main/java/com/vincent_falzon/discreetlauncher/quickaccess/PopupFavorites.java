@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher.quickaccess ;
  */
 
 // Imports
+import android.content.Context ;
 import android.content.Intent ;
 import android.os.Bundle ;
 import android.view.View ;
@@ -85,5 +86,19 @@ public class PopupFavorites extends AppCompatActivity
 			// Close the popup
 			finish() ;
 		}
+	}
+
+
+	/**
+	 * Provide the Intent to use to display the favorites popup.
+	 * @return An Intent displaying this popup over other apps
+	 */
+	public static Intent getIntent(Context context)
+	{
+		// Prepare the intent to display the favorites popup over other apps
+		Intent intent = new Intent(Intent.ACTION_MAIN) ;
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
+		intent.setClassName(context.getPackageName(), context.getPackageName() + ".quickaccess.PopupFavorites") ;
+		return intent ;
 	}
 }

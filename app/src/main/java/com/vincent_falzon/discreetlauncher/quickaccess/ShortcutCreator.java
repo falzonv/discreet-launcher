@@ -44,9 +44,7 @@ public class ShortcutCreator extends AppCompatActivity
 		super.onCreate(savedInstanceState) ;
 
 		// Prepare the intent to display the favorites popup
-		Intent intent = new Intent(Intent.ACTION_MAIN) ;
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
-		intent.setClassName(getPackageName(), getPackageName() + ".quickaccess.PopupFavorites") ;
+		Intent intent = PopupFavorites.getIntent(this) ;
 
 		// Create the shortcut and close the activity
 		setResult(Activity.RESULT_OK, intent) ;

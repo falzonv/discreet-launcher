@@ -85,10 +85,8 @@ public class NotificationDisplayer
 		builder.setSound(null) ;
 		builder.setVibrate(null) ;
 
-		// Prepare the intent to display the favorites popup
-		Intent intent = new Intent(Intent.ACTION_MAIN) ;
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
-		intent.setClassName(context.getPackageName(), context.getPackageName() + ".quickaccess.PopupFavorites") ;
+		// Retrieve the intent to display the favorites popup
+		Intent intent = PopupFavorites.getIntent(context) ;
 
 		// Define the notification action
 		PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, 0) ;
