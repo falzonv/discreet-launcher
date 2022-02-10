@@ -35,6 +35,21 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <SwitchPreference
+            app:key="hide_app_names"
+            app:title="@string/set_hide_app_names"
+            app:summary="@string/set_hide_app_names_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="remove_padding"
+            app:title="@string/set_remove_padding"
+            app:summary="@string/set_remove_padding_help"
+            app:dependency="hide_app_names"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="background_color_favorites"
             app:title="@string/set_background_color_favorites"
@@ -121,33 +136,12 @@
             app:defaultValue="none"
             app:useSimpleSummaryProvider="true"/>
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        app:title="@string/appearance_settings_title_applications"
-        app:iconSpaceReserved="false">
-
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="icon_color_filter"
             app:title="@string/set_icon_color_filter"
             app:summary="@string/set_icon_color_filter_help"
             app:defaultValue="#00000000"
             app:iconSpaceReserved="false"/>
-
-        <SwitchPreference
-            app:key="hide_app_names"
-            app:title="@string/set_hide_app_names"
-            app:summary="@string/set_hide_app_names_help"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
-
-        <SwitchPreference
-            app:key="remove_padding"
-            app:title="@string/set_remove_padding"
-            app:summary="@string/set_remove_padding_help"
-            app:dependency="hide_app_names"
-            app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
 
     </PreferenceCategory>
 

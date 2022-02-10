@@ -52,6 +52,8 @@ public interface Constants
 	String APPLICATION_THEME = "application_theme" ;
 	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	String DARK_STATUS_BAR_ICONS = "dark_status_bar_icons" ;
+	String HIDE_APP_NAMES = "hide_app_names" ;
+	String REMOVE_PADDING = "remove_padding" ;
 	String BACKGROUND_COLOR_FAVORITES = "background_color_favorites" ;
 	String TEXT_COLOR_FAVORITES = "text_color_favorites" ;
 	String BACKGROUND_COLOR_DRAWER = "background_color_drawer" ;
@@ -63,8 +65,6 @@ public interface Constants
 	String ICON_PACK = "icon_pack" ;
 	String ICON_PACK_SECONDARY = "icon_pack_secondary" ;
 	String ICON_COLOR_FILTER = "icon_color_filter" ;
-	String HIDE_APP_NAMES = "hide_app_names" ;
-	String REMOVE_PADDING = "remove_padding" ;
 	String NOTIFICATION = "notification" ;
 	String FORCED_ORIENTATION = "forced_orientation" ;
 	String ALWAYS_SHOW_FAVORITES = "always_show_favorites" ;

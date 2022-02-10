@@ -52,7 +52,6 @@
     <string name="appearance_settings_title_theme_and_colors">Drakt og fargevalg</string>
     <string name="appearance_settings_title_clock">Klokke</string>
     <string name="appearance_settings_title_icon_packs">Ikonpakker</string>
-    <string name="appearance_settings_title_applications">Programmer</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Grunnfarge:</string>
@@ -92,6 +91,10 @@
     <string name="set_transparent_status_bar_help">Når favoritter lukkes</string>
     <string name="set_dark_status_bar_icons">Mørke statusfeltsikoner</string>
     <string name="set_dark_status_bar_icons_help">Fungerer ikke på Android 5 (Lollipop)</string>
+    <string name="set_hide_app_names">Ingen programnavn</string>
+    <string name="set_hide_app_names_help">Mappenavn vil bli vist</string>
+    <string name="set_remove_padding">Fjern fyll når navn er skjult</string>
+    <string name="set_remove_padding_help">Kan ha uventede resultater med lange mappenavn</string>
     <string name="set_background_color_favorites">Favorittbakgrunn</string>
     <string name="set_text_color_favorites">Favoritt-tekst</string>
     <string name="set_background_color_drawer">Programskuffebakgrunn</string>
@@ -103,10 +106,6 @@
     <string name="set_icon_pack_none">Ingen (bruk opprinnelige ikoner)</string>
     <string name="set_icon_color_filter">Fargefilter for ikoner</string>
     <string name="set_icon_color_filter_help">Har kun innvirkning på forvalgte ikoner, kan brukes i tillegg til ikonpakker</string>
-    <string name="set_hide_app_names">Ingen programnavn</string>
-    <string name="set_hide_app_names_help">Mappenavn vil bli vist</string>
-    <string name="set_remove_padding">Fjern fyll når navn er skjult</string>
-    <string name="set_remove_padding_help">Kan ha uventede resultater med lange mappenavn</string>
 
     <!-- Error messages related to appearance settings -->
     <string name="error_no_icon_pack_installed">Installer noen fra programbutikken din først</string>

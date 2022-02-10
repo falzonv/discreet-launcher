@@ -52,7 +52,6 @@
     <string name="appearance_settings_title_theme_and_colors">Thème et couleurs</string>
     <string name="appearance_settings_title_clock">Horloge</string>
     <string name="appearance_settings_title_icon_packs">Packs d\'icônes</string>
-    <string name="appearance_settings_title_applications">Applications</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Base :</string>
@@ -92,6 +91,10 @@
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
     <string name="set_dark_status_bar_icons">Icônes de la barre de statut foncées</string>
     <string name="set_dark_status_bar_icons_help">Ne fonctionne pas sur Android 5 (Lollipop)</string>
+    <string name="set_hide_app_names">Pas de noms d\'applications</string>
+    <string name="set_hide_app_names_help">Les noms des dossiers sont toujours affichés</string>
+    <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>
+    <string name="set_remove_padding_help">Peut causer des soucis avec les longs noms de dossiers</string>
     <string name="set_background_color_favorites">Fond des favoris</string>
     <string name="set_text_color_favorites">Texte des favoris</string>
     <string name="set_background_color_drawer">Fond du tiroir d\'applications</string>
@@ -103,10 +106,6 @@
     <string name="set_icon_pack_none">Aucun (utiliser les icônes par défaut)</string>
     <string name="set_icon_color_filter">Filtre de couleur sur les icônes</string>
     <string name="set_icon_color_filter_help">S\'applique seulement aux icônes par défaut, utilisable en plus des packs d\'icônes</string>
-    <string name="set_hide_app_names">Pas de noms d\'applications</string>
-    <string name="set_hide_app_names_help">Les noms des dossiers sont toujours affichés</string>
-    <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>
-    <string name="set_remove_padding_help">Peut causer des soucis avec les longs noms de dossiers</string>
 
     <!-- Error messages related to appearance settings -->
     <string name="error_no_icon_pack_installed">Installez-en d\'abord à partir de votre magasin d\'applications</string>

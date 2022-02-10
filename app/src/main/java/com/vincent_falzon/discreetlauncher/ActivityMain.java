@@ -774,6 +774,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// Update the theme
 				setApplicationTheme() ;
 				break ;
+			case Constants.HIDE_APP_NAMES :
+			case Constants.REMOVE_PADDING :
+				// Update the column width
+				recreate() ;
+				break ;
 			case Constants.TEXT_COLOR_FAVORITES :
 				// Update the text color of the favorites panel
 				favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
@@ -787,11 +792,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			case Constants.ICON_COLOR_FILTER :
 				// Update the applications list
 				updateList(this) ;
-				break ;
-			case Constants.HIDE_APP_NAMES :
-			case Constants.REMOVE_PADDING :
-				// Update the column width
-				recreate() ;
 				break ;
 			// ========= Operation settings ==========
 			case Constants.NOTIFICATION :

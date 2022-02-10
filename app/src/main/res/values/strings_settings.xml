@@ -52,7 +52,6 @@
     <string name="appearance_settings_title_theme_and_colors">Theme and colors</string>
     <string name="appearance_settings_title_clock">Clock</string>
     <string name="appearance_settings_title_icon_packs">Icon packs</string>
-    <string name="appearance_settings_title_applications">Apps</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Base:</string>
@@ -92,6 +91,10 @@
     <string name="set_transparent_status_bar_help">When favorites are closed</string>
     <string name="set_dark_status_bar_icons">Dark status bar icons</string>
     <string name="set_dark_status_bar_icons_help">Not working on Android 5 (Lollipop)</string>
+    <string name="set_hide_app_names">No app names</string>
+    <string name="set_hide_app_names_help">Folder names are still shown</string>
+    <string name="set_remove_padding">No padding when app names are hidden</string>
+    <string name="set_remove_padding_help">Can cause problems with long folders names</string>
     <string name="set_background_color_favorites">Favorites background</string>
     <string name="set_text_color_favorites">Favorites text</string>
     <string name="set_background_color_drawer">App drawer background</string>
@@ -103,10 +106,6 @@
     <string name="set_icon_pack_none">None (use default icons)</string>
     <string name="set_icon_color_filter">Color filter on icons</string>
     <string name="set_icon_color_filter_help">Only applies to default icons, can be used in addition to icon packs</string>
-    <string name="set_hide_app_names">No app names</string>
-    <string name="set_hide_app_names_help">Folder names are still shown</string>
-    <string name="set_remove_padding">No padding when app names are hidden</string>
-    <string name="set_remove_padding_help">Can cause problems with long folders names</string>
 
     <!-- Error messages related to appearance settings -->
     <string name="error_no_icon_pack_installed">Install some from your app store first</string>

@@ -52,7 +52,6 @@
     <string name="appearance_settings_title_theme_and_colors">Тема и цвета</string>
     <string name="appearance_settings_title_clock">Часы</string>
     <string name="appearance_settings_title_icon_packs">Пакеты значков</string>
-    <string name="appearance_settings_title_applications">Приложения</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Цвет:</string>
@@ -92,6 +91,10 @@
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
     <string name="set_dark_status_bar_icons">Темные значки строки состояния</string>
     <string name="set_dark_status_bar_icons_help">Не работает на Android 5 (Lollipop)</string>
+    <string name="set_hide_app_names">Не показывать имена приложений</string>
+    <string name="set_hide_app_names_help">Имена папок все еще отображаются</string>
+    <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
+    <string name="set_remove_padding_help">Может вызвать проблемы с длинными именами папок</string>
     <string name="set_background_color_favorites">Избранный фон</string>
     <string name="set_text_color_favorites">Избранный текст</string>
     <string name="set_background_color_drawer">Фон ящика приложений</string>
@@ -103,10 +106,6 @@
     <string name="set_icon_pack_none">Нет (использовать значки по умолчанию)</string>
     <string name="set_icon_color_filter">Цветовой фильтр на значках</string>
     <string name="set_icon_color_filter_help">Применяется только к значкам по умолчанию, может использоваться в дополнение к пакетам значков</string>
-    <string name="set_hide_app_names">Не показывать имена приложений</string>
-    <string name="set_hide_app_names_help">Имена папок все еще отображаются</string>
-    <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
-    <string name="set_remove_padding_help">Может вызвать проблемы с длинными именами папок</string>
 
     <!-- Error messages related to appearance settings -->
     <string name="error_no_icon_pack_installed">Установите несколько из вашего магазина приложений</string>

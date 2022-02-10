@@ -52,7 +52,6 @@
     <string name="appearance_settings_title_theme_and_colors">Design und Farben</string>
     <string name="appearance_settings_title_clock">Uhr</string>
     <string name="appearance_settings_title_icon_packs">Symbolpakete</string>
-    <string name="appearance_settings_title_applications">Apps</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Basis:</string>
@@ -92,6 +91,10 @@
     <string name="set_transparent_status_bar_help">Wenn Favoriten geschlossen sind</string>
     <string name="set_dark_status_bar_icons">Dunkle Statusleisten-Symbole</string>
     <string name="set_dark_status_bar_icons_help">Funktioniert nicht unter Android 5 (Lollipop)</string>
+    <string name="set_hide_app_names">Keine App Bezeichnungen</string>
+    <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
+    <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
+    <string name="set_remove_padding_help">Kann Probleme mit langen Ordnernamen verursachen</string>
     <string name="set_background_color_favorites">Favoriten-Hintergrund</string>
     <string name="set_text_color_favorites">Favoriten Text</string>
     <string name="set_background_color_drawer">Hintergrund der App Übersicht</string>
@@ -103,10 +106,6 @@
     <string name="set_icon_pack_none">Keins (Standard-Symbole verwenden)</string>
     <string name="set_icon_color_filter">Farbfilter für Symbole</string>
     <string name="set_icon_color_filter_help">Gilt nur für Standardsymbole, kann zusätzlich zu Symbolpaketen verwendet werden</string>
-    <string name="set_hide_app_names">Keine App Bezeichnungen</string>
-    <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
-    <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
-    <string name="set_remove_padding_help">Kann Probleme mit langen Ordnernamen verursachen</string>
 
     <!-- Error messages related to appearance settings -->
     <string name="error_no_icon_pack_installed">Installiere zunächst einige über Deinen App Store</string>

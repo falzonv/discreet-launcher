@@ -154,6 +154,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
 		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_FAVORITES)) ;
 		exportedData.add(exportStringSetting(Constants.TEXT_COLOR_FAVORITES)) ;
 		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_DRAWER)) ;
@@ -165,8 +167,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK_SECONDARY)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_COLOR_FILTER)) ;
-		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
-		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
 		exportedData.add(exportStringSetting(Constants.FORCED_ORIENTATION)) ;
 		exportedData.add(exportBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.IMMERSIVE_MODE, false)) ;
@@ -283,6 +283,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.APPLICATION_THEME)) loadStringSetting(Constants.APPLICATION_THEME, line) ;
 				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
 				else if(line.startsWith(Constants.DARK_STATUS_BAR_ICONS)) loadBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, line) ;
+				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
+				else if(line.startsWith(Constants.REMOVE_PADDING)) loadBooleanSetting(Constants.REMOVE_PADDING, line) ;
 				else if(line.startsWith(Constants.BACKGROUND_COLOR_FAVORITES)) loadStringSetting(Constants.BACKGROUND_COLOR_FAVORITES, line) ;
 				else if(line.startsWith(Constants.TEXT_COLOR_FAVORITES)) loadStringSetting(Constants.TEXT_COLOR_FAVORITES, line) ;
 				else if(line.startsWith(Constants.BACKGROUND_COLOR_DRAWER)) loadStringSetting(Constants.BACKGROUND_COLOR_DRAWER, line) ;
@@ -305,8 +307,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.ICON_PACK_SECONDARY)) loadStringSetting(Constants.ICON_PACK_SECONDARY, line) ;
 				else if(line.startsWith(Constants.ICON_COLOR_FILTER)) loadStringSetting(Constants.ICON_COLOR_FILTER, line) ;
-				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
-				else if(line.startsWith(Constants.REMOVE_PADDING)) loadBooleanSetting(Constants.REMOVE_PADDING, line) ;
 				else if(line.startsWith(Constants.FORCED_ORIENTATION)) loadStringSetting(Constants.FORCED_ORIENTATION, line) ;
 				else if(line.startsWith(Constants.ALWAYS_SHOW_FAVORITES)) loadBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, line) ;
 				else if(line.startsWith(Constants.IMMERSIVE_MODE)) loadBooleanSetting(Constants.IMMERSIVE_MODE, line) ;
