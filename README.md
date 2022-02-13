@@ -20,6 +20,4 @@ Il y a donc parfois une différence entre la dernière version et ce qui est dis
 
 ## Screenshots *(Captures d'écran)*
 
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="360" height="675"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="360" height="675">
-
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="360" height="675"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg" width="360" height="675">
+![Screenshots](fastlane/metadata/android/en-US/images/screenshots_total.jpg)
