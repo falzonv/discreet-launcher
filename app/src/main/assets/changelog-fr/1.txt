@@ -1,2 +1,6 @@
 v1.0.0 (01) - 17/02/2021
 VERSION INITIALE
+
+Si vous avez défilé jusqu'ici pour vérifier ce que disait la v6.0.0, j'en profite pour mentionner que, si Lanceur Discret vous plaît, vous pouvez soutenir le projet en m'offrant un café ;-)
+
+Pour cela, allez sur mon site web (lien dans la fenêtre "À propos") et cliquez sur "Soutenir le projet" dans la page de Lanceur Discret.

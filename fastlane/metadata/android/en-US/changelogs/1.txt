@@ -1,2 +1,6 @@
 v1.0.0 (01) - 17/02/2021
 INITIAL RELEASE
+
+If you scrolled down to here to check what v6.0.0 said, I take this opportunity to mention that, if you like Discreet Launcher, you can support the project by offering me a coffee ;-)
+
+For this, go to my website (link in the About popup) and click "Support the project" in the Discreet Launcher page.

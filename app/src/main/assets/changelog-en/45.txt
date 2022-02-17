@@ -1,0 +1,14 @@
+v6.0.0 (45) - 17/02/2022
+=== Happy Birthday ! ===
+(Version 1.0.0 was published one year ago.)
+NEW THINGS
+   - Action for Key Mapper (@xi7)
+   - Description in German, Indonesian and Russian
+IMPROVEMENTS
+   - New screenshots by Donno
+   - Reversed interface gestures (@comradekingu)
+   - Favorites easier to dismiss (@comradekingu)
+   - Search text field (@comradekingu)
+   - Appearance settings order (@comradekingu)
+CORRECTIONS
+   - Possible crash on import

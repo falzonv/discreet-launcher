@@ -1,0 +1,14 @@
+v6.0.0 (45) - 17/02/2022
+=== Joyeux anniversaire ! ===
+(La version 1.0.0 était publiée il y a un an.)
+NOUVEAUTÉS
+   - Action pour Key Mapper (@xi7)
+   - Description en allemand, indonésien et russe
+AMÉLIORATIONS
+   - Nouvelles captures d'écran par Donno
+   - Gestes interface inversée (@comradekingu)
+   - Fermeture panneau favoris (@comradekingu)
+   - Champ du texte de recherche (@comradekingu)
+   - Ordre paramètres apparence (@comradekingu)
+CORRECTIONS
+   - Possible crash lors de l'import
