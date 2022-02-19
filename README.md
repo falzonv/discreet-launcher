@@ -1,9 +1,9 @@
 # Discreet Launcher *(Lanceur Discret)*
 
+<img alt="ApplicationIcon" align="left" src="app/src/main/res/mipmap-hdpi/ic_launcher.png">
+
 Enjoy a clean home screen while accessing everything in an instant!  
 *(Profitez d'un écran d'accueil épuré tout en accédant à tout en un instant !)*
-
-![ApplicationIcon](app/src/main/res/mipmap-mdpi/ic_launcher_round.png)
 
 **Available on [F-Droid](https://f-droid.org/en/packages/com.vincent_falzon.discreetlauncher) and [Google Play](https://play.google.com/store/apps/details?id=com.vincent_falzon.discreetlauncher)**
 *(disponible sur [F-Droid](https://f-droid.org/fr/packages/com.vincent_falzon.discreetlauncher) et [Google Play](https://play.google.com/store/apps/details?id=com.vincent_falzon.discreetlauncher))*

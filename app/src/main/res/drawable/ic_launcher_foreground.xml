@@ -5,37 +5,30 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <group android:scaleX="0.91"
-      android:scaleY="0.91"
-      android:translateX="4.86"
-      android:translateY="4.86">
+    <group android:scaleX="0.83"
+        android:scaleY="0.83"
+        android:translateX="9.2"
+        android:translateY="9.2">
 
-        <group android:scaleX="0.91"
-            android:scaleY="0.91"
-            android:translateX="4.86"
-            android:translateY="4.86">
+        <path
+            android:pathData="M30,50 L54,25 L77,50"
+            android:strokeWidth="4"
+            android:strokeLineJoin="round"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/for_icon_discreet_launcher"/>
 
-            <path
-                android:pathData="M30,50 L54,25 L77,50"
-                android:strokeWidth="4"
-                android:strokeLineJoin="round"
-                android:strokeLineCap="round"
-                android:strokeColor="@color/for_icon_discreet_launcher"/>
+        <path
+            android:pathData="M30,62 L54,37 L77,62"
+            android:strokeWidth="4"
+            android:strokeLineJoin="round"
+            android:strokeLineCap="round"
+            android:strokeColor="@color/for_icon_discreet_launcher"/>
 
-            <path
-                android:pathData="M30,62 L54,37 L77,62"
-                android:strokeWidth="4"
-                android:strokeLineJoin="round"
-                android:strokeLineCap="round"
-                android:strokeColor="@color/for_icon_discreet_launcher"/>
-
-            <path
-                android:pathData="M40,59 V80 H67 V59"
-                android:strokeWidth="4"
-                android:strokeLineJoin="round"
-                android:strokeColor="@color/for_icon_discreet_launcher"/>
-
-        </group>
+        <path
+            android:pathData="M40,59 V80 H67 V59"
+            android:strokeWidth="4"
+            android:strokeLineJoin="round"
+            android:strokeColor="@color/for_icon_discreet_launcher"/>
 
     </group>
 
