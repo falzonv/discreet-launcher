@@ -1,0 +1,5 @@
+v6.0.1 (46) - 21/02/2022
+IMPROVEMENTS
+   - Minor internal simplifications
+CORRECTIONS
+   - Unexpected error message on import

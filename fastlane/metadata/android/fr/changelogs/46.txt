@@ -1,0 +1,5 @@
+v6.0.1 (46) - 21/02/2022
+AMÉLIORATIONS
+   - Simplifications internes mineures
+CORRECTIONS
+   - Message d'erreur inattendu à l'import
