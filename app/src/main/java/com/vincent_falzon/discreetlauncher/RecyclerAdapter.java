@@ -60,7 +60,7 @@ import java.util.ArrayList ;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationView>
 {
 	// Attributes
-	public ArrayList<Application> applicationsList ;
+	ArrayList<Application> applicationsList ;
 	private final SharedPreferences settings ;
 	private final int padding ;
 	private int text_color ;
