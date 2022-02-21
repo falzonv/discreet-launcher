@@ -153,9 +153,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 			{
 				// Display the About without dismissing the menu
 				AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-				if(context.getString(R.string.translation_credit).isEmpty())
-						dialog.setView(R.layout.dialog_about) ;
-					else dialog.setView(R.layout.dialog_about_with_credit) ;
+				dialog.setView(R.layout.dialog_about) ;
 				dialog.setPositiveButton(R.string.button_close, null) ;
 				dialog.show() ;
 				return ;

@@ -47,6 +47,6 @@
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Предлагайте улучшения и сообщайте о проблемах на</string>
     <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit">Русский перевод от Artur Ajvasjan</string>
+    <string name="translation_credit">(Русский перевод от Artur Ajvasjan)</string>
 
 </resources>

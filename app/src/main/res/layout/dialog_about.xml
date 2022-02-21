@@ -37,6 +37,13 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:text="@string/translation_credit"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_marginTop="@dimen/spacing_normal"
         android:text="@string/licence_name"/>
 

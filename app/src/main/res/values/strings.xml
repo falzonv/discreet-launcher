@@ -47,6 +47,6 @@
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Suggest improvements and report issues on</string>
     <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit"><!-- Replace this comment with a translation of: "[Locale] translation by [first and last names]" --></string>
+    <string name="translation_credit"><!-- Replace this comment with a translation of: "([Locale] translation by [first and last names])" --></string>
 
 </resources>
