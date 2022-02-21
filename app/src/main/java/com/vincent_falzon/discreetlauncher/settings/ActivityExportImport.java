@@ -304,7 +304,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.CLOCK_COLOR)) loadStringSetting(Constants.CLOCK_COLOR, line) ;
 				else if(line.startsWith(Constants.CLOCK_SHADOW_COLOR)) loadStringSetting(Constants.CLOCK_SHADOW_COLOR, line) ;
 				else if(line.startsWith(Constants.CLOCK_POSITION)) loadStringSetting(Constants.CLOCK_POSITION, line) ;
-				else if(line.startsWith(Constants.ICON_PACK)) loadStringSetting(Constants.ICON_PACK, line) ;
+				else if(line.startsWith(Constants.ICON_PACK + ":")) loadStringSetting(Constants.ICON_PACK, line) ;
 				else if(line.startsWith(Constants.ICON_PACK_SECONDARY)) loadStringSetting(Constants.ICON_PACK_SECONDARY, line) ;
 				else if(line.startsWith(Constants.ICON_COLOR_FILTER)) loadStringSetting(Constants.ICON_COLOR_FILTER, line) ;
 				else if(line.startsWith(Constants.FORCED_ORIENTATION)) loadStringSetting(Constants.FORCED_ORIENTATION, line) ;
