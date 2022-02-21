@@ -37,9 +37,7 @@ public class FlexibleGridLayout extends GridLayoutManager
 
 
 	/**
-	 * Constructor.
-	 * @param context Needed to build the GridLayout
-	 * @param item_width In pixels
+	 * Constructor with an item width given in pixels.
 	 */
 	public FlexibleGridLayout(Context context, int item_width)
 	{
@@ -53,8 +51,6 @@ public class FlexibleGridLayout extends GridLayoutManager
 
 	/**
 	 * Called to lay out the elements of the RecyclerView.
-	 * @param recycler Used by the parent method
-	 * @param state Used by the parent method
 	 */
 	@Override
 	public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state)

@@ -42,7 +42,6 @@ public abstract class DialogHiddenApps
 {
 	/**
 	 * Display a multi-selection dialog allowing to select applications that should be hidden.
-	 * @param context Provided by a dialog or activity
 	 */
 	public static void showHiddenAppsDialog(final Context context)
 	{

@@ -44,7 +44,6 @@ public class NotificationDisplayer
 
 	/**
 	 * Constructor to build the notification.
-	 * @param context Provided by an activity
 	 */
 	public NotificationDisplayer(Context context)
 	{
@@ -65,7 +64,6 @@ public class NotificationDisplayer
 
 	/**
 	 * Display the notification.
-	 * @param context Provided by an activity
 	 */
 	public void display(Context context)
 	{

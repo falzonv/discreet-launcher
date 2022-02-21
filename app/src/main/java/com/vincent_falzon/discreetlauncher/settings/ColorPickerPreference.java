@@ -55,8 +55,6 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 
 	/**
 	 * Constructor.
-	 * @param context Needed to extend Preference
-	 * @param attributes From the XML file
 	 */
 	public ColorPickerPreference(Context context, AttributeSet attributes)
 	{
@@ -70,8 +68,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 
 
 	/**
-	 * Method called when the initial value of a preference is set.
-	 * @param defaultValue Result of onGetDefaultValue()
+	 * Called when the initial value of a preference is set.
 	 */
 	@Override
 	protected void onSetInitialValue(Object defaultValue)
@@ -82,9 +79,6 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 
 	/**
 	 * Retrieve the default value of the preference in its attributes.
-	 * @param attributes Set of attributes of the preference
-	 * @param index Position of the default value in the set
-	 * @return The default value of the preference
 	 */
 	@Override
 	protected Object onGetDefaultValue(TypedArray attributes, int index)
@@ -96,12 +90,11 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 
 
 	/**
-	 * Detect a click on a preference.
-	 * @param preference Clicked preference
-	 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
+	 * Called when a preference is clicked.
 	 */
 	public boolean onPreferenceClick(Preference preference)
 	{
+		// Open the color picked and mark the event as consumed
 		pickerDialog = new ColorPickerDialog(getContext(), current_color, default_color, getTitle(), this) ;
 		pickerDialog.show() ;
 		return true ;
@@ -110,7 +103,6 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 
 	/**
 	 * Called when a new color should be saved in the preferences.
-	 * @param new_color Color to save in the preferences
 	 */
 	@Override
 	public void onSaveRequest(String new_color)
@@ -131,7 +123,6 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 
 	/**
 	 * Called when there is a change in the preference data.
-	 * @param holder Provide references to the views of the preference
 	 */
 	@Override
 	public void onBindViewHolder(PreferenceViewHolder holder)

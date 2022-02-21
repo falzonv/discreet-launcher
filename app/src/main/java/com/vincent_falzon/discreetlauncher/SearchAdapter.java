@@ -42,8 +42,6 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 
 	/**
 	 * Constructor to fill a RecyclerView with the applications list.
-	 * @param context To get the settings
-	 * @param applicationsList Applications to display in the recycler
 	 */
 	public SearchAdapter(Context context, ArrayList<Application> applicationsList)
 	{
@@ -59,7 +57,6 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 
 	/**
 	 * Create the filter which will be used to search in the list.
-	 * @return Filter used to match the search
 	 */
 	@Override
 	public Filter getFilter()
@@ -67,9 +64,7 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 		return new Filter()
 		{
 			/**
-			 * Define the results after the filter is applied.
-			 * @param filter Search pattern
-			 * @return Results after filtering
+			 * Retrieve the results after the filter is applied.
 			 */
 			@Override
 			protected FilterResults performFiltering(CharSequence filter)
@@ -96,8 +91,6 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 
 			/**
 			 * Display the search results.
-			 * @param filter Search pattern
-			 * @param results Results after filtering
 			 */
 			@Override
 			protected void publishResults(CharSequence filter, FilterResults results)
@@ -111,8 +104,7 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 
 
 	/**
-	 * Provide the first item currently displayed in the adapter.
-	 * @return First item in the list, or <code>null</code> if the list is empty
+	 * Provide the first item currently displayed in the adapter (or <code>null</code> if empty).
 	 */
 	public Application getFirstItem()
 	{
@@ -123,9 +115,7 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 
 	/**
 	 * Check if a text contains the searched sequence ignoring case and accents.
-	 * @param search Sequence to search
 	 * @param search_length For optimization in loops
-	 * @param text Tested text
 	 * @return <code>true</code> if the sequence is in the text, <code>false</code> otherwise
 	 */
 	private boolean searchIncludingVariants(String search, int search_length, String text)

@@ -33,8 +33,6 @@ public abstract class ShowDialog
 {
 	/**
 	 * Display an R.string message in a Toast for a short duration.
-	 * @param context Provided by an activity
-	 * @param message The message to display
 	 */
 	public static void toast(Context context, int message)
 	{
@@ -45,8 +43,6 @@ public abstract class ShowDialog
 
 	/**
 	 * Display a message in a Toast for a long duration.
-	 * @param context Provided by an activity
-	 * @param message The message to display
 	 */
 	public static void toastLong(Context context, String message)
 	{

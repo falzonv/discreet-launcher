@@ -59,10 +59,7 @@ public class Folder extends Application
 
 
 	/**
-	 * Constructor to represent a folder
-	 * @param display_name Displayed to the user
-	 * @param icon Displayed to the user
-	 * @param color Displayed to the user
+	 * Constructor.
 	 */
 	public Folder(String display_name, Drawable icon, int color)
 	{
@@ -74,8 +71,7 @@ public class Folder extends Application
 
 
 	/**
-	 * Get the display name of the folder followed by the number of elements inside.
-	 * @return Name displayed in the menus
+	 * Return the display name of the folder followed by the number of elements inside.
 	 */
 	public String getDisplayNameWithCount()
 	{
@@ -85,7 +81,6 @@ public class Folder extends Application
 
 	/**
 	 * Set the display name of the folder.
-	 * @param new_name New display name
 	 */
 	@Override
 	public void setDisplayName(String new_name)
@@ -97,8 +92,7 @@ public class Folder extends Application
 
 
 	/**
-	 * Get the file name of the folder.
-	 * @return Name of the file in the internal storage
+	 * Return the file name of the folder.
 	 */
 	public String getFileName()
 	{
@@ -107,8 +101,7 @@ public class Folder extends Application
 
 
 	/**
-	 * Get the list of applications that this folder contains.
-	 * @return Content of the folder
+	 * Return the list of applications that this folder contains.
 	 */
 	public ArrayList<Application> getApplications()
 	{
@@ -118,7 +111,6 @@ public class Folder extends Application
 
 	/**
 	 * Set the color to use for the folder icon.
-	 * @param new_color Color selected by the user
 	 */
 	public void setColor(int new_color)
 	{
@@ -127,8 +119,7 @@ public class Folder extends Application
 
 
 	/**
-	 * Get the color to use for the folder icon.
-	 * @return Color selected by the user
+	 * Return the color to use for the folder icon.
 	 */
 	public int getColor()
 	{
@@ -138,7 +129,6 @@ public class Folder extends Application
 
 	/**
 	 * Add an application to the folder if it is not already there.
-	 * @param application To add
 	 */
 	public void addToFolder(Application application)
 	{
@@ -166,7 +156,6 @@ public class Folder extends Application
 
 	/**
 	 * Display the content of the folder as a popup.
-	 * @param parent Element from which the event originates
 	 * @return Always <code>true</code>
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
@@ -219,8 +208,7 @@ public class Folder extends Application
 	private class PopupClickListener implements View.OnClickListener
 	{
 		/**
-		 * Detect a click on a view.
-		 * @param view Target element
+		 * Called when a view is clicked.
 		 */
 		@Override
 		public void onClick(View view)
@@ -241,14 +229,12 @@ public class Folder extends Application
 	private class PopupTouchListener implements View.OnTouchListener
 	{
 		/**
-		 * Detect a gesture on a view.
-		 * @param view Target element
-		 * @param event Details about the gesture
-		 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
+		 * Called when a view is touched.
 		 */
 		@Override
 		public boolean onTouch(View view, MotionEvent event)
 		{
+			// Close the popup and mark the event as consumed
 			view.performClick() ;
 			closePopup() ;
 			return true ;
@@ -258,7 +244,6 @@ public class Folder extends Application
 
 	/**
 	 * Open the interface to manage folders.
-	 * @param context To launch the Intent
 	 */
 	@Override
 	public void showSettings(Context context)

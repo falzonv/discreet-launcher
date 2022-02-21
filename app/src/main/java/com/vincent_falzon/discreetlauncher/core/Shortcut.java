@@ -37,16 +37,12 @@ import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import java.net.URISyntaxException ;
 
 /**
- * Represent a shortcut with its name and icon.
+ * Represent an Android shortcut.
  */
 public class Shortcut extends Application
 {
 	/**
-	 * Constructor to represent a shortcut
-	 * @param display_name Displayed to the user
-	 * @param name Application name used internally
-	 * @param apk Package name used internally
-	 * @param icon Displayed to the user
+	 * Constructor.
 	 */
 	public Shortcut(String display_name, String name, String apk, Drawable icon)
 	{
@@ -56,7 +52,6 @@ public class Shortcut extends Application
 
 	/**
 	 * Start the shortcut as a new task.
-	 * @param view Element from which the event originates
 	 * @return <code>true</code> if the shortcut was launched, <code>false</code> otherwise
 	 */
 	public boolean start(View view)

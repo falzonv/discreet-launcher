@@ -33,11 +33,7 @@ import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
 public class Menu extends Application
 {
 	/**
-	 * Constructor to set the menu on the Discreet Launcher icon.
-	 * @param display_name Displayed to the user
-	 * @param name Application name used internally
-	 * @param apk Package name used internally
-	 * @param icon Displayed to the user
+	 * Constructor.
 	 */
 	public Menu(String display_name, String name, String apk, Drawable icon)
 	{
@@ -47,7 +43,6 @@ public class Menu extends Application
 
 	/**
 	 * Display the main menu.
-	 * @param view Element from which the event originates
 	 * @return Always <code>true</code>
 	 */
 	public boolean start(View view)

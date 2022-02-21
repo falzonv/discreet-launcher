@@ -34,7 +34,7 @@ import android.os.UserHandle ;
 import android.view.View ;
 
 /**
- * Represent an Android application with its names (displayed, internal and package) and icon.
+ * Represent an Android application (userHandle is used to identify work profile apps).
  */
 public class Application
 {
@@ -48,12 +48,7 @@ public class Application
 
 
 	/**
-	 * Constructor to represent an Android application.
-	 * @param display_name Displayed to the user
-	 * @param name Application name used internally
-	 * @param apk Package name used internally
-	 * @param icon Displayed to the user
-	 * @param userHandle Used internally for work profile apps
+	 * Constructor.
 	 */
 	public Application(String display_name, String name, String apk, Drawable icon, UserHandle userHandle)
 	{
@@ -72,8 +67,7 @@ public class Application
 
 
 	/**
-	 * Get the disply name of the application.
-	 * @return Name displayed in the menus
+	 * Return the disply name of the application.
 	 */
 	public String getDisplayName()
 	{
@@ -83,7 +77,6 @@ public class Application
 
 	/**
 	 * Set the display name of the application.
-	 * @param new_name New display name
 	 */
 	public void setDisplayName(String new_name)
 	{
@@ -92,8 +85,7 @@ public class Application
 
 
 	/**
-	 * Get the internal name of the application.
-	 * @return Application name used internally
+	 * Return the internal name of the application.
 	 */
 	public String getName()
 	{
@@ -102,8 +94,7 @@ public class Application
 
 
 	/**
-	 * Get the package name of the application.
-	 * @return Package name used internally
+	 * Return the package name of the application.
 	 */
 	public String getApk()
 	{
@@ -112,8 +103,7 @@ public class Application
 
 
 	/**
-	 * Get the ComponentInfo{package/name} of the application.
-	 * @return Used internally
+	 * Return the ComponentInfo{package/name} of the application.
 	 */
 	public String getComponentInfo()
 	{
@@ -122,8 +112,7 @@ public class Application
 
 
 	/**
-	 * Get the icon of the application.
-	 * @return Icon displayed in the menus
+	 * Return the icon of the application.
 	 */
 	public Drawable getIcon()
 	{
@@ -133,7 +122,6 @@ public class Application
 
 	/**
 	 * Set a new icon for the application.
-	 * @param new_icon Icon displayed in the menus
 	 */
 	public void setIcon(Drawable new_icon)
 	{
@@ -143,7 +131,6 @@ public class Application
 
 	/**
 	 * Start the application as a new task.
-	 * @param view Element from which the event originates
 	 * @return <code>true</code> if the application was found, <code>false</code> otherwise
 	 */
 	public boolean start(View view)
@@ -193,7 +180,6 @@ public class Application
 
 	/**
 	 * Open the application system settings.
-	 * @param context To launch the settings Intent
 	 */
 	public void showSettings(Context context)
 	{

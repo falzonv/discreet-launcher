@@ -94,8 +94,6 @@ public class ColorPickerView extends View
 
 	/**
 	 * Constructor.
-	 * @param context Provided by the dialog
-	 * @param attributes All the XML attributes of the view
 	 */
 	public ColorPickerView(Context context, AttributeSet attributes)
 	{
@@ -212,7 +210,6 @@ public class ColorPickerView extends View
 
 	/**
 	 * Draw the color picker interface and its sliders positionned onto the selected color.
-	 * @param canvas Where to draw
 	 */
 	@Override
 	protected void onDraw(Canvas canvas)
@@ -267,9 +264,7 @@ public class ColorPickerView extends View
 
 
 	/**
-	 * Detect a gesture on the color picker view.
-	 * @param event Detected gesture
-	 * @return <code>true</code> if the event has been consumed, <code>false</code> otherwise
+	 * Called when the color picker view is touched.
 	 */
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
@@ -286,7 +281,7 @@ public class ColorPickerView extends View
 				// Check if the selected color needs to be udpated
 				if(updateColorFollowingGesture(event))
 					{
-						// Update the selected color
+						// Update the selected color and mark the event as consumed
 						if(changeListener != null)
 							changeListener.onColorChanged(Color.HSVToColor(alpha, hsv_color)) ;
 						invalidate() ;
@@ -300,7 +295,6 @@ public class ColorPickerView extends View
 
 	/**
 	 * Update the selected color when a gesture has been detected on a panel.
-	 * @param event The detected gesture
 	 * @return <code>true</code> if an update of the picker is needed, <code>false</code> otherwise
 	 */
 	private boolean updateColorFollowingGesture(MotionEvent event)
@@ -357,8 +351,6 @@ public class ColorPickerView extends View
 
 	/**
 	 * Force the color picker dimensions to prevent size issues (ex: view much too high).
-	 * @param widthMeasureSpec Horizontal requirements from the parent
-	 * @param heightMeasureSpec Vertical requirements from the parent
 	 */
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
@@ -369,7 +361,6 @@ public class ColorPickerView extends View
 
 	/**
 	 * Set the listener that should be notified when the selected color changes.
-	 * @param listener To notify when the color change
 	 */
 	public void setOnColorChangedListener(ColorChangeListener listener)
 	{
@@ -379,7 +370,6 @@ public class ColorPickerView extends View
 
 	/**
 	 * Return the color currently selected with the color picker.
-	 * @return Current color
 	 */
 	public int getColor()
 	{
@@ -388,9 +378,7 @@ public class ColorPickerView extends View
 
 
 	/**
-	 * Select a specific color on the color picker.
-	 * @param new_color The color to select
-	 * @param keep_alpha <code>true</code> to keep the currently selected alpha
+	 * Select a specific color on the color picker, keeping or not the alpha channel.
 	 */
 	public void setColor(int new_color, boolean keep_alpha)
 	{

@@ -48,12 +48,11 @@ public class ShortcutListener extends AppCompatActivity
 {
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		// Call the constructor of the parent class
+		// Let the parent actions be performed
 		super.onCreate(savedInstanceState) ;
 
 		// Execute the following code only if the Android version is Oreo or higher
@@ -69,36 +68,36 @@ public class ShortcutListener extends AppCompatActivity
 						// If the request is invalid, display a message and quit
 						ShortcutInfo receivedShortcut = pinRequest.getShortcutInfo() ;
 						if((receivedShortcut.getShortLabel() != null))
-						{
-							// Retrive the informations of the shortcut
-							String display_name = receivedShortcut.getShortLabel().toString() ;
-							String user_id = receivedShortcut.getUserHandle().toString() ;
-							String shortcut = display_name
-									+ Constants.SHORTCUT_SEPARATOR + receivedShortcut.getPackage()
-									+ Constants.SHORTCUT_SEPARATOR + receivedShortcut.getId()
-									+ Constants.SHORTCUT_SEPARATOR + user_id.replace("UserHandle{", "").replace("}", "") ;
-
-							// Check if the launcher is allowed to retrieve the shortcut icon
-							Bitmap icon = null ;
-							LauncherApps launcher = (LauncherApps)getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
-							if(launcher.hasShortcutHostPermission())
 							{
-								// If its dimensions are valid, create a Bitmap from the icon
-								Drawable shortcutIcon = launcher.getShortcutIconDrawable(receivedShortcut, 0) ;
-								if((shortcutIcon.getIntrinsicWidth() > 0) && (shortcutIcon.getIntrinsicHeight() > 0))
-								{
-									icon = Bitmap.createBitmap(shortcutIcon.getIntrinsicWidth(), shortcutIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
-									shortcutIcon.setBounds(0, 0, shortcutIcon.getIntrinsicWidth(), shortcutIcon.getIntrinsicHeight()) ;
-									shortcutIcon.draw(new Canvas(icon)) ;
-								}
-							}
-							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
+								// Retrieve the informations of the shortcut
+								String display_name = receivedShortcut.getShortLabel().toString() ;
+								String user_id = receivedShortcut.getUserHandle().toString() ;
+								String shortcut = display_name
+										+ Constants.SHORTCUT_SEPARATOR + receivedShortcut.getPackage()
+										+ Constants.SHORTCUT_SEPARATOR + receivedShortcut.getId()
+										+ Constants.SHORTCUT_SEPARATOR + user_id.replace("UserHandle{", "").replace("}", "") ;
 
-							// Add the shortcut
-							addShortcut(this, display_name, shortcut, icon, false) ;
-							ActivityMain.updateList(this) ;
-						}
-						else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
+								// Check if the launcher is allowed to retrieve the shortcut icon
+								Bitmap icon = null ;
+								LauncherApps launcher = (LauncherApps)getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
+								if(launcher.hasShortcutHostPermission())
+									{
+										// If its dimensions are valid, create a Bitmap from the icon
+										Drawable shortcutIcon = launcher.getShortcutIconDrawable(receivedShortcut, 0) ;
+										if((shortcutIcon.getIntrinsicWidth() > 0) && (shortcutIcon.getIntrinsicHeight() > 0))
+											{
+												icon = Bitmap.createBitmap(shortcutIcon.getIntrinsicWidth(), shortcutIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
+												shortcutIcon.setBounds(0, 0, shortcutIcon.getIntrinsicWidth(), shortcutIcon.getIntrinsicHeight()) ;
+												shortcutIcon.draw(new Canvas(icon)) ;
+											}
+									}
+									else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
+
+								// Add the shortcut
+								addShortcut(this, display_name, shortcut, icon, false) ;
+								ActivityMain.updateList(this) ;
+							}
+							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
 
 						// Go back to the home screen
 						Intent homeIntent = new Intent() ;
@@ -111,12 +110,7 @@ public class ShortcutListener extends AppCompatActivity
 
 
 	/**
-	 * Method called when a request to add a shortcut has been received.
-	 * @param context Provided by the receiver
-	 * @param display_name Displayed to the user
-	 * @param icon Displayed to the user
-	 * @param shortcut Line to add to the shortcuts file
-	 * @param legacy <code>true</code> if before Oreo, <code>false</code> otherwise
+	 * Called when a request to add a shortcut has been received.
 	 */
 	static void addShortcut(Context context, String display_name, String shortcut, Bitmap icon, boolean legacy)
 	{
@@ -147,14 +141,11 @@ public class ShortcutListener extends AppCompatActivity
 
 	/**
 	 * Remove an entry from the shortcuts file.
-	 * @param context To get the file path
-	 * @param display_name Name of the shortcut to remove
-	 * @param shortcut_type Shortcut before or after Oreo
 	 */
-	public static void removeShortcut(Context context, String display_name, String shortcut_type)
+	public static void removeShortcut(Context context, String display_name, String shortcut_apk)
 	{
 		// Save the current shortcuts list and remove the file
-		InternalFileTXT file = new InternalFileTXT(shortcut_type.equals(Constants.APK_SHORTCUT_LEGACY) ? Constants.FILE_SHORTCUTS_LEGACY : Constants.FILE_SHORTCUTS) ;
+		InternalFileTXT file = new InternalFileTXT(shortcut_apk.equals(Constants.APK_SHORTCUT_LEGACY) ? Constants.FILE_SHORTCUTS_LEGACY : Constants.FILE_SHORTCUTS) ;
 		ArrayList<String> currentShortcuts = file.readAllLines() ;
 		if(!file.remove())
 			{

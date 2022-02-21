@@ -746,7 +746,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * Detect a long click on the home screen.
-		 * @param event Click point
 		 */
 		@Override
 		public void onLongPress(MotionEvent event)
@@ -759,8 +758,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Listen for changes in the settings and react accordingly.
-	 * @param sharedPreferences Settings where the change happened
-	 * @param key The value which has changed
 	 */
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
@@ -831,7 +828,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * When the scrolling ends, check if it is stuck on top/bottom.
-		 * @param recyclerView Scrolled RecyclerView
 		 * @param newState 1 (Active scrolling) then 2 (Scrolling inerty) then 0 (Not scrolling)
 		 */
 		@Override
@@ -897,9 +893,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * Update the position of the first/last visible item as the user is scrolling.
-		 * @param recyclerView Scrolled RecyclerView
-		 * @param dx Horizontal distance
-		 * @param dy Vertical distance
 		 */
 		@Override
 		public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy)

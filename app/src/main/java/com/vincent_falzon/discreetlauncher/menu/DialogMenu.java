@@ -50,7 +50,6 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 
 	/**
 	 * Constructor.
-	 * @param context Provided by a dialog or activity
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public DialogMenu(Context context)
@@ -77,8 +76,7 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 
 
 	/**
-	 * Initialize a menu entry.
-	 * @param id Resource ID of the menu entry
+	 * Initialize a menu entry with the given resource ID.
 	 */
 	@SuppressLint("ClickableViewAccessibility")
 	private void initializeMenuEntry(int id)
@@ -91,7 +89,6 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 
 	/**
 	 * Called when an element is clicked.
-	 * @param view Target element
 	 */
 	@Override
 	public void onClick(View view)
@@ -173,9 +170,6 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 
 	/**
 	 * Called when an element is touched.
-	 * @param view Target element
-	 * @param event Type of event
-	 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
 	 */
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
@@ -197,6 +191,8 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 				view.setBackground(null) ;
 				break ;
 		}
+
+		// Do not consider the event as consumed
 		return false ;
 	}
 }

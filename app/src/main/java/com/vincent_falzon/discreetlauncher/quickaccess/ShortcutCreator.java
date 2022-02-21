@@ -35,7 +35,6 @@ public class ShortcutCreator extends AppCompatActivity
 {
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -43,11 +42,8 @@ public class ShortcutCreator extends AppCompatActivity
 		// Let the parent actions be performed
 		super.onCreate(savedInstanceState) ;
 
-		// Prepare the intent to display the favorites popup
-		Intent intent = PopupFavorites.getIntent(this) ;
-
 		// Create the shortcut and close the activity
-		setResult(Activity.RESULT_OK, intent) ;
+		setResult(Activity.RESULT_OK, PopupFavorites.getIntent(this)) ;
 		finish() ;
 	}
 }

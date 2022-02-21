@@ -62,9 +62,7 @@ public class Search extends Application
 
 
 	/**
-	 * Constructor to represent the Search application.
-	 * @param display_name Displayed to the user
-	 * @param icon Displayed to the user
+	 * Constructor.
 	 */
 	public Search(String display_name, Drawable icon)
 	{
@@ -75,7 +73,6 @@ public class Search extends Application
 
 	/**
 	 * Display the Search application as a popup.
-	 * @param parent Element from which the event originates
 	 * @return Always <code>true</code>
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
@@ -156,8 +153,7 @@ public class Search extends Application
 	private class PopupClickListener implements View.OnClickListener
 	{
 		/**
-		 * Detect a click on a view.
-		 * @param view Target element
+		 * Called when an element is clicked.
 		 */
 		@Override
 		public void onClick(View view)
@@ -174,14 +170,12 @@ public class Search extends Application
 	private class PopupTouchListener implements View.OnTouchListener
 	{
 		/**
-		 * Detect a gesture on a view.
-		 * @param view Target element
-		 * @param event Details about the gesture
-		 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
+		 * Called when an element is touched.
 		 */
 		@Override
 		public boolean onTouch(View view, MotionEvent event)
 		{
+			// Close the popup and mark the event as consumed
 			view.performClick() ;
 			closePopup() ;
 			return true ;
@@ -201,10 +195,6 @@ public class Search extends Application
 
 		/**
 		 * Called when the text has just been changed.
-		 * @param text New text
-		 * @param start Place of the replacement
-		 * @param before Previous text length
-		 * @param count Number of new characters
 		 */
 		@Override
 		public void onTextChanged(CharSequence text, int start, int before, int count)

@@ -60,7 +60,6 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -86,8 +85,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 
 	/**
-	 * Perform an action when an element is clicked.
-	 * @param view Target element
+	 * Called when an element is clicked.
 	 */
 	public void onClick(View view)
 	{
@@ -140,7 +138,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 						for(i = 0 ; i < selected.length ; i++)
 							if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
 
-						// Update the favorites applications list
+						// Update the favorite applications list
 						ActivityMain.updateFavorites(null) ;
 						adapter.notifyDataSetChanged() ;
 					}
@@ -164,7 +162,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		if(file.remove())
 			for(Application application : favorites) file.writeLine(application.getComponentInfo()) ;
 
-		// Update the favorites applications list
+		// Update the favorite applications list
 		ActivityMain.updateFavorites(this) ;
 	}
 
@@ -176,9 +174,6 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	{
 		/**
 		 * Create a FavoriteView to add in the RecyclerView based on an XML layout.
-		 * @param parent To get the context
-		 * @param viewType Not used (herited)
-		 * @return Created FavoriteView
 		 */
 		@NonNull
 		@Override
@@ -191,8 +186,6 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 		/**
 		 * Write the name of each favorite in the RecyclerView and listen for dragging action.
-		 * @param favoriteView Current favorite
-		 * @param i For incrementation
 		 */
 		@Override
 		public void onBindViewHolder(@NonNull final FavoriteView favoriteView, int i)
@@ -228,7 +221,6 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 		/**
 		 * Return the number of items in the RecyclerView.
-		 * @return Number of items
 		 */
 		@Override
 		public int getItemCount()
@@ -247,7 +239,6 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 			/**
 			 * Constructor.
-			 * @param view Element
 			 */
 			FavoriteView(View view)
 			{
@@ -264,10 +255,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	public class TouchCallback extends ItemTouchHelper.Callback
 	{
 		/**
-		 * Define the recognized touch gestures.
-		 * @param recycler Target recycler
-		 * @param viewHolder Target ViewHolder
-		 * @return Mouvements allowed on the ViewHolder
+		 * Define the recognized touch gestures (only up and down drags are allowed).
 		 */
 		@Override
 		public int getMovementFlags(@NonNull RecyclerView recycler, @NonNull RecyclerView.ViewHolder viewHolder)
@@ -277,11 +265,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 
 		/**
-		 * Called when a ViewHolder is moved.
-		 * @param recycler Target recycler
-		 * @param source ViewHolder being dragged by the user
-		 * @param target ViewHolder over which the user is dragging
-		 * @return <code>true</code> if the ViewHolder have been moved to the target position
+		 * Called when a ViewHolder is moved from a source over a target.
 		 */
 		@Override
 		public boolean onMove(@NonNull RecyclerView recycler, RecyclerView.ViewHolder source, RecyclerView.ViewHolder target)
@@ -297,11 +281,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		}
 
 
-		/**
-		 * Needed to extend ItemTouchHelper.Callback but not used in practice.
-		 * @param viewHolder Element targeted
-		 * @param direction Swipe direction
-		 */
+		// Needed to extend ItemTouchHelper.Callback
 		@Override
 		public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) { }
 	}

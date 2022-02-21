@@ -81,8 +81,7 @@ public class ApplicationsList
 
 
 	/**
-	 * Update both the complete applications list and the favorite applications list.
-	 * @param context To get the package manager, load icon pack and display a toast
+	 * Update both the complete application list and the favorite applications list.
 	 */
 	public void update(Context context)
 	{
@@ -178,11 +177,7 @@ public class ApplicationsList
 
 
 	/**
-	 * Apply the given color tint over an icon.
-	 * @param resources Used to generate the resulting Drawable
-	 * @param originalIcon Source icon on which the tint must be applied
-	 * @param color_tint Color to apply as a tint
-	 * @return Icon with a color tint applied on it
+	 * Apply the given color tint over the given icon and return the result.
 	 */
 	private Drawable applyColorTint(Resources resources, Drawable originalIcon, int color_tint)
 	{
@@ -241,7 +236,6 @@ public class ApplicationsList
 
 	/**
 	 * Prepare folders according to the folders files.
-	 * @param context To get the icon
 	 */
 	private void prepareFolders(Context context)
 	{
@@ -352,7 +346,6 @@ public class ApplicationsList
 
 	/**
 	 * Add shortcuts to the applications list based on the shortcuts files.
-	 * @param context To get the icons
 	 */
 	private void loadShortcuts(Context context)
 	{
@@ -435,8 +428,7 @@ public class ApplicationsList
 
 
 	/**
-	 * For display in selection dialog.
-	 * @return List of folders
+	 * Return the list of folders.
 	 */
 	public ArrayList<Folder> getFolders()
 	{
@@ -448,8 +440,7 @@ public class ApplicationsList
 
 
 	/**
-	 * For display in selection dialog.
-	 * @return List of applications not in folders
+	 * Return the list of applications which are not in folders.
 	 */
 	public ArrayList<Application> getApplicationsNotInFolders()
 	{
@@ -467,9 +458,7 @@ public class ApplicationsList
 
 
 	/**
-	 * For display in the settings and the favorites selection dialog.
-	 * @param with_folders To include or not the folders in the result
-	 * @return List of all applications (except hidden) whether or not they are in folders
+	 * Return all applications (except hidden), including or not those which are in folders.
 	 */
 	public ArrayList<Application> getApplications(boolean with_folders)
 	{
@@ -537,8 +526,7 @@ public class ApplicationsList
 
 
 	/**
-	 * For display in the drawer.
-	 * @return List of what should appear in the applications drawer
+	 * Return the list of what should appear in the app drawer.
 	 */
 	public ArrayList<Application> getDrawer()
 	{
@@ -547,8 +535,7 @@ public class ApplicationsList
 
 
 	/**
-	 * For display in the favorites panel.
-	 * @return List of favorites applications
+	 * Return the list of favorite application for display in the panel.
 	 */
 	public ArrayList<Application> getFavorites()
 	{
@@ -557,8 +544,7 @@ public class ApplicationsList
 
 
 	/**
-	 * For display in the settings.
-	 * @return List of hidden applications
+	 * Return the list of hidden applications for display in the settings.
 	 */
 	public ArrayList<Application> getHidden()
 	{
@@ -568,9 +554,6 @@ public class ApplicationsList
 
 	/**
 	 * Convert an internal file from name format to ComponentInfo format if needed.
-	 * @param filename Name of the internal file
-	 * @param content Current file content
-	 * @return Converted file content
 	 */
 	private ArrayList<String> convertComponentInfo(String filename, ArrayList<String> content)
 	{

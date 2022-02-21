@@ -66,11 +66,6 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 
 	/**
 	 * Constructor.
-	 * @param context Provided by a preference
-	 * @param initial_color First color to show on the picker
-	 * @param default_color Color selected by the reset button
-	 * @param title Title of the dialog
-	 * @param listener To notify when the selected color need to be saved
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public ColorPickerDialog(Context context, int initial_color, String default_color, CharSequence title, SaveRequestListener listener)
@@ -139,26 +134,22 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 
 	/**
 	 * Update the hexadecimal value when the selected color changes.
-	 * @param color New color
 	 */
 	@Override
-	public void onColorChanged(int color)
+	public void onColorChanged(int new_color)
 	{
-		newColorHexadecimal.setText(convertIntColorToHexadecimal(color, false)) ;
+		newColorHexadecimal.setText(convertIntColorToHexadecimal(new_color, false)) ;
 	}
 
 
 	/**
-	 * Detect a click on a button.
-	 * @param view Element clicked
+	 * Called when an element is clicked.
 	 */
 	@Override
 	public void onClick(View view)
 	{
-		// Identify which element has been clicked
-		int selection = view.getId() ;
-
 		// Check if the user asked to reset the default color
+		int selection = view.getId() ;
 		if(selection == R.id.color_reset_button)
 			{
 				// Reset the color picker and keep it displayed
@@ -176,10 +167,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 
 
 	/**
-	 * Convert an "int" color to its hexadecimal value with alpha.
-	 * @param color The "int" color to convert
-	 * @param with_alpha <code>true</code> to include alpha, <code>false</code> otherwise
-	 * @return Hexadecimal value with alpha (#AARRGGBB)
+	 * Convert an "int" color to its hexadecimal value with (#AARRGGBB) or without alpha (#RRGGBB).
 	 */
 	public static String convertIntColorToHexadecimal(int color, boolean with_alpha)
 	{
@@ -204,9 +192,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 
 
 	/**
-	 * Read an hexadecimal color string and try to convert it to an "int" color.
-	 * @param hexadecimal Format #RRGGBB or #AARRGGBB (the "#" is added if needed)
-	 * @return The color in "int" format
+	 * Read an hexadecimal color string (#(AA)RRGGBB) and try to convert it to an "int" color.
 	 * @throws IllegalArgumentException If the string format is not valid
 	 */
 	public static int convertHexadecimalColorToInt(String hexadecimal) throws IllegalArgumentException

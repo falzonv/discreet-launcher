@@ -68,8 +68,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 	/**
 	 * Constructor to fill a RecyclerView with the applications list.
-	 * @param context To get the settings
-	 * @param applicationsList Applications to display in the recycler
 	 */
 	public RecyclerAdapter(Context context, ArrayList<Application> applicationsList)
 	{
@@ -82,7 +80,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 	/**
 	 * Set a new text color and refresh the recycler content.
-	 * @param new_text_color The new text color
 	 */
 	public void setTextColor(int new_text_color)
 	{
@@ -93,9 +90,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 	/**
 	 * Create an ApplicationView to add in the RecyclerView based on an XML layout.
-	 * @param parent To get the context
-	 * @param viewType Not used (herited)
-	 * @return Created ApplicationView
 	 */
 	@NonNull
 	@Override
@@ -109,8 +103,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 	/**
 	 * Write the metadata (name, icon) of each application in the RecyclerView
-	 * @param appView Current application
-	 * @param i For incrementation
 	 */
 	@Override
 	public void onBindViewHolder(@NonNull ApplicationView appView, int i)
@@ -142,7 +134,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 	/**
 	 * Return the number of items in the RecyclerView.
-	 * @return Number of items
 	 */
 	@Override
 	public int getItemCount()
@@ -163,7 +154,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 		/**
 		 * Constructor.
-		 * @param view To get the context
 		 */
 		ApplicationView(View view)
 		{
@@ -180,9 +170,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 		/**
 		 * Called when the application is touched.
-		 * @param view Target element
-		 * @param event Type of event
-		 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
 		 */
 		@SuppressLint("ClickableViewAccessibility")
 		@Override
@@ -201,13 +188,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					setVisualFeedback(context, false) ;
 					break ;
 			}
+
+			// Do not consider the event as consumed
 			return false ;
 		}
 
 
 		/**
 		 * Called when the application is clicked.
-		 * @param view Target element
 		 */
 		@Override
 		public void onClick(View view)
@@ -224,8 +212,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 		/**
 		 * Called when the application is long clicked.
-		 * @param view Target element
-		 * @return <code>true</code> if the event is consumed, <code>false</code> otherwise
 		 */
 		@Override
 		public boolean onLongClick(final View view)
@@ -393,14 +379,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 						}) ;
 				}
 			dialog.show() ;
+
+			// Consider the event as consumed
 			return true ;
 		}
 
 
 		/**
 		 * Show or hide visual feedback.
-		 * @param context To get the colors
-		 * @param display <code>true</code> to show, <code>false</code> to hide
 		 */
 		private void setVisualFeedback(Context context, boolean display)
 		{
@@ -421,8 +407,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 		/**
 		 * Display a dialog allowing to rename the application.
-		 * @param context To display the dialog and update the list
-		 * @param application Target application
 		 */
 		private void showRenameDialog(final Context context, final Application application)
 		{
@@ -476,9 +460,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 		/**
 		 * Toggle the presence of an application in the favorites panel.
-		 * @param context To display an information message
-		 * @param application Target application
-		 * @param is_favorite Current status to toggle
 		 */
 		private void toggleFavorite(Context context, Application application, boolean is_favorite)
 		{

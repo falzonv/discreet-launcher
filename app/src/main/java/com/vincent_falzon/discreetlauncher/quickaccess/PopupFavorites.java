@@ -43,7 +43,6 @@ public class PopupFavorites extends AppCompatActivity
 {
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -73,8 +72,7 @@ public class PopupFavorites extends AppCompatActivity
 	private class PopupClickListener implements View.OnClickListener
 	{
 		/**
-		 * Detect a click on a view.
-		 * @param view Target element
+		 * Called when an element is clicked.
 		 */
 		@Override
 		public void onClick(View view)
@@ -90,12 +88,10 @@ public class PopupFavorites extends AppCompatActivity
 
 
 	/**
-	 * Provide the Intent to use to display the favorites popup.
-	 * @return An Intent displaying this popup over other apps
+	 * Provide the Intent to use to display the favorites popup over other apps.
 	 */
 	public static Intent getIntent(Context context)
 	{
-		// Prepare the intent to display the favorites popup over other apps
 		Intent intent = new Intent(Intent.ACTION_MAIN) ;
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
 		intent.setClassName(context.getPackageName(), context.getPackageName() + ".quickaccess.PopupFavorites") ;

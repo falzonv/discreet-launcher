@@ -35,13 +35,12 @@ import com.vincent_falzon.discreetlauncher.ShowDialog ;
 import static com.vincent_falzon.discreetlauncher.ActivityMain.updateList ;
 
 /**
- * Listen for legacy shortcut creation requests.
+ * Listen for legacy shortcut creation requests (before Android Oreo).
  */
 public class ShortcutLegacyListener extends BroadcastReceiver
 {
 	/**
 	 * Provide the filter to use when registering this receiver.
-	 * @return An IntentFilter allowing to listen for legacy shortcut creation requests
 	 */
 	public IntentFilter getFilter()
 	{
@@ -50,9 +49,7 @@ public class ShortcutLegacyListener extends BroadcastReceiver
 
 
 	/**
-	 * Method called when a broadcast message is received.
-	 * @param context Context of the message.
-	 * @param intent Type and content of the message.
+	 * Called when a broadcast message is received.
 	 */
 	@Override
 	public void onReceive(Context context, Intent intent)
@@ -60,7 +57,7 @@ public class ShortcutLegacyListener extends BroadcastReceiver
 		// Execute the following code only if the Android version is before Oreo
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
-				// Check if the intent as a valid action
+				// Check if the intent has a valid action
 				if(intent.getAction() == null) return ;
 
 				// Check if a request to add a shortcut has been received

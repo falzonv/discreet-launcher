@@ -36,7 +36,6 @@ public class PackagesListener extends BroadcastReceiver
 {
 	/**
 	 * Provide the filter to use when registering this receiver.
-	 * @return An IntentFilter allowing to listen for packages events
 	 */
 	public IntentFilter getFilter()
 	{
@@ -49,14 +48,12 @@ public class PackagesListener extends BroadcastReceiver
 
 
 	/**
-	 * Method called when a broadcast message is received.
-	 * @param context Context of the message
-	 * @param intent Type and content of the message
+	 * Called when a broadcast message is received.
 	 */
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
-		// Check if the intent as a valid action
+		// Check if the intent has a valid action
 		if(intent.getAction() == null) return ;
 
 		// Do not react to applications updates

@@ -59,7 +59,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -98,8 +97,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 
 	/**
-	 * Detect a click on an element from the activity.
-	 * @param view Element clicked
+	 * Called when an element is clicked.
 	 */
 	public void onClick(View view)
 	{
@@ -124,7 +122,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 	/**
 	 * Export all the application data and settings to the selected destination.
-	 * @param location Location of the file on the system
 	 */
 	private void writeToExportFile(Uri location)
 	{
@@ -194,8 +191,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 	/**
 	 * Prepare the line of a boolean setting for writing in an export file.
-	 * @param setting Key of the setting to export
-	 * @param default_value Default value of the setting
 	 */
 	private String exportBooleanSetting(String setting, boolean default_value)
 	{
@@ -204,8 +199,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 
 	/**
-	 * Prepare the line of a String setting for writing in an export file.
-	 * @param setting Key of the setting to export (default value is "none")
+	 * Prepare the line of a String setting for writing in an export file (default value is "none").
 	 */
 	private String exportStringSetting(String setting)
 	{
@@ -215,7 +209,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 	/**
 	 * Load all the application data and settings from the selected source.
-	 * @param location Location of the file on the system
 	 */
 	private void readFromImportFile(Uri location)
 	{
@@ -343,9 +336,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 
 	/**
-	 * Write a line in an internal file
-	 * @param file Internal file created before
-	 * @param line Line to write in the internal file
+	 * Write a line in an internal file.
 	 */
 	private void writeLineToInternalFile(InternalFileTXT file, String line)
 	{
@@ -357,8 +348,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 	/**
 	 * Modify a boolean setting based on its line in an import file.
-	 * @param setting Key of the setting to modify
-	 * @param line Line containing the new value
 	 */
 	private void loadBooleanSetting(String setting, String line)
 	{
@@ -368,8 +357,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 	/**
 	 * Modify a String setting based on its line in an import file.
-	 * @param setting Key of the setting to modify
-	 * @param line Line containing the new value
 	 */
 	private void loadStringSetting(String setting, String line)
 	{
@@ -379,8 +366,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 	/**
 	 * Migrate a removed/modified setting from its older format to the current one.
-	 * @param setting Key of the setting to migrate
-	 * @param line Line containing the value
 	 */
 	private void migrateFromOldFormat(String setting, String line)
 	{
@@ -406,16 +391,13 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	{
 		/**
 		 * Create the Intent that will be used to start the file picker activity.
-		 * @param context Needed to create the Intent
-		 * @param input Suggested file name when opening the file picker
-		 * @return Intent that will be used to start the activity
 		 */
 		@NonNull
 		@Override
-		public Intent createIntent(@NonNull Context context, @NonNull String input)
+		public Intent createIntent(@NonNull Context context, @NonNull String suggested_filename)
 		{
 			// Retrieve the Intent from the parent and adjust its mime type
-			Intent intent = super.createIntent(context, input) ;
+			Intent intent = super.createIntent(context, suggested_filename) ;
 			intent.setType("text/plain") ;
 			return intent ;
 		}

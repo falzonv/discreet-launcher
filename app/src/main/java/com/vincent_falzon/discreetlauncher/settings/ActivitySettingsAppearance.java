@@ -49,12 +49,11 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		// Call the constructor of the parent class
+		// Let the parent actions be performed
 		super.onCreate(savedInstanceState) ;
 
 		// Initializations
@@ -137,10 +136,6 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 
 	/**
 	 * Retrieve the currently selected color for a preference key.
-	 * @param settings To get the settings
-	 * @param key Reference in the settings
-	 * @param fallback Color to display as fallback
-	 * @return Selected color, or the fallback if it was not found
 	 */
 	public static int getColor(SharedPreferences settings, String key, String fallback)
 	{

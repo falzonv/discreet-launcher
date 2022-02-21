@@ -51,8 +51,6 @@ class IconPack
 
 	/**
 	 * Constructor.
-	 * @param context To retrieve settings, load resources and display alerts
-	 * @param setting_key To retrieve the name of the selected icon pack (if any)
 	 */
 	IconPack(Context context, String setting_key)
 	{
@@ -87,8 +85,6 @@ class IconPack
 
 	/**
 	 * Search the icon of an application in the pack.
-	 * @param apk Package name of the application
-	 * @param name Internal name of the application
 	 * @return An icon or <code>null</code> if it cannot be retrieved
 	 */
 	Drawable searchIcon(String apk, String name)

@@ -49,12 +49,11 @@ public class ActivitySettingsOperation extends AppCompatActivity
 
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		// Call the constructor of the parent class
+		// Let the parent actions be performed
 		super.onCreate(savedInstanceState) ;
 
 		// Initializations

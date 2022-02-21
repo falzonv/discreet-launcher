@@ -64,7 +64,6 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -86,12 +85,11 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 
 	/**
-	 * Perform an action when an element is clicked.
-	 * @param view Target element
+	 * Called when an element is clicked.
 	 */
 	public void onClick(View view)
 	{
-		// Identify which element has been clicked
+		// Check if the button to add a new folder has a been clicked
 		if(view.getId() == R.id.new_folder_button)
 			{
 				// Retrieve the new folder name and check that it is not empty
@@ -138,7 +136,6 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 		/**
 		 * Constructor to fill a RecyclerView with the folders list.
-		 * @param folders Folders to display in the recycler
 		 */
 		FoldersListAdapter(ArrayList<Folder> folders)
 		{
@@ -148,9 +145,6 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 		/**
 		 * Create a FolderView to add in the RecyclerView based on an XML layout.
-		 * @param parent To get the context
-		 * @param viewType Not used (herited)
-		 * @return Created FolderView
 		 */
 		@NonNull
 		@Override
@@ -163,9 +157,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 
 		/**
-		 * Write the name of each folder in the RecyclerView
-		 * @param folderView Current folder
-		 * @param i For incrementation
+		 * Write the name of each folder in the RecyclerView.
 		 */
 		@Override
 		public void onBindViewHolder(FolderView folderView, int i)
@@ -177,7 +169,6 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 		/**
 		 * Return the number of items in the RecyclerView.
-		 * @return Number of items
 		 */
 		@Override
 		public int getItemCount()
@@ -198,7 +189,6 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 			/**
 			 * Constructor.
-			 * @param view To get the context
 			 */
 			FolderView(View view)
 			{
@@ -218,8 +208,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 
 
 			/**
-			 * Perform an action when an element is clicked.
-			 * @param view Target element
+			 * Called when an element is clicked.
 			 */
 			@Override
 			public void onClick(View view)

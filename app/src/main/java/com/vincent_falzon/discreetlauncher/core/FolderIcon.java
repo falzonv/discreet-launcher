@@ -36,7 +36,7 @@ import androidx.core.content.res.ResourcesCompat ;
 import com.vincent_falzon.discreetlauncher.R ;
 
 /**
- * Create a folder icon containing the number of elements inside the folders.
+ * Create a colored folder icon containing the number of elements inside the folder.
  */
 public class FolderIcon extends Drawable
 {
@@ -49,9 +49,6 @@ public class FolderIcon extends Drawable
 
 	/**
 	 * Constructor.
-	 * @param context To load the folder icon
-	 * @param applications_number To display in the icon
-	 * @param color To color the folder icon
 	 */
 	public FolderIcon(Context context, int applications_number, int color)
 	{
@@ -88,7 +85,6 @@ public class FolderIcon extends Drawable
 
 	/**
 	 * Draw the folder icon with the number of applications inside.
-	 * @param canvas Where to draw
 	 */
 	@Override
 	public void draw(Canvas canvas)
@@ -98,10 +94,7 @@ public class FolderIcon extends Drawable
 	}
 
 
-	/**
-	 * Needed to extend Drawable.
-	 * @param alpha 0 is transparent and 255 is opaque
-	 */
+	// Needed to extend Drawable.
 	@Override
 	public void setAlpha(int alpha)
 	{
@@ -109,10 +102,7 @@ public class FolderIcon extends Drawable
 	}
 
 
-	/**
-	 * Needed to extend Drawable.
-	 * @param colorFilter Color filter to apply, <code>null</code> to remove
-	 */
+	// Needed to extend Drawable.
 	@Override
 	public void setColorFilter(ColorFilter colorFilter)
 	{
@@ -120,10 +110,7 @@ public class FolderIcon extends Drawable
 	}
 
 
-	/**
-	 * Needed to extend Drawable.
-	 * @return Opacity class to use
-	 */
+	// Needed to extend Drawable
 	@Override
 	public int getOpacity()
 	{

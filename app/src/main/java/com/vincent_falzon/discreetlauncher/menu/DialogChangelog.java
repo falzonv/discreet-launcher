@@ -50,7 +50,6 @@ public class DialogChangelog extends AlertDialog
 
 	/**
 	 * Constructor.
-	 * @param context Provided by a dialog or activity
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public DialogChangelog(Context context)
@@ -126,9 +125,6 @@ public class DialogChangelog extends AlertDialog
 	{
 		/**
 		 * Create a ReleaseView to add in the RecyclerView based on an XML layout.
-		 * @param parent To get the context
-		 * @param viewType Not used (herited)
-		 * @return Created ReleaseView
 		 */
 		@NonNull
 		@Override
@@ -141,8 +137,6 @@ public class DialogChangelog extends AlertDialog
 
 		/**
 		 * Write the details of each release in the RecyclerView.
-		 * @param releaseView Current release
-		 * @param i For incrementation
 		 */
 		@Override
 		public void onBindViewHolder(@NonNull final RecyclerAdapter.ReleaseView releaseView, int i)
@@ -174,7 +168,6 @@ public class DialogChangelog extends AlertDialog
 
 		/**
 		 * Return the number of items in the RecyclerView.
-		 * @return Number of items
 		 */
 		@Override
 		public int getItemCount()
@@ -194,7 +187,6 @@ public class DialogChangelog extends AlertDialog
 
 			/**
 			 * Constructor.
-			 * @param view Element
 			 */
 			ReleaseView(View view)
 			{
