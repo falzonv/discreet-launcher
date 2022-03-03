@@ -160,16 +160,20 @@ public class ApplicationsList
 			}
 		}) ;
 
-		// Add the search icon on top of the list
+		// Check if the interface is reversed
+		boolean reversed = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
+
+		// Add the search icon at the beginning or end of the list (based on layout)
 		Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.icon_search) ;
 		if(searchIcon != null) searchIcon.setBounds(0, 0, icon_size, icon_size) ;
-		drawer.add(0, new Search(context.getString(R.string.search_app_name), searchIcon)) ;
+		if(reversed) drawer.add(new Search(context.getString(R.string.search_app_name), searchIcon)) ;
+			else drawer.add(0, new Search(context.getString(R.string.search_app_name), searchIcon)) ;
 
 		// Hide application based on the internal file
 		manageHiddenApplications() ;
 
 		// Prepare folders according to files
-		prepareFolders(context) ;
+		prepareFolders(context, reversed) ;
 
 		// Update the favorites applications list
 		updateFavorites() ;
@@ -237,7 +241,7 @@ public class ApplicationsList
 	/**
 	 * Prepare folders according to the folders files.
 	 */
-	private void prepareFolders(Context context)
+	private void prepareFolders(Context context, boolean reversed)
 	{
 		// Initializations
 		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
@@ -296,7 +300,7 @@ public class ApplicationsList
 			folders.add(folder) ;
 		}
 
-		// Sort the folders and add them at the beginning of the list
+		// Sort the folders and add them at the beginning or end of the list (based on layout)
 		Collections.sort(folders, new Comparator<Folder>()
 		{
 			@Override
@@ -305,7 +309,8 @@ public class ApplicationsList
 				return folder1.getDisplayName().compareToIgnoreCase(folder2.getDisplayName()) ;
 			}
 		}) ;
-		drawer.addAll(0, folders) ;
+		if(reversed) drawer.addAll(folders) ;
+			else drawer.addAll(0, folders) ;
 	}
 
 

@@ -802,6 +802,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
 					else setContentView(R.layout.activity_main) ;
 				recreate() ;
+				updateList(this) ;
 				break ;
 		}
 	}
