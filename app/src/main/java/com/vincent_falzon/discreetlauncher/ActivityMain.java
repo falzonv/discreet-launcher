@@ -94,7 +94,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	
 	/**
 	 * Constructor.
-	 * @param savedInstanceState To retrieve the context
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -356,7 +355,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Display or hide the favorites panel.
-	 * @param display <code>true</code> to display, <code>false</code> to hide
 	 */
 	private void displayFavorites(boolean display)
 	{
@@ -433,7 +431,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Display or hide the applications drawer.
-	 * @param display <code>true</code> to display, <code>false</code> to hide
 	 */
 	private void displayDrawer(boolean display)
 	{
@@ -485,7 +482,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Display or hide the system bars based on settings, also sets and unsets the dark icons.
-	 * @param force_display To force the system bars display even in immersive mode
 	 */
 	private void maybeHideSystemBars(boolean force_display)
 	{
@@ -510,7 +506,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Return the list of applications.
-	 * @return Contains the complete list, the favorites list and the last update timestamp
 	 */
 	public static ApplicationsList getApplicationsList()
 	{
@@ -520,17 +515,15 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Allow to temporary disable the SharedPreference changes listener.
-	 * @param new_value <code>true</code> to disable, <code>false</code> to enable
 	 */
-	public static void setIgnoreSettingsChanges(boolean new_value)
+	public static void setIgnoreSettingsChanges(boolean ignore)
 	{
-		ignore_settings_changes = new_value ;
+		ignore_settings_changes = ignore ;
 	}
 
 
 	/**
-	 * Return the internal files folder location (must be initialized by ActivityMain).
-	 * @return Internal files folder location on the system or <code>null</code> if not initialized
+	 * Return the internal files location (<code>null </code> if not initialized by ActivityMain).
 	 */
 	public static String getInternalFolder()
 	{
@@ -539,8 +532,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Return the application width in pixels (must be initialized by ActivityMain).
-	 * @return Based on settings or 0 if not initialized
+	 * Return the application width in pixels (0 if not initialized by ActivityMain).
 	 */
 	public static int getApplicationWidth()
 	{
@@ -549,8 +541,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Update the favorites applications list
-	 * @param context To display an information message (provide <code>null</code> to hide it)
+	 * Update the list of favorite applications (provide <code>null</code> to hide the message).
 	 */
 	public static void updateFavorites(Context context)
 	{
@@ -563,7 +554,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 	/**
 	 * Update the applications list and inform the user.
-	 * @param context Needed to update the list
 	 */
 	public static void updateList(Context context)
 	{
@@ -585,8 +575,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Detect a click on an element from the activity.
-	 * @param view Element clicked
+	 * Called when an element is clicked.
 	 */
 	public void onClick(View view)
 	{
@@ -603,9 +592,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Detect a user action on the screen.
-	 * @param event Gesture event
-	 * @return <code>true</code> if event is consumed, <code>false</code> otherwise
+	 * Detect a user action on the screen and process it.
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event)
@@ -626,7 +613,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * Constructor.
-		 * @param homeScreen To launch activities with horizontal swipes
 		 */
 		GestureListener(View homeScreen)
 		{
@@ -636,8 +622,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * Implemented because all gestures start with an onDown() message.
-		 * @param event Gesture event
-		 * @return <code>true</code>
 		 */
 		@Override
 		public boolean onDown(MotionEvent event)
@@ -648,11 +632,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * Detect a gesture over a distance.
-		 * @param event1 Starting point
-		 * @param event2 Ending point
-		 * @param velocityX On horizontal axis
-		 * @param velocityY On vertical axis
-		 * @return <code>true</code> if event is consumed, <code>false</code> otherwise
 		 */
 		@Override
 		public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY)
@@ -818,8 +797,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 		/**
-		 * Constructor.
-		 * @param target Whether we listen on the app drawer or the favorites panel
+		 * Constructor (target says if we listen on the app drawer or the favorites panel).
 		 */
 		ScrollListener(int target)
 		{
@@ -829,7 +807,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * When the scrolling ends, check if it is stuck on top/bottom.
-		 * @param newState 1 (Active scrolling) then 2 (Scrolling inerty) then 0 (Not scrolling)
 		 */
 		@Override
 		public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState)
@@ -840,15 +817,15 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// Keep track of the state to limit accidental closures
 			switch(newState)
 			{
-				case RecyclerView.SCROLL_STATE_DRAGGING :
+				case RecyclerView.SCROLL_STATE_DRAGGING : // Active scrolling
 					if(scroll_close_gesture == 0) scroll_close_gesture = 1 ;
 						else scroll_close_gesture = 0 ;
 					break ;
-				case RecyclerView.SCROLL_STATE_SETTLING :
+				case RecyclerView.SCROLL_STATE_SETTLING : // Scrolling inerty
 					if(scroll_close_gesture == 1) scroll_close_gesture = 2 ;
 						else scroll_close_gesture = 0 ;
 					break ;
-				case RecyclerView.SCROLL_STATE_IDLE :
+				case RecyclerView.SCROLL_STATE_IDLE : // Not scrolling
 					if(scroll_close_gesture == 2) scroll_close_gesture = 3 ;
 						else scroll_close_gesture = 0 ;
 			}
