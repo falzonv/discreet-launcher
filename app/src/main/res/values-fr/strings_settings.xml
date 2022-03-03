@@ -142,10 +142,10 @@
 
     <!-- Other operation settings -->
     <string name="set_always_show_favorites">Toujours afficher les favoris</string>
-    <string name="set_immersive_mode">Mode immersif</string>
-    <string name="set_immersive_mode_help">Pas de barres système. (Peut être forcé par un clic long sur l\'écran d\'accueil.)</string>
     <string name="set_reverse_interface">Interface inversée</string>
     <string name="set_reverse_interface_help">Applications au dessus, et favoris en dessous de l\'écran d\'accueil</string>
+    <string name="set_immersive_mode">Mode immersif</string>
+    <string name="set_immersive_mode_help">Pas de barres système. (Peut être forcé par un clic long sur l\'écran d\'accueil.)</string>
     <string name="set_hide_menu_button">Pas de bouton de menu</string>
     <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
     <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>

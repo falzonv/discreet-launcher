@@ -142,10 +142,10 @@
 
     <!-- Other operation settings -->
     <string name="set_always_show_favorites">Selalu tampilkan favorit</string>
-    <string name="set_immersive_mode">Mode menutup</string>
-    <string name="set_immersive_mode_help">Tidak ada batang sistem. (Bisa dipaksakan dengan tekan lama di layar rumah.)</string>
     <string name="set_reverse_interface">Balikkan Antarmuka</string>
     <string name="set_reverse_interface_help">Laci Aplikasi di atas, dan favorit di bawah layar rumah</string>
+    <string name="set_immersive_mode">Mode menutup</string>
+    <string name="set_immersive_mode_help">Tidak ada batang sistem. (Bisa dipaksakan dengan tekan lama di layar rumah.)</string>
     <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
     <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
     <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>

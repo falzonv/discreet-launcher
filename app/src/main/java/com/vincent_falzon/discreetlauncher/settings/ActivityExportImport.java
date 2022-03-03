@@ -166,8 +166,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.ICON_COLOR_FILTER)) ;
 		exportedData.add(exportStringSetting(Constants.FORCED_ORIENTATION)) ;
 		exportedData.add(exportBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, false)) ;
-		exportedData.add(exportBooleanSetting(Constants.IMMERSIVE_MODE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.IMMERSIVE_MODE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.TOUCH_TARGETS, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DISABLE_APP_DRAWER, false)) ;
@@ -302,8 +302,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(line.startsWith(Constants.ICON_COLOR_FILTER)) loadStringSetting(Constants.ICON_COLOR_FILTER, line) ;
 				else if(line.startsWith(Constants.FORCED_ORIENTATION)) loadStringSetting(Constants.FORCED_ORIENTATION, line) ;
 				else if(line.startsWith(Constants.ALWAYS_SHOW_FAVORITES)) loadBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, line) ;
-				else if(line.startsWith(Constants.IMMERSIVE_MODE)) loadBooleanSetting(Constants.IMMERSIVE_MODE, line) ;
 				else if(line.startsWith(Constants.REVERSE_INTERFACE)) loadBooleanSetting(Constants.REVERSE_INTERFACE, line) ;
+				else if(line.startsWith(Constants.IMMERSIVE_MODE)) loadBooleanSetting(Constants.IMMERSIVE_MODE, line) ;
 				else if(line.startsWith(Constants.TOUCH_TARGETS)) loadBooleanSetting(Constants.TOUCH_TARGETS, line) ;
 				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;
 				else if(line.startsWith(Constants.DISABLE_APP_DRAWER)) loadBooleanSetting(Constants.DISABLE_APP_DRAWER, line) ;
