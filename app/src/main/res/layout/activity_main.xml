@@ -65,7 +65,7 @@
 
                     <TextView
                         android:id="@+id/target_favorites"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/target_open_favorites"
@@ -84,7 +84,7 @@
 
             <TextView
                 android:id="@+id/target_applications"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/target_open_applications"
