@@ -1,0 +1,6 @@
+v6.1.0 (47) - 05/03/2022
+IMPROVEMENTS
+   - Folders on bottom if reversed (@comradekingu)
+   - Search on bottom if reversed (@comradekingu)
+   - Expanded touch target areas (@DumarcMills)
+   - Reversed interface setting a bit higher

@@ -1,0 +1,6 @@
+v6.1.0 (47) - 05/03/2022
+AMÉLIORATIONS
+   - Dossiers en bas si inversé (@comradekingu)
+   - Recherche en bas si inversé (@comradekingu)
+   - Cibles de clic élargies (@DumarcMills)
+   - Option interface inversée un peu plus haut
