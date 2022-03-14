@@ -11,14 +11,13 @@
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@drawable/shape_popup">
+        android:background="@color/for_popup_background">
 
         <TextView
             android:id="@+id/popup_title"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:gravity="center"
-            android:textStyle="italic"
             android:textColor="@color/for_text_on_overlay"
             android:visibility="visible"
             tools:text="@string/hint_new_folder"/>
@@ -27,7 +26,7 @@
             android:id="@+id/search_bar"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginStart="@dimen/spacing_normal"
             android:singleLine="true"
             android:inputType="textNoSuggestions"
             android:autofillHints=""
@@ -40,13 +39,18 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="@color/for_popup_border"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/popup_recycler"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:minHeight="180dp"
         android:padding="1dp"
-        android:background="@drawable/shape_popup"
+        android:background="@color/for_popup_background"
         tools:layoutManager="GridLayoutManager"
         tools:spanCount="4"
         tools:listitem="@layout/view_application"/>
