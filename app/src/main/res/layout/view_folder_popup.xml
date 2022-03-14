@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:gravity="center"
@@ -16,8 +16,7 @@
         <TextView
             android:id="@+id/popup_title"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:gravity="center"
             android:textStyle="italic"
             android:textColor="@color/for_text_on_overlay"
@@ -27,8 +26,7 @@
         <EditText
             android:id="@+id/search_bar"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_marginStart="@dimen/spacing_small"
             android:singleLine="true"
             android:inputType="textNoSuggestions"
@@ -39,14 +37,6 @@
             android:imeOptions="flagNoExtractUi|actionSearch"
             android:background="@color/transparent"
             android:visibility="gone"/>
-
-        <ImageButton
-            android:id="@+id/close_popup"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@android:drawable/btn_dialog"
-            android:background="@color/transparent"
-            android:contentDescription="@string/button_cancel"/>
 
     </LinearLayout>
 

@@ -85,7 +85,6 @@ public class Search extends Application
 		// Prepare the popup view
 		View popupView = inflater.inflate(R.layout.view_folder_popup, (ViewGroup)null) ;
 		popupView.findViewById(R.id.popup_title).setVisibility(View.GONE) ;
-		popupView.findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
 
 		// Prepare the search bar
 		EditText searchBar = popupView.findViewById(R.id.search_bar) ;
@@ -144,23 +143,6 @@ public class Search extends Application
 	public void closePopup()
 	{
 		if(popup != null) popup.dismiss() ;
-	}
-
-
-	/**
-	 * Listen for a click on the popup.
-	 */
-	private class PopupClickListener implements View.OnClickListener
-	{
-		/**
-		 * Called when an element is clicked.
-		 */
-		@Override
-		public void onClick(View view)
-		{
-			// Close the popup
-			closePopup() ;
-		}
 	}
 
 

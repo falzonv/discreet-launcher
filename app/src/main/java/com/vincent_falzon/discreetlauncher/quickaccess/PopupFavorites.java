@@ -53,37 +53,24 @@ public class PopupFavorites extends AppCompatActivity
 		// Initializations related to the interface
 		setContentView(R.layout.view_folder_popup) ;
 
-		// Define the title and make it open the favorites manager when clicked
+		// Prepare the title of the popup
 		TextView title = findViewById(R.id.popup_title) ;
 		title.setText(R.string.notification_popup_title) ;
-		title.setOnClickListener(new PopupClickListener()) ;
-		findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
+		title.setOnClickListener(new View.OnClickListener()
+			{
+				@Override
+				public void onClick(View view)
+				{
+					// Open the interface to manage favorites and close the popup
+					view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFavorites.class)) ;
+					finish() ;
+				}
+			}) ;
 
 		// Display the list of favorites applications
 		RecyclerView recycler = findViewById(R.id.popup_recycler) ;
 		recycler.setAdapter(new RecyclerAdapter(this, ActivityMain.getApplicationsList().getFavorites())) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(this, ActivityMain.getApplicationWidth())) ;
-	}
-
-
-	/**
-	 * Listen for a click on the popup.
-	 */
-	private class PopupClickListener implements View.OnClickListener
-	{
-		/**
-		 * Called when an element is clicked.
-		 */
-		@Override
-		public void onClick(View view)
-		{
-			// If the title was clicked, open the interface to manage favorites
-			if(view.getId() == R.id.popup_title)
-				view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFavorites.class)) ;
-
-			// Close the popup
-			finish() ;
-		}
 	}
 
 

@@ -171,8 +171,16 @@ public class Folder extends Application
 		// Prepare the folder title
 		TextView popupTitle = popupView.findViewById(R.id.popup_title) ;
 		popupTitle.setText(getDisplayNameWithCount()) ;
-		popupTitle.setOnClickListener(new PopupClickListener()) ;
-		popupView.findViewById(R.id.close_popup).setOnClickListener(new PopupClickListener()) ;
+		popupTitle.setOnClickListener(new View.OnClickListener()
+			{
+				@Override
+				public void onClick(View view)
+				{
+					// Open the interface to manage folders and close the popup
+					showSettings(view.getContext()) ;
+					closePopup() ;
+				}
+			}) ;
 
 		// Prepare the folder content
 		RecyclerView popupRecycler = popupView.findViewById(R.id.popup_recycler) ;
@@ -199,27 +207,6 @@ public class Folder extends Application
 	public void closePopup()
 	{
 		if(popup != null) popup.dismiss() ;
-	}
-
-
-	/**
-	 * Listen for a click on the popup.
-	 */
-	private class PopupClickListener implements View.OnClickListener
-	{
-		/**
-		 * Called when a view is clicked.
-		 */
-		@Override
-		public void onClick(View view)
-		{
-			// If the title was clicked, open the interface to manage folders
-			if(view.getId() == R.id.popup_title)
-				showSettings(view.getContext()) ;
-
-			// Close the popup
-			closePopup() ;
-		}
 	}
 
 
