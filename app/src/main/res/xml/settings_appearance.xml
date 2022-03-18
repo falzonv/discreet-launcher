@@ -18,7 +18,7 @@
         <!-- Splitted between favorites and drawer (v5.2.0), to remove later -->
         <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
             app:key="background_color"
-            app:defaultValue="#66000000"
+            app:defaultValue="#0000FF88"
             app:isPreferenceVisible="false"/>
 
         <SwitchPreference
