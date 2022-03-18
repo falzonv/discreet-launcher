@@ -147,7 +147,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Save all settings
 		exportedData.add("# " + getString(R.string.export_import_header_settings)) ;
-		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
@@ -164,6 +163,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK_SECONDARY)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_COLOR_FILTER)) ;
+		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
 		exportedData.add(exportStringSetting(Constants.FORCED_ORIENTATION)) ;
 		exportedData.add(exportBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
@@ -259,74 +259,60 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 			// Skip the comments
 			if(line.startsWith("#")) continue ;
 
-			// Replace the content of the internal files
-			if(line.startsWith(Constants.FILE_FAVORITES)) writeLineToInternalFile(favorites, line) ;
-				else if(line.startsWith(Constants.FILE_FOLDERS_COLORS)) writeLineToInternalFile(folders_colors, line) ;
-				else if(line.startsWith(Constants.FILE_FOLDER_PREFIX))
-				{
-					if(line.indexOf(": ") <= 0) continue ;
-					writeLineToInternalFile(new InternalFileTXT(line.substring(0, line.indexOf(": "))), line) ;
-				}
-				else if(line.startsWith(Constants.FILE_HIDDEN)) writeLineToInternalFile(hidden, line) ;
-				else if(line.startsWith(Constants.FILE_RENAME_APPS)) writeLineToInternalFile(rename_apps, line) ;
-				else if(line.startsWith(Constants.FILE_SHORTCUTS)) writeLineToInternalFile(shortcuts, line) ;
-				else if(line.startsWith(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, line) ;
+			// Extract the line target (can be a filename or a setting name) and value
+			if(line.indexOf(": ") <= 0) continue ;
+			String target = line.substring(0, line.indexOf(":")) ;
+			String value = line.replace(target + ": ", "") ;
+
+			// Create the internal files
+			if(target.equals(Constants.FILE_FAVORITES)) writeLineToInternalFile(favorites, value) ;
+				else if(target.equals(Constants.FILE_FOLDERS_COLORS)) writeLineToInternalFile(folders_colors, value) ;
+				else if(target.equals(Constants.FILE_HIDDEN)) writeLineToInternalFile(hidden, value) ;
+				else if(target.equals(Constants.FILE_RENAME_APPS)) writeLineToInternalFile(rename_apps, value) ;
+				else if(target.equals(Constants.FILE_SHORTCUTS)) writeLineToInternalFile(shortcuts, value) ;
+				else if(target.equals(Constants.FILE_SHORTCUTS_LEGACY)) writeLineToInternalFile(shortcuts_legacy, value) ;
+				else if(target.startsWith(Constants.FILE_FOLDER_PREFIX)) writeLineToInternalFile(new InternalFileTXT(target), value) ;
+				else if(target.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX)) new InternalFilePNG(target).loadFromImport(value) ;
 				// Load the settings
-				else if(line.startsWith(Constants.NOTIFICATION)) loadBooleanSetting(Constants.NOTIFICATION, line) ;
-				else if(line.startsWith(Constants.APPLICATION_THEME)) loadStringSetting(Constants.APPLICATION_THEME, line) ;
-				else if(line.startsWith(Constants.TRANSPARENT_STATUS_BAR)) loadBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, line) ;
-				else if(line.startsWith(Constants.DARK_STATUS_BAR_ICONS)) loadBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, line) ;
-				else if(line.startsWith(Constants.HIDE_APP_NAMES)) loadBooleanSetting(Constants.HIDE_APP_NAMES, line) ;
-				else if(line.startsWith(Constants.REMOVE_PADDING)) loadBooleanSetting(Constants.REMOVE_PADDING, line) ;
-				else if(line.startsWith(Constants.BACKGROUND_COLOR_FAVORITES)) loadStringSetting(Constants.BACKGROUND_COLOR_FAVORITES, line) ;
-				else if(line.startsWith(Constants.TEXT_COLOR_FAVORITES)) loadStringSetting(Constants.TEXT_COLOR_FAVORITES, line) ;
-				else if(line.startsWith(Constants.BACKGROUND_COLOR_DRAWER)) loadStringSetting(Constants.BACKGROUND_COLOR_DRAWER, line) ;
-				else if(line.startsWith(Constants.TEXT_COLOR_DRAWER)) loadStringSetting(Constants.TEXT_COLOR_DRAWER, line) ;
-				else if(line.startsWith(Constants.DISPLAY_CLOCK))
+				else if(target.equals(Constants.APPLICATION_THEME)) editor.putString(target, value) ;
+				else if(target.equals(Constants.TRANSPARENT_STATUS_BAR)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.DARK_STATUS_BAR_ICONS)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.HIDE_APP_NAMES)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.REMOVE_PADDING)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.BACKGROUND_COLOR_FAVORITES)) editor.putString(target, value) ;
+				else if(target.equals(Constants.TEXT_COLOR_FAVORITES)) editor.putString(target, value) ;
+				else if(target.equals(Constants.BACKGROUND_COLOR_DRAWER)) editor.putString(target, value) ;
+				else if(target.equals(Constants.TEXT_COLOR_DRAWER)) editor.putString(target, value) ;
+				else if(target.equals(Constants.OLD_DISPLAY_CLOCK))
 				{
 					// Note the configuration of the old clock setting (to remove later)
 					old_clock_found = true ;
-					old_clock_status = line.replace(Constants.DISPLAY_CLOCK + ": ", "").equals("true") ;
+					old_clock_status = value.equals("true") ;
 				}
-				else if(line.startsWith(Constants.CLOCK_FORMAT))
+				else if(target.equals(Constants.CLOCK_FORMAT))
 				{
 					// Merge the two clock settings into a single one (to remove later)
-					if(old_clock_found && !old_clock_status) editor.putString(Constants.CLOCK_FORMAT, Constants.NONE) ;
-						else loadStringSetting(Constants.CLOCK_FORMAT, line)  ;
+					if(old_clock_found && !old_clock_status) editor.putString(target, Constants.NONE) ;
+						else editor.putString(target, value) ;
 				}
-				else if(line.startsWith(Constants.CLOCK_COLOR)) loadStringSetting(Constants.CLOCK_COLOR, line) ;
-				else if(line.startsWith(Constants.CLOCK_SHADOW_COLOR)) loadStringSetting(Constants.CLOCK_SHADOW_COLOR, line) ;
-				else if(line.startsWith(Constants.CLOCK_POSITION)) loadStringSetting(Constants.CLOCK_POSITION, line) ;
-				else if(line.startsWith(Constants.ICON_PACK + ":")) loadStringSetting(Constants.ICON_PACK, line) ;
-				else if(line.startsWith(Constants.ICON_PACK_SECONDARY)) loadStringSetting(Constants.ICON_PACK_SECONDARY, line) ;
-				else if(line.startsWith(Constants.ICON_COLOR_FILTER)) loadStringSetting(Constants.ICON_COLOR_FILTER, line) ;
-				else if(line.startsWith(Constants.FORCED_ORIENTATION)) loadStringSetting(Constants.FORCED_ORIENTATION, line) ;
-				else if(line.startsWith(Constants.ALWAYS_SHOW_FAVORITES)) loadBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, line) ;
-				else if(line.startsWith(Constants.REVERSE_INTERFACE)) loadBooleanSetting(Constants.REVERSE_INTERFACE, line) ;
-				else if(line.startsWith(Constants.IMMERSIVE_MODE)) loadBooleanSetting(Constants.IMMERSIVE_MODE, line) ;
-				else if(line.startsWith(Constants.TOUCH_TARGETS)) loadBooleanSetting(Constants.TOUCH_TARGETS, line) ;
-				else if(line.startsWith(Constants.HIDE_MENU_BUTTON)) loadBooleanSetting(Constants.HIDE_MENU_BUTTON, line) ;
-				else if(line.startsWith(Constants.DISABLE_APP_DRAWER)) loadBooleanSetting(Constants.DISABLE_APP_DRAWER, line) ;
-				else if(line.startsWith(Constants.SWIPE_LEFTWARDS)) loadStringSetting(Constants.SWIPE_LEFTWARDS, line) ;
-				else if(line.startsWith(Constants.SWIPE_RIGHTWARDS)) loadStringSetting(Constants.SWIPE_RIGHTWARDS, line) ;
-				// Save the shortcuts icons
-				else if(line.startsWith(Constants.FILE_ICON_SHORTCUT_PREFIX))
-				{
-					if(line.indexOf(": ") <= 0) continue ;
-					InternalFilePNG icon_file = new InternalFilePNG(line.substring(0, line.indexOf(": "))) ;
-					icon_file.loadFromImport(line) ;
-				}
-				// Convert the hidden applications from settings to internal file (to remove later)
-				else if(line.startsWith(Constants.HIDDEN_APPLICATIONS))
-				{
-					String value = line.replace(Constants.HIDDEN_APPLICATIONS + ": ", "") ;
-					String[] app_details = value.split(Constants.HIDDEN_APPS_SEPARATOR) ;
-					if(app_details.length < 2) continue ;
-					writeLineToInternalFile(hidden, Constants.FILE_HIDDEN + ": " + app_details[1]) ;
-				}
+				else if(target.equals(Constants.CLOCK_COLOR)) editor.putString(target, value) ;
+				else if(target.equals(Constants.CLOCK_SHADOW_COLOR)) editor.putString(target, value) ;
+				else if(target.equals(Constants.CLOCK_POSITION)) editor.putString(target, value) ;
+				else if(target.equals(Constants.ICON_PACK)) editor.putString(target, value) ;
+				else if(target.equals(Constants.ICON_PACK_SECONDARY)) editor.putString(target, value) ;
+				else if(target.equals(Constants.ICON_COLOR_FILTER)) editor.putString(target, value) ;
+				else if(target.equals(Constants.NOTIFICATION)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.FORCED_ORIENTATION)) editor.putString(target, value) ;
+				else if(target.equals(Constants.ALWAYS_SHOW_FAVORITES)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.REVERSE_INTERFACE)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.IMMERSIVE_MODE)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.TOUCH_TARGETS)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.HIDE_MENU_BUTTON)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.DISABLE_APP_DRAWER)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.SWIPE_LEFTWARDS)) editor.putString(target, value) ;
+				else if(target.equals(Constants.SWIPE_RIGHTWARDS)) editor.putString(target, value) ;
 				// Convert old settings for compatibility
-				else if(line.startsWith(Constants.FORCE_PORTRAIT)) migrateFromOldFormat(Constants.FORCE_PORTRAIT, line) ;
-				else if(line.startsWith(Constants.BACKGROUND_COLOR)) migrateFromOldFormat(Constants.BACKGROUND_COLOR, line) ;
+				else migrateFromOldFormat(target, value) ;
 		}
 		editor.apply() ;
 
@@ -336,49 +322,34 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 
 	/**
-	 * Write a line in an internal file.
+	 * Unless it is "none", write the given value as a line in an internal file.
 	 */
-	private void writeLineToInternalFile(InternalFileTXT file, String line)
+	private void writeLineToInternalFile(InternalFileTXT file, String value)
 	{
-		String value = line.replace(file.getName() + ": ", "") ;
 		if(value.equals(Constants.NONE)) return ;
 		file.writeLine(value) ;
 	}
 
 
 	/**
-	 * Modify a boolean setting based on its line in an import file.
-	 */
-	private void loadBooleanSetting(String setting, String line)
-	{
-		editor.putBoolean(setting, line.replace(setting + ": ", "").equals("true")) ;
-	}
-
-
-	/**
-	 * Modify a String setting based on its line in an import file.
-	 */
-	private void loadStringSetting(String setting, String line)
-	{
-		editor.putString(setting, line.replace(setting + ": ", "")) ;
-	}
-
-
-	/**
 	 * Migrate a removed/modified setting from its older format to the current one.
 	 */
-	private void migrateFromOldFormat(String setting, String line)
+	private void migrateFromOldFormat(String setting, String value)
 	{
 		switch(setting)
 		{
-			case Constants.BACKGROUND_COLOR :
-				String background_color = line.replace(setting + ": ", "") ;
-				editor.putString(Constants.BACKGROUND_COLOR_FAVORITES, background_color) ;
-				editor.putString(Constants.BACKGROUND_COLOR_DRAWER, background_color) ;
+			case Constants.OLD_BACKGROUND_COLOR:
+				editor.putString(Constants.BACKGROUND_COLOR_FAVORITES, value) ;
+				editor.putString(Constants.BACKGROUND_COLOR_DRAWER, value) ;
 				break ;
-			case Constants.FORCE_PORTRAIT :
-				if(line.replace(setting + ": ", "").equals("true"))
+			case Constants.OLD_FORCE_PORTRAIT:
+				if(value.equals("true"))
 					editor.putString(Constants.FORCED_ORIENTATION, "portrait") ;
+				break ;
+			case Constants.OLD_HIDDEN_APPLICATIONS:
+				String[] app_details = value.split(Constants.OLD_HIDDEN_APPS_SEPARATOR) ;
+				if(app_details.length >= 2)
+					new InternalFileTXT(Constants.FILE_HIDDEN).writeLine(app_details[1]) ;
 				break ;
 		}
 	}

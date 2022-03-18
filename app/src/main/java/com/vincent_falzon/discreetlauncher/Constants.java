@@ -82,13 +82,13 @@ public interface Constants
 	String COLOR_TRANSPARENT = "#00000000" ;
 
 	// --- Constants representing old settings keys for compatibility ---
-	// Removed in v3.1.0 (migrated to internal file hidden.txt)
-	String HIDDEN_APPLICATIONS = "hidden_applications" ;
-	String HIDDEN_APPS_SEPARATOR = "_discreet_" ;
-	// Removed in v4.0.0 (merged with CLOCK_FORMAT)
-	String DISPLAY_CLOCK = "display_clock" ;
-	// Removed in v5.2.0 (merged with FORCED_ORIENTATION)
-	String FORCE_PORTRAIT = "force_portrait" ;
-	// Removed in v5.2.0 (splitted between favorites and app drawer)
-	String BACKGROUND_COLOR = "background_color" ;
+	// Removed in v3.1.0 - 23/04/2021 (migrated to internal file hidden.txt)
+	String OLD_HIDDEN_APPLICATIONS = "hidden_applications" ;
+	String OLD_HIDDEN_APPS_SEPARATOR = "_discreet_" ;
+	// Removed in v4.0.0 - 05/06/2021 (merged with CLOCK_FORMAT)
+	String OLD_DISPLAY_CLOCK = "display_clock" ;
+	// Removed in v5.2.0 - 13/11/2021 (merged with FORCED_ORIENTATION)
+	String OLD_FORCE_PORTRAIT = "force_portrait" ;
+	// Removed in v5.2.0 - 13/11/2021 (splitted between favorites and app drawer)
+	String OLD_BACKGROUND_COLOR = "background_color" ;
 }

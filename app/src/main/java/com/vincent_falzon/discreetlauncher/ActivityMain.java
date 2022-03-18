@@ -178,14 +178,14 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		drawer.addOnScrollListener(new ScrollListener(Constants.APP_DRAWER)) ;
 
 		// Check if the legacy background color setting is still used (to remove later)
-		String background_color = settings.getString(Constants.BACKGROUND_COLOR, Constants.NONE) ;
+		String background_color = settings.getString(Constants.OLD_BACKGROUND_COLOR, Constants.NONE) ;
 		if((background_color != null) && !background_color.equals("#0000FF88"))
 			{
 				// Migrate the legacy setting to splitted background colors for favorites and drawer
 				SharedPreferences.Editor editor = settings.edit() ;
 				editor.putString(Constants.BACKGROUND_COLOR_FAVORITES, background_color) ;
 				editor.putString(Constants.BACKGROUND_COLOR_DRAWER, background_color) ;
-				editor.putString(Constants.BACKGROUND_COLOR, "#0000FF88") ;
+				editor.putString(Constants.OLD_BACKGROUND_COLOR, "#0000FF88") ;
 				editor.apply() ;
 			}
 
@@ -240,11 +240,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(forced_orientation == null) forced_orientation = Constants.NONE ;
 
 		// Migrate from the old setting if needed (to remove later)
-		if(settings.getBoolean(Constants.FORCE_PORTRAIT, false))
+		if(settings.getBoolean(Constants.OLD_FORCE_PORTRAIT, false))
 			{
 				forced_orientation = "portrait" ;
 				SharedPreferences.Editor editor = settings.edit() ;
-				editor.putBoolean(Constants.FORCE_PORTRAIT, false) ;
+				editor.putBoolean(Constants.OLD_FORCE_PORTRAIT, false) ;
 				editor.putString(Constants.FORCED_ORIENTATION, forced_orientation) ;
 				editor.apply() ;
 			}
