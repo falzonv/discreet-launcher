@@ -82,7 +82,7 @@ public class ShortcutLegacyListener extends BroadcastReceiver
 
 						// Add the shortcut and update the applications list
 						String shortcut = display_name + Constants.SHORTCUT_SEPARATOR + shortcut_intent ;
-						ShortcutListener.addShortcut(context, display_name, shortcut, icon, true) ;
+						ShortcutListener.addShortcut(display_name, shortcut, icon, true) ;
 						updateList(context) ;
 					}
 			}

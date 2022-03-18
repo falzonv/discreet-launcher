@@ -38,7 +38,6 @@
     <string name="error_import">Tidak bisa membaca berkas impor</string>
 
     <!-- Errors messages related to shortcuts -->
-    <string name="error_shortcut_creation">Tidak bisa membuat \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Tidak bisa menambahkannya sebagai pemintas</string>
     <string name="error_shortcut_missing_info">Tidak bisa mengikuti pemintas ini</string>
     <string name="error_shortcut_not_default_launcher">Hanya peluncur default yang bisa membuka pemintas</string>

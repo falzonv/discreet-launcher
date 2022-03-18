@@ -38,7 +38,6 @@
     <string name="error_import">Import Datei konnte nicht gelesen werden</string>
 
     <!-- Errors messages related to shortcuts -->
-    <string name="error_shortcut_creation">\"%1$s\" konnte nicht erstellt werden</string>
     <string name="error_shortcut_invalid_request">Konnte nicht als Verknüpfung hinzugefügt werden</string>
     <string name="error_shortcut_missing_info">Verknüpfung kann nicht gefolgt werden</string>
     <string name="error_shortcut_not_default_launcher">Nur das Standard-Startprogramm kann Verknüpfungen öffnen</string>

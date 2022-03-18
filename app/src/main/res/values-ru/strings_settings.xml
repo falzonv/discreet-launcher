@@ -38,7 +38,6 @@
     <string name="error_import">Не удалось прочитать файл импорта</string>
 
     <!-- Errors messages related to shortcuts -->
-    <string name="error_shortcut_creation">Не удалось создать \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Не удалось добавить это в качестве ярлыка</string>
     <string name="error_shortcut_missing_info">Не удалось выполнить этот ярлык</string>
     <string name="error_shortcut_not_default_launcher">Открывать ярлыки может только программа запуска по умолчанию</string>

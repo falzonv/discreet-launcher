@@ -38,7 +38,6 @@
     <string name="error_import">Kunne ikke lese importfilen</string>
 
     <!-- Errors messages related to shortcuts -->
-    <string name="error_shortcut_creation">Kunne ikke opprette \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Kunne ikke legge til det som snarvei</string>
     <string name="error_shortcut_missing_info">Kunne ikke følge denne snarveien</string>
     <string name="error_shortcut_not_default_launcher">Kun forvalgt oppstarter kan åpne snarveier</string>

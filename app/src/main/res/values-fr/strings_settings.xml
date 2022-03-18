@@ -38,7 +38,6 @@
     <string name="error_import">Impossible de lire le fichier d\'import</string>
 
     <!-- Errors messages related to shortcuts -->
-    <string name="error_shortcut_creation">Impossible de créer \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Impossible d\'ajouter cela en raccourci</string>
     <string name="error_shortcut_missing_info">Impossible de suivre ce raccourci</string>
     <string name="error_shortcut_not_default_launcher">Seul le lanceur par défaut peut ouvrir des raccourcis</string>

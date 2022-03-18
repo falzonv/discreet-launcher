@@ -38,7 +38,6 @@
     <string name="error_import">Could not read the import file</string>
 
     <!-- Errors messages related to shortcuts -->
-    <string name="error_shortcut_creation">Could not create \"%1$s\"</string>
     <string name="error_shortcut_invalid_request">Could not add that as a shortcut</string>
     <string name="error_shortcut_missing_info">Could not follow this shortcut</string>
     <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts</string>

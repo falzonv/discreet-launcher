@@ -94,7 +94,7 @@ public class ShortcutListener extends AppCompatActivity
 									else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
 
 								// Add the shortcut
-								addShortcut(this, display_name, shortcut, icon, false) ;
+								addShortcut(display_name, shortcut, icon, false) ;
 								ActivityMain.updateList(this) ;
 							}
 							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
@@ -112,7 +112,7 @@ public class ShortcutListener extends AppCompatActivity
 	/**
 	 * Called when a request to add a shortcut has been received.
 	 */
-	static void addShortcut(Context context, String display_name, String shortcut, Bitmap icon, boolean legacy)
+	static void addShortcut(String display_name, String shortcut, Bitmap icon, boolean legacy)
 	{
 		// Check if the shortcut already exists in the file
 		InternalFileTXT file = new InternalFileTXT(legacy ? Constants.FILE_SHORTCUTS_LEGACY : Constants.FILE_SHORTCUTS) ;
@@ -130,11 +130,7 @@ public class ShortcutListener extends AppCompatActivity
 
 		// If it was not existing, add the shortcut to the file and save its icon
 		InternalFilePNG icon_file = new InternalFilePNG(Constants.FILE_ICON_SHORTCUT_PREFIX + display_name + ".png") ;
-		if(!file.writeLine(shortcut))
-			{
-				ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_creation, display_name)) ;
-				return ;
-			}
+		file.writeLine(shortcut) ;
 		icon_file.writeToFile(icon) ;
 	}
 
