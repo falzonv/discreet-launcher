@@ -43,7 +43,6 @@ public class Menu extends Application
 
 	/**
 	 * Display the main menu.
-	 * @return Always <code>true</code>
 	 */
 	public boolean start(View view)
 	{

@@ -676,12 +676,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			if((Math.abs(x_distance) > Math.abs(y_distance)) && (Math.abs(x_distance) > swipe_trigger_distance))
 				{
 					// Check if the swipe is going towards left or right
-					String swipe_direction ;
-					if(x_distance > 0) swipe_direction = Constants.SWIPE_LEFTWARDS ;
-						else swipe_direction = Constants.SWIPE_RIGHTWARDS ;
+					String swipe_direction_setting_key ;
+					if(x_distance > 0) swipe_direction_setting_key = Constants.SWIPE_LEFTWARDS ;
+						else swipe_direction_setting_key = Constants.SWIPE_RIGHTWARDS ;
 
 					// Try to start the related application
-					return searchAndStartApplication(swipe_direction) ;
+					return searchAndStartApplication(swipe_direction_setting_key) ;
 				}
 
 			// Ignore other gestures
@@ -691,13 +691,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		/**
 		 * Start an app from the list using its ComponentInfo, or show an error message.
-		 * @param swipe_direction String preference indicating a left or right swipe.
-		 * @return <code>true</code> if the event was consumed, <code>false</code> otherwise.
+		 * @return <code>true</code> if the event was consumed, <code>false</code> otherwise
 		 */
-		private boolean searchAndStartApplication(String swipe_direction)
+		private boolean searchAndStartApplication(String swipe_direction_setting_key)
 		{
 			// Retrieve the app to launch based on the direction
-			String component_info = settings.getString(swipe_direction, Constants.NONE) ;
+			String component_info = settings.getString(swipe_direction_setting_key, Constants.NONE) ;
 
 			// Do not continue if the setting is not set
 			if((component_info == null) || component_info.equals(Constants.NONE))
@@ -717,7 +716,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, component_info)) ;
 			setIgnoreSettingsChanges(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
-			editor.putString(swipe_direction, Constants.NONE).apply() ;
+			editor.putString(swipe_direction_setting_key, Constants.NONE).apply() ;
 			setIgnoreSettingsChanges(false) ;
 			return true ;
 		}

@@ -80,8 +80,6 @@ public class ActivitySettingsOperation extends AppCompatActivity
 	{
 		/**
 		 * Constructor.
-		 * @param savedInstanceState To retrieve the context
-		 * @param rootKey Root of the settings hierarchy
 		 */
 		@Override
 		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)

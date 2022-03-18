@@ -39,8 +39,7 @@ import java.io.IOException ;
 public class InternalFilePNG extends InternalFile
 {
 	/**
-	 * Constructor to create or open an internal PNG file.
-	 * @param filename Name of the file including the extension
+	 * Constructor (the given filename should include the extension).
 	 */
 	public InternalFilePNG(String filename)
 	{
@@ -50,12 +49,11 @@ public class InternalFilePNG extends InternalFile
 
 	/**
 	 * Write a Bitmap image to the internal file.
-	 * @param bitmap The image to write
 	 */
 	public void writeToFile(Bitmap bitmap)
 	{
 		// Do not continue if the bitmap is empty
-		if(bitmap == null) return;
+		if(bitmap == null) return ;
 
 		try
 		{
@@ -64,7 +62,7 @@ public class InternalFilePNG extends InternalFile
 			bitmap.compress(Bitmap.CompressFormat.PNG, 100, output_file) ;
 			output_file.close() ;
 		}
-		catch(IOException e)
+		catch(IOException exception)
 		{
 			// An error happened
 		}
@@ -72,8 +70,7 @@ public class InternalFilePNG extends InternalFile
 
 
 	/**
-	 * Return the content of the internal file as a Bitmap.
-	 * @return Content of the file or <code>null</code> if an error happened
+	 * Return the content of the file as a Bitmap (or <code>null</code> if an error happened).
 	 */
 	public Bitmap readFromFile()
 	{
@@ -83,10 +80,7 @@ public class InternalFilePNG extends InternalFile
 
 
 	/**
-	 * Convert a Bitmap to a Drawable.
-	 * @param context To get the resources for metrics
-	 * @param bitmap The Bitmap to convert
-	 * @return A Drawable or <code>null</code> if an error happened
+	 * Convert a Bitmap to a Drawable (returns <code>null</code> if an error happened).
 	 */
 	public Drawable convertBitmapToDrawable(Context context, Bitmap bitmap)
 	{
@@ -96,8 +90,7 @@ public class InternalFilePNG extends InternalFile
 
 
 	/**
-	 * Prepare the internal file for inclusion in an export file.
-	 * @return The filename followed by a Base64 String or an empty string if an error happened
+	 * Return the filename followed by a Base64 String (or an empty string if an error happened).
 	 */
 	public String prepareForExport()
 	{
@@ -114,7 +107,6 @@ public class InternalFilePNG extends InternalFile
 
 	/**
 	 * Decode the line representing a Bitmap in an import file and write it to the internal file.
-	 * @param line Read from a previously exported file
 	 */
 	public void loadFromImport(String line)
 	{

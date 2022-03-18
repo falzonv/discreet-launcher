@@ -38,8 +38,7 @@ public class InternalFile
 
 
 	/**
-	 * Constructor to create or open an internal file.
-	 * @param filename Name of the file including the extension
+	 * Constructor.
 	 */
 	InternalFile(String filename)
 	{
@@ -49,7 +48,6 @@ public class InternalFile
 
 	/**
 	 * Check if the internal file exists on the system.
-	 * @return <code>true</code> if it exists, <code>false</code> otherwise
 	 */
 	public boolean exists()
 	{
@@ -70,7 +68,6 @@ public class InternalFile
 
 	/**
 	 * Return the name of the internal file without the path.
-	 * @return Name of the file
 	 */
 	public String getName()
 	{
@@ -79,8 +76,7 @@ public class InternalFile
 
 
 	/**
-	 * Rename the internal file.
-	 * @param new_filename New name including the extension
+	 * Try to rename the internal file.
 	 * @return <code>true</code> if successful, <code>false</code> otherwise
 	 */
 	public boolean rename(String new_filename)
@@ -90,10 +86,7 @@ public class InternalFile
 
 
 	/**
-	 * Search internal files starting with a certain prefix.
-	 * @param context To list files
-	 * @param prefix Search filter
-	 * @return List of filenames or <code>null</code> if none was found
+	 * Search internal files starting with a prefix (returns <code>null</code> if none was found).
 	 */
 	public static String[] searchFilesStartingWith(Context context, final String prefix)
 	{

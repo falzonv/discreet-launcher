@@ -156,7 +156,6 @@ public class Folder extends Application
 
 	/**
 	 * Display the content of the folder as a popup.
-	 * @return Always <code>true</code>
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public boolean start(View parent)

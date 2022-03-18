@@ -24,7 +24,6 @@ package com.vincent_falzon.discreetlauncher.quickaccess ;
 
 // Imports
 import android.app.Activity ;
-import android.content.Intent ;
 import android.os.Bundle ;
 import androidx.appcompat.app.AppCompatActivity ;
 

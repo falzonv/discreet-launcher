@@ -38,10 +38,7 @@ import java.util.ArrayList ;
 public abstract class ExternalFile
 {
 	/**
-	 * Read the external file line by line and return the result in an array of lines.
-	 * @param context To open the file
-	 * @param location Location of the file on the system
-	 * @return Content of the file or <code>null</code> if an error happened
+	 * Return the file content as an array of lines, or <code>null</code> if an error happened.
 	 */
 	public static ArrayList<String> readAllLines(Context context, Uri location)
 	{
@@ -72,10 +69,7 @@ public abstract class ExternalFile
 
 
 	/**
-	 * Write an array of lines in the external file (create it if not existing yet).
-	 * @param context To open the file
-	 * @param location Location of the file on the system
-	 * @param content Lines that should be written to the file
+	 * Write an array of lines in the external file (created if not existing).
 	 * @return <code>true</code> if successful, <code>false</code> otherwise
 	 */
 	public static boolean writeAllLines(Context context, Uri location, ArrayList<String> content)

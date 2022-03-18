@@ -35,8 +35,7 @@ import java.util.ArrayList ;
 public class InternalFileTXT extends InternalFile
 {
 	/**
-	 * Constructor to create or open an internal TXT file.
-	 * @param filename Name of the file including the extension
+	 * Constructor (the given filename should include the extension).
 	 */
 	public InternalFileTXT(String filename)
 	{
@@ -45,8 +44,7 @@ public class InternalFileTXT extends InternalFile
 
 
 	/**
-	 * Read the internal file line by line and return the result in an array of lines.
-	 * @return Content of the file or <code>null</code> if an error happened
+	 * Return the file content as an array of lines, or <code>null</code> if an error happened.
 	 */
 	public ArrayList<String> readAllLines()
 	{
@@ -76,24 +74,19 @@ public class InternalFileTXT extends InternalFile
 
 
 	/**
-	 * Check if a specific line exists in the file.
-	 * @param search Text of the line
-	 * @return <code>true</code> if it exists, <code>false</code> otherwise
+	 * Check if the given line exists in the file.
 	 */
-	public boolean isLineExisting(String search)
+	public boolean isLineExisting(String searched_line)
 	{
 		if(!exists()) return false ;
-		return readAllLines().contains(search) ;
+		return readAllLines().contains(searched_line) ;
 	}
 
 
 	/**
-	 * Write a new line at the end of the file (create it if not existing yet).
-	 * After the writing, a new line character is added.
-	 * @param added_line To write in the file
-	 * @return <code>true</code> if successful, <code>false</code> otherwise
+	 * Write a line followed by <code>\n</code> at the end of the file (created if not existing).
 	 */
-	public boolean writeLine(String added_line)
+	public void writeLine(String added_line)
 	{
 		try
 		{
@@ -102,20 +95,17 @@ public class InternalFileTXT extends InternalFile
 			writer.write(added_line) ;
 			writer.write(System.lineSeparator()) ;
 			writer.close() ;
-			return true ;
 		}
-		catch (Exception e)
+		catch (Exception exception)
 		{
 			// An error happened while writing the line
-			return false ;
 		}
 	}
 
 
 	/**
 	 * Search and remove lines starting with the provided pattern.
-	 * @param to_remove Pattern to identify lines that should be removed
-	 * @return <code>true</code> if something was removed, <code>false</code> otherwise
+	 * @return <code>true</code> if at least one line was removed, <code>false</code> otherwise
 	 */
 	public boolean removeLine(String to_remove)
 	{
@@ -136,8 +126,7 @@ public class InternalFileTXT extends InternalFile
 
 
 	/**
-	 * Prepare the internal file for inclusion in an export file.
-	 * @return An array of lines where each line starts with the filename
+	 * Return an array of lines where each line starts with the filename.
 	 */
 	public ArrayList<String> prepareForExport()
 	{

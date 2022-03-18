@@ -115,8 +115,7 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 
 	/**
 	 * Check if a text contains the searched sequence ignoring case and accents.
-	 * @param search_length For optimization in loops
-	 * @return <code>true</code> if the sequence is in the text, <code>false</code> otherwise
+	 * @param search_length For optimization when this method is called in a loop
 	 */
 	private boolean searchIncludingVariants(String search, int search_length, String text)
 	{

@@ -73,7 +73,6 @@ public class Search extends Application
 
 	/**
 	 * Display the Search application as a popup.
-	 * @return Always <code>true</code>
 	 */
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public boolean start(View parent)

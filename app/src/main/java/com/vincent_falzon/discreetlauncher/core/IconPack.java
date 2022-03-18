@@ -84,8 +84,7 @@ class IconPack
 
 
 	/**
-	 * Search the icon of an application in the pack.
-	 * @return An icon or <code>null</code> if it cannot be retrieved
+	 * Search the icon of an application in the pack (returns <code>null</code> if not found).
 	 */
 	Drawable searchIcon(String apk, String name)
 	{
