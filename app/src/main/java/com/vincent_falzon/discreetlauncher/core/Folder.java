@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher.core ;
 // Imports
 import android.content.Context ;
 import android.content.Intent ;
+import android.content.SharedPreferences ;
 import android.graphics.Color ;
 import android.graphics.drawable.ColorDrawable ;
 import android.graphics.drawable.Drawable ;
@@ -36,12 +37,14 @@ import android.view.ViewGroup ;
 import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
 import android.widget.TextView ;
+import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.menu.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
+import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.Comparator ;
@@ -183,8 +186,27 @@ public class Folder extends Application
 
 		// Prepare the folder content
 		RecyclerView popupRecycler = popupView.findViewById(R.id.popup_recycler) ;
-		popupRecycler.setAdapter(new RecyclerAdapter(context, applications)) ;
+		RecyclerAdapter recyclerAdapter = new RecyclerAdapter(context, applications) ;
+		popupRecycler.setAdapter(recyclerAdapter) ;
 		popupRecycler.setLayoutManager(new FlexibleGridLayout(context, getApplicationWidth())) ;
+
+		// Retrieve the app drawer colors
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
+		int text_color = ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
+		int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
+
+		// Lighten the folder background color for better contrast
+		float[] background_hsv = new float[3] ;
+		Color.colorToHSV(background_color, background_hsv) ;
+		background_hsv[2] += (background_hsv[2] <= 0.5) ? 0.2 : 0.1 ;
+		int folder_background_color = Color.HSVToColor(235, background_hsv) ;
+
+		// Set the folder colors
+		popupTitle.setTextColor(color) ;
+		popupView.findViewById(R.id.popup_line).setBackgroundColor(color) ;
+		popupView.findViewById(R.id.popup_header).setBackgroundColor(folder_background_color) ;
+		popupRecycler.setBackgroundColor(folder_background_color) ;
+		recyclerAdapter.setTextColor(text_color) ;
 
 		// Create the popup representing the folder
 		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;

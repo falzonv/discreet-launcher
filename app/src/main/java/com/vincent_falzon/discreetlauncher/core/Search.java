@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher.core ;
 // Imports
 import android.app.Activity ;
 import android.content.Context ;
+import android.content.SharedPreferences ;
 import android.graphics.Color ;
 import android.graphics.drawable.ColorDrawable ;
 import android.graphics.drawable.Drawable ;
@@ -43,12 +44,14 @@ import android.widget.EditText ;
 import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
 import android.widget.TextView ;
+import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.SearchAdapter ;
+import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 import java.util.ArrayList ;
 
 /**
@@ -120,6 +123,22 @@ public class Search extends Application
 		adapter = new SearchAdapter(context, applications) ;
 		recycler.setAdapter(adapter) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(context, ActivityMain.getApplicationWidth())) ;
+
+		// Retrieve the app drawer colors
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
+		int text_color = ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
+		int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
+
+		// Lighten the search background color for better contrast
+		float[] background_hsv = new float[3] ;
+		Color.colorToHSV(background_color, background_hsv) ;
+		background_hsv[2] += (background_hsv[2] <= 0.5) ? 0.2 : 0.1 ;
+		int search_background_color = Color.HSVToColor(235, background_hsv) ;
+
+		// Set the search colors
+		popupView.findViewById(R.id.popup_header).setBackgroundColor(search_background_color) ;
+		recycler.setBackgroundColor(search_background_color) ;
+		adapter.setTextColor(text_color) ;
 
 		// Create the popup representing the Search application
 		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;
