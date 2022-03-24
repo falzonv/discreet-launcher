@@ -86,7 +86,9 @@ public class Search extends Application
 
 		// Prepare the popup view
 		View popupView = inflater.inflate(R.layout.view_popup, (ViewGroup)null) ;
-		popupView.findViewById(R.id.popup_title).setVisibility(View.GONE) ;
+		popupView.findViewById(R.id.popup_header).setVisibility(View.INVISIBLE) ;
+		popupView.findViewById(R.id.popup_line1).setVisibility(View.INVISIBLE) ;
+		popupView.findViewById(R.id.popup_line2).setVisibility(View.VISIBLE) ;
 
 		// Prepare the search bar
 		EditText searchBar = popupView.findViewById(R.id.search_bar) ;
@@ -123,6 +125,7 @@ public class Search extends Application
 		adapter = new SearchAdapter(context, applications) ;
 		recycler.setAdapter(adapter) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(context, ActivityMain.getApplicationWidth())) ;
+		recycler.setMinimumHeight(0) ;
 
 		// Retrieve the app drawer colors
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
@@ -136,21 +139,20 @@ public class Search extends Application
 		int search_background_color = Color.HSVToColor(235, background_hsv) ;
 
 		// Set the search colors
-		popupView.findViewById(R.id.popup_header).setBackgroundColor(search_background_color) ;
 		recycler.setBackgroundColor(search_background_color) ;
 		adapter.setTextColor(text_color) ;
 
 		// Create the popup representing the Search application
-		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;
-		popup = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, popup_height, true) ;
+		popup = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true) ;
 		popupView.setOnTouchListener(new PopupTouchListener()) ;
 
 		// Fix popup not closing on press back with API 21
 		popup.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)) ;
 
 		// Display the popup and the keyboard
-		popup.showAtLocation(parent, Gravity.CENTER, 0, 0) ;
+		popup.showAtLocation(parent, Gravity.BOTTOM, 0, 0) ;
 		((InputMethodManager)context.getSystemService(Activity.INPUT_METHOD_SERVICE)).toggleSoftInputFromWindow(parent.getWindowToken(), InputMethod.SHOW_EXPLICIT, 0) ;
+		searchBar.requestFocus() ;
 		return true ;
 	}
 

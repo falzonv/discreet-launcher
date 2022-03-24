@@ -23,38 +23,48 @@
             android:visibility="visible"
             tools:text="@string/hint_new_folder"/>
 
-        <EditText
-            android:id="@+id/search_bar"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginStart="@dimen/spacing_normal"
-            android:singleLine="true"
-            android:inputType="textNoSuggestions"
-            android:autofillHints=""
-            android:hint="@string/search_app_hint"
-            android:textColor="@color/for_text_on_overlay"
-            android:textColorHint="@color/for_search_app_hint"
-            android:imeOptions="flagNoExtractUi|actionSearch"
-            android:background="@color/transparent"
-            android:visibility="gone"/>
-
     </LinearLayout>
 
     <View
-        android:id="@+id/popup_line"
+        android:id="@+id/popup_line1"
         android:layout_height="1dp"
         android:layout_width="match_parent"
         android:background="@color/for_popup_line"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/popup_recycler"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_width="match_parent"
+        android:layout_weight="1"
         android:minHeight="180dp"
         android:padding="1dp"
         android:background="@color/for_popup_background"
         tools:layoutManager="GridLayoutManager"
         tools:spanCount="4"
         tools:listitem="@layout/view_application"/>
+
+    <View
+        android:id="@+id/popup_line2"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="@color/for_popup_line"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="@dimen/spacing_normal"
+        android:singleLine="true"
+        android:inputType="textNoSuggestions"
+        android:autofillHints=""
+        android:hint="@string/search_app_hint"
+        android:textColor="@color/for_text_on_overlay"
+        android:textColorHint="@color/for_search_app_hint"
+        android:imeOptions="flagNoExtractUi|actionSearch"
+        android:background="@color/for_popup_background"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
 </LinearLayout>

@@ -203,13 +203,13 @@ public class Folder extends Application
 
 		// Set the folder colors
 		popupTitle.setTextColor(color) ;
-		popupView.findViewById(R.id.popup_line).setBackgroundColor(color) ;
+		popupView.findViewById(R.id.popup_line1).setBackgroundColor(color) ;
 		popupView.findViewById(R.id.popup_header).setBackgroundColor(folder_background_color) ;
 		popupRecycler.setBackgroundColor(folder_background_color) ;
 		recyclerAdapter.setTextColor(text_color) ;
 
 		// Create the popup representing the folder
-		int popup_height = Math.min(context.getResources().getDisplayMetrics().heightPixels / 2, parent.getRootView().getHeight()) ;
+		int popup_height = context.getResources().getDisplayMetrics().heightPixels / 2 ;
 		popup = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, popup_height, true) ;
 		popupView.setOnTouchListener(new PopupTouchListener()) ;
 
