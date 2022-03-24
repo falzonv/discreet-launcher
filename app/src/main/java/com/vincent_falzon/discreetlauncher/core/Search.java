@@ -82,7 +82,7 @@ public class Search extends Application
 		LayoutInflater inflater = LayoutInflater.from(context) ;
 
 		// Prepare the popup view
-		View popupView = inflater.inflate(R.layout.view_folder_popup, (ViewGroup)null) ;
+		View popupView = inflater.inflate(R.layout.view_popup, (ViewGroup)null) ;
 		popupView.findViewById(R.id.popup_title).setVisibility(View.GONE) ;
 
 		// Prepare the search bar

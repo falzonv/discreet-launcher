@@ -29,7 +29,7 @@
     <color name="for_notification_background">@color/white</color>
     <color name="for_overlay">@color/translucent_gray</color>
     <color name="for_popup_background">@color/translucent_gray_black</color>
-    <color name="for_popup_border">@color/translucent_white</color>
+    <color name="for_popup_line">@color/translucent_white</color>
     <color name="for_search_app_hint">@color/translucent_white</color>
     <color name="for_shadow">@color/translucent_gray</color>
     <color name="for_shape_neutral_background">@color/white</color>

@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_height="32dp"
+        android:layout_height="30dp"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:gravity="center"
@@ -42,7 +42,7 @@
     <View
         android:layout_height="1dp"
         android:layout_width="match_parent"
-        android:background="@color/for_popup_border"/>
+        android:background="@color/for_popup_line"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/popup_recycler"

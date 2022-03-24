@@ -51,7 +51,7 @@ public class PopupFavorites extends AppCompatActivity
 		super.onCreate(savedInstanceState) ;
 
 		// Initializations related to the interface
-		setContentView(R.layout.view_folder_popup) ;
+		setContentView(R.layout.view_popup) ;
 
 		// Prepare the title of the popup
 		TextView title = findViewById(R.id.popup_title) ;
