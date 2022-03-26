@@ -27,7 +27,6 @@ import android.content.Context ;
 import android.content.Intent ;
 import android.os.Bundle ;
 import android.view.View ;
-import android.widget.TextView ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.menu.ActivityFavorites ;
@@ -53,10 +52,8 @@ public class PopupFavorites extends AppCompatActivity
 		// Initializations related to the interface
 		setContentView(R.layout.view_popup) ;
 
-		// Prepare the title of the popup
-		TextView title = findViewById(R.id.popup_title) ;
-		title.setText(R.string.notification_popup_title) ;
-		title.setOnClickListener(new View.OnClickListener()
+		// Listen for clicks on the popup header
+		findViewById(R.id.popup_header).setOnClickListener(new View.OnClickListener()
 			{
 				@Override
 				public void onClick(View view)

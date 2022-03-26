@@ -121,7 +121,6 @@
     <string name="set_notification">Уведомление для доступа к избранному</string>
     <string name="set_notification_help">Использует прозрачный значок</string>
     <string name="notification_text">Избранные</string>
-    <string name="notification_popup_title">Управление избранным</string>
 
     <!-- Forced orientation -->
     <string name="set_forced_orientation">Принудительная ориентация</string>

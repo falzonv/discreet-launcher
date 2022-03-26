@@ -163,17 +163,15 @@ public class Folder extends Application
 	@SuppressWarnings({"RedundantCast", "RedundantSuppression"})
 	public boolean start(View parent)
 	{
-		// Initializations
+		// Inflate the popup view from its XML layout
 		Context context = parent.getContext() ;
-		LayoutInflater inflater = LayoutInflater.from(context) ;
+		View popupView = LayoutInflater.from(context).inflate(R.layout.view_popup, (ViewGroup)null) ;
 
-		// Prepare the popup view
-		View popupView = inflater.inflate(R.layout.view_popup, (ViewGroup)null) ;
-
-		// Prepare the folder title
+		// Prepare the folder header
 		TextView popupTitle = popupView.findViewById(R.id.popup_title) ;
 		popupTitle.setText(getDisplayNameWithCount()) ;
-		popupTitle.setOnClickListener(new View.OnClickListener()
+		popupTitle.setTextColor(color) ;
+		popupView.findViewById(R.id.popup_header).setOnClickListener(new View.OnClickListener()
 			{
 				@Override
 				public void onClick(View view)
@@ -202,9 +200,8 @@ public class Folder extends Application
 		int folder_background_color = Color.HSVToColor(235, background_hsv) ;
 
 		// Set the folder colors
-		popupTitle.setTextColor(color) ;
-		popupView.findViewById(R.id.popup_line1).setBackgroundColor(color) ;
 		popupView.findViewById(R.id.popup_header).setBackgroundColor(folder_background_color) ;
+		popupView.findViewById(R.id.popup_line1).setBackgroundColor(color) ;
 		popupRecycler.setBackgroundColor(folder_background_color) ;
 		recyclerAdapter.setTextColor(text_color) ;
 

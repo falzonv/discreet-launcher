@@ -121,7 +121,6 @@
     <string name="set_notification">Notifikasi untuk mengakses favorit</string>
     <string name="set_notification_help">Gunakan ikon transparan</string>
     <string name="notification_text">Favorit</string>
-    <string name="notification_popup_title">Kelola favorit</string>
 
     <!-- Forced orientation -->
     <string name="set_forced_orientation">Orientasi paksa</string>

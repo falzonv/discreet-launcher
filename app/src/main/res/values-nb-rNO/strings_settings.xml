@@ -121,7 +121,6 @@
     <string name="set_notification">Merknad for tilgang til favoritter</string>
     <string name="set_notification_help">Bruker et gjennomsiktig ikon</string>
     <string name="notification_text">Favoritter</string>
-    <string name="notification_popup_title">Håndter favoritter</string>
 
     <!-- Forced orientation -->
     <string name="set_forced_orientation">Låst sideretning</string>

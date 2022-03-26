@@ -121,7 +121,6 @@
     <string name="set_notification">Notification d\'accès aux favoris</string>
     <string name="set_notification_help">Utilise une icône transparente</string>
     <string name="notification_text">Favoris</string>
-    <string name="notification_popup_title">Gérer les favoris</string>
 
     <!-- Forced orientation -->
     <string name="set_forced_orientation">Orientation forcée</string>

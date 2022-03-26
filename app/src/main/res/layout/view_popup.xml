@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/popup_header"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="@color/for_popup_background">
 
         <TextView
             android:id="@+id/popup_title"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:textColor="@color/for_text_on_overlay"
-            android:visibility="visible"
-            tools:text="@string/hint_new_folder"/>
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/notification_text"
+            android:textColor="@color/for_text_on_overlay"/>
 
-    </LinearLayout>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/spacing_very_small"
+            app:drawableStartCompat="@drawable/ic_menu_preferences"
+            tools:ignore="RelativeOverlap"/>
+
+    </RelativeLayout>
 
     <View
         android:id="@+id/popup_line1"
@@ -53,7 +59,7 @@
 
     <EditText
         android:id="@+id/search_bar"
-        android:layout_height="30dp"
+        android:layout_height="32dp"
         android:layout_width="match_parent"
         android:paddingHorizontal="@dimen/spacing_normal"
         android:singleLine="true"
