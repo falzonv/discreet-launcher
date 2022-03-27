@@ -74,11 +74,11 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 				if(search.isEmpty()) applicationsList = initialApplicationsList ;
 					else
 					{
-						// Filter the results based on the search pattern
+						// Filter results based on the search pattern ignoring case and accents
 						applicationsList = new ArrayList<>() ;
 						int search_length = search.length() ;
 						for(Application application : initialApplicationsList)
-							if(searchIncludingVariants(search, search_length, application.getDisplayName()))
+							if(collator.equals(application.getDisplayName().substring(0, search_length), search))
 								applicationsList.add(application) ;
 					}
 
@@ -110,25 +110,5 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 	{
 		if(getItemCount() < 1) return null ;
 		return applicationsList.get(0) ;
-	}
-
-
-	/**
-	 * Check if a text contains the searched sequence ignoring case and accents.
-	 * @param search_length For optimization when this method is called in a loop
-	 */
-	private boolean searchIncludingVariants(String search, int search_length, String text)
-	{
-		// Do not continue if the searched sequence is longer than the text itself
-		int text_length = text.length() ;
-		if(search_length > text_length) return false ;
-
-		// Search the sequence at all possible positions in the text
-		for(int i = 0 ; i <= (text_length - search_length) ; i++)
-			if(collator.compare(text.substring(i, i + search_length), search) == 0)
-				return true ;
-
-		// The searched sequence was not found
-		return false ;
 	}
 }
