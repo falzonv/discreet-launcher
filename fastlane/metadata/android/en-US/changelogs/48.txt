@@ -1,0 +1,9 @@
+v6.2.0 (48) - 30/03/2022
+IMPROVEMENTS
+   - Appearance of folders (@comradekingu)
+   - Appearance of Search (@comradekingu)
+   - More efficient Search (@comradekingu)
+   - Enter opens 1st search result (@xi7)
+   - Import process
+CORRECTIONS
+   - Old background color not imported

@@ -1,0 +1,9 @@
+v6.2.0 (48) - 30/03/2022
+AMÉLIORATIONS
+   - Apparence des dossiers (@comradekingu)
+   - Apparence de la recherche (@comradekingu)
+   - Recherche plus efficace (@comradekingu)
+   - Entrée ouvre le 1er résultat (@xi7)
+   - Processus d'import
+CORRECTIONS
+   - Ancienne couleur de fond non importée
