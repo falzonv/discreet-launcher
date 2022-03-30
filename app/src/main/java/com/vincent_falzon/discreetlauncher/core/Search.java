@@ -102,12 +102,9 @@ public class Search extends Application
 					// Perform an action when the user presses "Enter"
 					if(actionId == EditorInfo.IME_ACTION_SEARCH)
 						{
-							// If there is only one application remaining, start it
-							if(adapter.getItemCount() == 1)
-								{
-									adapter.getFirstItem().start(view) ;
-									return true ;
-								}
+							// Launch the first app displayed in the results
+							adapter.getFirstItem().start(view) ;
+							return true ;
 						}
 					return false ;
 				}
