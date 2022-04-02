@@ -1,0 +1,4 @@
+v6.2.1 (49) - 02/04/2022
+CORRECTIONS
+   - Crash si "Entrée" avec 0 résultats (@xi7)
+   - Possible bug dans le popup des favoris

@@ -1,0 +1,4 @@
+v6.2.1 (49) - 02/04/2022
+CORRECTIONS
+   - Crash on "Enter" if 0 search results (@xi7)
+   - Possible glitch in favorites popup
