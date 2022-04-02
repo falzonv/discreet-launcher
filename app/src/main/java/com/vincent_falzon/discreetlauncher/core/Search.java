@@ -103,7 +103,8 @@ public class Search extends Application
 					if(actionId == EditorInfo.IME_ACTION_SEARCH)
 						{
 							// Launch the first app displayed in the results
-							adapter.getFirstItem().start(view) ;
+							if(adapter.getFirstItem() != null)
+								adapter.getFirstItem().start(view) ;
 							return true ;
 						}
 					return false ;
