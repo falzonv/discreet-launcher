@@ -24,6 +24,7 @@ package com.vincent_falzon.discreetlauncher ;
 
 // Imports
 import android.content.Context ;
+import android.view.View ;
 import android.widget.Filter ;
 import android.widget.Filterable ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
@@ -78,8 +79,11 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 						applicationsList = new ArrayList<>() ;
 						int search_length = search.length() ;
 						for(Application application : initialApplicationsList)
-							if(collator.equals(application.getDisplayName().substring(0, search_length), search))
+						{
+							String app_name = application.getDisplayName() ;
+							if(collator.equals(app_name.substring(0, Math.min(search_length, app_name.length())), search))
 								applicationsList.add(application) ;
+						}
 					}
 
 				// Prepare the filter results
@@ -104,11 +108,11 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 
 
 	/**
-	 * Provide the first item currently displayed in the adapter (or <code>null</code> if empty).
+	 * Launch the first app currently displayed in the adapter (if any).
 	 */
-	public Application getFirstItem()
+	public void launchFirstApp(View view)
 	{
-		if(getItemCount() < 1) return null ;
-		return applicationsList.get(0) ;
+		if(getItemCount() >= 1)
+			applicationsList.get(0).start(view) ;
 	}
 }
