@@ -138,6 +138,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	@Override
 	public int getItemCount()
 	{
+		if(applicationsList == null) return 0 ;
 		return applicationsList.size() ;
 	}
 
