@@ -18,8 +18,8 @@ android
         targetSdkVersion 30
 
         // Versioning
-        versionCode 49
-        versionName "v6.2.1"
+        versionCode 50
+        versionName "v6.2.2"
     }
 
     // Build types always include debug (hidden by default)

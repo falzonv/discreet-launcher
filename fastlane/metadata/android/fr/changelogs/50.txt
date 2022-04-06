@@ -1,0 +1,4 @@
+v6.2.2 (50) - 06/04/2022
+CORRECTIONS
+   - Crash si 0 résultats de recherche (@xi7)
+   - Résultats de recherche manquants
