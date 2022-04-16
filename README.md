@@ -18,6 +18,12 @@ Il y a donc parfois une différence entre la dernière version et ce qui est dis
 
 [![Build project](https://github.com/falzonv/discreet-launcher/actions/workflows/build_project.yml/badge.svg)](https://github.com/falzonv/discreet-launcher/actions/workflows/build_project.yml)
 
+
+## Maintenance status *(État de maintenance)*
+
+Due to changes in my professional life, I now have very little time to work on Discreet Launcher. The development will continue, but at a much slower pace. You can find more details in ticket [#210](https://github.com/falzonv/discreet-launcher/issues/210).  
+*(Suite à des changements dans ma vie professionnelle, j'ai maintenant très peu de temps pour travailler sur Lanceur Discret. Le développement va continuer, mais à un rythme beaucoup plus lent.)*
+
 ## Screenshots *(Captures d'écran)*
 
 ![Screenshots](fastlane/metadata/android/en-US/images/screenshots_total.jpg)
