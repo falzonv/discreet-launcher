@@ -53,14 +53,15 @@ public class PackagesListener extends BroadcastReceiver
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
-		// Check if the intent has a valid action
-		if(intent.getAction() == null) return ;
+		// Check if the intent is valid
+		if(intent == null) return ;
 
 		// Do not react to applications updates
 		if(intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) return ;
 
-		// If a package has been added or removed, update the applications list
-		if((intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) ||
-			intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED))) updateList(context) ;
+		// If a package has been added or removed, update the list of applications
+		String action = intent.getAction() ;
+		if(Intent.ACTION_PACKAGE_ADDED.equals(action) || Intent.ACTION_PACKAGE_REMOVED.equals(action))
+			updateList(context) ;
 	}
 }
