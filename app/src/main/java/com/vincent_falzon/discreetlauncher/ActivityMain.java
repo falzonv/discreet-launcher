@@ -162,7 +162,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		application_width = Math.round((50 + padding) * density) ;
 
 		// Initialize the content of the favorites panel
-		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites()) ;
+		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites(), Constants.FAVORITES_PANEL) ;
 		favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		favorites.setAdapter(favoritesAdapter) ;
 		favoritesLayout = new FlexibleGridLayout(this, application_width) ;
@@ -170,7 +170,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		favorites.addOnScrollListener(new ScrollListener(Constants.FAVORITES_PANEL)) ;
 
 		// Initialize the content of the full applications list
-		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer()) ;
+		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer(), Constants.APP_DRAWER) ;
 		drawerAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		drawer.setAdapter(drawerAdapter) ;
 		drawerLayout = new FlexibleGridLayout(this, application_width) ;

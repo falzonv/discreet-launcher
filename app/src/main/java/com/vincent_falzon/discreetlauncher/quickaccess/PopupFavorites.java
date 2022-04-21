@@ -29,6 +29,7 @@ import android.os.Bundle ;
 import android.view.View ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.recyclerview.widget.RecyclerView ;
+import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.menu.ActivityFavorites ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
@@ -66,7 +67,7 @@ public class PopupFavorites extends AppCompatActivity
 
 		// Display the list of favorites applications
 		RecyclerView recycler = findViewById(R.id.popup_recycler) ;
-		recycler.setAdapter(new RecyclerAdapter(this, ActivityMain.getApplicationsList().getFavorites())) ;
+		recycler.setAdapter(new RecyclerAdapter(this, ActivityMain.getApplicationsList().getFavorites(), Constants.FAVORITES_PANEL)) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(this, ActivityMain.getApplicationWidth())) ;
 	}
 

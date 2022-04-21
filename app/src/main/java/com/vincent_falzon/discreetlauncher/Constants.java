@@ -46,6 +46,8 @@ public interface Constants
 	String SHORTCUT_SEPARATOR = "--SHORT--CUT--" ;
 	int FAVORITES_PANEL = 0 ;
 	int APP_DRAWER = 1 ;
+	int FOLDER = 2 ;
+	int SEARCH = 3 ;
 
 	// Constants representing settings keys
 	String NONE = "none" ;

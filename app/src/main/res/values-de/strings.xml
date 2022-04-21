@@ -23,6 +23,8 @@
     <string name="long_click_rename">Umbenennen</string>
     <string name="long_click_add_favorites">Zu Favoriten hinzufügen</string>
     <string name="long_click_remove_favorites">Aus Favoriten entfernen</string>
+    <string name="long_click_add_folder">Add to a folder</string>
+    <string name="long_click_remove_folder">Remove from folder \"%1s\"</string>
     <string name="long_click_hide_search">Ausblenden</string>
     <string name="long_click_remove_shortcut">Verknüpfung entfernen</string>
 
@@ -34,6 +36,7 @@
     <!-- Popup messages related to apps -->
     <string name="info_list_apps_refreshed">App-Liste aktualisiert</string>
     <string name="info_favorites_refreshed">Favoriten aktualisiert</string>
+    <string name="info_display_partially_updated">The display will be fully updated after returning to the home screen</string>
     <string name="error_app_not_found">\"%1$s\" konnte nicht gefunden werden</string>
 
     <!-- Search app -->

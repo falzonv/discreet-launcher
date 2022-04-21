@@ -184,7 +184,7 @@ public class Folder extends Application
 
 		// Prepare the folder content
 		RecyclerView popupRecycler = popupView.findViewById(R.id.popup_recycler) ;
-		RecyclerAdapter recyclerAdapter = new RecyclerAdapter(context, applications) ;
+		RecyclerAdapter recyclerAdapter = new RecyclerAdapter(context, applications, Constants.FOLDER) ;
 		popupRecycler.setAdapter(recyclerAdapter) ;
 		popupRecycler.setLayoutManager(new FlexibleGridLayout(context, getApplicationWidth())) ;
 

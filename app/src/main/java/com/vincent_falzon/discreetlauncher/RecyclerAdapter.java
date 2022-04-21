@@ -51,6 +51,7 @@ import com.vincent_falzon.discreetlauncher.core.Search ;
 import com.vincent_falzon.discreetlauncher.core.Shortcut ;
 import com.vincent_falzon.discreetlauncher.events.ShortcutListener ;
 import com.vincent_falzon.discreetlauncher.menu.DialogHiddenApps ;
+import com.vincent_falzon.discreetlauncher.storage.InternalFile ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
 
@@ -63,15 +64,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	ArrayList<Application> applicationsList ;
 	private final SharedPreferences settings ;
 	private final int padding ;
+	private final int target ;
 	private int text_color ;
 
 
 	/**
 	 * Constructor to fill a RecyclerView with the applications list.
 	 */
-	public RecyclerAdapter(Context context, ArrayList<Application> applicationsList)
+	public RecyclerAdapter(Context context, ArrayList<Application> applicationsList, int target)
 	{
 		this.applicationsList = applicationsList ;
+		this.target = target ;
 		settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 		padding = Math.round(context.getResources().getDimension(R.dimen.spacing_normal)) ;
 		text_color = context.getResources().getColor(R.color.for_text_on_overlay) ;
@@ -223,7 +226,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			final Context context = view.getContext() ;
 
 			// Check if the application is in the favorites panel
-			final boolean is_favorite = new InternalFileTXT(Constants.FILE_FAVORITES).isLineExisting(application.getComponentInfo()) ;
+			String component_info = application.getComponentInfo() ;
+			final boolean is_favorite = new InternalFileTXT(Constants.FILE_FAVORITES).isLineExisting(component_info) ;
+
+			// Check if the application is in a folder
+			String is_in_folder_buffer = null ;
+			String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
+			for(String filename : folders_files)
+				if(new InternalFileTXT(filename).isLineExisting(component_info))
+					is_in_folder_buffer = filename.replace(Constants.FILE_FOLDER_PREFIX, "").replace(".txt", "") ;
+			final String is_in_folder = is_in_folder_buffer ;
 
 			// Prepare and display the selection dialog
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
@@ -234,6 +246,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(R.string.long_click_open, application.getDisplayName()),
 							context.getString(R.string.long_click_remove_shortcut),
 							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
+							(is_in_folder != null) ? context.getString(R.string.long_click_remove_folder, is_in_folder) : context.getString(R.string.long_click_add_folder),
 						} ;
 					dialog.setItems(options,
 						new DialogInterface.OnClickListener()
@@ -257,6 +270,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 									case 2 :
 										// Toggle the presence of the shortcut in the favorites panel
 										toggleFavorite(context, application, is_favorite) ;
+										break ;
+									case 3 :
+										// Toggle the presence of the shortcut in a folder
+										toggleFolder(context, application, is_in_folder) ;
 										break ;
 								}
 							}
@@ -334,6 +351,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(R.string.long_click_view_store),
 							context.getString(R.string.long_click_rename),
 							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
+							(is_in_folder != null) ? context.getString(R.string.long_click_remove_folder, is_in_folder) : context.getString(R.string.long_click_add_folder),
 						} ;
 					dialog.setItems(options,
 						new DialogInterface.OnClickListener()
@@ -374,6 +392,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 									case 4 :
 										// Toggle the presence of the application in the favorites panel
 										toggleFavorite(context, application, is_favorite) ;
+										break ;
+									case 5 :
+										// Toggle the presence of the shortcut in a folder
+										toggleFolder(context, application, is_in_folder) ;
 										break ;
 								}
 							}
@@ -475,6 +497,64 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			// Update the favorites list
 			ActivityMain.updateFavorites(context) ;
 			notifyDataSetChanged() ;
+		}
+
+
+		/**
+		 * Toggle the presence of an application in a folder.
+		 */
+		private void toggleFolder(final Context context, final Application application, String is_in_folder)
+		{
+			// Check is the application needs to be added to a folder, or removed from a folder
+			if(is_in_folder != null)
+				{
+					// Remove the application from its current folder
+					InternalFileTXT folder = new InternalFileTXT(Constants.FILE_FOLDER_PREFIX + is_in_folder + ".txt") ;
+					folder.removeLine(application.getComponentInfo()) ;
+
+					// If we are currently in the folder, update its content manually
+					if(target == Constants.FOLDER) applicationsList.remove(application) ;
+
+					// Display a warning if some interface elements cannot be immediately updated
+					if((target == Constants.FOLDER) || (target == Constants.SEARCH))
+						ShowDialog.toastLong(context, context.getString(R.string.info_display_partially_updated)) ;
+
+					// Update the list of applications
+					ActivityMain.updateList(context) ;
+					notifyDataSetChanged() ;
+				}
+				else
+				{
+					// Prepare the list of folder names
+					final ArrayList<Folder> folders = ActivityMain.getApplicationsList().getFolders() ;
+					String[] folder_names = new String[folders.size()] ;
+					for(int i = 0 ; i < folders.size() ; i++)
+						folder_names[i] = folders.get(i).getDisplayNameWithCount() ;
+
+					// Display the list of existing folders
+					AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
+					dialog.setTitle(context.getString(R.string.long_click_add_folder)) ;
+					dialog.setItems(folder_names,
+							new DialogInterface.OnClickListener()
+							{
+								@Override
+								public void onClick(DialogInterface dialog, int selection)
+								{
+									// Add the application to the selected folder
+									InternalFileTXT folder = new InternalFileTXT(folders.get(selection).getFileName()) ;
+									folder.writeLine(application.getComponentInfo()) ;
+
+									// Display a warning if some interface elements cannot be immediately updated
+									if(target == Constants.SEARCH)
+										ShowDialog.toastLong(context, context.getString(R.string.info_display_partially_updated)) ;
+
+									// Update the list of applications
+									ActivityMain.updateList(context) ;
+									notifyDataSetChanged() ;
+								}
+							}) ;
+					dialog.show() ;
+				}
 		}
 	}
 }

@@ -47,7 +47,7 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 	public SearchAdapter(Context context, ArrayList<Application> applicationsList)
 	{
 		// Let the parent actions be performed
-		super(context, applicationsList) ;
+		super(context, applicationsList, Constants.SEARCH) ;
 
 		// Initializations
 		initialApplicationsList = applicationsList ;
