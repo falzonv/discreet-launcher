@@ -32,7 +32,7 @@
         Trouvez n\'importe quelle application depuis l\'icône de recherche. Elle peut aussi être mise dans les favoris pour être disponible
         depuis la notification, ou cachée.
         \n
-        \nS\'il n\'y a qu\'un seul résultat de recherche, appuyer sur \"Entrée\" l\'ouvrira.
+        \nAppuyez sur \"Entrée\" pour ouvrir la premier résultat de recherche.
     </string>
 
     <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
