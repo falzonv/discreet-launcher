@@ -79,6 +79,7 @@ class IconPack
 
 		// Try to get the appfilter.xml file (display an error message if not successful)
 		appfilter_id = pack_resources.getIdentifier("appfilter", "xml", pack_name) ;
+		if(appfilter_id <= 0) appfilter_id = pack_resources.getIdentifier("appfilter", "raw", pack_name) ;
 		if(appfilter_id <= 0) ShowDialog.toastLong(context, context.getString(R.string.error_icon_pack_appfilter_not_found, pack_name)) ;
 	}
 
