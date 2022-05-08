@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu_favorites">Обране</string>
+    <string name="menu_folders">Теки</string>
+    <string name="menu_hidden_apps">Приховані застосунки</string>
+    <string name="menu_refresh_list_apps">Оновити список застосунків</string>
+    <string name="menu_settings_appearance">Зовнішній вигляд</string>
+    <string name="menu_settings_operation">Операція</string>
+    <string name="menu_export_import">Експорт та імпорт</string>
+    <string name="menu_help">Довідка</string>
+    <string name="menu_about">Про застосунок</string>
+    <string name="menu_changelog">Журнал змін</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Що бажаєте зробити?</string>
+    <string name="long_click_open">Відкрити \"%1s\"</string>
+    <string name="long_click_settings">Налаштувати</string>
+    <string name="long_click_view_store">Переглянути сторінку в крамниці застосунків</string>
+    <string name="long_click_rename">Перейменувати</string>
+    <string name="long_click_add_favorites">Додати до обраного</string>
+    <string name="long_click_remove_favorites">Видалити з обраного</string>
+    <string name="long_click_add_folder">Add to a folder</string>
+    <string name="long_click_remove_folder">Remove from folder \"%1s\"</string>
+    <string name="long_click_hide_search">Приховати</string>
+    <string name="long_click_remove_shortcut">Видалити ярлик</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Застосувати</string>
+    <string name="button_cancel">Скасувати</string>
+    <string name="button_close">Закрити</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Список застосунків оновлено</string>
+    <string name="info_favorites_refreshed">Обране оновлено</string>
+    <string name="info_display_partially_updated">The display will be fully updated after returning to the home screen</string>
+    <string name="error_app_not_found">Не вдалося знайти \"%1$s\"</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Пошук</string>
+    <string name="search_app_hint">Пошук застосунків</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Запропонувати покращення, та повідомити про вади, можна на сторінці</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">(Український переклад від Maksym Bilak)</string>
+
+</resources>

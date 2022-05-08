@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Favorites -->
+    <string name="button_select_favorites">Вибрати застосунки</string>
+    <string name="hint_no_favorites_yet">Натиснувши кнопку, меню,\nдодайте сюди ваші улюблені застосунки.</string>
+    <string name="hint_modify_order_of_favorites">Розташуйте обране в списку нижче, використовуючи бічні прокрутки.</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">Додати</string>
+    <string name="button_remove_folder">Видалити</string>
+    <string name="hint_folders_number">Створіть необхідну кількість тек, щоб упорядкувати ваші застосунки.</string>
+    <string name="hint_folder_edit">
+        Торкніться назви теки, щоб перейменувати її, чи піфтограми, щоб вибрати її колір.
+        Пензлик надає змогу редагувати вміст теки.
+    </string>
+    <string name="hint_new_folder">Нова тека</string>
+    <string name="hint_rename_folder">Перейменувати теку</string>
+    <string name="hint_remove_folder">Вміст видаленої теки повертається до основного списку застосунків.</string>
+    <string name="error_folder_empty_name">Вкажіть назву</string>
+    <string name="error_folder_already_exists">Оберіть назву, якої ще не існує</string>
+    <string name="error_folder_rename">Невдалося перейменувати теку</string>
+
+    <!-- Export and import -->
+    <string name="export_import_help">Ці кнопки дозволяють експортувати дані застосунку (обране, теки, ярлики й налаштування), а також знову імпортувати їх.</string>
+    <string name="button_export">Експорт</string>
+    <string name="button_import">Імпорт</string>
+    <string name="export_import_header_internal_files">Вміст внутрішніх текстових файлів</string>
+    <string name="export_import_header_settings">Налаштування</string>
+    <string name="export_import_header_icons">Збережені піфтограми</string>
+    <string name="export_import_warning_file_edit">Редагування цього файлу може спричинити проблеми</string>
+    <string name="export_import_warning_shortcuts">
+        (На Android 8 (Oreo) і вище, імпортовані ярлики можуть не працювати,
+        оскільки вони керовані системою, і неможуть бути експортовані)
+    </string>
+    <string name="export_completed">Експорт виконано</string>
+    <string name="error_export">Не вдалося створити файл експорту</string>
+    <string name="error_import">Не вдалося прочитати файл імпорту</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_invalid_request">Не вдалося додати ярлик</string>
+    <string name="error_shortcut_missing_info">Не вдалося відкрити цей ярлик</string>
+    <string name="error_shortcut_not_default_launcher">Опрацьовувати ярлики, може лише запускач за замовчуванням</string>
+    <string name="error_shortcut_start">Системі Android не вдалося відкрити ярлик</string>
+    <string name="error_shortcut_remove">Не вдалося видалити файл %1$s</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_theme_and_colors">Тема та кольори</string>
+    <string name="appearance_settings_title_clock">Годинник</string>
+    <string name="appearance_settings_title_icon_packs">Пакунки піфтограм</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Колір:</string>
+    <string name="color_picker_reset">Скинути</string>
+    <string name="color_picker_preview">Попередній перегляд</string>
+    <string name="error_invalid_color_format">Недійсний шістнадцятковий код кольору</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Тема</string>
+    <string-array name="set_application_theme_entries">
+        <item>Світла</item>
+        <item>Темна</item>
+        <item>Системна</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Формат годинника</string>
+    <string-array name="set_clock_format_entries">
+        <item>Немає (приховати)</item>
+        <item>24 години</item>
+        <item>12 годин</item>
+        <item>12 годин + AM/PM</item>
+        <item>Аналоговий</item>
+        <item>Дата та час</item>
+    </string-array>
+
+    <!-- Clock position -->
+    <string name="set_clock_position">Розташування годинника</string>
+    <string-array name="set_clock_position_entries">
+        <item>Вгорі</item>
+        <item>Посередині</item>
+        <item>Внизу</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_transparent_status_bar">Прозорий рядок стану</string>
+    <string name="set_transparent_status_bar_help">Коли обране приховано</string>
+    <string name="set_dark_status_bar_icons">Темні піфтограми рядка стану</string>
+    <string name="set_dark_status_bar_icons_help">Не працює на Android 5 (Lollipop)</string>
+    <string name="set_hide_app_names">Приховати назви застосунків</string>
+    <string name="set_hide_app_names_help">Назви тек відображатимуться</string>
+    <string name="set_remove_padding">Якщо назви застосунків приховано, відступи не відображатимуться</string>
+    <string name="set_remove_padding_help">Може спричиняти проблеми з довгими назвами тек</string>
+    <string name="set_background_color_favorites">Обране тло</string>
+    <string name="set_text_color_favorites">Обраний текст</string>
+    <string name="set_background_color_drawer">Тло шухляди застосунків</string>
+    <string name="set_text_color_drawer">Текст шухляди застосунків</string>
+    <string name="set_clock_color">Колір годинника</string>
+    <string name="set_clock_shadow_color">Колір тіні тексту</string>
+    <string name="set_icon_pack_primary">Основний</string>
+    <string name="set_icon_pack_secondary">Додатковий</string>
+    <string name="set_icon_pack_none">Немає (використовувати піфтограми за замовчуванням)</string>
+    <string name="set_icon_color_filter">Фільтр кольору на піфтограмах</string>
+    <string name="set_icon_color_filter_help">Застосовується до піфтограм за замовчуванням, може використовуватися на додачу до пакунків піфтограм</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_no_icon_pack_installed">Спершу встановіть які-небудь із вашої крамниці застосунків</string>
+    <string name="error_icon_pack_appfilter_not_found">Не вдалося знайти appfilter.xml у вибраному пакунку піфтограм. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Інтерфейс</string>
+    <string name="operation_settings_title_gestures">Жести головного екрана</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Сповіщення для доступу до обраних застосунків</string>
+    <string name="set_notification_help">Використовується прозора піфтограма</string>
+    <string name="notification_text">Обране</string>
+
+    <!-- Forced orientation -->
+    <string name="set_forced_orientation">Примусова орієнтація</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>Немає</item>
+        <item>Портретна</item>
+        <item>Ландшафтна</item>
+        <item>Зворотня ландшафтна</item>
+    </string-array>
+
+    <!-- Touch targets (accessibility) -->
+    <string name="set_touch_targets">Цілі для дотику (доступність)</string>
+    <string name="set_touch_targets_help">Доступні для активації ярлики на головному екрані</string>
+    <string name="target_open_favorites">Показати\nобране</string>
+    <string name="target_close_favorites">Приховати\nобране</string>
+    <string name="target_open_applications">Показати\nзастосунки</string>
+
+    <!-- Other operation settings -->
+    <string name="set_always_show_favorites">Завжди показувати обране</string>
+    <string name="set_reverse_interface">Зворотній інтерфейс</string>
+    <string name="set_reverse_interface_help">Застосунки — вище, а обране — нижче головного екрана</string>
+    <string name="set_immersive_mode">Режем занурення</string>
+    <string name="set_immersive_mode_help">Відсутні системні панелі. (можна примусово ввімкнути, довгим натисканням на головний екран.)</string>
+    <string name="set_hide_menu_button">Приховати кнопку меню</string>
+    <string name="set_hide_menu_button_help">Меню завжди доступне через піфтограму запускача</string>
+    <string name="set_disable_app_drawer">Приховати шухляду застосунків</string>
+    <string name="set_swipe_leftwards">Проведіть вліво</string>
+    <string name="set_swipe_rightwards">Проведіть вправо</string>
+    <string name="set_swipe_leftrightwards_no_action">Не призначено</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Обране розблоковано, щоб уможливити доступ до меню.</string>
+    <string name="error_disable_app_drawer_not_safe">Шухляду застосунків відновлено, щоб уможливити доступ до меню.</string>
+
+</resources>
