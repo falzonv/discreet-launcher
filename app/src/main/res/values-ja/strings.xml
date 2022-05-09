@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu_favorites">お気に入り</string>
+    <string name="menu_folders">フォルダ</string>
+    <string name="menu_hidden_apps">非表示のアプリ</string>
+    <string name="menu_refresh_list_apps">アプリリストのリフレッシュ</string>
+    <string name="menu_settings_appearance">外観</string>
+    <string name="menu_settings_operation">操作方法</string>
+    <string name="menu_export_import">エクスポートとインポート</string>
+    <string name="menu_help">ヘルプ</string>
+    <string name="menu_about">このアプリについて</string>
+    <string name="menu_changelog">チェンジログ</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">何をしますか？</string>
+    <string name="long_click_open">\"%1s\"を開く</string>
+    <string name="long_click_settings">設定画面を開く</string>
+    <string name="long_click_view_store">ストアページを表示する</string>
+    <string name="long_click_rename">名前の変更</string>
+    <string name="long_click_add_favorites">お気に入りに追加</string>
+    <string name="long_click_remove_favorites">お気に入りから削除</string>
+    <string name="long_click_add_folder">フォルダに追加</string>
+    <string name="long_click_remove_folder">\"%1s\"フォルダから削除</string>
+    <string name="long_click_hide_search">非表示</string>
+    <string name="long_click_remove_shortcut">このショートカットを削除</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">適用</string>
+    <string name="button_cancel">キャンセル</string>
+    <string name="button_close">閉じる</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">アプリリストをリフレッシュしました</string>
+    <string name="info_favorites_refreshed">お気に入りをリフレッシュしました</string>
+    <string name="info_display_partially_updated">ホーム画面に戻った後に表示が更新されます</string>
+    <string name="error_app_not_found">\"%1$s\"が見つかりませんでした</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">検索</string>
+    <string name="search_app_hint">アプリから検索</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">このアプリ関する改善提案や問題点の報告</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">(Npepperlinuxによる日本語翻訳)</string>
+
+</resources>
