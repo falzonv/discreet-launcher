@@ -11,78 +11,78 @@
     <string name="button_remove_folder">削除</string>
     <string name="hint_folders_number">アプリの整理に必要なフォルダを好きなだけ作成できます。</string>
     <string name="hint_folder_edit">
-        Klicke auf einen Ordnernamen, um ihn zu ändern und auf das Symbol, um seine Farbe zu wählen.
-        Über das Stiftsymbol kann der Inhalt des Ordners bearbeitet werden.
+        フォルダ名をタップすると変更でき、アイコンをクリックすると色を選べます。
+        ペンをタップしてフォルダーの内容を編集することができます。
     </string>
-    <string name="hint_new_folder">Neuer Ordner</string>
-    <string name="hint_rename_folder">Ordner umbenennen</string>
-    <string name="hint_remove_folder">Wenn ein Ordner entfernt wird, wird sein Inhalt wieder in die Liste der Hauptanwendungen aufgenommen.</string>
-    <string name="error_folder_empty_name">Vergebe zuerst einen Namen</string>
-    <string name="error_folder_already_exists">Verwende einen Namen der nicht bereits existiert</string>
-    <string name="error_folder_rename">Ordner konnte nicht umbenannt werden</string>
+    <string name="hint_new_folder">新しいフォルダ</string>
+    <string name="hint_rename_folder">フォルダ名の変更</string>
+    <string name="hint_remove_folder">フォルダを削除した場合、その内容はアプリ一覧に戻されます。</string>
+    <string name="error_folder_empty_name">最初に名前を決めてください。</string>
+    <string name="error_folder_already_exists">既存の名前にないものを選んでください</string>
+    <string name="error_folder_rename">フォルダ名を変更できませんでした</string>
 
     <!-- Export and import -->
-    <string name="export_import_help">Über die Button können die App-Daten (Favoriten, Ordner, Verknüpfungen und Einstellungen) exportiert oder wieder importiert werden.</string>
-    <string name="button_export">Export</string>
-    <string name="button_import">Import</string>
-    <string name="export_import_header_internal_files">Inhalt der internen Textdateien</string>
-    <string name="export_import_header_settings">Einstellungen</string>
-    <string name="export_import_header_icons">Gesicherte Icons</string>
-    <string name="export_import_warning_file_edit">Die Bearbeitung dieser Datei kann zu Problemen führen</string>
+    <string name="export_import_help">アプリのデータ（お気に入り、フォルダ、ショートカット、設定）をエクスポートしたり、再度インポートしたりするためのボタンです</string>
+    <string name="button_export">エクスポート</string>
+    <string name="button_import">インポート</string>
+    <string name="export_import_header_internal_files">内部のテキストファイルの内容</string>
+    <string name="export_import_header_settings">設定</string>
+    <string name="export_import_header_icons">保存されたアイコン</string>
+    <string name="export_import_warning_file_edit">このファイルを編集すると、問題が発生する可能性があります</string>
     <string name="export_import_warning_shortcuts">
-        (Unter Android 8 (Oreo) und höher funktionieren importierte Verknüpfungen möglicherweise nicht
-        weil sie vom System verwaltet werden und nicht exportiert werden sollen)
+        (Android 8 (Oreo)以降では、インポートしたショートカットはシステムで管理されており
+        エクスポートすることは想定されていないため、動作しない場合があります)
     </string>
-    <string name="export_completed">Export komplett</string>
-    <string name="error_export">Export Datei konnte nicht erstellt werden</string>
-    <string name="error_import">Import Datei konnte nicht gelesen werden</string>
+    <string name="export_completed">エクスポートが完了しました</string>
+    <string name="error_export">エクスポートファイルを作成できませんでした</string>
+    <string name="error_import">インポートされたファイルを読み込むことができませんでした</string>
 
     <!-- Errors messages related to shortcuts -->
-    <string name="error_shortcut_invalid_request">Konnte nicht als Verknüpfung hinzugefügt werden</string>
-    <string name="error_shortcut_missing_info">Verknüpfung kann nicht gefolgt werden</string>
-    <string name="error_shortcut_not_default_launcher">Nur das Standard-Startprogramm kann Verknüpfungen öffnen</string>
-    <string name="error_shortcut_start">Das Android System kann die Verknüpfung nicht öffnen</string>
-    <string name="error_shortcut_remove">Die Datei \"%1$s\" konnte nicht gespeichert werden</string>
+    <string name="error_shortcut_invalid_request">ショートカットとして追加することができませんでした</string>
+    <string name="error_shortcut_missing_info">このショートカットを実行できませんでした</string>
+    <string name="error_shortcut_not_default_launcher">デフォルトのランチャーのみショートカットを開くことができます</string>
+    <string name="error_shortcut_start">Androidシステムがショートカットを開くことができませんでした</string>
+    <string name="error_shortcut_remove">\"%1$s\"ファイルを削除できませんでした<</string>
 
 
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Design und Farben</string>
-    <string name="appearance_settings_title_clock">Uhr</string>
-    <string name="appearance_settings_title_icon_packs">Symbolpakete</string>
+    <string name="appearance_settings_title_theme_and_colors">テーマとカラー</string>
+    <string name="appearance_settings_title_clock">時計</string>
+    <string name="appearance_settings_title_icon_packs">アイコンパック</string>
 
     <!-- Color picker -->
-    <string name="color_picker_base">Basis:</string>
-    <string name="color_picker_reset">Löschen</string>
-    <string name="color_picker_preview">Vorschau</string>
-    <string name="error_invalid_color_format">Ungültige hexadezimale Farbe</string>
+    <string name="color_picker_base">ベース:</string>
+    <string name="color_picker_reset">リセット</string>
+    <string name="color_picker_preview">プレビュー</string>
+    <string name="error_invalid_color_format">無効な16進数の色</string>
 
     <!-- Application theme -->
-    <string name="set_application_theme">Design</string>
+    <string name="set_application_theme">テーマ</string>
     <string-array name="set_application_theme_entries">
-        <item>Hell</item>
-        <item>Dunkel</item>
-        <item>System Vorgabe</item>
+        <item>ライト</item>
+        <item>ダーク</item>
+        <item>システムの設定に従う</item>
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Uhrzeit Format</string>
+    <string name="set_clock_format">時計の表示形式</string>
     <string-array name="set_clock_format_entries">
-        <item>Keins (ausblenden)</item>
-        <item>24-Stunden-Zählung</item>
-        <item>12-Stunden-Zählung</item>
-        <item>2-mal-12-Stunden-Zählung</item>
-        <item>Analog</item>
-        <item>Datum und Uhrzeit</item>
+        <item>なし（非表示）</item>
+        <item>24時間</item>
+        <item>12時間</item>
+        <item>12時間 + AM/PM</item>
+        <item>アナログ</item>
+        <item>日付と時間</item>
     </string-array>
 
     <!-- Clock position -->
-    <string name="set_clock_position">Uhr Position</string>
+    <string name="set_clock_position">時計の位置</string>
     <string-array name="set_clock_position_entries">
-        <item>Oben</item>
-        <item>Mitte</item>
-        <item>Unten</item>
+        <item>上部</item>
+        <item>中心</item>
+        <item>下部</item>
     </string-array>
 
     <!-- Other appearance settings -->
