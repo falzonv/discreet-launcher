@@ -86,73 +86,73 @@
     </string-array>
 
     <!-- Other appearance settings -->
-    <string name="set_transparent_status_bar">Transparente Systemleiste</string>
-    <string name="set_transparent_status_bar_help">Wenn Favoriten geschlossen sind</string>
-    <string name="set_dark_status_bar_icons">Dunkle Statusleisten-Symbole</string>
-    <string name="set_dark_status_bar_icons_help">Funktioniert nicht unter Android 5 (Lollipop)</string>
-    <string name="set_hide_app_names">Keine App Bezeichnungen</string>
-    <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
-    <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
-    <string name="set_remove_padding_help">Kann Probleme mit langen Ordnernamen verursachen</string>
-    <string name="set_background_color_favorites">Favoriten-Hintergrund</string>
-    <string name="set_text_color_favorites">Favoriten Text</string>
-    <string name="set_background_color_drawer">Hintergrund der App Übersicht</string>
-    <string name="set_text_color_drawer">Text der App Übersicht</string>
-    <string name="set_clock_color">Farbe der Uhr</string>
-    <string name="set_clock_shadow_color">Farbe des Textschattens</string>
-    <string name="set_icon_pack_primary">Erstrangig</string>
-    <string name="set_icon_pack_secondary">Zweitrangig</string>
-    <string name="set_icon_pack_none">Keins (Standard-Symbole verwenden)</string>
-    <string name="set_icon_color_filter">Farbfilter für Symbole</string>
-    <string name="set_icon_color_filter_help">Gilt nur für Standardsymbole, kann zusätzlich zu Symbolpaketen verwendet werden</string>
+    <string name="set_transparent_status_bar">透明なステータスバーにする</string>
+    <string name="set_transparent_status_bar_help">お気に入りが閉じられているとき</string>
+    <string name="set_dark_status_bar_icons">黒いステータスアイコンを使用する</string>
+    <string name="set_dark_status_bar_icons_help">Android 5 (Lollipop)では動作しません</string>
+    <string name="set_hide_app_names">アプリ名の非表示</string>
+    <string name="set_hide_app_names_help">フォルダー名は常に表示されます</string>
+    <string name="set_remove_padding">アプリ名が非表示のとき、パディングしない</string>
+    <string name="set_remove_padding_help">長いフォルダ名のときに問題が発生することがあります</string>
+    <string name="set_background_color_favorites">お気に入りのアプリの背景</string>
+    <string name="set_text_color_favorites">お気に入りのアプリのテキスト</string>
+    <string name="set_background_color_drawer">アプリドロワーの背景</string>
+    <string name="set_text_color_drawer">アプリドロワーのテキスト</string>
+    <string name="set_clock_color">時計の色</string>
+    <string name="set_clock_shadow_color">テキストの影の色</string>
+    <string name="set_icon_pack_primary">1番目</string>
+    <string name="set_icon_pack_secondary">2番目</string>
+    <string name="set_icon_pack_none">なし（デフォルトのアイコンを使用）</string>
+    <string name="set_icon_color_filter">アイコンのカラーフィルター</string>
+    <string name="set_icon_color_filter_help">デフォルトアイコンにのみ適用され、アイコンパックに追加して使用可能です</string>
 
     <!-- Error messages related to appearance settings -->
-    <string name="error_no_icon_pack_installed">Installiere zunächst einige über Deinen App Store</string>
-    <string name="error_icon_pack_appfilter_not_found">Die Datei appfilter.xml konnte im ausgewählten Symbolpaket nicht gefunden werden. (%1$s)</string>
+    <string name="error_no_icon_pack_installed">まずはアプリストアからいくつかインストールしてください</string>
+    <string name="error_icon_pack_appfilter_not_found">選択したアイコンパックにappfilter.xmlが見つかりませんでした(%1$s)</string>
 
 
     <!-- ========== Operation settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="operation_settings_title_interface">Schnittstelle</string>
-    <string name="operation_settings_title_gestures">Startbildschirm-Gesten</string>
+    <string name="operation_settings_title_interface">インターフェース</string>
+    <string name="operation_settings_title_gestures">ホーム画面でのジェスチャー</string>
 
     <!-- Notification -->
     <string name="set_notification">お気に入りへのアクセスに関する通知</string>
-    <string name="set_notification_help">Verwendet ein transparentes Icon</string>
-    <string name="notification_text">Favoriten</string>
+    <string name="set_notification_help">サイレント通知を使用します</string>
+    <string name="notification_text">お気に入り</string>
 
     <!-- Forced orientation -->
-    <string name="set_forced_orientation">Bildschirmausrichtung</string>
+    <string name="set_forced_orientation">画面の向きの強制</string>
     <string-array name="set_forced_orientation_entries">
-        <item>Keine</item>
-        <item>Hochformat</item>
-        <item>Querformat</item>
-        <item>Querformat umkehren</item>
+        <item>なし</item>
+        <item>縦</item>
+        <item>横</item>
+        <item>横（反転）</item>
     </string-array>
 
     <!-- Touch targets (accessibility) -->
-    <string name="set_touch_targets">Berührungsziele (Barrierefreiheit)</string>
-    <string name="set_touch_targets_help">Label-Buttons auf dem Startbildschirm</string>
-    <string name="target_open_favorites">Favoriten\nöffnen</string>
-    <string name="target_close_favorites">Favoriten\nschließen</string>
-    <string name="target_open_applications">Apps\nöffnen</string>
+    <string name="set_touch_targets">タッチターゲット（アクセシビリティ）</string>
+    <string name="set_touch_targets_help">ホーム画面にタップ可能なラベルを追加します</string>
+    <string name="target_open_favorites">お気に入りを開く</string>
+    <string name="target_close_favorites">お気に入りを閉じる</string>
+    <string name="target_open_applications">アプリ一覧を開く</string>
 
     <!-- Other operation settings -->
-    <string name="set_always_show_favorites">Favoritenleiste immer anzeigen</string>
-    <string name="set_reverse_interface">Umgekehrte Oberfläche</string>
-    <string name="set_reverse_interface_help">Apps oberhalb und Favoriten unterhalb des Startbildschirms.</string>
-    <string name="set_immersive_mode">Immersiver Modus</string>
-    <string name="set_immersive_mode_help">Keine Systemleiste. (Kann durch langes Drücken auf den Startbildschirm erzwungen werden).</string>
-    <string name="set_hide_menu_button">Kein Menü-Icon</string>
-    <string name="set_hide_menu_button_help">Immer über das Symbol der Startanwendung zugänglich</string>
-    <string name="set_disable_app_drawer">App Übersicht nicht anzeigen</string>
-    <string name="set_swipe_leftwards">Nach links wischen</string>
-    <string name="set_swipe_rightwards">Nach rechts wischen</string>
-    <string name="set_swipe_leftrightwards_no_action">Keine Aktion</string>
+    <string name="set_always_show_favorites">お気に入りを常に表示する</string>
+    <string name="set_reverse_interface">インターフェースを反転する</string>
+    <string name="set_reverse_interface_help">ホーム画面上にアプリ、下にお気に入りを表示</string>
+    <string name="set_immersive_mode">イマーシブモード</string>
+    <string name="set_immersive_mode_help">システムバーの非表示(ホーム画面長押しで強制終了できます)</string>
+    <string name="set_hide_menu_button">メニューボタンの非表示</string>
+    <string name="set_hide_menu_button_help">ランチャーアプリのアイコンから常にアクセスできます</string>
+    <string name="set_disable_app_drawer">アプリドロワーの非表示</string>
+    <string name="set_swipe_leftwards">左にスワイプ</string>
+    <string name="set_swipe_rightwards">右にスワイプ</string>
+    <string name="set_swipe_leftrightwards_no_action">なし</string>
 
     <!-- Error messages related to operation settings -->
-    <string name="error_always_show_favorites_not_safe">Favoriten entsperren, um Zugriff auf das Menü zu bekommen.</string>
-    <string name="error_disable_app_drawer_not_safe">Wiedereinführung der App Übersicht, um den Zugang zum Menü zu erhalten.</string>
+    <string name="error_always_show_favorites_not_safe">メニューへのアクセスを維持するために、お気に入りを解除します</string>
+    <string name="error_disable_app_drawer_not_safe">メニューアクセスを維持するために、アプリドロワーを復活させます</string>
 
 </resources>

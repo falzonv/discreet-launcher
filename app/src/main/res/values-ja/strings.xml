@@ -7,7 +7,7 @@
     <string name="menu_favorites">お気に入り</string>
     <string name="menu_folders">フォルダ</string>
     <string name="menu_hidden_apps">非表示のアプリ</string>
-    <string name="menu_refresh_list_apps">アプリリストのリフレッシュ</string>
+    <string name="menu_refresh_list_apps">アプリ一覧のリフレッシュ</string>
     <string name="menu_settings_appearance">外観</string>
     <string name="menu_settings_operation">操作方法</string>
     <string name="menu_export_import">エクスポートとインポート</string>
