@@ -321,7 +321,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// If the drawer cannot be safely disabled, display a message and disable the setting
 		if(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false))
 			{
-				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
+				Utils.displayLongToast(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
 				editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
 				return ;
@@ -346,7 +346,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// If favorites cannot be always shown safely, display a message and disable the setting
 		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
 			{
-				ShowDialog.toastLong(this, getString(R.string.error_always_show_favorites_not_safe)) ;
+				Utils.displayLongToast(this, getString(R.string.error_always_show_favorites_not_safe)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
 				editor.putBoolean(Constants.ALWAYS_SHOW_FAVORITES, false).apply() ;
 			}
@@ -548,7 +548,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		applicationsList.updateFavorites() ;
 		adapters_update_needed = true ;
 		if(context != null)
-			ShowDialog.toast(context, R.string.info_favorites_refreshed) ;
+			Utils.displayToast(context, R.string.info_favorites_refreshed) ;
 	}
 
 
@@ -559,7 +559,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		applicationsList.update(context) ;
 		adapters_update_needed = true ;
-		ShowDialog.toast(context, R.string.info_list_apps_refreshed) ;
+		Utils.displayToast(context, R.string.info_list_apps_refreshed) ;
 	}
 
 
@@ -723,7 +723,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 			// The application was not found, display an error message and reset the gesture
 			Context context = homeScreen.getContext() ;
-			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, component_info)) ;
+			Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, component_info)) ;
 			setIgnoreSettingsChanges(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
 			editor.putString(gesture_setting_key, Constants.NONE).apply() ;

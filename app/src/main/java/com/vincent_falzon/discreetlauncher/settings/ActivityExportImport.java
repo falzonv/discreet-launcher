@@ -39,7 +39,7 @@ import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
@@ -185,8 +185,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Write all lines in the export file
 		if(ExternalFile.writeAllLines(this, location, exportedData))
-				ShowDialog.toast(this, R.string.export_completed) ;
-			else ShowDialog.toastLong(this, getString(R.string.error_export)) ;
+				Utils.displayToast(this, R.string.export_completed) ;
+			else Utils.displayLongToast(this, getString(R.string.error_export)) ;
 	}
 
 
@@ -218,7 +218,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		if(importedData == null)
 			{
 				// Display an error message and quit
-				ShowDialog.toastLong(this, getString(R.string.error_import)) ;
+				Utils.displayLongToast(this, getString(R.string.error_import)) ;
 				return ;
 			}
 

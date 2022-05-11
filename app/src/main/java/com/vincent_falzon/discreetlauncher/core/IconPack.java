@@ -33,7 +33,7 @@ import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import org.xmlpull.v1.XmlPullParser ;
 import org.xmlpull.v1.XmlPullParserException ;
 import java.io.IOException ;
@@ -69,7 +69,7 @@ class IconPack
 		catch(PackageManager.NameNotFoundException e)
 		{
 			// Display an error message and set the icon pack to none
-			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, pack_name)) ;
+			Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, pack_name)) ;
 			ActivityMain.setIgnoreSettingsChanges(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
 			editor.putString(setting_key, Constants.NONE).apply() ;
@@ -80,7 +80,7 @@ class IconPack
 		// Try to get the appfilter.xml file (display an error message if not successful)
 		appfilter_id = pack_resources.getIdentifier("appfilter", "xml", pack_name) ;
 		if(appfilter_id <= 0) appfilter_id = pack_resources.getIdentifier("appfilter", "raw", pack_name) ;
-		if(appfilter_id <= 0) ShowDialog.toastLong(context, context.getString(R.string.error_icon_pack_appfilter_not_found, pack_name)) ;
+		if(appfilter_id <= 0) Utils.displayLongToast(context, context.getString(R.string.error_icon_pack_appfilter_not_found, pack_name)) ;
 	}
 
 

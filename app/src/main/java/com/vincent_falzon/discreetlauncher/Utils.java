@@ -27,14 +27,14 @@ import android.content.Context ;
 import android.widget.Toast ;
 
 /**
- * Provide methods to display toasts and alert dialogs.
+ * Provide utility methods used in various places of Discreet Launcher.
  */
-public abstract class ShowDialog
+public abstract class Utils
 {
 	/**
 	 * Display an R.string message in a Toast for a short duration.
 	 */
-	public static void toast(Context context, int message)
+	public static void displayToast(Context context, int message)
 	{
 		if(context == null) return ;
 		Toast.makeText(context.getApplicationContext(), message, Toast.LENGTH_SHORT).show() ;
@@ -44,7 +44,7 @@ public abstract class ShowDialog
 	/**
 	 * Display a message in a Toast for a long duration.
 	 */
-	public static void toastLong(Context context, String message)
+	public static void displayLongToast(Context context, String message)
 	{
 		if(context == null) return ;
 		Toast.makeText(context.getApplicationContext(), message, Toast.LENGTH_LONG).show() ;

@@ -215,7 +215,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			if(!application.start(view))
 				{
 					final Context context = view.getContext() ;
-					ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
+					Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
 				}
 		}
 
@@ -371,7 +371,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 									case 0 :
 										// Start the application and display an error message if it was not found
 										if(!application.start(view))
-											ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
+											Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
 										break ;
 									case 1 :
 										// Open the application system settings
@@ -388,7 +388,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										}
 										catch (ActivityNotFoundException e)
 										{
-											ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, "{market}")) ;
+											Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, "{market}")) ;
 										}
 										break ;
 									case 3 :
@@ -523,7 +523,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 					// Display a warning if some interface elements cannot be immediately updated
 					if((target == Constants.FOLDER) || (target == Constants.SEARCH))
-						ShowDialog.toastLong(context, context.getString(R.string.info_display_partially_updated)) ;
+						Utils.displayLongToast(context, context.getString(R.string.info_display_partially_updated)) ;
 
 					// Update the list of applications
 					ActivityMain.updateList(context) ;
@@ -552,7 +552,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 									// Display a warning if some interface elements cannot be immediately updated
 									if(target == Constants.SEARCH)
-										ShowDialog.toastLong(context, context.getString(R.string.info_display_partially_updated)) ;
+										Utils.displayLongToast(context, context.getString(R.string.info_display_partially_updated)) ;
 
 									// Update the list of applications
 									ActivityMain.updateList(context) ;

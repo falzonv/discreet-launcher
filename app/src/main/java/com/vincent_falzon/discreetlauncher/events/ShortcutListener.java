@@ -36,7 +36,7 @@ import androidx.appcompat.app.AppCompatActivity ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFilePNG ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
 import java.util.ArrayList ;
@@ -91,13 +91,13 @@ public class ShortcutListener extends AppCompatActivity
 												shortcutIcon.draw(new Canvas(icon)) ;
 											}
 									}
-									else ShowDialog.toastLong(this, getString(R.string.error_shortcut_not_default_launcher)) ;
+									else Utils.displayLongToast(this, getString(R.string.error_shortcut_not_default_launcher)) ;
 
 								// Add the shortcut
 								addShortcut(display_name, shortcut, icon, false) ;
 								ActivityMain.updateList(this) ;
 							}
-							else ShowDialog.toastLong(this, getString(R.string.error_shortcut_invalid_request)) ;
+							else Utils.displayLongToast(this, getString(R.string.error_shortcut_invalid_request)) ;
 
 						// Go back to the home screen
 						Intent homeIntent = new Intent() ;
@@ -145,7 +145,7 @@ public class ShortcutListener extends AppCompatActivity
 		ArrayList<String> currentShortcuts = file.readAllLines() ;
 		if(!file.remove())
 			{
-				ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_remove, file.getName())) ;
+				Utils.displayLongToast(context, context.getString(R.string.error_shortcut_remove, file.getName())) ;
 				return ;
 			}
 
