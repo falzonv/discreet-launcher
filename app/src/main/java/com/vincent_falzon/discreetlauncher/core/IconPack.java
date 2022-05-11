@@ -70,10 +70,10 @@ class IconPack
 		{
 			// Display an error message and set the icon pack to none
 			Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, pack_name)) ;
-			ActivityMain.setIgnoreSettingsChanges(true) ;
+			ActivityMain.setSkipListUpdate(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
 			editor.putString(setting_key, Constants.NONE).apply() ;
-			ActivityMain.setIgnoreSettingsChanges(false) ;
+			ActivityMain.setSkipListUpdate(false) ;
 			return ;
 		}
 

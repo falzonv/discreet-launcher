@@ -60,7 +60,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 {
 	// Attributes
 	private static ApplicationsList applicationsList ;
-	private static boolean ignore_settings_changes ;
+	private static boolean skip_list_update ;
 	private static boolean adapters_update_needed ;
 	private static String internal_folder ;
 	private static int application_width ;
@@ -112,7 +112,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Retrieve the current settings and start to listen for changes
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
-		ignore_settings_changes = false ;
+		skip_list_update = false ;
 
 		// Set the light or dark theme according to settings
 		setApplicationTheme() ;
@@ -514,11 +514,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Allow to temporary disable the SharedPreference changes listener.
+	 * Allow to skip updates of the list of applications when editing some settings.
 	 */
-	public static void setIgnoreSettingsChanges(boolean ignore)
+	public static void setSkipListUpdate(boolean skip)
 	{
-		ignore_settings_changes = ignore ;
+		skip_list_update = skip ;
 	}
 
 
@@ -557,6 +557,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	 */
 	public static void updateList(Context context)
 	{
+		if(skip_list_update) return ;
 		applicationsList.update(context) ;
 		adapters_update_needed = true ;
 		Utils.displayToast(context, R.string.info_list_apps_refreshed) ;
@@ -724,10 +725,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// The application was not found, display an error message and reset the gesture
 			Context context = homeScreen.getContext() ;
 			Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, component_info)) ;
-			setIgnoreSettingsChanges(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
 			editor.putString(gesture_setting_key, Constants.NONE).apply() ;
-			setIgnoreSettingsChanges(false) ;
 			return true ;
 		}
 
@@ -750,7 +749,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
 	{
-		if(ignore_settings_changes) return ;
 		if(key == null) return ;
 		switch(key)
 		{
@@ -784,7 +782,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
 					else notification.hide() ;
 				break ;
-			case Constants.REVERSE_INTERFACE:
+			case Constants.REVERSE_INTERFACE :
 				// Change the interface direction
 				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;

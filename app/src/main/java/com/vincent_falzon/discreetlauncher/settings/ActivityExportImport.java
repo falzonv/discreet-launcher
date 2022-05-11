@@ -247,11 +247,11 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 			for(String icon : shortcuts_icons) new InternalFilePNG(icon).remove() ;
 
 		// Reset the preference to default before importing the file
-		ActivityMain.setIgnoreSettingsChanges(true) ;
+		ActivityMain.setSkipListUpdate(true) ;
 		settings.edit().clear().apply() ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_appearance, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_operation, true) ;
-		ActivityMain.setIgnoreSettingsChanges(false) ;
+		ActivityMain.setSkipListUpdate(false) ;
 
 		// Browse the lines of the import file
 		editor = settings.edit() ;
