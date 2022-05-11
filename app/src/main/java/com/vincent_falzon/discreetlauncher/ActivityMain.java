@@ -51,7 +51,6 @@ import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
 import com.vincent_falzon.discreetlauncher.quickaccess.NotificationDisplayer ;
-import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -163,7 +162,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites(), Constants.FAVORITES_PANEL) ;
-		favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+		favoritesAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		favorites.setAdapter(favoritesAdapter) ;
 		favoritesLayout = new FlexibleGridLayout(this, application_width) ;
 		favorites.setLayoutManager(favoritesLayout) ;
@@ -171,7 +170,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Initialize the content of the full applications list
 		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer(), Constants.APP_DRAWER) ;
-		drawerAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+		drawerAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		drawer.setAdapter(drawerAdapter) ;
 		drawerLayout = new FlexibleGridLayout(this, application_width) ;
 		drawer.setLayoutManager(drawerLayout) ;
@@ -368,7 +367,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else noFavoritesYet.setVisibility(View.GONE) ;
 
 				// Retrieve the background color
-				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
+				int background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
 
 				// Check if the interface is reversed and adjust the display accordingly
 				Drawable tab_shape ;
@@ -421,7 +420,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
-					else getWindow().setStatusBarColor(ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY)) ;
+					else getWindow().setStatusBarColor(Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY)) ;
 
 				// Make the navigation bar transparent
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
@@ -443,7 +442,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(adapters_update_needed) updateAdapters() ;
 
 				// Color the system bars and the drawer background
-				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
+				int background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
 				drawer.setBackgroundColor(background_color) ;
 				getWindow().setStatusBarColor(background_color) ;
 				getWindow().setNavigationBarColor(background_color) ;
@@ -465,7 +464,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				drawer.setVisibility(View.GONE) ;
 
 				// Retrieve the background color for favorites
-				int favorites_background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
+				int favorites_background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
@@ -764,11 +763,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				break ;
 			case Constants.TEXT_COLOR_FAVORITES :
 				// Update the text color of the favorites panel
-				favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+				favoritesAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 				break ;
 			case Constants.TEXT_COLOR_DRAWER :
 				// Update the text color of the drawer
-				drawerAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+				drawerAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 				break ;
 			case Constants.ICON_PACK :
 			case Constants.ICON_PACK_SECONDARY :

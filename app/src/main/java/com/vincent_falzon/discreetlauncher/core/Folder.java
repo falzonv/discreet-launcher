@@ -39,12 +39,12 @@ import android.widget.PopupWindow ;
 import android.widget.TextView ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import com.vincent_falzon.discreetlauncher.menu.ActivityFolders ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
-import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.Comparator ;
@@ -190,8 +190,8 @@ public class Folder extends Application
 
 		// Retrieve the app drawer colors
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
-		int text_color = ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
-		int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
+		int text_color = Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
+		int background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
 
 		// Lighten the folder background color for better contrast
 		float[] background_hsv = new float[3] ;

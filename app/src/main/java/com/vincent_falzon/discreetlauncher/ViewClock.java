@@ -37,7 +37,6 @@ import android.text.TextPaint ;
 import android.util.AttributeSet ;
 import android.view.View ;
 import androidx.preference.PreferenceManager ;
-import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 import java.text.DateFormat ;
 import java.text.SimpleDateFormat ;
 import java.util.Calendar ;
@@ -133,8 +132,8 @@ public class ViewClock extends View
 
 		// Initializations
 		float center_x = getWidth() / 2f ;
-		int clock_color = ActivitySettingsAppearance.getColor(settings, Constants.CLOCK_COLOR, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
-		int shadow_color = ActivitySettingsAppearance.getColor(settings, Constants.CLOCK_SHADOW_COLOR, Constants.COLOR_FOR_OVERLAY) ;
+		int clock_color = Utils.getColor(settings, Constants.CLOCK_COLOR, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
+		int shadow_color = Utils.getColor(settings, Constants.CLOCK_SHADOW_COLOR, Constants.COLOR_FOR_OVERLAY) ;
 		textClock.setColor(clock_color) ;
 		textClock.setShadowLayer(clock_shadow_radius, 0, 0, shadow_color) ;
 		analogClock.setColor(clock_color) ;
