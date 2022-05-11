@@ -713,7 +713,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				return false ;
 
 			// Search the application in the list
-			for(Application application : applicationsList.getApplications(false))
+			for(Application application : applicationsList.getApplications(true))
 				if(application.getComponentInfo().equals(component_info))
 					{
 						// Start the application
