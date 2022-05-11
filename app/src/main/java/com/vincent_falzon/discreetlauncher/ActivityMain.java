@@ -690,13 +690,23 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 		/**
+		 * Detect a double-tap.
+		 */
+		@Override
+		public boolean onDoubleTap(MotionEvent event)
+		{
+			return searchAndStartApplication(Constants.DOUBLE_TAP) ;
+		}
+
+
+		/**
 		 * Start an app from the list using its ComponentInfo, or show an error message.
 		 * @return <code>true</code> if the event was consumed, <code>false</code> otherwise
 		 */
-		private boolean searchAndStartApplication(String swipe_direction_setting_key)
+		private boolean searchAndStartApplication(String gesture_setting_key)
 		{
-			// Retrieve the app to launch based on the direction
-			String component_info = settings.getString(swipe_direction_setting_key, Constants.NONE) ;
+			// Retrieve the app to launch based on the given gesture key
+			String component_info = settings.getString(gesture_setting_key, Constants.NONE) ;
 
 			// Do not continue if the setting is not set
 			if((component_info == null) || component_info.equals(Constants.NONE))
@@ -711,12 +721,12 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 						return true ;
 					}
 
-			// The application was not found, display an error message and reset the swipe to none
+			// The application was not found, display an error message and reset the gesture
 			Context context = homeScreen.getContext() ;
 			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, component_info)) ;
 			setIgnoreSettingsChanges(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
-			editor.putString(swipe_direction_setting_key, Constants.NONE).apply() ;
+			editor.putString(gesture_setting_key, Constants.NONE).apply() ;
 			setIgnoreSettingsChanges(false) ;
 			return true ;
 		}

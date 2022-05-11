@@ -11,7 +11,7 @@ Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile
 - Recherche
 - Renommer et masquer des applications
 - Notification d'accès aux favoris
-- Ouvrir appli par glissement horizontal
+- Glissement horizontal ou double-clic pour ouvrir appli
 - Support des raccourcis (applis web)
 - Export et import des paramètres
 - Aide et journal des changements

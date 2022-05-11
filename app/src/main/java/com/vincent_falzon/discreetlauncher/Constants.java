@@ -75,6 +75,7 @@ public interface Constants
 	String TOUCH_TARGETS = "touch_targets" ;
 	String HIDE_MENU_BUTTON = "hide_menu_button" ;
 	String DISABLE_APP_DRAWER = "disable_app_drawer" ;
+	String DOUBLE_TAP = "double_tap" ;
 	String SWIPE_LEFTWARDS = "swipe_leftwards" ;
 	String SWIPE_RIGHTWARDS = "swipe_rightwards" ;
 

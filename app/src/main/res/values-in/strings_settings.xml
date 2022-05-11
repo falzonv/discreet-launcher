@@ -147,9 +147,10 @@
     <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
     <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
     <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>
+    <string name="set_double_tap">Double-tap</string>
     <string name="set_swipe_leftwards">Geser ke kiri</string>
     <string name="set_swipe_rightwards">Geser ke kanan</string>
-    <string name="set_swipe_leftrightwards_no_action">Tidak ada</string>
+    <string name="set_no_action">Tidak ada</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favorit terbuka untuk menjaga akses menu.</string>

@@ -147,9 +147,10 @@
     <string name="set_hide_menu_button">No menu button</string>
     <string name="set_hide_menu_button_help">Always accessible from the launcher app icon</string>
     <string name="set_disable_app_drawer">No app drawer</string>
+    <string name="set_double_tap">Double-tap</string>
     <string name="set_swipe_leftwards">Swipe leftwards</string>
     <string name="set_swipe_rightwards">Swipe rightwards</string>
-    <string name="set_swipe_leftrightwards_no_action">No action</string>
+    <string name="set_no_action">No action</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favorites unlocked to keep menu access.</string>
