@@ -22,7 +22,7 @@
     <string name="error_folder_rename">フォルダ名を変更できませんでした</string>
 
     <!-- Export and import -->
-    <string name="export_import_help">アプリのデータ（お気に入り、フォルダ、ショートカット、設定）をエクスポートしたり、再度インポートしたりするためのボタンです</string>
+    <string name="export_import_help">アプリのデータ（お気に入り、フォルダ、ショートカット、設定）をエクスポートしたり、再度インポートしたりすることができます</string>
     <string name="button_export">エクスポート</string>
     <string name="button_import">インポート</string>
     <string name="export_import_header_internal_files">内部のテキストファイルの内容</string>
@@ -56,7 +56,7 @@
     <string name="color_picker_base">ベース:</string>
     <string name="color_picker_reset">リセット</string>
     <string name="color_picker_preview">プレビュー</string>
-    <string name="error_invalid_color_format">無効な16進数の色</string>
+    <string name="error_invalid_color_format">無効な値</string>
 
     <!-- Application theme -->
     <string name="set_application_theme">テーマ</string>
