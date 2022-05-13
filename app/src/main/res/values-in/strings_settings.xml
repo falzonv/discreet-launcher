@@ -91,9 +91,8 @@
     <string name="set_dark_status_bar_icons">Ikon batang sistem gelap</string>
     <string name="set_dark_status_bar_icons_help">Tidak bekerja pada Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
-    <string name="set_hide_app_names_help">Nama folder tetap ditampilkan</string>
+    <string name="set_hide_folder_names">No folder names</string>
     <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>
-    <string name="set_remove_padding_help">Bisa membuat masalah pada nama folder yang panjang</string>
     <string name="set_background_color_favorites">Latar belakang favorit</string>
     <string name="set_text_color_favorites">Teks Favorit</string>
     <string name="set_background_color_drawer">Latar belakang Laci Aplikasi</string>

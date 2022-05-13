@@ -91,9 +91,8 @@
     <string name="set_dark_status_bar_icons">Темні піфтограми рядка стану</string>
     <string name="set_dark_status_bar_icons_help">Не працює на Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Приховати назви застосунків</string>
-    <string name="set_hide_app_names_help">Назви тек відображатимуться</string>
+    <string name="set_hide_folder_names">No folder names</string>
     <string name="set_remove_padding">Якщо назви застосунків приховано, відступи не відображатимуться</string>
-    <string name="set_remove_padding_help">Може спричиняти проблеми з довгими назвами тек</string>
     <string name="set_background_color_favorites">Обране тло</string>
     <string name="set_text_color_favorites">Обраний текст</string>
     <string name="set_background_color_drawer">Тло шухляди застосунків</string>

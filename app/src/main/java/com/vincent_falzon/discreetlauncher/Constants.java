@@ -55,6 +55,7 @@ public interface Constants
 	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	String DARK_STATUS_BAR_ICONS = "dark_status_bar_icons" ;
 	String HIDE_APP_NAMES = "hide_app_names" ;
+	String HIDE_FOLDER_NAMES = "hide_folder_names" ;
 	String REMOVE_PADDING = "remove_padding" ;
 	String BACKGROUND_COLOR_FAVORITES = "background_color_favorites" ;
 	String TEXT_COLOR_FAVORITES = "text_color_favorites" ;

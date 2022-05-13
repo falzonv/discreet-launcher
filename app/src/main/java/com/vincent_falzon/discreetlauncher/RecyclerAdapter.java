@@ -63,6 +63,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	// Attributes
 	ArrayList<Application> applicationsList ;
 	private final boolean hide_app_names ;
+	private final boolean hide_folder_names ;
 	private final boolean remove_padding ;
 	private final int padding ;
 	private final int target ;
@@ -83,6 +84,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		// Retrieve settings which do not need update (the activity is recreated if they change)
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 		hide_app_names = settings.getBoolean(Constants.HIDE_APP_NAMES, false) ;
+		hide_folder_names = settings.getBoolean(Constants.HIDE_FOLDER_NAMES, false) ;
 		remove_padding = settings.getBoolean(Constants.REMOVE_PADDING, false) ;
 	}
 
@@ -121,23 +123,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		appView.name.setText(applicationsList.get(i).getDisplayName()) ;
 		appView.name.setCompoundDrawables(null, applicationsList.get(i).getIcon(), null, null) ;
 
-		// Check if applications names should be hidden
-		if(hide_app_names)
+		// Check the type of application
+		if(applicationsList.get(i) instanceof Folder)
 			{
-				// Hide applications names except folders
-				if(applicationsList.get(i) instanceof Folder) appView.name.setTextSize(14) ;
-					else appView.name.setTextSize(0) ;
-
-				// If the option is selected, remove padding around the applications
-				if(remove_padding) appView.name.setPadding(0, 0, 0, 0) ;
-					else appView.name.setPadding(0, padding, 0, padding) ;
+				if(hide_folder_names) appView.name.setTextSize(0) ;
+					else appView.name.setTextSize(14) ;
 			}
 			else
 			{
-				// Display the application with its name and standard padding
-				appView.name.setTextSize(14) ;
-				appView.name.setPadding(0, padding, 0, padding) ;
+				if(hide_app_names) appView.name.setTextSize(0) ;
+					else appView.name.setTextSize(14) ;
 			}
+
+		// If the option is selected, remove padding around the applications
+		if(hide_app_names && remove_padding) appView.name.setPadding(0, 0, 0, 0) ;
+			else appView.name.setPadding(0, padding, 0, padding) ;
 	}
 
 

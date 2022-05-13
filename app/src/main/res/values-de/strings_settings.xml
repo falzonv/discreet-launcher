@@ -91,9 +91,8 @@
     <string name="set_dark_status_bar_icons">Dunkle Statusleisten-Symbole</string>
     <string name="set_dark_status_bar_icons_help">Funktioniert nicht unter Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
-    <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
+    <string name="set_hide_folder_names">No folder names</string>
     <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
-    <string name="set_remove_padding_help">Kann Probleme mit langen Ordnernamen verursachen</string>
     <string name="set_background_color_favorites">Favoriten-Hintergrund</string>
     <string name="set_text_color_favorites">Favoriten Text</string>
     <string name="set_background_color_drawer">Hintergrund der App Übersicht</string>

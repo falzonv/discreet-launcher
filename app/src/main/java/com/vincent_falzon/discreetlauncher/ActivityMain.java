@@ -757,6 +757,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				setApplicationTheme() ;
 				break ;
 			case Constants.HIDE_APP_NAMES :
+			case Constants.HIDE_FOLDER_NAMES :
 			case Constants.REMOVE_PADDING :
 				// Update the column width
 				recreate() ;

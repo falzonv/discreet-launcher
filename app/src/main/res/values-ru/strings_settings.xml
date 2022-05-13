@@ -91,9 +91,8 @@
     <string name="set_dark_status_bar_icons">Темные значки строки состояния</string>
     <string name="set_dark_status_bar_icons_help">Не работает на Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
-    <string name="set_hide_app_names_help">Имена папок все еще отображаются</string>
+    <string name="set_hide_folder_names">No folder names</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
-    <string name="set_remove_padding_help">Может вызвать проблемы с длинными именами папок</string>
     <string name="set_background_color_favorites">Избранный фон</string>
     <string name="set_text_color_favorites">Избранный текст</string>
     <string name="set_background_color_drawer">Фон ящика приложений</string>

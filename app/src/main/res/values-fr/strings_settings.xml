@@ -88,12 +88,11 @@
     <!-- Other appearance settings -->
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
-    <string name="set_dark_status_bar_icons">Icônes de la barre de statut foncées</string>
+    <string name="set_dark_status_bar_icons">Icônes foncées dans la barre de statut</string>
     <string name="set_dark_status_bar_icons_help">Ne fonctionne pas sur Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Pas de noms d\'applications</string>
-    <string name="set_hide_app_names_help">Les noms des dossiers sont toujours affichés</string>
+    <string name="set_hide_folder_names">Pas de noms de dossiers</string>
     <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>
-    <string name="set_remove_padding_help">Peut causer des soucis avec les longs noms de dossiers</string>
     <string name="set_background_color_favorites">Fond des favoris</string>
     <string name="set_text_color_favorites">Texte des favoris</string>
     <string name="set_background_color_drawer">Fond du tiroir d\'applications</string>

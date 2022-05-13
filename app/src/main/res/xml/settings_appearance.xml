@@ -38,14 +38,18 @@
         <SwitchPreference
             app:key="hide_app_names"
             app:title="@string/set_hide_app_names"
-            app:summary="@string/set_hide_app_names_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="hide_folder_names"
+            app:title="@string/set_hide_folder_names"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
         <SwitchPreference
             app:key="remove_padding"
             app:title="@string/set_remove_padding"
-            app:summary="@string/set_remove_padding_help"
             app:dependency="hide_app_names"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>

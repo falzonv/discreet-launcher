@@ -151,6 +151,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.HIDE_FOLDER_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
 		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_FAVORITES)) ;
 		exportedData.add(exportStringSetting(Constants.TEXT_COLOR_FAVORITES)) ;
@@ -281,6 +282,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(target.equals(Constants.TRANSPARENT_STATUS_BAR)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.DARK_STATUS_BAR_ICONS)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.HIDE_APP_NAMES)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.HIDE_FOLDER_NAMES)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.REMOVE_PADDING)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.BACKGROUND_COLOR_FAVORITES)) editor.putString(target, value) ;
 				else if(target.equals(Constants.TEXT_COLOR_FAVORITES)) editor.putString(target, value) ;

@@ -91,9 +91,8 @@
     <string name="set_dark_status_bar_icons">Dark status bar icons</string>
     <string name="set_dark_status_bar_icons_help">Not working on Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">No app names</string>
-    <string name="set_hide_app_names_help">Folder names are still shown</string>
+    <string name="set_hide_folder_names">No folder names</string>
     <string name="set_remove_padding">No padding when app names are hidden</string>
-    <string name="set_remove_padding_help">Can cause problems with long folders names</string>
     <string name="set_background_color_favorites">Favorites background</string>
     <string name="set_text_color_favorites">Favorites text</string>
     <string name="set_background_color_drawer">App drawer background</string>
