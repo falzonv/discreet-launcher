@@ -34,6 +34,7 @@ import android.widget.TextView ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
+import androidx.appcompat.content.res.AppCompatResources ;
 import androidx.recyclerview.widget.ItemTouchHelper ;
 import androidx.recyclerview.widget.LinearLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
@@ -55,6 +56,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	private ArrayList<Application> favorites ;
 	private final RecyclerAdapter adapter = new RecyclerAdapter() ;
 	private ItemTouchHelper touchManager ;
+	private Drawable folder_icon ;
 	private int icon_size ;
 
 
@@ -69,6 +71,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 
 		// Initializations
 		setContentView(R.layout.activity_favorites) ;
+		folder_icon = AppCompatResources.getDrawable(this, R.drawable.icon_folder) ;
 		icon_size = Math.round(32 * getResources().getDisplayMetrics().density) ;
 		favorites = ActivityMain.getApplicationsList().getFavorites() ;
 		findViewById(R.id.select_favorites_button).setOnClickListener(this) ;
@@ -195,15 +198,15 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 					favoriteView.name.setText(((Folder)favorites.get(i)).getDisplayNameWithCount()) ;
 				else favoriteView.name.setText(favorites.get(i).getDisplayName()) ;
 
-			// Display the icon of the favorite
+			// Retrieve the icon of the favorite or use the folder icon instead
 			Drawable.ConstantState iconState = favorites.get(i).getIcon().getConstantState() ;
-			if(iconState != null)
-				{
-					// Create a copy to not downsize the real favorite icon
-					Drawable icon = iconState.newDrawable(getResources()).mutate() ;
-					icon.setBounds(0, 0, icon_size, icon_size) ;
-					favoriteView.name.setCompoundDrawables(icon, null, null, null) ;
-				}
+			if(iconState == null)
+				iconState = folder_icon.getConstantState() ;
+
+			// Create a copy to not downsize the real favorite icon, then resize and display it
+			Drawable icon = iconState.newDrawable(getResources()).mutate() ;
+			icon.setBounds(0, 0, icon_size, icon_size) ;
+			favoriteView.name.setCompoundDrawables(icon, null, null, null) ;
 
 			// Listen for dragging action on the view of this favorite
 			favoriteView.itemView.setOnTouchListener(new View.OnTouchListener()
