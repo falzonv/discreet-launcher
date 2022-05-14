@@ -361,6 +361,9 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 										for(i = 0 ; i < selected.length ; i++)
 											if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
 
+										// Recreate the empty file if the removed line was the single one
+										if(!file.exists()) file.writeLine("") ;
+
 										// Update the display in the activity
 										folder.getApplications().clear() ;
 										for(String component_info : file.readAllLines())
