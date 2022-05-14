@@ -91,7 +91,7 @@
     <string name="set_dark_status_bar_icons">Темные значки строки состояния</string>
     <string name="set_dark_status_bar_icons_help">Не работает на Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
-    <string name="set_hide_folder_names">No folder names</string>
+    <string name="set_hide_folder_names">Не показывать имена папок</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
     <string name="set_background_color_favorites">Избранный фон</string>
     <string name="set_text_color_favorites">Избранный текст</string>
@@ -146,7 +146,7 @@
     <string name="set_hide_menu_button">Нет кнопки меню</string>
     <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
     <string name="set_disable_app_drawer">Нет ящика приложений</string>
-    <string name="set_double_tap">Double-tap</string>
+    <string name="set_double_tap">Двойное касание</string>
     <string name="set_swipe_leftwards">Проведите влево</string>
     <string name="set_swipe_rightwards">Проведите вправо</string>
     <string name="set_no_action">Нет действий</string>
