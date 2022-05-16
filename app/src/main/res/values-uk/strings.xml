@@ -23,8 +23,8 @@
     <string name="long_click_rename">Перейменувати</string>
     <string name="long_click_add_favorites">Додати до обраного</string>
     <string name="long_click_remove_favorites">Видалити з обраного</string>
-    <string name="long_click_add_folder">Add to a folder</string>
-    <string name="long_click_remove_folder">Remove from folder \"%1s\"</string>
+    <string name="long_click_add_folder">Додати до теки</string>
+    <string name="long_click_remove_folder">Видалити з теки \"%1s\"</string>
     <string name="long_click_hide_search">Приховати</string>
     <string name="long_click_remove_shortcut">Видалити ярлик</string>
 
@@ -36,7 +36,7 @@
     <!-- Popup messages related to apps -->
     <string name="info_list_apps_refreshed">Список застосунків оновлено</string>
     <string name="info_favorites_refreshed">Обране оновлено</string>
-    <string name="info_display_partially_updated">The display will be fully updated after returning to the home screen</string>
+    <string name="info_display_partially_updated">Після повернення на головний екран, його вміст буде повністю оновлено</string>
     <string name="error_app_not_found">Не вдалося знайти \"%1$s\"</string>
 
     <!-- Search app -->

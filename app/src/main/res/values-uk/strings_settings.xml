@@ -91,7 +91,7 @@
     <string name="set_dark_status_bar_icons">Темні піфтограми рядка стану</string>
     <string name="set_dark_status_bar_icons_help">Не працює на Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Приховати назви застосунків</string>
-    <string name="set_hide_folder_names">No folder names</string>
+    <string name="set_hide_folder_names">Приховувати назви тек</string>
     <string name="set_remove_padding">Якщо назви застосунків приховано, відступи не відображатимуться</string>
     <string name="set_background_color_favorites">Обране тло</string>
     <string name="set_text_color_favorites">Обраний текст</string>
@@ -146,7 +146,7 @@
     <string name="set_hide_menu_button">Приховати кнопку меню</string>
     <string name="set_hide_menu_button_help">Меню завжди доступне через піфтограму запускача</string>
     <string name="set_disable_app_drawer">Приховати шухляду застосунків</string>
-    <string name="set_double_tap">Double-tap</string>
+    <string name="set_double_tap">Подвійний дотик</string>
     <string name="set_swipe_leftwards">Проведіть вліво</string>
     <string name="set_swipe_rightwards">Проведіть вправо</string>
     <string name="set_no_action">Не призначено</string>
