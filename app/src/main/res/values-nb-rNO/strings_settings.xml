@@ -91,7 +91,7 @@
     <string name="set_dark_status_bar_icons">Mørke statusfeltsikoner</string>
     <string name="set_dark_status_bar_icons_help">Fungerer ikke på Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
-    <string name="set_hide_folder_names">No folder names</string>
+    <string name="set_hide_folder_names">Ingen mappenavn</string>
     <string name="set_remove_padding">Fjern fyll når navn er skjult</string>
     <string name="set_background_color_favorites">Favorittbakgrunn</string>
     <string name="set_text_color_favorites">Favoritt-tekst</string>
@@ -146,7 +146,7 @@
     <string name="set_hide_menu_button">Ingen menyknapp</string>
     <string name="set_hide_menu_button_help">Fremdeles tilgjengelig i oppstarterikonet</string>
     <string name="set_disable_app_drawer">Ingen programkurv</string>
-    <string name="set_double_tap">Double-tap</string>
+    <string name="set_double_tap">Dobbelttrykk</string>
     <string name="set_swipe_leftwards">Dra mot venstre</string>
     <string name="set_swipe_rightwards">Dra mot høyre</string>
     <string name="set_no_action">No action</string>
