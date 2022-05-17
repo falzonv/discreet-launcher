@@ -11,7 +11,7 @@ Fri programvare, og ingen unødvendige tilganger. Fungerer fullstendig frakoblet
 - Søk
 - Endre navn på programmer og skjul dem
 - Merknad for tilgang til dine favoritter
-- Åpne programmet med vannrett dragning
+- Åpne programmer med dobbelttrykk eller vannrett dragning
 - Snarveisstøtte (nettprogrammer)
 - Eksporter og importer innstillinger
 - Hjelp og endringslogg
