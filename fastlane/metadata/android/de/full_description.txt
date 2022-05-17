@@ -11,7 +11,7 @@ Discreet Launcher ist Open Source , erfordert keine unnötigen Berechtigungen, f
 - Suchen
 - Umbenennen und Ausblenden von Anwendungen
 - Benachrichtigung für den Zugriff auf Favoriten
-- Öffnen einer App durch horizontales wischen
+- Horizontales Wischen oder Doppeltippen zum Öffnen einer App
 - Unterstützung von Shortcuts (Web-Apps)
 - Einstellungen exportieren und importieren
 - Hilfe und Änderungsprotokoll
