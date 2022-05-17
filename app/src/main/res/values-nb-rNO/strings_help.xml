@@ -32,7 +32,7 @@
         Finn ethvert program med søkeikonet. Det kan også favorittmerkes for å være tilgjengelig
         fra merknaden, eller skjules.
         \n
-        \nTrykk \"Enter\" for å åpne hvis det er kun ett søkeresultat.
+        \nTrykk \"Enter\" for å åpne første søkeresultat.
     </string>
 
     <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
