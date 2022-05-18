@@ -88,12 +88,11 @@
     <!-- Other appearance settings -->
     <string name="set_transparent_status_bar">Barre de statut transparente</string>
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
-    <string name="set_dark_status_bar_icons">Icônes de la barre de statut foncées</string>
+    <string name="set_dark_status_bar_icons">Icônes foncées dans la barre de statut</string>
     <string name="set_dark_status_bar_icons_help">Ne fonctionne pas sur Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Pas de noms d\'applications</string>
-    <string name="set_hide_app_names_help">Les noms des dossiers sont toujours affichés</string>
+    <string name="set_hide_folder_names">Pas de noms de dossiers</string>
     <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>
-    <string name="set_remove_padding_help">Peut causer des soucis avec les longs noms de dossiers</string>
     <string name="set_background_color_favorites">Fond des favoris</string>
     <string name="set_text_color_favorites">Texte des favoris</string>
     <string name="set_background_color_drawer">Fond du tiroir d\'applications</string>
@@ -147,9 +146,10 @@
     <string name="set_hide_menu_button">Pas de bouton de menu</string>
     <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
     <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>
+    <string name="set_double_tap">Double-clic</string>
     <string name="set_swipe_leftwards">Glisser vers la gauche</string>
     <string name="set_swipe_rightwards">Glisser vers la droite</string>
-    <string name="set_swipe_leftrightwards_no_action">Aucune action</string>
+    <string name="set_no_action">Aucune action</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favoris débloqués pour conserver l\'accès au menu.</string>

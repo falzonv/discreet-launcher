@@ -121,6 +121,9 @@ public class InternalFileTXT extends InternalFile
 			if(line.startsWith(to_remove)) result = true ;
 				else writeLine(line) ;
 		}
+
+		// Recreate the empty file if the removed line was the single one
+		if(!exists()) writeLine("") ;
 		return result ;
 	}
 

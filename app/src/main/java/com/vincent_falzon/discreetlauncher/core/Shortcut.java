@@ -33,7 +33,7 @@ import android.os.UserHandle ;
 import android.view.View ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import java.net.URISyntaxException ;
 
 /**
@@ -73,7 +73,7 @@ public class Shortcut extends Application
 		String[] shortcut = name.split(Constants.SHORTCUT_SEPARATOR) ;
 		if(shortcut.length != 3)
 			{
-				ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_missing_info)) ;
+				Utils.displayLongToast(context, context.getString(R.string.error_shortcut_missing_info)) ;
 				return false ;
 			}
 
@@ -89,7 +89,7 @@ public class Shortcut extends Application
 				// Check if the launcher can start shortcuts
 				if(!launcher.hasShortcutHostPermission())
 					{
-						ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_not_default_launcher)) ;
+						Utils.displayLongToast(context, context.getString(R.string.error_shortcut_not_default_launcher)) ;
 						return false ;
 					}
 
@@ -100,14 +100,14 @@ public class Shortcut extends Application
 				}
 				catch(ActivityNotFoundException | IllegalStateException e)
 				{
-					ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_start)) ;
+					Utils.displayLongToast(context, context.getString(R.string.error_shortcut_start)) ;
 					return false ;
 				}
 				return true ;
 			}
 			else
 			{
-				ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_start)) ;
+				Utils.displayLongToast(context, context.getString(R.string.error_shortcut_start)) ;
 				return false ;
 			}
 	}

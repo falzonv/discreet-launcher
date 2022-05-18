@@ -31,7 +31,7 @@ import android.graphics.Bitmap ;
 import android.os.Build ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import static com.vincent_falzon.discreetlauncher.ActivityMain.updateList ;
 
 /**
@@ -71,7 +71,7 @@ public class ShortcutLegacyListener extends BroadcastReceiver
 						// If the request is invalid, display a message and quit
 						if((display_name == null) || (shortcutIntent == null))
 							{
-								ShowDialog.toastLong(context, context.getString(R.string.error_shortcut_invalid_request)) ;
+								Utils.displayLongToast(context, context.getString(R.string.error_shortcut_invalid_request)) ;
 								return ;
 							}
 

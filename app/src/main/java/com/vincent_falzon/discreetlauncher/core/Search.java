@@ -51,7 +51,7 @@ import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.SearchAdapter ;
-import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import java.util.ArrayList ;
 
 /**
@@ -126,8 +126,8 @@ public class Search extends Application
 
 		// Retrieve the app drawer colors
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
-		int text_color = ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
-		int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
+		int text_color = Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
+		int background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
 
 		// Lighten the search background color for better contrast
 		float[] background_hsv = new float[3] ;

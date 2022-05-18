@@ -23,8 +23,8 @@
     <string name="long_click_rename">Gi nytt navn</string>
     <string name="long_click_add_favorites">Legg til som favoritt</string>
     <string name="long_click_remove_favorites">Fjern fra favoritter</string>
-    <string name="long_click_add_folder">Add to a folder</string>
-    <string name="long_click_remove_folder">Remove from folder \"%1s\"</string>
+    <string name="long_click_add_folder">Legg til i en mappe</string>
+    <string name="long_click_remove_folder">Fjern fra «%1s»-mappe</string>
     <string name="long_click_hide_search">Skjul</string>
     <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
 
@@ -36,7 +36,7 @@
     <!-- Popup messages related to apps -->
     <string name="info_list_apps_refreshed">Programliste gjenoppfrisket</string>
     <string name="info_favorites_refreshed">Nye favoritter i bruk</string>
-    <string name="info_display_partially_updated">The display will be fully updated after returning to the home screen</string>
+    <string name="info_display_partially_updated">Skjermen vil bli oppdatert fullstendig etter at du går tilbake til hjemmeskjermen</string>
     <string name="error_app_not_found">Fant ikke «%1$s»</string>
 
     <!-- Search app -->

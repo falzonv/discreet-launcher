@@ -24,7 +24,6 @@ package com.vincent_falzon.discreetlauncher.settings ;
 
 // Imports
 import android.content.Intent ;
-import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
 import android.os.Bundle ;
@@ -129,20 +128,5 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 			iconPacks.add(pack.activityInfo.packageName) ;
 			packsNames.add(pack.loadLabel(apkManager).toString()) ;
 		}
-	}
-
-
-	/**
-	 * Retrieve the currently selected color for a preference key.
-	 */
-	public static int getColor(SharedPreferences settings, String key, String fallback)
-	{
-		// Try to load the color at the given key, or use the provided fallback
-		String hexadecimal = settings.getString(key, Constants.NONE) ;
-		if((hexadecimal == null) || hexadecimal.equals(Constants.NONE))
-			hexadecimal = fallback ;
-
-		// Convert the hexadecimal color to an "int" color
-		return ColorPickerDialog.convertHexadecimalColorToInt(hexadecimal) ;
 	}
 }

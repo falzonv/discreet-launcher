@@ -75,6 +75,13 @@
         app:iconSpaceReserved="false">
 
         <ListPreference
+            app:key="double_tap"
+            app:title="@string/set_double_tap"
+            app:iconSpaceReserved="false"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
+        <ListPreference
             app:key="swipe_leftwards"
             app:title="@string/set_swipe_leftwards"
             app:iconSpaceReserved="false"

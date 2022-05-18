@@ -37,7 +37,7 @@ import android.widget.EditText ;
 import android.widget.TextView ;
 import androidx.appcompat.app.AppCompatDialog ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 
 /**
  * Display a color picker dialog.
@@ -109,7 +109,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 							}
 							catch (IllegalArgumentException e)
 							{
-								ShowDialog.toastLong(context, context.getString(R.string.error_invalid_color_format)) ;
+								Utils.displayLongToast(context, context.getString(R.string.error_invalid_color_format)) ;
 							}
 							return true ;
 						}

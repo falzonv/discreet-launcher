@@ -39,7 +39,7 @@ import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.text.SimpleDateFormat ;
 import java.util.ArrayList ;
@@ -151,6 +151,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.HIDE_FOLDER_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
 		exportedData.add(exportStringSetting(Constants.BACKGROUND_COLOR_FAVORITES)) ;
 		exportedData.add(exportStringSetting(Constants.TEXT_COLOR_FAVORITES)) ;
@@ -171,6 +172,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.TOUCH_TARGETS, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DISABLE_APP_DRAWER, false)) ;
+		exportedData.add(exportStringSetting(Constants.DOUBLE_TAP)) ;
 		exportedData.add(exportStringSetting(Constants.SWIPE_LEFTWARDS)) ;
 		exportedData.add(exportStringSetting(Constants.SWIPE_RIGHTWARDS)) ;
 		exportedData.add("#") ;
@@ -184,8 +186,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Write all lines in the export file
 		if(ExternalFile.writeAllLines(this, location, exportedData))
-				ShowDialog.toast(this, R.string.export_completed) ;
-			else ShowDialog.toastLong(this, getString(R.string.error_export)) ;
+				Utils.displayToast(this, R.string.export_completed) ;
+			else Utils.displayLongToast(this, getString(R.string.error_export)) ;
 	}
 
 
@@ -217,7 +219,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		if(importedData == null)
 			{
 				// Display an error message and quit
-				ShowDialog.toastLong(this, getString(R.string.error_import)) ;
+				Utils.displayLongToast(this, getString(R.string.error_import)) ;
 				return ;
 			}
 
@@ -246,11 +248,11 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 			for(String icon : shortcuts_icons) new InternalFilePNG(icon).remove() ;
 
 		// Reset the preference to default before importing the file
-		ActivityMain.setIgnoreSettingsChanges(true) ;
+		ActivityMain.setSkipListUpdate(true) ;
 		settings.edit().clear().apply() ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_appearance, true) ;
 		PreferenceManager.setDefaultValues(this, R.xml.settings_operation, true) ;
-		ActivityMain.setIgnoreSettingsChanges(false) ;
+		ActivityMain.setSkipListUpdate(false) ;
 
 		// Browse the lines of the import file
 		editor = settings.edit() ;
@@ -280,6 +282,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(target.equals(Constants.TRANSPARENT_STATUS_BAR)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.DARK_STATUS_BAR_ICONS)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.HIDE_APP_NAMES)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.HIDE_FOLDER_NAMES)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.REMOVE_PADDING)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.BACKGROUND_COLOR_FAVORITES)) editor.putString(target, value) ;
 				else if(target.equals(Constants.TEXT_COLOR_FAVORITES)) editor.putString(target, value) ;
@@ -311,6 +314,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(target.equals(Constants.TOUCH_TARGETS)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.HIDE_MENU_BUTTON)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.DISABLE_APP_DRAWER)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.DOUBLE_TAP)) editor.putString(target, value) ;
 				else if(target.equals(Constants.SWIPE_LEFTWARDS)) editor.putString(target, value) ;
 				else if(target.equals(Constants.SWIPE_RIGHTWARDS)) editor.putString(target, value) ;
 				// Convert old settings for compatibility

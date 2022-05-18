@@ -35,6 +35,7 @@ import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
+import com.vincent_falzon.discreetlauncher.core.Folder ;
 import java.util.ArrayList ;
 
 /**
@@ -64,7 +65,7 @@ public class ActivitySettingsOperation extends AppCompatActivity
 		applicationsComponentInfos.clear() ;
 		applicationsNames.clear() ;
 		applicationsComponentInfos.add(Constants.NONE) ;
-		applicationsNames.add(getString(R.string.set_swipe_leftrightwards_no_action)) ;
+		applicationsNames.add(getString(R.string.set_no_action)) ;
 		loadInstalledApplications() ;
 
 		// Load the general settings layout
@@ -88,6 +89,12 @@ public class ActivitySettingsOperation extends AppCompatActivity
 			setPreferencesFromResource(R.xml.settings_operation, rootKey) ;
 
 			// Initialize the gestures selectors
+			ListPreference doubleTap = findPreference(Constants.DOUBLE_TAP) ;
+			if(doubleTap != null)
+				{
+					doubleTap.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
+					doubleTap.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
+				}
 			ListPreference swipeTowardsLeft = findPreference(Constants.SWIPE_LEFTWARDS) ;
 			if(swipeTowardsLeft != null)
 				{
@@ -110,13 +117,14 @@ public class ActivitySettingsOperation extends AppCompatActivity
 	private void loadInstalledApplications()
 	{
 		// Retrieve the list of all installed applications
-		ArrayList<Application> allApplications = ActivityMain.getApplicationsList().getApplications(false) ;
+		ArrayList<Application> allApplications = ActivityMain.getApplicationsList().getApplications(true) ;
 
 		// Store the retrieved information in the lists
 		for(Application application : allApplications)
 		{
 			applicationsComponentInfos.add(application.getComponentInfo()) ;
-			applicationsNames.add(application.getDisplayName()) ;
+			if(application instanceof Folder) applicationsNames.add(((Folder)application).getDisplayNameWithCount()) ;
+				else applicationsNames.add(application.getDisplayName()) ;
 		}
 	}
 

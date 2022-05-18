@@ -51,7 +51,6 @@ import com.vincent_falzon.discreetlauncher.events.ShortcutLegacyListener ;
 import com.vincent_falzon.discreetlauncher.events.PackagesListener ;
 import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
 import com.vincent_falzon.discreetlauncher.quickaccess.NotificationDisplayer ;
-import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsAppearance ;
 
 /**
  * Main class activity managing the home screen and applications drawer.
@@ -60,7 +59,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 {
 	// Attributes
 	private static ApplicationsList applicationsList ;
-	private static boolean ignore_settings_changes ;
+	private static boolean skip_list_update ;
 	private static boolean adapters_update_needed ;
 	private static String internal_folder ;
 	private static int application_width ;
@@ -112,7 +111,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Retrieve the current settings and start to listen for changes
 		settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 		settings.registerOnSharedPreferenceChangeListener(this) ;
-		ignore_settings_changes = false ;
+		skip_list_update = false ;
 
 		// Set the light or dark theme according to settings
 		setApplicationTheme() ;
@@ -163,7 +162,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites(), Constants.FAVORITES_PANEL) ;
-		favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+		favoritesAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		favorites.setAdapter(favoritesAdapter) ;
 		favoritesLayout = new FlexibleGridLayout(this, application_width) ;
 		favorites.setLayoutManager(favoritesLayout) ;
@@ -171,7 +170,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Initialize the content of the full applications list
 		drawerAdapter = new RecyclerAdapter(this, applicationsList.getDrawer(), Constants.APP_DRAWER) ;
-		drawerAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+		drawerAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 		drawer.setAdapter(drawerAdapter) ;
 		drawerLayout = new FlexibleGridLayout(this, application_width) ;
 		drawer.setLayoutManager(drawerLayout) ;
@@ -321,7 +320,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// If the drawer cannot be safely disabled, display a message and disable the setting
 		if(settings.getBoolean(Constants.DISABLE_APP_DRAWER, false))
 			{
-				ShowDialog.toastLong(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
+				Utils.displayLongToast(this, getString(R.string.error_disable_app_drawer_not_safe)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
 				editor.putBoolean(Constants.DISABLE_APP_DRAWER, false).apply() ;
 				return ;
@@ -346,7 +345,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// If favorites cannot be always shown safely, display a message and disable the setting
 		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
 			{
-				ShowDialog.toastLong(this, getString(R.string.error_always_show_favorites_not_safe)) ;
+				Utils.displayLongToast(this, getString(R.string.error_always_show_favorites_not_safe)) ;
 				SharedPreferences.Editor editor = settings.edit() ;
 				editor.putBoolean(Constants.ALWAYS_SHOW_FAVORITES, false).apply() ;
 			}
@@ -368,7 +367,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else noFavoritesYet.setVisibility(View.GONE) ;
 
 				// Retrieve the background color
-				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
+				int background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
 
 				// Check if the interface is reversed and adjust the display accordingly
 				Drawable tab_shape ;
@@ -421,7 +420,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
 						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
-					else getWindow().setStatusBarColor(ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY)) ;
+					else getWindow().setStatusBarColor(Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY)) ;
 
 				// Make the navigation bar transparent
 				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
@@ -443,7 +442,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(adapters_update_needed) updateAdapters() ;
 
 				// Color the system bars and the drawer background
-				int background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
+				int background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
 				drawer.setBackgroundColor(background_color) ;
 				getWindow().setStatusBarColor(background_color) ;
 				getWindow().setNavigationBarColor(background_color) ;
@@ -465,7 +464,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				drawer.setVisibility(View.GONE) ;
 
 				// Retrieve the background color for favorites
-				int favorites_background_color = ActivitySettingsAppearance.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
+				int favorites_background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
@@ -514,11 +513,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
-	 * Allow to temporary disable the SharedPreference changes listener.
+	 * Allow to skip updates of the list of applications when editing some settings.
 	 */
-	public static void setIgnoreSettingsChanges(boolean ignore)
+	public static void setSkipListUpdate(boolean skip)
 	{
-		ignore_settings_changes = ignore ;
+		skip_list_update = skip ;
 	}
 
 
@@ -548,7 +547,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		applicationsList.updateFavorites() ;
 		adapters_update_needed = true ;
 		if(context != null)
-			ShowDialog.toast(context, R.string.info_favorites_refreshed) ;
+			Utils.displayToast(context, R.string.info_favorites_refreshed) ;
 	}
 
 
@@ -557,9 +556,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	 */
 	public static void updateList(Context context)
 	{
+		if(skip_list_update) return ;
 		applicationsList.update(context) ;
 		adapters_update_needed = true ;
-		ShowDialog.toast(context, R.string.info_list_apps_refreshed) ;
+		Utils.displayToast(context, R.string.info_list_apps_refreshed) ;
 	}
 
 
@@ -690,20 +690,30 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 		/**
+		 * Detect a double-tap.
+		 */
+		@Override
+		public boolean onDoubleTap(MotionEvent event)
+		{
+			return searchAndStartApplication(Constants.DOUBLE_TAP) ;
+		}
+
+
+		/**
 		 * Start an app from the list using its ComponentInfo, or show an error message.
 		 * @return <code>true</code> if the event was consumed, <code>false</code> otherwise
 		 */
-		private boolean searchAndStartApplication(String swipe_direction_setting_key)
+		private boolean searchAndStartApplication(String gesture_setting_key)
 		{
-			// Retrieve the app to launch based on the direction
-			String component_info = settings.getString(swipe_direction_setting_key, Constants.NONE) ;
+			// Retrieve the app to launch based on the given gesture key
+			String component_info = settings.getString(gesture_setting_key, Constants.NONE) ;
 
 			// Do not continue if the setting is not set
 			if((component_info == null) || component_info.equals(Constants.NONE))
 				return false ;
 
 			// Search the application in the list
-			for(Application application : applicationsList.getApplications(false))
+			for(Application application : applicationsList.getApplications(true))
 				if(application.getComponentInfo().equals(component_info))
 					{
 						// Start the application
@@ -711,13 +721,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 						return true ;
 					}
 
-			// The application was not found, display an error message and reset the swipe to none
+			// The application was not found, display an error message and reset the gesture
 			Context context = homeScreen.getContext() ;
-			ShowDialog.toastLong(context, context.getString(R.string.error_app_not_found, component_info)) ;
-			setIgnoreSettingsChanges(true) ;
+			Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, component_info)) ;
 			SharedPreferences.Editor editor = settings.edit() ;
-			editor.putString(swipe_direction_setting_key, Constants.NONE).apply() ;
-			setIgnoreSettingsChanges(false) ;
+			editor.putString(gesture_setting_key, Constants.NONE).apply() ;
 			return true ;
 		}
 
@@ -740,7 +748,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
 	{
-		if(ignore_settings_changes) return ;
 		if(key == null) return ;
 		switch(key)
 		{
@@ -750,17 +757,18 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				setApplicationTheme() ;
 				break ;
 			case Constants.HIDE_APP_NAMES :
+			case Constants.HIDE_FOLDER_NAMES :
 			case Constants.REMOVE_PADDING :
 				// Update the column width
 				recreate() ;
 				break ;
 			case Constants.TEXT_COLOR_FAVORITES :
 				// Update the text color of the favorites panel
-				favoritesAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+				favoritesAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 				break ;
 			case Constants.TEXT_COLOR_DRAWER :
 				// Update the text color of the drawer
-				drawerAdapter.setTextColor(ActivitySettingsAppearance.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+				drawerAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
 				break ;
 			case Constants.ICON_PACK :
 			case Constants.ICON_PACK_SECONDARY :
@@ -774,7 +782,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
 					else notification.hide() ;
 				break ;
-			case Constants.REVERSE_INTERFACE:
+			case Constants.REVERSE_INTERFACE :
 				// Change the interface direction
 				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;

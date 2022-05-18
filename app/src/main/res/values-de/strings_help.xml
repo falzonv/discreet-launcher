@@ -32,7 +32,7 @@
         Finde alle Apps über das Such-Icon. Kann auch als Favorit gesetzt werden, um 
         in der Benachrichtigung verfügbar zu sein oder versteckte Apps zu finden.
         \n
-        \nWenn es nur ein Suchergebnis gibt, wird es durch Drücken von \"Eingabe\" geöffnet.
+        \nDurch Drücken von \"Enter\" wird das erste Suchergebnis geöffnet.
     </string>
 
     <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->

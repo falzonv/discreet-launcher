@@ -91,9 +91,8 @@
     <string name="set_dark_status_bar_icons">Dunkle Statusleisten-Symbole</string>
     <string name="set_dark_status_bar_icons_help">Funktioniert nicht unter Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
-    <string name="set_hide_app_names_help">Ordnernamen werden gezeigt</string>
+    <string name="set_hide_folder_names">Keine Ordnernamen</string>
     <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
-    <string name="set_remove_padding_help">Kann Probleme mit langen Ordnernamen verursachen</string>
     <string name="set_background_color_favorites">Favoriten-Hintergrund</string>
     <string name="set_text_color_favorites">Favoriten Text</string>
     <string name="set_background_color_drawer">Hintergrund der App Übersicht</string>
@@ -147,9 +146,10 @@
     <string name="set_hide_menu_button">Kein Menü-Icon</string>
     <string name="set_hide_menu_button_help">Immer über das Symbol der Startanwendung zugänglich</string>
     <string name="set_disable_app_drawer">App Übersicht nicht anzeigen</string>
+    <string name="set_double_tap">Doppeltippen</string>
     <string name="set_swipe_leftwards">Nach links wischen</string>
     <string name="set_swipe_rightwards">Nach rechts wischen</string>
-    <string name="set_swipe_leftrightwards_no_action">Keine Aktion</string>
+    <string name="set_no_action">Keine Aktion</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favoriten entsperren, um Zugriff auf das Menü zu bekommen.</string>

@@ -44,7 +44,7 @@ import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
-import com.vincent_falzon.discreetlauncher.ShowDialog ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.core.FolderIcon ;
@@ -97,7 +97,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 				if(new_folder_name.isEmpty())
 					{
 						// Display an error message and quit
-						ShowDialog.toastLong(this, getString(R.string.error_folder_empty_name)) ;
+						Utils.displayLongToast(this, getString(R.string.error_folder_empty_name)) ;
 						return ;
 					}
 
@@ -107,7 +107,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 				if(file.exists())
 					{
 						// Display an error message and quit
-						ShowDialog.toastLong(this, getString(R.string.error_folder_already_exists)) ;
+						Utils.displayLongToast(this, getString(R.string.error_folder_already_exists)) ;
 						return ;
 					}
 
@@ -272,14 +272,14 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 										if(new_folder_name.isEmpty())
 											{
 												// Display an error message and quit
-												ShowDialog.toastLong(context, context.getString(R.string.error_folder_empty_name)) ;
+												Utils.displayLongToast(context, context.getString(R.string.error_folder_empty_name)) ;
 												return ;
 											}
 										String new_filename = Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt" ;
 										if(new InternalFileTXT(new_filename).exists())
 											{
 												// Display an error message and quit
-												ShowDialog.toastLong(context, context.getString(R.string.error_folder_already_exists)) ;
+												Utils.displayLongToast(context, context.getString(R.string.error_folder_already_exists)) ;
 												return ;
 											}
 
@@ -314,7 +314,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 												ActivityMain.updateList(context) ;
 												notifyDataSetChanged() ;
 											}
-											else ShowDialog.toastLong(context, context.getString(R.string.error_folder_rename)) ;
+											else Utils.displayLongToast(context, context.getString(R.string.error_folder_rename)) ;
 									}
 								}) ;
 						dialog.show() ;
@@ -360,6 +360,9 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 										// Add the selected applications in the folder
 										for(i = 0 ; i < selected.length ; i++)
 											if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
+
+										// Recreate the empty file if the removed line was the single one
+										if(!file.exists()) file.writeLine("") ;
 
 										// Update the display in the activity
 										folder.getApplications().clear() ;
