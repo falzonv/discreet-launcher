@@ -1,0 +1,14 @@
+v6.3.0 (51) - 19/05/2022
+NOUVEAUTÉS
+   - Double-clic pour ouvrir appli (@qguv)
+   - Clic long pour ajout dossier (@comradekingu)
+   - Option masquer noms dossiers (@Yasen6275)
+   - Traduction Ukrainienne par Maksym Bilak
+AMÉLIORATIONS
+   - Gestes peuvent ouvrir dossiers (@n-ce)
+   - Plus de packs d'icônes supportés (@n-ce)
+   - Optimisations internes
+CORRECTIONS
+   - Message très long après l'import
+   - Dossier supprimé si vidé
+   - Icônes du trieur de favoris (@xi7)
