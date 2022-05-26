@@ -42,7 +42,7 @@
     <string name="error_shortcut_missing_info">このショートカットを実行できませんでした</string>
     <string name="error_shortcut_not_default_launcher">デフォルトのランチャーのみショートカットを開くことができます</string>
     <string name="error_shortcut_start">Androidシステムがショートカットを開くことができませんでした</string>
-    <string name="error_shortcut_remove">\"%1$s\"ファイルを削除できませんでした<</string>
+    <string name="error_shortcut_remove">\"%1$s\"ファイルを削除できませんでした</string>
 
 
     <!-- ========== Appearance settings menu ========== -->
