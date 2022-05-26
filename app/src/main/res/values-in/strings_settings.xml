@@ -91,7 +91,7 @@
     <string name="set_dark_status_bar_icons">Ikon batang sistem gelap</string>
     <string name="set_dark_status_bar_icons_help">Tidak bekerja pada Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
-    <string name="set_hide_folder_names">No folder names</string>
+    <string name="set_hide_folder_names">Sembunyikan nama folder</string>
     <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>
     <string name="set_background_color_favorites">Latar belakang favorit</string>
     <string name="set_text_color_favorites">Teks Favorit</string>
@@ -146,7 +146,7 @@
     <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
     <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
     <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>
-    <string name="set_double_tap">Double-tap</string>
+    <string name="set_double_tap">Dobel-tap</string>
     <string name="set_swipe_leftwards">Geser ke kiri</string>
     <string name="set_swipe_rightwards">Geser ke kanan</string>
     <string name="set_no_action">Tidak ada</string>

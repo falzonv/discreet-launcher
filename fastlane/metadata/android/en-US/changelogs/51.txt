@@ -1,0 +1,14 @@
+v6.3.0 (51) - 19/05/2022
+NEW THINGS
+   - Double-tap gesture to open app (@qguv)
+   - Add to folder by long click (@comradekingu)
+   - Option to hide folder names (@Yasen6275)
+   - Ukrainian translation by Maksym Bilak
+IMPROVEMENTS
+   - Gestures can now open folders (@n-ce)
+   - More icon packs supported (@n-ce)
+   - Internal optimizations
+CORRECTIONS
+   - Very long message after import
+   - Folder deleted when emptied
+   - Folder icons when sorting favorites (@xi7)
