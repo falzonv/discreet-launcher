@@ -41,6 +41,7 @@ import androidx.recyclerview.widget.RecyclerView ;
 import android.view.GestureDetector ;
 import android.view.MotionEvent ;
 import android.view.View ;
+import android.widget.ImageView ;
 import android.widget.RelativeLayout ;
 import android.widget.TextView ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
@@ -80,7 +81,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private RecyclerView favorites ;
 	private RecyclerAdapter favoritesAdapter ;
 	private GridLayoutManager favoritesLayout ;
-	private TextView menuButton ;
+	private ImageView menuButton ;
 	private TextView noFavoritesYet ;
 	private TextView targetFavorites ;
 	private TextView targetApplications ;
