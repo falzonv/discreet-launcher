@@ -32,7 +32,7 @@ import android.os.Bundle ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.appcompat.app.AppCompatDelegate ;
-import androidx.core.content.res.ResourcesCompat ;
+import androidx.appcompat.content.res.AppCompatResources ;
 import androidx.core.graphics.drawable.DrawableCompat ;
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.preference.PreferenceManager ;
@@ -375,13 +375,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				if(reverse_interface)
 					{
 						// Reversed interface
-						tab_shape = ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab_reverse, null) ;
+						tab_shape = AppCompatResources.getDrawable(this, R.drawable.shape_tab_reverse) ;
 						getWindow().setNavigationBarColor(background_color) ;
 					}
 					else
 					{
 						// Classic interface
-						tab_shape = ResourcesCompat.getDrawable(getResources(), R.drawable.shape_tab, null) ;
+						tab_shape = AppCompatResources.getDrawable(this, R.drawable.shape_tab) ;
 						getWindow().setStatusBarColor(background_color) ;
 					}
 

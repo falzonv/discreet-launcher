@@ -38,8 +38,7 @@ import android.graphics.drawable.BitmapDrawable ;
 import android.graphics.drawable.Drawable ;
 import android.os.UserHandle ;
 import android.os.UserManager ;
-import androidx.core.content.ContextCompat ;
-import androidx.core.content.res.ResourcesCompat ;
+import androidx.appcompat.content.res.AppCompatResources ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
@@ -164,7 +163,7 @@ public class ApplicationsList
 		boolean reversed = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 
 		// Add the search icon at the beginning or end of the list (based on layout)
-		Drawable searchIcon = ContextCompat.getDrawable(context, R.drawable.icon_search) ;
+		Drawable searchIcon = AppCompatResources.getDrawable(context, R.drawable.icon_search) ;
 		if(searchIcon != null) searchIcon.setBounds(0, 0, icon_size, icon_size) ;
 		if(reversed) drawer.add(new Search(context.getString(R.string.search_app_name), searchIcon)) ;
 			else drawer.add(0, new Search(context.getString(R.string.search_app_name), searchIcon)) ;
@@ -355,7 +354,7 @@ public class ApplicationsList
 	private void loadShortcuts(Context context)
 	{
 		// Use the folder icon as default shortcut icon
-		Drawable default_icon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.icon_folder, null) ;
+		Drawable default_icon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
 		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 

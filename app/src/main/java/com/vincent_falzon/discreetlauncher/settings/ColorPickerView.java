@@ -42,7 +42,7 @@ import android.graphics.drawable.Drawable ;
 import android.util.AttributeSet ;
 import android.view.MotionEvent ;
 import android.view.View ;
-import androidx.core.content.ContextCompat ;
+import androidx.appcompat.content.res.AppCompatResources ;
 import com.vincent_falzon.discreetlauncher.R ;
 
 /**
@@ -184,7 +184,7 @@ public class ColorPickerView extends View
 		alphaPaint = new Paint() ;
 
 		// Try to load the alpha grid from resources
-		Drawable alphaGrid = ContextCompat.getDrawable(getContext(), R.drawable.alpha_grid) ;
+		Drawable alphaGrid = AppCompatResources.getDrawable(getContext(), R.drawable.alpha_grid) ;
 		if(alphaGrid != null)
 			{
 				// Convert the alpha grid to a Bitmap

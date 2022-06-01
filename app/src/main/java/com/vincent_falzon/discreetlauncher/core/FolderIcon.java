@@ -32,7 +32,7 @@ import android.graphics.PixelFormat ;
 import android.graphics.PorterDuff ;
 import android.graphics.PorterDuffColorFilter ;
 import android.graphics.drawable.Drawable ;
-import androidx.core.content.res.ResourcesCompat ;
+import androidx.appcompat.content.res.AppCompatResources ;
 import com.vincent_falzon.discreetlauncher.R ;
 
 /**
@@ -57,7 +57,7 @@ public class FolderIcon extends Drawable
 		int icon_size = Math.round(48 * density) ;
 
 		// Retrieve the folder icon
-		Drawable folderIcon = ResourcesCompat.getDrawable(context.getResources(), R.drawable.icon_folder, null) ;
+		Drawable folderIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
 		if(folderIcon != null)
 			{
 				// Convert the folder icon into a Bitmap of the correct size

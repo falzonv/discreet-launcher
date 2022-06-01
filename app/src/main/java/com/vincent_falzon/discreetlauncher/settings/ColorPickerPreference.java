@@ -32,7 +32,7 @@ import android.util.AttributeSet ;
 import android.view.View ;
 import android.widget.ImageView ;
 import android.widget.LinearLayout ;
-import androidx.core.content.ContextCompat ;
+import androidx.appcompat.content.res.AppCompatResources ;
 import androidx.preference.Preference ;
 import androidx.preference.PreferenceViewHolder ;
 import com.vincent_falzon.discreetlauncher.R ;
@@ -170,7 +170,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 
 		// Prepare the preview and add it to the widget frame
 		ImageView preview = new ImageView(getContext()) ;
-		preview.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.alpha_grid)) ;
+		preview.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.alpha_grid)) ;
 		preview.setImageBitmap(bitmap) ;
 		widgetFrame.addView(preview) ;
 	}
