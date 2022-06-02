@@ -13,7 +13,7 @@
     <string name="menu_export_import">エクスポートとインポート</string>
     <string name="menu_help">ヘルプ</string>
     <string name="menu_about">このアプリについて</string>
-    <string name="menu_changelog">チェンジログ</string>
+    <string name="menu_changelog">変更履歴</string>
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">何をしますか？</string>
