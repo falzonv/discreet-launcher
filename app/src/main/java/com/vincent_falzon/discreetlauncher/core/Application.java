@@ -32,11 +32,12 @@ import android.graphics.drawable.Drawable ;
 import android.net.Uri ;
 import android.os.UserHandle ;
 import android.view.View ;
+import it.andreuzzi.comparestring2.StringableObject;
 
 /**
  * Represent an Android application (userHandle is used to identify work profile apps).
  */
-public class Application
+public class Application implements StringableObject
 {
 	// Attributes
 	String display_name ;
@@ -197,5 +198,15 @@ public class Application
 		settingsIntent.setData(Uri.parse("package:" + apk)) ;
 		settingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
 		context.startActivity(settingsIntent) ;
+	}
+
+	@Override
+	public String getLowercaseString() {
+		return getDisplayName().toLowerCase() ;
+	}
+
+	@Override
+	public String getString() {
+		return getDisplayName() ;
 	}
 }

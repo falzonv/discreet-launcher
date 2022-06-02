@@ -29,10 +29,11 @@ import android.widget.Filter ;
 import android.widget.Filterable ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import it.andreuzzi.comparestring2.AlgMap;
-import it.andreuzzi.comparestring2.Utils;
+import it.andreuzzi.comparestring2.CompareObjects;
 import it.andreuzzi.comparestring2.algs.interfaces.Algorithm;
 
 import java.util.ArrayList ;
+import java.util.Arrays;
 
 /**
  * Fill a RecyclerView with a list of applications filtered with a search result.
@@ -74,19 +75,22 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 				if(search.isEmpty()) applicationsList = initialApplicationsList ;
 					else
 					{
-						// Filter results based on the search pattern ignoring case and accents
-						applicationsList = new ArrayList<>() ;
+						final AlgMap.Alg algorithm = AlgMap.NormSimAlg.JAROWRINKLER ;
+						final Algorithm algorithmInstance = AlgMap.NormSimAlg.JAROWRINKLER.buildAlg() ;
+						final String[] splitters = {" "} ;
 
-						final Algorithm algorithm = AlgMap.NormSimAlg.JAROWRINKLER.buildAlg();
+						Application[] matches = CompareObjects.topMatchesWithDeadline(
+								Application.class,
+								search,
+								initialApplicationsList.size(),
+								initialApplicationsList,
+								4,
+								0.45f,
+								splitters,
+								algorithmInstance,
+								algorithm) ;
 
-						for(Application application : initialApplicationsList)
-						{
-							String app_name = application.getDisplayName() ;
-
-							float compare = Utils.compare(app_name, search, algorithm, AlgMap.NormSimAlg.JAROWRINKLER);
-							if(compare > 0.5)
-								applicationsList.add(application) ;
-						}
+						applicationsList = new ArrayList<>(Arrays.asList(matches)) ;
 					}
 
 				// Prepare the filter results
