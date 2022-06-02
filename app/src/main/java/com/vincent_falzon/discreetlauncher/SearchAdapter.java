@@ -28,7 +28,10 @@ import android.view.View ;
 import android.widget.Filter ;
 import android.widget.Filterable ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
-import java.text.Collator ;
+import it.andreuzzi.comparestring2.AlgMap;
+import it.andreuzzi.comparestring2.Utils;
+import it.andreuzzi.comparestring2.algs.interfaces.Algorithm;
+
 import java.util.ArrayList ;
 
 /**
@@ -38,8 +41,6 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 {
 	// Attributes
 	private final ArrayList<Application> initialApplicationsList ;
-	private final Collator collator ;
-
 
 	/**
 	 * Constructor to fill a RecyclerView with the applications list.
@@ -51,8 +52,6 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 
 		// Initializations
 		initialApplicationsList = applicationsList ;
-		collator = Collator.getInstance() ;
-		collator.setStrength(Collator.PRIMARY) ;
 	}
 
 
@@ -77,11 +76,15 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 					{
 						// Filter results based on the search pattern ignoring case and accents
 						applicationsList = new ArrayList<>() ;
-						int search_length = search.length() ;
+
+						final Algorithm algorithm = AlgMap.NormSimAlg.JAROWRINKLER.buildAlg();
+
 						for(Application application : initialApplicationsList)
 						{
 							String app_name = application.getDisplayName() ;
-							if(collator.equals(app_name.substring(0, Math.min(search_length, app_name.length())), search))
+
+							float compare = Utils.compare(app_name, search, algorithm, AlgMap.NormSimAlg.JAROWRINKLER);
+							if(compare > 0.5)
 								applicationsList.add(application) ;
 						}
 					}
