@@ -91,9 +91,8 @@
     <string name="set_dark_status_bar_icons">黒いステータスアイコンを使用する</string>
     <string name="set_dark_status_bar_icons_help">Android 5 (Lollipop)では動作しません</string>
     <string name="set_hide_app_names">アプリ名の非表示</string>
-    <string name="set_hide_app_names_help">フォルダー名は常に表示されます</string>
+    <string name="set_hide_folder_names">フォルダ名の非表示</string>
     <string name="set_remove_padding">アプリ名が非表示のとき、パディングしない</string>
-    <string name="set_remove_padding_help">長いフォルダ名のときに問題が発生することがあります</string>
     <string name="set_background_color_favorites">お気に入りのアプリの背景</string>
     <string name="set_text_color_favorites">お気に入りのアプリのテキスト</string>
     <string name="set_background_color_drawer">アプリドロワーの背景</string>
@@ -147,9 +146,10 @@
     <string name="set_hide_menu_button">メニューボタンの非表示</string>
     <string name="set_hide_menu_button_help">ランチャーアプリのアイコンから常にアクセスできます</string>
     <string name="set_disable_app_drawer">アプリドロワーの非表示</string>
+    <string name="set_double_tap">ダブルタップ</string>
     <string name="set_swipe_leftwards">左にスワイプ</string>
     <string name="set_swipe_rightwards">右にスワイプ</string>
-    <string name="set_swipe_leftrightwards_no_action">なし</string>
+    <string name="set_no_action">なし</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">メニューへのアクセスを維持するために、お気に入りを解除します</string>

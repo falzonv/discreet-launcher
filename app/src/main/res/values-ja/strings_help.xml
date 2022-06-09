@@ -38,7 +38,7 @@
     <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
     <string name="changelog_mentions">\"@pseudo\"は、アイデアを提案したユーザー、バグを報告したユーザーを示します。</string>
     <string name="changelog_folder">changelog-en</string>
-    <string name="error_changelog_missing_folder">チェンジログフォルダが見つかりません。</string>
+    <string name="error_changelog_missing_folder">変更履歴フォルダが見つかりません。</string>
     <string name="error_changelog_missing_file">%1sを開くことができません。</string>
 
 </resources>
