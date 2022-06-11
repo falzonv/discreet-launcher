@@ -170,6 +170,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	}
 
 
+	// ---------------------------------------------------------------------------------------------
+
 	/**
 	 * Fill a RecyclerView with the favorites.
 	 */
@@ -232,6 +234,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		}
 
 
+		// -----------------------------------------------------------------------------------------
+
 		/**
 		 * Represent a favorite item in the RecyclerView.
 		 */
@@ -251,6 +255,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		}
 	}
 
+
+	// ---------------------------------------------------------------------------------------------
 
 	/**
 	 * Called when a touch is detected on an element.

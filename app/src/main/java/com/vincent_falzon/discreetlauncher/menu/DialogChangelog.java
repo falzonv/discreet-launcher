@@ -126,6 +126,8 @@ public class DialogChangelog extends AlertDialog
 	}
 
 
+	// ---------------------------------------------------------------------------------------------
+
 	/**
 	 * Fill a RecyclerView with the releases.
 	 */
@@ -183,6 +185,8 @@ public class DialogChangelog extends AlertDialog
 			return releases.size() ;
 		}
 
+
+		// -----------------------------------------------------------------------------------------
 
 		/**
 		 * Represent a release item in the RecyclerView.

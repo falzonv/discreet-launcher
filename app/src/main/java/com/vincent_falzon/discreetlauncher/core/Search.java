@@ -163,6 +163,8 @@ public class Search extends Application
 	}
 
 
+	// ---------------------------------------------------------------------------------------------
+
 	/**
 	 * Dismiss the popup when the user touchs outside of it (needs <code>focusable = true</code>).
 	 */
@@ -181,6 +183,8 @@ public class Search extends Application
 		}
 	}
 
+
+	// ---------------------------------------------------------------------------------------------
 
 	/**
 	 * Called when the text of an EditText is changed by the user.

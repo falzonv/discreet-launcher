@@ -75,43 +75,6 @@ public class ActivitySettingsOperation extends AppCompatActivity
 
 
 	/**
-	 * Load the general settings from the XML file and prepare their values.
-	 */
-	public static class SettingsFragment extends PreferenceFragmentCompat
-	{
-		/**
-		 * Constructor.
-		 */
-		@Override
-		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
-		{
-			// Load the settings from the XML file
-			setPreferencesFromResource(R.xml.settings_operation, rootKey) ;
-
-			// Initialize the gestures selectors
-			ListPreference doubleTap = findPreference(Constants.DOUBLE_TAP) ;
-			if(doubleTap != null)
-				{
-					doubleTap.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
-					doubleTap.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
-				}
-			ListPreference swipeTowardsLeft = findPreference(Constants.SWIPE_LEFTWARDS) ;
-			if(swipeTowardsLeft != null)
-				{
-					swipeTowardsLeft.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
-					swipeTowardsLeft.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
-				}
-			ListPreference swipeTowardsRight = findPreference(Constants.SWIPE_RIGHTWARDS) ;
-				if(swipeTowardsRight != null)
-				{
-					swipeTowardsRight.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
-					swipeTowardsRight.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
-				}
-		}
-	}
-
-
-	/**
 	 * Build a list of all installed applications.
 	 */
 	private void loadInstalledApplications()
@@ -173,5 +136,44 @@ public class ActivitySettingsOperation extends AppCompatActivity
 
 		// Let the parent actions be performed
 		super.onDestroy() ;
+	}
+
+
+	// ---------------------------------------------------------------------------------------------
+
+	/**
+	 * Load the general settings from the XML file and prepare their values.
+	 */
+	public static class SettingsFragment extends PreferenceFragmentCompat
+	{
+		/**
+		 * Constructor.
+		 */
+		@Override
+		public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
+		{
+			// Load the settings from the XML file
+			setPreferencesFromResource(R.xml.settings_operation, rootKey) ;
+
+			// Initialize the gestures selectors
+			ListPreference doubleTap = findPreference(Constants.DOUBLE_TAP) ;
+			if(doubleTap != null)
+				{
+					doubleTap.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
+					doubleTap.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
+				}
+			ListPreference swipeTowardsLeft = findPreference(Constants.SWIPE_LEFTWARDS) ;
+			if(swipeTowardsLeft != null)
+				{
+					swipeTowardsLeft.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
+					swipeTowardsLeft.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
+				}
+			ListPreference swipeTowardsRight = findPreference(Constants.SWIPE_RIGHTWARDS) ;
+			if(swipeTowardsRight != null)
+				{
+					swipeTowardsRight.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
+					swipeTowardsRight.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
+				}
+		}
 	}
 }

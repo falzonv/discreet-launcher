@@ -54,7 +54,7 @@ import com.vincent_falzon.discreetlauncher.menu.DialogMenu ;
 import com.vincent_falzon.discreetlauncher.quickaccess.NotificationDisplayer ;
 
 /**
- * Main class activity managing the home screen and applications drawer.
+ * Main activity managing the home screen and app drawer.
  */
 public class ActivityMain extends AppCompatActivity implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener
 {
@@ -217,6 +217,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	 */
 	private void setApplicationTheme()
 	{
+		// Retrieve the selected theme (if any) and react accordingly
 		String theme = settings.getString(Constants.APPLICATION_THEME, Constants.NONE) ;
 		if(theme == null) return ;
 		switch(theme)
@@ -276,9 +277,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	 */
 	private void toggleTouchTargets()
 	{
+		// Check the user preference for touch targets
 		if(settings.getBoolean(Constants.TOUCH_TARGETS, false))
 			{
-				// Display or not targets according to the settings
+				// Display or not touch targets according to the other settings
 				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
 						targetFavorites.setVisibility(View.GONE) ;
 					else targetFavorites.setVisibility(View.VISIBLE) ;
@@ -288,6 +290,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			}
 			else
 			{
+				// Hide touch targets
 				targetFavorites.setVisibility(View.GONE) ;
 				targetApplications.setVisibility(View.GONE) ;
 			}
@@ -607,6 +610,134 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 
 	/**
+	 * Called when displaying the home screen, including on app creation.
+	 */
+	@Override
+	public void onResume()
+	{
+		// Let the parent actions be performed
+		super.onResume() ;
+
+		// Hide the favorites panel and the applications drawer
+		keepMenuAccessible() ;
+		displayFavorites(false) ;
+		displayDrawer(false) ;
+
+		// Update the display according to settings
+		dialogMenu.hide() ;
+		maybeForceOrientation() ;
+		toggleTouchTargets() ;
+		maybeHideSystemBars(false) ;
+		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
+
+		// Update the favorites panel and applications drawer display if needed
+		if(adapters_update_needed) updateAdapters() ;
+	}
+
+
+	/**
+	 * Close the app drawer or favorites if opened, otherwise do nothing.
+	 */
+	@Override
+	public void onBackPressed()
+	{
+		if(drawer.getVisibility() == View.VISIBLE) displayDrawer(false) ;
+			else if(favorites.getVisibility() == View.VISIBLE) displayFavorites(false) ;
+	}
+
+
+	/**
+	 * Called before leaving the home screen.
+	 */
+	@Override
+	public void onPause()
+	{
+		// Let the parent actions be performed
+		super.onPause() ;
+
+		// Always show the system bars
+		maybeHideSystemBars(true) ;
+
+		// Hide popups if some are still opened
+		for(Application application : applicationsList.getDrawer())
+		{
+			if(application instanceof Folder) ((Folder)application).closePopup() ;
+			if(application instanceof Search) ((Search)application).closePopup() ;
+		}
+	}
+
+
+	/**
+	 * Listen for changes in the settings and react accordingly.
+	 */
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
+	{
+		if(key == null) return ;
+		Utils.logDebug(TAG, "preference \"" + key + "\" has changed") ;
+		switch(key)
+		{
+			// ========= Appearance settings ==========
+			case Constants.APPLICATION_THEME :
+				// Update the theme
+				setApplicationTheme() ;
+				break ;
+			case Constants.HIDE_APP_NAMES :
+			case Constants.HIDE_FOLDER_NAMES :
+			case Constants.REMOVE_PADDING :
+				// Update the column width
+				recreate() ;
+				break ;
+			case Constants.TEXT_COLOR_FAVORITES :
+				// Update the text color of the favorites panel
+				favoritesAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+				break ;
+			case Constants.TEXT_COLOR_DRAWER :
+				// Update the text color of the drawer
+				drawerAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
+				break ;
+			case Constants.ICON_PACK :
+			case Constants.ICON_PACK_SECONDARY :
+			case Constants.ICON_COLOR_FILTER :
+				// Update the applications list
+				updateList(this) ;
+				break ;
+			// ========= Operation settings ==========
+			case Constants.NOTIFICATION :
+				// Toggle the notification
+				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
+					else notification.hide() ;
+				break ;
+			case Constants.REVERSE_INTERFACE :
+				// Change the interface direction
+				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
+				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
+					else setContentView(R.layout.activity_main) ;
+				recreate() ;
+				updateList(this) ;
+				break ;
+		}
+	}
+
+
+	/**
+	 * Called when this activity is destroyed.
+	 */
+	@Override
+	public void onDestroy()
+	{
+		// Unregister all remaining broadcast receivers
+		if(packagesListener != null) unregisterReceiver(packagesListener) ;
+		if(shortcutLegacyListener != null) unregisterReceiver(shortcutLegacyListener) ;
+
+		// Let the parent actions be performed
+		super.onDestroy() ;
+	}
+
+
+	// ---------------------------------------------------------------------------------------------
+
+	/**
 	 * Detect and recognize a gesture on the home screen.
 	 */
 	class GestureListener extends GestureDetector.SimpleOnGestureListener
@@ -746,58 +877,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	}
 
 
-	/**
-	 * Listen for changes in the settings and react accordingly.
-	 */
-	@Override
-	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
-	{
-		if(key == null) return ;
-		Utils.logDebug(TAG, "preference \"" + key + "\" has changed") ;
-		switch(key)
-		{
-			// ========= Appearance settings ==========
-			case Constants.APPLICATION_THEME :
-				// Update the theme
-				setApplicationTheme() ;
-				break ;
-			case Constants.HIDE_APP_NAMES :
-			case Constants.HIDE_FOLDER_NAMES :
-			case Constants.REMOVE_PADDING :
-				// Update the column width
-				recreate() ;
-				break ;
-			case Constants.TEXT_COLOR_FAVORITES :
-				// Update the text color of the favorites panel
-				favoritesAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_FAVORITES, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
-				break ;
-			case Constants.TEXT_COLOR_DRAWER :
-				// Update the text color of the drawer
-				drawerAdapter.setTextColor(Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY)) ;
-				break ;
-			case Constants.ICON_PACK :
-			case Constants.ICON_PACK_SECONDARY :
-			case Constants.ICON_COLOR_FILTER :
-				// Update the applications list
-				updateList(this) ;
-				break ;
-			// ========= Operation settings ==========
-			case Constants.NOTIFICATION :
-				// Toggle the notification
-				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
-					else notification.hide() ;
-				break ;
-			case Constants.REVERSE_INTERFACE :
-				// Change the interface direction
-				reverse_interface = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
-				if(reverse_interface) setContentView(R.layout.activity_main_reverse) ;
-					else setContentView(R.layout.activity_main) ;
-				recreate() ;
-				updateList(this) ;
-				break ;
-		}
-	}
-
+	// ---------------------------------------------------------------------------------------------
 
 	/**
 	 * Listen for scrolls on the app drawer or the favorites panel.
@@ -903,78 +983,5 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 						else scroll_position = drawerLayout.findFirstCompletelyVisibleItemPosition() ;
 				}
 		}
-	}
-
-
-	/**
-	 * Close the applications drawer or favorites panel if opened, otherwise do nothing.
-	 */
-	@Override
-	public void onBackPressed()
-	{
-		if(drawer.getVisibility() == View.VISIBLE) displayDrawer(false) ;
-			else if(favorites.getVisibility() == View.VISIBLE) displayFavorites(false) ;
-	}
-
-
-	/**
-	 * Perform actions when the user leaves the home screen.
-	 */
-	@Override
-	public void onPause()
-	{
-		// Let the parent actions be performed
-		super.onPause() ;
-
-		// Always show the system bars
-		maybeHideSystemBars(true) ;
-
-		// Hide popups if some are still opened
-		for(Application application : applicationsList.getDrawer())
-		{
-			if(application instanceof Folder) ((Folder)application).closePopup() ;
-			if(application instanceof Search) ((Search)application).closePopup() ;
-		}
-	}
-
-
-	/**
-	 * Perform actions when the user come back to the home screen.
-	 */
-	@Override
-	public void onResume()
-	{
-		// Let the parent actions be performed
-		super.onResume() ;
-
-		// Hide the favorites panel and the applications drawer
-		keepMenuAccessible() ;
-		displayFavorites(false) ;
-		displayDrawer(false) ;
-
-		// Update the display according to settings
-		dialogMenu.hide() ;
-		maybeForceOrientation() ;
-		toggleTouchTargets() ;
-		maybeHideSystemBars(false) ;
-		if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false)) displayFavorites(true) ;
-
-		// Update the favorites panel and applications drawer display if needed
-		if(adapters_update_needed) updateAdapters() ;
-	}
-
-
-	/**
-	 * Perform actions when the activity is destroyed.
-	 */
-	@Override
-	public void onDestroy()
-	{
-		// Unregister all remaining broadcast receivers
-		if(packagesListener != null) unregisterReceiver(packagesListener) ;
-		if(shortcutLegacyListener != null) unregisterReceiver(shortcutLegacyListener) ;
-
-		// Let the parent actions be performed
-		super.onDestroy() ;
 	}
 }

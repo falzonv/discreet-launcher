@@ -155,6 +155,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	}
 
 
+	// ---------------------------------------------------------------------------------------------
 
 	/**
 	 * Represent a clickable application item in the RecyclerView.

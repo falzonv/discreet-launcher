@@ -73,6 +73,27 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 
 
 	/**
+	 * Build a list of the installed icon packs.
+	 */
+	private void searchIconPacks()
+	{
+		// Retrieve the list of installed icon packs
+		PackageManager apkManager = getPackageManager() ;
+		Intent filter = new Intent("org.adw.launcher.THEMES") ;
+		List<ResolveInfo> packsList = apkManager.queryIntentActivities(filter, PackageManager.GET_META_DATA) ;
+
+		// Browse the retrieved packs and store their information in the lists
+		for(ResolveInfo pack : packsList)
+		{
+			iconPacks.add(pack.activityInfo.packageName) ;
+			packsNames.add(pack.loadLabel(apkManager).toString()) ;
+		}
+	}
+
+
+	// ---------------------------------------------------------------------------------------------
+
+	/**
 	 * Load the general settings from the XML file and prepare their values.
 	 */
 	public static class SettingsFragment extends PreferenceFragmentCompat
@@ -108,25 +129,6 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 					iconPack2.setEntryValues(iconPacks.toArray(new CharSequence[0])) ;
 					iconPack2.setEnabled(icon_packs_installed) ;
 				}
-		}
-	}
-
-
-	/**
-	 * Build a list of the installed icon packs.
-	 */
-	private void searchIconPacks()
-	{
-		// Retrieve the list of installed icon packs
-		PackageManager apkManager = getPackageManager() ;
-		Intent filter = new Intent("org.adw.launcher.THEMES") ;
-		List<ResolveInfo> packsList = apkManager.queryIntentActivities(filter, PackageManager.GET_META_DATA) ;
-
-		// Browse the retrieved packs and store their information in the lists
-		for(ResolveInfo pack : packsList)
-		{
-			iconPacks.add(pack.activityInfo.packageName) ;
-			packsNames.add(pack.loadLabel(apkManager).toString()) ;
 		}
 	}
 }

@@ -220,6 +220,16 @@ public class Folder extends Application
 
 
 	/**
+	 * Open the interface to manage folders.
+	 */
+	@Override
+	public void showSettings(Context context)
+	{
+		context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
+	}
+
+
+	/**
 	 * Dismiss the popup if it is currently displayed.
 	 */
 	public void closePopup()
@@ -227,6 +237,8 @@ public class Folder extends Application
 		if(popup != null) popup.dismiss() ;
 	}
 
+
+	// ---------------------------------------------------------------------------------------------
 
 	/**
 	 * Dismiss the popup when the user touchs outside of it (needs <code>focusable = true</code>).
@@ -244,15 +256,5 @@ public class Folder extends Application
 			closePopup() ;
 			return true ;
 		}
-	}
-
-
-	/**
-	 * Open the interface to manage folders.
-	 */
-	@Override
-	public void showSettings(Context context)
-	{
-		context.startActivity(new Intent().setClass(context, ActivityFolders.class)) ;
 	}
 }

@@ -125,6 +125,8 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 	}
 
 
+	// ---------------------------------------------------------------------------------------------
+
 	/**
 	 * Fill a RecyclerView with the folders.
 	 */
@@ -176,6 +178,8 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 			return folders.size() ;
 		}
 
+
+		// -----------------------------------------------------------------------------------------
 
 		/**
 		 * Represent a folder item in the RecyclerView.

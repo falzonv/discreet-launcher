@@ -184,7 +184,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add("# " + getString(R.string.export_import_header_icons)) ;
 		String[] shortcuts_icons = InternalFile.searchFilesStartingWith(this, Constants.FILE_ICON_SHORTCUT_PREFIX) ;
 		if(shortcuts_icons != null)
-			for(String icon : shortcuts_icons) exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;
+			for(String icon : shortcuts_icons)
+				exportedData.add(new InternalFilePNG(icon).prepareForExport()) ;
 		exportedData.add("#") ;
 
 		// Write all lines in the export file
@@ -372,6 +373,8 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		}
 	}
 
+
+	// ---------------------------------------------------------------------------------------------
 
 	/**
 	 * Create a custom ActivityResultContract to create a text/plain file.
