@@ -27,6 +27,7 @@ import android.content.BroadcastReceiver ;
 import android.content.Context ;
 import android.content.Intent ;
 import android.content.IntentFilter ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import static com.vincent_falzon.discreetlauncher.ActivityMain.updateList ;
 
 /**
@@ -34,6 +35,10 @@ import static com.vincent_falzon.discreetlauncher.ActivityMain.updateList ;
  */
 public class PackagesListener extends BroadcastReceiver
 {
+	// Constants
+	private static final String TAG = "PackagesListener" ;
+
+
 	/**
 	 * Provide the filter to use when registering this receiver.
 	 */
@@ -55,6 +60,7 @@ public class PackagesListener extends BroadcastReceiver
 	{
 		// Check if the intent is valid
 		if(intent == null) return ;
+		Utils.logDebug(TAG, "received Intent{" + intent.getAction() + "}") ;
 
 		// Do not react to applications updates
 		if(intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) return ;

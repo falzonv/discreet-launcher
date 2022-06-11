@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher ;
 // Imports
 import android.content.Context ;
 import android.content.SharedPreferences ;
+import android.util.Log ;
 import android.widget.Toast ;
 import com.vincent_falzon.discreetlauncher.settings.ColorPickerDialog ;
 
@@ -33,6 +34,10 @@ import com.vincent_falzon.discreetlauncher.settings.ColorPickerDialog ;
  */
 public abstract class Utils
 {
+	// Constants
+	private static final String LOG_PREFIX = "[LogDL] " ;
+
+
 	/**
 	 * Display an R.string message in a Toast for a short duration.
 	 */
@@ -65,5 +70,35 @@ public abstract class Utils
 
 		// Convert the hexadecimal color to an "int" color
 		return ColorPickerDialog.convertHexadecimalColorToInt(hexadecimal) ;
+	}
+
+
+	/**
+	 * Write an ERROR message to Android logcat (used in <code>catch</code> statements).
+	 */
+	public static void logError(String tag, String message)
+	{
+		if(BuildConfig.DEBUG)
+			Log.e(LOG_PREFIX + tag, message) ;
+	}
+
+
+	/**
+	 * Write an INFO message to Android logcat (used to report milestones or successes).
+	 */
+	public static void logInfo(String tag, String message)
+	{
+		if(BuildConfig.DEBUG)
+			Log.i(LOG_PREFIX + tag, message) ;
+	}
+
+
+	/**
+	 * Write a DEBUG message to Android logcat (used to follow the behavior while debugging).
+	 */
+	public static void logDebug(String tag, String message)
+	{
+		if(BuildConfig.DEBUG)
+			Log.d(LOG_PREFIX + tag, message) ;
 	}
 }

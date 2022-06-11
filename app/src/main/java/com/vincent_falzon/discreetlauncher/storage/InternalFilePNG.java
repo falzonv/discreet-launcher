@@ -29,6 +29,7 @@ import android.graphics.BitmapFactory ;
 import android.graphics.drawable.BitmapDrawable ;
 import android.graphics.drawable.Drawable ;
 import android.util.Base64 ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import java.io.ByteArrayOutputStream ;
 import java.io.FileOutputStream ;
 import java.io.IOException ;
@@ -38,6 +39,10 @@ import java.io.IOException ;
  */
 public class InternalFilePNG extends InternalFile
 {
+	// Constants
+	private static final String TAG = "InternalFilePNG" ;
+
+
 	/**
 	 * Constructor (the given filename should include the extension).
 	 */
@@ -65,6 +70,7 @@ public class InternalFilePNG extends InternalFile
 		catch(IOException exception)
 		{
 			// An error happened
+			Utils.logError(TAG, exception.getMessage()) ;
 		}
 	}
 

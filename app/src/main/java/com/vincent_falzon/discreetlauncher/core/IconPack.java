@@ -43,6 +43,9 @@ import java.io.IOException ;
  */
 class IconPack
 {
+	// Constants
+	private static final String TAG = "IconPack" ;
+
 	// Attributes
 	private final String pack_name ;
 	private Resources pack_resources ;
@@ -66,10 +69,11 @@ class IconPack
 			PackageManager apkManager = context.getPackageManager() ;
 			pack_resources = apkManager.getResourcesForApplication(pack_name) ;
 		}
-		catch(PackageManager.NameNotFoundException e)
+		catch(PackageManager.NameNotFoundException exception)
 		{
 			// Display an error message and set the icon pack to none
 			Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, pack_name)) ;
+			Utils.logInfo(TAG, pack_name + " not found, reset of \"" + setting_key + "\"") ;
 			ActivityMain.setSkipListUpdate(true) ;
 			SharedPreferences.Editor editor = settings.edit() ;
 			editor.putString(setting_key, Constants.NONE).apply() ;
@@ -139,9 +143,10 @@ class IconPack
 			// Package not found in the icon pack
 			return null ;
 		}
-		catch(XmlPullParserException | IOException e)
+		catch(XmlPullParserException | IOException exception)
 		{
 			// An error happened during the parsing
+			Utils.logError(TAG, exception.getMessage()) ;
 			return null ;
 		}
 	}

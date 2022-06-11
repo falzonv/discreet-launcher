@@ -107,7 +107,7 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 								int new_color = convertHexadecimalColorToInt(newColorHexadecimal.getText().toString()) ;
 								colorPicker.setColor(new_color, true) ;
 							}
-							catch (IllegalArgumentException e)
+							catch(IllegalArgumentException exception)
 							{
 								Utils.displayLongToast(context, context.getString(R.string.error_invalid_color_format)) ;
 							}

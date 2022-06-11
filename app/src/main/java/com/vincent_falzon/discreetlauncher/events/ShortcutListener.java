@@ -46,6 +46,10 @@ import java.util.ArrayList ;
  */
 public class ShortcutListener extends AppCompatActivity
 {
+	// Constants
+	private static final String TAG = "ShortcutListener" ;
+
+
 	/**
 	 * Constructor.
 	 */
@@ -65,7 +69,7 @@ public class ShortcutListener extends AppCompatActivity
 				LauncherApps.PinItemRequest pinRequest = intent.getParcelableExtra(LauncherApps.EXTRA_PIN_ITEM_REQUEST) ;
 				if((pinRequest != null) && (pinRequest.getShortcutInfo() != null) && pinRequest.accept())
 					{
-						// If the request is invalid, display a message and quit
+						// Check if the request is valid
 						ShortcutInfo receivedShortcut = pinRequest.getShortcutInfo() ;
 						if((receivedShortcut.getShortLabel() != null))
 							{
@@ -97,7 +101,12 @@ public class ShortcutListener extends AppCompatActivity
 								addShortcut(display_name, shortcut, icon, false) ;
 								ActivityMain.updateList(this) ;
 							}
-							else Utils.displayLongToast(this, getString(R.string.error_shortcut_invalid_request)) ;
+							else
+							{
+								// Display an error message and quit
+								Utils.displayLongToast(this, getString(R.string.error_shortcut_invalid_request)) ;
+								Utils.logError(TAG, "unable to add shortcut (" + receivedShortcut + ")") ;
+							}
 
 						// Go back to the home screen
 						Intent homeIntent = new Intent() ;
@@ -132,6 +141,7 @@ public class ShortcutListener extends AppCompatActivity
 		InternalFilePNG icon_file = new InternalFilePNG(Constants.FILE_ICON_SHORTCUT_PREFIX + display_name + ".png") ;
 		file.writeLine(shortcut) ;
 		icon_file.writeToFile(icon) ;
+		Utils.logInfo(TAG, "shortcut added") ;
 	}
 
 

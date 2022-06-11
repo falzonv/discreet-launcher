@@ -26,6 +26,7 @@ package com.vincent_falzon.discreetlauncher.storage ;
 import android.content.Context ;
 import android.net.Uri ;
 import android.os.ParcelFileDescriptor ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import java.io.BufferedReader ;
 import java.io.FileReader ;
 import java.io.FileWriter ;
@@ -37,6 +38,10 @@ import java.util.ArrayList ;
  */
 public abstract class ExternalFile
 {
+	// Constants
+	private static final String TAG = "ExternalFile" ;
+
+
 	/**
 	 * Return the file content as an array of lines, or <code>null</code> if an error happened.
 	 */
@@ -57,9 +62,10 @@ public abstract class ExternalFile
 			while((buffer = reader.readLine()) != null) content.add(buffer) ;
 			reader.close() ;
 		}
-		catch (Exception e)
+		catch(IOException exception)
 		{
 			// An error happened while reading the file
+			Utils.logError(TAG, exception.getMessage()) ;
 			return null ;
 		}
 
@@ -91,9 +97,10 @@ public abstract class ExternalFile
 			file.close() ;
 			return true ;
 		}
-		catch(IOException e)
+		catch(IOException exception)
 		{
 			// An error happened while writing the line
+			Utils.logError(TAG, exception.getMessage()) ;
 			return false ;
 		}
 	}

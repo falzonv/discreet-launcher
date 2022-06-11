@@ -46,6 +46,9 @@ import java.util.Calendar ;
  */
 public class ViewClock extends View
 {
+	// Constants
+	private static final String TAG = "ViewClock" ;
+
 	// Attributes
 	private final SharedPreferences settings ;
 	private final TextPaint textClock ;
@@ -129,6 +132,7 @@ public class ViewClock extends View
 		// Do not continue if the clock is not enabled
 		String clock_format = settings.getString(Constants.CLOCK_FORMAT, Constants.NONE) ;
 		if((clock_format == null) || clock_format.equals(Constants.NONE)) return ;
+		Utils.logInfo(TAG, "updating the clock") ;
 
 		// Initializations
 		float center_x = getWidth() / 2f ;

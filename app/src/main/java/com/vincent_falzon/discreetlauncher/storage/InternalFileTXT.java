@@ -24,9 +24,11 @@ package com.vincent_falzon.discreetlauncher.storage ;
 
 // Imports
 import com.vincent_falzon.discreetlauncher.Constants ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import java.io.BufferedReader ;
 import java.io.FileReader ;
 import java.io.FileWriter ;
+import java.io.IOException ;
 import java.util.ArrayList ;
 
 /**
@@ -34,6 +36,10 @@ import java.util.ArrayList ;
  */
 public class InternalFileTXT extends InternalFile
 {
+	// Constants
+	private static final String TAG = "InternalFileTXT" ;
+
+
 	/**
 	 * Constructor (the given filename should include the extension).
 	 */
@@ -62,9 +68,10 @@ public class InternalFileTXT extends InternalFile
 			while((buffer = reader.readLine()) != null) content.add(buffer) ;
 			reader.close() ;
 		}
-		catch (Exception e)
+		catch(IOException exception)
 		{
 			// An error happened while reading the file
+			Utils.logError(TAG, exception.getMessage()) ;
 			return null ;
 		}
 
@@ -96,9 +103,10 @@ public class InternalFileTXT extends InternalFile
 			writer.write(System.lineSeparator()) ;
 			writer.close() ;
 		}
-		catch (Exception exception)
+		catch(IOException exception)
 		{
 			// An error happened while writing the line
+			Utils.logError(TAG, exception.getMessage()) ;
 		}
 	}
 

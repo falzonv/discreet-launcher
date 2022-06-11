@@ -39,6 +39,10 @@ import static com.vincent_falzon.discreetlauncher.ActivityMain.updateList ;
  */
 public class ShortcutLegacyListener extends BroadcastReceiver
 {
+	// Constants
+	private static final String TAG = "ShortcutLegacyListener" ;
+
+
 	/**
 	 * Provide the filter to use when registering this receiver.
 	 */
@@ -57,11 +61,12 @@ public class ShortcutLegacyListener extends BroadcastReceiver
 		// Execute the following code only if the Android version is before Oreo
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
-				// Check if the intent has a valid action
-				if(intent.getAction() == null) return ;
+				// Check if the intent is valid
+				if(intent == null) return ;
+				Utils.logDebug(TAG, "received Intent{" + intent.getAction() + "}") ;
 
 				// Check if a request to add a shortcut has been received
-				if(intent.getAction().equals("com.android.launcher.action.INSTALL_SHORTCUT"))
+				if("com.android.launcher.action.INSTALL_SHORTCUT".equals(intent.getAction()))
 					{
 						// Retrive the name, icon and intent of the shortcut
 						String display_name = intent.getStringExtra(Intent.EXTRA_SHORTCUT_NAME) ;
@@ -72,6 +77,7 @@ public class ShortcutLegacyListener extends BroadcastReceiver
 						if((display_name == null) || (shortcutIntent == null))
 							{
 								Utils.displayLongToast(context, context.getString(R.string.error_shortcut_invalid_request)) ;
+								Utils.logError(TAG, "unable to add shortcut (" + display_name + ", " + shortcutIntent + ")") ;
 								return ;
 							}
 

@@ -50,6 +50,9 @@ import java.util.Date ;
  */
 public class ActivityExportImport extends AppCompatActivity implements View.OnClickListener
 {
+	// Constants
+	private static final String TAG = "ActivityExportImport" ;
+
 	// Attributes
 	private SharedPreferences settings ;
 	private SharedPreferences.Editor editor ;
@@ -186,8 +189,15 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Write all lines in the export file
 		if(ExternalFile.writeAllLines(this, location, exportedData))
+			{
 				Utils.displayToast(this, R.string.export_completed) ;
-			else Utils.displayLongToast(this, getString(R.string.error_export)) ;
+				Utils.logInfo(TAG, "export completed") ;
+			}
+			else
+			{
+				Utils.displayLongToast(this, getString(R.string.error_export)) ;
+				Utils.logError(TAG, "error when exporting to \"" + location + "\"") ;
+			}
 	}
 
 
@@ -220,6 +230,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 			{
 				// Display an error message and quit
 				Utils.displayLongToast(this, getString(R.string.error_import)) ;
+				Utils.logError(TAG, "error when importing from \"" + location + "\"") ;
 				return ;
 			}
 
@@ -324,6 +335,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 
 		// Update the applications list
 		ActivityMain.updateList(this) ;
+		Utils.logInfo(TAG, "import completed") ;
 	}
 
 

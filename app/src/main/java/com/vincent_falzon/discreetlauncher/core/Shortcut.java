@@ -41,6 +41,10 @@ import java.net.URISyntaxException ;
  */
 public class Shortcut extends Application
 {
+	// Constants
+	private static final String TAG = "Shortcut" ;
+
+
 	/**
 	 * Constructor.
 	 */
@@ -56,16 +60,21 @@ public class Shortcut extends Application
 	 */
 	public boolean start(View view)
 	{
-		// Check the type of shortcut
+		// Check if this is a shortcut before Oreo
 		Context context = view.getContext() ;
-		Intent intent ;
-
-		// If this is a shortcut before Oreo, launch it directly
 		if(apk.equals(Constants.APK_SHORTCUT_LEGACY))
 			{
-				try { intent = Intent.parseUri(name, 0) ; }
-				catch(URISyntaxException e) { return false ; }
-				context.startActivity(intent) ;
+				try
+				{
+					// Try to launch the shortcut
+					context.startActivity(Intent.parseUri(name, 0)) ;
+				}
+				catch(URISyntaxException | ActivityNotFoundException exception)
+				{
+					Utils.displayLongToast(context, context.getString(R.string.error_shortcut_start)) ;
+					Utils.logError(TAG, exception.getMessage()) ;
+					return false ;
+				}
 				return true ;
 			}
 
@@ -80,7 +89,7 @@ public class Shortcut extends Application
 		// Try to retrieve the user ID, use 0 if not found (0 is "System", the most commonly used)
 		int user_id ;
 		try { user_id = Integer.parseInt(shortcut[2]) ; }
-		catch(NumberFormatException e) { user_id = 0 ; }
+		catch(NumberFormatException exception) { user_id = 0 ; }
 
 		// Check if the system can manage these shortcuts
 		LauncherApps launcher = (LauncherApps)context.getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
@@ -98,9 +107,10 @@ public class Shortcut extends Application
 					// Try to launch the shortcut
 					launcher.startShortcut(shortcut[0], shortcut[1], null, null, UserHandle.getUserHandleForUid(user_id)) ;
 				}
-				catch(ActivityNotFoundException | IllegalStateException e)
+				catch(ActivityNotFoundException | IllegalStateException exception)
 				{
 					Utils.displayLongToast(context, context.getString(R.string.error_shortcut_start)) ;
+					Utils.logError(TAG, exception.getMessage()) ;
 					return false ;
 				}
 				return true ;

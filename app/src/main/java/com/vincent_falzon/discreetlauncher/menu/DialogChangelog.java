@@ -34,6 +34,7 @@ import androidx.appcompat.app.AlertDialog ;
 import androidx.recyclerview.widget.LinearLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import java.io.BufferedReader ;
 import java.io.IOException ;
 import java.io.InputStreamReader ;
@@ -44,6 +45,9 @@ import java.util.ArrayList ;
  */
 public class DialogChangelog extends AlertDialog
 {
+	// Constants
+	private static final String TAG = "DialogChangelog" ;
+
 	// Attributes
 	private final ArrayList<ArrayList<String>> releases ;
 
@@ -76,9 +80,10 @@ public class DialogChangelog extends AlertDialog
 					for(String file : files) if(file.length() == 6) changelog_files.add(folder + "/" + file) ;
 				}
 		}
-		catch(IOException e)
+		catch(IOException exception)
 		{
 			// An error happened while listing the folder
+			Utils.logError(TAG, exception.getMessage()) ;
 		}
 
 		// Display an error message if the changelog folder was not found
@@ -103,7 +108,7 @@ public class DialogChangelog extends AlertDialog
 				while((buffer = reader.readLine()) != null) release.add(buffer) ;
 				reader.close() ;
 			}
-			catch (Exception e)
+			catch(IOException exception)
 			{
 				// An error happened while reading the file
 				release.add(context.getString(R.string.error_changelog_missing_file, file)) ;

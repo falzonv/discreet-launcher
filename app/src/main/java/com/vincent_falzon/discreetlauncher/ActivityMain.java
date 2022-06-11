@@ -58,6 +58,9 @@ import com.vincent_falzon.discreetlauncher.quickaccess.NotificationDisplayer ;
  */
 public class ActivityMain extends AppCompatActivity implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener
 {
+	// Constants
+	private static final String TAG = "ActivityMain" ;
+
 	// Attributes
 	private static ApplicationsList applicationsList ;
 	private static boolean skip_list_update ;
@@ -750,6 +753,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
 	{
 		if(key == null) return ;
+		Utils.logDebug(TAG, "preference \"" + key + "\" has changed") ;
 		switch(key)
 		{
 			// ========= Appearance settings ==========

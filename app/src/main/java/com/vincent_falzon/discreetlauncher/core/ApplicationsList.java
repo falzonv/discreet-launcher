@@ -42,6 +42,7 @@ import androidx.appcompat.content.res.AppCompatResources ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
+import com.vincent_falzon.discreetlauncher.Utils ;
 import com.vincent_falzon.discreetlauncher.settings.ColorPickerDialog ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.util.ArrayList ;
@@ -54,6 +55,9 @@ import java.util.List ;
  */
 public class ApplicationsList
 {
+	// Constants
+	private static final String TAG = "ApplicationsList" ;
+
 	// Attributes
 	private final ArrayList<Application> drawer ;
 	private final ArrayList<Application> hidden ;
@@ -85,6 +89,7 @@ public class ApplicationsList
 	public void update(Context context)
 	{
 		// Initializations
+		Utils.logInfo(TAG, "updating the list of apps") ;
 		String apk_discreet_launcher = context.getPackageName() ;
 		IconPack iconPack1 = new IconPack(context, Constants.ICON_PACK) ;
 		IconPack iconPack2 = new IconPack(context, Constants.ICON_PACK_SECONDARY) ;

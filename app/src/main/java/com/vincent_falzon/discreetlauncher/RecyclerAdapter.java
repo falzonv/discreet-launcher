@@ -60,6 +60,9 @@ import java.util.ArrayList ;
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ApplicationView>
 {
+	// Constants
+	private static final String TAG = "RecyclerAdapter" ;
+
 	// Attributes
 	ArrayList<Application> applicationsList ;
 	private final boolean hide_app_names ;
@@ -386,8 +389,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 										{
 											context.startActivity(storeIntent) ;
 										}
-										catch (ActivityNotFoundException e)
+										catch(ActivityNotFoundException exception)
 										{
+											Utils.logError(TAG, exception.getMessage()) ;
 											Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, "{market}")) ;
 										}
 										break ;
