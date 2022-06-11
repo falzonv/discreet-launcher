@@ -108,7 +108,7 @@ public class ViewClock extends View
 		analogClock = new Paint() ;
 		analogClock.setAntiAlias(true) ;
 
-		// Start to listen for clock changes
+		// Listen for clock changes (no start/stop mechanism as this view visibility changes often)
 		MinuteListener minuteListener = new MinuteListener() ;
 		context.registerReceiver(minuteListener, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
 
@@ -251,6 +251,8 @@ public class ViewClock extends View
 	}
 
 
+	// ---------------------------------------------------------------------------------------------
+
 	/**
 	 * Listen for every minute on the system clock.
 	 */
@@ -259,11 +261,9 @@ public class ViewClock extends View
 		@Override
 		public void onReceive(Context context, Intent intent)
 		{
-			// Do not continue if the intent has no valid action
-			if(intent.getAction() == null) return ;
-
 			// Check if a minute change just happened
-			if(intent.getAction().equals(Intent.ACTION_TIME_TICK)) invalidate() ;
+			if((intent != null) && Intent.ACTION_TIME_TICK.equals(intent.getAction()))
+				invalidate() ;
 		}
 	}
 }
