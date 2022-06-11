@@ -79,10 +79,15 @@ public class DialogChangelog extends AlertDialog
 		catch(IOException e)
 		{
 			// An error happened while listing the folder
-			ArrayList<String> error = new ArrayList<>() ;
-			error.add(context.getString(R.string.error_changelog_missing_folder)) ;
-			releases.add(error) ;
 		}
+
+		// Display an error message if the changelog folder was not found
+		if(changelog_files.size() == 0)
+			{
+				ArrayList<String> error = new ArrayList<>() ;
+				error.add(context.getString(R.string.error_changelog_missing_folder)) ;
+				releases.add(error) ;
+			}
 
 		// Browse the releases notes starting with the most recent
 		for(int i = (changelog_files.size() - 1) ; i >= 0 ; i--)
@@ -101,9 +106,7 @@ public class DialogChangelog extends AlertDialog
 			catch (Exception e)
 			{
 				// An error happened while reading the file
-				ArrayList<String> error = new ArrayList<>() ;
-				error.add(context.getString(R.string.error_changelog_missing_file, file)) ;
-				releases.add(error) ;
+				release.add(context.getString(R.string.error_changelog_missing_file, file)) ;
 			}
 			releases.add(release) ;
 		}
@@ -177,7 +180,7 @@ public class DialogChangelog extends AlertDialog
 
 
 		/**
-		 * Represent a favorite item in the RecyclerView.
+		 * Represent a release item in the RecyclerView.
 		 */
 		public class ReleaseView extends RecyclerView.ViewHolder
 		{
