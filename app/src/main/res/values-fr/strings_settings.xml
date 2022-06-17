@@ -77,12 +77,18 @@
         <item>Date et heure</item>
     </string-array>
 
-    <!-- Clock position -->
+    <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Position de l\'horloge</string>
     <string-array name="set_clock_position_entries">
         <item>Haut</item>
+        <item>"Haut  -  Gauche"</item>
+        <item>"Haut  -  Droite"</item>
         <item>Milieu</item>
+        <item>"Milieu  -  Gauche"</item>
+        <item>"Milieu  -  Droite"</item>
         <item>Bas</item>
+        <item>"Bas  -  Gauche"</item>
+        <item>"Bas  -  Droite"</item>
     </string-array>
 
     <!-- Other appearance settings -->

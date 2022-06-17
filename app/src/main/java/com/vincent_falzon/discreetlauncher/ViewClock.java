@@ -53,7 +53,7 @@ public class ViewClock extends View
 	private final SharedPreferences settings ;
 	private final TextPaint textClock ;
 	private final Paint analogClock ;
-	private final float vertical_padding ;
+	private final float padding ;
 	private final float time_text_size ;
 	private final float clock_radius ;
 	private final float clock_tick_length ;
@@ -94,7 +94,7 @@ public class ViewClock extends View
 
 		// Retrieve interface dimensions
 		Resources resources = getResources() ;
-		vertical_padding = resources.getDimension(R.dimen.spacing_large) ;
+		padding = resources.getDimension(R.dimen.spacing_large) ;
 		time_text_size = resources.getDimension(R.dimen.text_size_huge) ;
 		clock_radius = resources.getDimension(R.dimen.spacing_huge) ;
 		clock_stroke_width_circle = resources.getDimension(R.dimen.spacing_very_small) ;
@@ -135,12 +135,19 @@ public class ViewClock extends View
 		Utils.logInfo(TAG, "updating the clock") ;
 
 		// Initializations
-		float center_x = getWidth() / 2f ;
+		int view_height = getHeight() ;
+		int view_width = getWidth() ;
+
+		// Retrieve the clock colors
 		int clock_color = Utils.getColor(settings, Constants.CLOCK_COLOR, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
 		int shadow_color = Utils.getColor(settings, Constants.CLOCK_SHADOW_COLOR, Constants.COLOR_FOR_OVERLAY) ;
 		textClock.setColor(clock_color) ;
 		textClock.setShadowLayer(clock_shadow_radius, 0, 0, shadow_color) ;
 		analogClock.setColor(clock_color) ;
+
+		// Retrieve the clock position
+		String clock_position = settings.getString(Constants.CLOCK_POSITION, "top") ;
+		if(clock_position == null) clock_position = "top" ;
 
 		// Retrieve the current date and time
 		Calendar current_time = Calendar.getInstance() ;
@@ -148,21 +155,24 @@ public class ViewClock extends View
 		int hour24 = current_time.get(Calendar.HOUR_OF_DAY) ;
 		int minute = current_time.get(Calendar.MINUTE) ;
 
-		// Retrieve the clock position
-		String clock_position = settings.getString(Constants.CLOCK_POSITION, "top") ;
-		if(clock_position == null) clock_position = "top" ;
-
 		// Draw the selected clock
+		float offset_x ;
 		float offset_y ;
 		if(clock_format.equals("analog"))
 			{
 				// Compute the required offset to perform the vertical alignement
-				if(clock_position.equals("middle")) offset_y = getHeight() / 2f - clock_radius - vertical_padding ;
-					else if(clock_position.equals("bottom")) offset_y = getHeight() - 2 * clock_radius - 2 * vertical_padding ;
+				if(clock_position.startsWith("middle")) offset_y = view_height / 2f - clock_radius - padding ;
+					else if(clock_position.startsWith("bottom")) offset_y = view_height - 2 * clock_radius - 2 * padding ;
 					else offset_y = 0 ;
 
+				// Compute the required offset to perfrom the horizontal alignement
+				if(clock_position.endsWith("left")) offset_x = 0 ;
+					else if(clock_position.endsWith("right")) offset_x = view_width - 2 * clock_radius - 2 * padding ;
+					else offset_x = view_width / 2f - clock_radius - padding ;
+
 				// Compute values related to the clock
-				float clock_center = vertical_padding + clock_radius + offset_y ;
+				float center_x = padding + clock_radius + offset_x ;
+				float center_y = padding + clock_radius + offset_y ;
 				float length_minute_hand = clock_radius * 0.82f ;
 				float length_hour_hand = length_minute_hand * 0.65f ;
 				float one_tour_by_12 = 2 * (float)Math.PI / 12 ;
@@ -170,22 +180,22 @@ public class ViewClock extends View
 				// Draw the clock circle and ticks
 				analogClock.setStyle(Paint.Style.STROKE) ;
 				analogClock.setStrokeWidth(clock_stroke_width_circle) ;
-				canvas.drawCircle(center_x, clock_center, clock_radius, analogClock) ;
+				canvas.drawCircle(center_x, center_y, clock_radius, analogClock) ;
 				analogClock.setStrokeWidth(clock_stroke_width_tick) ;
 				for(int i = 0 ; i < 12 ; i++)
 				{
 					float hour_tick = i * one_tour_by_12 ;
-					canvas.drawLine(center_x + (float)Math.sin(hour_tick) * (clock_radius - clock_tick_length), clock_center + (float)Math.cos(hour_tick) * (clock_radius - clock_tick_length),
-							center_x + (float)Math.sin(hour_tick) * clock_radius, clock_center + (float)Math.cos(hour_tick) * clock_radius, analogClock) ;
+					canvas.drawLine(center_x + (float)Math.sin(hour_tick) * (clock_radius - clock_tick_length), center_y + (float)Math.cos(hour_tick) * (clock_radius - clock_tick_length),
+							center_x + (float)Math.sin(hour_tick) * clock_radius, center_y + (float)Math.cos(hour_tick) * clock_radius, analogClock) ;
 				}
 
 				// Draw the clock hands
 				float hour_in_rad = (float)Math.PI - (hour12 + minute / 60f) * one_tour_by_12 ;
 				float minute_in_rad = (float)Math.PI - minute * one_tour_by_12 / 5 ;
-				canvas.drawLine(center_x, clock_center, center_x + (float)Math.sin(hour_in_rad) * length_hour_hand, clock_center + (float)Math.cos(hour_in_rad) * length_hour_hand, analogClock) ;
-				canvas.drawLine(center_x, clock_center, center_x + (float)Math.sin(minute_in_rad) * length_minute_hand, clock_center + (float)Math.cos(minute_in_rad) * length_minute_hand, analogClock) ;
+				canvas.drawLine(center_x, center_y, center_x + (float)Math.sin(hour_in_rad) * length_hour_hand, center_y + (float)Math.cos(hour_in_rad) * length_hour_hand, analogClock) ;
+				canvas.drawLine(center_x, center_y, center_x + (float)Math.sin(minute_in_rad) * length_minute_hand, center_y + (float)Math.cos(minute_in_rad) * length_minute_hand, analogClock) ;
 				analogClock.setStyle(Paint.Style.FILL) ;
-				canvas.drawCircle(center_x, clock_center, clock_radius * 0.05f, analogClock) ;
+				canvas.drawCircle(center_x, center_y, clock_radius * 0.05f, analogClock) ;
 			}
 			else if(clock_format.equals("datetime"))
 			{
@@ -197,38 +207,47 @@ public class ViewClock extends View
 				textClock.setTextSize(time_text_size) ;
 				textClock.getTextBounds(time_text, 0, time_text.length(), rect) ;
 				float time_text_height = rect.height() ;
-				float time_text_center = center_x - rect.width() / 2f ;
+				float time_text_width = rect.width() ;
 
 				// Compute the date text dimensions, making it fit in the screen width
 				float date_text_size_factor = 0.4f ;
 				textClock.setFakeBoldText(true) ;
 				textClock.setTextSize(time_text_size * date_text_size_factor) ;
 				textClock.getTextBounds(date_text, 0, date_text.length(), rect) ;
-				while((rect.width() > (getWidth() - 30)) && (date_text_size_factor > 0))
+				while((rect.width() > (view_width - 30)) && (date_text_size_factor > 0))
 				{
 					// Progressively lower the size of the date text size
 					date_text_size_factor -= 0.01 ;
 					textClock.setTextSize(time_text_size * date_text_size_factor) ;
 					textClock.getTextBounds(date_text, 0, date_text.length(), rect) ;
-					System.out.println(date_text_size_factor + " ==> " + rect.width() + " vs " + (getWidth() - 30)) ;
 				}
 				float date_text_height = rect.height() ;
-				float date_text_center = center_x - rect.width() / 2f ;
+				float date_text_width = rect.width() ;
 
-				// Define the related offset
-				if(clock_position.equals("middle")) offset_y = getHeight() / 2f + (time_text_height - 0.5f * vertical_padding - date_text_height) / 2 ;
-					else if(clock_position.equals("bottom")) offset_y = getHeight() - 1.5f * vertical_padding - date_text_height ;
-					else offset_y = vertical_padding + time_text_height ;
+				// Define the vertical offset
+				if(clock_position.startsWith("middle")) offset_y = view_height / 2f + (time_text_height - 0.5f * padding - date_text_height) / 2 ;
+					else if(clock_position.startsWith("bottom")) offset_y = view_height - 1.5f * padding - date_text_height ;
+					else offset_y = padding + time_text_height ;
+
+				// Define the horizontal offset of the time text
+				if(clock_position.endsWith("left")) offset_x = padding ;
+					else if(clock_position.endsWith("right")) offset_x = view_width - time_text_width - padding ;
+					else offset_x = view_width / 2f - time_text_width / 2f ;
 
 				// Draw the time text
 				textClock.setFakeBoldText(false) ;
 				textClock.setTextSize(time_text_size) ;
-				canvas.drawText(time_text, time_text_center, offset_y, textClock) ;
+				canvas.drawText(time_text, offset_x, offset_y, textClock) ;
+
+				// Define the horizontal offset of the date text
+				if(clock_position.endsWith("left")) offset_x = padding ;
+					else if(clock_position.endsWith("right")) offset_x = view_width - date_text_width - padding ;
+					else offset_x = view_width / 2f - date_text_width / 2f ;
 
 				// Draw the date text
 				textClock.setFakeBoldText(true) ;
 				textClock.setTextSize(time_text_size * date_text_size_factor) ;
-				canvas.drawText(date_text, date_text_center, offset_y + 0.5f * vertical_padding + date_text_height, textClock) ;
+				canvas.drawText(date_text, offset_x, offset_y + 0.5f * padding + date_text_height, textClock) ;
 			}
 			else
 			{
@@ -244,13 +263,20 @@ public class ViewClock extends View
 				if(clock_format.equals("h:mm a"))
 					time_text += (current_time.get(Calendar.AM_PM) == Calendar.AM) ? " AM" : " PM" ;
 
-				// Draw the time text
+				// Define the vertical offset
 				textClock.setTextSize(time_text_size) ;
 				textClock.getTextBounds(time_text, 0, time_text.length(), rect) ;
-				if(clock_position.equals("middle")) offset_y = getHeight() / 2f + rect.height() / 2f ;
-					else if(clock_position.equals("bottom")) offset_y = getHeight() - vertical_padding ;
-					else offset_y = vertical_padding + rect.height() ;
-				canvas.drawText(time_text, center_x - rect.width() / 2f, offset_y, textClock) ;
+				if(clock_position.startsWith("middle")) offset_y = view_height / 2f + rect.height() / 2f ;
+					else if(clock_position.startsWith("bottom")) offset_y = view_height - padding ;
+					else offset_y = padding + rect.height() ;
+
+				// Define the horizontal offset
+				if(clock_position.endsWith("left")) offset_x = padding ;
+					else if(clock_position.endsWith("right")) offset_x = view_width - rect.width() - padding ;
+					else offset_x = view_width / 2f - rect.width() / 2f ;
+
+				// Draw the time text
+				canvas.drawText(time_text, offset_x, offset_y, textClock) ;
 			}
 	}
 

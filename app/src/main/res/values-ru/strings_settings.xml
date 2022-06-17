@@ -77,12 +77,18 @@
         <item>Дата и время</item>
     </string-array>
 
-    <!-- Clock position -->
+    <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Положение часов</string>
     <string-array name="set_clock_position_entries">
         <item>Наверху</item>
+        <item>"Наверху  -  Left"</item>
+        <item>"Наверху  -  Right"</item>
         <item>Посередине</item>
+        <item>"Посередине  -  Left"</item>
+        <item>"Посередине  -  Right"</item>
         <item>Внизу</item>
+        <item>"Внизу  -  Left"</item>
+        <item>"Внизу  -  Right"</item>
     </string-array>
 
     <!-- Other appearance settings -->

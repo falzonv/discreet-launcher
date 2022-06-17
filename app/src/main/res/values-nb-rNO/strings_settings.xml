@@ -77,12 +77,18 @@
         <item>Dato og klokkeslett</item>
     </string-array>
 
-    <!-- Clock position -->
+    <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Klokkeplassering</string>
     <string-array name="set_clock_position_entries">
         <item>Topp</item>
+        <item>"Topp  -  Left"</item>
+        <item>"Topp  -  Right"</item>
         <item>Midten</item>
+        <item>"Midten  -  Left"</item>
+        <item>"Midten  -  Right"</item>
         <item>Bunn</item>
+        <item>"Bunn  -  Left"</item>
+        <item>"Bunn  -  Right"</item>
     </string-array>
 
     <!-- Other appearance settings -->

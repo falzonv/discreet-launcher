@@ -21,8 +21,14 @@
     <!-- Clock position -->
     <string-array name="set_clock_position_values">
         <item>top</item>
+        <item>top-left</item>
+        <item>top-right</item>
         <item>middle</item>
+        <item>middle-left</item>
+        <item>middle-right</item>
         <item>bottom</item>
+        <item>bottom-left</item>
+        <item>bottom-right</item>
     </string-array>
 
     <!-- Forced orientation -->

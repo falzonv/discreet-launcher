@@ -77,12 +77,18 @@
         <item>日付と時間</item>
     </string-array>
 
-    <!-- Clock position -->
+    <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">時計の位置</string>
     <string-array name="set_clock_position_entries">
         <item>上部</item>
+        <item>"上部  -  Left"</item>
+        <item>"上部  -  Right"</item>
         <item>中心</item>
+        <item>"中心  -  Left"</item>
+        <item>"中心  -  Right"</item>
         <item>下部</item>
+        <item>"下部  -  Left"</item>
+        <item>"下部  -  Right"</item>
     </string-array>
 
     <!-- Other appearance settings -->

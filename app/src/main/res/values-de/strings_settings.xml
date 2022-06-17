@@ -77,12 +77,18 @@
         <item>Datum und Uhrzeit</item>
     </string-array>
 
-    <!-- Clock position -->
+    <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Uhr Position</string>
     <string-array name="set_clock_position_entries">
         <item>Oben</item>
+        <item>"Oben  -  Left"</item>
+        <item>"Oben  -  Right"</item>
         <item>Mitte</item>
+        <item>"Mitte  -  Left"</item>
+        <item>"Mitte  -  Right"</item>
         <item>Unten</item>
+        <item>"Unten  -  Left"</item>
+        <item>"Unten  -  Right"</item>
     </string-array>
 
     <!-- Other appearance settings -->

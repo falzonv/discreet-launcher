@@ -77,12 +77,18 @@
         <item>Tanggal dan waktu</item>
     </string-array>
 
-    <!-- Clock position -->
+    <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Posisi Jam</string>
     <string-array name="set_clock_position_entries">
         <item>Atas</item>
+        <item>"Atas  -  Left"</item>
+        <item>"Atas  -  Right"</item>
         <item>Tengah</item>
+        <item>"Tengah  -  Left"</item>
+        <item>"Tengah  -  Right"</item>
         <item>Bawah</item>
+        <item>"Bawah  -  Left"</item>
+        <item>"Bawah  -  Right"</item>
     </string-array>
 
     <!-- Other appearance settings -->
