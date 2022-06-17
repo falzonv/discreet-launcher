@@ -75,6 +75,7 @@
         <item>12 годин + AM/PM</item>
         <item>Аналоговий</item>
         <item>Дата та час</item>
+        <item>Full date and time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

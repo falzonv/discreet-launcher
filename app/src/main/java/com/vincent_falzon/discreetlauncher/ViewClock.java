@@ -197,10 +197,12 @@ public class ViewClock extends View
 				analogClock.setStyle(Paint.Style.FILL) ;
 				canvas.drawCircle(center_x, center_y, clock_radius * 0.05f, analogClock) ;
 			}
-			else if(clock_format.equals("datetime"))
+			else if(clock_format.startsWith("datetime"))
 			{
 				// Prepare the date and time texts
-				String date_text = SimpleDateFormat.getDateInstance(DateFormat.FULL).format(current_time.getTime()) ;
+				String date_text ;
+				if(clock_format.endsWith("short")) date_text = SimpleDateFormat.getDateInstance(DateFormat.DEFAULT).format(current_time.getTime()) ;
+					else date_text = SimpleDateFormat.getDateInstance(DateFormat.FULL).format(current_time.getTime()) ;
 				String time_text = SimpleDateFormat.getTimeInstance(DateFormat.SHORT).format(current_time.getTime()) ;
 
 				// Compute the time text dimensions

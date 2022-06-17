@@ -75,6 +75,7 @@
         <item>12時間 + AM/PM</item>
         <item>アナログ</item>
         <item>日付と時間</item>
+        <item>Full date and time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

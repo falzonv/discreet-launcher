@@ -75,6 +75,7 @@
         <item>2-mal-12-Stunden-Zählung</item>
         <item>Analog</item>
         <item>Datum und Uhrzeit</item>
+        <item>Full date and time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

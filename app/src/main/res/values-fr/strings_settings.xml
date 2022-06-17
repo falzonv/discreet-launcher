@@ -75,6 +75,7 @@
         <item>12 heures + AM/PM</item>
         <item>Analogique</item>
         <item>Date et heure</item>
+        <item>Date et heure complètes</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

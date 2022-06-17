@@ -15,6 +15,7 @@
         <item>h:mm</item>
         <item>h:mm a</item>
         <item>analog</item>
+        <item>datetime-short</item>
         <item>datetime</item>
     </string-array>
 
