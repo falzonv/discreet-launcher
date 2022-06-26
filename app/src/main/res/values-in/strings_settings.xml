@@ -75,21 +75,21 @@
         <item>12 jam + AM/PM</item>
         <item>Analog</item>
         <item>Tanggal dan waktu</item>
-        <item>Full date and time</item>
+        <item>Tanggal dan waktu lengkap</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Posisi Jam</string>
     <string-array name="set_clock_position_entries">
         <item>Atas</item>
-        <item>"Atas  -  Left"</item>
-        <item>"Atas  -  Right"</item>
+        <item>"Atas  -  Kiri"</item>
+        <item>"Atas  -  Kanan"</item>
         <item>Tengah</item>
-        <item>"Tengah  -  Left"</item>
-        <item>"Tengah  -  Right"</item>
+        <item>"Tengah  -  Kiri"</item>
+        <item>"Tengah  -  Kanan"</item>
         <item>Bawah</item>
-        <item>"Bawah  -  Left"</item>
-        <item>"Bawah  -  Right"</item>
+        <item>"Bawah  -  Kiri"</item>
+        <item>"Bawah  -  Kanan"</item>
     </string-array>
 
     <!-- Other appearance settings -->
