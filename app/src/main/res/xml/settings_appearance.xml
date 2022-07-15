@@ -26,7 +26,7 @@
             app:title="@string/set_transparent_status_bar"
             app:summary="@string/set_transparent_status_bar_help"
             app:iconSpaceReserved="false"
-            app:defaultValue="false"/>
+            app:defaultValue="true"/>
 
         <SwitchPreference
             app:key="dark_status_bar_icons"

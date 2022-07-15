@@ -151,7 +151,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		// Save all settings
 		exportedData.add("# " + getString(R.string.export_import_header_settings)) ;
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
-		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, true)) ;
 		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_FOLDER_NAMES, false)) ;
