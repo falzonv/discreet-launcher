@@ -92,6 +92,14 @@
         <item>"Внизу  -  Right"</item>
     </string-array>
 
+    <!-- Clock size -->
+    <string name="set_clock_size">Clock size</string>
+    <string-array name="set_clock_size_entries">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
     <!-- Other appearance settings -->
     <string name="set_transparent_status_bar">Прозорий рядок стану</string>
     <string name="set_transparent_status_bar_help">Коли обране приховано</string>

@@ -7,12 +7,13 @@
     <dimen name="spacing_normal">10dp</dimen>
     <dimen name="spacing_large">20dp</dimen>
     <dimen name="spacing_very_large">40dp</dimen>
-    <dimen name="spacing_huge">70dp</dimen>
 
     <!-- Text sizes (Android default size is 14sp) -->
     <dimen name="text_size_big">16sp</dimen>
     <dimen name="text_size_bigger">18sp</dimen>
-    <dimen name="text_size_huge">60sp</dimen>
+    <dimen name="text_clock_small">40sp</dimen>
+    <dimen name="text_clock_medium">60sp</dimen>
+    <dimen name="text_clock_large">80sp</dimen>
 
     <!-- Float dimensions -->
     <dimen name="shadow_radius">20</dimen>

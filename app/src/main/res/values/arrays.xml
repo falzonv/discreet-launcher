@@ -32,6 +32,13 @@
         <item>bottom-right</item>
     </string-array>
 
+    <!-- Clock size -->
+    <string-array name="set_clock_size_values">
+        <item>small</item>
+        <item>medium</item>
+        <item>large</item>
+    </string-array>
+
     <!-- Forced orientation -->
     <string-array name="set_forced_orientation_values">
         <item>none</item>
