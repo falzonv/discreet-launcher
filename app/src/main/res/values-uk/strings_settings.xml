@@ -5,6 +5,8 @@
     <string name="button_select_favorites">Вибрати застосунки</string>
     <string name="hint_no_favorites_yet">Натиснувши кнопку, меню,\nдодайте сюди ваші улюблені застосунки.</string>
     <string name="hint_modify_order_of_favorites">Розташуйте обране в списку нижче, використовуючи бічні прокрутки.</string>
+    <string name="favorite_move_before">Move before \"%1$s\"</string>
+    <string name="favorite_move_after">Move after \"%1$s\"</string>
 
     <!-- Folders -->
     <string name="button_new_folder">Додати</string>
