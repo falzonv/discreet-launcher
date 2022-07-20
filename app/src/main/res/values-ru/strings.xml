@@ -4,7 +4,7 @@
     <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
 
     <!-- Main menu -->
-    <string name="menu">Menu</string>
+    <string name="menu">Меню</string>
     <string name="menu_favorites">Избранные</string>
     <string name="menu_folders">Папки</string>
     <string name="menu_hidden_apps">Скрытые приложения</string>
@@ -19,7 +19,7 @@
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Что вы хотите сделать?</string>
     <string name="long_click_open">Открыть \"%1s\"</string>
-    <string name="long_click_settings">Доступ к настройкам</string>
+    <string name="long_click_settings">Настройки</string>
     <string name="long_click_view_store">Просмотр страницы в магазине</string>
     <string name="long_click_rename">Переименовать</string>
     <string name="long_click_add_favorites">Добавить в избранное</string>
