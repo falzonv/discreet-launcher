@@ -5,8 +5,8 @@
     <string name="button_select_favorites">Favoriten wählen</string>
     <string name="hint_no_favorites_yet">Füge Favoriten Apps hinzu\ndurch Klicken des Menü Buttons.</string>
     <string name="hint_modify_order_of_favorites">Ändere die Reihenfolge der Favoriten in der Liste (verwende den Bildlauf zum Scrollen).</string>
-    <string name="favorite_move_before">Move before \"%1$s\"</string>
-    <string name="favorite_move_after">Move after \"%1$s\"</string>
+    <string name="favorite_move_before">Verschiebe vor \"%1$s\"</string>
+    <string name="favorite_move_after">Verschiebe nach \"%1$s\"</string>
 
     <!-- Folders -->
     <string name="button_new_folder">Hinzufügen</string>
@@ -77,29 +77,29 @@
         <item>2-mal-12-Stunden-Zählung</item>
         <item>Analog</item>
         <item>Datum und Uhrzeit</item>
-        <item>Full date and time</item>
+        <item>Vollständiges Datum und Uhrzeit</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Uhr Position</string>
     <string-array name="set_clock_position_entries">
         <item>Oben</item>
-        <item>"Oben  -  Left"</item>
-        <item>"Oben  -  Right"</item>
+        <item>"Oben  -  Links"</item>
+        <item>"Oben  -  Rechts"</item>
         <item>Mitte</item>
-        <item>"Mitte  -  Left"</item>
-        <item>"Mitte  -  Right"</item>
+        <item>"Mitte  -  Links"</item>
+        <item>"Mitte  -  Rechts"</item>
         <item>Unten</item>
-        <item>"Unten  -  Left"</item>
-        <item>"Unten  -  Right"</item>
+        <item>"Unten  -  Links"</item>
+        <item>"Unten  -  Rechts"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Clock size</string>
+    <string name="set_clock_size">Größe der Uhr</string>
     <string-array name="set_clock_size_entries">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
+        <item>Klein</item>
+        <item>Mittel</item>
+        <item>Groß</item>
     </string-array>
 
     <!-- Other appearance settings -->
