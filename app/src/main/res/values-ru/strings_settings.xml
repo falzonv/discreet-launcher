@@ -5,6 +5,8 @@
     <string name="button_select_favorites">Выбрать избранные</string>
     <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
     <string name="hint_modify_order_of_favorites">Измените порядок избранного в списке ниже (используя стороны для прокрутки).</string>
+    <string name="favorite_move_before">Move before \"%1$s\"</string>
+    <string name="favorite_move_after">Move after \"%1$s\"</string>
 
     <!-- Folders -->
     <string name="button_new_folder">Добавить</string>
@@ -90,6 +92,14 @@
         <item>Внизу</item>
         <item>"Внизу  -  Left"</item>
         <item>"Внизу  -  Right"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Clock size</string>
+    <string-array name="set_clock_size_entries">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
     </string-array>
 
     <!-- Other appearance settings -->

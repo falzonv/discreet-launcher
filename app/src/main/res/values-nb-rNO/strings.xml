@@ -4,7 +4,7 @@
     <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
 
     <!-- Main menu -->
-    <string name="menu">Menu</string>
+    <string name="menu">Meny</string>
     <string name="menu_favorites">Favoritter</string>
     <string name="menu_folders">Mapper</string>
     <string name="menu_hidden_apps">Skjulte programmer</string>

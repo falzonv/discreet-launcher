@@ -151,7 +151,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		// Save all settings
 		exportedData.add("# " + getString(R.string.export_import_header_settings)) ;
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
-		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, true)) ;
 		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_FOLDER_NAMES, false)) ;
@@ -164,6 +164,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.CLOCK_COLOR)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_SHADOW_COLOR)) ;
 		exportedData.add(exportStringSetting(Constants.CLOCK_POSITION)) ;
+		exportedData.add(exportStringSetting(Constants.CLOCK_SIZE)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK_SECONDARY)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_COLOR_FILTER)) ;
@@ -315,6 +316,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(target.equals(Constants.CLOCK_COLOR)) editor.putString(target, value) ;
 				else if(target.equals(Constants.CLOCK_SHADOW_COLOR)) editor.putString(target, value) ;
 				else if(target.equals(Constants.CLOCK_POSITION)) editor.putString(target, value) ;
+				else if(target.equals(Constants.CLOCK_SIZE)) editor.putString(target, value) ;
 				else if(target.equals(Constants.ICON_PACK)) editor.putString(target, value) ;
 				else if(target.equals(Constants.ICON_PACK_SECONDARY)) editor.putString(target, value) ;
 				else if(target.equals(Constants.ICON_COLOR_FILTER)) editor.putString(target, value) ;

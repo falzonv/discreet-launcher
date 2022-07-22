@@ -54,12 +54,12 @@ public class ViewClock extends View
 	private final TextPaint textClock ;
 	private final Paint analogClock ;
 	private final float padding ;
-	private final float time_text_size ;
-	private final float clock_radius ;
+	private final float[] time_text_sizes ;
 	private final float clock_tick_length ;
 	private final float clock_stroke_width_circle ;
 	private final float clock_stroke_width_tick ;
 	private final float clock_shadow_radius ;
+	private final float screen_width ;
 	private final Rect rect ;
 
 
@@ -95,12 +95,15 @@ public class ViewClock extends View
 		// Retrieve interface dimensions
 		Resources resources = getResources() ;
 		padding = resources.getDimension(R.dimen.spacing_large) ;
-		time_text_size = resources.getDimension(R.dimen.text_size_huge) ;
-		clock_radius = resources.getDimension(R.dimen.spacing_huge) ;
+		time_text_sizes = new float[3] ;
+		time_text_sizes[0] = resources.getDimension(R.dimen.text_clock_small) ;
+		time_text_sizes[1] = resources.getDimension(R.dimen.text_clock_medium) ;
+		time_text_sizes[2] = resources.getDimension(R.dimen.text_clock_large) ;
 		clock_stroke_width_circle = resources.getDimension(R.dimen.spacing_very_small) ;
 		clock_stroke_width_tick = resources.getDimension(R.dimen.spacing_small) * 0.8f ;
 		clock_tick_length = resources.getDimension(R.dimen.spacing_small) + clock_stroke_width_tick ;
 		clock_shadow_radius = resources.getDimension(R.dimen.spacing_normal) ;
+		screen_width = Math.min(resources.getDisplayMetrics().widthPixels, resources.getDisplayMetrics().heightPixels) ;
 
 		// Prepare the TextPaint used to draw the time and date
 		textClock = new TextPaint() ;
@@ -132,22 +135,21 @@ public class ViewClock extends View
 		// Do not continue if the clock is not enabled
 		String clock_format = settings.getString(Constants.CLOCK_FORMAT, Constants.NONE) ;
 		if((clock_format == null) || clock_format.equals(Constants.NONE)) return ;
-		Utils.logInfo(TAG, "updating the clock") ;
 
 		// Initializations
+		Utils.logInfo(TAG, "updating the clock") ;
 		int view_height = getHeight() ;
 		int view_width = getWidth() ;
+		float offset_x ;
+		float offset_y ;
 
-		// Retrieve the clock colors
+		// Retrieve the clock colors, position and size
 		int clock_color = Utils.getColor(settings, Constants.CLOCK_COLOR, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
 		int shadow_color = Utils.getColor(settings, Constants.CLOCK_SHADOW_COLOR, Constants.COLOR_FOR_OVERLAY) ;
-		textClock.setColor(clock_color) ;
-		textClock.setShadowLayer(clock_shadow_radius, 0, 0, shadow_color) ;
-		analogClock.setColor(clock_color) ;
-
-		// Retrieve the clock position
 		String clock_position = settings.getString(Constants.CLOCK_POSITION, "top") ;
+		String clock_size = settings.getString(Constants.CLOCK_SIZE, "medium") ;
 		if(clock_position == null) clock_position = "top" ;
+		if(clock_size == null) clock_size = "medium" ;
 
 		// Retrieve the current date and time
 		Calendar current_time = Calendar.getInstance() ;
@@ -155,11 +157,15 @@ public class ViewClock extends View
 		int hour24 = current_time.get(Calendar.HOUR_OF_DAY) ;
 		int minute = current_time.get(Calendar.MINUTE) ;
 
-		// Draw the selected clock
-		float offset_x ;
-		float offset_y ;
+		// Check if the clock should be analog or text-based
 		if(clock_format.equals("analog"))
 			{
+				// Adjust the clock radius to the selected clock size
+				float clock_radius ;
+				if(clock_size.equals("small")) clock_radius = screen_width * 0.10f ;
+					else if(clock_size.equals("large")) clock_radius = screen_width * 0.30f ;
+					else clock_radius = screen_width * 0.20f ;
+
 				// Compute the required offset to perform the vertical alignement
 				if(clock_position.startsWith("middle")) offset_y = view_height / 2f - clock_radius - padding ;
 					else if(clock_position.startsWith("bottom")) offset_y = view_height - 2 * clock_radius - 2 * padding ;
@@ -178,6 +184,7 @@ public class ViewClock extends View
 				float one_tour_by_12 = 2 * (float)Math.PI / 12 ;
 
 				// Draw the clock circle and ticks
+				analogClock.setColor(clock_color) ;
 				analogClock.setStyle(Paint.Style.STROKE) ;
 				analogClock.setStrokeWidth(clock_stroke_width_circle) ;
 				canvas.drawCircle(center_x, center_y, clock_radius, analogClock) ;
@@ -196,8 +203,21 @@ public class ViewClock extends View
 				canvas.drawLine(center_x, center_y, center_x + (float)Math.sin(minute_in_rad) * length_minute_hand, center_y + (float)Math.cos(minute_in_rad) * length_minute_hand, analogClock) ;
 				analogClock.setStyle(Paint.Style.FILL) ;
 				canvas.drawCircle(center_x, center_y, clock_radius * 0.05f, analogClock) ;
+				return ;
 			}
-			else if(clock_format.startsWith("datetime"))
+
+		// Prepare the text colors
+		textClock.setColor(clock_color) ;
+		textClock.setShadowLayer(clock_shadow_radius, 0, 0, shadow_color) ;
+
+		// Adjust the text size to the selected clock size
+		float time_text_size ;
+		if(clock_size.equals("small")) time_text_size = time_text_sizes[0] ;
+			else if(clock_size.equals("large")) time_text_size = time_text_sizes[2] ;
+			else time_text_size = time_text_sizes[1] ;
+
+		// Check the text format to use
+		if(clock_format.startsWith("datetime"))
 			{
 				// Prepare the date and time texts
 				String date_text ;

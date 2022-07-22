@@ -5,6 +5,8 @@
     <string name="button_select_favorites">お気に入りを選択</string>
     <string name="hint_no_favorites_yet">メニューボタンをクリックして、\nお気に入りのアプリをここに追加してください。</string>
     <string name="hint_modify_order_of_favorites">下のリストでお気に入りの順番を変更（サイドでスクロールします）。</string>
+    <string name="favorite_move_before">Move before \"%1$s\"</string>
+    <string name="favorite_move_after">Move after \"%1$s\"</string>
 
     <!-- Folders -->
     <string name="button_new_folder">追加</string>
@@ -90,6 +92,14 @@
         <item>下部</item>
         <item>"下部  -  Left"</item>
         <item>"下部  -  Right"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Clock size</string>
+    <string-array name="set_clock_size_entries">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
     </string-array>
 
     <!-- Other appearance settings -->

@@ -5,6 +5,8 @@
     <string name="button_select_favorites">Вибрати застосунки</string>
     <string name="hint_no_favorites_yet">Натиснувши кнопку, меню,\nдодайте сюди ваші улюблені застосунки.</string>
     <string name="hint_modify_order_of_favorites">Розташуйте обране в списку нижче, використовуючи бічні прокрутки.</string>
+    <string name="favorite_move_before">Розташувати перед \"%1$s\"</string>
+    <string name="favorite_move_after">Розташувати після \"%1$s\"</string>
 
     <!-- Folders -->
     <string name="button_new_folder">Додати</string>
@@ -75,21 +77,29 @@
         <item>12 годин + AM/PM</item>
         <item>Аналоговий</item>
         <item>Дата та час</item>
-        <item>Full date and time</item>
+        <item>Повна дата та час</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Розташування годинника</string>
     <string-array name="set_clock_position_entries">
         <item>Вгорі</item>
-        <item>"Вгорі  -  Left"</item>
-        <item>"Вгорі  -  Right"</item>
+        <item>"Вгорі  -  Ліворуч"</item>
+        <item>"Вгорі  -  Праворуч"</item>
         <item>Посередині</item>
-        <item>"Посередині  -  Left"</item>
-        <item>"Посередині  -  Right"</item>
+        <item>"Посередині  -  Ліворуч"</item>
+        <item>"Посередині  -  Праворуч"</item>
         <item>Внизу</item>
-        <item>"Внизу  -  Left"</item>
-        <item>"Внизу  -  Right"</item>
+        <item>"Внизу  -  Ліворуч"</item>
+        <item>"Внизу  -  Праворуч"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Розмір годинника</string>
+    <string-array name="set_clock_size_entries">
+        <item>Маленький</item>
+        <item>Середній</item>
+        <item>Великий</item>
     </string-array>
 
     <!-- Other appearance settings -->

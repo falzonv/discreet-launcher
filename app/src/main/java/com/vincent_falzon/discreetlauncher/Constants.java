@@ -65,6 +65,7 @@ public interface Constants
 	String CLOCK_COLOR = "clock_color" ;
 	String CLOCK_SHADOW_COLOR = "clock_shadow_color" ;
 	String CLOCK_POSITION = "clock_position" ;
+	String CLOCK_SIZE = "clock_size" ;
 	String ICON_PACK = "icon_pack" ;
 	String ICON_PACK_SECONDARY = "icon_pack_secondary" ;
 	String ICON_COLOR_FILTER = "icon_color_filter" ;

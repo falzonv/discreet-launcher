@@ -4,7 +4,7 @@
     <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
 
     <!-- Main menu -->
-    <string name="menu">Menu</string>
+    <string name="menu">Меню</string>
     <string name="menu_favorites">Обране</string>
     <string name="menu_folders">Теки</string>
     <string name="menu_hidden_apps">Приховані застосунки</string>

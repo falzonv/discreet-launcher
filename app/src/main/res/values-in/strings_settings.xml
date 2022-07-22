@@ -5,6 +5,8 @@
     <string name="button_select_favorites">Pilih Favorit</string>
     <string name="hint_no_favorites_yet">Tambahkan aplikasi favorit disini\ndengan mengklik tombol menu.</string>
     <string name="hint_modify_order_of_favorites">Tekan dan geser kotak aplikasi untuk mengubah urutan favorit dari daftar di bawah.</string>
+    <string name="favorite_move_before">Move before \"%1$s\"</string>
+    <string name="favorite_move_after">Move after \"%1$s\"</string>
 
     <!-- Folders -->
     <string name="button_new_folder">Tambah</string>
@@ -90,6 +92,14 @@
         <item>Bawah</item>
         <item>"Bawah  -  Kiri"</item>
         <item>"Bawah  -  Kanan"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Clock size</string>
+    <string-array name="set_clock_size_entries">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
     </string-array>
 
     <!-- Other appearance settings -->

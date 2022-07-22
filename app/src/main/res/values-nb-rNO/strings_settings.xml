@@ -5,6 +5,8 @@
     <string name="button_select_favorites">Velg favoritter</string>
     <string name="hint_no_favorites_yet">Legg til favorittprogrammer her\nved å klikke på menyknappen.</string>
     <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor (og rull ved bruk av sidene).</string>
+    <string name="favorite_move_before">Flytt før «%1$s»</string>
+    <string name="favorite_move_after">Flytt etter «%1$s»</string>
 
     <!-- Folders -->
     <string name="button_new_folder">Legg til</string>
@@ -75,21 +77,29 @@
         <item>12-timersklokke + AM/PM</item>
         <item>Analog</item>
         <item>Dato og klokkeslett</item>
-        <item>Full date and time</item>
+        <item>Full dato og klokkeslett</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Klokkeplassering</string>
     <string-array name="set_clock_position_entries">
         <item>Topp</item>
-        <item>"Topp  -  Left"</item>
-        <item>"Topp  -  Right"</item>
+        <item>"Topp  -  til venstre"</item>
+        <item>"Topp  -  til høyre"</item>
         <item>Midten</item>
-        <item>"Midten  -  Left"</item>
-        <item>"Midten  -  Right"</item>
+        <item>"Midten  -  til venstre"</item>
+        <item>"Midten  -  til høyre"</item>
         <item>Bunn</item>
-        <item>"Bunn  -  Left"</item>
-        <item>"Bunn  -  Right"</item>
+        <item>"Bunn  -  til venstre"</item>
+        <item>"Bunn  -  til høyre"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Klokkestørrelse</string>
+    <string-array name="set_clock_size_entries">
+        <item>Liten</item>
+        <item>Middels</item>
+        <item>Stor</item>
     </string-array>
 
     <!-- Other appearance settings -->

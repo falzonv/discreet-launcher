@@ -425,7 +425,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				targetFavorites.setText(R.string.target_open_favorites) ;
 
 				// If the option is selected, make the status bar fully transparent
-				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
+				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, true))
 						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
 					else getWindow().setStatusBarColor(Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY)) ;
 
@@ -474,7 +474,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				int favorites_background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
 
 				// If the option is selected, make the status bar fully transparent
-				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, false))
+				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, true))
 						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
 					else getWindow().setStatusBarColor(favorites_background_color) ;
 
