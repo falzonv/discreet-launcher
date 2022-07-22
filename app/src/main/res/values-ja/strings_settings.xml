@@ -5,8 +5,8 @@
     <string name="button_select_favorites">お気に入りを選択</string>
     <string name="hint_no_favorites_yet">メニューボタンをクリックして、\nお気に入りのアプリをここに追加してください。</string>
     <string name="hint_modify_order_of_favorites">下のリストでお気に入りの順番を変更（サイドでスクロールします）。</string>
-    <string name="favorite_move_before">Move before \"%1$s\"</string>
-    <string name="favorite_move_after">Move after \"%1$s\"</string>
+    <string name="favorite_move_before">\"%1$s\"の前へ移動</string>
+    <string name="favorite_move_after">\"%1$s\"の後へ移動</string>
 
     <!-- Folders -->
     <string name="button_new_folder">追加</string>
@@ -20,7 +20,7 @@
     <string name="hint_rename_folder">フォルダ名の変更</string>
     <string name="hint_remove_folder">フォルダを削除した場合、その内容はアプリ一覧に戻されます。</string>
     <string name="error_folder_empty_name">最初に名前を決めてください。</string>
-    <string name="error_folder_already_exists">既存の名前にないものを選んでください</string>
+    <string name="error_folder_already_exists">既存のフォルダ名でないものを選んでください</string>
     <string name="error_folder_rename">フォルダ名を変更できませんでした</string>
 
     <!-- Export and import -->
@@ -77,29 +77,29 @@
         <item>12時間 + AM/PM</item>
         <item>アナログ</item>
         <item>日付と時間</item>
-        <item>Full date and time</item>
+        <item>西暦・日付と時間</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">時計の位置</string>
     <string-array name="set_clock_position_entries">
-        <item>上部</item>
-        <item>"上部  -  Left"</item>
-        <item>"上部  -  Right"</item>
-        <item>中心</item>
-        <item>"中心  -  Left"</item>
-        <item>"中心  -  Right"</item>
-        <item>下部</item>
-        <item>"下部  -  Left"</item>
-        <item>"下部  -  Right"</item>
+        <item>上段</item>
+        <item>"上段  -  左側"</item>
+        <item>"上段  -  右側"</item>
+        <item>中段</item>
+        <item>"中段  -  左側"</item>
+        <item>"中段  -  右側"</item>
+        <item>下段</item>
+        <item>"下段  -  左側"</item>
+        <item>"下段  -  右側"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Clock size</string>
+    <string name="set_clock_size">時計の大きさ</string>
     <string-array name="set_clock_size_entries">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
     </string-array>
 
     <!-- Other appearance settings -->
