@@ -11,7 +11,7 @@ Discreet Launcher bersifat open source, tidak memerlukan izin yang tidak perlu, 
 - Mencari
 - Ganti nama dan sembunyikan aplikasi
 - Notifikasi untuk akses ke favorit
-- Buka aplikasi dengan sapuan horizontal
+- Buka aplikasi dengan sapuan horizontal atau dobel-tap
 - Dukungan pintasan (aplikasi web)
 - Pengaturan ekspor dan impor
 - Bantuan dan changelog
