@@ -32,7 +32,7 @@
         Temukan aplikasi apapun dari ikon cari. ikon cari juga bisa difavoritkan, untuk membuatnya tersedia
         dari notifikasi, dan tersembunyi.
         \n
-        \nJika hanya ada satu hasil pencarian, menekan \"Enter\" akan membukanya.
+        \nMenekan \"Enter\" akan membuka hasil pencarian pertama.
     </string>
 
     <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->

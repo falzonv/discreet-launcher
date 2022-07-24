@@ -5,8 +5,8 @@
     <string name="button_select_favorites">Pilih Favorit</string>
     <string name="hint_no_favorites_yet">Tambahkan aplikasi favorit disini\ndengan mengklik tombol menu.</string>
     <string name="hint_modify_order_of_favorites">Tekan dan geser kotak aplikasi untuk mengubah urutan favorit dari daftar di bawah.</string>
-    <string name="favorite_move_before">Move before \"%1$s\"</string>
-    <string name="favorite_move_after">Move after \"%1$s\"</string>
+    <string name="favorite_move_before">Pindah ke sebelum \"%1$s\"</string>
+    <string name="favorite_move_after">Pindah ke setelah \"%1$s\"</string>
 
     <!-- Folders -->
     <string name="button_new_folder">Tambah</string>
@@ -77,29 +77,29 @@
         <item>12 jam + AM/PM</item>
         <item>Analog</item>
         <item>Tanggal dan waktu</item>
-        <item>Full date and time</item>
+        <item>Tanggal dan waktu lengkap</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Posisi Jam</string>
     <string-array name="set_clock_position_entries">
         <item>Atas</item>
-        <item>"Atas  -  Left"</item>
-        <item>"Atas  -  Right"</item>
+        <item>"Atas  -  Kiri"</item>
+        <item>"Atas  -  Kanan"</item>
         <item>Tengah</item>
-        <item>"Tengah  -  Left"</item>
-        <item>"Tengah  -  Right"</item>
+        <item>"Tengah  -  Kiri"</item>
+        <item>"Tengah  -  Kanan"</item>
         <item>Bawah</item>
-        <item>"Bawah  -  Left"</item>
-        <item>"Bawah  -  Right"</item>
+        <item>"Bawah  -  Kiri"</item>
+        <item>"Bawah  -  Kanan"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Clock size</string>
+    <string name="set_clock_size">Ukuran Jam</string>
     <string-array name="set_clock_size_entries">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
+        <item>Kecil</item>
+        <item>Sedang</item>
+        <item>Besar</item>
     </string-array>
 
     <!-- Other appearance settings -->
