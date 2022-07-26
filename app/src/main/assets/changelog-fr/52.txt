@@ -1,0 +1,10 @@
+v6.4.0 (52) - 26/07/2022
+NOUVEAUTÉS
+   - Positions horizontales d'horloge (@jcperil)
+   - Format date et heure plus court (@jcperil)
+   - Plusieurs tailles d'horloge (@jcperil)
+   - Traduction Japonaise par Npepperlinux
+AMÉLIORATIONS
+   - Accessibilité pour trier les favoris (@bmivzkrp)
+   - Barre de statut transparente par défaut
+   - Optimisations internes
