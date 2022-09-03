@@ -23,7 +23,6 @@ package com.vincent_falzon.discreetlauncher.menu ;
  */
 
 // Imports
-import android.content.Context ;
 import android.content.DialogInterface ;
 import android.graphics.drawable.Drawable ;
 import android.os.Bundle ;
@@ -31,6 +30,7 @@ import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
 import android.view.View ;
 import android.view.ViewGroup ;
+import android.widget.ImageView ;
 import android.widget.TextView ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
@@ -224,6 +224,22 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 					return false ;
 				}
 			}) ;
+
+			// Prepare the button to move a favorite before the previous one
+			if(i > 0)
+				{
+					favoriteView.moveBefore.setVisibility(View.VISIBLE) ;
+					favoriteView.moveBefore.setContentDescription(getString(R.string.favorite_move_before, favorites.get(i - 1).getDisplayName())) ;
+				}
+				else favoriteView.moveBefore.setVisibility(View.INVISIBLE) ;
+
+			// Prepare the button to move a favorite after the next one
+			if(i < (favorites.size() - 1))
+				{
+					favoriteView.moveAfter.setVisibility(View.VISIBLE) ;
+					favoriteView.moveAfter.setContentDescription(getString(R.string.favorite_move_after, favorites.get(i + 1).getDisplayName())) ;
+				}
+				else favoriteView.moveAfter.setVisibility(View.INVISIBLE) ;
 		}
 
 
@@ -242,10 +258,12 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		/**
 		 * Represent a favorite item in the RecyclerView.
 		 */
-		public class FavoriteView extends RecyclerView.ViewHolder implements View.OnLongClickListener
+		public class FavoriteView extends RecyclerView.ViewHolder implements View.OnClickListener
 		{
 			// Attributes
 			private final TextView name ;
+			private final ImageView moveBefore ;
+			private final ImageView moveAfter ;
 
 			/**
 			 * Constructor.
@@ -256,60 +274,39 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 				super(view) ;
 
 				// Initializations
-				name = view.findViewById(R.id.favorite_item) ;
-				name.setOnLongClickListener(this) ;
+				name = view.findViewById(R.id.favorite_name) ;
+				moveBefore = view.findViewById(R.id.favorite_move_before) ;
+				moveAfter = view.findViewById(R.id.favorite_move_after) ;
+
+				// Listen for clicks on the buttons
+				moveBefore.setOnClickListener(this) ;
+				moveAfter.setOnClickListener(this) ;
 			}
 
 
 			/**
-			 * Called when an element is long pressed.
+			 * Called when an element is pressed.
 			 */
-			public boolean onLongClick(View view)
+			public void onClick(View view)
 			{
-				// Retrieve the item position and check the allowed moves
-				Context context = view.getContext() ;
-				final int position = getBindingAdapterPosition() ;
-				final boolean move_before_allowed = (position > 0) ;
-				final boolean move_after_allowed = (position < (favorites.size() - 1)) ;
-
-				// Prepare the moving options for display
-				String[] allowed_moves ;
-				if(move_before_allowed && move_after_allowed)
-						allowed_moves = new String[]{
-								context.getString(R.string.favorite_move_before, favorites.get(position - 1).getDisplayName()),
-								context.getString(R.string.favorite_move_after,  favorites.get(position + 1).getDisplayName()) } ;
-					else if(move_before_allowed)
-						allowed_moves = new String[]{ context.getString(R.string.favorite_move_before, favorites.get(position - 1).getDisplayName()) } ;
-					else allowed_moves = new String[]{ context.getString(R.string.favorite_move_after,  favorites.get(position + 1).getDisplayName()) } ;
-
-				// Display the dialog with moving options
-				AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
-				dialog.setItems(allowed_moves,
-						new DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialog, int selection)
-							{
-								// Check if both moves were allowed
-								if(move_before_allowed && move_after_allowed)
-									{
-										// React according to the selected option
-										if(selection == 0) Collections.swap(favorites, position, position - 1) ;
-											else Collections.swap(favorites, position, position + 1) ;
-									}
-									else
-									{
-										// React according to the allowed move
-										if(move_before_allowed) Collections.swap(favorites, position, position - 1) ;
-											else Collections.swap(favorites, position, position + 1) ;
-									}
-
-								// Update the display
-								adapter.notifyDataSetChanged() ;
-							}
-						}) ;
-				dialog.show() ;
-				return true ;
+				// Check the clicked button and perform the move if possible
+				int position = getBindingAdapterPosition() ;
+				if((view.getId() == R.id.favorite_move_before) && (position > 0))
+					{
+						// Move the clicked element before the previous one
+						Collections.swap(favorites, position, position - 1) ;
+						adapter.notifyItemMoved(position, position - 1) ;
+						adapter.notifyItemChanged(position - 1) ;
+						adapter.notifyItemChanged(position) ;
+					}
+					else if((view.getId() == R.id.favorite_move_after) && (position < (favorites.size() - 1)))
+					{
+						// Move the clicked element after the next one
+						Collections.swap(favorites, position, position + 1) ;
+						adapter.notifyItemMoved(position, position + 1) ;
+						adapter.notifyItemChanged(position) ;
+						adapter.notifyItemChanged(position + 1) ;
+					}
 			}
 		}
 	}
@@ -345,6 +342,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 			// Perform the move and inform the adapter
 			Collections.swap(favorites, start_position, end_position) ;
 			adapter.notifyItemMoved(start_position, end_position) ;
+			adapter.notifyItemChanged(start_position) ;
+			adapter.notifyItemChanged(end_position) ;
 			return true ;
 		}
 

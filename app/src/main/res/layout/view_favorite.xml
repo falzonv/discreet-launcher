@@ -1,18 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/favorite_item"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:layout_marginTop="@dimen/spacing_normal"
     android:layout_marginBottom="@dimen/spacing_small"
     android:layout_marginHorizontal="@dimen/spacing_very_large"
-    android:padding="@dimen/spacing_small"
-    android:drawablePadding="@dimen/spacing_normal"
-    android:gravity="center_vertical"
-    android:background="@color/for_overlay"
-    android:textColor="@color/for_text_on_overlay"
-    tools:drawableStart="@drawable/icon_folder"
-    tools:text="@string/app_name"
-    tools:ignore="Overdraw"/>
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/favorite_name"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:padding="@dimen/spacing_small"
+        android:drawablePadding="@dimen/spacing_normal"
+        android:gravity="center_vertical"
+        android:textColor="@color/for_text_on_overlay"
+        android:background="@color/for_overlay"
+        tools:drawableStart="@drawable/icon_folder"
+        tools:text="@string/app_name"/>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_marginStart="1dp"
+        android:orientation="vertical">
+
+        <!-- "contentDescription" is set dynamically -->
+        <ImageView
+            android:id="@+id/favorite_move_before"
+            android:layout_height="25dp"
+            android:layout_width="match_parent"
+            android:src="@drawable/icon_move_up"
+            android:background="@color/for_overlay"
+            android:contentDescription="@null"/>
+
+        <!-- "contentDescription" is set dynamically -->
+        <ImageView
+            android:id="@+id/favorite_move_after"
+            android:layout_height="25dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="1dp"
+            android:src="@drawable/icon_move_down"
+            android:background="@color/for_overlay"
+            android:contentDescription="@null"/>
+
+    </LinearLayout>
+
+</LinearLayout>
