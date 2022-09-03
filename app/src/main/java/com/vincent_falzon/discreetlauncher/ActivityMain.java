@@ -729,6 +729,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Unregister all remaining broadcast receivers
 		if(packagesListener != null) unregisterReceiver(packagesListener) ;
 		if(shortcutLegacyListener != null) unregisterReceiver(shortcutLegacyListener) ;
+		settings.unregisterOnSharedPreferenceChangeListener(this) ;
 
 		// Let the parent actions be performed
 		super.onDestroy() ;
