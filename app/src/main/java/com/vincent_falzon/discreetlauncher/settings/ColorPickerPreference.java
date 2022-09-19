@@ -32,6 +32,7 @@ import android.util.AttributeSet ;
 import android.view.View ;
 import android.widget.ImageView ;
 import android.widget.LinearLayout ;
+import androidx.annotation.NonNull ;
 import androidx.appcompat.content.res.AppCompatResources ;
 import androidx.preference.Preference ;
 import androidx.preference.PreferenceViewHolder ;
@@ -92,7 +93,8 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 	/**
 	 * Called when a preference is clicked.
 	 */
-	public boolean onPreferenceClick(Preference preference)
+	@Override
+	public boolean onPreferenceClick(@NonNull Preference preference)
 	{
 		// Open the color picked and mark the event as consumed
 		pickerDialog = new ColorPickerDialog(getContext(), current_color, default_color, getTitle(), this) ;
@@ -110,7 +112,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 		try
 		{
 			// Try to notify the ChangeListener that a preference will been changed
-			getOnPreferenceChangeListener().onPreferenceChange(this, new_color);
+			getOnPreferenceChangeListener().onPreferenceChange(this, new_color) ;
 		}
 		catch (NullPointerException ignored) { }
 
@@ -125,7 +127,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 	 * Called when there is a change in the preference data.
 	 */
 	@Override
-	public void onBindViewHolder(PreferenceViewHolder holder)
+	public void onBindViewHolder(@NonNull PreferenceViewHolder holder)
 	{
 		// Let the parent actions be performed
 		super.onBindViewHolder(holder) ;
