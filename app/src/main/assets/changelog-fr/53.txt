@@ -1,0 +1,5 @@
+v6.5.0 (53) - 19/09/2022
+AMÉLIORATIONS
+   - Accessibilité pour trier les favoris (@bmivzkrp)
+CORRECTIONS
+   - Long message en inversant l'interface

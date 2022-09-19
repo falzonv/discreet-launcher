@@ -1,0 +1,5 @@
+v6.5.0 (53) - 19/09/2022
+IMPROVEMENTS
+   - Accessibility to order favorites (@bmivzkrp)
+CORRECTIONS
+   - Long message when reversing interface
