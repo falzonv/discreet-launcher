@@ -304,13 +304,13 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(target.equals(Constants.TEXT_COLOR_DRAWER)) editor.putString(target, value) ;
 				else if(target.equals(Constants.OLD_DISPLAY_CLOCK))
 				{
-					// Note the configuration of the old clock setting (to remove later)
+					// Note the configuration of the old clock setting (v4.0.0 - 05/06/2021, to remove later)
 					old_clock_found = true ;
 					old_clock_status = value.equals("true") ;
 				}
 				else if(target.equals(Constants.CLOCK_FORMAT))
 				{
-					// Merge the two clock settings into a single one (to remove later)
+					// Merge the two clock settings into a single one (v4.0.0 - 05/06/2021, to remove later)
 					if(old_clock_found && !old_clock_status) editor.putString(target, Constants.NONE) ;
 						else editor.putString(target, value) ;
 				}
@@ -361,15 +361,15 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	{
 		switch(setting)
 		{
-			case Constants.OLD_BACKGROUND_COLOR:
+			case Constants.OLD_BACKGROUND_COLOR :
 				editor.putString(Constants.BACKGROUND_COLOR_FAVORITES, value) ;
 				editor.putString(Constants.BACKGROUND_COLOR_DRAWER, value) ;
 				break ;
-			case Constants.OLD_FORCE_PORTRAIT:
+			case Constants.OLD_FORCE_PORTRAIT :
 				if(value.equals("true"))
 					editor.putString(Constants.FORCED_ORIENTATION, "portrait") ;
 				break ;
-			case Constants.OLD_HIDDEN_APPLICATIONS:
+			case Constants.OLD_HIDDEN_APPLICATIONS :
 				String[] app_details = value.split(Constants.OLD_HIDDEN_APPS_SEPARATOR) ;
 				if(app_details.length >= 2)
 					new InternalFileTXT(Constants.FILE_HIDDEN).writeLine(app_details[1]) ;

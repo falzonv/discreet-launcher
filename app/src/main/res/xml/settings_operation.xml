@@ -13,7 +13,7 @@
         app:title="@string/operation_settings_title_interface"
         app:iconSpaceReserved="false">
 
-        <!-- Integrated in "forced_orientation" (v5.2.0), to remove later -->
+        <!-- Integrated in "forced_orientation" (v5.2.0 - 13/11/2021, to remove later) -->
         <SwitchPreference
             app:key="force_portrait"
             app:defaultValue="false"
