@@ -160,6 +160,8 @@
     <string name="set_reverse_interface_help">Приложения выше, а избранное ниже главного экрана</string>
     <string name="set_immersive_mode">Иммерсивный режим</string>
     <string name="set_immersive_mode_help">Нет системных панелей. (Можно принудительно включить, долго нажимая на главный экран.)</string>
+    <string name="set_interactive_clock">Interactive clock</string>
+    <string name="set_interactive_clock_help">Click the date to open the Calendar app, click the time to open the Clock app</string>
     <string name="set_hide_menu_button">Нет кнопки меню</string>
     <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
     <string name="set_disable_app_drawer">Нет ящика приложений</string>

@@ -174,6 +174,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.IMMERSIVE_MODE, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.TOUCH_TARGETS, false)) ;
+		exportedData.add(exportBooleanSetting(Constants.INTERACTIVE_CLOCK, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_MENU_BUTTON, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.DISABLE_APP_DRAWER, false)) ;
 		exportedData.add(exportStringSetting(Constants.DOUBLE_TAP)) ;
@@ -326,6 +327,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(target.equals(Constants.REVERSE_INTERFACE)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.IMMERSIVE_MODE)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.TOUCH_TARGETS)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.INTERACTIVE_CLOCK)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.HIDE_MENU_BUTTON)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.DISABLE_APP_DRAWER)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.DOUBLE_TAP)) editor.putString(target, value) ;

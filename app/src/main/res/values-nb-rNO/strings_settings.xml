@@ -160,6 +160,8 @@
     <string name="set_reverse_interface_help">Programmer ovenfor, og favorittpanel på bunnen</string>
     <string name="set_immersive_mode">Oppslukende modus</string>
     <string name="set_immersive_mode_help">Skjul systembjelker (lang-trykk på hjemmeskjermen for å påtvinge)</string>
+    <string name="set_interactive_clock">Interactive clock</string>
+    <string name="set_interactive_clock_help">Click the date to open the Calendar app, click the time to open the Clock app</string>
     <string name="set_hide_menu_button">Ingen menyknapp</string>
     <string name="set_hide_menu_button_help">Fremdeles tilgjengelig i oppstarterikonet</string>
     <string name="set_disable_app_drawer">Ingen programkurv</string>
