@@ -13,7 +13,7 @@
         app:title="@string/operation_settings_title_interface"
         app:iconSpaceReserved="false">
 
-        <!-- Integrated in "forced_orientation" (v5.2.0), to remove later -->
+        <!-- Integrated in "forced_orientation" (v5.2.0 - 13/11/2021, to remove later) -->
         <SwitchPreference
             app:key="force_portrait"
             app:defaultValue="false"
@@ -52,6 +52,13 @@
             app:key="touch_targets"
             app:title="@string/set_touch_targets"
             app:summary="@string/set_touch_targets_help"
+            app:iconSpaceReserved="false"
+            app:defaultValue="false"/>
+
+        <SwitchPreference
+            app:key="interactive_clock"
+            app:title="@string/set_interactive_clock"
+            app:summary="@string/set_interactive_clock_help"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 

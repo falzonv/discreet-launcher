@@ -180,7 +180,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		drawer.setLayoutManager(drawerLayout) ;
 		drawer.addOnScrollListener(new ScrollListener(Constants.APP_DRAWER)) ;
 
-		// Check if the legacy background color setting is still used (to remove later)
+		// Check if the legacy background color setting is still used (v5.2.0 - 13/11/2021, to remove later)
 		String background_color = settings.getString(Constants.OLD_BACKGROUND_COLOR, Constants.NONE) ;
 		if((background_color != null) && !background_color.equals("#0000FF88"))
 			{
@@ -243,7 +243,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		String forced_orientation = settings.getString(Constants.FORCED_ORIENTATION, Constants.NONE) ;
 		if(forced_orientation == null) forced_orientation = Constants.NONE ;
 
-		// Migrate from the old setting if needed (to remove later)
+		// Migrate from the old setting if needed (v5.2.0 - 13/11/2021, to remove later)
 		if(settings.getBoolean(Constants.OLD_FORCE_PORTRAIT, false))
 			{
 				forced_orientation = "portrait" ;

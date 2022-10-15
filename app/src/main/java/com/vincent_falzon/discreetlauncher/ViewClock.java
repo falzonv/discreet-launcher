@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.content.ActivityNotFoundException ;
 import android.content.BroadcastReceiver ;
 import android.content.Context ;
 import android.content.Intent ;
@@ -35,6 +36,7 @@ import android.graphics.Rect ;
 import android.graphics.Typeface ;
 import android.text.TextPaint ;
 import android.util.AttributeSet ;
+import android.view.MotionEvent ;
 import android.view.View ;
 import androidx.preference.PreferenceManager ;
 import java.text.DateFormat ;
@@ -44,7 +46,7 @@ import java.util.Calendar ;
 /**
  * Represent the clock on the home screen.
  */
-public class ViewClock extends View
+public class ViewClock extends View implements View.OnTouchListener
 {
 	// Constants
 	private static final String TAG = "ViewClock" ;
@@ -60,7 +62,9 @@ public class ViewClock extends View
 	private final float clock_stroke_width_tick ;
 	private final float clock_shadow_radius ;
 	private final float screen_width ;
-	private final Rect rect ;
+	private final Rect rect_date ;
+	private final Rect rect_time ;
+	private boolean clock_disabled ;
 
 
 	/**
@@ -119,7 +123,9 @@ public class ViewClock extends View
 		context.registerReceiver(minuteListener, new IntentFilter(Intent.ACTION_TIME_TICK)) ;
 
 		// Other initializations
-		rect = new Rect() ;
+		rect_date = new Rect() ;
+		rect_time = new Rect() ;
+		setOnTouchListener(this) ;
 	}
 
 
@@ -134,7 +140,8 @@ public class ViewClock extends View
 
 		// Do not continue if the clock is not enabled
 		String clock_format = settings.getString(Constants.CLOCK_FORMAT, Constants.NONE) ;
-		if((clock_format == null) || clock_format.equals(Constants.NONE)) return ;
+		clock_disabled = (clock_format == null) || clock_format.equals(Constants.NONE) ;
+		if(clock_disabled) return ;
 
 		// Initializations
 		Utils.logInfo(TAG, "updating the clock") ;
@@ -142,6 +149,8 @@ public class ViewClock extends View
 		int view_width = getWidth() ;
 		float offset_x ;
 		float offset_y ;
+		rect_date.setEmpty() ;
+		rect_time.setEmpty() ;
 
 		// Retrieve the clock colors, position and size
 		int clock_color = Utils.getColor(settings, Constants.CLOCK_COLOR, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
@@ -203,6 +212,9 @@ public class ViewClock extends View
 				canvas.drawLine(center_x, center_y, center_x + (float)Math.sin(minute_in_rad) * length_minute_hand, center_y + (float)Math.cos(minute_in_rad) * length_minute_hand, analogClock) ;
 				analogClock.setStyle(Paint.Style.FILL) ;
 				canvas.drawCircle(center_x, center_y, clock_radius * 0.05f, analogClock) ;
+
+				// Define the clock touch area
+				rect_time.set(Math.round(center_x - clock_radius), Math.round(center_y - clock_radius), Math.round(center_x + clock_radius), Math.round(center_y + clock_radius)) ;
 				return ;
 			}
 
@@ -227,49 +239,47 @@ public class ViewClock extends View
 
 				// Compute the time text dimensions
 				textClock.setTextSize(time_text_size) ;
-				textClock.getTextBounds(time_text, 0, time_text.length(), rect) ;
-				float time_text_height = rect.height() ;
-				float time_text_width = rect.width() ;
+				textClock.getTextBounds(time_text, 0, time_text.length(), rect_time) ;
 
 				// Compute the date text dimensions, making it fit in the screen width
 				float date_text_size_factor = 0.4f ;
 				textClock.setFakeBoldText(true) ;
 				textClock.setTextSize(time_text_size * date_text_size_factor) ;
-				textClock.getTextBounds(date_text, 0, date_text.length(), rect) ;
-				while((rect.width() > (view_width - 30)) && (date_text_size_factor > 0))
+				textClock.getTextBounds(date_text, 0, date_text.length(), rect_date) ;
+				while((rect_date.width() > (view_width - 30)) && (date_text_size_factor > 0))
 				{
 					// Progressively lower the size of the date text size
 					date_text_size_factor -= 0.01 ;
 					textClock.setTextSize(time_text_size * date_text_size_factor) ;
-					textClock.getTextBounds(date_text, 0, date_text.length(), rect) ;
+					textClock.getTextBounds(date_text, 0, date_text.length(), rect_date) ;
 				}
-				float date_text_height = rect.height() ;
-				float date_text_width = rect.width() ;
 
 				// Define the vertical offset
-				if(clock_position.startsWith("middle")) offset_y = view_height / 2f + (time_text_height - 0.5f * padding - date_text_height) / 2 ;
-					else if(clock_position.startsWith("bottom")) offset_y = view_height - 1.5f * padding - date_text_height ;
-					else offset_y = padding + time_text_height ;
+				if(clock_position.startsWith("middle")) offset_y = view_height / 2f + (rect_time.height() - 0.5f * padding - rect_date.height()) / 2 ;
+					else if(clock_position.startsWith("bottom")) offset_y = view_height - 1.5f * padding - rect_date.height() ;
+					else offset_y = padding + rect_time.height() ;
 
 				// Define the horizontal offset of the time text
 				if(clock_position.endsWith("left")) offset_x = padding ;
-					else if(clock_position.endsWith("right")) offset_x = view_width - time_text_width - padding ;
-					else offset_x = view_width / 2f - time_text_width / 2f ;
+					else if(clock_position.endsWith("right")) offset_x = view_width - rect_time.width() - padding ;
+					else offset_x = view_width / 2f - rect_time.width() / 2f ;
 
 				// Draw the time text
 				textClock.setFakeBoldText(false) ;
 				textClock.setTextSize(time_text_size) ;
 				canvas.drawText(time_text, offset_x, offset_y, textClock) ;
+				rect_time.offset(Math.round(offset_x), Math.round(offset_y)) ;
 
 				// Define the horizontal offset of the date text
 				if(clock_position.endsWith("left")) offset_x = padding ;
-					else if(clock_position.endsWith("right")) offset_x = view_width - date_text_width - padding ;
-					else offset_x = view_width / 2f - date_text_width / 2f ;
+					else if(clock_position.endsWith("right")) offset_x = view_width - rect_date.width() - padding ;
+					else offset_x = view_width / 2f - rect_date.width() / 2f ;
 
 				// Draw the date text
 				textClock.setFakeBoldText(true) ;
 				textClock.setTextSize(time_text_size * date_text_size_factor) ;
-				canvas.drawText(date_text, offset_x, offset_y + 0.5f * padding + date_text_height, textClock) ;
+				canvas.drawText(date_text, offset_x, offset_y + 0.5f * padding + rect_date.height(), textClock) ;
+				rect_date.offset(Math.round(offset_x), Math.round(offset_y + 0.5f * padding + rect_date.height())) ;
 			}
 			else
 			{
@@ -287,20 +297,80 @@ public class ViewClock extends View
 
 				// Define the vertical offset
 				textClock.setTextSize(time_text_size) ;
-				textClock.getTextBounds(time_text, 0, time_text.length(), rect) ;
-				if(clock_position.startsWith("middle")) offset_y = view_height / 2f + rect.height() / 2f ;
+				textClock.getTextBounds(time_text, 0, time_text.length(), rect_time) ;
+				if(clock_position.startsWith("middle")) offset_y = view_height / 2f + rect_time.height() / 2f ;
 					else if(clock_position.startsWith("bottom")) offset_y = view_height - padding ;
-					else offset_y = padding + rect.height() ;
+					else offset_y = padding + rect_time.height() ;
 
 				// Define the horizontal offset
 				if(clock_position.endsWith("left")) offset_x = padding ;
-					else if(clock_position.endsWith("right")) offset_x = view_width - rect.width() - padding ;
-					else offset_x = view_width / 2f - rect.width() / 2f ;
+					else if(clock_position.endsWith("right")) offset_x = view_width - rect_time.width() - padding ;
+					else offset_x = view_width / 2f - rect_time.width() / 2f ;
 
 				// Draw the time text
 				canvas.drawText(time_text, offset_x, offset_y, textClock) ;
+				rect_time.offset(Math.round(offset_x), Math.round(offset_y)) ;
 			}
 	}
+
+
+	/**
+	 * Called when an element is touched.
+	 */
+	@Override
+	public boolean onTouch(View view, MotionEvent event)
+	{
+		// Do not continue if the clock is not enabled
+		if(clock_disabled) return false ;
+
+		// Do not continue if the interactive clock setting is not enabled
+		if(!settings.getBoolean(Constants.INTERACTIVE_CLOCK, false)) return false ;
+
+		// Retrieve the event coordinates
+		int x = Math.round(event.getX()) ;
+		int y = Math.round(event.getY()) ;
+
+		// Check if the touch was in the date area
+		if(rect_date.contains(x, y))
+			return tryToOpenApp(Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_CALENDAR), "{calendar}") ;
+
+		// Check if the touch was in the time area
+		if(rect_time.contains(x, y))
+			{
+				// Search a valid alarm clock app
+				String package_name = "com.google.android.deskclock" ;
+				Intent intent = getContext().getPackageManager().getLaunchIntentForPackage(package_name) ;
+				if(intent == null)
+					{
+						package_name = "com.android.deskclock" ;
+						intent = getContext().getPackageManager().getLaunchIntentForPackage(package_name) ;
+					}
+				return tryToOpenApp(intent, package_name) ;
+			}
+
+		// Do not handle touchs outside the date/time areas
+		return false ;
+	}
+
+
+	/**
+	 * Try to open the given intent (assumed to be an external app) as a new activity.
+	 */
+	private boolean tryToOpenApp(Intent intent, String package_name)
+	{
+		try
+		{
+			getContext().startActivity(intent) ;
+			return true ;
+		}
+		catch(ActivityNotFoundException|NullPointerException exception)
+		{
+			Utils.logError(TAG, exception.getMessage()) ;
+			Utils.displayLongToast(getContext(), getContext().getString(R.string.error_app_not_found, package_name)) ;
+			return false ;
+		}
+	}
+
 
 
 	// ---------------------------------------------------------------------------------------------
