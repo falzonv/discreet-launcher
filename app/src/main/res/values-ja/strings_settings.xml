@@ -77,7 +77,7 @@
         <item>12時間 + AM/PM</item>
         <item>アナログ</item>
         <item>日付と時間</item>
-        <item>西暦・日付と時間</item>
+        <item>日付・曜日と時間</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -160,8 +160,8 @@
     <string name="set_reverse_interface_help">ホーム画面上にアプリ、下にお気に入りを表示</string>
     <string name="set_immersive_mode">イマーシブモード</string>
     <string name="set_immersive_mode_help">システムバーの非表示(ホーム画面長押しで強制終了できます)</string>
-    <string name="set_interactive_clock">Interactive clock</string>
-    <string name="set_interactive_clock_help">Click the date to open the Calendar app, click the time to open the Clock app</string>
+    <string name="set_interactive_clock">対話型時計</string>
+    <string name="set_interactive_clock_help">日付をクリックするとカレンダーアプリが、時間をクリックすると時計アプリが起動します</string>
     <string name="set_hide_menu_button">メニューボタンの非表示</string>
     <string name="set_hide_menu_button_help">ランチャーアプリのアイコンから常にアクセスできます</string>
     <string name="set_disable_app_drawer">アプリドロワーの非表示</string>

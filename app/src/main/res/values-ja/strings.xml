@@ -49,7 +49,7 @@
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">このアプリ関する改善提案や問題点の報告</string>
+    <string name="website_description">このアプリ関する改善提案や問題点の報告、プロジェクトへのサポートなど</string>
     <string name="website_link">https://vincent-falzon.com</string>
     <string name="translation_credit">(Npepperlinuxによる日本語翻訳)</string>
 
