@@ -18,14 +18,14 @@
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">¿Qué quieres hacer?</string>
-    <string name="long_click_open">Abrir \"%1s\"</string>
+    <string name="long_click_open">Abrir \"%1$s\"</string>
     <string name="long_click_settings">Acceder a sus ajustes</string>
     <string name="long_click_view_store">Ver página en la tienda</string>
     <string name="long_click_rename">Renombrar</string>
     <string name="long_click_add_favorites">Añadir a favoritos</string>
     <string name="long_click_remove_favorites">Remover de favoritos</string>
     <string name="long_click_add_folder">Añadir a carpeta</string>
-    <string name="long_click_remove_folder">Remover de la carpeta \"%1s\"</string>
+    <string name="long_click_remove_folder">Remover de la carpeta \"%1$s\"</string>
     <string name="long_click_hide_search">Ocultar</string>
     <string name="long_click_remove_shortcut">Remover este acceso rápido</string>
 

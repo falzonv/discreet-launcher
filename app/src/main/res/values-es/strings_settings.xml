@@ -43,7 +43,7 @@
     <string name="error_shortcut_missing_info">No se pudo seguir este acceso rápido</string>
     <string name="error_shortcut_not_default_launcher">Sólo el lanzador por defecto puede abrir accesos rápidos</string>
     <string name="error_shortcut_start">El sistema Android no pudo abrir el acceso rápido</string>
-    <string name="error_shortcut_remove">No se pudo borrar el archivo %1$</string>
+    <string name="error_shortcut_remove">No se pudo borrar el archivo %1$s</string>
 
 
     <!-- ========== Appearance settings menu ========== -->

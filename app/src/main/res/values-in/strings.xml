@@ -18,14 +18,14 @@
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Mau ngapain?</string>
-    <string name="long_click_open">Buka \"%1s\"</string>
+    <string name="long_click_open">Buka \"%1$s\"</string>
     <string name="long_click_settings">Akses pengaturannya</string>
     <string name="long_click_view_store">Lihat di Play Store</string>
     <string name="long_click_rename">Ganti Nama</string>
     <string name="long_click_add_favorites">Tambah ke favorit</string>
     <string name="long_click_remove_favorites">Hapus dari favorit</string>
     <string name="long_click_add_folder">Tambah ke folder</string>
-    <string name="long_click_remove_folder">Hapus dari folder \"%1s\"</string>
+    <string name="long_click_remove_folder">Hapus dari folder \"%1$s\"</string>
     <string name="long_click_hide_search">Sembunyikan</string>
     <string name="long_click_remove_shortcut">Hapus Pemintas</string>
 

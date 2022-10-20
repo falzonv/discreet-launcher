@@ -39,6 +39,6 @@
     <string name="changelog_mentions">\"@pseudo\" indikerer brukeren som foreslo idéen eller rapporterte feilen</string>
     <string name="changelog_folder">changelog-en</string>
     <string name="error_changelog_missing_folder">Kunne ikke finne endringsloggmappen.</string>
-    <string name="error_changelog_missing_file">Kunne ikke åpne %1s.</string>
+    <string name="error_changelog_missing_file">Kunne ikke åpne %1$s.</string>
 
 </resources>

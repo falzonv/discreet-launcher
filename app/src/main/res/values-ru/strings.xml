@@ -18,14 +18,14 @@
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Что вы хотите сделать?</string>
-    <string name="long_click_open">Открыть \"%1s\"</string>
+    <string name="long_click_open">Открыть \"%1$s\"</string>
     <string name="long_click_settings">Доступ к настройкам</string>
     <string name="long_click_view_store">Просмотр страницы в магазине</string>
     <string name="long_click_rename">Переименовать</string>
     <string name="long_click_add_favorites">Добавить в избранное</string>
     <string name="long_click_remove_favorites">Удалить из избранного</string>
     <string name="long_click_add_folder">Добавить в папку</string>
-    <string name="long_click_remove_folder">Удалить из папки \"%1s\"</string>
+    <string name="long_click_remove_folder">Удалить из папки \"%1$s\"</string>
     <string name="long_click_hide_search">Скрыть</string>
     <string name="long_click_remove_shortcut">Удалить этот ярлык</string>
 

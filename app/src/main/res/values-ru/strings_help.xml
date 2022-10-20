@@ -39,6 +39,6 @@
     <string name="changelog_mentions">\"@pseudo\" указывает на пользователя, который предложил идею или сообщил об ошибке</string>
     <string name="changelog_folder">changelog-en</string>
     <string name="error_changelog_missing_folder">Не удалось найти папку журнала изменений</string>
-    <string name="error_changelog_missing_file">Не удалось открыть %1s</string>
+    <string name="error_changelog_missing_file">Не удалось открыть %1$s</string>
 
 </resources>

@@ -18,14 +18,14 @@
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">何をしますか？</string>
-    <string name="long_click_open">\"%1s\"を開く</string>
+    <string name="long_click_open">\"%1$s\"を開く</string>
     <string name="long_click_settings">設定画面を開く</string>
     <string name="long_click_view_store">ストアページを表示する</string>
     <string name="long_click_rename">名前の変更</string>
     <string name="long_click_add_favorites">お気に入りに追加</string>
     <string name="long_click_remove_favorites">お気に入りから削除</string>
     <string name="long_click_add_folder">フォルダに追加</string>
-    <string name="long_click_remove_folder">\"%1s\"フォルダから削除</string>
+    <string name="long_click_remove_folder">\"%1$s\"フォルダから削除</string>
     <string name="long_click_hide_search">非表示</string>
     <string name="long_click_remove_shortcut">このショートカットを削除</string>
 

@@ -18,14 +18,14 @@
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Що бажаєте зробити?</string>
-    <string name="long_click_open">Відкрити \"%1s\"</string>
+    <string name="long_click_open">Відкрити \"%1$s\"</string>
     <string name="long_click_settings">Налаштувати</string>
     <string name="long_click_view_store">Переглянути сторінку в крамниці застосунків</string>
     <string name="long_click_rename">Перейменувати</string>
     <string name="long_click_add_favorites">Додати до обраного</string>
     <string name="long_click_remove_favorites">Видалити з обраного</string>
     <string name="long_click_add_folder">Додати до теки</string>
-    <string name="long_click_remove_folder">Видалити з теки \"%1s\"</string>
+    <string name="long_click_remove_folder">Видалити з теки \"%1$s\"</string>
     <string name="long_click_hide_search">Приховати</string>
     <string name="long_click_remove_shortcut">Видалити ярлик</string>
 

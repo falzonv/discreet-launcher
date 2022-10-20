@@ -39,6 +39,6 @@
     <string name="changelog_mentions">\"@pseudo\" вказує на користувача, який запропонував ідею, чи повідомив про ваду</string>
     <string name="changelog_folder">changelog-en</string>
     <string name="error_changelog_missing_folder">Не вдалося знайти теку журналу змін</string>
-    <string name="error_changelog_missing_file">Не вдалося відкрити %1s</string>
+    <string name="error_changelog_missing_file">Не вдалося відкрити %1$s</string>
 
 </resources>

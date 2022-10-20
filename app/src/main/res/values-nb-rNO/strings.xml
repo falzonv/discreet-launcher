@@ -18,14 +18,14 @@
 
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Hva ønsker du å gjøre?</string>
-    <string name="long_click_open">Åpne «%1s»</string>
+    <string name="long_click_open">Åpne «%1$s»</string>
     <string name="long_click_settings">Vis til dens innstillinger</string>
     <string name="long_click_view_store">Vis butikksiden</string>
     <string name="long_click_rename">Gi nytt navn</string>
     <string name="long_click_add_favorites">Legg til som favoritt</string>
     <string name="long_click_remove_favorites">Fjern fra favoritter</string>
     <string name="long_click_add_folder">Legg til i en mappe</string>
-    <string name="long_click_remove_folder">Fjern fra «%1s»-mappe</string>
+    <string name="long_click_remove_folder">Fjern fra «%1$s»-mappe</string>
     <string name="long_click_hide_search">Skjul</string>
     <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
 
