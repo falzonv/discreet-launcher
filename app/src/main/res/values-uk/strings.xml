@@ -49,7 +49,7 @@
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">Запропонувати покращення, та повідомити про вади, можна на сторінці</string>
+    <string name="website_description">Запропонувати покращення, повідомити про ваду, а також підтримати проєкт, можна на сторінці</string>
     <string name="website_link">https://vincent-falzon.com</string>
     <string name="translation_credit">(Український переклад від Maksym Bilak)</string>
 
