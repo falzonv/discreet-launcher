@@ -1,3 +1,4 @@
 v6.6.0 (54) - 24/10/2022
 NOUVEAUTÉS
    - Option horloge interactive (@kariboooooo)
+   - Traduction Espagnole par yetanotherfossman
