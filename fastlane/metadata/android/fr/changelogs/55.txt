@@ -1,0 +1,8 @@
+v6.6.1 (55) - 27/10/2022
+CORRECTIONS
+   - Changelog de la v6.6.0
+
+v6.6.0 (54) - 24/10/2022
+NOUVEAUTÉS
+   - Option horloge interactive (@kariboooooo)
+   - Traduction Espagnole par yetanotherfossman
