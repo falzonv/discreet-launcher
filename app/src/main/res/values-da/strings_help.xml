@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Help -->
+    <string name="help_navigation_title">Navigation</string>
+    <string name="help_navigation">
+        tryg op fra startskærmen for at vise alle apps, og nedad for at gå tilbage.
+         \n
+         \nStryg ned fra startskærmen for at vise favoritter og opad for at gå tilbage.
+         \n
+         \nKlik på menuknappen (når du ser favoritter) eller startikonet for at åbne menuen.
+         \n
+         \nTryk og hold en app eller mappe nede for at få adgang til dens indstillinger.
+    </string>
+    <string name="help_notification_title">Meddelelser</string>
+    <string name="help_notification">
+        Viser en popup med favoritter over andre apps, når du forlader startskærmen.
+    </string>
+    <string name="help_list_update_title">Opdatering af liste</string>
+    <string name="help_list_update">
+        En pop op-meddelelse vises, når applisten og ikonerne opdateres,
+         når du starter, tilføjer eller fjerner apps, eller hvis ikonpakken er ændret.
+    </string>
+    <string name="help_folders_title">Mapper</string>
+    <string name="help_folders">
+        Administrer mapper eller favorit dem fra menuknappen, eller klik på titlen på en åben mappe
+         at oprette, omdøbe og lægge apps i den.
+         \nHvis du fjerner mapper, flyttes alle apps i dem tilbage på hovedlisten.
+    </string>
+    <string name="help_search_title">Søg</string>
+    <string name="help_search">
+        Find enhver app fra søgeikonet. Det kan også vælges at være tilgængeligt fra meddelelsen eller skjules. 
+         \n
+         \nTryk på \"Enter\" åbner det første søgeresultat.
+    </string>
+
+    <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
+    <string name="changelog_mentions">\"@pseudo\" angiver den bruger, der foreslog ideen eller rapporterede fejlen</string>
+    <string name="changelog_folder">changelog-en</string>
+    <string name="error_changelog_missing_folder">Kunne ikke finde mappen med liste med opdateringer</string>
+    <string name="error_changelog_missing_file">Kunne ikke åbne %1$s</string>
+
+</resources>
