@@ -1,0 +1,31 @@
+Discreet Launcher giver dig en distraktionsfri startskærm, så du fuldt ud kan nyde dit baggrundstapet.
+
+Fra denne rene startskærm skal du blot stryge fingeren ned for at vise dine foretrukne applikationer eller op for at se den komplette liste over applikationer.
+
+Hvis du holder fingeren et øjeblik på en applikation, vil du blive tilbudt at få adgang til dens systemindstillinger og dens side i butikken.
+
+Discreet Launcher er open source, kræver ingen unødvendig tilladelse, fungerer fuldstændig offline og inkluderer ingen reklamer.
+
+1/ Andre funktioner
+- Mapper
+- Søg
+- Omdøb og skjul apps
+- Meddelelse om adgang til favoritter
+- Stryg vandret eller dobbelttryk for at åbne appen
+- Understøttelse af genveje (webapps)
+- Eksporter og importer indstillinger
+- Hjælp og ændringslog
+
+2/ Tilpasningsmuligheder
+- Tema og farver
+- Tvunget orientering
+- Gennemsigtig statuslinje
+- Ingen systembjælker (immersive mode)
+- ur, der kan tilpasses
+- Touch-mål (tilgængelighed)
+- Vis altid favoritter
+- Omvendt grænseflade
+- Ingen menuknap
+- Ingen app-skuffe
+- Ingen appnavne
+- Understøttelse af ikonpakker
