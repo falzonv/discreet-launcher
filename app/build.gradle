@@ -5,8 +5,8 @@ apply plugin: 'com.android.application'
 android
 {
     // API level used to compile the application
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 32
+    buildToolsVersion "32.1.0-rc1"
 
     defaultConfig
     {
@@ -15,7 +15,7 @@ android
 
         // Minimum API required and API used for compilation
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 32
 
         // Versioning
         versionCode 55
