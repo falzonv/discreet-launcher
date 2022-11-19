@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher.menu ;
 // Imports
 import android.content.DialogInterface ;
 import android.graphics.drawable.Drawable ;
+import android.os.Build ;
 import android.os.Bundle ;
 import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
@@ -81,6 +82,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		RecyclerView recycler = findViewById(R.id.favorites_list) ;
 		recycler.setLayoutManager(new LinearLayoutManager(this)) ;
 		recycler.setAdapter(adapter) ;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+			recycler.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
 
 		// Listen for sorting actions on the list
 		touchManager = new ItemTouchHelper(new TouchCallback()) ;

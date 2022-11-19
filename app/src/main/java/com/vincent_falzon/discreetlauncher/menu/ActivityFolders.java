@@ -27,6 +27,7 @@ import android.app.Activity ;
 import android.content.Context ;
 import android.content.DialogInterface ;
 import android.graphics.drawable.Drawable ;
+import android.os.Build ;
 import android.os.Bundle ;
 import android.view.LayoutInflater ;
 import android.view.View ;
@@ -81,6 +82,8 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 		foldersList.setLayoutManager(new LinearLayoutManager(this)) ;
 		adapter = new FoldersListAdapter(folders) ;
 		foldersList.setAdapter(adapter) ;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+			foldersList.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
 	}
 
 

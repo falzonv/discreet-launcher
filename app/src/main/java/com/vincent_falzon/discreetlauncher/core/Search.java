@@ -29,6 +29,7 @@ import android.content.SharedPreferences ;
 import android.graphics.Color ;
 import android.graphics.drawable.ColorDrawable ;
 import android.graphics.drawable.Drawable ;
+import android.os.Build ;
 import android.text.Editable ;
 import android.text.TextWatcher ;
 import android.view.Gravity ;
@@ -123,6 +124,8 @@ public class Search extends Application
 		recycler.setAdapter(adapter) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(context, ActivityMain.getApplicationWidth())) ;
 		recycler.setMinimumHeight(0) ;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+			recycler.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
 
 		// Retrieve the app drawer colors
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;

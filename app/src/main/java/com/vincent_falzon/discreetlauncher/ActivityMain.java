@@ -157,6 +157,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		defaultLauncherButton.setOnClickListener(this) ;
 		gestureDetector = new GestureDetectorCompat(this, new GestureListener(homeScreen)) ;
 
+		// Starting with Android 12, disable the elastic animation on favorites and drawer
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+			{
+				favorites.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
+				drawer.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
+			}
+
 		// If it does not exist yet, build the applications list
 		if(applicationsList == null)
 			{

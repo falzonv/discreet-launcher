@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher.menu ;
 // Imports
 import android.content.Context ;
 import android.content.DialogInterface ;
+import android.os.Build ;
 import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
@@ -120,6 +121,8 @@ public class DialogChangelog extends AlertDialog
 		RecyclerView recycler = dialogView.findViewById(R.id.changelog) ;
 		recycler.setLayoutManager(new LinearLayoutManager(context)) ;
 		recycler.setAdapter(new RecyclerAdapter()) ;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+			recycler.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
 
 		// Add the close button
 		setButton(AlertDialog.BUTTON_POSITIVE, context.getString(R.string.button_close), (DialogInterface.OnClickListener)null) ;

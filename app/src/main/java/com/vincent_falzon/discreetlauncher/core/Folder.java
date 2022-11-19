@@ -29,6 +29,7 @@ import android.content.SharedPreferences ;
 import android.graphics.Color ;
 import android.graphics.drawable.ColorDrawable ;
 import android.graphics.drawable.Drawable ;
+import android.os.Build ;
 import android.view.Gravity ;
 import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
@@ -187,6 +188,8 @@ public class Folder extends Application
 		RecyclerAdapter recyclerAdapter = new RecyclerAdapter(context, applications, Constants.FOLDER) ;
 		popupRecycler.setAdapter(recyclerAdapter) ;
 		popupRecycler.setLayoutManager(new FlexibleGridLayout(context, getApplicationWidth())) ;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+			popupRecycler.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
 
 		// Retrieve the app drawer colors
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;

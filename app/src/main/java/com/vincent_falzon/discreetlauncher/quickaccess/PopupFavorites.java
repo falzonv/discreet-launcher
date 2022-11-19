@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher.quickaccess ;
 // Imports
 import android.content.Context ;
 import android.content.Intent ;
+import android.os.Build ;
 import android.os.Bundle ;
 import android.view.View ;
 import androidx.appcompat.app.AppCompatActivity ;
@@ -69,6 +70,8 @@ public class PopupFavorites extends AppCompatActivity
 		RecyclerView recycler = findViewById(R.id.popup_recycler) ;
 		recycler.setAdapter(new RecyclerAdapter(this, ActivityMain.getApplicationsList().getFavorites(), Constants.FAVORITES_PANEL)) ;
 		recycler.setLayoutManager(new FlexibleGridLayout(this, ActivityMain.getApplicationWidth())) ;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+			recycler.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
 	}
 
 
