@@ -43,19 +43,52 @@ Here are some guidelines about suggesting improvements:
 
 - Before creating a new ticket, **please check if this feature or improvement has already been suggested** and feel free to add comments to an existing ticket to share your point of view about this feature.
 - **Give a description as clear as possible** of the feature or improvement you would like to see implemented, you can also include screenshots or videos if you think this will **make the request easier to understand**.
-- Please note that **some things will not be implemented** (ex: widgets support) because the goals of this launcher are to provide a distraction-free home screen, to use as few permissions as possible while staying light, stable and easy to maintain.
+- Please note that **some things will not be implemented** (ex: widgets support) because the goals of this launcher are to provide a distraction-free home screen and to use as few permissions as possible while staying light, stable and easy to maintain.
 
 
 ## Create and maintain a translation
 
-If you are willing to create and maintain a new translation over time, feel free to contact me using the "Issues" or "Pull requests" tab.
+If you are willing to create a new translation, feel free to contact me using the "Issues" or "Pull requests" tab.
 
-Here are some guidelines about translations:
+Before going into the process detail, I should warn you that maintaining a translation over time can be time-consuming because almost every release introduces a few new strings or modify some of the existing ones.
 
-- All the strings of Discreet Launcher are located in the folder [app/src/main/res/values](https://github.com/falzonv/discreet-launcher/tree/main/app/src/main/res/values) and distributed over files `strings.xml`, `strings_settings.xml` and `strings_help.xml`.
-- The changelog is not intended to be translated, the string *changelog_folder* has to contain the value `changelog-en`.
-- At the end of `strings.xml`, you will find a string named *translation_credit* which will be displayed at the end of the *About* section and should contain a translation of the following text:
-> "[Locale] translation by [first and last names]"  
-> *(example: Russian translation by Artur Aiwasan)*
+Here is the list of things that should be prepared for a new translation:
 
-Finally, I should also warn you that create and maintain a translation over time can be time-consuming because almost every release introduces a few new strings or modify some of the existing ones.
+- The files below contain all the app strings and have to be copied into a new folder `app/src/main/res/values-<code>/` where `<code>` is the 2-letter locale code for your translation (look at other translations for examples).
+    - [app/src/main/res/values/strings.xml](https://github.com/falzonv/discreet-launcher/blob/main/app/src/main/res/values/strings.xml) (the string `translation_credit` will be displayed in the About section)
+    - [app/src/main/res/values/strings_help.xml](https://github.com/falzonv/discreet-launcher/blob/main/app/src/main/res/values/strings_help.xml)
+    - [app/src/main/res/values/strings_settings.xml](https://github.com/falzonv/discreet-launcher/blob/main/app/src/main/res/values/strings_settings.xml)
+- The files below are for F-Droid metadata and have to be copied into a new folder `fastlane/metadata/android/<code>/` where `<code>` is the 2-letter locale code for your translation (look at other translations for examples).
+    - [fastlane/metadata/android/en-US/title.txt](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/title.txt)
+    - [fastlane/metadata/android/en-US/short_description.txt](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/short_description.txt) (limited to 80 characters)
+    - [fastlane/metadata/android/en-US/full_description.txt](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/full_description.txt)
+- In the Pull Request description, provide me the texts for the [banner](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/images/featureGraphic.png) and [screenshots](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/images/screenshots_total.jpg):
+```
+Banner:
+  Discreet Launcher
+for a distraction-free
+     home screen
+
+
+Screenshot 1:
+      Enjoy a clean home screen,
+while accessing everything in an instant!
+
+
+Screenshot 2:
+Quick access to your favorite applications...
+               (swipe down)
+
+
+Screenshot 3:
+...or to any other application!
+         (swipe up)
+
+
+Screenshot 4:
+Access favorites from anywhere,
+  thanks to the notification!
+```
+- In the Pull Request description, provide me the translation of this text that will be added at the end of the Google Play description:
+  > *Discreet Launcher is also available on F-Droid.  
+  > Source code: https://github.com/falzonv/discreet-launcher*
