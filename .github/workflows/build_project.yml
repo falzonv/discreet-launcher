@@ -19,6 +19,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
       - name: Build with Gradle
         run: |
           chmod +x gradlew
