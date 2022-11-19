@@ -155,6 +155,7 @@
     <string name="target_open_applications">Ouvrir les\napplications</string>
 
     <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Définir comme lanceur par défaut</string>
     <string name="set_always_show_favorites">Toujours afficher les favoris</string>
     <string name="set_reverse_interface">Interface inversée</string>
     <string name="set_reverse_interface_help">Applications au dessus, et favoris en dessous de l\'écran d\'accueil</string>

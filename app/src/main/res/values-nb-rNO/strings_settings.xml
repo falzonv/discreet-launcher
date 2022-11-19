@@ -155,6 +155,7 @@
     <string name="target_open_applications">Åpne\nprogrammer</string>
 
     <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Set as default launcher</string>
     <string name="set_always_show_favorites">Alltid vis favoritter</string>
     <string name="set_reverse_interface">Omvendt grensesnitt</string>
     <string name="set_reverse_interface_help">Programmer ovenfor, og favorittpanel på bunnen</string>

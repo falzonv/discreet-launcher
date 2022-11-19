@@ -155,6 +155,7 @@
     <string name="target_open_applications">Открыть\nприложения</string>
 
     <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Set as default launcher</string>
     <string name="set_always_show_favorites">Всегда показывать избранное</string>
     <string name="set_reverse_interface">Обратный интерфейс</string>
     <string name="set_reverse_interface_help">Приложения выше, а избранное ниже главного экрана</string>

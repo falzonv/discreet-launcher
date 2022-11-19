@@ -155,6 +155,7 @@
     <string name="target_open_applications">Показати\nзастосунки</string>
 
     <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Set as default launcher</string>
     <string name="set_always_show_favorites">Завжди показувати обране</string>
     <string name="set_reverse_interface">Зворотній інтерфейс</string>
     <string name="set_reverse_interface_help">Застосунки — вище, а обране — нижче головного екрана</string>

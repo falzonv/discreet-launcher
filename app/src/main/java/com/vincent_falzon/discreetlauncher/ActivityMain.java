@@ -23,12 +23,18 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.app.role.RoleManager ;
 import android.content.Context ;
+import android.content.Intent ;
 import android.content.SharedPreferences ;
 import android.content.pm.ActivityInfo ;
 import android.graphics.drawable.Drawable ;
 import android.os.Build ;
 import android.os.Bundle ;
+import androidx.activity.result.ActivityResult ;
+import androidx.activity.result.ActivityResultCallback ;
+import androidx.activity.result.ActivityResultLauncher ;
+import androidx.activity.result.contract.ActivityResultContracts ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.appcompat.app.AppCompatDelegate ;
@@ -88,11 +94,21 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private TextView noFavoritesYet ;
 	private TextView targetFavorites ;
 	private TextView targetApplications ;
+	private TextView defaultLauncherButton ;
 
 	// Attributes related to the drawer
 	private RecyclerView drawer ;
 	private RecyclerAdapter drawerAdapter ;
 	private GridLayoutManager drawerLayout ;
+
+	// Activity Results components
+	private final ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+			new ActivityResultContracts.StartActivityForResult(),
+			new ActivityResultCallback<ActivityResult>()
+			{
+				@Override
+				public void onActivityResult(ActivityResult result){ }
+			}) ;
 
 	
 	/**
@@ -130,6 +146,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		homeScreen = findViewById(R.id.home_screen) ;
 		favorites = findViewById(R.id.favorites) ;
 		noFavoritesYet = findViewById(R.id.info_no_favorites_yet) ;
+		defaultLauncherButton = findViewById(R.id.default_launcher_button) ;
 		drawer = findViewById(R.id.drawer) ;
 		menuButton = findViewById(R.id.access_menu_button) ;
 		targetFavorites = findViewById(R.id.target_favorites) ;
@@ -137,6 +154,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		menuButton.setOnClickListener(this) ;
 		targetFavorites.setOnClickListener(this) ;
 		targetApplications.setOnClickListener(this) ;
+		defaultLauncherButton.setOnClickListener(this) ;
 		gestureDetector = new GestureDetectorCompat(this, new GestureListener(homeScreen)) ;
 
 		// If it does not exist yet, build the applications list
@@ -369,6 +387,16 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// Update the recyclers (favorites panel and applications drawer) if needed
 				if(adapters_update_needed) updateAdapters() ;
 
+				// Starting with Android 10, maybe display the default launcher button
+				boolean show_default_launcher_button = false ;
+				if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+					{
+						RoleManager roleManager = (RoleManager)getSystemService(Context.ROLE_SERVICE) ;
+						if(roleManager.isRoleAvailable(RoleManager.ROLE_HOME) && !roleManager.isRoleHeld(RoleManager.ROLE_HOME))
+							show_default_launcher_button = true ;
+					}
+				defaultLauncherButton.setVisibility(show_default_launcher_button ? View.VISIBLE : View.GONE) ;
+
 				// Display a message if the user does not have any favorites applications yet
 				if(applicationsList.getFavorites().size() == 0) noFavoritesYet.setVisibility(View.VISIBLE) ;
 					else noFavoritesYet.setVisibility(View.GONE) ;
@@ -422,6 +450,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				favorites.setVisibility(View.GONE) ;
 				menuButton.setVisibility(View.GONE) ;
 				noFavoritesYet.setVisibility(View.GONE) ;
+				defaultLauncherButton.setVisibility(View.GONE) ;
 				targetFavorites.setText(R.string.target_open_favorites) ;
 
 				// If the option is selected, make the status bar fully transparent
@@ -595,6 +624,15 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				displayFavorites(false) ;
 				displayDrawer(true) ;
 			}
+			else if(selection == R.id.default_launcher_button)
+			{
+				// Starting with Android 10, display the list of available launchers
+				if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+					{
+						RoleManager roleManager = (RoleManager)getSystemService(Context.ROLE_SERVICE) ;
+						activityResultLauncher.launch(roleManager.createRequestRoleIntent(RoleManager.ROLE_HOME)) ;
+					}
+			}
 	}
 
 
@@ -730,6 +768,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(packagesListener != null) unregisterReceiver(packagesListener) ;
 		if(shortcutLegacyListener != null) unregisterReceiver(shortcutLegacyListener) ;
 		settings.unregisterOnSharedPreferenceChangeListener(this) ;
+		activityResultLauncher.unregister() ;
 
 		// Let the parent actions be performed
 		super.onDestroy() ;
