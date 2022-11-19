@@ -74,9 +74,13 @@ public class NotificationDisplayer
 		builder.setOngoing(true) ;   // Sticky notification
 		builder.setVisibility(NotificationCompat.VISIBILITY_SECRET) ; // Hidden on lock screen
 
-		// Define a custom layout for the notification
-		RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.view_notification) ;
-		builder.setCustomContentView(notificationLayout) ;
+		// Before Android 12, define a custom layout for the notification
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
+			{
+				RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.view_notification) ;
+				builder.setCustomContentView(notificationLayout) ;
+			}
+			else builder.setContentTitle(context.getString(R.string.notification_text)) ;
 
 		// Settings applied when the Android version doesn't support notification channels
 		builder.setPriority(NotificationCompat.PRIORITY_LOW) ;
@@ -87,7 +91,9 @@ public class NotificationDisplayer
 		Intent intent = PopupFavorites.getIntent(context) ;
 
 		// Define the notification action
-		PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, 0) ;
+		int flags = 0 ;
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) flags = PendingIntent.FLAG_IMMUTABLE ;
+		PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, flags) ;
 		builder.setContentIntent(pendingIntent) ;
 
 		// Display the notification
