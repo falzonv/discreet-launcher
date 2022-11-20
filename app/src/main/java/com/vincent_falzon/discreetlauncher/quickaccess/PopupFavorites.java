@@ -55,15 +55,10 @@ public class PopupFavorites extends AppCompatActivity
 		setContentView(R.layout.view_popup) ;
 
 		// Listen for clicks on the popup header
-		findViewById(R.id.popup_header).setOnClickListener(new View.OnClickListener()
-			{
-				@Override
-				public void onClick(View view)
-				{
-					// Open the interface to manage favorites and close the popup
-					view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFavorites.class)) ;
-					finish() ;
-				}
+		findViewById(R.id.popup_header).setOnClickListener(view -> {
+				// Open the interface to manage favorites and close the popup
+				view.getContext().startActivity(new Intent().setClass(view.getContext(), ActivityFavorites.class)) ;
+				finish() ;
 			}) ;
 
 		// Display the list of favorites applications

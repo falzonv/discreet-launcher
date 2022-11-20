@@ -105,6 +105,7 @@
                         android:textColor="@color/for_buttons_and_controls"
                         android:background="@color/for_notification_background"
                         android:textAllCaps="true"
+                        android:textStyle="bold"
                         android:visibility="gone"
                         tools:visibility="visible"/>
 

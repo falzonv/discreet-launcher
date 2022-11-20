@@ -365,7 +365,6 @@ public class ViewClock extends View implements View.OnTouchListener
 		}
 		catch(ActivityNotFoundException|NullPointerException exception)
 		{
-			Utils.logError(TAG, exception.getMessage()) ;
 			Utils.displayLongToast(getContext(), getContext().getString(R.string.error_app_not_found, package_name)) ;
 			return false ;
 		}

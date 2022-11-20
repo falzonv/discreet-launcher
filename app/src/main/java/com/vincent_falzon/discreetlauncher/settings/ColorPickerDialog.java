@@ -27,14 +27,12 @@ import android.content.Context ;
 import android.graphics.Color ;
 import android.graphics.PixelFormat ;
 import android.text.InputType ;
-import android.view.KeyEvent ;
 import android.view.LayoutInflater ;
 import android.view.View ;
 import android.view.ViewGroup ;
 import android.view.inputmethod.EditorInfo ;
 import android.view.inputmethod.InputMethodManager ;
 import android.widget.EditText ;
-import android.widget.TextView ;
 import androidx.appcompat.app.AppCompatDialog ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.Utils ;
@@ -90,31 +88,27 @@ public class ColorPickerDialog extends AppCompatDialog implements ColorPickerVie
 
 		// Prepare the hexadecimal value field
 		newColorHexadecimal.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS) ;
-		newColorHexadecimal.setOnEditorActionListener(new TextView.OnEditorActionListener()
-			{
-				@Override
-				public boolean onEditorAction(TextView view, int actionId, KeyEvent event)
-				{
-					if(actionId == EditorInfo.IME_ACTION_DONE)
-						{
-							// Hide the keyboard
-							Context context = view.getContext() ;
-							((InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0) ;
+		newColorHexadecimal.setOnEditorActionListener((view, actionId, event) -> {
+				// Listen for input validation
+				if(actionId == EditorInfo.IME_ACTION_DONE)
+					{
+						// Hide the keyboard
+						((InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0) ;
 
-							try
-							{
-								// Try to read a color from the hexadecimal string
-								int new_color = convertHexadecimalColorToInt(newColorHexadecimal.getText().toString()) ;
-								colorPicker.setColor(new_color, true) ;
-							}
-							catch(IllegalArgumentException exception)
-							{
-								Utils.displayLongToast(context, context.getString(R.string.error_invalid_color_format)) ;
-							}
-							return true ;
+						try
+						{
+							// Try to read a color from the hexadecimal string
+							int new_color = convertHexadecimalColorToInt(newColorHexadecimal.getText().toString()) ;
+							colorPicker.setColor(new_color, true) ;
 						}
-					return false ;
-				}
+						catch(IllegalArgumentException exception)
+						{
+							// Display an error message
+							Utils.displayLongToast(view.getContext(), context.getString(R.string.error_invalid_color_format)) ;
+						}
+						return true ;
+					}
+				return false ;
 			});
 
 		// Start to listen for clicks on buttons and color changes

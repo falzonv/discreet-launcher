@@ -48,7 +48,6 @@ import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
 import java.util.ArrayList ;
 import java.util.Collections ;
-import java.util.Comparator ;
 import static com.vincent_falzon.discreetlauncher.ActivityMain.getApplicationWidth ;
 
 /**
@@ -147,14 +146,7 @@ public class Folder extends Application
 	public void sortFolder()
 	{
 		if(applications.size() < 2) return ;
-		Collections.sort(applications, new Comparator<Application>()
-		{
-			@Override
-			public int compare(Application application1, Application application2)
-			{
-				return application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName()) ;
-			}
-		}) ;
+		Collections.sort(applications, (application1, application2) -> application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName())) ;
 	}
 
 
@@ -172,15 +164,10 @@ public class Folder extends Application
 		TextView popupTitle = popupView.findViewById(R.id.popup_title) ;
 		popupTitle.setText(getDisplayNameWithCount()) ;
 		popupTitle.setTextColor(color) ;
-		popupView.findViewById(R.id.popup_header).setOnClickListener(new View.OnClickListener()
-			{
-				@Override
-				public void onClick(View view)
-				{
-					// Open the interface to manage folders and close the popup
-					showSettings(view.getContext()) ;
-					closePopup() ;
-				}
+		popupView.findViewById(R.id.popup_header).setOnClickListener(view -> {
+				// Open the interface to manage folders and close the popup
+				showSettings(view.getContext()) ;
+				closePopup() ;
 			}) ;
 
 		// Prepare the folder content

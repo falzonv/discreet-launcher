@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.annotation.SuppressLint ;
 import android.app.role.RoleManager ;
 import android.content.Context ;
 import android.content.Intent ;
@@ -31,8 +32,6 @@ import android.content.pm.ActivityInfo ;
 import android.graphics.drawable.Drawable ;
 import android.os.Build ;
 import android.os.Bundle ;
-import androidx.activity.result.ActivityResult ;
-import androidx.activity.result.ActivityResultCallback ;
 import androidx.activity.result.ActivityResultLauncher ;
 import androidx.activity.result.contract.ActivityResultContracts ;
 import androidx.annotation.NonNull ;
@@ -102,13 +101,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private GridLayoutManager drawerLayout ;
 
 	// Activity Results components
-	private final ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
-			new ActivityResultContracts.StartActivityForResult(),
-			new ActivityResultCallback<ActivityResult>()
-			{
-				@Override
-				public void onActivityResult(ActivityResult result){ }
-			}) ;
+	private final ActivityResultLauncher<Intent> activityResultLauncher =
+		registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> { }) ;
 
 	
 	/**
@@ -262,6 +256,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	/**
 	 * Maybe apply a forced orientation according to the settings.
 	 */
+	@SuppressLint("SourceLockedOrientationActivity")
 	private void maybeForceOrientation()
 	{
 		// Retrieve the current orientation setting
@@ -609,6 +604,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	/**
 	 * Update the display in the favorites panel and applications drawer.
 	 */
+	@SuppressLint("NotifyDataSetChanged")
 	private void updateAdapters()
 	{
 		favoritesAdapter.notifyDataSetChanged() ;

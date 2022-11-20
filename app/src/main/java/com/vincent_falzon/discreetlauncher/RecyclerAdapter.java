@@ -26,7 +26,6 @@ package com.vincent_falzon.discreetlauncher ;
 import android.annotation.SuppressLint ;
 import android.content.ActivityNotFoundException ;
 import android.content.Context ;
-import android.content.DialogInterface ;
 import android.content.Intent ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
@@ -95,6 +94,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	/**
 	 * Set a new text color and refresh the recycler content.
 	 */
+	@SuppressLint("NotifyDataSetChanged")
 	public void setTextColor(int new_text_color)
 	{
 		text_color = new_text_color ;
@@ -227,6 +227,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		/**
 		 * Called when the application is long clicked.
 		 */
+		@SuppressLint("NotifyDataSetChanged")
 		@Override
 		public boolean onLongClick(final View view)
 		{
@@ -258,34 +259,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
 							(is_in_folder != null) ? context.getString(R.string.long_click_remove_folder, is_in_folder) : context.getString(R.string.long_click_add_folder),
 						} ;
-					dialog.setItems(options,
-						new DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialog, int selection)
+					dialog.setItems(options, (dialog1, selection) -> {
+							// Check which option has been selected
+							switch(selection)
 							{
-								// Check which option has been selected
-								switch(selection)
-								{
-									case 0 :
-										// Open the shortcut
-										application.start(view) ;
-										break ;
-									case 1 :
-										// Remove the shortcut from the file and update the applications list
-										ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
-										ActivityMain.updateList(context) ;
-										notifyDataSetChanged() ;
-										break ;
-									case 2 :
-										// Toggle the presence of the shortcut in the favorites panel
-										toggleFavorite(context, application, is_favorite) ;
-										break ;
-									case 3 :
-										// Toggle the presence of the shortcut in a folder
-										toggleFolder(context, application, is_in_folder) ;
-										break ;
-								}
+								case 0 :
+									// Open the shortcut
+									application.start(view) ;
+									break ;
+								case 1 :
+									// Remove the shortcut from the file and update the applications list
+									ShortcutListener.removeShortcut(context, application.getDisplayName(), application.getApk()) ;
+									ActivityMain.updateList(context) ;
+									notifyDataSetChanged() ;
+									break ;
+								case 2 :
+									// Toggle the presence of the shortcut in the favorites panel
+									toggleFavorite(context, application, is_favorite) ;
+									break ;
+								case 3 :
+									// Toggle the presence of the shortcut in a folder
+									toggleFolder(context, application, is_in_folder) ;
+									break ;
 							}
 						}) ;
 				}
@@ -296,28 +291,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(R.string.long_click_settings),
 							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
 						} ;
-					dialog.setItems(options,
-						new DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialog, int selection)
+					dialog.setItems(options, (dialog12, selection) -> {
+							// Check which option has been selected
+							switch(selection)
 							{
-								// Check which option has been selected
-								switch(selection)
-								{
-									case 0 :
-										// Open the folder
-										application.start(view) ;
-										break ;
-									case 1 :
-										// Open the folder organizer
-										application.showSettings(context) ;
-										break ;
-									case 2 :
-										// Toggle the presence of the folder in the favorites panel
-										toggleFavorite(context, application, is_favorite) ;
-										break ;
-								}
+								case 0 :
+									// Open the folder
+									application.start(view) ;
+									break ;
+								case 1 :
+									// Open the folder organizer
+									application.showSettings(context) ;
+									break ;
+								case 2 :
+									// Toggle the presence of the folder in the favorites panel
+									toggleFavorite(context, application, is_favorite) ;
+									break ;
 							}
 						}) ;
 				}
@@ -328,28 +317,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(R.string.long_click_hide_search),
 							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
 						} ;
-					dialog.setItems(options,
-						new DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialog, int selection)
+					dialog.setItems(options, (dialog13, selection) -> {
+							// Check which option has been selected
+							switch(selection)
 							{
-								// Check which option has been selected
-								switch(selection)
-								{
-									case 0 :
-										// Open the Search
-										application.start(view) ;
-										break ;
-									case 1 :
-										// Open the Hidden apps dialog
-										DialogHiddenApps.showHiddenAppsDialog(context) ;
-										break ;
-									case 2 :
-										// Toggle the presence of the search in the favorites panel
-										toggleFavorite(context, application, is_favorite) ;
-										break ;
-								}
+								case 0 :
+									// Open the Search
+									application.start(view) ;
+									break ;
+								case 1 :
+									// Open the Hidden apps dialog
+									DialogHiddenApps.showHiddenAppsDialog(context) ;
+									break ;
+								case 2 :
+									// Toggle the presence of the search in the favorites panel
+									toggleFavorite(context, application, is_favorite) ;
+									break ;
 							}
 						}) ;
 				}
@@ -363,52 +346,46 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 							context.getString(is_favorite ? R.string.long_click_remove_favorites : R.string.long_click_add_favorites),
 							(is_in_folder != null) ? context.getString(R.string.long_click_remove_folder, is_in_folder) : context.getString(R.string.long_click_add_folder),
 						} ;
-					dialog.setItems(options,
-						new DialogInterface.OnClickListener()
-						{
-							@Override
-							public void onClick(DialogInterface dialog, int selection)
+					dialog.setItems(options, (dialog14, selection) -> {
+							// Check which option has been selected
+							switch(selection)
 							{
-								// Check which option has been selected
-								switch(selection)
-								{
-									case 0 :
-										// Start the application and display an error message if it was not found
-										if(!application.start(view))
-											Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
-										break ;
-									case 1 :
-										// Open the application system settings
-										application.showSettings(context) ;
-										break ;
-									case 2 :
-										// Open the application page in the store
-										Intent storeIntent = new Intent(Intent.ACTION_VIEW) ;
-										storeIntent.setData(Uri.parse("market://details?id=" + application.getApk())) ;
-										storeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-										try
-										{
-											context.startActivity(storeIntent) ;
-										}
-										catch(ActivityNotFoundException exception)
-										{
-											Utils.logError(TAG, exception.getMessage()) ;
-											Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, "{market}")) ;
-										}
-										break ;
-									case 3 :
-										// Display the dialog to rename the application
-										showRenameDialog(context, application) ;
-										break ;
-									case 4 :
-										// Toggle the presence of the application in the favorites panel
-										toggleFavorite(context, application, is_favorite) ;
-										break ;
-									case 5 :
-										// Toggle the presence of the shortcut in a folder
-										toggleFolder(context, application, is_in_folder) ;
-										break ;
-								}
+								case 0 :
+									// Start the application and display an error message if it was not found
+									if(!application.start(view))
+										Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, application.getDisplayName())) ;
+									break ;
+								case 1 :
+									// Open the application system settings
+									application.showSettings(context) ;
+									break ;
+								case 2 :
+									// Open the application page in the store
+									Intent storeIntent = new Intent(Intent.ACTION_VIEW) ;
+									storeIntent.setData(Uri.parse("market://details?id=" + application.getApk())) ;
+									storeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+									try
+									{
+										context.startActivity(storeIntent) ;
+									}
+									catch(ActivityNotFoundException exception)
+									{
+										Utils.logError(TAG, exception.getMessage()) ;
+										Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, "{market}")) ;
+									}
+									break ;
+								case 3 :
+									// Display the dialog to rename the application
+									showRenameDialog(context, application) ;
+									break ;
+								case 4 :
+									// Toggle the presence of the application in the favorites panel
+									toggleFavorite(context, application, is_favorite) ;
+									break ;
+								case 5 :
+									// Toggle the presence of the shortcut in a folder
+									toggleFolder(context, application, is_in_folder) ;
+									break ;
 							}
 						}) ;
 				}
@@ -442,6 +419,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		/**
 		 * Display a dialog allowing to rename the application.
 		 */
+		@SuppressLint("NotifyDataSetChanged")
 		private void showRenameDialog(final Context context, final Application application)
 		{
 			// Create the menu dialog
@@ -467,23 +445,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					}
 
 			// Add the button to save a new name
-			dialog.setPositiveButton(R.string.button_apply, new DialogInterface.OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialog, int which)
-					{
-						// Remove any existing name mapping
-						InternalFileTXT rename_apps_file = new InternalFileTXT(Constants.FILE_RENAME_APPS) ;
-						rename_apps_file.removeLine(application.getComponentInfo()) ;
+			dialog.setPositiveButton(R.string.button_apply, (dialog1, which) -> {
+					// Remove any existing name mapping
+					InternalFileTXT rename_apps_file = new InternalFileTXT(Constants.FILE_RENAME_APPS) ;
+					rename_apps_file.removeLine(application.getComponentInfo()) ;
 
-						// Save the new name (an empty name will restore the original name)
-						if(!renameField.getText().toString().isEmpty())
-							rename_apps_file.writeLine(application.getComponentInfo() + Constants.SEPARATOR + renameField.getText()) ;
+					// Save the new name (an empty name will restore the original name)
+					if(!renameField.getText().toString().isEmpty())
+						rename_apps_file.writeLine(application.getComponentInfo() + Constants.SEPARATOR + renameField.getText()) ;
 
-						// Update the applications list
-						ActivityMain.updateList(context) ;
-						notifyDataSetChanged() ;
-					}
+					// Update the applications list
+					ActivityMain.updateList(context) ;
+					notifyDataSetChanged() ;
 				}) ;
 
 			// Display the dialog
@@ -495,6 +468,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		/**
 		 * Toggle the presence of an application in the favorites panel.
 		 */
+		@SuppressLint("NotifyDataSetChanged")
 		private void toggleFavorite(Context context, Application application, boolean is_favorite)
 		{
 			// Retrieve the file and the application ComponentInfo
@@ -514,6 +488,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		/**
 		 * Toggle the presence of an application in a folder.
 		 */
+		@SuppressLint("NotifyDataSetChanged")
 		private void toggleFolder(final Context context, final Application application, String is_in_folder)
 		{
 			// Check is the application needs to be added to a folder, or removed from a folder
@@ -545,25 +520,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 					// Display the list of existing folders
 					AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
 					dialog.setTitle(context.getString(R.string.long_click_add_folder)) ;
-					dialog.setItems(folder_names,
-							new DialogInterface.OnClickListener()
-							{
-								@Override
-								public void onClick(DialogInterface dialog, int selection)
-								{
-									// Add the application to the selected folder
-									InternalFileTXT folder = new InternalFileTXT(folders.get(selection).getFileName()) ;
-									folder.writeLine(application.getComponentInfo()) ;
+					dialog.setItems(folder_names, (dialog1, selection) -> {
+							// Add the application to the selected folder
+							InternalFileTXT folder = new InternalFileTXT(folders.get(selection).getFileName()) ;
+							folder.writeLine(application.getComponentInfo()) ;
 
-									// Display a warning if some interface elements cannot be immediately updated
-									if(target == Constants.SEARCH)
-										Utils.displayLongToast(context, context.getString(R.string.info_display_partially_updated)) ;
+							// Display a warning if some interface elements cannot be immediately updated
+							if(target == Constants.SEARCH)
+								Utils.displayLongToast(context, context.getString(R.string.info_display_partially_updated)) ;
 
-									// Update the list of applications
-									ActivityMain.updateList(context) ;
-									notifyDataSetChanged() ;
-								}
-							}) ;
+							// Update the list of applications
+							ActivityMain.updateList(context) ;
+							notifyDataSetChanged() ;
+						}) ;
 					dialog.show() ;
 				}
 		}

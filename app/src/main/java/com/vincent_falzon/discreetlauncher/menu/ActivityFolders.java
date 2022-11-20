@@ -23,9 +23,9 @@ package com.vincent_falzon.discreetlauncher.menu ;
  */
 
 // Imports
+import android.annotation.SuppressLint ;
 import android.app.Activity ;
 import android.content.Context ;
-import android.content.DialogInterface ;
 import android.graphics.drawable.Drawable ;
 import android.os.Build ;
 import android.os.Bundle ;
@@ -90,6 +90,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 	/**
 	 * Called when an element is clicked.
 	 */
+	@SuppressLint("NotifyDataSetChanged")
 	public void onClick(View view)
 	{
 		// Check if the button to add a new folder has a been clicked
@@ -217,6 +218,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 			/**
 			 * Called when an element is clicked.
 			 */
+			@SuppressLint("NotifyDataSetChanged")
 			@Override
 			public void onClick(View view)
 			{
@@ -235,27 +237,22 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 								folder.getColor(),
 								ColorPickerDialog.convertIntColorToHexadecimal(context.getResources().getColor(R.color.for_icon_added_in_drawer), true),
 								folder.getDisplayName(),
-								new ColorPickerDialog.SaveRequestListener()
-								{
-									@Override
-									public void onSaveRequest(String color)
-									{
-										// Remove the previous color from the mapping file
-										InternalFileTXT folders_colors = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS) ;
-										folders_colors.removeLine(folder.getFileName() + Constants.SEPARATOR) ;
+								color -> {
+									// Remove the previous color from the mapping file
+									InternalFileTXT folders_colors = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS) ;
+									folders_colors.removeLine(folder.getFileName() + Constants.SEPARATOR) ;
 
-										// Registrer the new color and update the applications list
-										folders_colors.writeLine(folder.getFileName() + Constants.SEPARATOR + color) ;
-										ActivityMain.updateList(context) ;
-										notifyDataSetChanged() ;
+									// Registrer the new color and update the applications list
+									folders_colors.writeLine(folder.getFileName() + Constants.SEPARATOR + color) ;
+									ActivityMain.updateList(context) ;
+									notifyDataSetChanged() ;
 
-										// Update the preview in the folders organizer
-										folder.setColor(ColorPickerDialog.convertHexadecimalColorToInt(color)) ;
-										ArrayList<Folder> all_folders = ActivityMain.getApplicationsList().getFolders() ;
-										for(Folder the_folder : all_folders)
-											if(the_folder.getComponentInfo().equals(folder.getComponentInfo()))
-												folder.setIcon(the_folder.getIcon()) ;
-									}
+									// Update the preview in the folders organizer
+									folder.setColor(ColorPickerDialog.convertHexadecimalColorToInt(color)) ;
+									ArrayList<Folder> all_folders = ActivityMain.getApplicationsList().getFolders() ;
+									for(Folder the_folder : all_folders)
+										if(the_folder.getComponentInfo().equals(folder.getComponentInfo()))
+											folder.setIcon(the_folder.getIcon()) ;
 								}) ;
 						colorDialog.show() ;
 					}
@@ -268,61 +265,55 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 						newFolderName.setImeOptions(EditorInfo.IME_ACTION_DONE) ;
 						dialog.setTitle(R.string.hint_rename_folder) ;
 						dialog.setView(newFolderName) ;
-						dialog.setPositiveButton(R.string.button_apply,
-								new DialogInterface.OnClickListener()
-								{
-									@Override
-									public void onClick(DialogInterface dialogInterface, int i)
-									{
-										// Check if the new name is empty or already exists
-										String new_folder_name = newFolderName.getText().toString() ;
-										if(new_folder_name.isEmpty())
-											{
-												// Display an error message and quit
-												Utils.displayLongToast(context, context.getString(R.string.error_folder_empty_name)) ;
-												return ;
-											}
-										String new_filename = Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt" ;
-										if(new InternalFileTXT(new_filename).exists())
-											{
-												// Display an error message and quit
-												Utils.displayLongToast(context, context.getString(R.string.error_folder_already_exists)) ;
-												return ;
-											}
+						dialog.setPositiveButton(R.string.button_apply, (dialogInterface, which) -> {
+									// Check if the new name is empty or already exists
+									String new_folder_name = newFolderName.getText().toString() ;
+									if(new_folder_name.isEmpty())
+										{
+											// Display an error message and quit
+											Utils.displayLongToast(context, context.getString(R.string.error_folder_empty_name)) ;
+											return ;
+										}
+									String new_filename = Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt" ;
+									if(new InternalFileTXT(new_filename).exists())
+										{
+											// Display an error message and quit
+											Utils.displayLongToast(context, context.getString(R.string.error_folder_already_exists)) ;
+											return ;
+										}
 
-										// Rename the folder file
-										String current_filename = folder.getFileName() ;
-										if(file.rename(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt"))
-											{
-												// If it exists, browse the file mapping folders and colors
-												InternalFileTXT folders_colors = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS) ;
-												ArrayList<String> file_content = folders_colors.readAllLines() ;
-												if(file_content != null)
-													{
-														// If a mapping already exists, reproduce it with the new name
-														for(String line : file_content)
-															if(line.startsWith(current_filename))
-																{
-																	String color = line.replace(current_filename + Constants.SEPARATOR, "") ;
-																	folders_colors.writeLine(new_filename + Constants.SEPARATOR + color) ;
-																}
+									// Rename the folder file
+									String current_filename = folder.getFileName() ;
+									if(file.rename(Constants.FILE_FOLDER_PREFIX + new_folder_name + ".txt"))
+										{
+											// If it exists, browse the file mapping folders and colors
+											InternalFileTXT folders_colors = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS) ;
+											ArrayList<String> file_content = folders_colors.readAllLines() ;
+											if(file_content != null)
+												{
+													// If a mapping already exists, reproduce it with the new name
+													for(String line : file_content)
+														if(line.startsWith(current_filename))
+															{
+																String color = line.replace(current_filename + Constants.SEPARATOR, "") ;
+																folders_colors.writeLine(new_filename + Constants.SEPARATOR + color) ;
+															}
 
-														// Remove the mapping with the previous name
-														folders_colors.removeLine(current_filename) ;
-													}
+													// Remove the mapping with the previous name
+													folders_colors.removeLine(current_filename) ;
+												}
 
-												// Update the favorites if necessary
-												InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
-												boolean was_in_favorites = favorites.removeLine(folder.getComponentInfo()) ;
-												folder.setDisplayName(new_folder_name) ;
-												if(was_in_favorites) favorites.writeLine(folder.getComponentInfo()) ;
+											// Update the favorites if necessary
+											InternalFileTXT favorites = new InternalFileTXT(Constants.FILE_FAVORITES) ;
+											boolean was_in_favorites = favorites.removeLine(folder.getComponentInfo()) ;
+											folder.setDisplayName(new_folder_name) ;
+											if(was_in_favorites) favorites.writeLine(folder.getComponentInfo()) ;
 
-												// Update the applications list
-												ActivityMain.updateList(context) ;
-												notifyDataSetChanged() ;
-											}
-											else Utils.displayLongToast(context, context.getString(R.string.error_folder_rename)) ;
-									}
+											// Update the applications list
+											ActivityMain.updateList(context) ;
+											notifyDataSetChanged() ;
+										}
+										else Utils.displayLongToast(context, context.getString(R.string.error_folder_rename)) ;
 								}) ;
 						dialog.show() ;
 					}
@@ -349,46 +340,35 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 							else for(i = 0 ; i < app_names.length ; i++) selected[i] = false ;
 
 						// Let the user select the folder content
-						dialog.setMultiChoiceItems(app_names, selected,
-								new DialogInterface.OnMultiChoiceClickListener()
-								{
-									@Override
-									public void onClick(DialogInterface dialogInterface, int i, boolean b) { }
-								}) ;
-						dialog.setPositiveButton(R.string.button_apply,
-								new DialogInterface.OnClickListener()
-								{
-									@Override
-									public void onClick(DialogInterface dialogInterface, int i)
+						dialog.setMultiChoiceItems(app_names, selected, (dialogInterface, position, checked) -> { }) ;
+						dialog.setPositiveButton(R.string.button_apply, (dialogInterface, which) -> {
+									// Remove the current folder file
+									if(!file.remove()) return ;
+
+									// Add the selected applications in the folder
+									for(int j = 0 ; j < selected.length ; j++)
+										if(selected[j]) file.writeLine(applications.get(j).getComponentInfo()) ;
+
+									// Recreate the empty file if the removed line was the single one
+									if(!file.exists()) file.writeLine("") ;
+
+									// Update the display in the activity
+									folder.getApplications().clear() ;
+									for(String component_info : file.readAllLines())
 									{
-										// Remove the current folder file
-										if(!file.remove()) return ;
-
-										// Add the selected applications in the folder
-										for(i = 0 ; i < selected.length ; i++)
-											if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
-
-										// Recreate the empty file if the removed line was the single one
-										if(!file.exists()) file.writeLine("") ;
-
-										// Update the display in the activity
-										folder.getApplications().clear() ;
-										for(String component_info : file.readAllLines())
-										{
-											// Search the internal name in the applications list
-											for(Application application : applications)
-												if(application.getComponentInfo().equals(component_info))
-													{
-														// Add the application in the folder
-														folder.addToFolder(application) ;
-														break ;
-													}
-										}
-
-										// Update the applications list
-										ActivityMain.updateList(context) ;
-										notifyDataSetChanged() ;
+										// Search the internal name in the applications list
+										for(Application application : applications)
+											if(application.getComponentInfo().equals(component_info))
+												{
+													// Add the application in the folder
+													folder.addToFolder(application) ;
+													break ;
+												}
 									}
+
+									// Update the applications list
+									ActivityMain.updateList(context) ;
+									notifyDataSetChanged() ;
 								}) ;
 						dialog.show() ;
 					}
@@ -396,22 +376,15 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 					{
 						// Ask confirmation before removing the folder
 						dialog.setMessage(R.string.hint_remove_folder) ;
-						dialog.setPositiveButton(R.string.button_remove_folder,
-								new DialogInterface.OnClickListener()
-								{
-									// Save the new list of favorites applications
-									@Override
-									public void onClick(DialogInterface dialogInterface, int i)
-									{
-										// Remove any color affected to this folder from the mapping file
-										new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).removeLine(folder.getFileName() + Constants.SEPARATOR) ;
+						dialog.setPositiveButton(R.string.button_remove_folder, (dialogInterface, which) -> {
+									// Remove any color affected to this folder from the mapping file
+									new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).removeLine(folder.getFileName() + Constants.SEPARATOR) ;
 
-										// Remove the folder file and update the applications list
-										if(!file.remove()) return ;
-										folders.remove(getBindingAdapterPosition()) ;
-										ActivityMain.updateList(context) ;
-										notifyDataSetChanged() ;
-									}
+									// Remove the folder file and update the applications list
+									if(!file.remove()) return ;
+									folders.remove(getBindingAdapterPosition()) ;
+									ActivityMain.updateList(context) ;
+									notifyDataSetChanged() ;
 								}) ;
 						dialog.show() ;
 					}

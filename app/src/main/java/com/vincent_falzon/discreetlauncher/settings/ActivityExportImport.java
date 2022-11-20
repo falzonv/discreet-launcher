@@ -30,7 +30,6 @@ import android.content.SharedPreferences ;
 import android.net.Uri ;
 import android.os.Bundle ;
 import android.view.View ;
-import androidx.activity.result.ActivityResultCallback ;
 import androidx.activity.result.ActivityResultLauncher ;
 import androidx.activity.result.contract.ActivityResultContracts ;
 import androidx.annotation.NonNull ;
@@ -76,25 +75,15 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		findViewById(R.id.import_button).setOnClickListener(this) ;
 
 		// Prepare the file pickers callbacks
-		exportFilePicker = registerForActivityResult(new ContractCreateTextDocument(), new ActivityResultCallback<Uri>()
-			{
-				@Override
-				public void onActivityResult(Uri result)
-				{
-					// Unless the selection has been cancelled, create the export file
-					if(result != null)
-						writeToExportFile(result) ;
-				}
+		exportFilePicker = registerForActivityResult(new ContractCreateTextDocument(), result -> {
+				// Unless the selection has been cancelled, create the export file
+				if(result != null)
+					writeToExportFile(result) ;
 			}) ;
-		importFilePicker = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>()
-			{
-				@Override
-				public void onActivityResult(Uri result)
-				{
-					// Unless the selection has been cancelled, read and load the import file
-					if(result != null)
-						readFromImportFile(result) ;
-				}
+		importFilePicker = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {
+				// Unless the selection has been cancelled, read and load the import file
+				if(result != null)
+					readFromImportFile(result) ;
 			}) ;
 	}
 

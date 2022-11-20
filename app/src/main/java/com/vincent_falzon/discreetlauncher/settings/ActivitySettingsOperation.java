@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher.settings ;
  */
 
 // Imports
+import android.annotation.SuppressLint ;
 import android.content.SharedPreferences ;
 import android.content.pm.ActivityInfo ;
 import android.os.Build ;
@@ -95,6 +96,7 @@ public class ActivitySettingsOperation extends AppCompatActivity
 	/**
 	 * Perfom actions when returning to the home screen.
 	 */
+	@SuppressLint("SourceLockedOrientationActivity")
 	@Override
 	protected void onDestroy()
 	{

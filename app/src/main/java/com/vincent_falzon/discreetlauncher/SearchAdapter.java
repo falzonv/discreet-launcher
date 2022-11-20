@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher ;
  */
 
 // Imports
+import android.annotation.SuppressLint ;
 import android.content.Context ;
 import android.view.View ;
 import android.widget.Filter ;
@@ -96,6 +97,7 @@ public class SearchAdapter extends RecyclerAdapter implements Filterable
 			/**
 			 * Display the search results.
 			 */
+			@SuppressLint("NotifyDataSetChanged")
 			@Override
 			protected void publishResults(CharSequence filter, FilterResults results)
 			{

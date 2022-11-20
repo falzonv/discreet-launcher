@@ -61,6 +61,7 @@ public abstract class ExternalFile
 			BufferedReader reader = new BufferedReader(new FileReader(file.getFileDescriptor())) ;
 			while((buffer = reader.readLine()) != null) content.add(buffer) ;
 			reader.close() ;
+			file.close() ;
 		}
 		catch(IOException exception)
 		{

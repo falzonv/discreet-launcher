@@ -90,14 +90,7 @@ public class InternalFile
 	 */
 	public static String[] searchFilesStartingWith(Context context, final String prefix)
 	{
-		FilenameFilter filter = new FilenameFilter()
-		{
-			@Override
-			public boolean accept(File directory, String name)
-			{
-				return name.startsWith(prefix) ;
-			}
-		} ;
+		FilenameFilter filter = (directory, name) -> name.startsWith(prefix) ;
 		return context.getFilesDir().list(filter) ;
 	}
 }

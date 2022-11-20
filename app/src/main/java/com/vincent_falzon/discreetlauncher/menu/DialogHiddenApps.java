@@ -24,7 +24,6 @@ package com.vincent_falzon.discreetlauncher.menu ;
 
 // Imports
 import android.content.Context ;
-import android.content.DialogInterface ;
 import android.content.Intent ;
 import androidx.appcompat.app.AlertDialog ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
@@ -76,32 +75,21 @@ public abstract class DialogHiddenApps
 		// Prepare and display the selection dialog
 		AlertDialog.Builder dialog = new AlertDialog.Builder(context) ;
 		dialog.setTitle(context.getString(R.string.menu_hidden_apps)) ;
-		dialog.setMultiChoiceItems(app_names, selected,
-			new DialogInterface.OnMultiChoiceClickListener()
-			{
-				@Override
-				public void onClick(DialogInterface dialogInterface, int i, boolean b) { }
-			}) ;
-		dialog.setPositiveButton(R.string.button_apply,
-			new DialogInterface.OnClickListener()
-			{
-				@Override
-				public void onClick(DialogInterface dialogInterface, int which)
-				{
-					// Remove the current file
-					if(!file.remove()) return ;
+		dialog.setMultiChoiceItems(app_names, selected, (dialogInterface, position, checked) -> { }) ;
+		dialog.setPositiveButton(R.string.button_apply, (dialogInterface, which) -> {
+				// Remove the current file
+				if(!file.remove()) return ;
 
-					// Write the new selected applications to the file
-					for(int i = 0 ; i < selected.length ; i++)
-						if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
+				// Write the new selected applications to the file
+				for(int j = 0 ; j < selected.length ; j++)
+					if(selected[j]) file.writeLine(applications.get(j).getComponentInfo()) ;
 
-					// Refresh the list of apps and go back to the home screen
-					ActivityMain.updateList(context) ;
-					Intent homeIntent = new Intent() ;
-					homeIntent.setClass(context, ActivityMain.class) ;
-					homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-					context.startActivity(homeIntent) ;
-				}
+				// Refresh the list of apps and go back to the home screen
+				ActivityMain.updateList(context) ;
+				Intent homeIntent = new Intent() ;
+				homeIntent.setClass(context, ActivityMain.class) ;
+				homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+				context.startActivity(homeIntent) ;
 			}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;
 		dialog.show() ;

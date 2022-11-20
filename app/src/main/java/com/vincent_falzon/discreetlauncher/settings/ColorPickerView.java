@@ -23,7 +23,7 @@ package com.vincent_falzon.discreetlauncher.settings ;
  */
 
 // Imports
-import android.annotation.SuppressLint;
+import android.annotation.SuppressLint ;
 import android.content.Context ;
 import android.graphics.Bitmap ;
 import android.graphics.BitmapShader ;
@@ -228,16 +228,18 @@ public class ColorPickerView extends View
 		alphaSlider.left = alpha_position - 2 * density ;
 		alphaSlider.right = alpha_position + 2 * density ;
 
-		// Prepare the saturation/value panel gradients
-		Shader mSatShader = new LinearGradient(
+		// Prepare the saturation/value panel gradients (must be done dynamically)
+		@SuppressLint("DrawAllocation") Shader satShader = new LinearGradient(
 				satValPanel.left, satValPanel.top, satValPanel.right, satValPanel.top,
 				0xFFFFFFFF, Color.HSVToColor(new float[]{hsv_color[0], 1, 1}), TileMode.CLAMP) ;
-		satValPaint.setShader(new ComposeShader(valShader, mSatShader, PorterDuff.Mode.MULTIPLY)) ;
+		@SuppressLint("DrawAllocation") Shader satValShader = new ComposeShader(valShader, satShader, PorterDuff.Mode.MULTIPLY) ;
+		satValPaint.setShader(satValShader) ;
 
-		// Prepare the alpha panel gradient
-		alphaPaint.setShader(new LinearGradient(
+		// Prepare the alpha panel gradient (must be done dynamically)
+		@SuppressLint("DrawAllocation") Shader alphaShader = new LinearGradient(
 				alphaPanel.left, alphaPanel.top, alphaPanel.right, alphaPanel.top,
-				Color.HSVToColor(0, hsv_color), Color.HSVToColor(hsv_color), TileMode.CLAMP)) ;
+				Color.HSVToColor(0, hsv_color), Color.HSVToColor(hsv_color), TileMode.CLAMP) ;
+		alphaPaint.setShader(alphaShader) ;
 
 		// Draw the hue panel and its slider
 		canvas.drawRect(huePanel, huePaint) ;

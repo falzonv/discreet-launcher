@@ -33,7 +33,6 @@ import android.os.Build ;
 import android.text.Editable ;
 import android.text.TextWatcher ;
 import android.view.Gravity ;
-import android.view.KeyEvent ;
 import android.view.LayoutInflater ;
 import android.view.MotionEvent ;
 import android.view.View ;
@@ -44,7 +43,6 @@ import android.view.inputmethod.InputMethodManager ;
 import android.widget.EditText ;
 import android.widget.LinearLayout ;
 import android.widget.PopupWindow ;
-import android.widget.TextView ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
@@ -95,20 +93,15 @@ public class Search extends Application
 		EditText searchBar = popupView.findViewById(R.id.search_bar) ;
 		searchBar.setVisibility(View.VISIBLE) ;
 		searchBar.addTextChangedListener(new TextChangeListener()) ;
-		searchBar.setOnEditorActionListener(new TextView.OnEditorActionListener()
-			{
-				@Override
-				public boolean onEditorAction(TextView view, int actionId, KeyEvent event)
-				{
-					// Perform an action when the user presses "Enter"
-					if(actionId == EditorInfo.IME_ACTION_SEARCH)
-						{
-							// Launch the first app displayed in the results
-							adapter.launchFirstApp(view) ;
-							return true ;
-						}
-					return false ;
-				}
+		searchBar.setOnEditorActionListener((view, actionId, event) -> {
+				// Perform an action when the user presses "Enter"
+				if(actionId == EditorInfo.IME_ACTION_SEARCH)
+					{
+						// Launch the first app displayed in the results
+						adapter.launchFirstApp(view) ;
+						return true ;
+					}
+				return false ;
 			}) ;
 
 		// Retrieve all the applications without folders and the Search

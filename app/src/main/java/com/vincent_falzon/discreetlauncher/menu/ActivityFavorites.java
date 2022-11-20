@@ -23,7 +23,7 @@ package com.vincent_falzon.discreetlauncher.menu ;
  */
 
 // Imports
-import android.content.DialogInterface ;
+import android.annotation.SuppressLint ;
 import android.graphics.drawable.Drawable ;
 import android.os.Build ;
 import android.os.Bundle ;
@@ -94,6 +94,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	/**
 	 * Called when an element is clicked.
 	 */
+	@SuppressLint("NotifyDataSetChanged")
 	public void onClick(View view)
 	{
 		// Do not continue if something else than the favorites selection button has been clicked
@@ -126,29 +127,18 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		// Prepare and display the selection dialog
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
 		dialog.setTitle(R.string.button_select_favorites) ;
-		dialog.setMultiChoiceItems(app_names, selected,
-				new DialogInterface.OnMultiChoiceClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i, boolean b) { }
-				}) ;
-		dialog.setPositiveButton(R.string.button_apply,
-				new DialogInterface.OnClickListener()
-				{
-					@Override
-					public void onClick(DialogInterface dialogInterface, int i)
-					{
-						// Remove the current file
-						if(!file.remove()) return ;
+		dialog.setMultiChoiceItems(app_names, selected, (dialogInterface, position, checked) -> { }) ;
+		dialog.setPositiveButton(R.string.button_apply, (dialogInterface, position) -> {
+					// Remove the current file
+					if(!file.remove()) return ;
 
-						// Write the new selected applications to the file
-						for(i = 0 ; i < selected.length ; i++)
-							if(selected[i]) file.writeLine(applications.get(i).getComponentInfo()) ;
+					// Write the new selected applications to the file
+					for(position = 0 ; position < selected.length ; position++)
+						if(selected[position]) file.writeLine(applications.get(position).getComponentInfo()) ;
 
-						// Update the favorite applications list
-						ActivityMain.updateFavorites(null) ;
-						adapter.notifyDataSetChanged() ;
-					}
+					// Update the favorite applications list
+					ActivityMain.updateFavorites(null) ;
+					adapter.notifyDataSetChanged() ;
 				}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;
 		dialog.show() ;
@@ -217,16 +207,12 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 				}
 
 			// Listen for dragging action on the view of this favorite
-			favoriteView.itemView.setOnTouchListener(new View.OnTouchListener()
-			{
-				@Override
-				public boolean onTouch(View view, MotionEvent event)
+			favoriteView.itemView.setOnTouchListener((view, event) ->
 				{
 					view.performClick() ;
 					if(event.getAction() == MotionEvent.ACTION_DOWN) touchManager.startDrag(favoriteView) ;
 					return false ;
-				}
-			}) ;
+				}) ;
 
 			// Prepare the button to move a favorite before the previous one
 			if(i > 0)
