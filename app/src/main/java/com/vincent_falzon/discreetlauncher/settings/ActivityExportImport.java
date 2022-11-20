@@ -24,15 +24,12 @@ package com.vincent_falzon.discreetlauncher.settings ;
 
 // Imports
 import android.annotation.SuppressLint ;
-import android.content.Context;
-import android.content.Intent ;
 import android.content.SharedPreferences ;
 import android.net.Uri ;
 import android.os.Bundle ;
 import android.view.View ;
 import androidx.activity.result.ActivityResultLauncher ;
 import androidx.activity.result.contract.ActivityResultContracts ;
-import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
@@ -75,7 +72,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		findViewById(R.id.import_button).setOnClickListener(this) ;
 
 		// Prepare the file pickers callbacks
-		exportFilePicker = registerForActivityResult(new ContractCreateTextDocument(), result -> {
+		exportFilePicker = registerForActivityResult(new ActivityResultContracts.CreateDocument("text/plain"), result -> {
 				// Unless the selection has been cancelled, create the export file
 				if(result != null)
 					writeToExportFile(result) ;
@@ -363,28 +360,6 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				if(app_details.length >= 2)
 					new InternalFileTXT(Constants.FILE_HIDDEN).writeLine(app_details[1]) ;
 				break ;
-		}
-	}
-
-
-	// ---------------------------------------------------------------------------------------------
-
-	/**
-	 * Create a custom ActivityResultContract to create a text/plain file.
-	 */
-	private static class ContractCreateTextDocument extends ActivityResultContracts.CreateDocument
-	{
-		/**
-		 * Create the Intent that will be used to start the file picker activity.
-		 */
-		@NonNull
-		@Override
-		public Intent createIntent(@NonNull Context context, @NonNull String suggested_filename)
-		{
-			// Retrieve the Intent from the parent and adjust its mime type
-			Intent intent = super.createIntent(context, suggested_filename) ;
-			intent.setType("text/plain") ;
-			return intent ;
 		}
 	}
 }
