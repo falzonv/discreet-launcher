@@ -37,6 +37,7 @@ import androidx.appcompat.content.res.AppCompatResources ;
 import androidx.preference.Preference ;
 import androidx.preference.PreferenceViewHolder ;
 import com.vincent_falzon.discreetlauncher.R ;
+import java.util.Objects ;
 
 /**
  * Allow to display a color picker in the standard Android Preference library.
@@ -112,7 +113,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 		try
 		{
 			// Try to notify the ChangeListener that a preference will been changed
-			getOnPreferenceChangeListener().onPreferenceChange(this, new_color) ;
+			Objects.requireNonNull(getOnPreferenceChangeListener()).onPreferenceChange(this, new_color) ;
 		}
 		catch (NullPointerException ignored) { }
 

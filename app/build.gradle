@@ -47,5 +47,9 @@ dependencies
 {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation('androidx.preference:preference:1.2.0') {
+                // Workaround for bug https://issuetracker.google.com/issues/238425626
+                exclude group: 'androidx.lifecycle', module:'lifecycle-viewmodel'
+                exclude group: 'androidx.lifecycle', module:'lifecycle-viewmodel-ktx'
+            }
 }
