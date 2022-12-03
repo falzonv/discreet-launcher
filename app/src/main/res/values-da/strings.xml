@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu">Menu</string>
+    <string name="menu_favorites">Favoritter</string>
+    <string name="menu_folders">Mapper</string>
+    <string name="menu_hidden_apps">Skjulte apps</string>
+    <string name="menu_refresh_list_apps">Genopfrisk liste med apps</string>
+    <string name="menu_settings_appearance">Udseende</string>
+    <string name="menu_settings_operation">Betjening</string>
+    <string name="menu_export_import">Eksport og import</string>
+    <string name="menu_help">Hjælp</string>
+    <string name="menu_about">Om</string>
+    <string name="menu_changelog">Liste med opdateriger</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Hvad ønsker du at gøre?</string>
+    <string name="long_click_open">Åbn \"%1$s\"</string>
+    <string name="long_click_settings">Få adgang til dens indstillinger</string>
+    <string name="long_click_view_store">Vis app-butik</string>
+    <string name="long_click_rename">Omdøb</string>
+    <string name="long_click_add_favorites">Tilføj til favoritter</string>
+    <string name="long_click_remove_favorites">Fjern fra favoritter</string>
+    <string name="long_click_add_folder">Tilføj til mappe</string>
+    <string name="long_click_remove_folder">Fjern fra mappe \"%1$s\"</string>
+    <string name="long_click_hide_search">Skjul</string>
+    <string name="long_click_remove_shortcut">Fjern denne genvej</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Anvend</string>
+    <string name="button_cancel">Annullér</string>
+    <string name="button_close">Luk</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Liste med apps opdateret</string>
+    <string name="info_favorites_refreshed">Favoritter opdateret</string>
+    <string name="info_display_partially_updated">Displayet vil være fuldt opdateret, når du vender tilbage til startskærmen</string>
+    <string name="error_app_not_found">Kunne ikke finde \"%1$s\"</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Søg</string>
+    <string name="search_app_hint">Søg efter apps</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Foreslå forbedringer, rapporter problemer og støt projektet på</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">Dansk oversættelse af Thomas Jensen</string>
+
+</resources>
