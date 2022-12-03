@@ -331,15 +331,17 @@ public class ViewClock extends View implements View.OnTouchListener
 		int y = Math.round(event.getY()) ;
 
 		// If the touch was in the time area, try to start the selected clock app
-		if(rect_time.contains(x, y))
+		if(rect_time.contains(x, y) && (event.getAction() == MotionEvent.ACTION_DOWN))
 			return Utils.searchAndStartApplication(this, settings, Constants.CLOCK_APP) ;
 
 		// If the touch was in the date area, try to start the default calendar
-		if(rect_date.contains(x, y))
+		if(rect_date.contains(x, y) && (event.getAction() == MotionEvent.ACTION_DOWN))
 			{
 				try
 				{
-					getContext().startActivity(Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_CALENDAR)) ;
+					Intent calendarIntent = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_CALENDAR) ;
+					calendarIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+					getContext().startActivity(calendarIntent) ;
 					return true ;
 				}
 				catch(ActivityNotFoundException|NullPointerException exception)
