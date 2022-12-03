@@ -163,6 +163,8 @@
     <string name="set_immersive_mode_help">Sin barras del sistema (puede ser forzado con un click prolongado en la pantalla de inicio).</string>
     <string name="set_interactive_clock">Reloj interactivo</string>
     <string name="set_interactive_clock_help">Presiona la fecha para abrir la aplicación de Calendario, presiona la hora para abrir la aplicación de Reloj</string>
+    <string name="set_clock_app">Clock app</string>
+    <string name="set_no_clock_app">None</string>
     <string name="set_hide_menu_button">Sin botón de menú</string>
     <string name="set_hide_menu_button_help">Siempre accesible desde el ícono del lanzador</string>
     <string name="set_disable_app_drawer">Sin cajón de aplicaciones</string>

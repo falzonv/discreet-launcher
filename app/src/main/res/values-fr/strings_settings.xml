@@ -162,7 +162,9 @@
     <string name="set_immersive_mode">Mode immersif</string>
     <string name="set_immersive_mode_help">Pas de barres système. (Peut être forcé par un clic long sur l\'écran d\'accueil.)</string>
     <string name="set_interactive_clock">Horloge interactive</string>
-    <string name="set_interactive_clock_help">Cliquez sur la date pour ouvrir l\'application Calendrier, cliquez sur l\'heure pour ouvrir l\'application Horloge</string>
+    <string name="set_interactive_clock_help">Cliquez sur la date pour ouvrir le calendrier par défaut, cliquez sur l\'heure pour ouvrir l\'horloge choisie</string>
+    <string name="set_clock_app">Application d\'horloge</string>
+    <string name="set_no_clock_app">Aucune</string>
     <string name="set_hide_menu_button">Pas de bouton de menu</string>
     <string name="set_hide_menu_button_help">Toujours accessible depuis l\'icône du lanceur</string>
     <string name="set_disable_app_drawer">Pas de tiroir d\'applications</string>

@@ -163,6 +163,8 @@
     <string name="set_immersive_mode_help">Tidak ada batang sistem. (Bisa dipaksakan dengan tekan lama di layar rumah.)</string>
     <string name="set_interactive_clock">Interactive clock</string>
     <string name="set_interactive_clock_help">Click the date to open the Calendar app, click the time to open the Clock app</string>
+    <string name="set_clock_app">Clock app</string>
+    <string name="set_no_clock_app">None</string>
     <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
     <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
     <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>

@@ -165,6 +165,8 @@
     <string name="set_interactive_clock_help">Нажмите на дату, чтобы открыть приложение Календарь, нажмите на время, чтобы открыть приложение Часы</string>
     <string name="set_hide_menu_button">Нет кнопки меню</string>
     <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
+    <string name="set_clock_app">Clock app</string>
+    <string name="set_no_clock_app">None</string>
     <string name="set_disable_app_drawer">Нет ящика приложений</string>
     <string name="set_double_tap">Двойное касание</string>
     <string name="set_swipe_leftwards">Проведите влево</string>

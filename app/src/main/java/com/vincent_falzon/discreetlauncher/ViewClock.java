@@ -330,44 +330,27 @@ public class ViewClock extends View implements View.OnTouchListener
 		int x = Math.round(event.getX()) ;
 		int y = Math.round(event.getY()) ;
 
-		// Check if the touch was in the date area
-		if(rect_date.contains(x, y))
-			return tryToOpenApp(Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_CALENDAR), "{calendar}") ;
-
-		// Check if the touch was in the time area
+		// If the touch was in the time area, try to start the selected clock app
 		if(rect_time.contains(x, y))
+			return Utils.searchAndStartApplication(this, settings, Constants.CLOCK_APP) ;
+
+		// If the touch was in the date area, try to start the default calendar
+		if(rect_date.contains(x, y))
 			{
-				// Search a valid alarm clock app
-				String package_name = "com.google.android.deskclock" ;
-				Intent intent = getContext().getPackageManager().getLaunchIntentForPackage(package_name) ;
-				if(intent == null)
-					{
-						package_name = "com.android.deskclock" ;
-						intent = getContext().getPackageManager().getLaunchIntentForPackage(package_name) ;
-					}
-				return tryToOpenApp(intent, package_name) ;
+				try
+				{
+					getContext().startActivity(Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_CALENDAR)) ;
+					return true ;
+				}
+				catch(ActivityNotFoundException|NullPointerException exception)
+				{
+					Utils.displayLongToast(getContext(), getContext().getString(R.string.error_app_not_found, "{calendar}")) ;
+					return false ;
+				}
 			}
 
 		// Do not handle touchs outside the date/time areas
 		return false ;
-	}
-
-
-	/**
-	 * Try to open the given intent (assumed to be an external app) as a new activity.
-	 */
-	private boolean tryToOpenApp(Intent intent, String package_name)
-	{
-		try
-		{
-			getContext().startActivity(intent) ;
-			return true ;
-		}
-		catch(ActivityNotFoundException|NullPointerException exception)
-		{
-			Utils.displayLongToast(getContext(), getContext().getString(R.string.error_app_not_found, package_name)) ;
-			return false ;
-		}
 	}
 
 

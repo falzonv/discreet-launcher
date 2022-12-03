@@ -163,6 +163,8 @@
     <string name="set_immersive_mode_help">Ingen systembjælker. (Kan tvinges ved at trykke længe på startskærmen.)</string>
     <string name="set_interactive_clock">Interaktivt ur</string>
     <string name="set_interactive_clock_help">Klik på datoen for at åbne Kalender-appen, klik på klokkeslættet for at åbne Ur-appen</string>
+    <string name="set_clock_app">Clock app</string>
+    <string name="set_no_clock_app">None</string>
     <string name="set_hide_menu_button">Ingen menu-knap</string>
     <string name="set_hide_menu_button_help">Altid tilgængelig fra launcher-appikonet</string>
     <string name="set_disable_app_drawer">Ingen app-skuffe</string>

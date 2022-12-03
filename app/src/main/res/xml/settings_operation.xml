@@ -62,6 +62,14 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <ListPreference
+            app:key="clock_app"
+            app:title="@string/set_clock_app"
+            app:iconSpaceReserved="false"
+            app:dependency="interactive_clock"
+            app:defaultValue="none"
+            app:useSimpleSummaryProvider="true"/>
+
         <SwitchPreference
             app:key="hide_menu_button"
             app:title="@string/set_hide_menu_button"

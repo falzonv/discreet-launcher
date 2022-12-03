@@ -163,6 +163,8 @@
     <string name="set_immersive_mode_help">システムバーの非表示(ホーム画面長押しで強制終了できます)</string>
     <string name="set_interactive_clock">対話型時計</string>
     <string name="set_interactive_clock_help">日付をクリックするとカレンダーアプリが、時間をクリックすると時計アプリが起動します</string>
+    <string name="set_clock_app">Clock app</string>
+    <string name="set_no_clock_app">None</string>
     <string name="set_hide_menu_button">メニューボタンの非表示</string>
     <string name="set_hide_menu_button_help">ランチャーアプリのアイコンから常にアクセスできます</string>
     <string name="set_disable_app_drawer">アプリドロワーの非表示</string>

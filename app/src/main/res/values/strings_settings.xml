@@ -162,7 +162,9 @@
     <string name="set_immersive_mode">Immersive mode</string>
     <string name="set_immersive_mode_help">No system bars. (Can be forced by long-pressing the home screen.)</string>
     <string name="set_interactive_clock">Interactive clock</string>
-    <string name="set_interactive_clock_help">Click the date to open the Calendar app, click the time to open the Clock app</string>
+    <string name="set_interactive_clock_help">Click the date to open the default calendar, click the time to open the selected clock app</string>
+    <string name="set_clock_app">Clock app</string>
+    <string name="set_no_clock_app">None</string>
     <string name="set_hide_menu_button">No menu button</string>
     <string name="set_hide_menu_button_help">Always accessible from the launcher app icon</string>
     <string name="set_disable_app_drawer">No app drawer</string>

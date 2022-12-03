@@ -163,6 +163,8 @@
     <string name="set_immersive_mode_help">Відсутні системні панелі. (можна примусово ввімкнути, довгим натисканням на головний екран.)</string>
     <string name="set_interactive_clock">Інтерактивний годинник</string>
     <string name="set_interactive_clock_help">Торкніться дати, щоб відкрити застосунок Календар. Торкніться часу, щоб відкрити застосунок Годинник.</string>
+    <string name="set_clock_app">Clock app</string>
+    <string name="set_no_clock_app">None</string>
     <string name="set_hide_menu_button">Приховати кнопку меню</string>
     <string name="set_hide_menu_button_help">Меню завжди доступне через піфтограму запускача</string>
     <string name="set_disable_app_drawer">Приховати шухляду застосунків</string>

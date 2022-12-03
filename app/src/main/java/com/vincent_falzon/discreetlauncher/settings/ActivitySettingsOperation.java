@@ -47,6 +47,8 @@ public class ActivitySettingsOperation extends AppCompatActivity
 	// Attributes
 	private static ArrayList<String> applicationsComponentInfos ;
 	private static ArrayList<String> applicationsNames ;
+	private static ArrayList<String> clockAppsComponentInfos ;
+	private static ArrayList<String> clockAppsNames ;
 
 
 	/**
@@ -60,13 +62,19 @@ public class ActivitySettingsOperation extends AppCompatActivity
 
 		// Initializations
 		if(applicationsComponentInfos == null) applicationsComponentInfos = new ArrayList<>() ;
+			else applicationsComponentInfos.clear() ;
 		if(applicationsNames == null) applicationsNames = new ArrayList<>() ;
+			else applicationsNames.clear() ;
+		if(clockAppsComponentInfos == null) clockAppsComponentInfos = new ArrayList<>() ;
+			else clockAppsComponentInfos.clear() ;
+		if(clockAppsNames == null) clockAppsNames = new ArrayList<>() ;
+			else clockAppsNames.clear() ;
 
-		// Prepare the icon pack setting
-		applicationsComponentInfos.clear() ;
-		applicationsNames.clear() ;
+		// Prepare the lists of applications
 		applicationsComponentInfos.add(Constants.NONE) ;
 		applicationsNames.add(getString(R.string.set_no_action)) ;
+		clockAppsComponentInfos.add(Constants.NONE) ;
+		clockAppsNames.add(getString(R.string.set_no_clock_app)) ;
 		loadInstalledApplications() ;
 
 		// Load the general settings layout
@@ -76,7 +84,7 @@ public class ActivitySettingsOperation extends AppCompatActivity
 
 
 	/**
-	 * Build a list of all installed applications.
+	 * Build the lists of installed applications.
 	 */
 	private void loadInstalledApplications()
 	{
@@ -86,9 +94,17 @@ public class ActivitySettingsOperation extends AppCompatActivity
 		// Store the retrieved information in the lists
 		for(Application application : allApplications)
 		{
+			// Prepare the lists for the gestures selectors
 			applicationsComponentInfos.add(application.getComponentInfo()) ;
 			if(application instanceof Folder) applicationsNames.add(((Folder)application).getDisplayNameWithCount()) ;
 				else applicationsNames.add(application.getDisplayName()) ;
+
+			// Prepare the lists for the clock app selector
+			if(application.getName().contains("clock") || application.getName().contains("alarm"))
+				{
+					clockAppsComponentInfos.add(application.getComponentInfo()) ;
+					clockAppsNames.add(application.getDisplayName()) ;
+				}
 		}
 	}
 
@@ -175,6 +191,14 @@ public class ActivitySettingsOperation extends AppCompatActivity
 				{
 					swipeTowardsRight.setEntries(applicationsNames.toArray(new CharSequence[0])) ;
 					swipeTowardsRight.setEntryValues(applicationsComponentInfos.toArray(new CharSequence[0])) ;
+				}
+
+			// Initialize the clock app selector
+			ListPreference clockApp = findPreference(Constants.CLOCK_APP) ;
+			if(clockApp != null)
+				{
+					clockApp.setEntries(clockAppsNames.toArray(new CharSequence[0])) ;
+					clockApp.setEntryValues(clockAppsComponentInfos.toArray(new CharSequence[0])) ;
 				}
 		}
 	}
