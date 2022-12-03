@@ -155,16 +155,16 @@
     <string name="target_open_applications">Åpne\nprogrammer</string>
 
     <!-- Other operation settings -->
-    <string name="set_as_default_launcher">Set as default launcher</string>
+    <string name="set_as_default_launcher">Bruk som forvalgt oppstarter</string>
     <string name="set_always_show_favorites">Alltid vis favoritter</string>
     <string name="set_reverse_interface">Omvendt grensesnitt</string>
     <string name="set_reverse_interface_help">Programmer ovenfor, og favorittpanel på bunnen</string>
     <string name="set_immersive_mode">Oppslukende modus</string>
     <string name="set_immersive_mode_help">Skjul systembjelker (lang-trykk på hjemmeskjermen for å påtvinge)</string>
     <string name="set_interactive_clock">Interaktiv klokke</string>
-    <string name="set_interactive_clock_help">Klikk på datoen for å åpne kalenderprogrammet, og klokkn for å åpne klokkeprogrammet.</string>
-    <string name="set_clock_app">Clock app</string>
-    <string name="set_no_clock_app">None</string>
+    <string name="set_interactive_clock_help">Klikk på datoen for å åpne forvalgt kalenderprogram, og klokkn for å åpne valgt klokkeprogram.</string>
+    <string name="set_clock_app">Klokkeprogram</string>
+    <string name="set_no_clock_app">Ingen</string>
     <string name="set_hide_menu_button">Ingen menyknapp</string>
     <string name="set_hide_menu_button_help">Fremdeles tilgjengelig i oppstarterikonet</string>
     <string name="set_disable_app_drawer">Ingen programkurv</string>
