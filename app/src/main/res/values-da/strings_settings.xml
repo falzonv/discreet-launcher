@@ -14,7 +14,7 @@
     <string name="hint_folders_number">Opret så mange mapper, som du vil, for at organisere dine apps.</string>
     <string name="hint_folder_edit">
         Klik på et mappenavn for at ændre det, og på ikonet for at vælge dets farve.
-         Pennen tillader redigering af mappeindhold.
+        Pennen tillader redigering af mappeindhold.
     </string>
     <string name="hint_new_folder">Ny mappe</string>
     <string name="hint_rename_folder">Omdøb mappe</string>
@@ -33,7 +33,7 @@
     <string name="export_import_warning_file_edit">Redigering af denne fil kan forårsage problemer</string>
     <string name="export_import_warning_shortcuts">
         (På Android 8 (Oreo) og nyere virker importerede genveje muligvis ikke
-         fordi de administreres af systemet og ikke formodes at blive eksporteret)
+        fordi de administreres af systemet og ikke formodes at blive eksporteret)
     </string>
     <string name="export_completed">Eksport gennemført</string>
     <string name="error_export">Kunne ikke eksportere fil</string>
@@ -155,6 +155,7 @@
     <string name="target_open_applications">Åbn\napps</string>
 
     <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Set as default launcher</string>
     <string name="set_always_show_favorites">Vis altid favoritter</string>
     <string name="set_reverse_interface">Omvendt grænseflade</string>
     <string name="set_reverse_interface_help">Apps over, og favoritter under startskærmen</string>

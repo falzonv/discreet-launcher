@@ -18,16 +18,19 @@
     </string>
     <string name="help_list_update_title">Actualización de listas</string>
     <string name="help_list_update">
-        Un mensaje emergente es mostrado cuando se refrescan la lista de aplicaciones y sus íconos, cuando se inicia el lanzador, se añaden o remueven aplicaciones, o si el paquete de íconos es modificado.
+        Un mensaje emergente es mostrado cuando se refrescan la lista de aplicaciones y sus íconos,
+        cuando se inicia el lanzador, se añaden o remueven aplicaciones, o si el paquete de íconos es modificado.
     </string>
     <string name="help_folders_title">Carpetas</string>
     <string name="help_folders">
-      Administra las carpetas o márcalas como favoritas desde el botón de menú, o presiona el título de una carpeta abierta para crear, renombrar y colocar aplicaciones en ella.
+        Administra las carpetas o márcalas como favoritas desde el botón de menú, o presiona el título de una carpeta abierta
+        para crear, renombrar y colocar aplicaciones en ella.
         \nBorrar una carpeta coloca todas sus aplicaciones de nuevo en la lista principal.
     </string>
     <string name="help_search_title">Buscar</string>
     <string name="help_search">
-        Encuentra cualquier aplicación desde el ícono de búsqueda. También se puede marcar como favorito para tenerlo disponible desde la notificación, o puede ser ocultado.
+        Encuentra cualquier aplicación desde el ícono de búsqueda. También se puede marcar como favorito para tenerlo disponible
+        desde la notificación, o puede ser ocultado.
         \n
         \nPresionar \"Enter\" abre el primer resultado de la búsqueda.
     </string>

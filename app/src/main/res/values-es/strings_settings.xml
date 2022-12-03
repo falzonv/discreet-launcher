@@ -32,7 +32,8 @@
     <string name="export_import_header_icons">Íconos guardados</string>
     <string name="export_import_warning_file_edit">Editar este archivo puede causar problemas</string>
     <string name="export_import_warning_shortcuts">
-        (En Android 8 y superior, los accesos rápidos guardados pueden no funcionar, pues son administrados por el sistema y no se supone que puedan ser exportados)
+        (En Android 8 y superior, los accesos rápidos guardados pueden no funcionar,
+        pues son administrados por el sistema y no se supone que puedan ser exportados)
     </string>
     <string name="export_completed">Exportación completada</string>
     <string name="error_export">No se pudo completar la exportación</string>
@@ -79,7 +80,7 @@
         <item>Fecha y hora (completo)</item>
     </string-array>
 
-    <!-- Clock position -->
+    <!-- Clock position (double spaces are intentional) -->
     <string name="set_clock_position">Posición del reloj</string>
     <string-array name="set_clock_position_entries">
         <item>Arriba</item>
