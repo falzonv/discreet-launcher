@@ -859,7 +859,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 						else swipe_direction_setting_key = Constants.SWIPE_RIGHTWARDS ;
 
 					// Try to start the related application
-					return searchAndStartApplication(swipe_direction_setting_key) ;
+					return Utils.searchAndStartApplication(homeScreen, settings, swipe_direction_setting_key) ;
 				}
 
 			// Ignore other gestures
@@ -873,38 +873,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		@Override
 		public boolean onDoubleTap(MotionEvent event)
 		{
-			return searchAndStartApplication(Constants.DOUBLE_TAP) ;
-		}
-
-
-		/**
-		 * Start an app from the list using its ComponentInfo, or show an error message.
-		 * @return <code>true</code> if the event was consumed, <code>false</code> otherwise
-		 */
-		private boolean searchAndStartApplication(String gesture_setting_key)
-		{
-			// Retrieve the app to launch based on the given gesture key
-			String component_info = settings.getString(gesture_setting_key, Constants.NONE) ;
-
-			// Do not continue if the setting is not set
-			if((component_info == null) || component_info.equals(Constants.NONE))
-				return false ;
-
-			// Search the application in the list
-			for(Application application : applicationsList.getApplications(true))
-				if(application.getComponentInfo().equals(component_info))
-					{
-						// Start the application
-						application.start(homeScreen) ;
-						return true ;
-					}
-
-			// The application was not found, display an error message and reset the gesture
-			Context context = homeScreen.getContext() ;
-			Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, component_info)) ;
-			SharedPreferences.Editor editor = settings.edit() ;
-			editor.putString(gesture_setting_key, Constants.NONE).apply() ;
-			return true ;
+			return Utils.searchAndStartApplication(homeScreen, settings, Constants.DOUBLE_TAP) ;
 		}
 
 

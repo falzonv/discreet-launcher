@@ -26,7 +26,9 @@ package com.vincent_falzon.discreetlauncher ;
 import android.content.Context ;
 import android.content.SharedPreferences ;
 import android.util.Log ;
+import android.view.View ;
 import android.widget.Toast ;
+import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.settings.ColorPickerDialog ;
 
 /**
@@ -70,6 +72,37 @@ public abstract class Utils
 
 		// Convert the hexadecimal color to an "int" color
 		return ColorPickerDialog.convertHexadecimalColorToInt(hexadecimal) ;
+	}
+
+
+	/**
+	 * Try to start an app from the list using the ComponentInfo in the given setting key.
+	 * @return <code>true</code> if something was done, <code>false</code> otherwise
+	 */
+	public static boolean searchAndStartApplication(View view, SharedPreferences settings, String setting_key)
+	{
+		// Retrieve the app to launch based on the given setting key
+		String component_info = settings.getString(setting_key, Constants.NONE) ;
+
+		// Do not continue if the setting is not set
+		if((component_info == null) || component_info.equals(Constants.NONE))
+			return false ;
+
+		// Search the application in the list
+		for(Application application : ActivityMain.getApplicationsList().getApplications(true))
+			if(application.getComponentInfo().equals(component_info))
+			{
+				// Start the application
+				application.start(view) ;
+				return true ;
+			}
+
+		// The application was not found, display an error message and reset the setting value
+		Context context = view.getContext() ;
+		Utils.displayLongToast(context, context.getString(R.string.error_app_not_found, component_info)) ;
+		SharedPreferences.Editor editor = settings.edit() ;
+		editor.putString(setting_key, Constants.NONE).apply() ;
+		return true ;
 	}
 
 
