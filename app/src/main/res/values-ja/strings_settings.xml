@@ -159,10 +159,10 @@
     <string name="set_always_show_favorites">お気に入りを常に表示する</string>
     <string name="set_reverse_interface">インターフェースを反転する</string>
     <string name="set_reverse_interface_help">ホーム画面上にアプリ、下にお気に入りを表示</string>
-    <string name="set_immersive_mode">イマーシブモード</string>
+    <string name="set_immersive_mode">全画面表示</string>
     <string name="set_immersive_mode_help">システムバーの非表示(ホーム画面長押しで強制終了できます)</string>
-    <string name="set_interactive_clock">対話型時計</string>
-    <string name="set_interactive_clock_help">日付をクリックするとカレンダーアプリが、時間をクリックすると時計アプリが起動します</string>
+    <string name="set_interactive_clock">選択可能な時計</string>
+    <string name="set_interactive_clock_help">日付をクリックするとデフォルトのカレンダーが表示され、時間をクリックすると選択した時計アプリが表示されます</string>
     <string name="set_clock_app">時計アプリ</string>
     <string name="set_no_clock_app">なし</string>
     <string name="set_hide_menu_button">メニューボタンの非表示</string>
