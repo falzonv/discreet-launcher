@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu">Menu</string>
+    <string name="menu_favorites">Favoritos</string>
+    <string name="menu_folders">Pastas</string>
+    <string name="menu_hidden_apps">Aplicativos ocultos</string>
+    <string name="menu_refresh_list_apps">Atualizar lista de aplicativos</string>
+    <string name="menu_settings_appearance">Configurações de aparência</string>
+    <string name="menu_settings_operation">Configurações gerais</string>
+    <string name="menu_export_import">Exportar e importar</string>
+    <string name="menu_help">Ajuda</string>
+    <string name="menu_about">Sobre</string>
+    <string name="menu_changelog">Registro de alterações</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">O que você quer fazer?</string>
+    <string name="long_click_open">Abrir \"%1$s\"</string>
+    <string name="long_click_settings">Ir às configurações</string>
+    <string name="long_click_view_store">Ver página na loja de aplicativos</string>
+    <string name="long_click_rename">Renomear</string>
+    <string name="long_click_add_favorites">Adicionar aos favoritos</string>
+    <string name="long_click_remove_favorites">Remover dos favoritos</string>
+    <string name="long_click_add_folder">Adicionar à pasta</string>
+    <string name="long_click_remove_folder">Remover da pasta \"%1$s\"</string>
+    <string name="long_click_hide_search">Ocultar</string>
+    <string name="long_click_remove_shortcut">Remover este atalho</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Aplicar</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="button_close">Fechar</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Lista de aplicativos atualizada</string>
+    <string name="info_favorites_refreshed">Lista de favoritos atualizada</string>
+    <string name="info_display_partially_updated">A visualização será atualizada por completo após retornar à página inicial</string>
+    <string name="error_app_not_found">O aplicativo \"%1$s\" não foi encontrado</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Buscar</string>
+    <string name="search_app_hint">Buscar aplicativos</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Sugerir melhorias, reportar problemas, e apoiar o projeto em</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">Tradução para o português brasileiro: odanoburu</string>
+
+</resources>
