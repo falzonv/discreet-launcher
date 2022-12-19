@@ -155,16 +155,16 @@
     <string name="target_open_applications">Åbn\napps</string>
 
     <!-- Other operation settings -->
-    <string name="set_as_default_launcher">Set as default launcher</string>
+    <string name="set_as_default_launcher">Sæt som standard launcher</string>
     <string name="set_always_show_favorites">Vis altid favoritter</string>
     <string name="set_reverse_interface">Omvendt grænseflade</string>
     <string name="set_reverse_interface_help">Apps over, og favoritter under startskærmen</string>
     <string name="set_immersive_mode">Fordybende tilstand</string>
     <string name="set_immersive_mode_help">Ingen systembjælker. (Kan tvinges ved at trykke længe på startskærmen.)</string>
     <string name="set_interactive_clock">Interaktivt ur</string>
-    <string name="set_interactive_clock_help">Klik på datoen for at åbne Kalender-appen, klik på klokkeslættet for at åbne Ur-appen</string>
-    <string name="set_clock_app">Clock app</string>
-    <string name="set_no_clock_app">None</string>
+    <string name="set_interactive_clock_help">Klik på datoen for at åbne standardkalenderen, klik på klokkeslættet for at åbne den valgte ur-app</string>
+    <string name="set_clock_app">Ur-app</string>
+    <string name="set_no_clock_app">Ingen</string>
     <string name="set_hide_menu_button">Ingen menu-knap</string>
     <string name="set_hide_menu_button_help">Altid tilgængelig fra launcher-appikonet</string>
     <string name="set_disable_app_drawer">Ingen app-skuffe</string>

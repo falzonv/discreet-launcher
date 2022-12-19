@@ -155,18 +155,18 @@
     <string name="target_open_applications">Открыть\nприложения</string>
 
     <!-- Other operation settings -->
-    <string name="set_as_default_launcher">Set as default launcher</string>
+    <string name="set_as_default_launcher">Установить лаунчером по-умолчанию</string>
     <string name="set_always_show_favorites">Всегда показывать избранное</string>
     <string name="set_reverse_interface">Обратный интерфейс</string>
     <string name="set_reverse_interface_help">Приложения выше, а избранное ниже главного экрана</string>
     <string name="set_immersive_mode">Иммерсивный режим</string>
     <string name="set_immersive_mode_help">Нет системных панелей. (Можно принудительно включить, долго нажимая на главный экран.)</string>
     <string name="set_interactive_clock">Интерактивные часы</string>
-    <string name="set_interactive_clock_help">Нажмите на дату, чтобы открыть приложение Календарь, нажмите на время, чтобы открыть приложение Часы</string>
+    <string name="set_interactive_clock_help">Нажмите на дату, чтобы открыть календарь по-умолчанию, нажмите на время, чтобы открыть выбранное приложение часов.</string>
+    <string name="set_clock_app">Приложение часов</string>
+    <string name="set_no_clock_app">Нет</string>
     <string name="set_hide_menu_button">Нет кнопки меню</string>
     <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
-    <string name="set_clock_app">Clock app</string>
-    <string name="set_no_clock_app">None</string>
     <string name="set_disable_app_drawer">Нет ящика приложений</string>
     <string name="set_double_tap">Двойное касание</string>
     <string name="set_swipe_leftwards">Проведите влево</string>

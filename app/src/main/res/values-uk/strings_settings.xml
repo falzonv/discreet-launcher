@@ -155,16 +155,16 @@
     <string name="target_open_applications">Показати\nзастосунки</string>
 
     <!-- Other operation settings -->
-    <string name="set_as_default_launcher">Set as default launcher</string>
+    <string name="set_as_default_launcher">Запускач за замовчуванням</string>
     <string name="set_always_show_favorites">Завжди показувати обране</string>
     <string name="set_reverse_interface">Зворотній інтерфейс</string>
     <string name="set_reverse_interface_help">Застосунки — вище, а обране — нижче головного екрана</string>
     <string name="set_immersive_mode">Режем занурення</string>
     <string name="set_immersive_mode_help">Відсутні системні панелі. (можна примусово ввімкнути, довгим натисканням на головний екран.)</string>
     <string name="set_interactive_clock">Інтерактивний годинник</string>
-    <string name="set_interactive_clock_help">Торкніться дати, щоб відкрити застосунок Календар. Торкніться часу, щоб відкрити застосунок Годинник.</string>
-    <string name="set_clock_app">Clock app</string>
-    <string name="set_no_clock_app">None</string>
+    <string name="set_interactive_clock_help">Торкніться дати, щоб відкрити календар за замовчуванням. Торкніться часу, щоб відкрити обраний застосунок годинника.</string>
+    <string name="set_clock_app">Застосунок годинника</string>
+    <string name="set_no_clock_app">Немає</string>
     <string name="set_hide_menu_button">Приховати кнопку меню</string>
     <string name="set_hide_menu_button_help">Меню завжди доступне через піфтограму запускача</string>
     <string name="set_disable_app_drawer">Приховати шухляду застосунків</string>

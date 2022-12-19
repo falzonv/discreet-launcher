@@ -155,16 +155,16 @@
     <string name="target_open_applications">Abrir\naplicaciones</string>
 
     <!-- Other operation settings -->
-    <string name="set_as_default_launcher">Set as default launcher</string>
+    <string name="set_as_default_launcher">Establecer como lanzador por defecto</string>
     <string name="set_always_show_favorites">Mostrar siempre los favoritos</string>
     <string name="set_reverse_interface">Interfaz invertida</string>
     <string name="set_reverse_interface_help">Aplicaciones arriba y favoritos abajo en la pantalla de inicio</string>
     <string name="set_immersive_mode">Modo de inmersión</string>
     <string name="set_immersive_mode_help">Sin barras del sistema (puede ser forzado con un click prolongado en la pantalla de inicio).</string>
     <string name="set_interactive_clock">Reloj interactivo</string>
-    <string name="set_interactive_clock_help">Presiona la fecha para abrir la aplicación de Calendario, presiona la hora para abrir la aplicación de Reloj</string>
-    <string name="set_clock_app">Clock app</string>
-    <string name="set_no_clock_app">None</string>
+    <string name="set_interactive_clock_help">Presiona la fecha para abrir la aplicación de Calendario predeterminada, presiona la hora para abrir la aplicación de Reloj seleccionada</string>
+    <string name="set_clock_app">Aplicación de Reloj</string>
+    <string name="set_no_clock_app">Ninguna</string>
     <string name="set_hide_menu_button">Sin botón de menú</string>
     <string name="set_hide_menu_button_help">Siempre accesible desde el ícono del lanzador</string>
     <string name="set_disable_app_drawer">Sin cajón de aplicaciones</string>
