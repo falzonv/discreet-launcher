@@ -1,0 +1,3 @@
+v7.0.1 (57) - 19/12/2022
+CORRECTIONS
+   - Changelog of v7.0.0

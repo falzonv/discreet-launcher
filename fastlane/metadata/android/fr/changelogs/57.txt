@@ -1,0 +1,13 @@
+v7.0.1 (57) - 19/12/2022
+CORRECTIONS
+   - Journal des changements de la v7.0.0
+
+v7.0.0 (56) - 19/12/2022
+NOUVEAUTÉS
+   - Support d'Android 12
+   - Option pour choisir l'appli d'horloge
+   - Choix lanceur par défaut sur Android 10+
+   - Traduction Danoise par Thomas Jensen
+AMÉLIORATIONS
+   - Plusieurs simplifications internes
+   - Plusieurs librairies Android mises à jour
