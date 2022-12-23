@@ -13,8 +13,8 @@
     <string name="button_remove_folder">Remover</string>
     <string name="hint_folders_number">Crie quantas pastas quiser para organizar seus apps.</string>
     <string name="hint_folder_edit">
-      Pressione sobre o nome da pasta para renomeá-la, e sobre o ícone para escolher sua cor.
-      Clicar o lápis permite editar o conteúdo da pasta.
+        Pressione sobre o nome da pasta para renomeá-la, e sobre o ícone para escolher sua cor.
+        Clicar o lápis permite editar o conteúdo da pasta.
     </string>
     <string name="hint_new_folder">Nova pasta</string>
     <string name="hint_rename_folder">Renomear pasta</string>
@@ -32,8 +32,8 @@
     <string name="export_import_header_icons">Ícones salvos</string>
     <string name="export_import_warning_file_edit">Editar este arquivo pode causar problemas</string>
     <string name="export_import_warning_shortcuts">
-      (No Android versão 8 ou superior, os atalhos importados podem não funcionar,
-      pois são administrados pelo sistema e não devem ser exportados)
+        (No Android versão 8 ou superior, os atalhos importados podem não funcionar,
+        pois são administrados pelo sistema e não devem ser exportados)
     </string>
     <string name="export_completed">Exportação completa</string>
     <string name="error_export">Não foi possível completar a exportação</string>
