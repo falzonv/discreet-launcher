@@ -2,24 +2,24 @@
 <resources>
 
     <!-- Help -->
-    <string name="help_navigation_title">Navigation</string>
+    <string name="help_navigation_title">Navigasyon</string>
     <string name="help_navigation">
-        Swipe up from the home screen to show all apps, and downwards to go back.
+        Tüm uygulamaları göstermek için ana ekrandan yukarı, geri gitmek için aşağı kaydırın.
         \n
-        \nSwipe down from the home screen to show favorites, and upwards to go back.
+        \nFavorileri göstermek için ana ekrandan aşağı, geri gitmek için yukarı kaydırın.
         \n
-        \nClick the menu button (when showing favorites) or the launcher icon to open the menu.
+        \nMenüyü açmak için menü düğmesine (favorileri gösterirken) veya başlatıcı simgesine tıklayın.
         \n
-        \nLong-hold an app or folder to access its settings.
+        \nAyarlarına erişmek için bir uygulamayı veya klasörü uzun süre basılı tutun.
     </string>
-    <string name="help_notification_title">Notification</string>
+    <string name="help_notification_title">Bildirim</string>
     <string name="help_notification">
-        Shows a popup of favorites above other apps when you leave the home screen.
+        Ana ekrandan çıktığınızda diğer uygulamaların üzerinde sık kullanılanların bir açılır penceresini gösterir.
     </string>
-    <string name="help_list_update_title">List update</string>
+    <string name="help_list_update_title">Liste güncellemesi</string>
     <string name="help_list_update">
-        A popup message is shown when refreshing the app list and icons,
-        when starting, adding or removing apps, or if the icon pack is modified.
+        Uygulama listesini ve simgelerini yenilerken,
+        uygulamaları başlatırken, eklerken veya kaldırırken ya da simge paketi değiştirilirken bir açılır mesaj gösterilir.
     </string>
     <string name="help_folders_title">Folders</string>
     <string name="help_folders">
