@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu">Menu</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_folders">Folders</string>
+    <string name="menu_hidden_apps">Hidden apps</string>
+    <string name="menu_refresh_list_apps">Refresh the list of apps</string>
+    <string name="menu_settings_appearance">Appearance</string>
+    <string name="menu_settings_operation">Operation</string>
+    <string name="menu_export_import">Export and import</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About</string>
+    <string name="menu_changelog">Changelog</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">What do you want to do?</string>
+    <string name="long_click_open">Open \"%1$s\"</string>
+    <string name="long_click_settings">Access its settings</string>
+    <string name="long_click_view_store">View store page</string>
+    <string name="long_click_rename">Rename</string>
+    <string name="long_click_add_favorites">Add to favorites</string>
+    <string name="long_click_remove_favorites">Remove from favorites</string>
+    <string name="long_click_add_folder">Add to a folder</string>
+    <string name="long_click_remove_folder">Remove from folder \"%1$s\"</string>
+    <string name="long_click_hide_search">Hide</string>
+    <string name="long_click_remove_shortcut">Remove this shortcut</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Apply</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_close">Close</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">List of apps refreshed</string>
+    <string name="info_favorites_refreshed">Favorites refreshed</string>
+    <string name="info_display_partially_updated">The display will be fully updated after returning to the home screen</string>
+    <string name="error_app_not_found">Could not find \"%1$s\"</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Search</string>
+    <string name="search_app_hint">Search for apps</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Suggest improvements, report issues, and support the project on</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit"><!-- Replace this comment with a translation of: "([Locale] translation by [first and last names])" --></string>
+
+</resources>

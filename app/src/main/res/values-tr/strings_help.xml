@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Help -->
+    <string name="help_navigation_title">Navigation</string>
+    <string name="help_navigation">
+        Swipe up from the home screen to show all apps, and downwards to go back.
+        \n
+        \nSwipe down from the home screen to show favorites, and upwards to go back.
+        \n
+        \nClick the menu button (when showing favorites) or the launcher icon to open the menu.
+        \n
+        \nLong-hold an app or folder to access its settings.
+    </string>
+    <string name="help_notification_title">Notification</string>
+    <string name="help_notification">
+        Shows a popup of favorites above other apps when you leave the home screen.
+    </string>
+    <string name="help_list_update_title">List update</string>
+    <string name="help_list_update">
+        A popup message is shown when refreshing the app list and icons,
+        when starting, adding or removing apps, or if the icon pack is modified.
+    </string>
+    <string name="help_folders_title">Folders</string>
+    <string name="help_folders">
+        Manage folders or favorite them from the menu button, or click the title of an open folder
+        to create, rename, and put apps in it.
+        \nRemoving folders puts all apps in them back in the main list.
+    </string>
+    <string name="help_search_title">Search</string>
+    <string name="help_search">
+        Find any app from the search icon. It can also be favorited to be available
+        from the notification, or hidden.
+        \n
+        \nPressing \"Enter\" opens the first search result.
+    </string>
+
+    <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
+    <string name="changelog_mentions">\"@pseudo\" indicates the user who suggested the idea or reported the bug</string>
+    <string name="changelog_folder">changelog-en</string>
+    <string name="error_changelog_missing_folder">Could not find the changelog folder</string>
+    <string name="error_changelog_missing_file">Could not open %1$s</string>
+
+</resources>
