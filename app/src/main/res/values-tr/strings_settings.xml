@@ -13,11 +13,11 @@
     <string name="button_remove_folder">Kaldır</string>
     <string name="hint_folders_number">Uygulamalarınızı düzenlemek için istediğiniz kadar klasör oluşturun.</string>
     <string name="hint_folder_edit">
-        Click on a folder name to change it, and on the icon to choose its color.
-        The pen allows editing folder content.
+        Değiştirmek için bir klasör adına ve rengini seçmek için simgeye tıklayın.
+        Kalem, klasör içeriğini düzenlemeye izin verir.
     </string>
-    <string name="hint_new_folder">New folder</string>
-    <string name="hint_rename_folder">Rename folder</string>
+    <string name="hint_new_folder">Yeni klasör</string>
+    <string name="hint_rename_folder">Dosyayı yeniden adlandır</string>
     <string name="hint_remove_folder">If a folder is removed, its content will be put back in the main app list.</string>
     <string name="error_folder_empty_name">Pick a name first</string>
     <string name="error_folder_already_exists">Pick a name that doesn\'t exist already</string>
