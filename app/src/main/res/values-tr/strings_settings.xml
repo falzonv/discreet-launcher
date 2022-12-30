@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Favorileri seç</string>
-    <string name="hint_no_favorites_yet">Favori uygulamalarınızı buraya ekleyin\nby clicking the menu button.</string>
+    <string name="hint_no_favorites_yet">Favori uygulamalarınızı buraya ekleyin\nmenü düğmesine tıklayarak.</string>
     <string name="hint_modify_order_of_favorites">Aşağıdaki listedeki favorilerin sırasını değiştirin(kaydırmak için kenarları kullanma).</string>
     <string name="favorite_move_before">Önce taşı \"%1$s\"</string>
     <string name="favorite_move_after">Sonra taşı \"%1$s\"</string>
@@ -24,7 +24,7 @@
     <string name="error_folder_rename">Klasör yeniden adlandırılamadı</string>
 
     <!-- Export and import -->
-    <string name="export_import_help">Bu düğmeler uygulama verilerinin dışa aktarılmasına izin verir (Favoriler, klasörler, kısayollar ve ayarlar) veya yeniden içe aktarmak.</string>
+    <string name="export_import_help">Bu düğmeler uygulama verilerinin dışa aktarılmasına izin verir (Favoriler, klasörler, kısayollar ve ayarlar) veya yeniden içe aktarmak için.</string>
     <string name="button_export">Dışa aktar</string>
     <string name="button_import">İçe aktar</string>
     <string name="export_import_header_internal_files">Dahili metin dosyalarının içeriği</string>
@@ -33,31 +33,31 @@
     <string name="export_import_warning_file_edit">Bu dosyayı düzenlemek sorunlara neden olabilir</string>
     <string name="export_import_warning_shortcuts">
         (Android 8 (Oreo) ve sonrasında, içe aktarılan kısayollar sistem 
-         tarafından yönetildikleri ve dışa aktarılmamaları gerektiği için çalışmayabilir)
+        tarafından yönetildikleri ve dışa aktarılmamaları gerektiği için çalışmayabilir)
     </string>
-    <string name="export_completed">Export completed</string>
-    <string name="error_export">Could not create export file</string>
-    <string name="error_import">Could not read the import file</string>
+    <string name="export_completed">Dışa aktarma tamamlandı</string>
+    <string name="error_export">Dışa aktarma dosyası oluşturulamadı</string>
+    <string name="error_import">İçe aktarma dosyası okunamadı</string>
 
     <!-- Errors messages related to shortcuts -->
-    <string name="error_shortcut_invalid_request">Could not add that as a shortcut</string>
-    <string name="error_shortcut_missing_info">Could not follow this shortcut</string>
-    <string name="error_shortcut_not_default_launcher">Only the default launcher can open shortcuts</string>
-    <string name="error_shortcut_start">The Android system could not open the shortcut</string>
-    <string name="error_shortcut_remove">Could not delete the %1$s file</string>
+    <string name="error_shortcut_invalid_request">Bu klasör olarak eklenemedi</string>
+    <string name="error_shortcut_missing_info">Bu kısayol takip edilemedi</string>
+    <string name="error_shortcut_not_default_launcher">Yalnızca varsayılan başlatıcı kısayolları açabilir</string>
+    <string name="error_shortcut_start">Android sistemi kısayolu açamadı</string>
+    <string name="error_shortcut_remove">Dosya %1$s silinemedi</string>
 
 
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Theme and colors</string>
-    <string name="appearance_settings_title_clock">Clock</string>
-    <string name="appearance_settings_title_icon_packs">Icon packs</string>
+    <string name="appearance_settings_title_theme_and_colors">Tema ve renkler</string>
+    <string name="appearance_settings_title_clock">Saat</string>
+    <string name="appearance_settings_title_icon_packs">Simge paketleri</string>
 
     <!-- Color picker -->
-    <string name="color_picker_base">Base:</string>
-    <string name="color_picker_reset">Reset</string>
-    <string name="color_picker_preview">Preview</string>
+    <string name="color_picker_base">Temel:</string>
+    <string name="color_picker_reset">Sıfırla</string>
+    <string name="color_picker_preview">Önizleme</string>
     <string name="error_invalid_color_format">Invalid hexadecimal color</string>
 
     <!-- Application theme -->
