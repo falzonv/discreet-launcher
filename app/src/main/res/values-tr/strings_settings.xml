@@ -2,16 +2,16 @@
 <resources>
 
     <!-- Favorites -->
-    <string name="button_select_favorites">Select favorites</string>
-    <string name="hint_no_favorites_yet">Add your favorite apps here\nby clicking the menu button.</string>
-    <string name="hint_modify_order_of_favorites">Modify the order of favorites in the list below (using the sides to scroll).</string>
-    <string name="favorite_move_before">Move before \"%1$s\"</string>
-    <string name="favorite_move_after">Move after \"%1$s\"</string>
+    <string name="button_select_favorites">Favorileri seç</string>
+    <string name="hint_no_favorites_yet">Favori uygulamalarınızı buraya ekleyin\nby clicking the menu button.</string>
+    <string name="hint_modify_order_of_favorites">Aşağıdaki listedeki favorilerin sırasını değiştirin(kaydırmak için kenarları kullanma).</string>
+    <string name="favorite_move_before">Önce taşı \"%1$s\"</string>
+    <string name="favorite_move_after">Sonra taşı \"%1$s\"</string>
 
     <!-- Folders -->
-    <string name="button_new_folder">Add</string>
-    <string name="button_remove_folder">Remove</string>
-    <string name="hint_folders_number">Create as many folders as you want to organize your apps.</string>
+    <string name="button_new_folder">Ekle</string>
+    <string name="button_remove_folder">Kaldır</string>
+    <string name="hint_folders_number">Uygulamalarınızı düzenlemek için istediğiniz kadar klasör oluşturun.</string>
     <string name="hint_folder_edit">
         Click on a folder name to change it, and on the icon to choose its color.
         The pen allows editing folder content.
