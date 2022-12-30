@@ -18,22 +18,22 @@
     </string>
     <string name="hint_new_folder">Yeni klasör</string>
     <string name="hint_rename_folder">Dosyayı yeniden adlandır</string>
-    <string name="hint_remove_folder">If a folder is removed, its content will be put back in the main app list.</string>
-    <string name="error_folder_empty_name">Pick a name first</string>
-    <string name="error_folder_already_exists">Pick a name that doesn\'t exist already</string>
-    <string name="error_folder_rename">Could not rename the folder</string>
+    <string name="hint_remove_folder">Bir klasör kaldırılırsa, içeriği ana uygulama listesine geri konulacak.</string>
+    <string name="error_folder_empty_name">Önce bir isim seç</string>
+    <string name="error_folder_already_exists">Zaten var olmayan bir isim seçin</string>
+    <string name="error_folder_rename">Klasör yeniden adlandırılamadı</string>
 
     <!-- Export and import -->
-    <string name="export_import_help">These buttons allow exporting the app data (favorites, folders, shortcuts and settings) or importing them again.</string>
-    <string name="button_export">Export</string>
-    <string name="button_import">Import</string>
-    <string name="export_import_header_internal_files">Content of internal text files</string>
-    <string name="export_import_header_settings">Settings</string>
-    <string name="export_import_header_icons">Saved icons</string>
-    <string name="export_import_warning_file_edit">Editing this file may cause problems</string>
+    <string name="export_import_help">Bu düğmeler uygulama verilerinin dışa aktarılmasına izin verir (Favoriler, klasörler, kısayollar ve ayarlar) veya yeniden içe aktarmak için.</string>
+    <string name="button_export">Dışa aktar</string>
+    <string name="button_import">İçe aktar</string>
+    <string name="export_import_header_internal_files">Dahili metin dosyalarının içeriği</string>
+    <string name="export_import_header_settings">Ayarlar</string>
+    <string name="export_import_header_icons">Kaydedilen simgeler</string>
+    <string name="export_import_warning_file_edit">Bu dosyayı düzenlemek sorunlara neden olabilir</string>
     <string name="export_import_warning_shortcuts">
-        (On Android 8 (Oreo) and beyond, imported shortcuts may not work
-        because they are managed by the system and are not supposed to be exported)
+        (Android 8 (Oreo) ve sonraki sürümlerde, 
+        içe aktarılan kısayollar sistem tarafından yönetildikleri ve dışa aktarılmamaları gerektiği için çalışmayabilir.)
     </string>
     <string name="export_completed">Export completed</string>
     <string name="error_export">Could not create export file</string>
