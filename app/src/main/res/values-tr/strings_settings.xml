@@ -24,7 +24,7 @@
     <string name="error_folder_rename">Klasör yeniden adlandırılamadı</string>
 
     <!-- Export and import -->
-    <string name="export_import_help">Bu düğmeler uygulama verilerinin dışa aktarılmasına izin verir (Favoriler, klasörler, kısayollar ve ayarlar) veya yeniden içe aktarmak için.</string>
+    <string name="export_import_help">Bu düğmeler uygulama verilerinin dışa aktarılmasına izin verir (Favoriler, klasörler, kısayollar ve ayarlar) veya yeniden içe aktarmak.</string>
     <string name="button_export">Dışa aktar</string>
     <string name="button_import">İçe aktar</string>
     <string name="export_import_header_internal_files">Dahili metin dosyalarının içeriği</string>
@@ -32,8 +32,8 @@
     <string name="export_import_header_icons">Kaydedilen simgeler</string>
     <string name="export_import_warning_file_edit">Bu dosyayı düzenlemek sorunlara neden olabilir</string>
     <string name="export_import_warning_shortcuts">
-        (Android 8 (Oreo) ve sonraki sürümlerde, 
-        içe aktarılan kısayollar sistem tarafından yönetildikleri ve dışa aktarılmamaları gerektiği için çalışmayabilir.)
+        (Android 8 (Oreo) ve sonrasında, içe aktarılan kısayollar sistem 
+         tarafından yönetildikleri ve dışa aktarılmamaları gerektiği için çalışmayabilir)
     </string>
     <string name="export_completed">Export completed</string>
     <string name="error_export">Could not create export file</string>
