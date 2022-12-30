@@ -58,90 +58,90 @@
     <string name="color_picker_base">Temel:</string>
     <string name="color_picker_reset">Sıfırla</string>
     <string name="color_picker_preview">Önizleme</string>
-    <string name="error_invalid_color_format">Invalid hexadecimal color</string>
+    <string name="error_invalid_color_format">Geçersiz onaltılık renk</string>
 
     <!-- Application theme -->
-    <string name="set_application_theme">Theme</string>
+    <string name="set_application_theme">Tema</string>
     <string-array name="set_application_theme_entries">
-        <item>Light</item>
-        <item>Dark</item>
-        <item>System preference</item>
+        <item>Aydınlık</item>
+        <item>Koyu</item>
+        <item>Sistem Varsayılanı</item>
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Clock format</string>
+    <string name="set_clock_format">Saat formatı</string>
     <string-array name="set_clock_format_entries">
-        <item>None (hide)</item>
-        <item>24 hours</item>
-        <item>12 hours</item>
-        <item>12 hours + AM/PM</item>
+        <item>Yok (gizle)</item>
+        <item>24 saat</item>
+        <item>12 saat</item>
+        <item>12 saat + AM/PM</item>
         <item>Analog</item>
-        <item>Date and time</item>
-        <item>Full date and time</item>
+        <item>Tarih ve saat</item>
+        <item>Tam tarih ve saat</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Clock position</string>
+    <string name="set_clock_position">Saat konumu</string>
     <string-array name="set_clock_position_entries">
-        <item>Top</item>
-        <item>"Top  -  Left"</item>
-        <item>"Top  -  Right"</item>
-        <item>Middle</item>
-        <item>"Middle  -  Left"</item>
-        <item>"Middle  -  Right"</item>
-        <item>Bottom</item>
-        <item>"Bottom  -  Left"</item>
-        <item>"Bottom  -  Right"</item>
+        <item>Üst</item>
+        <item>"Üst  -  Sol"</item>
+        <item>"Üst  -  Sağ"</item>
+        <item>Orta</item>
+        <item>"Alt  -  Sol"</item>
+        <item>"Alt  -  Sağ"</item>
+        <item>Alt</item>
+        <item>"Alt  -  Sol"</item>
+        <item>"Alt  -  Sağ"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Clock size</string>
+    <string name="set_clock_size">Saat boyutu</string>
     <string-array name="set_clock_size_entries">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
+        <item>Küçük</item>
+        <item>Orta</item>
+        <item>Büyük</item>
     </string-array>
 
     <!-- Other appearance settings -->
-    <string name="set_transparent_status_bar">Transparent status bar</string>
-    <string name="set_transparent_status_bar_help">When favorites are closed</string>
-    <string name="set_dark_status_bar_icons">Dark status bar icons</string>
-    <string name="set_dark_status_bar_icons_help">Not working on Android 5 (Lollipop)</string>
-    <string name="set_hide_app_names">No app names</string>
-    <string name="set_hide_folder_names">No folder names</string>
+    <string name="set_transparent_status_bar">Şeffaf durum çubuğu</string>
+    <string name="set_transparent_status_bar_help">Favoriler kapatıldığında</string>
+    <string name="set_dark_status_bar_icons">Karanlık durum çubuğu simgeleri</string>
+    <string name="set_dark_status_bar_icons_help">Üzerinde çalışmaz Android 5 (Lollipop)</string>
+    <string name="set_hide_app_names">Uygulama adı yok</string>
+    <string name="set_hide_folder_names">Klasör adı yok</string>
     <string name="set_remove_padding">No padding when app names are hidden</string>
-    <string name="set_background_color_favorites">Favorites background</string>
-    <string name="set_text_color_favorites">Favorites text</string>
-    <string name="set_background_color_drawer">App drawer background</string>
-    <string name="set_text_color_drawer">App drawer text</string>
-    <string name="set_clock_color">Clock color</string>
-    <string name="set_clock_shadow_color">Text shadow color</string>
-    <string name="set_icon_pack_primary">Primary</string>
-    <string name="set_icon_pack_secondary">Secondary</string>
-    <string name="set_icon_pack_none">None (use default icons)</string>
-    <string name="set_icon_color_filter">Color filter on icons</string>
-    <string name="set_icon_color_filter_help">Only applies to default icons, can be used in addition to icon packs</string>
+    <string name="set_background_color_favorites">Favoriler arka planı</string>
+    <string name="set_text_color_favorites">Favori metin</string>
+    <string name="set_background_color_drawer">Uygulama çekmecesi arka planı</string>
+    <string name="set_text_color_drawer">Uygulama çekmecesi metni</string>
+    <string name="set_clock_color">Saat rengi</string>
+    <string name="set_clock_shadow_color">Metin gölge rengi</string>
+    <string name="set_icon_pack_primary">Birincil</string>
+    <string name="set_icon_pack_secondary">İkincil</string>
+    <string name="set_icon_pack_none">Yok (varsayılan simgeleri kullan)</string>
+    <string name="set_icon_color_filter">Simgelerde renk filtresi</string>
+    <string name="set_icon_color_filter_help">Yalnızca varsayılan simgeler için geçerlidir, simge paketlerine ek olarak kullanılabilir</string>
 
     <!-- Error messages related to appearance settings -->
-    <string name="error_no_icon_pack_installed">Install some from your app store first</string>
-    <string name="error_icon_pack_appfilter_not_found">Could not find appfilter.xml in the selected icon pack. (%1$s)</string>
+    <string name="error_no_icon_pack_installed">Önce uygulama mağazanızdan bazılarını yükleyin</string>
+    <string name="error_icon_pack_appfilter_not_found">Seçilen simge paketinde appfilter.xml bulunamadı. (%1$s)</string>
 
 
     <!-- ========== Operation settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="operation_settings_title_interface">Interface</string>
-    <string name="operation_settings_title_gestures">Home screen gestures</string>
+    <string name="operation_settings_title_interface">Arayüz</string>
+    <string name="operation_settings_title_gestures">Ana ekran hareketleri</string>
 
     <!-- Notification -->
-    <string name="set_notification">Notification for access to favorites</string>
-    <string name="set_notification_help">Uses a transparent icon</string>
-    <string name="notification_text">Favorites</string>
+    <string name="set_notification">Favorilere erişim için bildirim</string>
+    <string name="set_notification_help">Şeffaf bir simge kullanır</string>
+    <string name="notification_text">Favoriler</string>
 
     <!-- Forced orientation -->
-    <string name="set_forced_orientation">Forced orientation</string>
+    <string name="set_forced_orientation">Zorla yönlendirme</string>
     <string-array name="set_forced_orientation_entries">
-        <item>None</item>
+        <item>Hiçbiri</item>
         <item>Portrait</item>
         <item>Landscape</item>
         <item>Reverse landscape</item>
