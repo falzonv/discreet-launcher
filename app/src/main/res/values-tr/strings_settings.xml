@@ -142,14 +142,14 @@
     <string name="set_forced_orientation">Zorla yönlendirme</string>
     <string-array name="set_forced_orientation_entries">
         <item>Hiçbiri</item>
-        <item>Portrait</item>
-        <item>Landscape</item>
-        <item>Reverse landscape</item>
+        <item>Portre</item>
+        <item>Manzara</item>
+        <item>Ters manzara</item>
     </string-array>
 
     <!-- Touch targets (accessibility) -->
-    <string name="set_touch_targets">Touch targets (accessibility)</string>
-    <string name="set_touch_targets_help">Clickable labels on the home screen</string>
+    <string name="set_touch_targets">Dokunma hedefleri (erişilebilirlik)</string>
+    <string name="set_touch_targets_help">Ana ekranda tıklanabilir etiketler</string>
     <string name="target_open_favorites">Open\nfavorites</string>
     <string name="target_close_favorites">Close\nfavorites</string>
     <string name="target_open_applications">Open\napps</string>
