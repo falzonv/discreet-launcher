@@ -109,7 +109,7 @@
     <string name="set_dark_status_bar_icons_help">Üzerinde çalışmaz Android 5 (Lollipop)</string>
     <string name="set_hide_app_names">Uygulama adı yok</string>
     <string name="set_hide_folder_names">Klasör adı yok</string>
-    <string name="set_remove_padding">No padding when app names are hidden</string>
+    <string name="set_remove_padding">Uygulama adları gizlendiğinde dolgu yok</string>
     <string name="set_background_color_favorites">Favoriler arka planı</string>
     <string name="set_text_color_favorites">Favori metin</string>
     <string name="set_background_color_drawer">Uygulama çekmecesi arka planı</string>
@@ -150,31 +150,31 @@
     <!-- Touch targets (accessibility) -->
     <string name="set_touch_targets">Dokunma hedefleri (erişilebilirlik)</string>
     <string name="set_touch_targets_help">Ana ekranda tıklanabilir etiketler</string>
-    <string name="target_open_favorites">Open\nfavorites</string>
-    <string name="target_close_favorites">Close\nfavorites</string>
-    <string name="target_open_applications">Open\napps</string>
+    <string name="target_open_favorites">Açık\nFavoriler</string>
+    <string name="target_close_favorites">Kapalı\nFavoriler</string>
+    <string name="target_open_applications">Açık\nuygulamalar</string>
 
     <!-- Other operation settings -->
-    <string name="set_as_default_launcher">Set as default launcher</string>
-    <string name="set_always_show_favorites">Always show favorites</string>
-    <string name="set_reverse_interface">Reversed interface</string>
-    <string name="set_reverse_interface_help">Apps above, and favorites below the home screen</string>
-    <string name="set_immersive_mode">Immersive mode</string>
-    <string name="set_immersive_mode_help">No system bars. (Can be forced by long-pressing the home screen.)</string>
-    <string name="set_interactive_clock">Interactive clock</string>
-    <string name="set_interactive_clock_help">Click the date to open the default calendar, click the time to open the selected clock app</string>
-    <string name="set_clock_app">Clock app</string>
-    <string name="set_no_clock_app">None</string>
-    <string name="set_hide_menu_button">No menu button</string>
-    <string name="set_hide_menu_button_help">Always accessible from the launcher app icon</string>
-    <string name="set_disable_app_drawer">No app drawer</string>
-    <string name="set_double_tap">Double-tap</string>
-    <string name="set_swipe_leftwards">Swipe leftwards</string>
-    <string name="set_swipe_rightwards">Swipe rightwards</string>
-    <string name="set_no_action">No action</string>
+    <string name="set_as_default_launcher">Varsayılan başlatıcı olarak ayarla</string>
+    <string name="set_always_show_favorites">Favorileri her zaman göster</string>
+    <string name="set_reverse_interface">Ters arayüz</string>
+    <string name="set_reverse_interface_help">Yukarıdaki uygulamalar ve ana ekranın altındaki favoriler</string>
+    <string name="set_immersive_mode">Sürükleyici mod</string>
+    <string name="set_immersive_mode_help">Sistem çubuğu yok. (Ana ekrana uzun basarak zorlanabilir.)</string>
+    <string name="set_interactive_clock">İnteraktif saat</string>
+    <string name="set_interactive_clock_help">Varsayılan takvimi açmak için tarihe tıklayın, seçilen saat uygulamasını açmak için saate tıklayın</string>
+    <string name="set_clock_app">Saat uygulaması</string>
+    <string name="set_no_clock_app">Hiçbiri</string>
+    <string name="set_hide_menu_button">Menü düğmesi yok</string>
+    <string name="set_hide_menu_button_help">Başlatıcı uygulama simgesinden her zaman erişilebilir</string>
+    <string name="set_disable_app_drawer">Uygulama çekmecesi yok</string>
+    <string name="set_double_tap">Çift-dokun</string>
+    <string name="set_swipe_leftwards">Sola kaydır</string>
+    <string name="set_swipe_rightwards">Sağa kaydır</string>
+    <string name="set_no_action">Eylem yok</string>
 
     <!-- Error messages related to operation settings -->
-    <string name="error_always_show_favorites_not_safe">Favorites unlocked to keep menu access.</string>
-    <string name="error_disable_app_drawer_not_safe">Reinstating the app drawer to keep menu access.</string>
+    <string name="error_always_show_favorites_not_safe">Menü erişimini korumak için sık kullanılanların kilidi açıldı.</string>
+    <string name="error_disable_app_drawer_not_safe">Menü erişimini korumak için uygulama çekmecesini yeniden etkinleştirme.</string>
 
 </resources>
