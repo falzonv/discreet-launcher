@@ -1,7 +1,7 @@
 v7.0.0 (56) - 19/12/2022
 NEW THINGS
    - Android 12 support
-   - Option to select the clock app
+   - Option to select the clock app (@jbatt33)
    - Default launcher choice in Android 10+
    - Danish translation by Thomas Jensen
 IMPROVEMENTS

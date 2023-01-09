@@ -1,7 +1,7 @@
 v7.0.0 (56) - 19/12/2022
 NOUVEAUTÉS
    - Support d'Android 12
-   - Option pour choisir l'appli d'horloge
+   - Option pour choisir appli d'horloge (@jbatt33)
    - Choix lanceur par défaut sur Android 10+
    - Traduction Danoise par Thomas Jensen
 AMÉLIORATIONS

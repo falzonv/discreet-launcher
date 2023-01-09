@@ -18,8 +18,8 @@ android
         targetSdkVersion 32
 
         // Versioning
-        versionCode 57
-        versionName "v7.0.1"
+        versionCode 58
+        versionName "v7.1.0"
     }
 
     // Build types always include debug (hidden by default)

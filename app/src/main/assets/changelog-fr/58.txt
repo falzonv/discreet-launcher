@@ -1,0 +1,3 @@
+v7.1.0 (58) - 09/01/2023
+NOUVEAUTÉS
+   - Traduction Portugaise par odanoburu
