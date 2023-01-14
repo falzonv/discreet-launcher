@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu">Menü</string>
+    <string name="menu_favorites">Favoriler</string>
+    <string name="menu_folders">Klasörler</string>
+    <string name="menu_hidden_apps">Gizli uygulamalar</string>
+    <string name="menu_refresh_list_apps">Uygulama listesini yenile</string>
+    <string name="menu_settings_appearance">Görünüm</string>
+    <string name="menu_settings_operation">İşlem</string>
+    <string name="menu_export_import">Dışa aktar ve içe aktar</string>
+    <string name="menu_help">Yardım</string>
+    <string name="menu_about">Bilgi</string>
+    <string name="menu_changelog">Değişiklik günlüğü</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Ne yapmak istiyorsun?</string>
+    <string name="long_click_open">Açık \"%1$s\"</string>
+    <string name="long_click_settings">Ayarlarına erişin</string>
+    <string name="long_click_view_store">Mağaza sayfasını görüntüle</string>
+    <string name="long_click_rename">Yeniden Adlandır</string>
+    <string name="long_click_add_favorites">Favorilere ekle</string>
+    <string name="long_click_remove_favorites">Favorilerden kaldır</string>
+    <string name="long_click_add_folder">Klasöre ekle</string>
+    <string name="long_click_remove_folder">Klasörden kaldır \"%1$s\"</string>
+    <string name="long_click_hide_search">Gizle</string>
+    <string name="long_click_remove_shortcut">Bu kısayolu kaldır</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Uygula</string>
+    <string name="button_cancel">İptal</string>
+    <string name="button_close">Kapat</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Yenilenen uygulamaların listesi</string>
+    <string name="info_favorites_refreshed">Favoriler yenilendi</string>
+    <string name="info_display_partially_updated">Ana ekrana döndükten sonra ekran tamamen güncellenecektir</string>
+    <string name="error_app_not_found">Bulunamadı \"%1$s\"</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Ara</string>
+    <string name="search_app_hint">Uygulama ara</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">İyileştirmeler önerin, sorunları bildirin ve projeyi destekleyin</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit"> Türkçe dil çevirisi. Adil Oguz tarafından </string>
+
+</resources>

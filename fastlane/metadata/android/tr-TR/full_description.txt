@@ -1,0 +1,31 @@
+Discreet Launcher, duvar kağıdınızın keyfini tamamen çıkarmanıza olanak tanıyan, dikkatinizi dağıtmayan bir ana ekran sağlar.
+
+Bu temiz ana ekranda, favori uygulamalarınızı görüntülemek için parmağınızı aşağı veya uygulamaların tam listesini görmek için yukarı kaydırın.
+
+Parmağınızı bir uygulamada birkaç dakika tutarsanız, sistem ayarlarına ve mağazadaki sayfasına erişmeniz önerilir.
+
+Discreet Launcher açık kaynak kodludur, gereksiz izin gerektirmez, tamamen offline çalışır ve herhangi bir reklam içermez.
+
+1/ Diğer özellikler
+- Klasörler
+- Ara
+- Uygulamaları yeniden adlandırın ve gizleyin
+- Sık kullanılanlara erişim bildirimi
+- Uygulamayı açmak için yatay kaydırma ve çift dokunma
+- Kısayol desteği (web uygulamaları)
+- Ayarları dışa ve içe aktar
+- Yardım ve değişiklik günlüğü
+
+2/ Özelleştirme seçenekleri
+- Tema ve renkler
+- Zorla yönlendirme
+- Şeffaf durum çubuğu
+- Sistem çubuğu yok (sürükleyici mod)
+- Özelleştirilebilir saat
+- Hedeflere dokunun (erişilebilirlik)
+- Favorileri her zaman göster
+- Ters arayüz
+- Menü düğmesi yok
+- Uygulama çekmecesi yok
+- Uygulama adı yok
+- Simge paketleri desteği

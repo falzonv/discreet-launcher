@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Help -->
+    <string name="help_navigation_title">Navigasyon</string>
+    <string name="help_navigation">
+        Tüm uygulamaları göstermek için ana ekrandan yukarı, geri gitmek için aşağı kaydırın.
+        \n
+        \nFavorileri göstermek için ana ekrandan aşağı, geri gitmek için yukarı kaydırın.
+        \n
+        \nMenüyü açmak için menü düğmesine (favorileri gösterirken) veya başlatıcı simgesine tıklayın.
+        \n
+        \nAyarlarına erişmek için bir uygulamayı veya klasörü uzun süre basılı tutun.
+    </string>
+    <string name="help_notification_title">Bildirim</string>
+    <string name="help_notification">
+        Ana ekrandan çıktığınızda diğer uygulamaların üzerinde sık kullanılanların bir açılır penceresini gösterir.
+    </string>
+    <string name="help_list_update_title">Liste güncellemesi</string>
+    <string name="help_list_update">
+        Uygulama listesini ve simgelerini yenilerken,
+        uygulamaları başlatırken, eklerken veya kaldırırken ya da simge paketi değiştirilirken bir açılır mesaj gösterilir.
+    </string>
+    <string name="help_folders_title">Klasörler</string>
+    <string name="help_folders">
+        Menü düğmesinden klasörleri yönetin veya favorilere ekleyin veya açık bir klasörün başlığına tıklayın
+        uygulamalar oluşturmak, yeniden adlandırmak ve yerleştirmek için.
+        \nKlasörlerin kaldırılması, içindeki tüm uygulamaları ana listeye geri getirir.
+    </string>
+    <string name="help_search_title">Ara</string>
+    <string name="help_search">
+        Arama simgesinden herhangi bir uygulamayı bulun. Ayrıca kullanılabilir olması için favorilere de eklenebilir
+        \n
+        \nTuşuna \"Enter\" basıldığında ilk arama sonucu açılır.
+    </string>
+
+    <!-- Changelog (the string "changelog_folder" must be "changelog-en" or "changelog-fr") -->
+    <string name="changelog_mentions">\"@pseudo\" fikri öneren veya hatayı bildiren kullanıcıyı gösterir</string>
+    <string name="changelog_folder">changelog-en</string>
+    <string name="error_changelog_missing_folder">Değişiklik günlüğü klasörü bulunamadı</string>
+    <string name="error_changelog_missing_file">Açılamadı %1$s</string>
+
+</resources>
