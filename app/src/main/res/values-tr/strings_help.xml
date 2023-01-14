@@ -30,6 +30,7 @@
     <string name="help_search_title">Ara</string>
     <string name="help_search">
         Arama simgesinden herhangi bir uygulamayı bulun. Ayrıca kullanılabilir olması için favorilere de eklenebilir
+        bildirimden veya gizli.
         \n
         \nTuşuna \"Enter\" basıldığında ilk arama sonucu açılır.
     </string>
