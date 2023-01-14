@@ -1,0 +1,31 @@
+Lanceur Discret vous offre un écran d'accueil sans distractions, vous permettant de profiter pleinement de votre fond d'écran.
+
+Depuis cet écran d'accueil épuré, glissez simplement le doigt vers le bas pour afficher vos applications favorites, ou vers le haut pour voir la liste complète des applications.
+
+En maintenant le doigt quelques instants sur une application, il vous sera proposé d'accéder à ses paramètres système et à sa page dans le magasin.
+
+Lanceur Discret est à code source ouvert, ne requiert aucune permission inutile, fonctionne complètement hors-ligne et n'inclut aucune publicité.
+
+1/ Autres fonctionnalités
+- Dossiers
+- Recherche
+- Renommer et masquer des applications
+- Notification d'accès aux favoris
+- Glissement horizontal ou double-clic pour ouvrir appli
+- Support des raccourcis (applis web)
+- Export et import des paramètres
+- Aide et journal des changements
+
+2/ Options de personnalisation
+- Thème et couleurs
+- Orientation forcée
+- Barre de statut transparente
+- Pas de barres système (mode immersif)
+- Horloge personnalisable
+- Cibles de clic (accessibilité)
+- Toujours afficher les favoris
+- Interface inversée
+- Pas de bouton de menu
+- Pas de tiroir d'applications
+- Pas de noms d'applications
+- Support des packs d'icônes

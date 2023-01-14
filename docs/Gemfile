@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+# Find last release at https://pages.github.com/versions
+gem "github-pages", "227"
+

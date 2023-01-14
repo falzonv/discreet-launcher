@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+<head>
+
+	<title>{{ page.title | default: site.title }}</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base target="_blank">
+
+{% seo %}
+	<link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+	<style type="text/css">
+		p + ul { margin-top : -1.4em ; }
+	</style>
+	<script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+
+</head>
+<body>
+
+	<div class="wrapper">
+
+		<header>
+			<p>
+				<a href="index.html" target="_self">{% if page.lang == "en" %}<u>English</u>{% else %}English{% endif %}</a> /
+				<a href="fr.html" target="_self">{% if page.lang == "fr" %}<u>Français</u>{% else %}Français{% endif %}</a>
+			</p>
+
+			<div align="center">
+				<img src="assets/img/logo.png" alt="[Logo]"/>
+				<h1>{{ page.title | default: site.title }}</h1>
+				<p>{{ page.excerpt | default: site.description }}</p>
+				<a href="https://f-droid.org/packages/com.vincent_falzon.discreetlauncher"><img src="assets/img/fdroid_{{page.lang}}.png" alt="[F-Droid]" width="90%"/></a>
+				<a href="https://play.google.com/store/apps/details?id=com.vincent_falzon.discreetlauncher"><img src="assets/img/google_play_{{page.lang}}.png" alt="[Google Play]" width="90%"/></a>
+			</div>
+			<br/>
+
+			<p><a href="https://github.com/{{ site.github_repository }}">{{page.seeongithub | default: "See the project on GitHub"}}<br/><small>{{ site.github_repository }}</small></a></p>
+			<p><a href="https://www.paypal.com/donate?hosted_button_id=352PNG2TMV76C">{{page.makeadonation | default: "Make a donation"}}<br/><small>PayPal</small></a></p>
+		</header>
+
+		<section>
+			<!-- Begin Content -->
+{{ content }}
+			<!-- End Content -->
+		</section>
+	</div>
+
+</body>
+</html>
