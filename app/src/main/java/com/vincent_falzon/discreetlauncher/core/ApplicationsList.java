@@ -62,6 +62,7 @@ public class ApplicationsList
 	private final ArrayList<Application> hidden ;
 	private final ArrayList<Application> favorites ;
 	private final Paint grayscalePaint ;
+	private int icon_size ;
 
 
 	/**
@@ -94,13 +95,11 @@ public class ApplicationsList
 		IconPack iconPack2 = new IconPack(context, Constants.ICON_PACK_SECONDARY) ;
 		drawer.clear() ;
 
-		// Define the icons size in pixels
-		Resources resources = context.getResources() ;
-		int icon_size = Math.round(48 * resources.getDisplayMetrics().density) ;
-		Drawable icon ;
+		// Retrieve the icon size in pixels
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
+		icon_size = Utils.getIconSize(context, settings) ;
 
 		// Check if a color tint must be applied to icons and retrieve it if needed
-		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 		String color_tint_setting = settings.getString(Constants.ICON_COLOR_FILTER, Constants.COLOR_TRANSPARENT) ;
 		int color_tint ;
 		if((color_tint_setting == null) || color_tint_setting.equals(Constants.COLOR_TRANSPARENT)) color_tint = 0 ;
@@ -111,6 +110,8 @@ public class ApplicationsList
 		List<UserHandle> userProfiles = userManager.getUserProfiles() ;
 
 		// Browse all user profiles
+		Drawable icon ;
+		Resources resources = context.getResources() ;
 		LauncherApps launcherApps = (LauncherApps)context.getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
 		for(UserHandle profile : userProfiles)
 		{
@@ -242,7 +243,6 @@ public class ApplicationsList
 		// Initializations
 		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files == null) return ;
-		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 
 		// Retrieve fhe folders colors mapping file if it exists
 		ArrayList<String> folders_colors_file = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).readAllLines() ;
@@ -287,7 +287,7 @@ public class ApplicationsList
 			}
 
 			// Create the folder icon with the number of applications inside and the selected color
-			Drawable icon = new FolderIcon(context, folder.getApplications().size(), folder.getColor()) ;
+			Drawable icon = new FolderIcon(context, icon_size, folder.getApplications().size(), folder.getColor()) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
 
@@ -345,7 +345,6 @@ public class ApplicationsList
 	{
 		// Use the folder icon as default shortcut icon
 		Drawable default_icon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
-		int icon_size = Math.round(48 * context.getResources().getDisplayMetrics().density) ;
 		if(default_icon != null) default_icon.setBounds(0, 0, icon_size, icon_size) ;
 
 		// If their file exists, browse the shortcuts

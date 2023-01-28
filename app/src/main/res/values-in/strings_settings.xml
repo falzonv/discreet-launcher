@@ -68,6 +68,13 @@
         <item>Pilihan sistem</item>
     </string-array>
 
+    <!-- Icon size -->
+    <string name="set_icon_size">Icon size</string>
+    <string-array name="set_icon_size_entries">
+        <item>Normal</item>
+        <item>Larger (for tablets)</item>
+    </string-array>
+
     <!-- Clock format -->
     <string name="set_clock_format">Format Jam</string>
     <string-array name="set_clock_format_entries">

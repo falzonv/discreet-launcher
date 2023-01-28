@@ -26,6 +26,7 @@ package com.vincent_falzon.discreetlauncher.menu ;
 import android.annotation.SuppressLint ;
 import android.app.Activity ;
 import android.content.Context ;
+import android.content.SharedPreferences ;
 import android.graphics.drawable.Drawable ;
 import android.os.Build ;
 import android.os.Bundle ;
@@ -40,6 +41,7 @@ import android.widget.TextView ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
+import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.LinearLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
@@ -116,8 +118,9 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 					}
 
 				// Prepare the folder icon
-				Drawable icon = new FolderIcon(this, 0, getResources().getColor(R.color.for_icon_added_in_drawer)) ;
-				int icon_size = Math.round(48 * getResources().getDisplayMetrics().density) ;
+				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this) ;
+				int icon_size = Utils.getIconSize(this, settings) ;
+				Drawable icon = new FolderIcon(this, icon_size, 0, getResources().getColor(R.color.for_icon_added_in_drawer)) ;
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Create the folder and update the list

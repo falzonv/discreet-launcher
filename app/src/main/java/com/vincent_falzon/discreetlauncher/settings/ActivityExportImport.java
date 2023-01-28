@@ -139,6 +139,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, true)) ;
 		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
+		exportedData.add(exportStringSetting(Constants.ICON_SIZE)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_FOLDER_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
@@ -282,6 +283,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(target.equals(Constants.APPLICATION_THEME)) editor.putString(target, value) ;
 				else if(target.equals(Constants.TRANSPARENT_STATUS_BAR)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.DARK_STATUS_BAR_ICONS)) editor.putBoolean(target, value.equals("true")) ;
+				else if(target.equals(Constants.ICON_SIZE)) editor.putString(target, value) ;
 				else if(target.equals(Constants.HIDE_APP_NAMES)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.HIDE_FOLDER_NAMES)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.REMOVE_PADDING)) editor.putBoolean(target, value.equals("true")) ;

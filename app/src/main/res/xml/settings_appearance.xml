@@ -29,6 +29,15 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
+        <ListPreference
+            app:key="icon_size"
+            app:title="@string/set_icon_size"
+            app:iconSpaceReserved="false"
+            app:entries="@array/set_icon_size_entries"
+            app:entryValues="@array/set_icon_size_values"
+            app:defaultValue="48"
+            app:useSimpleSummaryProvider="true"/>
+
         <SwitchPreference
             app:key="hide_app_names"
             app:title="@string/set_hide_app_names"

@@ -165,23 +165,24 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				applicationsList.update(this) ;
 			}
 
-		// Update the display according to settings
-		maybeForceOrientation() ;
-		keepMenuAccessible() ;
-		toggleTouchTargets() ;
-		maybeHideSystemBars(false) ;
-
 		// Prepare the notification
 		notification = new NotificationDisplayer(this) ;
 		if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
 			else notification.hide() ;
 
 		// Define the width of an application item
-		int padding ;
+		int app_size_pixels = Utils.getIconSize(this, settings) ;
+		int padding_pixels ;
 		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)
-				&& settings.getBoolean(Constants.REMOVE_PADDING, false)) padding = 0 ;
-			else padding = 30 ;
-		application_width = Math.round((50 + padding) * density) ;
+				&& settings.getBoolean(Constants.REMOVE_PADDING, false)) padding_pixels = Math.round(app_size_pixels / 24f) ;
+			else padding_pixels = Math.round(app_size_pixels / 1.5f) ;
+		application_width = app_size_pixels + padding_pixels ;
+
+		// Update the display according to settings
+		maybeForceOrientation() ;
+		keepMenuAccessible() ;
+		toggleTouchTargets() ;
+		maybeHideSystemBars(false) ;
 
 		// Initialize the content of the favorites panel
 		favoritesAdapter = new RecyclerAdapter(this, applicationsList.getFavorites(), Constants.FAVORITES_PANEL) ;
@@ -339,10 +340,10 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				- menu_button_height ;
 
 		// Define the size of an app (icon + margins + text estimation) and the maximum number of favorites
-		int app_size = Math.round(48 * density) ;
+		int app_size = Utils.getIconSize(this, settings) ;
 		if(!settings.getBoolean(Constants.REMOVE_PADDING, false)) app_size += Math.round(20 * density) ;
 		if(!settings.getBoolean(Constants.HIDE_APP_NAMES, false)) app_size += menu_button_height ;
-		int max_favorites = 4 * (total_size / app_size) ;
+		int max_favorites = Math.min(4, getResources().getDisplayMetrics().widthPixels / application_width) * (total_size / app_size) ;
 
 		// Check if the number of favorites still allows to see the menu button
 		if(applicationsList.getFavorites().size() <= max_favorites) return ;
@@ -700,6 +701,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			case Constants.APPLICATION_THEME :
 				// Update the theme
 				setApplicationTheme() ;
+				break ;
+			case Constants.ICON_SIZE :
+				// Update the applications list and column width
+				updateList(this) ;
+				recreate() ;
 				break ;
 			case Constants.HIDE_APP_NAMES :
 			case Constants.HIDE_FOLDER_NAMES :

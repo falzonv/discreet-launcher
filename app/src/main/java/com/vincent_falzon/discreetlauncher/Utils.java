@@ -76,6 +76,21 @@ public abstract class Utils
 
 
 	/**
+	 * Retrieve the currently defined icon size in pixels.
+	 */
+	public static int getIconSize(Context context, SharedPreferences settings)
+	{
+		// Try to retrieve the icon size, use the default 48dp if not found
+		int icon_size ;
+		try { icon_size = Integer.parseInt(settings.getString(Constants.ICON_SIZE, "48")) ; }
+		catch(NumberFormatException exception) { icon_size = 48 ; }
+
+		// Convert the icon size from dp to pixels
+		return Math.round(icon_size * context.getResources().getDisplayMetrics().density) ;
+	}
+
+
+	/**
 	 * Try to start an app from the list using the ComponentInfo in the given setting key.
 	 * @return <code>true</code> if something was done, <code>false</code> otherwise
 	 */
