@@ -70,13 +70,6 @@
         <item>Seguir preferência do sistema</item>
     </string-array>
 
-    <!-- Icon size -->
-    <string name="set_icon_size">Icon size</string>
-    <string-array name="set_icon_size_entries">
-        <item>Normal</item>
-        <item>Larger (for tablets)</item>
-    </string-array>
-
     <!-- Clock format -->
     <string name="set_clock_format">Formato do relógio</string>
     <string-array name="set_clock_format_entries">
@@ -116,6 +109,7 @@
     <string name="set_transparent_status_bar_help">Quando a lista de favoritos está fechada</string>
     <string name="set_dark_status_bar_icons">Ícones escuros na barra de estado</string>
     <string name="set_dark_status_bar_icons_help">Não funciona no Android versão 5 (Lollipop)</string>
+    <string name="set_icon_size">Icon size</string>
     <string name="set_hide_app_names">Esconder nomes dos aplicativos</string>
     <string name="set_hide_folder_names">Esconder nome das pastas</string>
     <string name="set_remove_padding">Não preencher os espaços quando os nomes dos aplicativos estiverem ocultos</string>

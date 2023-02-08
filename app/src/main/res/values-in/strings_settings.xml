@@ -70,13 +70,6 @@
         <item>Pilihan sistem</item>
     </string-array>
 
-    <!-- Icon size -->
-    <string name="set_icon_size">Icon size</string>
-    <string-array name="set_icon_size_entries">
-        <item>Normal</item>
-        <item>Larger (for tablets)</item>
-    </string-array>
-
     <!-- Clock format -->
     <string name="set_clock_format">Format Jam</string>
     <string-array name="set_clock_format_entries">
@@ -116,6 +109,7 @@
     <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
     <string name="set_dark_status_bar_icons">Ikon batang sistem gelap</string>
     <string name="set_dark_status_bar_icons_help">Tidak bekerja pada Android 5 (Lollipop)</string>
+    <string name="set_icon_size">Icon size</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
     <string name="set_hide_folder_names">Sembunyikan nama folder</string>
     <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>

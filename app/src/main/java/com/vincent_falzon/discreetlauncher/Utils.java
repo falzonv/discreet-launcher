@@ -80,13 +80,11 @@ public abstract class Utils
 	 */
 	public static int getIconSize(Context context, SharedPreferences settings)
 	{
-		// Try to retrieve the icon size, use the default 48dp if not found
-		int icon_size ;
-		try { icon_size = Integer.parseInt(settings.getString(Constants.ICON_SIZE, "48")) ; }
-		catch(NumberFormatException exception) { icon_size = 48 ; }
+		// Compute the icon size in dp based on current settings (Android default is 48dp)
+		int icon_size_dp = 12 * settings.getInt(Constants.ICON_SIZE, 4) ;
 
 		// Convert the icon size from dp to pixels
-		return Math.round(icon_size * context.getResources().getDisplayMetrics().density) ;
+		return Math.round(icon_size_dp * context.getResources().getDisplayMetrics().density) ;
 	}
 
 

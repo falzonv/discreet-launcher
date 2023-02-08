@@ -70,13 +70,6 @@
         <item>Systemforvalg</item>
     </string-array>
 
-    <!-- Icon size -->
-    <string name="set_icon_size">Icon size</string>
-    <string-array name="set_icon_size_entries">
-        <item>Normal</item>
-        <item>Larger (for tablets)</item>
-    </string-array>
-
     <!-- Clock format -->
     <string name="set_clock_format">Klokke</string>
     <string-array name="set_clock_format_entries">
@@ -116,6 +109,7 @@
     <string name="set_transparent_status_bar_help">Når favoritter lukkes</string>
     <string name="set_dark_status_bar_icons">Mørke statusfeltsikoner</string>
     <string name="set_dark_status_bar_icons_help">Fungerer ikke på Android 5 (Lollipop)</string>
+    <string name="set_icon_size">Icon size</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
     <string name="set_hide_folder_names">Ingen mappenavn</string>
     <string name="set_remove_padding">Fjern fyll når navn er skjult</string>

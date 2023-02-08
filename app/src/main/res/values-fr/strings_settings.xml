@@ -70,13 +70,6 @@
         <item>Préférence système</item>
     </string-array>
 
-    <!-- Icon size -->
-    <string name="set_icon_size">Taille des icônes</string>
-    <string-array name="set_icon_size_entries">
-        <item>Normale</item>
-        <item>Plus grande (pour les tablettes)</item>
-    </string-array>
-
     <!-- Clock format -->
     <string name="set_clock_format">Format de l\'horloge</string>
     <string-array name="set_clock_format_entries">
@@ -116,6 +109,7 @@
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
     <string name="set_dark_status_bar_icons">Icônes foncées dans la barre de statut</string>
     <string name="set_dark_status_bar_icons_help">Ne fonctionne pas sur Android 5 (Lollipop)</string>
+    <string name="set_icon_size">Taille des icônes</string>
     <string name="set_hide_app_names">Pas de noms d\'applications</string>
     <string name="set_hide_folder_names">Pas de noms de dossiers</string>
     <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>

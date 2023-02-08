@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
@@ -29,14 +30,13 @@
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
-        <ListPreference
+        <SeekBarPreference
             app:key="icon_size"
             app:title="@string/set_icon_size"
             app:iconSpaceReserved="false"
-            app:entries="@array/set_icon_size_entries"
-            app:entryValues="@array/set_icon_size_values"
-            app:defaultValue="48"
-            app:useSimpleSummaryProvider="true"/>
+            app:defaultValue="4"
+            app:min="3"
+            android:max="6"/>
 
         <SwitchPreference
             app:key="hide_app_names"

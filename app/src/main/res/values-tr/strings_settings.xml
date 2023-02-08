@@ -70,13 +70,6 @@
         <item>Sistem Varsayılanı</item>
     </string-array>
 
-    <!-- Icon size -->
-    <string name="set_icon_size">Icon size</string>
-    <string-array name="set_icon_size_entries">
-        <item>Normal</item>
-        <item>Larger (for tablets)</item>
-    </string-array>
-
     <!-- Clock format -->
     <string name="set_clock_format">Saat formatı</string>
     <string-array name="set_clock_format_entries">
@@ -116,6 +109,7 @@
     <string name="set_transparent_status_bar_help">Favoriler kapatıldığında</string>
     <string name="set_dark_status_bar_icons">Karanlık durum çubuğu simgeleri</string>
     <string name="set_dark_status_bar_icons_help">Üzerinde çalışmaz Android 5 (Lollipop)</string>
+    <string name="set_icon_size">Icon size</string>
     <string name="set_hide_app_names">Uygulama adı yok</string>
     <string name="set_hide_folder_names">Klasör adı yok</string>
     <string name="set_remove_padding">Uygulama adları gizlendiğinde dolgu yok</string>

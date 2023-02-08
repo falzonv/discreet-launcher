@@ -139,7 +139,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.APPLICATION_THEME)) ;
 		exportedData.add(exportBooleanSetting(Constants.TRANSPARENT_STATUS_BAR, true)) ;
 		exportedData.add(exportBooleanSetting(Constants.DARK_STATUS_BAR_ICONS, false)) ;
-		exportedData.add(exportStringSetting(Constants.ICON_SIZE)) ;
+		exportedData.add(exportIntegerSetting(Constants.ICON_SIZE, 4)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_APP_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.HIDE_FOLDER_NAMES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REMOVE_PADDING, false)) ;
@@ -198,6 +198,15 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	private String exportBooleanSetting(String setting, boolean default_value)
 	{
 		return setting + ": " + settings.getBoolean(setting, default_value) ;
+	}
+
+
+	/**
+	 * Prepare the line of an Integer setting for writing in an export file.
+	 */
+	private String exportIntegerSetting(String setting, int default_value)
+	{
+		return setting + ": " + settings.getInt(setting, default_value) ;
 	}
 
 
@@ -283,7 +292,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 				else if(target.equals(Constants.APPLICATION_THEME)) editor.putString(target, value) ;
 				else if(target.equals(Constants.TRANSPARENT_STATUS_BAR)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.DARK_STATUS_BAR_ICONS)) editor.putBoolean(target, value.equals("true")) ;
-				else if(target.equals(Constants.ICON_SIZE)) editor.putString(target, value) ;
+				else if(target.equals(Constants.ICON_SIZE)) importIntegerSetting(target, value, 4) ;
 				else if(target.equals(Constants.HIDE_APP_NAMES)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.HIDE_FOLDER_NAMES)) editor.putBoolean(target, value.equals("true")) ;
 				else if(target.equals(Constants.REMOVE_PADDING)) editor.putBoolean(target, value.equals("true")) ;
@@ -341,6 +350,16 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	{
 		if(value.equals(Constants.NONE)) return ;
 		file.writeLine(value) ;
+	}
+
+
+	/**
+	 * Parse an Integer and write it in the given setting.
+	 */
+	private void importIntegerSetting(String setting, String value, int default_value)
+	{
+		try { editor.putInt(setting, Integer.parseInt(value)) ; }
+		catch(NumberFormatException exception) { editor.putInt(setting, default_value) ; }
 	}
 
 

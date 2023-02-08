@@ -8,12 +8,6 @@
         <item>none</item>
     </string-array>
 
-    <!-- Icon size -->
-    <string-array name="set_icon_size_values">
-        <item>48</item>
-        <item>64</item>
-    </string-array>
-
     <!-- Clock format -->
     <string-array name="set_clock_format_values">
         <item>none</item>
