@@ -154,7 +154,7 @@ public class ApplicationsList
 		// Rename applications if needed
 		renameApplications() ;
 
-		// Sort the applications list in alphabetic order based on display name
+		// Sort the applications list in alphabetical order based on display name
 		Collections.sort(drawer, (application1, application2) -> application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName())) ;
 
 		// Check if the interface is reversed

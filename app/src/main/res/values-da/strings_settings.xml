@@ -3,8 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Vælg favoritter</string>
+    <string name="button_sort_az">Sort A-Z</string>
     <string name="hint_no_favorites_yet">Tilføj dine favorit apps her\nved at klikke på menu knappen.</string>
     <string name="hint_modify_order_of_favorites">Rediger rækkefølgen af favoritter på listen nedenfor (brug siderne til at rulle).</string>
+    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
     <string name="favorite_move_before">Flyt før \"%1$s\"</string>
     <string name="favorite_move_after">Flyt efter \"%1$s\"</string>
 

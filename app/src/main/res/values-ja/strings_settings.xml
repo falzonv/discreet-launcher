@@ -3,8 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">お気に入りを選択</string>
+    <string name="button_sort_az">Sort A-Z</string>
     <string name="hint_no_favorites_yet">メニューボタンをクリックして、\nお気に入りのアプリをここに追加してください。</string>
     <string name="hint_modify_order_of_favorites">下のリストでお気に入りの順番を変更（サイドでスクロールします）。</string>
+    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
     <string name="favorite_move_before">\"%1$s\"の前へ移動</string>
     <string name="favorite_move_after">\"%1$s\"の後へ移動</string>
 

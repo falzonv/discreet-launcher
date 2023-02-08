@@ -77,6 +77,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		icon_size = Math.round(32 * getResources().getDisplayMetrics().density) ;
 		favorites = ActivityMain.getApplicationsList().getFavorites() ;
 		findViewById(R.id.select_favorites_button).setOnClickListener(this) ;
+		findViewById(R.id.sort_az_button).setOnClickListener(this) ;
 
 		// Display the sortable list of favorites
 		RecyclerView recycler = findViewById(R.id.favorites_list) ;
@@ -94,12 +95,22 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	/**
 	 * Called when an element is clicked.
 	 */
-	@SuppressLint("NotifyDataSetChanged")
+	@Override
 	public void onClick(View view)
 	{
-		// Do not continue if something else than the favorites selection button has been clicked
-		if(view.getId() != R.id.select_favorites_button) return ;
+		// Check which element was clicked and perform the related actions
+		int selection = view.getId() ;
+		if(selection == R.id.select_favorites_button) selectFavorites() ;
+			else if(selection == R.id.sort_az_button) sortFavoritesAlphabetically() ;
+	}
 
+
+	/**
+	 * Display a dialog allowing to add and remove multiple favorites at the same time.
+	 */
+	@SuppressLint("NotifyDataSetChanged")
+	private void selectFavorites()
+	{
 		// Prepare the list of applications
 		final ArrayList<Application> applications = new ArrayList<>(ActivityMain.getApplicationsList().getFavorites()) ;
 		ArrayList<Application> allApplications = ActivityMain.getApplicationsList().getApplications(true) ;
@@ -129,17 +140,39 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		dialog.setTitle(R.string.button_select_favorites) ;
 		dialog.setMultiChoiceItems(app_names, selected, (dialogInterface, position, checked) -> { }) ;
 		dialog.setPositiveButton(R.string.button_apply, (dialogInterface, position) -> {
-					// Remove the current file
-					if(!file.remove()) return ;
+				// Replace the internal file content with the new selected applications
+				if(!file.remove()) return ;
+				for(position = 0 ; position < selected.length ; position++)
+					if(selected[position]) file.writeLine(applications.get(position).getComponentInfo()) ;
 
-					// Write the new selected applications to the file
-					for(position = 0 ; position < selected.length ; position++)
-						if(selected[position]) file.writeLine(applications.get(position).getComponentInfo()) ;
+				// Update the list of favorites
+				ActivityMain.updateFavorites(null) ;
+				adapter.notifyDataSetChanged() ;
+			}) ;
+		dialog.setNegativeButton(R.string.button_cancel, null) ;
+		dialog.show() ;
+	}
 
-					// Update the favorite applications list
-					ActivityMain.updateFavorites(null) ;
-					adapter.notifyDataSetChanged() ;
-				}) ;
+
+	/**
+	 * Re-order all the current favorites from A to Z.
+	 */
+	@SuppressLint("NotifyDataSetChanged")
+	private void sortFavoritesAlphabetically()
+	{
+		// Do not continue if there are no favorites to sort
+		if(favorites.size() < 2) return ;
+
+		// Ask confirmation before sorting the favorites
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
+		dialog.setMessage(R.string.hint_sort_favorites_az) ;
+		dialog.setPositiveButton(R.string.button_sort_az, (dialogInterface, which) -> {
+				// Sort the favorites in alphabetical order based on display name
+				Collections.sort(favorites, (application1, application2) -> application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName())) ;
+
+				// Update the list of favorites
+				adapter.notifyDataSetChanged() ;
+			}) ;
 		dialog.setNegativeButton(R.string.button_cancel, null) ;
 		dialog.show() ;
 	}

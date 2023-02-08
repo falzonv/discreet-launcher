@@ -3,8 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Seleccionar favoritos</string>
+    <string name="button_sort_az">Sort A-Z</string>
     <string name="hint_no_favorites_yet">Añade tus aplicaciones favoritas aquí\ntocando el botón de menú.</string>
     <string name="hint_modify_order_of_favorites">Modifica el orden de los favoritos en la lista de abajo (usando los costados para desplazarte)</string>
+    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
     <string name="favorite_move_before">Mover antes de \"%1$s\"</string>
     <string name="favorite_move_after">Mover después de \"%1$s\"</string>
 
