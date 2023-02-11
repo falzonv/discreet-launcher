@@ -5,7 +5,7 @@
     <string name="button_select_favorites">Select favorites</string>
     <string name="button_sort_az">Sort A-Z</string>
     <string name="hint_no_favorites_yet">Add your favorite apps here\nby clicking the menu button.</string>
-    <string name="hint_modify_order_of_favorites">Modify the order of favorites in the list below (using the sides to scroll).</string>
+    <string name="hint_modify_order_of_favorites">Modify the order of favorites below.</string>
     <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
     <string name="favorite_move_before">Move before \"%1$s\"</string>
     <string name="favorite_move_after">Move after \"%1$s\"</string>
