@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Favoriten wählen</string>
-    <string name="button_sort_az">Sort A-Z</string>
+    <string name="button_sort_az">Sortierung A-Z</string>
     <string name="hint_no_favorites_yet">Füge Favoriten Apps hinzu\ndurch Klicken des Menü Buttons.</string>
-    <string name="hint_modify_order_of_favorites">Ändere die Reihenfolge der Favoriten in der Liste (verwende den Bildlauf zum Scrollen).</string>
-    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
+    <string name="hint_modify_order_of_favorites">Ändere die Reihenfolge der Favoriten wie folgt.</string>
+    <string name="hint_sort_favorites_az">Die derzeitige Reihenfolge der Favoriten wird durch eine alphabetische Reihenfolge ersetzt.</string>
     <string name="favorite_move_before">Verschiebe vor \"%1$s\"</string>
     <string name="favorite_move_after">Verschiebe nach \"%1$s\"</string>
 
@@ -109,7 +109,7 @@
     <string name="set_transparent_status_bar_help">Wenn Favoriten geschlossen sind</string>
     <string name="set_dark_status_bar_icons">Dunkle Statusleisten-Symbole</string>
     <string name="set_dark_status_bar_icons_help">Funktioniert nicht unter Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size</string>
+    <string name="set_icon_size">Symbolgröße</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
     <string name="set_hide_folder_names">Keine Ordnernamen</string>
     <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
