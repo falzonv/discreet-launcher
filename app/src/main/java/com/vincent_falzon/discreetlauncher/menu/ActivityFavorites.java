@@ -46,6 +46,7 @@ import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.core.Application ;
 import com.vincent_falzon.discreetlauncher.core.Folder ;
 import com.vincent_falzon.discreetlauncher.storage.InternalFileTXT ;
+import java.text.Collator ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 
@@ -76,8 +77,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		folder_icon = AppCompatResources.getDrawable(this, R.drawable.icon_folder) ;
 		icon_size = Math.round(32 * getResources().getDisplayMetrics().density) ;
 		favorites = ActivityMain.getApplicationsList().getFavorites() ;
-		findViewById(R.id.select_favorites_button).setOnClickListener(this) ;
-		findViewById(R.id.sort_az_button).setOnClickListener(this) ;
+		findViewById(R.id.button_select_favorites).setOnClickListener(this) ;
+		findViewById(R.id.button_sort_alphabetically).setOnClickListener(this) ;
 
 		// Display the sortable list of favorites
 		RecyclerView recycler = findViewById(R.id.favorites_list) ;
@@ -100,8 +101,8 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 	{
 		// Check which element was clicked and perform the related actions
 		int selection = view.getId() ;
-		if(selection == R.id.select_favorites_button) selectFavorites() ;
-			else if(selection == R.id.sort_az_button) sortFavoritesAlphabetically() ;
+		if(selection == R.id.button_select_favorites) selectFavorites() ;
+			else if(selection == R.id.button_sort_alphabetically) sortFavoritesAlphabetically() ;
 	}
 
 
@@ -168,7 +169,9 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		dialog.setMessage(R.string.hint_sort_favorites_az) ;
 		dialog.setPositiveButton(R.string.button_sort_az, (dialogInterface, which) -> {
 				// Sort the favorites in alphabetical order based on display name
-				Collections.sort(favorites, (application1, application2) -> application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName())) ;
+				Collator collator = Collator.getInstance() ;
+				collator.setStrength(Collator.PRIMARY) ;
+				Collections.sort(favorites, (application1, application2) -> collator.compare(application1.getDisplayName(), application2.getDisplayName())) ;
 
 				// Update the list of favorites
 				adapter.notifyDataSetChanged() ;
