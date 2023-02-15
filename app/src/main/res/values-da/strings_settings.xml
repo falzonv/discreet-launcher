@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Vælg favoritter</string>
-    <string name="button_sort_az">Sort A-Z</string>
+    <string name="button_sort_az">Sortér alfabetisk</string>
     <string name="hint_no_favorites_yet">Tilføj dine favorit apps her\nved at klikke på menu knappen.</string>
-    <string name="hint_modify_order_of_favorites">Rediger rækkefølgen af favoritter på listen nedenfor (brug siderne til at rulle).</string>
-    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
+    <string name="hint_modify_order_of_favorites">Rediger rækkefølgen af favoritter på listen nedenfor.</string>
+    <string name="hint_sort_favorites_az">Den nuværende rækkefølge af favoritter vil blive erstattet af alfabetisk orden.</string>
     <string name="favorite_move_before">Flyt før \"%1$s\"</string>
     <string name="favorite_move_after">Flyt efter \"%1$s\"</string>
 
@@ -109,7 +109,7 @@
     <string name="set_transparent_status_bar_help">Når favoritter er lukket</string>
     <string name="set_dark_status_bar_icons">Mørk status bar ikoner</string>
     <string name="set_dark_status_bar_icons_help">Virker ikke på Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size</string>
+    <string name="set_icon_size">Ikonstørrelse</string>
     <string name="set_hide_app_names">Ingen app-navne</string>
     <string name="set_hide_folder_names">Ingen mappenavne</string>
     <string name="set_remove_padding">Ingen ekstra plads til ikoner, når app-navne er skjult</string>
