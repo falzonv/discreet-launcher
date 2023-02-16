@@ -59,7 +59,7 @@
     <!-- Color picker -->
     <string name="color_picker_base">Grunnfarge:</string>
     <string name="color_picker_reset">Tilbakestill</string>
-    <string name="color_picker_preview">Forhåndsvis</string>
+    <string name="color_picker_preview">Forhåndsvisning</string>
     <string name="error_invalid_color_format">Ugyldig heksadesimal farge</string>
 
     <!-- Application theme -->
