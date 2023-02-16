@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Favorileri seç</string>
-    <string name="button_sort_az">Sort A-Z</string>
+    <string name="button_sort_az">Sort alphabetically</string>
     <string name="hint_no_favorites_yet">Favori uygulamalarınızı buraya ekleyin\nmenü düğmesine tıklayarak.</string>
     <string name="hint_modify_order_of_favorites">Aşağıdaki listedeki favorilerin sırasını değiştirin(kaydırmak için kenarları kullanma).</string>
     <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>

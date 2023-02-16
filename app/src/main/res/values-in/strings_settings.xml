@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Pilih Favorit</string>
-    <string name="button_sort_az">Sort A-Z</string>
+    <string name="button_sort_az">Sort alphabetically</string>
     <string name="hint_no_favorites_yet">Tambahkan aplikasi favorit disini\ndengan mengklik tombol menu.</string>
     <string name="hint_modify_order_of_favorites">Tekan dan geser kotak aplikasi untuk mengubah urutan favorit dari daftar di bawah.</string>
     <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
