@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Вибрати застосунки</string>
-    <string name="button_sort_az">Sort A-Z</string>
+    <string name="button_sort_az">Сортувати за абеткою</string>
     <string name="hint_no_favorites_yet">Натиснувши кнопку, меню,\nдодайте сюди ваші улюблені застосунки.</string>
-    <string name="hint_modify_order_of_favorites">Розташуйте обране в списку нижче, використовуючи бічні прокрутки.</string>
-    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
+    <string name="hint_modify_order_of_favorites">Впорядкуйте обране нижче.</string>
+    <string name="hint_sort_favorites_az">Обране буде впорядковано за абеткою.</string>
     <string name="favorite_move_before">Розташувати перед \"%1$s\"</string>
     <string name="favorite_move_after">Розташувати після \"%1$s\"</string>
 
@@ -109,7 +109,7 @@
     <string name="set_transparent_status_bar_help">Коли обране приховано</string>
     <string name="set_dark_status_bar_icons">Темні піфтограми рядка стану</string>
     <string name="set_dark_status_bar_icons_help">Не працює на Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size</string>
+    <string name="set_icon_size">Розмір піфтограм</string>
     <string name="set_hide_app_names">Приховати назви застосунків</string>
     <string name="set_hide_folder_names">Приховувати назви тек</string>
     <string name="set_remove_padding">Якщо назви застосунків приховано, відступи не відображатимуться</string>

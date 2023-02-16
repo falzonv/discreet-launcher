@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Выбрать избранные</string>
-    <string name="button_sort_az">Sort A-Z</string>
+    <string name="button_sort_az">Сортировать по алфавиту</string>
     <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
-    <string name="hint_modify_order_of_favorites">Измените порядок избранного в списке ниже (используя стороны для прокрутки).</string>
-    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
+    <string name="hint_modify_order_of_favorites">Изменить порядок избранного</string>
+    <string name="hint_sort_favorites_az">Избранное будет отсортировано по алфавиту.</string>
     <string name="favorite_move_before">Переместить до \"%1$s\"</string>
     <string name="favorite_move_after">Переместить после \"%1$s\"</string>
 
@@ -109,7 +109,7 @@
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
     <string name="set_dark_status_bar_icons">Темные значки строки состояния</string>
     <string name="set_dark_status_bar_icons_help">Не работает на Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size</string>
+    <string name="set_icon_size">Размер значка</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
     <string name="set_hide_folder_names">Не показывать имена папок</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>

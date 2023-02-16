@@ -45,6 +45,7 @@ import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.Utils ;
 import com.vincent_falzon.discreetlauncher.settings.ColorPickerDialog ;
 import com.vincent_falzon.discreetlauncher.storage.* ;
+import java.text.Collator ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.List ;
@@ -155,7 +156,9 @@ public class ApplicationsList
 		renameApplications() ;
 
 		// Sort the applications list in alphabetical order based on display name
-		Collections.sort(drawer, (application1, application2) -> application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName())) ;
+		Collator collator = Collator.getInstance() ;
+		collator.setStrength(Collator.PRIMARY) ;
+		Collections.sort(drawer, (application1, application2) -> collator.compare(application1.getDisplayName(), application2.getDisplayName())) ;
 
 		// Check if the interface is reversed
 		boolean reversed = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
@@ -297,7 +300,9 @@ public class ApplicationsList
 		}
 
 		// Sort the folders and add them at the beginning or end of the list (based on layout)
-		Collections.sort(folders, (folder1, folder2) -> folder1.getDisplayName().compareToIgnoreCase(folder2.getDisplayName())) ;
+		Collator collator = Collator.getInstance() ;
+		collator.setStrength(Collator.PRIMARY) ;
+		Collections.sort(folders, (folder1, folder2) -> collator.compare(folder1.getDisplayName(), folder2.getDisplayName())) ;
 		if(reversed) drawer.addAll(folders) ;
 			else drawer.addAll(0, folders) ;
 	}
@@ -470,7 +475,9 @@ public class ApplicationsList
 		}
 
 		// Sort the list in alphabetic order based on display name
-		Collections.sort(allApplications, (application1, application2) -> application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName())) ;
+		Collator collator = Collator.getInstance() ;
+		collator.setStrength(Collator.PRIMARY) ;
+		Collections.sort(allApplications, (application1, application2) -> collator.compare(application1.getDisplayName(), application2.getDisplayName())) ;
 
 		// Retrive the index of the Search
 		int search_index = 0 ;
@@ -495,7 +502,7 @@ public class ApplicationsList
 		if(with_folders)
 			{
 				// Sort the folders and add them at the beginning of the list
-				Collections.sort(folders, (folder1, folder2) -> folder1.getDisplayName().compareToIgnoreCase(folder2.getDisplayName())) ;
+				Collections.sort(folders, (folder1, folder2) -> collator.compare(folder1.getDisplayName(), folder2.getDisplayName())) ;
 				allApplications.addAll(0, folders) ;
 			}
 
