@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">お気に入りを選択</string>
-    <string name="button_sort_az">Sort A-Z</string>
+    <string name="button_sort_az">アルファベット順並び替え</string>
     <string name="hint_no_favorites_yet">メニューボタンをクリックして、\nお気に入りのアプリをここに追加してください。</string>
     <string name="hint_modify_order_of_favorites">下のリストでお気に入りの順番を変更（サイドでスクロールします）。</string>
-    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
+    <string name="hint_sort_favorites_az">現在のお気に入り順から、アルファベット順に変更されます。</string>
     <string name="favorite_move_before">\"%1$s\"の前へ移動</string>
     <string name="favorite_move_after">\"%1$s\"の後へ移動</string>
 
@@ -109,7 +109,7 @@
     <string name="set_transparent_status_bar_help">お気に入りが閉じられているとき</string>
     <string name="set_dark_status_bar_icons">黒いステータスアイコンを使用する</string>
     <string name="set_dark_status_bar_icons_help">Android 5 (Lollipop)では動作しません</string>
-    <string name="set_icon_size">Icon size</string>
+    <string name="set_icon_size">アイコンの大きさ</string>
     <string name="set_hide_app_names">アプリ名の非表示</string>
     <string name="set_hide_folder_names">フォルダ名の非表示</string>
     <string name="set_remove_padding">アプリ名が非表示のとき、パディングしない</string>
