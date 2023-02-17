@@ -26,4 +26,4 @@ Due to changes in my professional life, I now have very little time to work on D
 
 ## Screenshots *(Captures d'écran)*
 
-![Screenshots](fastlane/metadata/android/en-US/images/screenshots_total.jpg)
+![Screenshots](docs/assets/img/screenshots_total_en.jpg)

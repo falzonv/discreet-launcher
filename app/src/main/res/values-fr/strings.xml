@@ -51,6 +51,6 @@
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Suggérez des améliorations, signalez les problèmes, et soutenez le projet sur</string>
     <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit"/>
+    <string name="translation_credit"><!-- Not used for French translation --></string>
 
 </resources>

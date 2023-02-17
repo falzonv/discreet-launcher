@@ -62,7 +62,7 @@ Here is the list of things that should be prepared for a new translation:
     - [fastlane/metadata/android/en-US/title.txt](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/title.txt)
     - [fastlane/metadata/android/en-US/short_description.txt](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/short_description.txt) (limited to 80 characters)
     - [fastlane/metadata/android/en-US/full_description.txt](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/full_description.txt)
-- In the Pull Request description, provide me the texts for the [banner](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/images/featureGraphic.png) and [screenshots](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/images/screenshots_total.jpg):
+- In the Pull Request description, provide me the texts for the [banner](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/images/featureGraphic.png) and [screenshots](https://github.com/falzonv/discreet-launcher/blob/main/docs/assets/img/screenshots_total_en.jpg):
 ```
 Banner:
   Discreet Launcher

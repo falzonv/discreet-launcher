@@ -5,7 +5,7 @@ package com.vincent_falzon.discreetlauncher.core ;
 
 	This file is part of Discreet Launcher.
 
-	Copyright (C) 2019-2022 Vincent Falzon
+	Copyright (C) 2019-2023 Vincent Falzon
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -46,6 +46,7 @@ import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.FlexibleGridLayout ;
 import com.vincent_falzon.discreetlauncher.R ;
 import com.vincent_falzon.discreetlauncher.RecyclerAdapter ;
+import java.text.Collator ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import static com.vincent_falzon.discreetlauncher.ActivityMain.getApplicationWidth ;
@@ -146,7 +147,9 @@ public class Folder extends Application
 	public void sortFolder()
 	{
 		if(applications.size() < 2) return ;
-		Collections.sort(applications, (application1, application2) -> application1.getDisplayName().compareToIgnoreCase(application2.getDisplayName())) ;
+		Collator collator = Collator.getInstance() ;
+		collator.setStrength(Collator.PRIMARY) ;
+		Collections.sort(applications, (application1, application2) -> collator.compare(application1.getDisplayName(), application2.getDisplayName())) ;
 	}
 
 
