@@ -6,7 +6,7 @@
     <string name="button_sort_az">Sorter A-Å</string>
     <string name="hint_no_favorites_yet">Legg til favorittprogrammer her\nved å klikke på menyknappen.</string>
     <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor.</string>
-    <string name="hint_sort_favorites_az">Favorittene vil sorteres alfabetisk..</string>
+    <string name="hint_sort_favorites_az">Favorittene vil sorteres alfabetisk.</string>
     <string name="favorite_move_before">Flytt før «%1$s»</string>
     <string name="favorite_move_after">Flytt etter «%1$s»</string>
 
