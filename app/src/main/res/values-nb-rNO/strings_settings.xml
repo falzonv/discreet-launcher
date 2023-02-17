@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Velg favoritter</string>
-    <string name="button_sort_az">Sort alphabetically</string>
+    <string name="button_sort_az">Sorter A-Å</string>
     <string name="hint_no_favorites_yet">Legg til favorittprogrammer her\nved å klikke på menyknappen.</string>
-    <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor (og rull ved bruk av sidene).</string>
-    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
+    <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor.</string>
+    <string name="hint_sort_favorites_az">Favorittene vil sorteres alfabetisk.</string>
     <string name="favorite_move_before">Flytt før «%1$s»</string>
     <string name="favorite_move_after">Flytt etter «%1$s»</string>
 
@@ -59,7 +59,7 @@
     <!-- Color picker -->
     <string name="color_picker_base">Grunnfarge:</string>
     <string name="color_picker_reset">Tilbakestill</string>
-    <string name="color_picker_preview">Forhåndsvis</string>
+    <string name="color_picker_preview">Forhåndsvisning</string>
     <string name="error_invalid_color_format">Ugyldig heksadesimal farge</string>
 
     <!-- Application theme -->
@@ -109,7 +109,7 @@
     <string name="set_transparent_status_bar_help">Når favoritter lukkes</string>
     <string name="set_dark_status_bar_icons">Mørke statusfeltsikoner</string>
     <string name="set_dark_status_bar_icons_help">Fungerer ikke på Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size</string>
+    <string name="set_icon_size">Ikonstørrelse</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
     <string name="set_hide_folder_names">Ingen mappenavn</string>
     <string name="set_remove_padding">Fjern fyll når navn er skjult</string>
@@ -165,7 +165,7 @@
     <string name="set_immersive_mode">Oppslukende modus</string>
     <string name="set_immersive_mode_help">Skjul systembjelker (lang-trykk på hjemmeskjermen for å påtvinge)</string>
     <string name="set_interactive_clock">Interaktiv klokke</string>
-    <string name="set_interactive_clock_help">Klikk på datoen for å åpne forvalgt kalenderprogram, og klokkn for å åpne valgt klokkeprogram.</string>
+    <string name="set_interactive_clock_help">Klikk på datoen for å åpne forvalgt kalenderprogram, og klokken for å åpne valgt klokkeprogram.</string>
     <string name="set_clock_app">Klokkeprogram</string>
     <string name="set_no_clock_app">Ingen</string>
     <string name="set_hide_menu_button">Ingen menyknapp</string>
