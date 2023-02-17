@@ -1,0 +1,11 @@
+v7.2.0 (59) - 17/02/2023
+=== Happy Birthday ! ===
+(Version 1.0.0 was published two years ago.)
+NEW THINGS
+   - Icon size setting (@lianergoist)
+   - Button sort favorites alphabetically (@RJ)
+   - Turkish translation by Adil Oguz
+IMPROVEMENTS
+   - Hidden apps menu icon (@jcperil)
+   - Screen to manage favorites (@jcperil)
+   - Sort for non-Latin alphabets

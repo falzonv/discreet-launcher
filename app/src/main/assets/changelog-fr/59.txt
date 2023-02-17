@@ -1,0 +1,11 @@
+v7.2.0 (59) - 17/02/2023
+=== Joyeux anniversaire ! ===
+(La version 1.0.0 était publiée il y a 2 ans.)
+NOUVEAUTÉS
+   - Taille d'icône réglable (@lianergoist)
+   - Bouton trier favoris alphabétiquement (@RJ)
+   - Traduction Turque par Adil Oguz
+AMÉLIORATIONS
+   - Icône des applications masquées (@jcperil)
+   - Écran pour gérer les favoris (@jcperil)
+   - Tri pour les alphabets non latins
