@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Вибрати застосунки</string>
-    <string name="button_sort_az">Сортувати за абеткою</string>
+    <string name="button_sort_alphabetically">Сортувати за абеткою</string>
     <string name="hint_no_favorites_yet">Натиснувши кнопку, меню,\nдодайте сюди ваші улюблені застосунки.</string>
     <string name="hint_modify_order_of_favorites">Впорядкуйте обране нижче.</string>
-    <string name="hint_sort_favorites_az">Обране буде впорядковано за абеткою.</string>
+    <string name="warning_sort_favorites_alphabetically">Обране буде впорядковано за абеткою.</string>
     <string name="favorite_move_before">Розташувати перед \"%1$s\"</string>
     <string name="favorite_move_after">Розташувати після \"%1$s\"</string>
 

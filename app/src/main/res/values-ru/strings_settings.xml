@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Выбрать избранные</string>
-    <string name="button_sort_az">Сортировать по алфавиту</string>
+    <string name="button_sort_alphabetically">Сортировать по алфавиту</string>
     <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
     <string name="hint_modify_order_of_favorites">Изменить порядок избранного</string>
-    <string name="hint_sort_favorites_az">Избранное будет отсортировано по алфавиту.</string>
+    <string name="warning_sort_favorites_alphabetically">Избранное будет отсортировано по алфавиту.</string>
     <string name="favorite_move_before">Переместить до \"%1$s\"</string>
     <string name="favorite_move_after">Переместить после \"%1$s\"</string>
 

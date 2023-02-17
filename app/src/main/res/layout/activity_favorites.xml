@@ -27,7 +27,7 @@
             android:id="@+id/button_sort_alphabetically"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_sort_az"
+            android:text="@string/button_sort_alphabetically"
             style="?android:attr/buttonBarButtonStyle"/>
 
     </LinearLayout>

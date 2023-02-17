@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Seleccionar favoritos</string>
-    <string name="button_sort_az">Sort alphabetically</string>
+    <string name="button_sort_alphabetically">Sort alphabetically</string><!-- NEED UPDATE -->
     <string name="hint_no_favorites_yet">Añade tus aplicaciones favoritas aquí\ntocando el botón de menú.</string>
-    <string name="hint_modify_order_of_favorites">Modifica el orden de los favoritos en la lista de abajo (usando los costados para desplazarte)</string>
-    <string name="hint_sort_favorites_az">The current order of favorites will be replaced by alphabetical order.</string>
+    <string name="hint_modify_order_of_favorites">Modifica el orden de los favoritos en la lista de abajo</string><!-- NEED UPDATE -->
+    <string name="warning_sort_favorites_alphabetically">The current order of favorites will be replaced by alphabetical order.</string><!-- NEED UPDATE -->
     <string name="favorite_move_before">Mover antes de \"%1$s\"</string>
     <string name="favorite_move_after">Mover después de \"%1$s\"</string>
 
@@ -109,7 +109,7 @@
     <string name="set_transparent_status_bar_help">Cuando los favoritos están cerrados</string>
     <string name="set_dark_status_bar_icons">Íconos oscuros en barra de estado</string>
     <string name="set_dark_status_bar_icons_help">No funciona en Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size</string>
+    <string name="set_icon_size">Icon size</string><!-- NEED UPDATE -->
     <string name="set_hide_app_names">Sin nombres de aplicaciones</string>
     <string name="set_hide_folder_names">Sin nombres de carpetas</string>
     <string name="set_remove_padding">Sin espacios cuando los nombres de aplicaciones están ocultos</string>
