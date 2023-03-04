@@ -5,17 +5,18 @@ apply plugin: 'com.android.application'
 android
 {
     // API level used to compile the application
-    compileSdkVersion 32
+    compileSdkVersion var_compile_sdk
     buildToolsVersion "32.1.0-rc1"
 
     defaultConfig
     {
         // Application identifier
-        applicationId "com.vincent_falzon.discreetlauncher"
+        applicationId var_package
+        namespace var_package
 
         // Minimum API required and API used for compilation
-        minSdkVersion 21
-        targetSdkVersion 32
+        minSdkVersion var_min_sdk
+        targetSdkVersion var_compile_sdk
 
         // Versioning
         versionCode 59

@@ -1,6 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript
 {
+    ext.var_package = "com.vincent_falzon.discreetlauncher"
+    ext.var_min_sdk = 21
+    ext.var_compile_sdk = 32
     repositories
     {
         google()
