@@ -17,7 +17,7 @@
     <string name="menu_changelog">Değişiklik günlüğü</string>
 
     <!-- Long click menu -->
-    <string name="long_click_dialog_title">Ne yapmak istiyorsun?</string>
+    <string name="long_click_dialog_title">Ne yapmak istiyorsunz?</string>
     <string name="long_click_open">Açık \"%1$s\"</string>
     <string name="long_click_settings">Ayarlarına erişin</string>
     <string name="long_click_view_store">Mağaza sayfasını görüntüle</string>
