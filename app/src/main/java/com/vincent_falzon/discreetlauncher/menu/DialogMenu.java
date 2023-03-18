@@ -23,14 +23,11 @@ package com.vincent_falzon.discreetlauncher.menu ;
  */
 
 // Imports
-import android.annotation.SuppressLint ;
 import android.content.Context ;
 import android.content.Intent ;
 import android.view.LayoutInflater ;
-import android.view.MotionEvent ;
 import android.view.View ;
 import android.view.ViewGroup ;
-import android.widget.TextView ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatDialog ;
 import com.vincent_falzon.discreetlauncher.ActivityMain ;
@@ -42,12 +39,8 @@ import com.vincent_falzon.discreetlauncher.settings.ActivitySettingsOperation ;
 /**
  * Display the main menu of Discreet Launcher.
  */
-public class DialogMenu extends AppCompatDialog implements View.OnClickListener, View.OnTouchListener
+public class DialogMenu extends AppCompatDialog implements View.OnClickListener
 {
-	// Attributes
-	private final View dialogView ;
-
-
 	/**
 	 * Constructor.
 	 */
@@ -58,32 +51,20 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 		super(context) ;
 
 		// Load the XML layout
-		dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_menu, (ViewGroup)null) ;
+		View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_menu, (ViewGroup)null) ;
 		setContentView(dialogView) ;
 
 		// Initializations
-		initializeMenuEntry(R.id.menu_favorites) ;
-		initializeMenuEntry(R.id.menu_folders) ;
-		initializeMenuEntry(R.id.menu_hidden_apps) ;
-		initializeMenuEntry(R.id.menu_refresh_list) ;
-		initializeMenuEntry(R.id.menu_settings_appearance) ;
-		initializeMenuEntry(R.id.menu_settings_operation) ;
-		initializeMenuEntry(R.id.menu_export_import) ;
-		initializeMenuEntry(R.id.menu_help) ;
-		initializeMenuEntry(R.id.menu_about) ;
-		initializeMenuEntry(R.id.menu_changelog) ;
-	}
-
-
-	/**
-	 * Initialize a menu entry with the given resource ID.
-	 */
-	@SuppressLint("ClickableViewAccessibility")
-	private void initializeMenuEntry(int id)
-	{
-		TextView menuEntry = dialogView.findViewById(id) ;
-		menuEntry.setOnClickListener(this) ;
-		menuEntry.setOnTouchListener(this) ;
+		dialogView.findViewById(R.id.menu_favorites).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_folders).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_hidden_apps).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_refresh_list).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_settings_appearance).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_settings_operation).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_export_import).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_help).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_about).setOnClickListener(this) ;
+		dialogView.findViewById(R.id.menu_changelog).setOnClickListener(this) ;
 	}
 
 
@@ -165,34 +146,5 @@ public class DialogMenu extends AppCompatDialog implements View.OnClickListener,
 
 		// Dismiss the menu
 		dismiss() ;
-	}
-
-
-	/**
-	 * Called when an element is touched.
-	 */
-	@SuppressLint("ClickableViewAccessibility")
-	@Override
-	public boolean onTouch(View view, MotionEvent event)
-	{
-		// Do not continue if the view is not a TextView
-		if(!(view instanceof TextView)) return false ;
-
-		// Toggle visual feedback on the selected menu entry
-		switch(event.getAction())
-		{
-			// Gesture started
-			case MotionEvent.ACTION_DOWN :
-				view.setBackgroundColor(view.getContext().getResources().getColor(R.color.for_menu_highlight_and_dividers)) ;
-				break ;
-			// Gesture finished or aborted
-			case MotionEvent.ACTION_UP :
-			case MotionEvent.ACTION_CANCEL :
-				view.setBackground(null) ;
-				break ;
-		}
-
-		// Do not consider the event as consumed
-		return false ;
 	}
 }

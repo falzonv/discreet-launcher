@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/spacing_large"
-    android:orientation="vertical"
-    android:focusableInTouchMode="true">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,14 +20,15 @@
             android:layout_height="wrap_content"
             android:text="@string/button_select_favorites"
             android:theme="@style/Button_Normal"
-            tools:ignore="ButtonStyle"/>
+            style="?android:buttonStyle"/>
 
         <Button
             android:id="@+id/button_sort_alphabetically"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_sort_alphabetically"
-            style="?android:attr/buttonBarButtonStyle"/>
+            android:theme="@style/Button_Borderless"
+            style="?android:borderlessButtonStyle"/>
 
     </LinearLayout>
 

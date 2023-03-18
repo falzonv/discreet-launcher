@@ -160,7 +160,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 	/**
 	 * Represent a clickable application item in the RecyclerView.
 	 */
-	public class ApplicationView extends RecyclerView.ViewHolder implements View.OnTouchListener, View.OnClickListener, View.OnLongClickListener
+	public class ApplicationView extends RecyclerView.ViewHolder implements View.OnTouchListener, View.OnClickListener, View.OnLongClickListener, View.OnFocusChangeListener
 	{
 		// Attributes
 		private final TextView name ;
@@ -174,11 +174,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			// Let the parent actions be performed
 			super(view) ;
 
-			// Listen for a click on the application
+			// Listen for clicks and long clicks on the application
 			name = view.findViewById(R.id.application_item) ;
-			view.setOnTouchListener(this) ;
 			view.setOnClickListener(this) ;
 			view.setOnLongClickListener(this) ;
+
+			// Listen for touchs and focus changes to display visual feedback
+			view.setOnTouchListener(this) ;
+			view.setOnFocusChangeListener(this) ;
 		}
 
 
@@ -205,6 +208,36 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 			// Do not consider the event as consumed
 			return false ;
+		}
+
+
+		/**
+		 * Called whent the focus of the application has changed (selected, not selected).
+		 */
+		@Override
+		public void onFocusChange(View view, boolean hasFocus)
+		{
+			setVisualFeedback(view.getContext(), hasFocus) ;
+		}
+
+
+		/**
+		 * Show or hide visual feedback.
+		 */
+		private void setVisualFeedback(Context context, boolean display)
+		{
+			if(display)
+				{
+					name.setTypeface(Typeface.DEFAULT_BOLD) ;
+					name.setShadowLayer(15, 0, 0, context.getResources().getColor(R.color.for_visual_feedback_shadow)) ;
+					name.getCompoundDrawables()[1].setColorFilter(context.getResources().getColor(R.color.for_visual_feedback_drawable), PorterDuff.Mode.SRC_ATOP) ;
+				}
+				else
+				{
+					name.setTypeface(Typeface.DEFAULT) ;
+					name.setShadowLayer(0, 0, 0, 0) ;
+					name.getCompoundDrawables()[1].clearColorFilter() ;
+				}
 		}
 
 
@@ -393,26 +426,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 
 			// Consider the event as consumed
 			return true ;
-		}
-
-
-		/**
-		 * Show or hide visual feedback.
-		 */
-		private void setVisualFeedback(Context context, boolean display)
-		{
-			if(display)
-				{
-					name.setTypeface(Typeface.DEFAULT_BOLD) ;
-					name.setShadowLayer(15, 0, 0, context.getResources().getColor(R.color.for_visual_feedback_shadow)) ;
-					name.getCompoundDrawables()[1].setColorFilter(context.getResources().getColor(R.color.for_visual_feedback_drawable), PorterDuff.Mode.SRC_ATOP) ;
-				}
-				else
-				{
-					name.setTypeface(Typeface.DEFAULT) ;
-					name.setShadowLayer(0, 0, 0, 0) ;
-					name.getCompoundDrawables()[1].clearColorFilter() ;
-				}
 		}
 
 

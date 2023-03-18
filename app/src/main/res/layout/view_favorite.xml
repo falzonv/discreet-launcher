@@ -35,7 +35,7 @@
             android:layout_height="25dp"
             android:layout_width="match_parent"
             android:src="@drawable/icon_move_up"
-            android:background="@color/for_overlay"
+            android:background="@drawable/background_move_favorite"
             android:contentDescription="@null"/>
 
         <!-- "contentDescription" is set dynamically -->
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="1dp"
             android:src="@drawable/icon_move_down"
-            android:background="@color/for_overlay"
+            android:background="@drawable/background_move_favorite"
             android:contentDescription="@null"/>
 
     </LinearLayout>

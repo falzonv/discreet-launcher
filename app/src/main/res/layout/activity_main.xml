@@ -74,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:paddingHorizontal="@dimen/spacing_large"
-                        android:src="@drawable/ic_menu_preferences"
+                        android:src="@drawable/background_menu_button"
                         android:contentDescription="@string/menu"/>
 
                     <TextView
