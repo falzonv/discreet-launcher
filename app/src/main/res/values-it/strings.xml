@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+
+    <!-- Main menu -->
+    <string name="menu">Menu</string>
+    <string name="menu_favorites">Preferiti</string>
+    <string name="menu_folders">Cartelle</string>
+    <string name="menu_hidden_apps">Applicazioni nascoste</string>
+    <string name="menu_refresh_list_apps">Aggiorna la lista delle applicazioni</string>
+    <string name="menu_settings_appearance">Aspetto</string>
+    <string name="menu_settings_operation">Operazioni</string>
+    <string name="menu_export_import">Esporta e importa</string>
+    <string name="menu_help">Aiuto</string>
+    <string name="menu_about">Informazioni</string>
+    <string name="menu_changelog">Registro dei cambiamenti</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Cosa vuoi fare?</string>
+    <string name="long_click_open">Apri \"%1$s\"</string>
+    <string name="long_click_settings">Accedi alle sue impostazioni</string>
+    <string name="long_click_view_store">Visualizza la pagina nel negozio</string>
+    <string name="long_click_rename">Rinomina</string>
+    <string name="long_click_add_favorites">Aggiungi ai preferiti</string>
+    <string name="long_click_remove_favorites">Rimuovi dai preferiti</string>
+    <string name="long_click_add_folder">Aggiungi ad una cartella</string>
+    <string name="long_click_remove_folder">Rimuovi dalla cartella \"%1$s\"</string>
+    <string name="long_click_hide_search">Nascondi</string>
+    <string name="long_click_remove_shortcut">Rimuovi questa scorciatoia</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Applica</string>
+    <string name="button_cancel">Annulla</string>
+    <string name="button_close">Chiudi</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Lista delle applicazioni aggiornata</string>
+    <string name="info_favorites_refreshed">Preferiti aggiornati</string>
+    <string name="info_display_partially_updated">La visualizzazione sarà completamente aggiornata dopo essere tornati alla schermata iniziale</string>
+    <string name="error_app_not_found">Impossibile trovare \"%1$s\"</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Cerca</string>
+    <string name="search_app_hint">Cerca applicazioni</string>
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Suggerisci miglioramenti, notifica problemi, e supporta il progetto su</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">Traduzione italiana di Rhapsodizer</string>
+
+</resources>
