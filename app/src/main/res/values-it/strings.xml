@@ -37,7 +37,7 @@
     <!-- Popup messages related to apps -->
     <string name="info_list_apps_refreshed">Lista delle applicazioni aggiornata</string>
     <string name="info_favorites_refreshed">Preferiti aggiornati</string>
-    <string name="info_display_partially_updated">La visualizzazione sarà completamente aggiornata dopo essere tornati alla schermata iniziale</string>
+    <string name="info_display_partially_updated">La visualizzazione sarà completamente aggiornata dopo essere tornati alla schermata principale</string>
     <string name="error_app_not_found">Impossibile trovare \"%1$s\"</string>
 
     <!-- Search app -->
@@ -49,7 +49,7 @@
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">Suggerisci miglioramenti, notifica problemi, e supporta il progetto su</string>
+    <string name="website_description">Suggerisci miglioramenti, segnala problemi, e supporta il progetto su</string>
     <string name="website_link">https://vincent-falzon.com</string>
     <string name="translation_credit">Traduzione italiana di Rhapsodizer</string>
 
