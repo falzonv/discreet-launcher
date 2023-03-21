@@ -110,13 +110,13 @@
     <string name="set_dark_status_bar_icons">Icone scure nella barra di stato</string>
     <string name="set_dark_status_bar_icons_help">Non funziona su Android 5 (Lollipop)</string>
     <string name="set_icon_size">Dimensioni icone</string>
-    <string name="set_hide_app_names">Niente nomi applicazioni</string>
-    <string name="set_hide_folder_names">Niente nomi carrtelle</string>
-    <string name="set_remove_padding">Nessun padding quando i nomi delle applicazioni sono nascosti</string>
+    <string name="set_hide_app_names">Niente nomi delle applicazioni</string>
+    <string name="set_hide_folder_names">Niente nomi delle cartelle</string>
+    <string name="set_remove_padding">Nessuna spaziatura quando i nomi delle applicazioni sono nascosti</string>
     <string name="set_background_color_favorites">Sfondo dei preferiti</string>
     <string name="set_text_color_favorites">Testo dei preferiti</string>
-    <string name="set_background_color_drawer">Sfondo della lista app principale</string>
-    <string name="set_text_color_drawer">Testo della lista app principale</string>
+    <string name="set_background_color_drawer">Sfondo della lista principale app</string>
+    <string name="set_text_color_drawer">Testo della lista principale app</string>
     <string name="set_clock_color">Colore dell\'orologio</string>
     <string name="set_clock_shadow_color">Colore dell\'ombreggiatura testo</string>
     <string name="set_icon_pack_primary">Primario</string>
@@ -152,7 +152,7 @@
 
     <!-- Touch targets (accessibility) -->
     <string name="set_touch_targets">Elementi premibili (accessibilità)</string>
-    <string name="set_touch_targets_help">Etichette cliccabili sulla schermata principale</string>
+    <string name="set_touch_targets_help">Elementi premibili sulla schermata principale</string>
     <string name="target_open_favorites">Apri\npreferiti</string>
     <string name="target_close_favorites">Chiudi\npreferiti</string>
     <string name="target_open_applications">Apri\napplicazioni</string>
