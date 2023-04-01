@@ -150,12 +150,13 @@
         <item>Перевернутая горизонтальная</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Цели касания (доступность)</string>
     <string name="set_touch_targets_help">Нажимаемые ярлыки на главном экране</string>
     <string name="target_open_favorites">Открыть\nизбранные</string>
     <string name="target_close_favorites">Закрыть\nизбранные</string>
-    <string name="target_open_applications">Открыть\nприложения</string>
+    <string name="target_open_apps">Открыть\nприложения</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Установить лаунчером по-умолчанию</string>

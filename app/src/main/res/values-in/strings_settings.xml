@@ -150,12 +150,13 @@
         <item>Lanskap terbalik</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Target ketuk (aksesibilitas)</string>
     <string name="set_touch_targets_help">Label yang dapat diklik di layar rumah</string>
     <string name="target_open_favorites">Buka\nfavorit</string>
     <string name="target_close_favorites">Tutup\nfavorit</string>
-    <string name="target_open_applications">Buka\nLaci Aplikasi</string>
+    <string name="target_open_apps">Buka\nLaci Aplikasi</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Tetapkan sebagai peluncur default</string><!-- NEED UPDATE -->

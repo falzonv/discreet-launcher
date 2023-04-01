@@ -150,12 +150,13 @@
         <item>Ters manzara</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Dokunma hedefleri (erişilebilirlik)</string>
     <string name="set_touch_targets_help">Ana ekranda tıklanabilir etiketler</string>
     <string name="target_open_favorites">Açık\nFavoriler</string>
     <string name="target_close_favorites">Kapalı\nFavoriler</string>
-    <string name="target_open_applications">Açık\nuygulamalar</string>
+    <string name="target_open_apps">Açık\nuygulamalar</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Varsayılan başlatıcı olarak ayarla</string>

@@ -150,12 +150,13 @@
         <item>横（反転）</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">タッチターゲット（アクセシビリティ）</string>
     <string name="set_touch_targets_help">ホーム画面にタップ可能なラベルを追加します</string>
     <string name="target_open_favorites">お気に入りを開く</string>
     <string name="target_close_favorites">お気に入りを閉じる</string>
-    <string name="target_open_applications">アプリ一覧を開く</string>
+    <string name="target_open_apps">アプリ一覧を開く</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">デフォルトのランチャーに設定する</string>

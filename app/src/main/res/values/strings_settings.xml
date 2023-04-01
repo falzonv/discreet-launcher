@@ -150,12 +150,13 @@
         <item>Reverse landscape</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Touch targets (accessibility)</string>
     <string name="set_touch_targets_help">Clickable labels on the home screen</string>
     <string name="target_open_favorites">Open\nfavorites</string>
     <string name="target_close_favorites">Close\nfavorites</string>
-    <string name="target_open_applications">Open\napps</string>
+    <string name="target_open_apps">Open\napps</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Set as default launcher</string>

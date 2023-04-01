@@ -150,12 +150,13 @@
         <item>Horizontal invertida</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Tocar objetos (acessibilidade)</string>
     <string name="set_touch_targets_help">Etiquetas pressionáveis na tela inicial</string>
     <string name="target_open_favorites">Abrir\nfavoritos</string>
     <string name="target_close_favorites">Fechar\nfavoritos</string>
-    <string name="target_open_applications">Abrir\naplicativos</string>
+    <string name="target_open_apps">Abrir\naplicativos</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Selecionar como lançador padrão</string>

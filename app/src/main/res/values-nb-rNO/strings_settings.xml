@@ -150,12 +150,13 @@
         <item>Omvendt liggende</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Pekemål (tilgjengelighetsvalg)</string>
     <string name="set_touch_targets_help">Klikkbare etiketter på hjemmeskjermen</string>
     <string name="target_open_favorites">Åpne\nfavoritter</string>
     <string name="target_close_favorites">Lukk\nfavoritter</string>
-    <string name="target_open_applications">Åpne\nprogrammer</string>
+    <string name="target_open_apps">Åpne\nprogrammer</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Bruk som forvalgt oppstarter</string>
