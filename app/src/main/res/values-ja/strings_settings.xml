@@ -80,6 +80,8 @@
         <item>アナログ</item>
         <item>日付と時間</item>
         <item>日付・曜日と時間</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

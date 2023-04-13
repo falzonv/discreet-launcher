@@ -80,6 +80,8 @@
         <item>Analog</item>
         <item>Tarih ve saat</item>
         <item>Tam tarih ve saat</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -165,7 +167,7 @@
     <string name="set_reverse_interface_help">Yukarıdaki uygulamalar ve ana ekranın altındaki favoriler</string>
     <string name="set_immersive_mode">Sürükleyici mod</string>
     <string name="set_immersive_mode_help">Sistem çubuğu yok. (Ana ekrana uzun basarak zorlanabilir.)</string>
-    <string name="set_interactive_clock">İnteraktif saat</string>
+    <string name="set_interactive_clock">Etkileşimli saat</string>
     <string name="set_interactive_clock_help">Varsayılan takvimi açmak için tarihe tıklayın, seçilen saat uygulamasını açmak için saate tıklayın</string>
     <string name="set_clock_app">Saat uygulaması</string>
     <string name="set_no_clock_app">Hiçbiri</string>

@@ -80,6 +80,8 @@
         <item>Аналоговые</item>
         <item>Дата и время</item>
         <item>Полные дата и время</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

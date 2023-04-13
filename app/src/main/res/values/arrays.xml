@@ -17,6 +17,8 @@
         <item>analog</item>
         <item>datetime-short</item>
         <item>datetime</item>
+        <item>date-short</item>
+        <item>date</item>
     </string-array>
 
     <!-- Clock position -->

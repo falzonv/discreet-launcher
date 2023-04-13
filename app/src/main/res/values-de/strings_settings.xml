@@ -80,6 +80,8 @@
         <item>Analog</item>
         <item>Datum und Uhrzeit</item>
         <item>Vollständiges Datum und Uhrzeit</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

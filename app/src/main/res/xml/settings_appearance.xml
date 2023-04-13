@@ -114,7 +114,7 @@
             app:iconSpaceReserved="false"
             app:entries="@array/set_clock_position_entries"
             app:entryValues="@array/set_clock_position_values"
-            app:defaultValue="top"
+            app:defaultValue="middle"
             app:useSimpleSummaryProvider="true"/>
 
         <ListPreference

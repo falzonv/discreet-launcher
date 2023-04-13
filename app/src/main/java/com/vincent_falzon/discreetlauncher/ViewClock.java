@@ -155,9 +155,9 @@ public class ViewClock extends View implements View.OnTouchListener
 		// Retrieve the clock colors, position and size
 		int clock_color = Utils.getColor(settings, Constants.CLOCK_COLOR, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
 		int shadow_color = Utils.getColor(settings, Constants.CLOCK_SHADOW_COLOR, Constants.COLOR_FOR_OVERLAY) ;
-		String clock_position = settings.getString(Constants.CLOCK_POSITION, "top") ;
+		String clock_position = settings.getString(Constants.CLOCK_POSITION, "middle") ;
 		String clock_size = settings.getString(Constants.CLOCK_SIZE, "medium") ;
-		if(clock_position == null) clock_position = "top" ;
+		if(clock_position == null) clock_position = "middle" ;
 		if(clock_size == null) clock_size = "medium" ;
 
 		// Retrieve the current date and time
@@ -246,7 +246,7 @@ public class ViewClock extends View implements View.OnTouchListener
 				textClock.setFakeBoldText(true) ;
 				textClock.setTextSize(time_text_size * date_text_size_factor) ;
 				textClock.getTextBounds(date_text, 0, date_text.length(), rect_date) ;
-				while((rect_date.width() > (view_width - 30)) && (date_text_size_factor > 0))
+				while((rect_date.width() > (view_width - 2 * padding)) && (date_text_size_factor > 0))
 				{
 					// Progressively lower the size of the date text size
 					date_text_size_factor -= 0.01 ;
@@ -280,6 +280,42 @@ public class ViewClock extends View implements View.OnTouchListener
 				textClock.setTextSize(time_text_size * date_text_size_factor) ;
 				canvas.drawText(date_text, offset_x, offset_y + 0.5f * padding + rect_date.height(), textClock) ;
 				rect_date.offset(Math.round(offset_x), Math.round(offset_y + 0.5f * padding + rect_date.height())) ;
+			}
+			else if(clock_format.startsWith("date"))
+			{
+				// Prepare the date text
+				String date_text ;
+				if(clock_format.endsWith("short")) date_text = SimpleDateFormat.getDateInstance(DateFormat.DEFAULT).format(current_time.getTime()) ;
+					else date_text = SimpleDateFormat.getDateInstance(DateFormat.FULL).format(current_time.getTime()) ;
+
+				// Compute the date text dimensions, making it fit in the screen width
+				float date_text_size_factor = 0.6f ;
+				textClock.setFakeBoldText(true) ;
+				textClock.setTextSize(time_text_size * date_text_size_factor) ;
+				textClock.getTextBounds(date_text, 0, date_text.length(), rect_date) ;
+				while((rect_date.width() > (view_width - 2 * padding)) && (date_text_size_factor > 0))
+				{
+					// Progressively lower the size of the date text size
+					date_text_size_factor -= 0.01 ;
+					textClock.setTextSize(time_text_size * date_text_size_factor) ;
+					textClock.getTextBounds(date_text, 0, date_text.length(), rect_date) ;
+				}
+
+				// Define the vertical offset
+				if(clock_position.startsWith("middle")) offset_y = view_height / 2f + rect_date.height() / 2f ;
+					else if(clock_position.startsWith("bottom")) offset_y = view_height - padding ;
+					else offset_y = padding + rect_date.height() ;
+
+				// Define the horizontal offset of the date text
+				if(clock_position.endsWith("left")) offset_x = padding ;
+					else if(clock_position.endsWith("right")) offset_x = view_width - rect_date.width() - padding ;
+					else offset_x = view_width / 2f - rect_date.width() / 2f ;
+
+				// Draw the date text
+				textClock.setFakeBoldText(true) ;
+				textClock.setTextSize(time_text_size * date_text_size_factor) ;
+				canvas.drawText(date_text, offset_x, offset_y, textClock) ;
+				rect_date.offset(Math.round(offset_x), Math.round(offset_y)) ;
 			}
 			else
 			{
