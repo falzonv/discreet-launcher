@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Select favorites</string>
-    <string name="button_sort_alphabetically">Sort alphabetically</string>
+    <string name="button_sort">Sort</string>
     <string name="hint_no_favorites_yet">Add your favorite apps here\nby clicking the menu button.</string>
     <string name="hint_modify_order_of_favorites">Modify the order of favorites below.</string>
     <string name="warning_sort_favorites_alphabetically">The current order of favorites will be replaced by alphabetical order.</string>
@@ -13,14 +13,13 @@
     <!-- Folders -->
     <string name="button_new_folder">Add</string>
     <string name="button_remove_folder">Remove</string>
-    <string name="hint_folders_number">Create as many folders as you want to organize your apps.</string>
     <string name="hint_folder_edit">
         Click on a folder name to change it, and on the icon to choose its color.
         The pen allows editing folder content.
     </string>
     <string name="hint_new_folder">New folder</string>
     <string name="hint_rename_folder">Rename folder</string>
-    <string name="hint_remove_folder">If a folder is removed, its content will be put back in the main app list.</string>
+    <string name="hint_remove_folder">Removing a folder puts its content back into the main app list.</string>
     <string name="error_folder_empty_name">Pick a name first</string>
     <string name="error_folder_already_exists">Pick a name that doesn\'t exist already</string>
     <string name="error_folder_rename">Could not rename the folder</string>
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Theme and colors</string>
+    <string name="appearance_settings_title_interface">Interface</string>
     <string name="appearance_settings_title_clock">Clock</string>
     <string name="appearance_settings_title_icon_packs">Icon packs</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Base:</string>
     <string name="color_picker_reset">Reset</string>
-    <string name="color_picker_preview">Preview</string>
+    <string name="color_picker_preview">Preview</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Invalid hexadecimal color</string>
 
     <!-- Application theme -->
@@ -71,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Clock format</string>
+    <string name="set_clock_format">Format</string>
     <string-array name="set_clock_format_entries">
         <item>None (hide)</item>
         <item>24 hours</item>
@@ -85,7 +84,7 @@
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Clock position</string>
+    <string name="set_clock_position">Position</string>
     <string-array name="set_clock_position_entries">
         <item>Top</item>
         <item>"Top  -  Left"</item>
@@ -99,7 +98,7 @@
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Clock size</string>
+    <string name="set_clock_size">Size</string>
     <string-array name="set_clock_size_entries">
         <item>Small</item>
         <item>Medium</item>
@@ -111,7 +110,7 @@
     <string name="set_transparent_status_bar_help">When favorites are closed</string>
     <string name="set_dark_status_bar_icons">Dark status bar icons</string>
     <string name="set_dark_status_bar_icons_help">Not working on Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size</string>
+    <string name="set_icon_size">Icon size (for tablets)</string>
     <string name="set_hide_app_names">No app names</string>
     <string name="set_hide_folder_names">No folder names</string>
     <string name="set_remove_padding">No padding when app names are hidden</string>
@@ -119,7 +118,7 @@
     <string name="set_text_color_favorites">Favorites text</string>
     <string name="set_background_color_drawer">App drawer background</string>
     <string name="set_text_color_drawer">App drawer text</string>
-    <string name="set_clock_color">Clock color</string>
+    <string name="set_clock_color">Color</string>
     <string name="set_clock_shadow_color">Text shadow color</string>
     <string name="set_icon_pack_primary">Primary</string>
     <string name="set_icon_pack_secondary">Secondary</string>

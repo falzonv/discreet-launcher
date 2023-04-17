@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Choisir des favoris</string>
-    <string name="button_sort_alphabetically">Trier alphabétiquement</string>
+    <string name="button_sort">Trier</string>
     <string name="hint_no_favorites_yet">Ajoutez vos applications favorites ici\nen cliquant sur le bouton de menu.</string>
     <string name="hint_modify_order_of_favorites">Modifiez l\'ordre des favoris ci-dessous.</string>
     <string name="warning_sort_favorites_alphabetically">L\'ordre actuel des favoris sera remplacé par l\'ordre alphabétique.</string>
@@ -13,14 +13,13 @@
     <!-- Folders -->
     <string name="button_new_folder">Ajouter</string>
     <string name="button_remove_folder">Supprimer</string>
-    <string name="hint_folders_number">Créez autant de dossiers que vous voulez pour organiser vos applications.</string>
     <string name="hint_folder_edit">
         Cliquez sur le nom d\'un dossier pour le changer, et sur l\'icône pour choisir sa couleur.
         Le crayon permet de modifier le contenu du dossier.
     </string>
     <string name="hint_new_folder">Nouveau dossier</string>
     <string name="hint_rename_folder">Renommer le dossier</string>
-    <string name="hint_remove_folder">Si un dossier est supprimé, son contenu sera réintégré dans la liste d\'applications principale.</string>
+    <string name="hint_remove_folder">Supprimer un dossier remet son contenu dans la liste d\'applications principale.</string>
     <string name="error_folder_empty_name">Choisissez d\'abord un nom</string>
     <string name="error_folder_already_exists">Choisissez un nom qui n\'existe pas déjà</string>
     <string name="error_folder_rename">Impossible de renommer le dossier</string>
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Thème et couleurs</string>
+    <string name="appearance_settings_title_interface">Interface</string>
     <string name="appearance_settings_title_clock">Horloge</string>
     <string name="appearance_settings_title_icon_packs">Packs d\'icônes</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Base :</string>
     <string name="color_picker_reset">Réinitialiser</string>
-    <string name="color_picker_preview">Aperçu</string>
+    <string name="color_picker_preview">Aperçu</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Couleur hexadécimale invalide</string>
 
     <!-- Application theme -->
@@ -71,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Format de l\'horloge</string>
+    <string name="set_clock_format">Format</string>
     <string-array name="set_clock_format_entries">
         <item>Aucune (masquer)</item>
         <item>24 heures</item>
@@ -85,7 +84,7 @@
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Position de l\'horloge</string>
+    <string name="set_clock_position">Position</string>
     <string-array name="set_clock_position_entries">
         <item>Haut</item>
         <item>"Haut  -  Gauche"</item>
@@ -99,7 +98,7 @@
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Taille de l\'horloge</string>
+    <string name="set_clock_size">Taille</string>
     <string-array name="set_clock_size_entries">
         <item>Petite</item>
         <item>Moyenne</item>
@@ -111,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Quand les favoris sont fermés</string>
     <string name="set_dark_status_bar_icons">Icônes foncées dans la barre de statut</string>
     <string name="set_dark_status_bar_icons_help">Ne fonctionne pas sur Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Taille des icônes</string>
+    <string name="set_icon_size">Taille des icônes (pour les tablettes)</string>
     <string name="set_hide_app_names">Pas de noms d\'applications</string>
     <string name="set_hide_folder_names">Pas de noms de dossiers</string>
     <string name="set_remove_padding">Pas de marges quand les noms d\'applications sont masqués</string>
@@ -119,7 +118,7 @@
     <string name="set_text_color_favorites">Texte des favoris</string>
     <string name="set_background_color_drawer">Fond du tiroir d\'applications</string>
     <string name="set_text_color_drawer">Texte du tiroir d\'applications</string>
-    <string name="set_clock_color">Couleur de l\'horloge</string>
+    <string name="set_clock_color">Couleur</string>
     <string name="set_clock_shadow_color">Couleur de l\'ombre du texte</string>
     <string name="set_icon_pack_primary">Primaire</string>
     <string name="set_icon_pack_secondary">Secondaire</string>
