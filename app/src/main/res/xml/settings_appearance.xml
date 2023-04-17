@@ -26,7 +26,6 @@
         <SwitchPreference
             app:key="dark_status_bar_icons"
             app:title="@string/set_dark_status_bar_icons"
-            app:summary="@string/set_dark_status_bar_icons_help"
             app:iconSpaceReserved="false"
             app:defaultValue="false"/>
 
