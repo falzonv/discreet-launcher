@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Favoriten wählen</string>
-    <string name="button_sort_alphabetically">Alphabetisch sortieren</string>
+    <string name="button_sort">Alphabetisch sortieren</string>
     <string name="hint_no_favorites_yet">Füge Favoriten Apps hinzu\ndurch Klicken des Menü Buttons.</string>
     <string name="hint_modify_order_of_favorites">Ändere die Reihenfolge der Favoriten wie folgt.</string>
     <string name="warning_sort_favorites_alphabetically">Die derzeitige Reihenfolge der Favoriten wird durch eine alphabetische Reihenfolge ersetzt.</string>
@@ -13,7 +13,6 @@
     <!-- Folders -->
     <string name="button_new_folder">Hinzufügen</string>
     <string name="button_remove_folder">Entfernen</string>
-    <string name="hint_folders_number">Erstelle so viele Ordner wie du willst, um deine Apps zu organisieren.</string>
     <string name="hint_folder_edit">
         Klicke auf einen Ordnernamen, um ihn zu ändern und auf das Symbol, um seine Farbe zu wählen.
         Über das Stiftsymbol kann der Inhalt des Ordners bearbeitet werden.
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Design und Farben</string>
+    <string name="appearance_settings_title_interface">Design und Farben</string>
     <string name="appearance_settings_title_clock">Uhr</string>
     <string name="appearance_settings_title_icon_packs">Symbolpakete</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Basis:</string>
     <string name="color_picker_reset">Löschen</string>
-    <string name="color_picker_preview">Vorschau</string>
+    <string name="color_picker_preview">Vorschau</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Ungültige hexadezimale Farbe</string>
 
     <!-- Application theme -->
@@ -80,6 +79,8 @@
         <item>Analog</item>
         <item>Datum und Uhrzeit</item>
         <item>Vollständiges Datum und Uhrzeit</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -109,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Wenn Favoriten geschlossen sind</string>
     <string name="set_dark_status_bar_icons">Dunkle Statusleisten-Symbole</string>
     <string name="set_dark_status_bar_icons_help">Funktioniert nicht unter Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Symbolgröße</string>
+    <string name="set_icon_size">Symbolgröße (for tablets)</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
     <string name="set_hide_folder_names">Keine Ordnernamen</string>
     <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>

@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Вибрати застосунки</string>
-    <string name="button_sort_alphabetically">Сортувати за абеткою</string>
+    <string name="button_sort">Сортувати за абеткою</string>
     <string name="hint_no_favorites_yet">Натиснувши кнопку, меню,\nдодайте сюди ваші улюблені застосунки.</string>
     <string name="hint_modify_order_of_favorites">Впорядкуйте обране нижче.</string>
     <string name="warning_sort_favorites_alphabetically">Обране буде впорядковано за абеткою.</string>
@@ -13,7 +13,6 @@
     <!-- Folders -->
     <string name="button_new_folder">Додати</string>
     <string name="button_remove_folder">Видалити</string>
-    <string name="hint_folders_number">Створіть необхідну кількість тек, щоб упорядкувати ваші застосунки.</string>
     <string name="hint_folder_edit">
         Торкніться назви теки, щоб перейменувати її, чи піфтограми, щоб вибрати її колір.
         Пензлик надає змогу редагувати вміст теки.
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Тема та кольори</string>
+    <string name="appearance_settings_title_interface">Тема та кольори</string>
     <string name="appearance_settings_title_clock">Годинник</string>
     <string name="appearance_settings_title_icon_packs">Пакунки піфтограм</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Колір:</string>
     <string name="color_picker_reset">Скинути</string>
-    <string name="color_picker_preview">Попередній перегляд</string>
+    <string name="color_picker_preview">Попередній перегляд</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Недійсний шістнадцятковий код кольору</string>
 
     <!-- Application theme -->
@@ -80,6 +79,8 @@
         <item>Аналоговий</item>
         <item>Дата та час</item>
         <item>Повна дата та час</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -109,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Коли обране приховано</string>
     <string name="set_dark_status_bar_icons">Темні піфтограми рядка стану</string>
     <string name="set_dark_status_bar_icons_help">Не працює на Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Розмір піфтограм</string>
+    <string name="set_icon_size">Розмір піфтограм (for tablets)</string>
     <string name="set_hide_app_names">Приховати назви застосунків</string>
     <string name="set_hide_folder_names">Приховувати назви тек</string>
     <string name="set_remove_padding">Якщо назви застосунків приховано, відступи не відображатимуться</string>

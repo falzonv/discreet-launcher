@@ -167,7 +167,7 @@ public class ActivityFavorites extends AppCompatActivity implements View.OnClick
 		// Ask confirmation before sorting the favorites
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this) ;
 		dialog.setMessage(R.string.warning_sort_favorites_alphabetically) ;
-		dialog.setPositiveButton(R.string.button_sort_alphabetically, (dialogInterface, which) -> {
+		dialog.setPositiveButton(R.string.button_sort, (dialogInterface, which) -> {
 				// Sort the favorites in alphabetical order based on display name
 				Collator collator = Collator.getInstance() ;
 				collator.setStrength(Collator.PRIMARY) ;

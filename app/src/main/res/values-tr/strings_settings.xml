@@ -3,9 +3,9 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Favorileri seç</string>
-    <string name="button_sort_alphabetically">Alfabetik olarak sırala</string>
+    <string name="button_sort">Alfabetik olarak sırala</string>
     <string name="hint_no_favorites_yet">Favori uygulamalarınızı buraya ekleyin\nmenü düğmesine tıklayarak.</string>
-    <string name="hint_modify_order_of_favorites">Aşağıdaki listedeki favorilerin sırasını değiştirin.</string><!-- NEED UPDATE -->
+    <string name="hint_modify_order_of_favorites">Aşağıdaki listedeki favorilerin sırasını değiştirin.</string>
     <string name="warning_sort_favorites_alphabetically">Mevcut favori sırası alfabetik sıraya göre değiştirilecektir.</string>
     <string name="favorite_move_before">Önce taşı \"%1$s\"</string>
     <string name="favorite_move_after">Sonra taşı \"%1$s\"</string>
@@ -13,7 +13,6 @@
     <!-- Folders -->
     <string name="button_new_folder">Ekle</string>
     <string name="button_remove_folder">Kaldır</string>
-    <string name="hint_folders_number">Uygulamalarınızı düzenlemek için istediğiniz kadar klasör oluşturun.</string>
     <string name="hint_folder_edit">
         Değiştirmek için bir klasör adına ve rengini seçmek için simgeye tıklayın.
         Kalem, klasör içeriğini düzenlemeye izin verir.
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Tema ve renkler</string>
+    <string name="appearance_settings_title_interface">Tema ve renkler</string>
     <string name="appearance_settings_title_clock">Saat</string>
     <string name="appearance_settings_title_icon_packs">Simge paketleri</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Temel:</string>
     <string name="color_picker_reset">Sıfırla</string>
-    <string name="color_picker_preview">Önizleme</string>
+    <string name="color_picker_preview">Önizleme</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Geçersiz onaltılık renk</string>
 
     <!-- Application theme -->
@@ -80,6 +79,8 @@
         <item>Analog</item>
         <item>Tarih ve saat</item>
         <item>Tam tarih ve saat</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -109,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Favoriler kapatıldığında</string>
     <string name="set_dark_status_bar_icons">Karanlık durum çubuğu simgeleri</string>
     <string name="set_dark_status_bar_icons_help">Üzerinde çalışmaz Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Simge boyutu</string>
+    <string name="set_icon_size">Simge boyutu (for tablets)</string>
     <string name="set_hide_app_names">Uygulama adı yok</string>
     <string name="set_hide_folder_names">Klasör adı yok</string>
     <string name="set_remove_padding">Uygulama adları gizlendiğinde dolgu yok</string>
@@ -165,7 +166,7 @@
     <string name="set_reverse_interface_help">Yukarıdaki uygulamalar ve ana ekranın altındaki favoriler</string>
     <string name="set_immersive_mode">Sürükleyici mod</string>
     <string name="set_immersive_mode_help">Sistem çubuğu yok. (Ana ekrana uzun basarak zorlanabilir.)</string>
-    <string name="set_interactive_clock">İnteraktif saat</string>
+    <string name="set_interactive_clock">Etkileşimli saat</string>
     <string name="set_interactive_clock_help">Varsayılan takvimi açmak için tarihe tıklayın, seçilen saat uygulamasını açmak için saate tıklayın</string>
     <string name="set_clock_app">Saat uygulaması</string>
     <string name="set_no_clock_app">Hiçbiri</string>

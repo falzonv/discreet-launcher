@@ -26,6 +26,7 @@ package com.vincent_falzon.discreetlauncher.settings ;
 import android.content.Intent ;
 import android.content.pm.PackageManager ;
 import android.content.pm.ResolveInfo ;
+import android.os.Build ;
 import android.os.Bundle ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.preference.ListPreference ;
@@ -108,9 +109,17 @@ public class ActivitySettingsAppearance extends AppCompatActivity
 			setPreferencesFromResource(R.xml.settings_appearance, rootKey) ;
 
 			// Retrieve preferences that need a special setup
+			Preference darkStatusBarIcons = findPreference(Constants.DARK_STATUS_BAR_ICONS) ;
 			ListPreference iconPack1 = findPreference(Constants.ICON_PACK) ;
 			ListPreference iconPack2 = findPreference(Constants.ICON_PACK_SECONDARY) ;
 			Preference noIconPackMessage = findPreference("no_icon_pack_installed") ;
+
+			// Check if the Android 5 warning for dark status bar icons should be displayed
+			if((Build.VERSION.SDK_INT < Build.VERSION_CODES.M) && (darkStatusBarIcons != null))
+				{
+					darkStatusBarIcons.setSummary(R.string.set_dark_status_bar_icons_help) ;
+					darkStatusBarIcons.setEnabled(false) ;
+				}
 
 			// Check if icon packs are installed (start at 1 to count the "none" option)
 			boolean icon_packs_installed = (iconPacks.size() > 1) ;
