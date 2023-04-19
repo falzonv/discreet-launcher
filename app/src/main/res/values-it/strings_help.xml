@@ -8,13 +8,13 @@
         \n
         \nTrascina in basso la schermata principale per mostrare i preferiti, e in alto per tornare indietro.
         \n
-        \nClicca sul punsante menu (quando sono visualizzati i preferiti) o l\'icona del lanciatore per aprire il menu.
+        \nPremi il punsante menu (quando sono visualizzati i preferiti) o l\'icona del lanciatore per aprire il menu.
         \n
         \nTieni premuta un\'applicazione o una cartella per accedere alle sue impostazioni.
     </string>
     <string name="help_notification_title">Notifica</string>
     <string name="help_notification">
-        Mostra un pop-up dei preferiti al di sopra delle altre applicazioni quando lasci la schermata principale.
+        Mostra un pop-up permanente dei preferiti al di sopra delle altre applicazioni quando lasci la schermata principale.
     </string>
     <string name="help_list_update_title">Aggiornamento della lista</string>
     <string name="help_list_update">
@@ -25,12 +25,12 @@
     <string name="help_folders">
         Gestisci le cartelle o aggiungile ai preferiti dal pulsante menu, oppure clicca il titolo di una cartella aperta
         per creare, rinominare, e inserirci applicazioni.
-        \nRimuovere una cartella ricolloca tutte le sue applicazioni nella lista principale.
+        \nRimuovere cartelle ricolloca tutte le applicazioni contenute nella lista principale.
     </string>
     <string name="help_search_title">Cerca</string>
     <string name="help_search">
         Trova qualsiasi applicazione tramite l\'icona cerca. Può anche essere inserita tra i preferiti in modo da
-        essere disponibile dalla notifica, oppure nascosta.
+        essere disponibile nella notifica permanente, oppure nascosta.
         \n
         \nPremere \"Invio\" apre il primo risultato di ricerca.
     </string>
