@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Seleziona i preferiti</string>
-    <string name="button_sort_alphabetically">Visualizza in ordine alfabetico</string>
+    <string name="button_sort_alphabetically">Ordina</string>
     <string name="hint_no_favorites_yet">Aggiungi le tue applicazioni preferite qui\npremendo il pulsante menu.</string>
     <string name="hint_modify_order_of_favorites">Modifica l\'ordine dei tuoi preferiti qui sotto.</string>
     <string name="warning_sort_favorites_alphabetically">L\'ordinamento corrente dei preferiti sarà rimpiazzato da quello alfabetico.</string>
@@ -20,7 +20,7 @@
     </string>
     <string name="hint_new_folder">Nuova cartella</string>
     <string name="hint_rename_folder">Rinomina cartella</string>
-    <string name="hint_remove_folder">Se una cartella viene timossa, il suo contenuto sarà spostato nuovamente nella lista principale delle applicazioni.</string>
+    <string name="hint_remove_folder">Rimuovere una cartella sposta il suo contenuto all\'interno della lista principale delle applicazioni.</string>
     <string name="error_folder_empty_name">Prima scegli un nome</string>
     <string name="error_folder_already_exists">Scegli un nome che non esiste già</string>
     <string name="error_folder_rename">Impossibile rinominare la cartella</string>
@@ -52,7 +52,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Tema e colori</string>
+    <string name="appearance_settings_title_interface">Interfaccia</string>
     <string name="appearance_settings_title_clock">Orologio</string>
     <string name="appearance_settings_title_icon_packs">Pacchetti icone</string>
 
@@ -71,7 +71,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Formato orologio</string>
+    <string name="set_clock_format">Formato</string>
     <string-array name="set_clock_format_entries">
         <item>Nessuno (nascosto)</item>
         <item>24 ore</item>
@@ -80,10 +80,12 @@
         <item>Analogico</item>
         <item>Data e ora</item>
         <item>Data e ora complete</item>
+        <item>Data senza ora</item>
+        <item>Data completa senza ora</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Posizione orologio</string>
+    <string name="set_clock_position">Posizione</string>
     <string-array name="set_clock_position_entries">
         <item>In alto</item>
         <item>"In alto  -  A sinistra"</item>
@@ -97,7 +99,7 @@
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Dimensioni orologio</string>
+    <string name="set_clock_size">Dimensione</string>
     <string-array name="set_clock_size_entries">
         <item>Piccolo</item>
         <item>Medio</item>
@@ -109,7 +111,7 @@
     <string name="set_transparent_status_bar_help">Quando i preferiti vengono chiusi</string>
     <string name="set_dark_status_bar_icons">Icone scure nella barra di stato</string>
     <string name="set_dark_status_bar_icons_help">Non funziona su Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Dimensioni icone</string>
+    <string name="set_icon_size">Dimensioni icone (per tablet)</string>
     <string name="set_hide_app_names">Niente nomi delle applicazioni</string>
     <string name="set_hide_folder_names">Niente nomi delle cartelle</string>
     <string name="set_remove_padding">Nessuna spaziatura quando i nomi delle applicazioni sono nascosti</string>
@@ -117,7 +119,7 @@
     <string name="set_text_color_favorites">Testo dei preferiti</string>
     <string name="set_background_color_drawer">Sfondo della lista principale app</string>
     <string name="set_text_color_drawer">Testo della lista principale app</string>
-    <string name="set_clock_color">Colore dell\'orologio</string>
+    <string name="set_clock_color">Colore</string>
     <string name="set_clock_shadow_color">Colore dell\'ombreggiatura testo</string>
     <string name="set_icon_pack_primary">Primario</string>
     <string name="set_icon_pack_secondary">Secondario</string>
@@ -150,12 +152,13 @@
         <item>Orizzontale invertito</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Elementi premibili (accessibilità)</string>
     <string name="set_touch_targets_help">Elementi premibili sulla schermata principale</string>
     <string name="target_open_favorites">Apri\npreferiti</string>
     <string name="target_close_favorites">Chiudi\npreferiti</string>
     <string name="target_open_applications">Apri\napplicazioni</string>
+    <string name="target_close_apps">Chiudi\napplicazioni</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Imposta come launcher predefinito</string>
