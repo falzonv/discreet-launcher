@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Seleziona i preferiti</string>
-    <string name="button_sort_alphabetically">Ordina</string>
+    <string name="button_sort">Ordina</string>
     <string name="hint_no_favorites_yet">Aggiungi le tue applicazioni preferite qui\npremendo il pulsante menu.</string>
     <string name="hint_modify_order_of_favorites">Modifica l\'ordine dei tuoi preferiti qui sotto.</string>
     <string name="warning_sort_favorites_alphabetically">L\'ordinamento corrente dei preferiti sarà rimpiazzato da quello alfabetico.</string>
