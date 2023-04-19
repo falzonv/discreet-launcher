@@ -139,7 +139,7 @@
     <string name="operation_settings_title_gestures">Gesti della schermata principale</string>
 
     <!-- Notification -->
-    <string name="set_notification">Notifica dell\'accesso ai preferiti</string>
+    <string name="set_notification">Notifica per l\'accesso ai preferiti</string>
     <string name="set_notification_help">Usa un\'icona trasparente</string>
     <string name="notification_text">Preferiti</string>
 
@@ -147,7 +147,7 @@
     <string name="set_forced_orientation">Orientamento forzato</string>
     <string-array name="set_forced_orientation_entries">
         <item>Nessuno</item>
-        <item>Vericale</item>
+        <item>Verticale</item>
         <item>Orizzontale</item>
         <item>Orizzontale invertito</item>
     </string-array>
