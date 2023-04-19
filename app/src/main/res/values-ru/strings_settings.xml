@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Выбрать избранные</string>
-    <string name="button_sort_alphabetically">Сортировать по алфавиту</string>
+    <string name="button_sort">Сортировать по алфавиту</string>
     <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
     <string name="hint_modify_order_of_favorites">Изменить порядок избранного</string>
     <string name="warning_sort_favorites_alphabetically">Избранное будет отсортировано по алфавиту.</string>
@@ -13,7 +13,6 @@
     <!-- Folders -->
     <string name="button_new_folder">Добавить</string>
     <string name="button_remove_folder">Удалить</string>
-    <string name="hint_folders_number">Создайте столько папок, сколько вам нужно для организации ваших приложений.</string>
     <string name="hint_folder_edit">
         Нажмите на имя папки, чтобы изменить его, и по значку, чтобы выбрать его цвет.
         Перо позволяет редактировать содержимое папки.
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Тема и цвета</string>
+    <string name="appearance_settings_title_interface">Тема и цвета</string>
     <string name="appearance_settings_title_clock">Часы</string>
     <string name="appearance_settings_title_icon_packs">Пакеты значков</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Цвет:</string>
     <string name="color_picker_reset">Сброс</string>
-    <string name="color_picker_preview">Предпросмотр</string>
+    <string name="color_picker_preview">Предпросмотр</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Неправильный HEX цвет</string>
 
     <!-- Application theme -->
@@ -80,6 +79,8 @@
         <item>Аналоговые</item>
         <item>Дата и время</item>
         <item>Полные дата и время</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -109,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
     <string name="set_dark_status_bar_icons">Темные значки строки состояния</string>
     <string name="set_dark_status_bar_icons_help">Не работает на Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Размер значка</string>
+    <string name="set_icon_size">Размер значка (for tablets)</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
     <string name="set_hide_folder_names">Не показывать имена папок</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
@@ -150,12 +151,13 @@
         <item>Перевернутая горизонтальная</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Цели касания (доступность)</string>
     <string name="set_touch_targets_help">Нажимаемые ярлыки на главном экране</string>
     <string name="target_open_favorites">Открыть\nизбранные</string>
     <string name="target_close_favorites">Закрыть\nизбранные</string>
-    <string name="target_open_applications">Открыть\nприложения</string>
+    <string name="target_open_apps">Открыть\nприложения</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Установить лаунчером по-умолчанию</string>

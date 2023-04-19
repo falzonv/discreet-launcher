@@ -471,6 +471,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				scroll_close_gesture = 0 ;
 				homeScreen.setVisibility(View.GONE) ;
 				drawer.setVisibility(View.VISIBLE) ;
+				targetApplications.setText(R.string.target_close_apps) ;
 			}
 			else
 			{
@@ -479,6 +480,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 					else drawer.scrollToPosition(0) ;
 				homeScreen.setVisibility(View.VISIBLE) ;
 				drawer.setVisibility(View.GONE) ;
+				targetApplications.setText(R.string.target_open_apps) ;
 
 				// Retrieve the background color for favorites
 				int favorites_background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY) ;
@@ -601,11 +603,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		int selection = view.getId() ;
 		if(selection == R.id.access_menu_button) dialogMenu.show() ;
 			else if(selection == R.id.target_favorites) displayFavorites(favorites.getVisibility() != View.VISIBLE) ;
-			else if(selection == R.id.target_applications)
-			{
-				displayFavorites(false) ;
-				displayDrawer(true) ;
-			}
+			else if(selection == R.id.target_applications) displayDrawer(drawer.getVisibility() != View.VISIBLE) ;
 			else if(selection == R.id.default_launcher_button)
 			{
 				// Starting with Android 10, display the list of available launchers

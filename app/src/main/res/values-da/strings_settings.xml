@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Vælg favoritter</string>
-    <string name="button_sort_alphabetically">Sortér alfabetisk</string>
+    <string name="button_sort">Sortér alfabetisk</string>
     <string name="hint_no_favorites_yet">Tilføj dine favorit apps her\nved at klikke på menu knappen.</string>
     <string name="hint_modify_order_of_favorites">Rediger rækkefølgen af favoritter på listen nedenfor.</string>
     <string name="warning_sort_favorites_alphabetically">Den nuværende rækkefølge af favoritter vil blive erstattet af alfabetisk orden.</string>
@@ -13,7 +13,6 @@
     <!-- Folders -->
     <string name="button_new_folder">Tilføj</string>
     <string name="button_remove_folder">Fjern</string>
-    <string name="hint_folders_number">Opret så mange mapper, som du vil, for at organisere dine apps.</string>
     <string name="hint_folder_edit">
         Klik på et mappenavn for at ændre det, og på ikonet for at vælge dets farve.
         Pennen tillader redigering af mappeindhold.
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Tema og farver</string>
+    <string name="appearance_settings_title_interface">Tema og farver</string>
     <string name="appearance_settings_title_clock">Up</string>
     <string name="appearance_settings_title_icon_packs">Ikon pakker</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Base:</string>
     <string name="color_picker_reset">Nulstil</string>
-    <string name="color_picker_preview">Forhåndsvisning</string>
+    <string name="color_picker_preview">Forhåndsvisning</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Ugyldig hexadecimal farve</string>
 
     <!-- Application theme -->
@@ -80,6 +79,8 @@
         <item>Analog</item>
         <item>Dato and tid</item>
         <item>Fuld dato and tid</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -109,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Når favoritter er lukket</string>
     <string name="set_dark_status_bar_icons">Mørk status bar ikoner</string>
     <string name="set_dark_status_bar_icons_help">Virker ikke på Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Ikonstørrelse</string>
+    <string name="set_icon_size">Ikonstørrelse (for tablets)</string>
     <string name="set_hide_app_names">Ingen app-navne</string>
     <string name="set_hide_folder_names">Ingen mappenavne</string>
     <string name="set_remove_padding">Ingen ekstra plads til ikoner, når app-navne er skjult</string>
@@ -150,12 +151,13 @@
         <item>Omvendt landskab</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Touch-mål (tilgængelighed)</string>
     <string name="set_touch_targets_help">Klikbare etiketter på startskærmen</string>
     <string name="target_open_favorites">Åbn\nfavoritter</string>
     <string name="target_close_favorites">Luk\nfavoritter</string>
-    <string name="target_open_applications">Åbn\napps</string>
+    <string name="target_open_apps">Åbn\napps</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Sæt som standard launcher</string>

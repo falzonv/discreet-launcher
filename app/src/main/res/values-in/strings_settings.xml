@@ -3,9 +3,9 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Pilih Favorit</string>
-    <string name="button_sort_alphabetically">Sort alphabetically</string><!-- NEED UPDATE -->
+    <string name="button_sort">Sort</string><!-- NEED UPDATE -->
     <string name="hint_no_favorites_yet">Tambahkan aplikasi favorit disini\ndengan mengklik tombol menu.</string>
-    <string name="hint_modify_order_of_favorites">Tekan dan geser kotak aplikasi untuk mengubah urutan favorit dari daftar di bawah.</string><!-- NEED UPDATE -->
+    <string name="hint_modify_order_of_favorites">Modify the order of favorites below.</string><!-- NEED UPDATE -->
     <string name="warning_sort_favorites_alphabetically">The current order of favorites will be replaced by alphabetical order.</string><!-- NEED UPDATE -->
     <string name="favorite_move_before">Pindah ke sebelum \"%1$s\"</string>
     <string name="favorite_move_after">Pindah ke setelah \"%1$s\"</string>
@@ -13,7 +13,6 @@
     <!-- Folders -->
     <string name="button_new_folder">Tambah</string>
     <string name="button_remove_folder">Hapus</string>
-    <string name="hint_folders_number">Folder bisa dibuat sebanyak mungkin untuk mengelola aplikasimu.</string>
     <string name="hint_folder_edit">
         Ketuk nama folder untuk mengganti namanya, dan klik ikonnya untuk memilih warnanya.
         Ikon Pena untuk mengatur isinya.
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Tema dan warna</string>
+    <string name="appearance_settings_title_interface">Tema dan warna</string>
     <string name="appearance_settings_title_clock">Jam</string>
     <string name="appearance_settings_title_icon_packs">Paket ikon</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Dasar:</string>
     <string name="color_picker_reset">Atur ulang</string>
-    <string name="color_picker_preview">Pratinjau</string>
+    <string name="color_picker_preview">Pratinjau</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Warna hexadecimal tidak valid</string>
 
     <!-- Application theme -->
@@ -80,6 +79,8 @@
         <item>Analog</item>
         <item>Tanggal dan waktu</item>
         <item>Tanggal dan waktu lengkap</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -109,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
     <string name="set_dark_status_bar_icons">Ikon batang sistem gelap</string>
     <string name="set_dark_status_bar_icons_help">Tidak bekerja pada Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size</string><!-- NEED UPDATE -->
+    <string name="set_icon_size">Icon size (for tablets)</string><!-- NEED UPDATE -->
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
     <string name="set_hide_folder_names">Sembunyikan nama folder</string>
     <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>
@@ -150,24 +151,25 @@
         <item>Lanskap terbalik</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Target ketuk (aksesibilitas)</string>
     <string name="set_touch_targets_help">Label yang dapat diklik di layar rumah</string>
     <string name="target_open_favorites">Buka\nfavorit</string>
     <string name="target_close_favorites">Tutup\nfavorit</string>
-    <string name="target_open_applications">Buka\nLaci Aplikasi</string>
+    <string name="target_open_apps">Buka\nLaci Aplikasi</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
-    <string name="set_as_default_launcher">Tetapkan sebagai peluncur default</string><!-- NEED UPDATE -->
+    <string name="set_as_default_launcher">Set as default launcher</string><!-- NEED UPDATE -->
     <string name="set_always_show_favorites">Selalu tampilkan favorit</string>
     <string name="set_reverse_interface">Balikkan Antarmuka</string>
     <string name="set_reverse_interface_help">Laci Aplikasi di atas, dan favorit di bawah layar rumah</string>
     <string name="set_immersive_mode">Mode menutup</string>
     <string name="set_immersive_mode_help">Tidak ada batang sistem. (Bisa dipaksakan dengan tekan lama di layar rumah.)</string>
-    <string name="set_interactive_clock">Jam interaktif</string><!-- NEED UPDATE -->
-    <string name="set_interactive_clock_help">Klik tanggal untuk membuka kalender default, klik waktu untuk membuka aplikasi jam yang dipilih</string><!-- NEED UPDATE -->
-    <string name="set_clock_app">Aplikasi jam</string><!-- NEED UPDATE -->
-    <string name="set_no_clock_app">Tidak ada</string><!-- NEED UPDATE -->
+    <string name="set_interactive_clock">Interactive clock</string><!-- NEED UPDATE -->
+    <string name="set_interactive_clock_help">Click the date to open the default calendar, click the time to open the selected clock app</string><!-- NEED UPDATE -->
+    <string name="set_clock_app">Clock app</string><!-- NEED UPDATE -->
+    <string name="set_no_clock_app">None</string><!-- NEED UPDATE -->
     <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
     <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
     <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>

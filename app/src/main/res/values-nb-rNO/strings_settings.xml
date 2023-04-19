@@ -3,17 +3,16 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Velg favoritter</string>
-    <string name="button_sort_alphabetically">Sorter A-Å</string><!-- NEED UPDATE -->
+    <string name="button_sort">Sorter A-Å</string>
     <string name="hint_no_favorites_yet">Legg til favorittprogrammer her\nved å klikke på menyknappen.</string>
     <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor.</string>
-    <string name="warning_sort_favorites_alphabetically">Favorittene vil sorteres alfabetisk.</string><!-- NEED UPDATE -->
+    <string name="warning_sort_favorites_alphabetically">Favorittene vil sorteres alfabetisk.</string>
     <string name="favorite_move_before">Flytt før «%1$s»</string>
     <string name="favorite_move_after">Flytt etter «%1$s»</string>
 
     <!-- Folders -->
     <string name="button_new_folder">Legg til</string>
     <string name="button_remove_folder">Fjern</string>
-    <string name="hint_folders_number">Organiser programmene dine i så mange mapper du vil.</string>
     <string name="hint_folder_edit">
         Klikk på navnet til en mappe for å endre det, og på ikonet for å endre farge.
         Pennen lar deg redigere mappeinnholdet.
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">Drakt og fargevalg</string>
+    <string name="appearance_settings_title_interface">Drakt og fargevalg</string>
     <string name="appearance_settings_title_clock">Klokke</string>
     <string name="appearance_settings_title_icon_packs">Ikonpakker</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Grunnfarge:</string>
     <string name="color_picker_reset">Tilbakestill</string>
-    <string name="color_picker_preview">Forhåndsvisning</string>
+    <string name="color_picker_preview">Forhåndsvisning</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Ugyldig heksadesimal farge</string>
 
     <!-- Application theme -->
@@ -80,6 +79,8 @@
         <item>Analog</item>
         <item>Dato og klokkeslett</item>
         <item>Full dato og klokkeslett</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -109,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Når favoritter lukkes</string>
     <string name="set_dark_status_bar_icons">Mørke statusfeltsikoner</string>
     <string name="set_dark_status_bar_icons_help">Fungerer ikke på Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Ikonstørrelse</string>
+    <string name="set_icon_size">Ikonstørrelse (for tablets)</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
     <string name="set_hide_folder_names">Ingen mappenavn</string>
     <string name="set_remove_padding">Fjern fyll når navn er skjult</string>
@@ -150,12 +151,13 @@
         <item>Omvendt liggende</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">Pekemål (tilgjengelighetsvalg)</string>
     <string name="set_touch_targets_help">Klikkbare etiketter på hjemmeskjermen</string>
     <string name="target_open_favorites">Åpne\nfavoritter</string>
     <string name="target_close_favorites">Lukk\nfavoritter</string>
-    <string name="target_open_applications">Åpne\nprogrammer</string>
+    <string name="target_open_apps">Åpne\nprogrammer</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Bruk som forvalgt oppstarter</string>

@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">お気に入りを選択</string>
-    <string name="button_sort_alphabetically">アルファベット順に並び替え</string>
+    <string name="button_sort">アルファベット順に並び替え</string>
     <string name="hint_no_favorites_yet">メニューボタンをクリックして、\nお気に入りのアプリをここに追加してください。</string>
     <string name="hint_modify_order_of_favorites">以下でお気に入りの順番を変更してください。</string>
     <string name="warning_sort_favorites_alphabetically">現在のお気に入り順から、アルファベット順に変更されます。</string>
@@ -13,7 +13,6 @@
     <!-- Folders -->
     <string name="button_new_folder">追加</string>
     <string name="button_remove_folder">削除</string>
-    <string name="hint_folders_number">アプリの整理に必要なフォルダを好きなだけ作成できます。</string>
     <string name="hint_folder_edit">
         フォルダ名をタップすると変更でき、アイコンをクリックすると色を選べます。
         ペンをタップしてフォルダーの内容を編集することができます。
@@ -52,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_theme_and_colors">テーマとカラー</string>
+    <string name="appearance_settings_title_interface">テーマとカラー</string>
     <string name="appearance_settings_title_clock">時計</string>
     <string name="appearance_settings_title_icon_packs">アイコンパック</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">ベース:</string>
     <string name="color_picker_reset">リセット</string>
-    <string name="color_picker_preview">プレビュー</string>
+    <string name="color_picker_preview">プレビュー</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">無効な値</string>
 
     <!-- Application theme -->
@@ -80,6 +79,8 @@
         <item>アナログ</item>
         <item>日付と時間</item>
         <item>日付・曜日と時間</item>
+        <item>Date without time</item>
+        <item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
@@ -109,7 +110,7 @@
     <string name="set_transparent_status_bar_help">お気に入りが閉じられているとき</string>
     <string name="set_dark_status_bar_icons">黒いステータスアイコンを使用する</string>
     <string name="set_dark_status_bar_icons_help">Android 5 (Lollipop)では動作しません</string>
-    <string name="set_icon_size">アイコンの大きさ</string>
+    <string name="set_icon_size">アイコンの大きさ (for tablets)</string>
     <string name="set_hide_app_names">アプリ名の非表示</string>
     <string name="set_hide_folder_names">フォルダ名の非表示</string>
     <string name="set_remove_padding">アプリ名が非表示のとき、パディングしない</string>
@@ -150,12 +151,13 @@
         <item>横（反転）</item>
     </string-array>
 
-    <!-- Touch targets (accessibility) -->
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
     <string name="set_touch_targets">タッチターゲット（アクセシビリティ）</string>
     <string name="set_touch_targets_help">ホーム画面にタップ可能なラベルを追加します</string>
     <string name="target_open_favorites">お気に入りを開く</string>
     <string name="target_close_favorites">お気に入りを閉じる</string>
-    <string name="target_open_applications">アプリ一覧を開く</string>
+    <string name="target_open_apps">アプリ一覧を開く</string>
+    <string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">デフォルトのランチャーに設定する</string>
