@@ -101,7 +101,7 @@
     <string name="set_clock_size">Boyutu</string>
     <string-array name="set_clock_size_entries">
         <item>Küçük</item>
-        <item>Orta</item> 
+        <item>Orta</item>
         <item>Büyük</item>
     </string-array>
 

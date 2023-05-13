@@ -79,8 +79,8 @@
         <item>Analog</item>
         <item>Dato og klokkeslett</item>
         <item>Full dato og klokkeslett</item>
-        <!-- NEED UPDATE --><item>Date without time</item>
-        <!-- NEED UPDATE --><item>Full date without time</item>
+        <item>Dato uten klokkeslett</item>
+        <item>Full dato uten klokkeslett</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

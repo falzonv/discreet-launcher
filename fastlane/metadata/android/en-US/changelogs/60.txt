@@ -1,0 +1,7 @@
+v7.3.0 (60) - 13/05/2023
+NEW THINGS
+   - Close apps touch target (@SteveM)
+   - Date-only clock formats (@KevinR)
+   - Italian translation by Rhapsodizer
+IMPROVEMENTS
+   - Visual feedback on TV (@xi7)

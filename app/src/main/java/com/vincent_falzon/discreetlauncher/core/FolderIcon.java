@@ -91,7 +91,7 @@ public class FolderIcon extends Drawable
 	}
 
 
-	// Needed to extend Drawable.
+	// Needed to extend Drawable
 	@Override
 	public void setAlpha(int alpha)
 	{
@@ -99,7 +99,7 @@ public class FolderIcon extends Drawable
 	}
 
 
-	// Needed to extend Drawable.
+	// Needed to extend Drawable
 	@Override
 	public void setColorFilter(ColorFilter colorFilter)
 	{

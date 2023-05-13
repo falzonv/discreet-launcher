@@ -1,0 +1,7 @@
+v7.3.0 (60) - 13/05/2023
+NOUVEAUTÉS
+   - Cible de clic fermer applications (@SteveM)
+   - Formats d'horloge date seule (@KevinR)
+   - Traduction italienne par Rhapsodizer
+AMÉLIORATIONS
+   - Retour visuel sur TV (@xi7)
