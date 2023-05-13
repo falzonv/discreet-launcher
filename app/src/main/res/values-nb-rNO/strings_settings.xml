@@ -58,8 +58,7 @@
     <!-- Color picker -->
     <string name="color_picker_base">Grunnfarge:</string>
     <string name="color_picker_reset">Tilbakestill</string>
-    <!-- (etikett for vist forhåndsvisning, ikke preview verb) -->
-    <string name="color_picker_preview">Forhåndsvisning</string>
+    <string name="color_picker_preview">Forhåndsvisning</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Ugyldig heksadesimal farge</string>
 
     <!-- Application theme -->
@@ -80,8 +79,8 @@
         <item>Analog</item>
         <item>Dato og klokkeslett</item>
         <item>Full dato og klokkeslett</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <!-- NEED UPDATE --><item>Date without time</item>
+        <!-- NEED UPDATE --><item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->

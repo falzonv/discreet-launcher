@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Seleccionar favoritos</string>
-    <string name="button_sort">Ordenar alfabéticamente</string>
+    <string name="button_sort">Ordenar</string>
     <string name="hint_no_favorites_yet">Añade tus aplicaciones favoritas aquí\ntocando el botón de menú.</string>
     <string name="hint_modify_order_of_favorites">Modifica el orden de los favoritos en la lista de abajo.</string>
     <string name="warning_sort_favorites_alphabetically">El orden actual de favoritos será reemplazado por un orden alfabético.</string>
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">Nueva carpeta</string>
     <string name="hint_rename_folder">Renombrar carpeta</string>
-    <string name="hint_remove_folder">Si una carpeta es removida, su contenido irá de nuevo a la lista de aplicaciones principal.</string>
+    <string name="hint_remove_folder">Remover una carpeta vuelve a colocar su contenido en la lista de aplicaciones principal.</string>
     <string name="error_folder_empty_name">Elige un nombre primero</string>
     <string name="error_folder_already_exists">Elige un nombre que no esté en uso actualmente</string>
     <string name="error_folder_rename">No se pudo renombrar la carpeta</string>
@@ -51,14 +51,14 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">Tema y colores</string>
+    <string name="appearance_settings_title_interface">Interfaz</string>
     <string name="appearance_settings_title_clock">Reloj</string>
     <string name="appearance_settings_title_icon_packs">Paquete de íconos</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Base:</string>
     <string name="color_picker_reset">Reiniciar</string>
-    <string name="color_picker_preview">Preview</string><!-- (label for a shown preview, not a verb) -->
+    <string name="color_picker_preview">Vista previa</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Color hexadecimal inválido</string>
 
     <!-- Application theme -->
@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Formato del reloj</string>
+    <string name="set_clock_format">Formato</string>
     <string-array name="set_clock_format_entries">
         <item>Ninguno (esconder)</item>
         <item>24 horas</item>
@@ -79,26 +79,26 @@
         <item>Analógico</item>
         <item>Fecha y hora</item>
         <item>Fecha y hora (completo)</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <item>Fecha sin hora</item>
+        <item>Fecha completa sin hora</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Posición del reloj</string>
+    <string name="set_clock_position">Posición</string>
     <string-array name="set_clock_position_entries">
         <item>Arriba</item>
-        <item>"Arriba  -  Izquierda"</item>
-        <item>"Arriba  -  Derecha"</item>
+        <item>"Arriba  —  Izquierda"</item>
+        <item>"Arriba  —  Derecha"</item>
         <item>Centro</item>
-        <item>"Centro  -  Izquierda"</item>
-        <item>"Centro  -  Derecha"</item>
+        <item>"Centro  —  Izquierda"</item>
+        <item>"Centro  —  Derecha"</item>
         <item>Abajo</item>
-        <item>"Abajo  -  Izquierda"</item>
-        <item>"Abajo  -  Derecha"</item>
+        <item>"Abajo  —  Izquierda"</item>
+        <item>"Abajo  —  Derecha"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Tamaño del reloj</string>
+    <string name="set_clock_size">Tamaño</string>
     <string-array name="set_clock_size_entries">
         <item>Pequeño</item>
         <item>Mediano</item>
@@ -110,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Cuando los favoritos están cerrados</string>
     <string name="set_dark_status_bar_icons">Íconos oscuros en barra de estado</string>
     <string name="set_dark_status_bar_icons_help">No funciona en Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Tamaño de ícono (for tablets)</string>
+    <string name="set_icon_size">Tamaño de ícono (para tablets)</string>
     <string name="set_hide_app_names">Sin nombres de aplicaciones</string>
     <string name="set_hide_folder_names">Sin nombres de carpetas</string>
     <string name="set_remove_padding">Sin espacios cuando los nombres de aplicaciones están ocultos</string>
@@ -118,7 +118,7 @@
     <string name="set_text_color_favorites">Texto de favoritos</string>
     <string name="set_background_color_drawer">Fondo del cajón de aplicaciones</string>
     <string name="set_text_color_drawer">Texto del cajón de aplicaciones</string>
-    <string name="set_clock_color">Color del reloj</string>
+    <string name="set_clock_color">Color</string>
     <string name="set_clock_shadow_color">Color de la sombra del texto en el reloj</string>
     <string name="set_icon_pack_primary">Primario</string>
     <string name="set_icon_pack_secondary">Secundario</string>
@@ -157,7 +157,7 @@
     <string name="target_open_favorites">Abrir\nfavoritos</string>
     <string name="target_close_favorites">Cerrar\nfavoritos</string>
     <string name="target_open_apps">Abrir\naplicaciones</string>
-    <string name="target_close_apps">Close\napps</string>
+    <string name="target_close_apps">Cerrar\naplicaciones</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Establecer como lanzador por defecto</string>

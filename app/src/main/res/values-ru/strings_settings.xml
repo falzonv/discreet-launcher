@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Выбрать избранные</string>
-    <string name="button_sort">Сортировать по алфавиту</string>
+    <string name="button_sort">Сортировать</string>
     <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
     <string name="hint_modify_order_of_favorites">Изменить порядок избранного</string>
     <string name="warning_sort_favorites_alphabetically">Избранное будет отсортировано по алфавиту.</string>
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">Новая папка</string>
     <string name="hint_rename_folder">Переименовать папку</string>
-    <string name="hint_remove_folder">Если папка удалена, её содержимое будет возвращено в основной список приложений.</string>
+    <string name="hint_remove_folder">Удаление папки возвращает ее содержимое в основной список приложений.</string>
     <string name="error_folder_empty_name">Сначала выберите имя</string>
     <string name="error_folder_already_exists">Выберите имя, которое ещё не существует</string>
     <string name="error_folder_rename">Не удалось переименовать папку</string>
@@ -51,7 +51,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">Тема и цвета</string>
+    <string name="appearance_settings_title_interface">Интерфейс</string>
     <string name="appearance_settings_title_clock">Часы</string>
     <string name="appearance_settings_title_icon_packs">Пакеты значков</string>
 
@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Формат часов</string>
+    <string name="set_clock_format">Формат</string>
     <string-array name="set_clock_format_entries">
         <item>Нет (скрыть)</item>
         <item>24 часа</item>
@@ -79,26 +79,26 @@
         <item>Аналоговые</item>
         <item>Дата и время</item>
         <item>Полные дата и время</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <item>Дата без времени</item>
+        <item>Полная дата без времени</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Положение часов</string>
+    <string name="set_clock_position">Позиция</string>
     <string-array name="set_clock_position_entries">
         <item>Наверху</item>
-        <item>"Наверху  -  Слева"</item>
-        <item>"Наверху  -  Справа"</item>
+        <item>"Наверху  —  Слева"</item>
+        <item>"Наверху  —  Справа"</item>
         <item>Посередине</item>
-        <item>"Посередине  -  Слева"</item>
-        <item>"Посередине  -  Справа"</item>
+        <item>"Посередине  —  Слева"</item>
+        <item>"Посередине  —  Справа"</item>
         <item>Внизу</item>
-        <item>"Внизу  -  Слева"</item>
-        <item>"Внизу  -  Справа"</item>
+        <item>"Внизу  —  Слева"</item>
+        <item>"Внизу  —  Справа"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Размер часов</string>
+    <string name="set_clock_size">Размер</string>
     <string-array name="set_clock_size_entries">
         <item>Маленький</item>
         <item>Средний</item>
@@ -110,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
     <string name="set_dark_status_bar_icons">Темные значки строки состояния</string>
     <string name="set_dark_status_bar_icons_help">Не работает на Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Размер значка (for tablets)</string>
+    <string name="set_icon_size">Размер иконок (для планшетов)</string>
     <string name="set_hide_app_names">Не показывать имена приложений</string>
     <string name="set_hide_folder_names">Не показывать имена папок</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
@@ -118,7 +118,7 @@
     <string name="set_text_color_favorites">Избранный текст</string>
     <string name="set_background_color_drawer">Фон ящика приложений</string>
     <string name="set_text_color_drawer">Текст ящика приложений</string>
-    <string name="set_clock_color">Цвет часов</string>
+    <string name="set_clock_color">Цвет</string>
     <string name="set_clock_shadow_color">Цвет тени текста</string>
     <string name="set_icon_pack_primary">Основной</string>
     <string name="set_icon_pack_secondary">Второй</string>
@@ -157,7 +157,7 @@
     <string name="target_open_favorites">Открыть\nизбранные</string>
     <string name="target_close_favorites">Закрыть\nизбранные</string>
     <string name="target_open_apps">Открыть\nприложения</string>
-    <string name="target_close_apps">Close\napps</string>
+    <string name="target_close_apps">Закрыть\nприложения</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Установить лаунчером по-умолчанию</string>

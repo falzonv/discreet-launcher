@@ -13,7 +13,6 @@
     <!-- Folders -->
     <string name="button_new_folder">Aggiungi</string>
     <string name="button_remove_folder">Rimuovi</string>
-    <string name="hint_folders_number">Crea tutte le cartelle che vuoi per organizzare le tue applicazioni.</string>
     <string name="hint_folder_edit">
         Premi sul nome di una cartella per cambiarlo, e sull\'icona per scegliere il colore.
         La penna permette di modificare il contenuto della cartella.
@@ -26,7 +25,7 @@
     <string name="error_folder_rename">Impossibile rinominare la cartella</string>
 
     <!-- Export and import -->
-    <string name="export_import_help"> Questi pulsanti permettono di esportare i dati dell'applicazione (preferiti, cartelle, scorciatoie e impostazioni) o importarli nuovamente.</string>
+    <string name="export_import_help">Questi pulsanti permettono di esportare i dati dell\'applicazione (preferiti, cartelle, scorciatoie e impostazioni) o importarli nuovamente.</string>
     <string name="button_export">Esporta</string>
     <string name="button_import">Importa</string>
     <string name="export_import_header_internal_files">Contenuto dei file di testo interni</string>
@@ -59,7 +58,7 @@
     <!-- Color picker -->
     <string name="color_picker_base">Base:</string>
     <string name="color_picker_reset">Reimpostare</string>
-    <string name="color_picker_preview">Anteprima</string>
+    <string name="color_picker_preview">Anteprima</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">Colore esadecimale non valido</string>
 
     <!-- Application theme -->
@@ -88,14 +87,14 @@
     <string name="set_clock_position">Posizione</string>
     <string-array name="set_clock_position_entries">
         <item>In alto</item>
-        <item>"In alto  -  A sinistra"</item>
-        <item>"In alto  -  A destra"</item>
+        <item>"In alto  —  A sinistra"</item>
+        <item>"In alto  —  A destra"</item>
         <item>Centrato</item>
-        <item>"Centrato  -  A sinistra"</item>
-        <item>"Centrato  -  A destra"</item>
+        <item>"Centrato  —  A sinistra"</item>
+        <item>"Centrato  —  A destra"</item>
         <item>In basso</item>
-        <item>"In basso  -  A sinistra"</item>
-        <item>"In basso  -  A destra"</item>
+        <item>"In basso  —  A sinistra"</item>
+        <item>"In basso  —  A destra"</item>
     </string-array>
 
     <!-- Clock size -->
@@ -157,7 +156,7 @@
     <string name="set_touch_targets_help">Elementi premibili sulla schermata principale</string>
     <string name="target_open_favorites">Apri\npreferiti</string>
     <string name="target_close_favorites">Chiudi\npreferiti</string>
-    <string name="target_open_applications">Apri\napplicazioni</string>
+    <string name="target_open_apps">Apri\napplicazioni</string>
     <string name="target_close_apps">Chiudi\napplicazioni</string>
 
     <!-- Other operation settings -->
@@ -180,7 +179,7 @@
     <string name="set_no_action">Nessuna azione</string>
 
     <!-- Error messages related to operation settings -->
-    <string name="error_always_show_favorites_not_safe">Preferiti sbloccati per mantenere l'accesso al menu.</string>
-    <string name="error_disable_app_drawer_not_safe">Reintegrazione della lista principale applicazioni per mantenere l'accesso al menu.</string>
+    <string name="error_always_show_favorites_not_safe">Preferiti sbloccati per mantenere l\'accesso al menu.</string>
+    <string name="error_disable_app_drawer_not_safe">Reintegrazione della lista principale applicazioni per mantenere l\'accesso al menu.</string>
 
 </resources>

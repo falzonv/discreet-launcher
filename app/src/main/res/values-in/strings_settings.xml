@@ -3,10 +3,10 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Pilih Favorit</string>
-    <string name="button_sort">Sort</string><!-- NEED UPDATE -->
+    <!-- NEED UPDATE --><string name="button_sort">Sort</string>
     <string name="hint_no_favorites_yet">Tambahkan aplikasi favorit disini\ndengan mengklik tombol menu.</string>
-    <string name="hint_modify_order_of_favorites">Modify the order of favorites below.</string><!-- NEED UPDATE -->
-    <string name="warning_sort_favorites_alphabetically">The current order of favorites will be replaced by alphabetical order.</string><!-- NEED UPDATE -->
+    <!-- NEED UPDATE --><string name="hint_modify_order_of_favorites">Modify the order of favorites below.</string>
+    <!-- NEED UPDATE --><string name="warning_sort_favorites_alphabetically">The current order of favorites will be replaced by alphabetical order.</string>
     <string name="favorite_move_before">Pindah ke sebelum \"%1$s\"</string>
     <string name="favorite_move_after">Pindah ke setelah \"%1$s\"</string>
 
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">Folder baru</string>
     <string name="hint_rename_folder">Ganti nama folder</string>
-    <string name="hint_remove_folder">Jika folder dihilangkan, isinya akan ditaruh kembali di daftar aplikasi utama.</string>
+    <!-- NEED UPDATE --><string name="hint_remove_folder">Jika folder dihilangkan, isinya akan ditaruh kembali di daftar aplikasi utama.</string>
     <string name="error_folder_empty_name">Nama folder tidak boleh kosong</string>
     <string name="error_folder_already_exists">Nama sudah digunakan folder yang ada</string>
     <string name="error_folder_rename">Tidak bisa mengganti nama folder</string>
@@ -51,7 +51,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">Tema dan warna</string>
+    <!-- NEED UPDATE --><string name="appearance_settings_title_interface">Interface</string>
     <string name="appearance_settings_title_clock">Jam</string>
     <string name="appearance_settings_title_icon_packs">Paket ikon</string>
 
@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Format Jam</string>
+    <string name="set_clock_format">Format</string>
     <string-array name="set_clock_format_entries">
         <item>Tidak ada (Sembunyikan)</item>
         <item>24 jam</item>
@@ -79,26 +79,26 @@
         <item>Analog</item>
         <item>Tanggal dan waktu</item>
         <item>Tanggal dan waktu lengkap</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <!-- NEED UPDATE --><item>Date without time</item>
+        <!-- NEED UPDATE --><item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Posisi Jam</string>
+    <string name="set_clock_position">Posisi</string>
     <string-array name="set_clock_position_entries">
         <item>Atas</item>
-        <item>"Atas  -  Kiri"</item>
-        <item>"Atas  -  Kanan"</item>
+        <item>"Atas  —  Kiri"</item>
+        <item>"Atas  —  Kanan"</item>
         <item>Tengah</item>
-        <item>"Tengah  -  Kiri"</item>
-        <item>"Tengah  -  Kanan"</item>
+        <item>"Tengah  —  Kiri"</item>
+        <item>"Tengah  —  Kanan"</item>
         <item>Bawah</item>
-        <item>"Bawah  -  Kiri"</item>
-        <item>"Bawah  -  Kanan"</item>
+        <item>"Bawah  —  Kiri"</item>
+        <item>"Bawah  —  Kanan"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Ukuran Jam</string>
+    <string name="set_clock_size">Ukuran</string>
     <string-array name="set_clock_size_entries">
         <item>Kecil</item>
         <item>Sedang</item>
@@ -110,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
     <string name="set_dark_status_bar_icons">Ikon batang sistem gelap</string>
     <string name="set_dark_status_bar_icons_help">Tidak bekerja pada Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size (for tablets)</string><!-- NEED UPDATE -->
+    <!-- NEED UPDATE --><string name="set_icon_size">Icon size (for tablets)</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
     <string name="set_hide_folder_names">Sembunyikan nama folder</string>
     <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>
@@ -118,7 +118,7 @@
     <string name="set_text_color_favorites">Teks Favorit</string>
     <string name="set_background_color_drawer">Latar belakang Laci Aplikasi</string>
     <string name="set_text_color_drawer">Teks Laci Aplikasi</string>
-    <string name="set_clock_color">Warna Jam</string>
+    <string name="set_clock_color">Warna</string>
     <string name="set_clock_shadow_color">Warna bayangan teks</string>
     <string name="set_icon_pack_primary">Primer</string>
     <string name="set_icon_pack_secondary">Sekunder</string>
@@ -157,19 +157,19 @@
     <string name="target_open_favorites">Buka\nfavorit</string>
     <string name="target_close_favorites">Tutup\nfavorit</string>
     <string name="target_open_apps">Buka\nLaci Aplikasi</string>
-    <string name="target_close_apps">Close\napps</string>
+    <!-- NEED UPDATE --><string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
-    <string name="set_as_default_launcher">Set as default launcher</string><!-- NEED UPDATE -->
+    <!-- NEED UPDATE --><string name="set_as_default_launcher">Set as default launcher</string>
     <string name="set_always_show_favorites">Selalu tampilkan favorit</string>
     <string name="set_reverse_interface">Balikkan Antarmuka</string>
     <string name="set_reverse_interface_help">Laci Aplikasi di atas, dan favorit di bawah layar rumah</string>
     <string name="set_immersive_mode">Mode menutup</string>
     <string name="set_immersive_mode_help">Tidak ada batang sistem. (Bisa dipaksakan dengan tekan lama di layar rumah.)</string>
-    <string name="set_interactive_clock">Interactive clock</string><!-- NEED UPDATE -->
-    <string name="set_interactive_clock_help">Click the date to open the default calendar, click the time to open the selected clock app</string><!-- NEED UPDATE -->
-    <string name="set_clock_app">Clock app</string><!-- NEED UPDATE -->
-    <string name="set_no_clock_app">None</string><!-- NEED UPDATE -->
+    <!-- NEED UPDATE --><string name="set_interactive_clock">Interactive clock</string>
+    <!-- NEED UPDATE --><string name="set_interactive_clock_help">Click the date to open the default calendar, click the time to open the selected clock app</string>
+    <!-- NEED UPDATE --><string name="set_clock_app">Clock app</string>
+    <!-- NEED UPDATE --><string name="set_no_clock_app">None</string>
     <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
     <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
     <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>

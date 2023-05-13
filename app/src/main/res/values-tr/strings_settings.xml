@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Favorileri seç</string>
-    <string name="button_sort">Alfabetik olarak sırala</string>
+    <!-- NEED UPDATE --><string name="button_sort">Sort</string>
     <string name="hint_no_favorites_yet">Favori uygulamalarınızı buraya ekleyin\nmenü düğmesine tıklayarak.</string>
     <string name="hint_modify_order_of_favorites">Aşağıdaki listedeki favorilerin sırasını değiştirin.</string>
     <string name="warning_sort_favorites_alphabetically">Mevcut favori sırası alfabetik sıraya göre değiştirilecektir.</string>
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">Yeni klasör</string>
     <string name="hint_rename_folder">Dosyayı yeniden adlandır</string>
-    <string name="hint_remove_folder">Bir klasör kaldırılırsa, içeriği ana uygulama listesine geri konulacak.</string>
+    <!-- NEED UPDATE --><string name="hint_remove_folder">Bir klasör kaldırılırsa, içeriği ana uygulama listesine geri konulacak.</string>
     <string name="error_folder_empty_name">Önce bir isim seç</string>
     <string name="error_folder_already_exists">Zaten var olmayan bir isim seçin</string>
     <string name="error_folder_rename">Klasör yeniden adlandırılamadı</string>
@@ -51,7 +51,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">Tema ve renkler</string>
+    <!-- NEED UPDATE --><string name="appearance_settings_title_interface">Interface</string>
     <string name="appearance_settings_title_clock">Saat</string>
     <string name="appearance_settings_title_icon_packs">Simge paketleri</string>
 
@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Saat formatı</string>
+    <!-- NEED UPDATE --><string name="set_clock_format">Saat formatı</string>
     <string-array name="set_clock_format_entries">
         <item>Yok (gizle)</item>
         <item>24 saat</item>
@@ -79,26 +79,26 @@
         <item>Analog</item>
         <item>Tarih ve saat</item>
         <item>Tam tarih ve saat</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <!-- NEED UPDATE --><item>Date without time</item>
+        <!-- NEED UPDATE --><item>Full date without time</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Saat konumu</string>
+    <!-- NEED UPDATE --><string name="set_clock_position">Saat konumu</string>
     <string-array name="set_clock_position_entries">
         <item>Üst</item>
-        <item>"Üst  -  Sol"</item>
-        <item>"Üst  -  Sağ"</item>
+        <item>"Üst  —  Sol"</item>
+        <item>"Üst  —  Sağ"</item>
         <item>Orta</item>
-        <item>"Alt  -  Sol"</item>
-        <item>"Alt  -  Sağ"</item>
+        <item>"Orta  —  Sol"</item>
+        <item>"Orta  —  Sağ"</item>
         <item>Alt</item>
-        <item>"Alt  -  Sol"</item>
-        <item>"Alt  -  Sağ"</item>
+        <item>"Alt  —  Sol"</item>
+        <item>"Alt  —  Sağ"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Saat boyutu</string>
+    <!-- NEED UPDATE --><string name="set_clock_size">Saat boyutu</string>
     <string-array name="set_clock_size_entries">
         <item>Küçük</item>
         <item>Orta</item>
@@ -110,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Favoriler kapatıldığında</string>
     <string name="set_dark_status_bar_icons">Karanlık durum çubuğu simgeleri</string>
     <string name="set_dark_status_bar_icons_help">Üzerinde çalışmaz Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Simge boyutu (for tablets)</string>
+    <!-- NEED UPDATE --><string name="set_icon_size">Simge boyutu (for tablets)</string>
     <string name="set_hide_app_names">Uygulama adı yok</string>
     <string name="set_hide_folder_names">Klasör adı yok</string>
     <string name="set_remove_padding">Uygulama adları gizlendiğinde dolgu yok</string>
@@ -118,7 +118,7 @@
     <string name="set_text_color_favorites">Favori metin</string>
     <string name="set_background_color_drawer">Uygulama çekmecesi arka planı</string>
     <string name="set_text_color_drawer">Uygulama çekmecesi metni</string>
-    <string name="set_clock_color">Saat rengi</string>
+    <!-- NEED UPDATE --><string name="set_clock_color">Saat rengi</string>
     <string name="set_clock_shadow_color">Metin gölge rengi</string>
     <string name="set_icon_pack_primary">Birincil</string>
     <string name="set_icon_pack_secondary">İkincil</string>
@@ -157,7 +157,7 @@
     <string name="target_open_favorites">Açık\nFavoriler</string>
     <string name="target_close_favorites">Kapalı\nFavoriler</string>
     <string name="target_open_apps">Açık\nuygulamalar</string>
-    <string name="target_close_apps">Close\napps</string>
+    <!-- NEED UPDATE --><string name="target_close_apps">Close\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Varsayılan başlatıcı olarak ayarla</string>

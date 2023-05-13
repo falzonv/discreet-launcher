@@ -87,14 +87,14 @@
     <string name="set_clock_position">Posição</string>
     <string-array name="set_clock_position_entries">
         <item>Acima</item>
-        <item>"Acima e à esquerda"</item>
-        <item>"Acima e à direita"</item>
+        <item>"Acima  —  Esquerda"</item>
+        <item>"Acima  —  Direita"</item>
         <item>Centro</item>
-        <item>"Centro  - Esquerda"</item>
-        <item>"Centro  -  Direita"</item>
+        <item>"Centro  —  Esquerda"</item>
+        <item>"Centro  —  Direita"</item>
         <item>Abaixo</item>
-        <item>"Abaixo e à esquerda"</item>
-        <item>"Abaixo e à direita"</item>
+        <item>"Abaixo  —  Esquerda"</item>
+        <item>"Abaixo  —  Direita"</item>
     </string-array>
 
     <!-- Clock size -->

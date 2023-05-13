@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Вибрати застосунки</string>
-    <string name="button_sort">Сортувати за абеткою</string>
+    <string name="button_sort">Сортувати</string>
     <string name="hint_no_favorites_yet">Натиснувши кнопку, меню,\nдодайте сюди ваші улюблені застосунки.</string>
     <string name="hint_modify_order_of_favorites">Впорядкуйте обране нижче.</string>
     <string name="warning_sort_favorites_alphabetically">Обране буде впорядковано за абеткою.</string>
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">Нова тека</string>
     <string name="hint_rename_folder">Перейменувати теку</string>
-    <string name="hint_remove_folder">Вміст видаленої теки повертається до основного списку застосунків.</string>
+    <string name="hint_remove_folder">Вміст вилучених тек повертається до основного списку застосунків.</string>
     <string name="error_folder_empty_name">Вкажіть назву</string>
     <string name="error_folder_already_exists">Оберіть назву, якої ще не існує</string>
     <string name="error_folder_rename">Невдалося перейменувати теку</string>
@@ -51,7 +51,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">Тема та кольори</string>
+    <string name="appearance_settings_title_interface">Зовнішній вигляд</string>
     <string name="appearance_settings_title_clock">Годинник</string>
     <string name="appearance_settings_title_icon_packs">Пакунки піфтограм</string>
 
@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Формат годинника</string>
+    <string name="set_clock_format">Формат</string>
     <string-array name="set_clock_format_entries">
         <item>Немає (приховати)</item>
         <item>24 години</item>
@@ -79,26 +79,26 @@
         <item>Аналоговий</item>
         <item>Дата та час</item>
         <item>Повна дата та час</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <item>Лише дата</item>
+        <item>Лише повна дата</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Розташування годинника</string>
+    <string name="set_clock_position">Розташування</string>
     <string-array name="set_clock_position_entries">
         <item>Вгорі</item>
-        <item>"Вгорі  -  Ліворуч"</item>
-        <item>"Вгорі  -  Праворуч"</item>
+        <item>"Вгорі  —  Ліворуч"</item>
+        <item>"Вгорі  —  Праворуч"</item>
         <item>Посередині</item>
-        <item>"Посередині  -  Ліворуч"</item>
-        <item>"Посередині  -  Праворуч"</item>
+        <item>"Посередині  —  Ліворуч"</item>
+        <item>"Посередині  —  Праворуч"</item>
         <item>Внизу</item>
-        <item>"Внизу  -  Ліворуч"</item>
-        <item>"Внизу  -  Праворуч"</item>
+        <item>"Внизу  —  Ліворуч"</item>
+        <item>"Внизу  —  Праворуч"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Розмір годинника</string>
+    <string name="set_clock_size">Розмір</string>
     <string-array name="set_clock_size_entries">
         <item>Маленький</item>
         <item>Середній</item>
@@ -110,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Коли обране приховано</string>
     <string name="set_dark_status_bar_icons">Темні піфтограми рядка стану</string>
     <string name="set_dark_status_bar_icons_help">Не працює на Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Розмір піфтограм (for tablets)</string>
+    <string name="set_icon_size">Розмір піфтограми (для планшетів)</string>
     <string name="set_hide_app_names">Приховати назви застосунків</string>
     <string name="set_hide_folder_names">Приховувати назви тек</string>
     <string name="set_remove_padding">Якщо назви застосунків приховано, відступи не відображатимуться</string>
@@ -118,7 +118,7 @@
     <string name="set_text_color_favorites">Обраний текст</string>
     <string name="set_background_color_drawer">Тло шухляди застосунків</string>
     <string name="set_text_color_drawer">Текст шухляди застосунків</string>
-    <string name="set_clock_color">Колір годинника</string>
+    <string name="set_clock_color">Колір</string>
     <string name="set_clock_shadow_color">Колір тіні тексту</string>
     <string name="set_icon_pack_primary">Основний</string>
     <string name="set_icon_pack_secondary">Додатковий</string>
@@ -157,7 +157,7 @@
     <string name="target_open_favorites">Показати\nобране</string>
     <string name="target_close_favorites">Приховати\nобране</string>
     <string name="target_open_apps">Показати\nзастосунки</string>
-    <string name="target_close_apps">Close\napps</string>
+    <string name="target_close_apps">Закрити\nзастосунки</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Запускач за замовчуванням</string>

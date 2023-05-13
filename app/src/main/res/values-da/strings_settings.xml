@@ -87,14 +87,14 @@
     <string name="set_clock_position">Position</string>
     <string-array name="set_clock_position_entries">
         <item>Top</item>
-        <item>"Top  -  Venstre"</item>
-        <item>"Top  -  Højre"</item>
+        <item>"Top  —  Venstre"</item>
+        <item>"Top  —  Højre"</item>
         <item>Midt</item>
-        <item>"Midt  -  Venstre"</item>
-        <item>"Midt  -  Højre"</item>
+        <item>"Midt  —  Venstre"</item>
+        <item>"Midt  —  Højre"</item>
         <item>Bund</item>
-        <item>"Bund  -  Venstre"</item>
-        <item>"Bund  -  Højre"</item>
+        <item>"Bund  —  Venstre"</item>
+        <item>"Bund  —  Højre"</item>
     </string-array>
 
     <!-- Clock size -->
@@ -110,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Når favoritter er lukket</string>
     <string name="set_dark_status_bar_icons">Mørk status bar ikoner</string>
     <string name="set_dark_status_bar_icons_help">Virker ikke på Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Ikonstørrelse (for tablets)</string>
+    <string name="set_icon_size">Ikonstørrelse (til tablets)</string>
     <string name="set_hide_app_names">Ingen app-navne</string>
     <string name="set_hide_folder_names">Ingen mappenavne</string>
     <string name="set_remove_padding">Ingen ekstra plads til ikoner, når app-navne er skjult</string>

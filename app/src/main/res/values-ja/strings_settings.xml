@@ -87,14 +87,14 @@
     <string name="set_clock_position">位置</string>
     <string-array name="set_clock_position_entries">
         <item>上段</item>
-        <item>"上段  -  左側"</item>
-        <item>"上段  -  右側"</item>
+        <item>"上段  —  左側"</item>
+        <item>"上段  —  右側"</item>
         <item>中段</item>
-        <item>"中段  -  左側"</item>
-        <item>"中段  -  右側"</item>
+        <item>"中段  —  左側"</item>
+        <item>"中段  —  右側"</item>
         <item>下段</item>
-        <item>"下段  -  左側"</item>
-        <item>"下段  -  右側"</item>
+        <item>"下段  —  左側"</item>
+        <item>"下段  —  右側"</item>
     </string-array>
 
     <!-- Clock size -->

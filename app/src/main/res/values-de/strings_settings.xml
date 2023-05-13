@@ -87,14 +87,14 @@
     <string name="set_clock_position">Position</string>
     <string-array name="set_clock_position_entries">
         <item>Oben</item>
-        <item>"Oben  -  Links"</item>
-        <item>"Oben  -  Rechts"</item>
+        <item>"Oben  —  Links"</item>
+        <item>"Oben  —  Rechts"</item>
         <item>Mitte</item>
-        <item>"Mitte  -  Links"</item>
-        <item>"Mitte  -  Rechts"</item>
+        <item>"Mitte  —  Links"</item>
+        <item>"Mitte  —  Rechts"</item>
         <item>Unten</item>
-        <item>"Unten  -  Links"</item>
-        <item>"Unten  -  Rechts"</item>
+        <item>"Unten  —  Links"</item>
+        <item>"Unten  —  Rechts"</item>
     </string-array>
 
     <!-- Clock size -->
