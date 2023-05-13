@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Favoriten wählen</string>
-    <string name="button_sort">Alphabetisch sortieren</string>
+    <string name="button_sort">Sortieren</string>
     <string name="hint_no_favorites_yet">Füge Favoriten Apps hinzu\ndurch Klicken des Menü Buttons.</string>
     <string name="hint_modify_order_of_favorites">Ändere die Reihenfolge der Favoriten wie folgt.</string>
     <string name="warning_sort_favorites_alphabetically">Die derzeitige Reihenfolge der Favoriten wird durch eine alphabetische Reihenfolge ersetzt.</string>
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">Neuer Ordner</string>
     <string name="hint_rename_folder">Ordner umbenennen</string>
-    <string name="hint_remove_folder">Wenn ein Ordner entfernt wird, wird sein Inhalt wieder in die Liste der Hauptanwendungen aufgenommen.</string>
+    <string name="hint_remove_folder">Wird ein Ordner entfernt, wird sein Inhalt wieder in die Liste der Hauptanwendungen aufgenommen.</string>
     <string name="error_folder_empty_name">Vergebe zuerst einen Namen</string>
     <string name="error_folder_already_exists">Verwende einen Namen der nicht bereits existiert</string>
     <string name="error_folder_rename">Ordner konnte nicht umbenannt werden</string>
@@ -51,7 +51,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">Design und Farben</string>
+    <string name="appearance_settings_title_interface">Schnittstelle</string>
     <string name="appearance_settings_title_clock">Uhr</string>
     <string name="appearance_settings_title_icon_packs">Symbolpakete</string>
 
@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Uhrzeit Format</string>
+    <string name="set_clock_format">Format</string>
     <string-array name="set_clock_format_entries">
         <item>Keins (ausblenden)</item>
         <item>24-Stunden-Zählung</item>
@@ -79,12 +79,12 @@
         <item>Analog</item>
         <item>Datum und Uhrzeit</item>
         <item>Vollständiges Datum und Uhrzeit</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <item>Datum ohne Uhrzeit</item>
+        <item>Vollständiges Datum ohne Uhrzeit</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Uhr Position</string>
+    <string name="set_clock_position">Position</string>
     <string-array name="set_clock_position_entries">
         <item>Oben</item>
         <item>"Oben  -  Links"</item>
@@ -98,7 +98,7 @@
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Größe der Uhr</string>
+    <string name="set_clock_size">Größe</string>
     <string-array name="set_clock_size_entries">
         <item>Klein</item>
         <item>Mittel</item>
@@ -110,7 +110,7 @@
     <string name="set_transparent_status_bar_help">Wenn Favoriten geschlossen sind</string>
     <string name="set_dark_status_bar_icons">Dunkle Statusleisten-Symbole</string>
     <string name="set_dark_status_bar_icons_help">Funktioniert nicht unter Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Symbolgröße (for tablets)</string>
+    <string name="set_icon_size">Symbolgröße (Für Tablets)</string>
     <string name="set_hide_app_names">Keine App Bezeichnungen</string>
     <string name="set_hide_folder_names">Keine Ordnernamen</string>
     <string name="set_remove_padding">Kein Innenabstand wenn App-Namen versteckt sind</string>
@@ -118,7 +118,7 @@
     <string name="set_text_color_favorites">Favoriten Text</string>
     <string name="set_background_color_drawer">Hintergrund der App Übersicht</string>
     <string name="set_text_color_drawer">Text der App Übersicht</string>
-    <string name="set_clock_color">Farbe der Uhr</string>
+    <string name="set_clock_color">Farbe</string>
     <string name="set_clock_shadow_color">Farbe des Textschattens</string>
     <string name="set_icon_pack_primary">Erstrangig</string>
     <string name="set_icon_pack_secondary">Zweitrangig</string>
@@ -156,8 +156,8 @@
     <string name="set_touch_targets_help">Label-Buttons auf dem Startbildschirm</string>
     <string name="target_open_favorites">Favoriten\nöffnen</string>
     <string name="target_close_favorites">Favoriten\nschließen</string>
-    <string name="target_open_apps">Apps\nöffnen</string>
-    <string name="target_close_apps">Close\napps</string>
+    <string name="target_open_apps">Apps\öffnen</string>
+    <string name="target_close_apps">Apps\schließen</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Als Standard-Startprogramm festlegen</string>
