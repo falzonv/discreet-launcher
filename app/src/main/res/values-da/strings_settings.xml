@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Vælg favoritter</string>
-    <string name="button_sort">Sortér alfabetisk</string>
+    <string name="button_sort">Sortér</string>
     <string name="hint_no_favorites_yet">Tilføj dine favorit apps her\nved at klikke på menu knappen.</string>
     <string name="hint_modify_order_of_favorites">Rediger rækkefølgen af favoritter på listen nedenfor.</string>
     <string name="warning_sort_favorites_alphabetically">Den nuværende rækkefølge af favoritter vil blive erstattet af alfabetisk orden.</string>
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">Ny mappe</string>
     <string name="hint_rename_folder">Omdøb mappe</string>
-    <string name="hint_remove_folder">Hvis en mappe fjernes, vil dens indhold blive sat tilbage på hovedapplisten.</string>
+    <string name="hint_remove_folder">Når en mappe fjernes, vil dens indhold blive sat tilbage på hovedapplisten.</string>
     <string name="error_folder_empty_name">Vælg et navn først</string>
     <string name="error_folder_already_exists">Vælg et navn der ikke allerede eksisterer</string>
     <string name="error_folder_rename">Kunne ikke omdøbe mappe</string>
@@ -51,8 +51,8 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">Tema og farver</string>
-    <string name="appearance_settings_title_clock">Up</string>
+    <string name="appearance_settings_title_interface">Grænseflade</string>
+    <string name="appearance_settings_title_clock">Ur</string>
     <string name="appearance_settings_title_icon_packs">Ikon pakker</string>
 
     <!-- Color picker -->
@@ -70,21 +70,21 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Ur format</string>
+    <string name="set_clock_format">Format</string>
     <string-array name="set_clock_format_entries">
         <item>Ingen (skjul)</item>
         <item>24 timer</item>
         <item>12 timers</item>
         <item>12 timer + AM/PM</item>
         <item>Analog</item>
-        <item>Dato and tid</item>
-        <item>Fuld dato and tid</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <item>Dato og tid</item>
+        <item>Fuld dato og tid</item>
+        <item>Dato uden tid</item>
+        <item>Fuld dato uden tid</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Ur position</string>
+    <string name="set_clock_position">Position</string>
     <string-array name="set_clock_position_entries">
         <item>Top</item>
         <item>"Top  -  Venstre"</item>
@@ -98,7 +98,7 @@
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Ur størrelse</string>
+    <string name="set_clock_size">Størrelse</string>
     <string-array name="set_clock_size_entries">
         <item>Lille</item>
         <item>Medium</item>
@@ -118,7 +118,7 @@
     <string name="set_text_color_favorites">Favoritter tekst</string>
     <string name="set_background_color_drawer">App skuffe baggrund</string>
     <string name="set_text_color_drawer">App skuffe tekst</string>
-    <string name="set_clock_color">Farve på ur</string>
+    <string name="set_clock_color">Farve</string>
     <string name="set_clock_shadow_color">Tekst skyggefarve</string>
     <string name="set_icon_pack_primary">Primær</string>
     <string name="set_icon_pack_secondary">Sekundær</string>
@@ -157,7 +157,7 @@
     <string name="target_open_favorites">Åbn\nfavoritter</string>
     <string name="target_close_favorites">Luk\nfavoritter</string>
     <string name="target_open_apps">Åbn\napps</string>
-    <string name="target_close_apps">Close\napps</string>
+    <string name="target_close_apps">Luk\napps</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Sæt som standard launcher</string>
