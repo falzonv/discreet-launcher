@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">お気に入りを選択</string>
-    <string name="button_sort">アルファベット順に並び替え</string>
+    <string name="button_sort">並び替え</string>
     <string name="hint_no_favorites_yet">メニューボタンをクリックして、\nお気に入りのアプリをここに追加してください。</string>
     <string name="hint_modify_order_of_favorites">以下でお気に入りの順番を変更してください。</string>
     <string name="warning_sort_favorites_alphabetically">現在のお気に入り順から、アルファベット順に変更されます。</string>
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">新しいフォルダ</string>
     <string name="hint_rename_folder">フォルダ名の変更</string>
-    <string name="hint_remove_folder">フォルダを削除した場合、その内容はアプリ一覧に戻されます。</string>
+    <string name="hint_remove_folder">フォルダを削除すると、その内容はアプリ一覧に戻されます。</string>
     <string name="error_folder_empty_name">最初に名前を決めてください。</string>
     <string name="error_folder_already_exists">既存のフォルダ名でないものを選んでください</string>
     <string name="error_folder_rename">フォルダ名を変更できませんでした</string>
@@ -51,7 +51,7 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">テーマとカラー</string>
+    <string name="appearance_settings_title_interface">インターフェース</string>
     <string name="appearance_settings_title_clock">時計</string>
     <string name="appearance_settings_title_icon_packs">アイコンパック</string>
 
@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">時計の表示形式</string>
+    <string name="set_clock_format">表示形式</string>
     <string-array name="set_clock_format_entries">
         <item>なし（非表示）</item>
         <item>24時間</item>
@@ -79,12 +79,12 @@
         <item>アナログ</item>
         <item>日付と時間</item>
         <item>日付・曜日と時間</item>
-        <item>Date without time</item>
-        <item>Full date without time</item>
+        <item>日付</item>
+        <item>日付と曜日</item>
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">時計の位置</string>
+    <string name="set_clock_position">位置</string>
     <string-array name="set_clock_position_entries">
         <item>上段</item>
         <item>"上段  -  左側"</item>
@@ -98,7 +98,7 @@
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">時計の大きさ</string>
+    <string name="set_clock_size">大きさ</string>
     <string-array name="set_clock_size_entries">
         <item>小</item>
         <item>中</item>
@@ -118,7 +118,7 @@
     <string name="set_text_color_favorites">お気に入りのアプリのテキスト</string>
     <string name="set_background_color_drawer">アプリドロワーの背景</string>
     <string name="set_text_color_drawer">アプリドロワーのテキスト</string>
-    <string name="set_clock_color">時計の色</string>
+    <string name="set_clock_color">色</string>
     <string name="set_clock_shadow_color">テキストの影の色</string>
     <string name="set_icon_pack_primary">1番目</string>
     <string name="set_icon_pack_secondary">2番目</string>
@@ -157,7 +157,7 @@
     <string name="target_open_favorites">お気に入りを開く</string>
     <string name="target_close_favorites">お気に入りを閉じる</string>
     <string name="target_open_apps">アプリ一覧を開く</string>
-    <string name="target_close_apps">Close\napps</string>
+    <string name="target_close_apps">アプリ一覧を\n閉じる</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">デフォルトのランチャーに設定する</string>
