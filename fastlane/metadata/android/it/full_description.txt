@@ -1,0 +1,31 @@
+Discreet Launcher ti fornisce una schermata principale priva di distrazioni, lasciandoti godere pienamente il tuo sfondo.
+
+Da questa schermata pulita, semplicemente trascina il dito verso il basso per visualizzare le tue applicazioni preferite, oppure verso l'alto per visualizzare la lista completa delle applicazioni.
+
+Se tieni premuta un'applicazione per qualche istante, ti sarà fornito l'accesso alle sue impostazioni di sistema e alla sua pagina nel negozio.
+
+Discreet Launcher è open source, non richiede permessi non necessari, funziona completamente offline ed è priva di pubblicità.
+
+1/ Altre caratteristiche
+- Cartelle
+- Ricerca
+- Rinominare e nascondere applicazioni
+- Notifica l'accesso ai preferiti
+- Trascinamento orizzontale o doppio tocco per aprire una app
+- Supporto alle scorciatoie (web apps)
+- Esportazione e importazione delle impostazioni
+- Aiuto e registro dei cambiamenti
+
+2/ Opzioni di personalizzazione
+- Temi e colori
+- Forzatura dell'orientamento
+- Barra di stato trasparente
+- Nessuna barra di stato (modalità immersiva)
+- Orologio personalizzabile
+- Elementi premibili (accessibilità)
+- Mostrare sempre i preferiti
+- Inversione dell'interfaccia
+- Nessun pulsante menu
+- Nessuna lista principale delle app
+- Niente nomi delle applicazioni
+- Supporto ai pacchetti icone
