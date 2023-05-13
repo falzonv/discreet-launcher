@@ -3,7 +3,7 @@
 
     <!-- Favorites -->
     <string name="button_select_favorites">Velg favoritter</string>
-    <string name="button_sort">Sorter A-Å</string>
+    <string name="button_sort">Sorter</string>
     <string name="hint_no_favorites_yet">Legg til favorittprogrammer her\nved å klikke på menyknappen.</string>
     <string name="hint_modify_order_of_favorites">Endre rekkefølgen nedenfor.</string>
     <string name="warning_sort_favorites_alphabetically">Favorittene vil sorteres alfabetisk.</string>
@@ -19,7 +19,7 @@
     </string>
     <string name="hint_new_folder">Ny mappe</string>
     <string name="hint_rename_folder">Gi mappen nytt navn</string>
-    <string name="hint_remove_folder">Hvis en mappe fjernes, vil innholdet puttes tilbake i hovedprogramlisten.</string>
+    <string name="hint_remove_folder">Fjerning av en mappe legger dens innhold tilbake i hovedprogramlisten.</string>
     <string name="error_folder_empty_name">Du må velge et navn.</string>
     <string name="error_folder_already_exists">Velg et navn som ikke finnes allerede.</string>
     <string name="error_folder_rename">Kunne ikke gi mappen nytt navn</string>
@@ -51,14 +51,15 @@
     <!-- ========== Appearance settings menu ========== -->
 
     <!-- Sections titles -->
-    <string name="appearance_settings_title_interface">Drakt og fargevalg</string>
+    <string name="appearance_settings_title_interface">Grensesnitt</string>
     <string name="appearance_settings_title_clock">Klokke</string>
     <string name="appearance_settings_title_icon_packs">Ikonpakker</string>
 
     <!-- Color picker -->
     <string name="color_picker_base">Grunnfarge:</string>
     <string name="color_picker_reset">Tilbakestill</string>
-    <string name="color_picker_preview">Forhåndsvisning</string><!-- (label for a shown preview, not a verb) -->
+    <!-- (etikett for vist forhåndsvisning, ikke preview verb) -->
+    <string name="color_picker_preview">Forhåndsvisning</string>
     <string name="error_invalid_color_format">Ugyldig heksadesimal farge</string>
 
     <!-- Application theme -->
@@ -70,12 +71,12 @@
     </string-array>
 
     <!-- Clock format -->
-    <string name="set_clock_format">Klokke</string>
+    <string name="set_clock_format">Format</string>
     <string-array name="set_clock_format_entries">
         <item>Ingen (skjult)</item>
-        <item>24-timersklokke</item>
-        <item>12-timersklokke</item>
-        <item>12-timersklokke + AM/PM</item>
+        <item>24-timers</item>
+        <item>12-timers</item>
+        <item>12-timers + AM/PM</item>
         <item>Analog</item>
         <item>Dato og klokkeslett</item>
         <item>Full dato og klokkeslett</item>
@@ -84,21 +85,21 @@
     </string-array>
 
     <!-- Clock position (double spaces are intentional) -->
-    <string name="set_clock_position">Klokkeplassering</string>
+    <string name="set_clock_position">Plassering</string>
     <string-array name="set_clock_position_entries">
         <item>Topp</item>
-        <item>"Topp  -  til venstre"</item>
-        <item>"Topp  -  til høyre"</item>
+        <item>"Topp  —  til venstre"</item>
+        <item>"Topp  —  til høyre"</item>
         <item>Midten</item>
-        <item>"Midten  -  til venstre"</item>
-        <item>"Midten  -  til høyre"</item>
+        <item>"Midten  —  til venstre"</item>
+        <item>"Midten  —  til høyre"</item>
         <item>Bunn</item>
-        <item>"Bunn  -  til venstre"</item>
-        <item>"Bunn  -  til høyre"</item>
+        <item>"Bunn  —  til venstre"</item>
+        <item>"Bunn  —  til høyre"</item>
     </string-array>
 
     <!-- Clock size -->
-    <string name="set_clock_size">Klokkestørrelse</string>
+    <string name="set_clock_size">Størrelse</string>
     <string-array name="set_clock_size_entries">
         <item>Liten</item>
         <item>Middels</item>
@@ -110,7 +111,7 @@
     <string name="set_transparent_status_bar_help">Når favoritter lukkes</string>
     <string name="set_dark_status_bar_icons">Mørke statusfeltsikoner</string>
     <string name="set_dark_status_bar_icons_help">Fungerer ikke på Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Ikonstørrelse (for tablets)</string>
+    <string name="set_icon_size">Ikonstørrelse (for nettbrett)</string>
     <string name="set_hide_app_names">Ingen programnavn</string>
     <string name="set_hide_folder_names">Ingen mappenavn</string>
     <string name="set_remove_padding">Fjern fyll når navn er skjult</string>
@@ -118,13 +119,13 @@
     <string name="set_text_color_favorites">Favoritt-tekst</string>
     <string name="set_background_color_drawer">Programskuffebakgrunn</string>
     <string name="set_text_color_drawer">Programskuffetekst</string>
-    <string name="set_clock_color">Klokkefarge</string>
+    <string name="set_clock_color">Farge</string>
     <string name="set_clock_shadow_color">Tekstskyggefarge</string>
     <string name="set_icon_pack_primary">Primær</string>
     <string name="set_icon_pack_secondary">Sekundær</string>
     <string name="set_icon_pack_none">Ingen (bruk opprinnelige ikoner)</string>
     <string name="set_icon_color_filter">Fargefilter for ikoner</string>
-    <string name="set_icon_color_filter_help">Har kun innvirkning på forvalgte ikoner, kan brukes i tillegg til ikonpakker</string>
+    <string name="set_icon_color_filter_help">Har kun innvirkning på forvalgte ikoner. Kan brukes i tillegg til ikonpakker.</string>
 
     <!-- Error messages related to appearance settings -->
     <string name="error_no_icon_pack_installed">Installer noen fra programbutikken din først</string>
@@ -157,7 +158,7 @@
     <string name="target_open_favorites">Åpne\nfavoritter</string>
     <string name="target_close_favorites">Lukk\nfavoritter</string>
     <string name="target_open_apps">Åpne\nprogrammer</string>
-    <string name="target_close_apps">Close\napps</string>
+    <string name="target_close_apps">Lukk\nprogrammer</string>
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Bruk som forvalgt oppstarter</string>
