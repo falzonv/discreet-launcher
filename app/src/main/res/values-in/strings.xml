@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+    <!-- ========== General ========== -->
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <!-- NEED UPDATE --><string name="website_description">Suggest improvements, report issues, and support the project on</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">(Terjemahan Bahasa Indonesia oleh Dawud Irfan)</string>
 
     <!-- Main menu -->
     <string name="menu">Menu</string>
@@ -40,17 +49,205 @@
     <string name="info_display_partially_updated">Tampilan akan di update setelah kembali ke layar rumah</string>
     <string name="error_app_not_found">Tidak bisa menemukan \"%1$s\"</string>
 
+    <!-- Favorites -->
+    <string name="button_select_favorites">Pilih Favorit</string>
+    <!-- NEED UPDATE --><string name="button_sort">Sort</string>
+    <string name="hint_no_favorites_yet">Tambahkan aplikasi favorit disini\ndengan mengklik tombol menu.</string>
+    <!-- NEED UPDATE --><string name="hint_modify_order_of_favorites">Modify the order of favorites below.</string>
+    <!-- NEED UPDATE --><string name="warning_sort_favorites_alphabetically">The current order of favorites will be replaced by alphabetical order.</string>
+    <string name="favorite_move_before">Pindah ke sebelum \"%1$s\"</string>
+    <string name="favorite_move_after">Pindah ke setelah \"%1$s\"</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">Tambah</string>
+    <string name="button_remove_folder">Hapus</string>
+    <string name="hint_folder_edit">Ketuk nama folder untuk mengganti namanya, dan klik ikonnya untuk memilih warnanya. Ikon Pena untuk mengatur isinya.</string>
+    <string name="hint_new_folder">Folder baru</string>
+    <string name="hint_rename_folder">Ganti nama folder</string>
+    <!-- NEED UPDATE --><string name="hint_remove_folder">Jika folder dihilangkan, isinya akan ditaruh kembali di daftar aplikasi utama.</string>
+    <string name="error_folder_empty_name">Nama folder tidak boleh kosong</string>
+    <string name="error_folder_already_exists">Nama sudah digunakan folder yang ada</string>
+    <string name="error_folder_rename">Tidak bisa mengganti nama folder</string>
+
     <!-- Search app -->
     <string name="search_app_name">Cari</string>
     <string name="search_app_hint">Cari aplikasi</string>
 
-    <!-- About dialog -->
-    <string name="app_name">Discreet Launcher</string>
-    <string name="author">Vincent Falzon</string>
-    <string name="licence_name">GNU General Public License v3.0</string>
-    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <!-- NEED UPDATE --><string name="website_description">Suggest improvements, report issues, and support the project on</string>
-    <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit">(Terjemahan Bahasa Indonesia oleh Dawud Irfan)</string>
+    <!-- Export and import -->
+    <string name="export_import_help">Tombol-tombol ini berfungsi untuk ekspor data (favorit, folder-folder, pemintas dan pengaturan) atau mengimpornya lagi.</string>
+    <string name="button_export">Ekspor</string>
+    <string name="button_import">Impor</string>
+    <string name="export_import_header_internal_files">Isi dari berkas teks</string>
+    <string name="export_import_header_settings">Pengaturan</string>
+    <string name="export_import_header_icons">Ikon yang tersimpan</string>
+    <string name="export_import_warning_file_edit">Mengedit berkas ini memungkinkan terjadinya masalah</string>
+    <string name="export_import_warning_shortcuts">(Di Android 8 (Oreo) keatas, pemintas yang di impor mingkin tidak bekerja karena diatur oleh sistem dan tidak seharusnya diekspor)</string>
+    <string name="export_completed">Ekspor Selesai</string>
+    <string name="error_export">Tidak bisa membuat berkas ekspor</string>
+    <string name="error_import">Tidak bisa membaca berkas impor</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_invalid_request">Tidak bisa menambahkannya sebagai pemintas</string>
+    <string name="error_shortcut_missing_info">Tidak bisa mengikuti pemintas ini</string>
+    <string name="error_shortcut_not_default_launcher">Hanya peluncur default yang bisa membuka pemintas</string>
+    <string name="error_shortcut_start">Sistem Android tidak bisa membuka pemintas</string>
+    <string name="error_shortcut_remove">Tidak bisa memghapus berkas %1$s</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <!-- NEED UPDATE --><string name="appearance_settings_title_interface">Interface</string>
+    <string name="appearance_settings_title_clock">Jam</string>
+    <string name="appearance_settings_title_icon_packs">Paket ikon</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Dasar:</string>
+    <string name="color_picker_reset">Atur ulang</string>
+    <string name="color_picker_preview">Pratinjau</string><!-- (label for a shown preview, not a verb) -->
+    <string name="error_invalid_color_format">Warna hexadecimal tidak valid</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Tema</string>
+    <string-array name="set_application_theme_entries">
+        <item>Terang</item>
+        <item>Gelap</item>
+        <item>Pilihan sistem</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Format</string>
+    <string-array name="set_clock_format_entries">
+        <item>Tidak ada (Sembunyikan)</item>
+        <item>24 jam</item>
+        <item>12 jam</item>
+        <item>12 jam + AM/PM</item>
+        <item>Analog</item>
+        <item>Tanggal dan waktu</item>
+        <item>Tanggal dan waktu lengkap</item>
+        <!-- NEED UPDATE --><item>Date without time</item>
+        <!-- NEED UPDATE --><item>Full date without time</item>
+    </string-array>
+
+    <!-- Clock position (double spaces are intentional) -->
+    <string name="set_clock_position">Posisi</string>
+    <string-array name="set_clock_position_entries">
+        <item>Atas</item>
+        <item>"Atas  —  Kiri"</item>
+        <item>"Atas  —  Kanan"</item>
+        <item>Tengah</item>
+        <item>"Tengah  —  Kiri"</item>
+        <item>"Tengah  —  Kanan"</item>
+        <item>Bawah</item>
+        <item>"Bawah  —  Kiri"</item>
+        <item>"Bawah  —  Kanan"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Ukuran</string>
+    <string-array name="set_clock_size_entries">
+        <item>Kecil</item>
+        <item>Sedang</item>
+        <item>Besar</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_transparent_status_bar">Batang sistem transparan</string>
+    <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
+    <string name="set_dark_status_bar_icons">Ikon batang sistem gelap</string>
+    <string name="set_dark_status_bar_icons_help">Tidak bekerja pada Android 5 (Lollipop)</string>
+    <!-- NEED UPDATE --><string name="set_icon_size">Icon size (for tablets)</string>
+    <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
+    <string name="set_hide_folder_names">Sembunyikan nama folder</string>
+    <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>
+    <string name="set_background_color_favorites">Latar belakang favorit</string>
+    <string name="set_text_color_favorites">Teks Favorit</string>
+    <string name="set_background_color_drawer">Latar belakang Laci Aplikasi</string>
+    <string name="set_text_color_drawer">Teks Laci Aplikasi</string>
+    <string name="set_clock_color">Warna</string>
+    <string name="set_clock_shadow_color">Warna bayangan teks</string>
+    <string name="set_icon_pack_primary">Primer</string>
+    <string name="set_icon_pack_secondary">Sekunder</string>
+    <string name="set_icon_pack_none">Tidak ada (gunakan ikon default)</string>
+    <string name="set_icon_color_filter">Filter warna pada ikon</string>
+    <string name="set_icon_color_filter_help">Hanya terterapkan pada ikon default, bisa digunakan sebagai tambahan paket ikon</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_no_icon_pack_installed">Tidak ada paket ikon yang terpasang, install dulu dari app store pilihanmu</string>
+    <string name="error_icon_pack_appfilter_not_found">Tida bisa menemukan appfilter.xml pada paket ikon yang terpilih. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Antarmuka</string>
+    <string name="operation_settings_title_gestures">Gestur layar rumah</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Notifikasi untuk mengakses favorit</string>
+    <string name="set_notification_help">Gunakan ikon transparan</string>
+    <string name="notification_text">Favorit</string>
+
+    <!-- Forced orientation -->
+    <string name="set_forced_orientation">Orientasi paksa</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>Nonaktif</item>
+        <item>Potret</item>
+        <item>Lanskap</item>
+        <item>Lanskap terbalik</item>
+    </string-array>
+
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
+    <string name="set_touch_targets">Target ketuk (aksesibilitas)</string>
+    <string name="set_touch_targets_help">Label yang dapat diklik di layar rumah</string>
+    <string name="target_open_favorites">Buka\nfavorit</string>
+    <string name="target_close_favorites">Tutup\nfavorit</string>
+    <string name="target_open_apps">Buka\nLaci Aplikasi</string>
+    <!-- NEED UPDATE --><string name="target_close_apps">Close\napps</string>
+
+    <!-- Other operation settings -->
+    <!-- NEED UPDATE --><string name="set_as_default_launcher">Set as default launcher</string>
+    <string name="set_always_show_favorites">Selalu tampilkan favorit</string>
+    <string name="set_reverse_interface">Balikkan Antarmuka</string>
+    <string name="set_reverse_interface_help">Laci Aplikasi di atas, dan favorit di bawah layar rumah</string>
+    <string name="set_immersive_mode">Mode menutup</string>
+    <string name="set_immersive_mode_help">Tidak ada batang sistem. (Bisa dipaksakan dengan tekan lama di layar rumah.)</string>
+    <!-- NEED UPDATE --><string name="set_interactive_clock">Interactive clock</string>
+    <!-- NEED UPDATE --><string name="set_interactive_clock_help">Click the date to open the default calendar, click the time to open the selected clock app</string>
+    <!-- NEED UPDATE --><string name="set_clock_app">Clock app</string>
+    <!-- NEED UPDATE --><string name="set_no_clock_app">None</string>
+    <string name="set_hide_menu_button">Sembunyikan tombol menu</string>
+    <string name="set_hide_menu_button_help">Selalu bisa diakses dari ikon aplikasi peluncur</string>
+    <string name="set_disable_app_drawer">Nonaktifkan Laci Aplikasi</string>
+    <string name="set_double_tap">Dobel-tap</string>
+    <string name="set_swipe_leftwards">Geser ke kiri</string>
+    <string name="set_swipe_rightwards">Geser ke kanan</string>
+    <string name="set_no_action">Tidak ada</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Favorit terbuka untuk menjaga akses menu.</string>
+    <string name="error_disable_app_drawer_not_safe">Mengaktifkan kembali Laci Aplikasi untuk menjaga akses menu.</string>
+
+
+    <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
+
+    <string name="help_navigation_title">Navigasi</string>
+    <string name="help_navigation">Geser keatas dari layar rumah untuk menampilkan seluruh aplikasi, dan kebawah untuk kembali.\n\nGeser kebawah dari layar rumah untuk menampilkan favorit, dan keatas untuk kembali.\n\nKlik tombol menu (saat menampilkan favorit) atau ikon peluncur untuk membuka menu.\n\nTekan lama aplikasi atau folder untuk mengakses pengaturannya.</string>
+    <string name="help_notification_title">Notifikasi</string>
+    <string name="help_notification">Tampilkan popup favorit di atas aplikasi lain saat anda meninggalkan layar rumah.</string>
+    <string name="help_list_update_title">Perbaruan Daftar</string>
+    <string name="help_list_update">Pesan popup muncul saat menyegarkan daftar aplikasi dan ikon, saat memulai, menambah atau menghapus aplikasi, atau jika paket ikon dimodifikasi.</string>
+    <string name="help_folders_title">Folder</string>
+    <string name="help_folders">Kelola folder atau favoritkan aplikasi dengan tombol menu, atau klik judul dari folder yang terbuka untuk membuat, mengganti nama, atau memasukan aplikasi kedalamnya.\nMenghapus folder akan meletakan kembali isinya ke daftar utama.</string>
+    <string name="help_search_title">Pencarian</string>
+    <string name="help_search">Temukan aplikasi apapun dari ikon cari. ikon cari juga bisa difavoritkan, untuk membuatnya tersedia dari notifikasi, dan tersembunyi.\n\nMenekan \"Enter\" akan membuka hasil pencarian pertama.</string>
+
+
+    <!-- ========== Changelog ========== -->
+
+    <string name="changelog_mentions">\"@pseudo\" menyatakan pengguna yang menyarankan idenya atau melaporkan bugnya</string>
+    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
+    <string name="error_changelog_missing_folder">Tidak bisa menemukan changelog folder</string>
+    <string name="error_changelog_missing_file">Tidak bisa membuka %1$s</string>
 
 </resources>

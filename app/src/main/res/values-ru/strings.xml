@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+    <!-- ========== General ========== -->
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Предложить улучшения, сообщить о проблемах и поддержать проект на</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">(Русский перевод от Artur Ajvasjan)</string>
 
     <!-- Main menu -->
     <string name="menu">Меню</string>
@@ -40,17 +49,205 @@
     <string name="info_display_partially_updated">Дисплей будет полностью обновлен после возвращения на главный экран</string>
     <string name="error_app_not_found">Не удалось найти \"%1$s\"</string>
 
+    <!-- Favorites -->
+    <string name="button_select_favorites">Выбрать избранные</string>
+    <string name="button_sort">Сортировать</string>
+    <string name="hint_no_favorites_yet">Добавьте свои избранные приложения сюда\n, нажав на кнопку</string>
+    <string name="hint_modify_order_of_favorites">Изменить порядок избранного</string>
+    <string name="warning_sort_favorites_alphabetically">Избранное будет отсортировано по алфавиту.</string>
+    <string name="favorite_move_before">Переместить до \"%1$s\"</string>
+    <string name="favorite_move_after">Переместить после \"%1$s\"</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">Добавить</string>
+    <string name="button_remove_folder">Удалить</string>
+    <string name="hint_folder_edit">Нажмите на имя папки, чтобы изменить его, и по значку, чтобы выбрать его цвет. Перо позволяет редактировать содержимое папки.</string>
+    <string name="hint_new_folder">Новая папка</string>
+    <string name="hint_rename_folder">Переименовать папку</string>
+    <string name="hint_remove_folder">Удаление папки возвращает ее содержимое в основной список приложений.</string>
+    <string name="error_folder_empty_name">Сначала выберите имя</string>
+    <string name="error_folder_already_exists">Выберите имя, которое ещё не существует</string>
+    <string name="error_folder_rename">Не удалось переименовать папку</string>
+
     <!-- Search app -->
     <string name="search_app_name">Поиск</string>
     <string name="search_app_hint">Поиск приложений</string>
 
-    <!-- About dialog -->
-    <string name="app_name">Discreet Launcher</string>
-    <string name="author">Vincent Falzon</string>
-    <string name="licence_name">GNU General Public License v3.0</string>
-    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">Предложить улучшения, сообщить о проблемах и поддержать проект на</string>
-    <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit">(Русский перевод от Artur Ajvasjan)</string>
+    <!-- Export and import -->
+    <string name="export_import_help">Эти кнопки позволяют экспортировать данные приложения (избранное, папки, ярлыки и настройки) или импортировать их.</string>
+    <string name="button_export">Экспорт</string>
+    <string name="button_import">Импорт</string>
+    <string name="export_import_header_internal_files">Содержание внутренних текстовых файлов</string>
+    <string name="export_import_header_settings">Настройки</string>
+    <string name="export_import_header_icons">Сохраненные значки</string>
+    <string name="export_import_warning_file_edit">Редактирование этого файла может вызвать проблемы</string>
+    <string name="export_import_warning_shortcuts">(На Android 8 (Oreo) и выше импортированные ярлыки могут не работать. поскольку они управляются системой и не должны экспортироваться)</string>
+    <string name="export_completed">Экспорт завершен</string>
+    <string name="error_export">Не удалось создать файл экспорта</string>
+    <string name="error_import">Не удалось прочитать файл импорта</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_invalid_request">Не удалось добавить это в качестве ярлыка</string>
+    <string name="error_shortcut_missing_info">Не удалось выполнить этот ярлык</string>
+    <string name="error_shortcut_not_default_launcher">Открывать ярлыки может только программа запуска по умолчанию</string>
+    <string name="error_shortcut_start">Система Android не смогла открыть ярлык</string>
+    <string name="error_shortcut_remove">Не удалось удалить файл %1$s</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_interface">Интерфейс</string>
+    <string name="appearance_settings_title_clock">Часы</string>
+    <string name="appearance_settings_title_icon_packs">Пакеты значков</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Цвет:</string>
+    <string name="color_picker_reset">Сброс</string>
+    <string name="color_picker_preview">Предпросмотр</string><!-- (label for a shown preview, not a verb) -->
+    <string name="error_invalid_color_format">Неправильный HEX цвет</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Тема</string>
+    <string-array name="set_application_theme_entries">
+        <item>Светлая</item>
+        <item>Темная</item>
+        <item>Системная</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Формат</string>
+    <string-array name="set_clock_format_entries">
+        <item>Нет (скрыть)</item>
+        <item>24 часа</item>
+        <item>12 часов</item>
+        <item>12 часов + AM/PM</item>
+        <item>Аналоговые</item>
+        <item>Дата и время</item>
+        <item>Полные дата и время</item>
+        <item>Дата без времени</item>
+        <item>Полная дата без времени</item>
+    </string-array>
+
+    <!-- Clock position (double spaces are intentional) -->
+    <string name="set_clock_position">Позиция</string>
+    <string-array name="set_clock_position_entries">
+        <item>Наверху</item>
+        <item>"Наверху  —  Слева"</item>
+        <item>"Наверху  —  Справа"</item>
+        <item>Посередине</item>
+        <item>"Посередине  —  Слева"</item>
+        <item>"Посередине  —  Справа"</item>
+        <item>Внизу</item>
+        <item>"Внизу  —  Слева"</item>
+        <item>"Внизу  —  Справа"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Размер</string>
+    <string-array name="set_clock_size_entries">
+        <item>Маленький</item>
+        <item>Средний</item>
+        <item>Большой</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_transparent_status_bar">Прозрачная строка состояния</string>
+    <string name="set_transparent_status_bar_help">Когда избранное закрыто</string>
+    <string name="set_dark_status_bar_icons">Темные значки строки состояния</string>
+    <string name="set_dark_status_bar_icons_help">Не работает на Android 5 (Lollipop)</string>
+    <string name="set_icon_size">Размер иконок (для планшетов)</string>
+    <string name="set_hide_app_names">Не показывать имена приложений</string>
+    <string name="set_hide_folder_names">Не показывать имена папок</string>
+    <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
+    <string name="set_background_color_favorites">Избранный фон</string>
+    <string name="set_text_color_favorites">Избранный текст</string>
+    <string name="set_background_color_drawer">Фон ящика приложений</string>
+    <string name="set_text_color_drawer">Текст ящика приложений</string>
+    <string name="set_clock_color">Цвет</string>
+    <string name="set_clock_shadow_color">Цвет тени текста</string>
+    <string name="set_icon_pack_primary">Основной</string>
+    <string name="set_icon_pack_secondary">Второй</string>
+    <string name="set_icon_pack_none">Нет (использовать значки по умолчанию)</string>
+    <string name="set_icon_color_filter">Цветовой фильтр на значках</string>
+    <string name="set_icon_color_filter_help">Применяется только к значкам по умолчанию, может использоваться в дополнение к пакетам значков</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_no_icon_pack_installed">Установите несколько из вашего магазина приложений</string>
+    <string name="error_icon_pack_appfilter_not_found">Не удалось найти appfilter.xml в выбранном пакете иконок. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Интерфейс</string>
+    <string name="operation_settings_title_gestures">Жесты главного экрана</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Уведомление для доступа к избранному</string>
+    <string name="set_notification_help">Использует прозрачный значок</string>
+    <string name="notification_text">Избранные</string>
+
+    <!-- Forced orientation -->
+    <string name="set_forced_orientation">Принудительная ориентация</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>Нет</item>
+        <item>Портретная</item>
+        <item>Горизонтальная</item>
+        <item>Перевернутая горизонтальная</item>
+    </string-array>
+
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
+    <string name="set_touch_targets">Цели касания (доступность)</string>
+    <string name="set_touch_targets_help">Нажимаемые ярлыки на главном экране</string>
+    <string name="target_open_favorites">Открыть\nизбранные</string>
+    <string name="target_close_favorites">Закрыть\nизбранные</string>
+    <string name="target_open_apps">Открыть\nприложения</string>
+    <string name="target_close_apps">Закрыть\nприложения</string>
+
+    <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Установить лаунчером по-умолчанию</string>
+    <string name="set_always_show_favorites">Всегда показывать избранное</string>
+    <string name="set_reverse_interface">Обратный интерфейс</string>
+    <string name="set_reverse_interface_help">Приложения выше, а избранное ниже главного экрана</string>
+    <string name="set_immersive_mode">Иммерсивный режим</string>
+    <string name="set_immersive_mode_help">Нет системных панелей. (Можно принудительно включить, долго нажимая на главный экран.)</string>
+    <string name="set_interactive_clock">Интерактивные часы</string>
+    <string name="set_interactive_clock_help">Нажмите на дату, чтобы открыть календарь по-умолчанию, нажмите на время, чтобы открыть выбранное приложение часов.</string>
+    <string name="set_clock_app">Приложение часов</string>
+    <string name="set_no_clock_app">Нет</string>
+    <string name="set_hide_menu_button">Нет кнопки меню</string>
+    <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
+    <string name="set_disable_app_drawer">Нет ящика приложений</string>
+    <string name="set_double_tap">Двойное касание</string>
+    <string name="set_swipe_leftwards">Проведите влево</string>
+    <string name="set_swipe_rightwards">Проведите вправо</string>
+    <string name="set_no_action">Нет действий</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Избранное разблокировано, чтобы сохранить доступ к меню.</string>
+    <string name="error_disable_app_drawer_not_safe">Восстановление ящика приложений для сохранения доступа к меню.</string>
+
+
+    <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
+
+    <string name="help_navigation_title">Навигация</string>
+    <string name="help_navigation">Проведите пальцем вверх от главного экрана, чтобы показать все приложения, и вниз, чтобы вернутсья назад.\n\nПроведите пальцем вниз с главного экрана, чтобы показать избранные приложения, и вверх, чтобы вернуться назад.\n\nНажмите на кнопку меню (при отображении избранного) или иконку лаунчера, чтобы открыть меню.\n\nДлительное удерживание приложения или папки открывает доступ к его настройкам.</string>
+    <string name="help_notification_title">Уведомления</string>
+    <string name="help_notification">Показывает всплывающее окно избранного над другими приложениями при выходе с главного экрана.</string>
+    <string name="help_list_update_title">Обновление списка</string>
+    <string name="help_list_update">При обновлении списка приложений и значков отображается всплывающее сообщение, при запуске, добавлении/удалении приложений, а также при изменении пакета значков.</string>
+    <string name="help_folders_title">Папки</string>
+    <string name="help_folders">Управляйте папками или избранными с помощью кнопки или щелкните на название открытой папки, чтобы создавать, переименовывать и помещать в нее приложения.\nУдаление папок возвращает все находящиеся в них приложения в основной список.</string>
+    <string name="help_search_title">Поиск</string>
+    <string name="help_search">Найдите любое приложение с помощью значка поиска. Его также можно выбрать, чтобы оно было доступно из уведомлений или скрыть.\n\nНажатие \"Enter\" открывает первый результат поиска.</string>
+
+
+    <!-- ========== Changelog ========== -->
+
+    <string name="changelog_mentions">\"@pseudo\" указывает на пользователя, который предложил идею или сообщил об ошибке</string>
+    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
+    <string name="error_changelog_missing_folder">Не удалось найти папку журнала изменений</string>
+    <string name="error_changelog_missing_file">Не удалось открыть %1$s</string>
 
 </resources>

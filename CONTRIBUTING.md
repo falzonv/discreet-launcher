@@ -54,10 +54,7 @@ Before going into the process detail, I should warn you that maintaining a trans
 
 Here is the list of things that should be prepared for a new translation:
 
-- The files below contain all the app strings and have to be copied into a new folder `app/src/main/res/values-<code>/` where `<code>` is the 2-letter locale code for your translation ([see the list of available codes](https://gitlab.com/fdroid/fdroidclient/-/tree/master/app/src/main/res)).
-    - [app/src/main/res/values/strings.xml](https://github.com/falzonv/discreet-launcher/blob/main/app/src/main/res/values/strings.xml) (the string `translation_credit` will be displayed in the About section)
-    - [app/src/main/res/values/strings_help.xml](https://github.com/falzonv/discreet-launcher/blob/main/app/src/main/res/values/strings_help.xml)
-    - [app/src/main/res/values/strings_settings.xml](https://github.com/falzonv/discreet-launcher/blob/main/app/src/main/res/values/strings_settings.xml)
+- The file [app/src/main/res/values/strings.xml](https://github.com/falzonv/discreet-launcher/blob/main/app/src/main/res/values/strings.xml) has to be copied into a new folder `app/src/main/res/values-<code>/` where `<code>` is the 2-letter locale code for your translation ([see the list of available codes](https://gitlab.com/fdroid/fdroidclient/-/tree/master/app/src/main/res)).
 - The files below are for F-Droid metadata and have to be copied into a new folder `fastlane/metadata/android/<code>/` where `<code>` is the 2-letter locale code for your translation ([see the list of available codes](https://gitlab.com/fdroid/fdroidclient/-/tree/master/metadata)).
     - [fastlane/metadata/android/en-US/title.txt](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/title.txt)
     - [fastlane/metadata/android/en-US/short_description.txt](https://github.com/falzonv/discreet-launcher/blob/main/fastlane/metadata/android/en-US/short_description.txt) (limited to 80 characters)

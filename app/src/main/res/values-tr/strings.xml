@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+    <!-- ========== General ========== -->
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Geliştirmeler önerin, sorunları bildirin ve projeyi şurada destekleyin:</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit"> Türkçe dil çevirisi. Adil Oguz tarafından </string>
 
     <!-- Main menu -->
     <string name="menu">Menü</string>
@@ -40,17 +49,205 @@
     <string name="info_display_partially_updated">Ana ekrana döndükten sonra ekran tamamen güncellenecektir</string>
     <string name="error_app_not_found">Bulunamadı \"%1$s\"</string>
 
+    <!-- Favorites -->
+    <string name="button_select_favorites">Favorileri seç</string>
+    <string name="button_sort">Sırala</string>
+    <string name="hint_no_favorites_yet">Favori uygulamalarınızı buraya ekleyin\nmenü düğmesine tıklayarak.</string>
+    <string name="hint_modify_order_of_favorites">Aşağıdaki listedeki favorilerin sırasını değiştirin.</string>
+    <string name="warning_sort_favorites_alphabetically">Mevcut favori sırası alfabetik sıraya göre değiştirilecektir.</string>
+    <string name="favorite_move_before">Önce taşı \"%1$s\"</string>
+    <string name="favorite_move_after">Sonra taşı \"%1$s\"</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">Ekle</string>
+    <string name="button_remove_folder">Kaldır</string>
+    <string name="hint_folder_edit">Değiştirmek için bir klasör adına ve rengini seçmek için simgeye tıklayın. Kalem, klasör içeriğini düzenlemeye izin verir.</string>
+    <string name="hint_new_folder">Yeni klasör</string>
+    <string name="hint_rename_folder">Dosyayı yeniden adlandır</string>
+    <string name="hint_remove_folder">Bir klasörü kaldırmak, içeriğini ana uygulama listesine geri yerleştirir.</string>
+    <string name="error_folder_empty_name">Önce bir isim seç</string>
+    <string name="error_folder_already_exists">Zaten var olmayan bir isim seçin</string>
+    <string name="error_folder_rename">Klasör yeniden adlandırılamadı</string>
+
     <!-- Search app -->
     <string name="search_app_name">Ara</string>
     <string name="search_app_hint">Uygulama ara</string>
 
-    <!-- About dialog -->
-    <string name="app_name">Discreet Launcher</string>
-    <string name="author">Vincent Falzon</string>
-    <string name="licence_name">GNU General Public License v3.0</string>
-    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">Geliştirmeler önerin, sorunları bildirin ve projeyi şurada destekleyin:</string>
-    <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit"> Türkçe dil çevirisi. Adil Oguz tarafından </string>
+    <!-- Export and import -->
+    <string name="export_import_help">Bu düğmeler uygulama verilerinin dışa aktarılmasına izin verir (Favoriler, klasörler, kısayollar ve ayarlar) veya yeniden içe aktarmak için.</string>
+    <string name="button_export">Dışa aktar</string>
+    <string name="button_import">İçe aktar</string>
+    <string name="export_import_header_internal_files">Dahili metin dosyalarının içeriği</string>
+    <string name="export_import_header_settings">Ayarlar</string>
+    <string name="export_import_header_icons">Kaydedilen simgeler</string>
+    <string name="export_import_warning_file_edit">Bu dosyayı düzenlemek sorunlara neden olabilir</string>
+    <string name="export_import_warning_shortcuts">(Android 8 (Oreo) ve sonrasında, içe aktarılan kısayollar sistem tarafından yönetildikleri ve dışa aktarılmamaları gerektiği için çalışmayabilir)</string>
+    <string name="export_completed">Dışa aktarma tamamlandı</string>
+    <string name="error_export">Dışa aktarma dosyası oluşturulamadı</string>
+    <string name="error_import">İçe aktarma dosyası okunamadı</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_invalid_request">Bu klasör olarak eklenemedi</string>
+    <string name="error_shortcut_missing_info">Bu kısayol takip edilemedi</string>
+    <string name="error_shortcut_not_default_launcher">Yalnızca varsayılan başlatıcı kısayolları açabilir</string>
+    <string name="error_shortcut_start">Android sistemi kısayolu açamadı</string>
+    <string name="error_shortcut_remove">Dosya %1$s silinemedi</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_interface">Arayüz</string>
+    <string name="appearance_settings_title_clock">Saat</string>
+    <string name="appearance_settings_title_icon_packs">Simge paketleri</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Temel:</string>
+    <string name="color_picker_reset">Sıfırla</string>
+    <string name="color_picker_preview">Önizleme</string><!-- (label for a shown preview, not a verb) -->
+    <string name="error_invalid_color_format">Geçersiz onaltılık renk</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Tema</string>
+    <string-array name="set_application_theme_entries">
+        <item>Aydınlık</item>
+        <item>Koyu</item>
+        <item>Sistem Varsayılanı</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Biçim</string>
+    <string-array name="set_clock_format_entries">
+        <item>Yok (gizle)</item>
+        <item>24 saat</item>
+        <item>12 saat</item>
+        <item>12 saat + AM/PM</item>
+        <item>Analog</item>
+        <item>Tarih ve saat</item>
+        <item>Tam tarih ve saat</item>
+        <item>Saat olmadan tarih</item>
+        <item>Saat olmadan tam tarih</item>
+    </string-array>
+
+    <!-- Clock position (double spaces are intentional) -->
+    <string name="set_clock_position">Pozisyonu</string>
+    <string-array name="set_clock_position_entries">
+        <item>Üst</item>
+        <item>"Üst  —  Sol"</item>
+        <item>"Üst  —  Sağ"</item>
+        <item>Orta</item>
+        <item>"Orta  —  Sol"</item>
+        <item>"Orta  —  Sağ"</item>
+        <item>Alt</item>
+        <item>"Alt  —  Sol"</item>
+        <item>"Alt  —  Sağ"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Boyutu</string>
+    <string-array name="set_clock_size_entries">
+        <item>Küçük</item>
+        <item>Orta</item>
+        <item>Büyük</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_transparent_status_bar">Şeffaf durum çubuğu</string>
+    <string name="set_transparent_status_bar_help">Favoriler kapatıldığında</string>
+    <string name="set_dark_status_bar_icons">Karanlık durum çubuğu simgeleri</string>
+    <string name="set_dark_status_bar_icons_help">Üzerinde çalışmaz Android 5 (Lollipop)</string>
+    <string name="set_icon_size">Simge boyutu (tabletler için)</string>
+    <string name="set_hide_app_names">Uygulama adı yok</string>
+    <string name="set_hide_folder_names">Klasör adı yok</string>
+    <string name="set_remove_padding">Uygulama adları gizlendiğinde dolgu yok</string>
+    <string name="set_background_color_favorites">Favoriler arka planı</string>
+    <string name="set_text_color_favorites">Favori metin</string>
+    <string name="set_background_color_drawer">Uygulama çekmecesi arka planı</string>
+    <string name="set_text_color_drawer">Uygulama çekmecesi metni</string>
+    <string name="set_clock_color">Renk</string>
+    <string name="set_clock_shadow_color">Metin gölge rengi</string>
+    <string name="set_icon_pack_primary">Birincil</string>
+    <string name="set_icon_pack_secondary">İkincil</string>
+    <string name="set_icon_pack_none">Yok (varsayılan simgeleri kullan)</string>
+    <string name="set_icon_color_filter">Simgelerde renk filtresi</string>
+    <string name="set_icon_color_filter_help">Yalnızca varsayılan simgeler için geçerlidir, simge paketlerine ek olarak kullanılabilir</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_no_icon_pack_installed">Önce uygulama mağazanızdan bazılarını yükleyin</string>
+    <string name="error_icon_pack_appfilter_not_found">Seçilen simge paketinde appfilter.xml bulunamadı. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Arayüz</string>
+    <string name="operation_settings_title_gestures">Ana ekran hareketleri</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Favorilere erişim için bildirim</string>
+    <string name="set_notification_help">Şeffaf bir simge kullanır</string>
+    <string name="notification_text">Favoriler</string>
+
+    <!-- Forced orientation -->
+    <string name="set_forced_orientation">Zorla yönlendirme</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>Hiçbiri</item>
+        <item>Portre</item>
+        <item>Manzara</item>
+        <item>Ters manzara</item>
+    </string-array>
+
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
+    <string name="set_touch_targets">Dokunma hedefleri (erişilebilirlik)</string>
+    <string name="set_touch_targets_help">Ana ekranda tıklanabilir etiketler</string>
+    <string name="target_open_favorites">Açık\nFavoriler</string>
+    <string name="target_close_favorites">Kapalı\nFavoriler</string>
+    <string name="target_open_apps">Açık\nuygulamalar</string>
+    <string name="target_close_apps">Kapat\nuygulamaları</string>
+
+    <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Varsayılan başlatıcı olarak ayarla</string>
+    <string name="set_always_show_favorites">Favorileri her zaman göster</string>
+    <string name="set_reverse_interface">Ters arayüz</string>
+    <string name="set_reverse_interface_help">Yukarıdaki uygulamalar ve ana ekranın altındaki favoriler</string>
+    <string name="set_immersive_mode">Sürükleyici mod</string>
+    <string name="set_immersive_mode_help">Sistem çubuğu yok. (Ana ekrana uzun basarak zorlanabilir.)</string>
+    <string name="set_interactive_clock">Etkileşimli saat</string>
+    <string name="set_interactive_clock_help">Varsayılan takvimi açmak için tarihe tıklayın, seçilen saat uygulamasını açmak için saate tıklayın</string>
+    <string name="set_clock_app">Saat uygulaması</string>
+    <string name="set_no_clock_app">Hiçbiri</string>
+    <string name="set_hide_menu_button">Menü düğmesi yok</string>
+    <string name="set_hide_menu_button_help">Başlatıcı uygulama simgesinden her zaman erişilebilir</string>
+    <string name="set_disable_app_drawer">Uygulama çekmecesi yok</string>
+    <string name="set_double_tap">Çift-dokun</string>
+    <string name="set_swipe_leftwards">Sola kaydır</string>
+    <string name="set_swipe_rightwards">Sağa kaydır</string>
+    <string name="set_no_action">Eylem yok</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Menü erişimini korumak için sık kullanılanların kilidi açıldı.</string>
+    <string name="error_disable_app_drawer_not_safe">Menü erişimini korumak için uygulama çekmecesini yeniden etkinleştirme.</string>
+
+
+    <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
+
+    <string name="help_navigation_title">Navigasyon</string>
+    <string name="help_navigation">Tüm uygulamaları göstermek için ana ekrandan yukarı, geri gitmek için aşağı kaydırın.\n\nFavorileri göstermek için ana ekrandan aşağı, geri gitmek için yukarı kaydırın.\n\nMenüyü açmak için menü düğmesine (favorileri gösterirken) veya başlatıcı simgesine tıklayın.\n\nAyarlarına erişmek için bir uygulamayı veya klasörü uzun süre basılı tutun.</string>
+    <string name="help_notification_title">Bildirim</string>
+    <string name="help_notification">Ana ekrandan çıktığınızda diğer uygulamaların üzerinde sık kullanılanların bir açılır penceresini gösterir.</string>
+    <string name="help_list_update_title">Liste güncellemesi</string>
+    <string name="help_list_update">Uygulama listesini ve simgelerini yenilerken, uygulamaları başlatırken, eklerken veya kaldırırken ya da simge paketi değiştirilirken bir açılır mesaj gösterilir.</string>
+    <string name="help_folders_title">Klasörler</string>
+    <string name="help_folders">Menü düğmesinden klasörleri yönetin veya favorilere ekleyin veya açık bir klasörün başlığına tıklayın uygulamalar oluşturmak, yeniden adlandırmak ve yerleştirmek için.\nKlasörlerin kaldırılması, içindeki tüm uygulamaları ana listeye geri getirir.</string>
+    <string name="help_search_title">Ara</string>
+    <string name="help_search">Arama simgesinden herhangi bir uygulamayı bulun. Ayrıca kullanılabilir olması için favorilere de eklenebilir bildirimden veya gizli.\n\nTuşuna \"Enter\" basıldığında ilk arama sonucu açılır.</string>
+
+
+    <!-- ========== Changelog ========== -->
+
+    <string name="changelog_mentions">\"@pseudo\" fikri öneren veya hatayı bildiren kullanıcıyı gösterir</string>
+    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
+    <string name="error_changelog_missing_folder">Değişiklik günlüğü klasörü bulunamadı</string>
+    <string name="error_changelog_missing_file">Açılamadı %1$s</string>
 
 </resources>

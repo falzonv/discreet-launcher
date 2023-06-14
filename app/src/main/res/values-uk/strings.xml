@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+    <!-- ========== General ========== -->
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Запропонувати покращення, повідомити про ваду, а також підтримати проєкт, можна на сторінці</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">(Український переклад від Maksym Bilak)</string>
 
     <!-- Main menu -->
     <string name="menu">Меню</string>
@@ -40,17 +49,205 @@
     <string name="info_display_partially_updated">Після повернення на головний екран, його вміст буде повністю оновлено</string>
     <string name="error_app_not_found">Не вдалося знайти \"%1$s\"</string>
 
+    <!-- Favorites -->
+    <string name="button_select_favorites">Вибрати застосунки</string>
+    <string name="button_sort">Сортувати</string>
+    <string name="hint_no_favorites_yet">Натиснувши кнопку, меню,\nдодайте сюди ваші улюблені застосунки.</string>
+    <string name="hint_modify_order_of_favorites">Впорядкуйте обране нижче.</string>
+    <string name="warning_sort_favorites_alphabetically">Обране буде впорядковано за абеткою.</string>
+    <string name="favorite_move_before">Розташувати перед \"%1$s\"</string>
+    <string name="favorite_move_after">Розташувати після \"%1$s\"</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">Додати</string>
+    <string name="button_remove_folder">Видалити</string>
+    <string name="hint_folder_edit">Торкніться назви теки, щоб перейменувати її, чи піфтограми, щоб вибрати її колір. Пензлик надає змогу редагувати вміст теки.</string>
+    <string name="hint_new_folder">Нова тека</string>
+    <string name="hint_rename_folder">Перейменувати теку</string>
+    <string name="hint_remove_folder">Вміст вилучених тек повертається до основного списку застосунків.</string>
+    <string name="error_folder_empty_name">Вкажіть назву</string>
+    <string name="error_folder_already_exists">Оберіть назву, якої ще не існує</string>
+    <string name="error_folder_rename">Невдалося перейменувати теку</string>
+
     <!-- Search app -->
     <string name="search_app_name">Пошук</string>
     <string name="search_app_hint">Пошук застосунків</string>
 
-    <!-- About dialog -->
-    <string name="app_name">Discreet Launcher</string>
-    <string name="author">Vincent Falzon</string>
-    <string name="licence_name">GNU General Public License v3.0</string>
-    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">Запропонувати покращення, повідомити про ваду, а також підтримати проєкт, можна на сторінці</string>
-    <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit">(Український переклад від Maksym Bilak)</string>
+    <!-- Export and import -->
+    <string name="export_import_help">Ці кнопки дозволяють експортувати дані застосунку (обране, теки, ярлики й налаштування), а також знову імпортувати їх.</string>
+    <string name="button_export">Експорт</string>
+    <string name="button_import">Імпорт</string>
+    <string name="export_import_header_internal_files">Вміст внутрішніх текстових файлів</string>
+    <string name="export_import_header_settings">Налаштування</string>
+    <string name="export_import_header_icons">Збережені піфтограми</string>
+    <string name="export_import_warning_file_edit">Редагування цього файлу може спричинити проблеми</string>
+    <string name="export_import_warning_shortcuts">(На Android 8 (Oreo) і вище, імпортовані ярлики можуть не працювати, оскільки вони керовані системою, і неможуть бути експортовані)</string>
+    <string name="export_completed">Експорт виконано</string>
+    <string name="error_export">Не вдалося створити файл експорту</string>
+    <string name="error_import">Не вдалося прочитати файл імпорту</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_invalid_request">Не вдалося додати ярлик</string>
+    <string name="error_shortcut_missing_info">Не вдалося відкрити цей ярлик</string>
+    <string name="error_shortcut_not_default_launcher">Опрацьовувати ярлики, може лише запускач за замовчуванням</string>
+    <string name="error_shortcut_start">Системі Android не вдалося відкрити ярлик</string>
+    <string name="error_shortcut_remove">Не вдалося видалити файл %1$s</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_interface">Зовнішній вигляд</string>
+    <string name="appearance_settings_title_clock">Годинник</string>
+    <string name="appearance_settings_title_icon_packs">Пакунки піфтограм</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Колір:</string>
+    <string name="color_picker_reset">Скинути</string>
+    <string name="color_picker_preview">Попередній перегляд</string><!-- (label for a shown preview, not a verb) -->
+    <string name="error_invalid_color_format">Недійсний шістнадцятковий код кольору</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Тема</string>
+    <string-array name="set_application_theme_entries">
+        <item>Світла</item>
+        <item>Темна</item>
+        <item>Системна</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Формат</string>
+    <string-array name="set_clock_format_entries">
+        <item>Немає (приховати)</item>
+        <item>24 години</item>
+        <item>12 годин</item>
+        <item>12 годин + AM/PM</item>
+        <item>Аналоговий</item>
+        <item>Дата та час</item>
+        <item>Повна дата та час</item>
+        <item>Лише дата</item>
+        <item>Лише повна дата</item>
+    </string-array>
+
+    <!-- Clock position (double spaces are intentional) -->
+    <string name="set_clock_position">Розташування</string>
+    <string-array name="set_clock_position_entries">
+        <item>Вгорі</item>
+        <item>"Вгорі  —  Ліворуч"</item>
+        <item>"Вгорі  —  Праворуч"</item>
+        <item>Посередині</item>
+        <item>"Посередині  —  Ліворуч"</item>
+        <item>"Посередині  —  Праворуч"</item>
+        <item>Внизу</item>
+        <item>"Внизу  —  Ліворуч"</item>
+        <item>"Внизу  —  Праворуч"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Розмір</string>
+    <string-array name="set_clock_size_entries">
+        <item>Маленький</item>
+        <item>Середній</item>
+        <item>Великий</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_transparent_status_bar">Прозорий рядок стану</string>
+    <string name="set_transparent_status_bar_help">Коли обране приховано</string>
+    <string name="set_dark_status_bar_icons">Темні піфтограми рядка стану</string>
+    <string name="set_dark_status_bar_icons_help">Не працює на Android 5 (Lollipop)</string>
+    <string name="set_icon_size">Розмір піфтограми (для планшетів)</string>
+    <string name="set_hide_app_names">Приховати назви застосунків</string>
+    <string name="set_hide_folder_names">Приховувати назви тек</string>
+    <string name="set_remove_padding">Якщо назви застосунків приховано, відступи не відображатимуться</string>
+    <string name="set_background_color_favorites">Обране тло</string>
+    <string name="set_text_color_favorites">Обраний текст</string>
+    <string name="set_background_color_drawer">Тло шухляди застосунків</string>
+    <string name="set_text_color_drawer">Текст шухляди застосунків</string>
+    <string name="set_clock_color">Колір</string>
+    <string name="set_clock_shadow_color">Колір тіні тексту</string>
+    <string name="set_icon_pack_primary">Основний</string>
+    <string name="set_icon_pack_secondary">Додатковий</string>
+    <string name="set_icon_pack_none">Немає (використовувати піфтограми за замовчуванням)</string>
+    <string name="set_icon_color_filter">Фільтр кольору на піфтограмах</string>
+    <string name="set_icon_color_filter_help">Застосовується до піфтограм за замовчуванням, може використовуватися на додачу до пакунків піфтограм</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_no_icon_pack_installed">Спершу встановіть які-небудь із вашої крамниці застосунків</string>
+    <string name="error_icon_pack_appfilter_not_found">Не вдалося знайти appfilter.xml у вибраному пакунку піфтограм. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Інтерфейс</string>
+    <string name="operation_settings_title_gestures">Жести головного екрана</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Сповіщення для доступу до обраних застосунків</string>
+    <string name="set_notification_help">Використовується прозора піфтограма</string>
+    <string name="notification_text">Обране</string>
+
+    <!-- Forced orientation -->
+    <string name="set_forced_orientation">Примусова орієнтація</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>Немає</item>
+        <item>Портретна</item>
+        <item>Ландшафтна</item>
+        <item>Зворотня ландшафтна</item>
+    </string-array>
+
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
+    <string name="set_touch_targets">Цілі для дотику (доступність)</string>
+    <string name="set_touch_targets_help">Доступні для активації ярлики на головному екрані</string>
+    <string name="target_open_favorites">Показати\nобране</string>
+    <string name="target_close_favorites">Приховати\nобране</string>
+    <string name="target_open_apps">Показати\nзастосунки</string>
+    <string name="target_close_apps">Закрити\nзастосунки</string>
+
+    <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Запускач за замовчуванням</string>
+    <string name="set_always_show_favorites">Завжди показувати обране</string>
+    <string name="set_reverse_interface">Зворотній інтерфейс</string>
+    <string name="set_reverse_interface_help">Застосунки — вище, а обране — нижче головного екрана</string>
+    <string name="set_immersive_mode">Режем занурення</string>
+    <string name="set_immersive_mode_help">Відсутні системні панелі. (можна примусово ввімкнути, довгим натисканням на головний екран.)</string>
+    <string name="set_interactive_clock">Інтерактивний годинник</string>
+    <string name="set_interactive_clock_help">Торкніться дати, щоб відкрити календар за замовчуванням. Торкніться часу, щоб відкрити обраний застосунок годинника.</string>
+    <string name="set_clock_app">Застосунок годинника</string>
+    <string name="set_no_clock_app">Немає</string>
+    <string name="set_hide_menu_button">Приховати кнопку меню</string>
+    <string name="set_hide_menu_button_help">Меню завжди доступне через піфтограму запускача</string>
+    <string name="set_disable_app_drawer">Приховати шухляду застосунків</string>
+    <string name="set_double_tap">Подвійний дотик</string>
+    <string name="set_swipe_leftwards">Проведіть вліво</string>
+    <string name="set_swipe_rightwards">Проведіть вправо</string>
+    <string name="set_no_action">Не призначено</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Обране розблоковано, щоб уможливити доступ до меню.</string>
+    <string name="error_disable_app_drawer_not_safe">Шухляду застосунків відновлено, щоб уможливити доступ до меню.</string>
+
+
+    <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
+
+    <string name="help_navigation_title">Навігація</string>
+    <string name="help_navigation">Проведіть пальцем вгору від головного екрана, щоб відкрити список застосунків. Проведіть пальцем вниз, щоб повернутися назад.\n\nПроведіть пальцем вниз від головного екрана, щоб відкрити обране. Проведіль пальцем вгору, щоб повернутися назад.\n\nНатисніть кнопку меню (коли відображається обране) чи піфтограму запускача, щоб відкрити меню.\n\nДовго утримуйте застосунок чи теку, щоб отримати доступ до відповідних налаштувань.</string>
+    <string name="help_notification_title">Сповіщення</string>
+    <string name="help_notification">Коли ви залишаєте головний екран, над іншими застосунками відображається спливаюче вікно обраних застосунків.</string>
+    <string name="help_list_update_title">Оновлення списку</string>
+    <string name="help_list_update">Під час оновлення списку застосунків і піфтограм, а також під час запуску, видалення й додавання застосунків, або якщо пакунок піфтограм було змінено, відображається спливаюче повідомлення.</string>
+    <string name="help_folders_title">Теки</string>
+    <string name="help_folders">За допомогою кнопки меню, керуйте теками чи обраним, або торкніться назви відкритої теки, щоб створити, перейменувати чи додати донеї застосунки.\nВсі застосунки з видалених тек повертаються назад, до основного списку.</string>
+    <string name="help_search_title">Пошук</string>
+    <string name="help_search">Використовуйте піфтограму пошуку, щоб знайти будь-який застосунок. Також  можна її обрати, щоб вона була доступною зі сповіщень, чи приховати.\n\nНатискання «Ентер» відкриває перший результат пошуку.</string>
+
+
+    <!-- ========== Changelog ========== -->
+
+    <string name="changelog_mentions">\"@pseudo\" вказує на користувача, який запропонував ідею, чи повідомив про ваду</string>
+    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
+    <string name="error_changelog_missing_folder">Не вдалося знайти теку журналу змін</string>
+    <string name="error_changelog_missing_file">Не вдалося відкрити %1$s</string>
 
 </resources>

@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- ========== General ========== -->
+
+    <!-- About dialog -->
+    <string name="app_name">Diskret oppstarter</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GPLv3+</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Foreslå forbedringer, innrapporter feil, og støtt prosjektet på</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">(Norsk oversettelse ved Allan Nordhøy,\nepost@anotheragency.no)</string>
+
+    <!-- Main menu -->
+    <string name="menu">Meny</string>
+    <string name="menu_favorites">Favoritter</string>
+    <string name="menu_folders">Mapper</string>
+    <string name="menu_hidden_apps">Skjulte programmer</string>
+    <string name="menu_refresh_list_apps">Gjenoppfrisk programlisten</string>
+    <string name="menu_settings_appearance">Utseende</string>
+    <string name="menu_settings_operation">Bruk</string>
+    <string name="menu_export_import">Eksport og import</string>
+    <string name="menu_help">Hjelp</string>
+    <string name="menu_about">Om</string>
+    <string name="menu_changelog">Endringslogg</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">Hva ønsker du å gjøre?</string>
+    <string name="long_click_open">Åpne «%1$s»</string>
+    <string name="long_click_settings">Vis til dens innstillinger</string>
+    <string name="long_click_view_store">Vis butikksiden</string>
+    <string name="long_click_rename">Gi nytt navn</string>
+    <string name="long_click_add_favorites">Legg til som favoritt</string>
+    <string name="long_click_remove_favorites">Fjern fra favoritter</string>
+    <string name="long_click_add_folder">Legg til i en mappe</string>
+    <string name="long_click_remove_folder">Fjern fra «%1$s»-mappe</string>
+    <string name="long_click_hide_search">Skjul</string>
+    <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">Bruk</string>
+    <string name="button_cancel">Avbryt</string>
+    <string name="button_close">Lukk</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">Programliste gjenoppfrisket</string>
+    <string name="info_favorites_refreshed">Nye favoritter i bruk</string>
+    <string name="info_display_partially_updated">Skjermen vil bli oppdatert fullstendig etter at du går tilbake til hjemmeskjermen</string>
+    <string name="error_app_not_found">Fant ikke «%1$s»</string>
+
     <!-- Favorites -->
     <string name="button_select_favorites">Velg favoritter</string>
     <string name="button_sort">Sorter</string>
@@ -13,16 +61,17 @@
     <!-- Folders -->
     <string name="button_new_folder">Legg til</string>
     <string name="button_remove_folder">Fjern</string>
-    <string name="hint_folder_edit">
-        Klikk på navnet til en mappe for å endre det, og på ikonet for å endre farge.
-        Pennen lar deg redigere mappeinnholdet.
-    </string>
+    <string name="hint_folder_edit">Klikk på navnet til en mappe for å endre det, og på ikonet for å endre farge. Pennen lar deg redigere mappeinnholdet.</string>
     <string name="hint_new_folder">Ny mappe</string>
     <string name="hint_rename_folder">Gi mappen nytt navn</string>
     <string name="hint_remove_folder">Fjerning av en mappe legger dens innhold tilbake i hovedprogramlisten.</string>
     <string name="error_folder_empty_name">Du må velge et navn.</string>
     <string name="error_folder_already_exists">Velg et navn som ikke finnes allerede.</string>
     <string name="error_folder_rename">Kunne ikke gi mappen nytt navn</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">Søk</string>
+    <string name="search_app_hint">Programsøk</string>
 
     <!-- Export and import -->
     <string name="export_import_help">Disse knappene lar deg eksportere programdataen (favoritter, snarveier, og innstillinger) eller importere dem igjen.</string>
@@ -32,10 +81,7 @@
     <string name="export_import_header_settings">Innstillinger</string>
     <string name="export_import_header_icons">Lagrede ikoner</string>
     <string name="export_import_warning_file_edit">Endring av denne filen kan lage problemer.</string>
-    <string name="export_import_warning_shortcuts">
-        (På Android 8 (Oreo) og høyere, kan det hende nettprogrammer ikke virker,
-        fordi de håndteres av systemet og ikke er ment å eksporteres)
-    </string>
+    <string name="export_import_warning_shortcuts">(På Android 8 (Oreo) og høyere, kan det hende nettprogrammer ikke virker, fordi de håndteres av systemet og ikke er ment å eksporteres)</string>
     <string name="export_completed">Eksportert</string>
     <string name="error_export">Kunne ikke opprette eksportfil</string>
     <string name="error_import">Kunne ikke lese importfilen</string>
@@ -181,5 +227,27 @@
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Favoritter opplåst for å beholde menytilgang.</string>
     <string name="error_disable_app_drawer_not_safe">Legger inn programkurven igjen for å beholde menytilgang.</string>
+
+
+    <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
+
+    <string name="help_navigation_title">Navigasjon</string>
+    <string name="help_navigation">Dra oppover fra hjemmeskjermen for å vise alle programmer, og ned for å gå tilbake.\n\nDra nedover fra hjemmeskjermen for å vise favoritter, og opp for å gå tilbake.\n\nTrykk på menyknappen (når du viser favoritter) eller oppstarterikonet for å åpne menyen.\n\nKlikk-hold et program eller en mappe for å vise respektive innstillinger.</string>
+    <string name="help_notification_title">Merknad</string>
+    <string name="help_notification">Viser et oppsprett av favoritter over andre programmer når du forlater hjemmeskjermen.</string>
+    <string name="help_list_update_title">Listegjenoppfriskning</string>
+    <string name="help_list_update">En oppsprettsmelding vises ved gjenoppfrisking av programlisten og ikoner, når et program legges til eller fjernes, og når ikonpakken endres).</string>
+    <string name="help_folders_title">Mapper</string>
+    <string name="help_folders">Håndter mapper eller favorittmerk dem med menyknappen, eller klikk på tittelfeltet til en åpen mappe for å opprette, gi nytt navn, eller putte programmer i den.\nFjerning av mapper putter alle programmer i dem tilbake i hovedlisten.</string>
+    <string name="help_search_title">Søk</string>
+    <string name="help_search">Finn ethvert program med søkeikonet. Det kan også favorittmerkes for å være tilgjengelig fra merknaden, eller skjules.\n\nTrykk \"Enter\" for å åpne første søkeresultat.</string>
+
+
+    <!-- ========== Changelog ========== -->
+
+    <string name="changelog_mentions">\"@pseudo\" indikerer brukeren som foreslo idéen eller rapporterte feilen</string>
+    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
+    <string name="error_changelog_missing_folder">Kunne ikke finne endringsloggmappen.</string>
+    <string name="error_changelog_missing_file">Kunne ikke åpne %1$s.</string>
 
 </resources>

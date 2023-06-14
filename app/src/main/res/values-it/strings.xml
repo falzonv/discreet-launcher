@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+    <!-- ========== General ========== -->
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">Suggerisci miglioramenti, segnala problemi, e supporta il progetto su</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">Traduzione italiana di Rhapsodizer</string>
 
     <!-- Main menu -->
     <string name="menu">Menu</string>
@@ -40,17 +49,205 @@
     <string name="info_display_partially_updated">La visualizzazione sarà completamente aggiornata dopo essere tornati alla schermata principale</string>
     <string name="error_app_not_found">Impossibile trovare \"%1$s\"</string>
 
+    <!-- Favorites -->
+    <string name="button_select_favorites">Seleziona i preferiti</string>
+    <string name="button_sort">Ordina</string>
+    <string name="hint_no_favorites_yet">Aggiungi le tue applicazioni preferite qui\npremendo il pulsante menu.</string>
+    <string name="hint_modify_order_of_favorites">Modifica l\'ordine dei tuoi preferiti qui sotto.</string>
+    <string name="warning_sort_favorites_alphabetically">L\'ordinamento corrente dei preferiti sarà rimpiazzato da quello alfabetico.</string>
+    <string name="favorite_move_before">Sposta prima di \"%1$s\"</string>
+    <string name="favorite_move_after">Sposta dopo \"%1$s\"</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">Aggiungi</string>
+    <string name="button_remove_folder">Rimuovi</string>
+    <string name="hint_folder_edit">Premi sul nome di una cartella per cambiarlo, e sull\'icona per scegliere il colore. La penna permette di modificare il contenuto della cartella.</string>
+    <string name="hint_new_folder">Nuova cartella</string>
+    <string name="hint_rename_folder">Rinomina cartella</string>
+    <string name="hint_remove_folder">Rimuovere una cartella sposta il suo contenuto all\'interno della lista principale delle applicazioni.</string>
+    <string name="error_folder_empty_name">Prima scegli un nome</string>
+    <string name="error_folder_already_exists">Scegli un nome che non esiste già</string>
+    <string name="error_folder_rename">Impossibile rinominare la cartella</string>
+
     <!-- Search app -->
     <string name="search_app_name">Cerca</string>
     <string name="search_app_hint">Cerca applicazioni</string>
 
-    <!-- About dialog -->
-    <string name="app_name">Discreet Launcher</string>
-    <string name="author">Vincent Falzon</string>
-    <string name="licence_name">GNU General Public License v3.0</string>
-    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">Suggerisci miglioramenti, segnala problemi, e supporta il progetto su</string>
-    <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit">Traduzione italiana di Rhapsodizer</string>
+    <!-- Export and import -->
+    <string name="export_import_help">Questi pulsanti permettono di esportare i dati dell\'applicazione (preferiti, cartelle, scorciatoie e impostazioni) o importarli nuovamente.</string>
+    <string name="button_export">Esporta</string>
+    <string name="button_import">Importa</string>
+    <string name="export_import_header_internal_files">Contenuto dei file di testo interni</string>
+    <string name="export_import_header_settings">Impostazioni</string>
+    <string name="export_import_header_icons">Icone salvate</string>
+    <string name="export_import_warning_file_edit">Modificare questo file potrebbe causare problemi</string>
+    <string name="export_import_warning_shortcuts">(In Android 8 (Oreo) e superiori, le scorciatoie importate potrebbero non funzionare perché sono gestite dal sistema e non dovrebbero essere esportate)</string>
+    <string name="export_completed">Esportazione completata</string>
+    <string name="error_export">Impossibile creare il file di esportazione</string>
+    <string name="error_import">Impossibile leggere il file di importazione</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_invalid_request">Impossibile aggiungere come scorciatoia</string>
+    <string name="error_shortcut_missing_info">Impossibile aprire questa scorciatoia</string>
+    <string name="error_shortcut_not_default_launcher">Solamente il launcher predefinito può aprire le scorciatoie</string>
+    <string name="error_shortcut_start">Il sistema Android non può aprire la scorciatoia</string>
+    <string name="error_shortcut_remove">Impossibile eliminare il file %1$s</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_interface">Interfaccia</string>
+    <string name="appearance_settings_title_clock">Orologio</string>
+    <string name="appearance_settings_title_icon_packs">Pacchetti icone</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">Base:</string>
+    <string name="color_picker_reset">Reimpostare</string>
+    <string name="color_picker_preview">Anteprima</string><!-- (label for a shown preview, not a verb) -->
+    <string name="error_invalid_color_format">Colore esadecimale non valido</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">Tema</string>
+    <string-array name="set_application_theme_entries">
+        <item>Chiaro</item>
+        <item>Scuro</item>
+        <item>Preferenza di sistema</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">Formato</string>
+    <string-array name="set_clock_format_entries">
+        <item>Nessuno (nascosto)</item>
+        <item>24 ore</item>
+        <item>12 ore</item>
+        <item>12 ore + AM/PM</item>
+        <item>Analogico</item>
+        <item>Data e ora</item>
+        <item>Data e ora complete</item>
+        <item>Data senza ora</item>
+        <item>Data completa senza ora</item>
+    </string-array>
+
+    <!-- Clock position (double spaces are intentional) -->
+    <string name="set_clock_position">Posizione</string>
+    <string-array name="set_clock_position_entries">
+        <item>In alto</item>
+        <item>"In alto  —  A sinistra"</item>
+        <item>"In alto  —  A destra"</item>
+        <item>Centrato</item>
+        <item>"Centrato  —  A sinistra"</item>
+        <item>"Centrato  —  A destra"</item>
+        <item>In basso</item>
+        <item>"In basso  —  A sinistra"</item>
+        <item>"In basso  —  A destra"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">Dimensione</string>
+    <string-array name="set_clock_size_entries">
+        <item>Piccolo</item>
+        <item>Medio</item>
+        <item>Grande</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_transparent_status_bar">Barra di stato trasparente</string>
+    <string name="set_transparent_status_bar_help">Quando i preferiti vengono chiusi</string>
+    <string name="set_dark_status_bar_icons">Icone scure nella barra di stato</string>
+    <string name="set_dark_status_bar_icons_help">Non funziona su Android 5 (Lollipop)</string>
+    <string name="set_icon_size">Dimensioni icone (per tablet)</string>
+    <string name="set_hide_app_names">Niente nomi delle applicazioni</string>
+    <string name="set_hide_folder_names">Niente nomi delle cartelle</string>
+    <string name="set_remove_padding">Nessuna spaziatura quando i nomi delle applicazioni sono nascosti</string>
+    <string name="set_background_color_favorites">Sfondo dei preferiti</string>
+    <string name="set_text_color_favorites">Testo dei preferiti</string>
+    <string name="set_background_color_drawer">Sfondo della lista principale app</string>
+    <string name="set_text_color_drawer">Testo della lista principale app</string>
+    <string name="set_clock_color">Colore</string>
+    <string name="set_clock_shadow_color">Colore dell\'ombreggiatura testo</string>
+    <string name="set_icon_pack_primary">Primario</string>
+    <string name="set_icon_pack_secondary">Secondario</string>
+    <string name="set_icon_pack_none">Nessuno (usa icone predefinite)</string>
+    <string name="set_icon_color_filter">Filtro colore sulle icone</string>
+    <string name="set_icon_color_filter_help">Si applica solo alle icone predefinite, può essere usato con i pacchetti icone.</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_no_icon_pack_installed">Prima installane qualcuno dal tuo app store</string>
+    <string name="error_icon_pack_appfilter_not_found">Impossibile trovare appfilter.xml nel pacchetto icone selezionato. (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">Interfaccia</string>
+    <string name="operation_settings_title_gestures">Gesti della schermata principale</string>
+
+    <!-- Notification -->
+    <string name="set_notification">Notifica per l\'accesso ai preferiti</string>
+    <string name="set_notification_help">Usa un\'icona trasparente</string>
+    <string name="notification_text">Preferiti</string>
+
+    <!-- Forced orientation -->
+    <string name="set_forced_orientation">Orientamento forzato</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>Nessuno</item>
+        <item>Verticale</item>
+        <item>Orizzontale</item>
+        <item>Orizzontale invertito</item>
+    </string-array>
+
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
+    <string name="set_touch_targets">Elementi premibili (accessibilità)</string>
+    <string name="set_touch_targets_help">Elementi premibili sulla schermata principale</string>
+    <string name="target_open_favorites">Apri\npreferiti</string>
+    <string name="target_close_favorites">Chiudi\npreferiti</string>
+    <string name="target_open_apps">Apri\napplicazioni</string>
+    <string name="target_close_apps">Chiudi\napplicazioni</string>
+
+    <!-- Other operation settings -->
+    <string name="set_as_default_launcher">Imposta come launcher predefinito</string>
+    <string name="set_always_show_favorites">Visualizza sempre i preferiti</string>
+    <string name="set_reverse_interface">Interfaccia invertita</string>
+    <string name="set_reverse_interface_help">Applicazioni in alto, e preferiti in basso nella schermata principale</string>
+    <string name="set_immersive_mode">Modalità immersiva</string>
+    <string name="set_immersive_mode_help">Nessuna barra di sistema. (Può essere forzata tenendo premuta la schermata principale.)</string>
+    <string name="set_interactive_clock">Orologio interattivo</string>
+    <string name="set_interactive_clock_help">Premi sulla data per aprire il calendario predefinito, premi sull\'orario per aprire l\'applicazione orologio</string>
+    <string name="set_clock_app">Applicazione orologio</string>
+    <string name="set_no_clock_app">Nessuna</string>
+    <string name="set_hide_menu_button">Nessun pulsante menu</string>
+    <string name="set_hide_menu_button_help">Sempre accessibile dall\'icona del lanciatore</string>
+    <string name="set_disable_app_drawer">Nessuna lista principale delle applicazioni</string>
+    <string name="set_double_tap">Doppio tocco</string>
+    <string name="set_swipe_leftwards">Trascina verso sinistra</string>
+    <string name="set_swipe_rightwards">Trascina verso destra</string>
+    <string name="set_no_action">Nessuna azione</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">Preferiti sbloccati per mantenere l\'accesso al menu.</string>
+    <string name="error_disable_app_drawer_not_safe">Reintegrazione della lista principale applicazioni per mantenere l\'accesso al menu.</string>
+
+
+    <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
+
+    <string name="help_navigation_title">Navigazione</string>
+    <string name="help_navigation">Trascina in alto la schermata principale per mostrare tutte le applicazioni, e in basso per tornare indietro.\n\nTrascina in basso la schermata principale per mostrare i preferiti, e in alto per tornare indietro.\n\nPremi il punsante menu (quando sono visualizzati i preferiti) o l\'icona del lanciatore per aprire il menu.\n\nTieni premuta un\'applicazione o una cartella per accedere alle sue impostazioni.</string>
+    <string name="help_notification_title">Notifica</string>
+    <string name="help_notification">Mostra un pop-up permanente dei preferiti al di sopra delle altre applicazioni quando lasci la schermata principale.</string>
+    <string name="help_list_update_title">Aggiornamento della lista</string>
+    <string name="help_list_update">Viene visualizzato un messaggio pop-up quando la lista delle applicazioni e le icone vengono aggiornate, quando le applicazioni vengono avviate, aggiunte o rimosse, oppure se il pacchetto icone viene modificato.</string>
+    <string name="help_folders_title">Cartelle</string>
+    <string name="help_folders">Gestisci le cartelle o aggiungile ai preferiti dal pulsante menu, oppure clicca il titolo di una cartella aperta per creare, rinominare, e inserirci applicazioni.\nRimuovere cartelle ricolloca tutte le applicazioni contenute nella lista principale.</string>
+    <string name="help_search_title">Cerca</string>
+    <string name="help_search">Trova qualsiasi applicazione tramite l\'icona cerca. Può anche essere inserita tra i preferiti in modo da essere disponibile nella notifica permanente, oppure nascosta.\n\nPremere \"Invio\" apre il primo risultato di ricerca.</string>
+
+
+    <!-- ========== Changelog ========== -->
+
+    <string name="changelog_mentions">\"@pseudo\" indica l\'utente che ha suggerito l\'idea o che ha segnalato il bug</string>
+    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
+    <string name="error_changelog_missing_folder">Impossibile trovare la cartella del registro dei cambiamenti</string>
+    <string name="error_changelog_missing_file">Impossibile aprire %1$s</string>
 
 </resources>

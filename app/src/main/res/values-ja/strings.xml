@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Note: other strings are in "strings_help.xml" and "strings_settings.xml" -->
+    <!-- ========== General ========== -->
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">このアプリ関する改善提案や問題点の報告、プロジェクトへのサポートなど</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="translation_credit">(Npepperlinuxによる日本語翻訳)</string>
 
     <!-- Main menu -->
     <string name="menu">メニュー</string>
@@ -40,17 +49,205 @@
     <string name="info_display_partially_updated">ホーム画面に戻った後に表示が更新されます</string>
     <string name="error_app_not_found">\"%1$s\"が見つかりませんでした</string>
 
+    <!-- Favorites -->
+    <string name="button_select_favorites">お気に入りを選択</string>
+    <string name="button_sort">並び替え</string>
+    <string name="hint_no_favorites_yet">メニューボタンをクリックして、\nお気に入りのアプリをここに追加してください。</string>
+    <string name="hint_modify_order_of_favorites">以下でお気に入りの順番を変更してください。</string>
+    <string name="warning_sort_favorites_alphabetically">現在のお気に入り順から、アルファベット順に変更されます。</string>
+    <string name="favorite_move_before">\"%1$s\"の前へ移動</string>
+    <string name="favorite_move_after">\"%1$s\"の後へ移動</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">追加</string>
+    <string name="button_remove_folder">削除</string>
+    <string name="hint_folder_edit">フォルダ名をタップすると変更でき、アイコンをクリックすると色を選べます。 ペンをタップしてフォルダーの内容を編集することができます。</string>
+    <string name="hint_new_folder">新しいフォルダ</string>
+    <string name="hint_rename_folder">フォルダ名の変更</string>
+    <string name="hint_remove_folder">フォルダを削除すると、その内容はアプリ一覧に戻されます。</string>
+    <string name="error_folder_empty_name">最初に名前を決めてください。</string>
+    <string name="error_folder_already_exists">既存のフォルダ名でないものを選んでください</string>
+    <string name="error_folder_rename">フォルダ名を変更できませんでした</string>
+
     <!-- Search app -->
     <string name="search_app_name">検索</string>
     <string name="search_app_hint">アプリから検索</string>
 
-    <!-- About dialog -->
-    <string name="app_name">Discreet Launcher</string>
-    <string name="author">Vincent Falzon</string>
-    <string name="licence_name">GNU General Public License v3.0</string>
-    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">このアプリ関する改善提案や問題点の報告、プロジェクトへのサポートなど</string>
-    <string name="website_link">https://vincent-falzon.com</string>
-    <string name="translation_credit">(Npepperlinuxによる日本語翻訳)</string>
+    <!-- Export and import -->
+    <string name="export_import_help">アプリのデータ（お気に入り、フォルダ、ショートカット、設定）をエクスポートしたり、再度インポートしたりすることができます</string>
+    <string name="button_export">エクスポート</string>
+    <string name="button_import">インポート</string>
+    <string name="export_import_header_internal_files">内部のテキストファイルの内容</string>
+    <string name="export_import_header_settings">設定</string>
+    <string name="export_import_header_icons">保存されたアイコン</string>
+    <string name="export_import_warning_file_edit">このファイルを編集すると、問題が発生する可能性があります</string>
+    <string name="export_import_warning_shortcuts">(Android 8 (Oreo)以降では、インポートしたショートカットはシステムで管理されており エクスポートすることは想定されていないため、動作しない場合があります)</string>
+    <string name="export_completed">エクスポートが完了しました</string>
+    <string name="error_export">エクスポートファイルを作成できませんでした</string>
+    <string name="error_import">インポートされたファイルを読み込むことができませんでした</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_invalid_request">ショートカットとして追加することができませんでした</string>
+    <string name="error_shortcut_missing_info">このショートカットを実行できませんでした</string>
+    <string name="error_shortcut_not_default_launcher">デフォルトのランチャーのみショートカットを開くことができます</string>
+    <string name="error_shortcut_start">Androidシステムがショートカットを開くことができませんでした</string>
+    <string name="error_shortcut_remove">\"%1$s\"ファイルを削除できませんでした</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_interface">インターフェース</string>
+    <string name="appearance_settings_title_clock">時計</string>
+    <string name="appearance_settings_title_icon_packs">アイコンパック</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">ベース:</string>
+    <string name="color_picker_reset">リセット</string>
+    <string name="color_picker_preview">プレビュー</string><!-- (label for a shown preview, not a verb) -->
+    <string name="error_invalid_color_format">無効な値</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">テーマ</string>
+    <string-array name="set_application_theme_entries">
+        <item>ライト</item>
+        <item>ダーク</item>
+        <item>システムの設定に従う</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">表示形式</string>
+    <string-array name="set_clock_format_entries">
+        <item>なし（非表示）</item>
+        <item>24時間</item>
+        <item>12時間</item>
+        <item>12時間 + AM/PM</item>
+        <item>アナログ</item>
+        <item>日付と時間</item>
+        <item>日付・曜日と時間</item>
+        <item>日付</item>
+        <item>日付と曜日</item>
+    </string-array>
+
+    <!-- Clock position (double spaces are intentional) -->
+    <string name="set_clock_position">位置</string>
+    <string-array name="set_clock_position_entries">
+        <item>上段</item>
+        <item>"上段  —  左側"</item>
+        <item>"上段  —  右側"</item>
+        <item>中段</item>
+        <item>"中段  —  左側"</item>
+        <item>"中段  —  右側"</item>
+        <item>下段</item>
+        <item>"下段  —  左側"</item>
+        <item>"下段  —  右側"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">大きさ</string>
+    <string-array name="set_clock_size_entries">
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_transparent_status_bar">透明なステータスバーにする</string>
+    <string name="set_transparent_status_bar_help">お気に入りが閉じられているとき</string>
+    <string name="set_dark_status_bar_icons">黒いステータスアイコンを使用する</string>
+    <string name="set_dark_status_bar_icons_help">Android 5 (Lollipop)では動作しません</string>
+    <string name="set_icon_size">アイコンの大きさ (for tablets)</string>
+    <string name="set_hide_app_names">アプリ名の非表示</string>
+    <string name="set_hide_folder_names">フォルダ名の非表示</string>
+    <string name="set_remove_padding">アプリ名が非表示のとき、パディングしない</string>
+    <string name="set_background_color_favorites">お気に入りのアプリの背景</string>
+    <string name="set_text_color_favorites">お気に入りのアプリのテキスト</string>
+    <string name="set_background_color_drawer">アプリドロワーの背景</string>
+    <string name="set_text_color_drawer">アプリドロワーのテキスト</string>
+    <string name="set_clock_color">色</string>
+    <string name="set_clock_shadow_color">テキストの影の色</string>
+    <string name="set_icon_pack_primary">1番目</string>
+    <string name="set_icon_pack_secondary">2番目</string>
+    <string name="set_icon_pack_none">なし（デフォルトのアイコンを使用）</string>
+    <string name="set_icon_color_filter">アイコンのカラーフィルター</string>
+    <string name="set_icon_color_filter_help">デフォルトアイコンにのみ適用され、アイコンパックに追加して使用可能です</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_no_icon_pack_installed">まずはアプリストアからいくつかインストールしてください</string>
+    <string name="error_icon_pack_appfilter_not_found">選択したアイコンパックにappfilter.xmlが見つかりませんでした(%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">インターフェース</string>
+    <string name="operation_settings_title_gestures">ホーム画面でのジェスチャー</string>
+
+    <!-- Notification -->
+    <string name="set_notification">お気に入りへのアクセスに関する通知</string>
+    <string name="set_notification_help">サイレント通知を使用します</string>
+    <string name="notification_text">お気に入り</string>
+
+    <!-- Forced orientation -->
+    <string name="set_forced_orientation">画面の向きの強制</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>なし</item>
+        <item>縦</item>
+        <item>横</item>
+        <item>横（反転）</item>
+    </string-array>
+
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
+    <string name="set_touch_targets">タッチターゲット（アクセシビリティ）</string>
+    <string name="set_touch_targets_help">ホーム画面にタップ可能なラベルを追加します</string>
+    <string name="target_open_favorites">お気に入りを開く</string>
+    <string name="target_close_favorites">お気に入りを閉じる</string>
+    <string name="target_open_apps">アプリ一覧を開く</string>
+    <string name="target_close_apps">アプリ一覧を\n閉じる</string>
+
+    <!-- Other operation settings -->
+    <string name="set_as_default_launcher">デフォルトのランチャーに設定する</string>
+    <string name="set_always_show_favorites">お気に入りを常に表示する</string>
+    <string name="set_reverse_interface">インターフェースを反転する</string>
+    <string name="set_reverse_interface_help">ホーム画面上にアプリ、下にお気に入りを表示</string>
+    <string name="set_immersive_mode">全画面表示</string>
+    <string name="set_immersive_mode_help">システムバーの非表示(ホーム画面長押しで強制終了できます)</string>
+    <string name="set_interactive_clock">選択可能な時計</string>
+    <string name="set_interactive_clock_help">日付をクリックするとデフォルトのカレンダーが表示され、時間をクリックすると選択した時計アプリが表示されます</string>
+    <string name="set_clock_app">時計アプリ</string>
+    <string name="set_no_clock_app">なし</string>
+    <string name="set_hide_menu_button">メニューボタンの非表示</string>
+    <string name="set_hide_menu_button_help">ランチャーアプリのアイコンから常にアクセスできます</string>
+    <string name="set_disable_app_drawer">アプリドロワーの非表示</string>
+    <string name="set_double_tap">ダブルタップ</string>
+    <string name="set_swipe_leftwards">左にスワイプ</string>
+    <string name="set_swipe_rightwards">右にスワイプ</string>
+    <string name="set_no_action">なし</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">メニューへのアクセスを維持するために、お気に入りを解除します</string>
+    <string name="error_disable_app_drawer_not_safe">メニューアクセスを維持するために、アプリドロワーを復活させます</string>
+
+
+    <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
+
+    <string name="help_navigation_title">ナビゲーション</string>
+    <string name="help_navigation">ホーム画面から上にスワイプするとすべてのアプリが表示され、下にスワイプすると戻ることができます。\n\nホーム画面から下にスワイプするとお気に入りが表示され、上にスワイプすると戻ることができます。\n\nメニューボタン（お気に入り表示時）またはランチャーアイコンをクリックすると、メニューが表示されます。\n\nアプリやフォルダーを長押しすると、その設定にアクセスできます。</string>
+    <string name="help_notification_title">通知</string>
+    <string name="help_notification">ホーム画面から離れると、他のアプリ上でお気に入りをポップアップで表示します。</string>
+    <string name="help_list_update_title">リストの更新</string>
+    <string name="help_list_update">アプリ一覧やアイコンの更新時、アプリの起動・追加・削除時、 アイコンパックの変更時にポップアップメッセージが表示されます。</string>
+    <string name="help_folders_title">フォルダ</string>
+    <string name="help_folders">メニューボタンからフォルダの管理やお気に入り登録、 開いているフォルダのタイトルをクリックしてアプリの追加、名前変更、入れ替えができます。\nフォルダを削除すると、その中のすべてのアプリがメインリストに戻ってきます。</string>
+    <string name="help_search_title">検索</string>
+    <string name="help_search">検索アイコンから任意のアプリを探すことができます。 また、通知から利用できるようにお気に入りに登録したり、非表示にしたりすることも可能です。\n\n\"Enter\"を押すと開くことができます。</string>
+
+
+    <!-- ========== Changelog ========== -->
+
+    <string name="changelog_mentions">\"@pseudo\"は、アイデアを提案したユーザー、バグを報告したユーザーを示します。</string>
+    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
+    <string name="error_changelog_missing_folder">変更履歴フォルダが見つかりません。</string>
+    <string name="error_changelog_missing_file">%1$sを開くことができません。</string>
 
 </resources>
