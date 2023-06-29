@@ -65,6 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/for_overlay"
+                        android:paddingHorizontal="@dimen/spacing_small"
                         tools:layoutManager="GridLayoutManager"
                         tools:spanCount="4"
                         tools:listitem="@layout/view_application"/>
@@ -116,6 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:paddingHorizontal="@dimen/spacing_small"
         android:visibility="gone"
         android:background="@color/for_overlay"/>
 
