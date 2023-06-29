@@ -155,7 +155,7 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 		exportedData.add(exportStringSetting(Constants.ICON_PACK)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_PACK_SECONDARY)) ;
 		exportedData.add(exportStringSetting(Constants.ICON_COLOR_FILTER)) ;
-		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, true)) ;
+		exportedData.add(exportBooleanSetting(Constants.NOTIFICATION, false)) ;
 		exportedData.add(exportStringSetting(Constants.FORCED_ORIENTATION)) ;
 		exportedData.add(exportBooleanSetting(Constants.ALWAYS_SHOW_FAVORITES, false)) ;
 		exportedData.add(exportBooleanSetting(Constants.REVERSE_INTERFACE, false)) ;
