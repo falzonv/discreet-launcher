@@ -1,0 +1,6 @@
+v7.3.1 (61) - 29/06/2023
+IMPROVEMENTS
+   - Margins around app lists (@MusicBoy)
+   - Internal reorganization of translations
+CORRECTIONS
+   - Export of notification setting
