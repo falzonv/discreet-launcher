@@ -227,7 +227,6 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	{
 		// Retrieve the selected theme (if any) and react accordingly
 		String theme = settings.getString(Constants.APPLICATION_THEME, Constants.NONE) ;
-		if(theme == null) return ;
 		switch(theme)
 		{
 			case "light" :
@@ -248,11 +247,8 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	@SuppressLint("SourceLockedOrientationActivity")
 	private void maybeForceOrientation()
 	{
-		// Retrieve the current orientation setting
+		// Retrieve the selected orientation and apply it
 		String forced_orientation = settings.getString(Constants.FORCED_ORIENTATION, Constants.NONE) ;
-		if(forced_orientation == null) forced_orientation = Constants.NONE ;
-
-		// Apply the requested orientation
 		switch(forced_orientation)
 		{
 			case "portrait" :
@@ -728,7 +724,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// ========= Operation settings ==========
 			case Constants.NOTIFICATION :
 				// Toggle the notification
-				if(settings.getBoolean(Constants.NOTIFICATION, true)) notification.display(this) ;
+				if(settings.getBoolean(Constants.NOTIFICATION, true))
+					{
+						if(notification.isAllowed()) notification.display(this) ;
+							else Utils.displayLongToast(this, getString(R.string.set_notification_warning_disabled)) ;
+					}
 					else notification.hide() ;
 				break ;
 			case Constants.REVERSE_INTERFACE :

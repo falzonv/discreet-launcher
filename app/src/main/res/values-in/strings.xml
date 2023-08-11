@@ -186,6 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Notifikasi untuk mengakses favorit</string>
     <string name="set_notification_help">Gunakan ikon transparan</string>
+    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">Favorit</string>
 
     <!-- Forced orientation -->

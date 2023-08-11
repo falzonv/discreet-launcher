@@ -103,7 +103,7 @@ public class ApplicationsList
 		// Check if a color tint must be applied to icons and retrieve it if needed
 		String color_tint_setting = settings.getString(Constants.ICON_COLOR_FILTER, Constants.COLOR_TRANSPARENT) ;
 		int color_tint ;
-		if((color_tint_setting == null) || color_tint_setting.equals(Constants.COLOR_TRANSPARENT)) color_tint = 0 ;
+		if(color_tint_setting.equals(Constants.COLOR_TRANSPARENT)) color_tint = 0 ;
 			else color_tint = ColorPickerDialog.convertHexadecimalColorToInt(color_tint_setting) ;
 
 		// Retrieve the list of user profiles

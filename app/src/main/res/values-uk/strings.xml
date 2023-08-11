@@ -186,6 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Сповіщення для доступу до обраних застосунків</string>
     <string name="set_notification_help">Використовується прозора піфтограма</string>
+    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">Обране</string>
 
     <!-- Forced orientation -->

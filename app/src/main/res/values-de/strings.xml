@@ -186,6 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Benachrichtigung für Zugriff auf Favoriten</string>
     <string name="set_notification_help">Verwendet ein transparentes Icon</string>
+    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">Favoriten</string>
 
     <!-- Forced orientation -->

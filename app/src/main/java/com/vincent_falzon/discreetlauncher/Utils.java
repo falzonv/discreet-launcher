@@ -67,8 +67,7 @@ public abstract class Utils
 	{
 		// Try to load the color at the given key, or use the provided fallback
 		String hexadecimal = settings.getString(key, Constants.NONE) ;
-		if((hexadecimal == null) || hexadecimal.equals(Constants.NONE))
-			hexadecimal = fallback ;
+		if(hexadecimal.equals(Constants.NONE)) hexadecimal = fallback ;
 
 		// Convert the hexadecimal color to an "int" color
 		return ColorPickerDialog.convertHexadecimalColorToInt(hexadecimal) ;
@@ -94,12 +93,9 @@ public abstract class Utils
 	 */
 	public static boolean searchAndStartApplication(View view, SharedPreferences settings, String setting_key)
 	{
-		// Retrieve the app to launch based on the given setting key
+		// Retrieve the app to launch (if any) based on the given setting key
 		String component_info = settings.getString(setting_key, Constants.NONE) ;
-
-		// Do not continue if the setting is not set
-		if((component_info == null) || component_info.equals(Constants.NONE))
-			return false ;
+		if(component_info.equals(Constants.NONE)) return false ;
 
 		// Search the application in the list
 		for(Application application : ActivityMain.getApplicationsList().getApplications(true))

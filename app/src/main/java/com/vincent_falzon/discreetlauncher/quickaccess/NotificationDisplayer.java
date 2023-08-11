@@ -63,6 +63,16 @@ public class NotificationDisplayer
 
 
 	/**
+	 * Check if Discreet Launcher notifications are allowed by system settings.
+	 */
+	public boolean isAllowed()
+	{
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) return manager.areNotificationsEnabled() ;
+			else return true ;
+	}
+
+
+	/**
 	 * Display the notification.
 	 */
 	public void display(Context context)

@@ -140,7 +140,7 @@ public class ViewClock extends View implements View.OnTouchListener
 
 		// Do not continue if the clock is not enabled
 		String clock_format = settings.getString(Constants.CLOCK_FORMAT, Constants.NONE) ;
-		clock_disabled = (clock_format == null) || clock_format.equals(Constants.NONE) ;
+		clock_disabled = clock_format.equals(Constants.NONE) ;
 		if(clock_disabled) return ;
 
 		// Initializations
@@ -157,8 +157,6 @@ public class ViewClock extends View implements View.OnTouchListener
 		int shadow_color = Utils.getColor(settings, Constants.CLOCK_SHADOW_COLOR, Constants.COLOR_FOR_OVERLAY) ;
 		String clock_position = settings.getString(Constants.CLOCK_POSITION, "middle") ;
 		String clock_size = settings.getString(Constants.CLOCK_SIZE, "medium") ;
-		if(clock_position == null) clock_position = "middle" ;
-		if(clock_size == null) clock_size = "medium" ;
 
 		// Retrieve the current date and time
 		Calendar current_time = Calendar.getInstance() ;

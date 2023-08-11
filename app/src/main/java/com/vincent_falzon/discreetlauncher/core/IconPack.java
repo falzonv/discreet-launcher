@@ -23,6 +23,7 @@ package com.vincent_falzon.discreetlauncher.core ;
  */
 
 // Imports
+import android.annotation.SuppressLint ;
 import android.content.Context ;
 import android.content.SharedPreferences ;
 import android.content.pm.PackageManager ;
@@ -55,13 +56,14 @@ class IconPack
 	/**
 	 * Constructor.
 	 */
+	@SuppressLint("DiscouragedApi")
 	IconPack(Context context, String setting_key)
 	{
 		// Check if an icon pack is selected
 		appfilter_id = 0 ;
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
 		pack_name = settings.getString(setting_key, Constants.NONE) ;
-		if((pack_name == null) || pack_name.equals(Constants.NONE)) return ;
+		if(pack_name.equals(Constants.NONE)) return ;
 
 		try
 		{
@@ -91,6 +93,7 @@ class IconPack
 	/**
 	 * Search the icon of an application in the pack (returns <code>null</code> if not found).
 	 */
+	@SuppressLint("DiscouragedApi")
 	Drawable searchIcon(String apk, String name)
 	{
 		// Do not continue if no icon pack is loaded

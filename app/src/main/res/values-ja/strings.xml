@@ -186,6 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">お気に入りへのアクセスに関する通知</string>
     <string name="set_notification_help">サイレント通知を使用します</string>
+    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">お気に入り</string>
 
     <!-- Forced orientation -->

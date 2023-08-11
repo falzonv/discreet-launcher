@@ -3,7 +3,7 @@ buildscript
 {
     ext.var_package = "com.vincent_falzon.discreetlauncher"
     ext.var_min_sdk = 21
-    ext.var_compile_sdk = 32
+    ext.var_compile_sdk = 33
     repositories
     {
         google()

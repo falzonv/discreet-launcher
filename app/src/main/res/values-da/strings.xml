@@ -186,6 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Meddelelse om adgang til favoritter</string>
     <string name="set_notification_help">Bruger et gennemsigtigt ikon</string>
+    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">Favoritter</string>
 
     <!-- Forced orientation -->

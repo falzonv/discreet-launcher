@@ -186,6 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Favorilere erişim için bildirim</string>
     <string name="set_notification_help">Şeffaf bir simge kullanır</string>
+    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">Favoriler</string>
 
     <!-- Forced orientation -->

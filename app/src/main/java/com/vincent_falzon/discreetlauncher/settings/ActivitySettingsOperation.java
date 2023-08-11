@@ -119,12 +119,9 @@ public class ActivitySettingsOperation extends AppCompatActivity
 		// Fix an Android Oreo 8.1 bug (orientation is sometimes kept from an activity to another)
 		if(Build.VERSION.SDK_INT == Build.VERSION_CODES.O_MR1)
 			{
-				// Retrieve the current orientation setting
+				// Retrieve the selected orientation and apply it
 				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 				String forced_orientation = settings.getString(Constants.FORCED_ORIENTATION, Constants.NONE) ;
-				if(forced_orientation == null) forced_orientation = Constants.NONE ;
-
-				// Apply the requested orientation
 				switch(forced_orientation)
 				{
 					case "portrait" :
