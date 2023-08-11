@@ -46,7 +46,7 @@ android
 // External requirements
 dependencies
 {
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation('androidx.preference:preference:1.2.0') {
                 // Workaround for bug https://issuetracker.google.com/issues/238425626
