@@ -1,0 +1,6 @@
+v7.4.0 (62) - 19/08/2023
+NOUVEAUTÉS
+   - Support d'Android 13
+AMÉLIORATIONS
+   - Màj liste si appli activée/désactivée (@xi7)
+   - Plusieurs librairies Android mises à jour

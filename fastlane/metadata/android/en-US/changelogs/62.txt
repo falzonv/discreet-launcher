@@ -1,0 +1,6 @@
+v7.4.0 (62) - 19/08/2023
+NEW THINGS
+   - Android 13 support
+IMPROVEMENTS
+   - List updated when app enabled/disabled (@xi7)
+   - Several Android libraries updated
