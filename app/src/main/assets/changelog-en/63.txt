@@ -1,0 +1,3 @@
+v7.4.1 (63) - 05/09/2023
+CORRECTIONS
+   - Rollback list update on app enabled/disabled (@unclechu, @kflak, @turkeysanwich, @efdsys)

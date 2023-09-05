@@ -1,0 +1,3 @@
+v7.4.1 (63) - 05/09/2023
+CORRECTIONS
+   - Annuler màj liste si app activée/désactivée (@unclechu, @kflak, @turkeysanwich, @efdsys)
