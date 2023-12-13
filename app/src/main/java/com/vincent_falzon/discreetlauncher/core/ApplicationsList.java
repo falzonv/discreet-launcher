@@ -246,6 +246,8 @@ public class ApplicationsList
 		// Initializations
 		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files == null) return ;
+		IconPack iconPack1 = new IconPack(context, Constants.ICON_PACK) ;
+		IconPack iconPack2 = new IconPack(context, Constants.ICON_PACK_SECONDARY) ;
 
 		// Retrieve fhe folders colors mapping file if it exists
 		ArrayList<String> folders_colors_file = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).readAllLines() ;
@@ -289,8 +291,14 @@ public class ApplicationsList
 						}
 			}
 
-			// Create the folder icon with the number of applications inside and the selected color
-			Drawable icon = new FolderIcon(context, icon_size, folder.getApplications().size(), folder.getColor()) ;
+			// Try to find the icon in the packs, use the default icon if not found
+			Drawable icon = iconPack1.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER + folder.getApplications().size()) ;
+			if(icon == null) icon = iconPack2.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER + folder.getApplications().size()) ;
+			if(icon == null)
+			{
+				// Create the folder icon with the number of applications inside and the selected color
+				icon = new FolderIcon(context, icon_size, folder.getApplications().size(), folder.getColor()) ;
+			}
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
 
