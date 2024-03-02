@@ -41,6 +41,7 @@ import android.widget.TextView ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
+import androidx.appcompat.content.res.AppCompatResources ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.LinearLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
@@ -120,7 +121,8 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 				// Prepare the folder icon
 				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 				int icon_size = Utils.getIconSize(this, settings) ;
-				Drawable icon = new FolderIcon(this, icon_size, 0, getResources().getColor(R.color.for_icon_added_in_drawer)) ;
+				Drawable baseIcon = AppCompatResources.getDrawable(this, R.drawable.icon_folder) ;
+				Drawable icon = new FolderIcon(baseIcon, icon_size, 0, getResources().getColor(R.color.for_icon_added_in_drawer)) ;
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Create the folder and update the list

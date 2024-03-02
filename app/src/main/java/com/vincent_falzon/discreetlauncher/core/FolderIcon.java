@@ -23,7 +23,6 @@ package com.vincent_falzon.discreetlauncher.core ;
  */
 
 // Imports
-import android.content.Context ;
 import android.graphics.Bitmap ;
 import android.graphics.Canvas ;
 import android.graphics.ColorFilter ;
@@ -32,8 +31,7 @@ import android.graphics.PixelFormat ;
 import android.graphics.PorterDuff ;
 import android.graphics.PorterDuffColorFilter ;
 import android.graphics.drawable.Drawable ;
-import androidx.appcompat.content.res.AppCompatResources ;
-import com.vincent_falzon.discreetlauncher.R ;
+import androidx.annotation.NonNull ;
 
 /**
  * Create a colored folder icon containing the number of elements inside the folder.
@@ -50,17 +48,16 @@ public class FolderIcon extends Drawable
 	/**
 	 * Constructor.
 	 */
-	public FolderIcon(Context context, int icon_size_pixels, int applications_number, int color)
+	public FolderIcon(Drawable baseIcon, int icon_size_pixels, int applications_number, int color)
 	{
-		// Retrieve the folder icon
+		// Prepare the base icon on which the number of apps will be written
 		icon_size = icon_size_pixels ;
-		Drawable folderIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
-		if(folderIcon != null)
+		if(baseIcon != null)
 			{
-				// Convert the folder icon into a Bitmap of the correct size
-				Bitmap convertedIcon = Bitmap.createBitmap(folderIcon.getIntrinsicWidth(), folderIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
-				folderIcon.setBounds(0, 0, icon_size, icon_size) ;
-				folderIcon.draw(new Canvas(convertedIcon)) ;
+				// Convert the base icon into a Bitmap of the correct size
+				Bitmap convertedIcon = Bitmap.createBitmap(baseIcon.getIntrinsicWidth(), baseIcon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888) ;
+				baseIcon.setBounds(0, 0, icon_size, icon_size) ;
+				baseIcon.draw(new Canvas(convertedIcon)) ;
 
 				// Get an editable copy of the Bitmap and change its color according to settings
 				icon = convertedIcon.copy(Bitmap.Config.ARGB_8888, true) ;
@@ -71,7 +68,7 @@ public class FolderIcon extends Drawable
 			else icon = null ;
 
 		// Retrieve the number to write and define its settings
-		this.number = "" + applications_number ;
+		this.number = String.valueOf(applications_number) ;
 		paint = new Paint() ;
 		paint.setAntiAlias(true) ;
 		paint.setTextSize(icon_size / 3f) ;
@@ -84,9 +81,9 @@ public class FolderIcon extends Drawable
 	 * Draw the folder icon with the number of applications inside.
 	 */
 	@Override
-	public void draw(Canvas canvas)
+	public void draw(@NonNull Canvas canvas)
 	{
-		canvas.drawBitmap(icon, 0, 0, paint) ;
+		if(icon != null) canvas.drawBitmap(icon, 0, 0, paint) ;
 		canvas.drawText(number, icon_size * 0.5f, icon_size * 0.875f, paint) ;
 	}
 

@@ -290,7 +290,8 @@ public class ApplicationsList
 			}
 
 			// Create the folder icon with the number of applications inside and the selected color
-			Drawable icon = new FolderIcon(context, icon_size, folder.getApplications().size(), folder.getColor()) ;
+			Drawable baseIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
+			Drawable icon = new FolderIcon(baseIcon, icon_size, folder.getApplications().size(), folder.getColor()) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
 
