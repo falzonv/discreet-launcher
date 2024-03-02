@@ -135,46 +135,46 @@ public class Application
 	 */
 	public boolean start(View view)
 	{
-		// Check if the application is in a work profile
-		Context context = view.getContext() ;
-		if(userHandle != null)
-			{
-				try
+		try
+		{
+			// Check if the application is in a work profile
+			Context context = view.getContext() ;
+			if(userHandle != null)
 				{
 					// Try to launch the work profile application
 					LauncherApps launcherApps = (LauncherApps)context.getSystemService(Context.LAUNCHER_APPS_SERVICE) ;
 					launcherApps.startMainActivity(new ComponentName(apk, name), userHandle, null, null) ;
+					return true ;
 				}
-				catch(Exception exception)
+
+			// Applications not in work profiles can be launched directly with Intents like below.
+			// This is preferred as it allows to resume the application to its previous state.
+			// (Not possible with LauncherApps which sets the FLAG_ACTIVITY_RESET_TASK_IF_NEEDED.)
+
+			// Check if the application still exists (not removed or disabled)
+			PackageManager apkManager = context.getPackageManager() ;
+			Intent packageIntent = apkManager.getLaunchIntentForPackage(apk) ;
+			if(packageIntent == null) return false ;
+
+			// Try to launch the specific intent of the application
+			Intent activityIntent = new Intent(Intent.ACTION_MAIN) ;
+			activityIntent.addCategory(Intent.CATEGORY_LAUNCHER) ;
+			activityIntent.setClassName(apk, name) ;
+			activityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+			if(activityIntent.resolveActivity(apkManager) != null) context.startActivity(activityIntent) ;
+				else
 				{
-					// An error happened (ex: application not found)
-					return false ;
+					// If it was not found, launch the default intent of the package
+					packageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+					context.startActivity(packageIntent) ;
 				}
-				return true ;
-			}
-
-		// Applications not in work profiles can be launched directly with Intents like below.
-		// This is preferred as it allows to resume the application to its previous state.
-		// (Not possible with LauncherApps which sets the FLAG_ACTIVITY_RESET_TASK_IF_NEEDED.)
-
-		// Check if the application still exists (not removed or disabled)
-		PackageManager apkManager = context.getPackageManager() ;
-		Intent packageIntent = apkManager.getLaunchIntentForPackage(apk) ;
-		if(packageIntent == null) return false ;
-
-		// Try to launch the specific intent of the application
-		Intent activityIntent = new Intent(Intent.ACTION_MAIN) ;
-		activityIntent.addCategory(Intent.CATEGORY_LAUNCHER) ;
-		activityIntent.setClassName(apk, name) ;
-		activityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-		if(activityIntent.resolveActivity(apkManager) != null) context.startActivity(activityIntent) ;
-			else
-			{
-				// If it was not found, launch the default intent of the package
-				packageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-				context.startActivity(packageIntent) ;
-			}
-		return true ;
+			return true ;
+		}
+		catch(Exception exception)
+		{
+			// An error happened (ex: application not found)
+			return false ;
+		}
 	}
 
 
