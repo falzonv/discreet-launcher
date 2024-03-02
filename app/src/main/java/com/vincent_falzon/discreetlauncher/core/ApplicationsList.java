@@ -173,7 +173,7 @@ public class ApplicationsList
 		manageHiddenApplications() ;
 
 		// Prepare folders according to files
-		prepareFolders(context, reversed) ;
+		prepareFolders(context, reversed, iconPack1, iconPack2) ;
 
 		// Update the favorites applications list
 		updateFavorites() ;
@@ -241,13 +241,11 @@ public class ApplicationsList
 	/**
 	 * Prepare folders according to the folders files.
 	 */
-	private void prepareFolders(Context context, boolean reversed)
+	private void prepareFolders(Context context, boolean reversed, IconPack iconPack1, IconPack iconPack2)
 	{
 		// Initializations
 		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
 		if(folders_files == null) return ;
-		IconPack iconPack1 = new IconPack(context, Constants.ICON_PACK) ;
-		IconPack iconPack2 = new IconPack(context, Constants.ICON_PACK_SECONDARY) ;
 
 		// Retrieve fhe folders colors mapping file if it exists
 		ArrayList<String> folders_colors_file = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).readAllLines() ;
