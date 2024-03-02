@@ -173,7 +173,7 @@ public class ApplicationsList
 		manageHiddenApplications() ;
 
 		// Prepare folders according to files
-		prepareFolders(context, reversed) ;
+		prepareFolders(context, reversed, iconPack1, iconPack2) ;
 
 		// Update the favorites applications list
 		updateFavorites() ;
@@ -241,7 +241,7 @@ public class ApplicationsList
 	/**
 	 * Prepare folders according to the folders files.
 	 */
-	private void prepareFolders(Context context, boolean reversed)
+	private void prepareFolders(Context context, boolean reversed, IconPack iconPack1, IconPack iconPack2)
 	{
 		// Initializations
 		String[] folders_files = InternalFile.searchFilesStartingWith(context, Constants.FILE_FOLDER_PREFIX) ;
@@ -249,6 +249,11 @@ public class ApplicationsList
 
 		// Retrieve fhe folders colors mapping file if it exists
 		ArrayList<String> folders_colors_file = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).readAllLines() ;
+
+		// Search a folder base icon in icon packs, use the default base icon if not found
+		Drawable baseIcon = iconPack1.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER) ;
+		if(baseIcon == null) baseIcon = iconPack2.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER) ;
+		if(baseIcon == null) baseIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
 
 		// Browse the name of all folders files
 		ArrayList<Folder> folders = new ArrayList<>() ;
@@ -290,7 +295,6 @@ public class ApplicationsList
 			}
 
 			// Create the folder icon with the number of applications inside and the selected color
-			Drawable baseIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
 			Drawable icon = new FolderIcon(baseIcon, icon_size, folder.getApplications().size(), folder.getColor()) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
