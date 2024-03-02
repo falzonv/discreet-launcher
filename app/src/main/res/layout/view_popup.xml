@@ -65,6 +65,7 @@
         android:paddingHorizontal="@dimen/spacing_normal"
         android:singleLine="true"
         android:inputType="textNoSuggestions"
+        android:maxLength="30"
         android:autofillHints=""
         android:hint="@string/search_app_hint"
         android:textColor="@color/for_text_on_overlay"
