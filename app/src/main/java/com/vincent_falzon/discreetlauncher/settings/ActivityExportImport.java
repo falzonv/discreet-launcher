@@ -24,6 +24,7 @@ package com.vincent_falzon.discreetlauncher.settings ;
 
 // Imports
 import android.annotation.SuppressLint ;
+import android.content.ActivityNotFoundException ;
 import android.content.SharedPreferences ;
 import android.net.Uri ;
 import android.os.Bundle ;
@@ -90,22 +91,31 @@ public class ActivityExportImport extends AppCompatActivity implements View.OnCl
 	 */
 	public void onClick(View view)
 	{
-		// Identify which element has been clicked
-		int selection = view.getId() ;
-		if(selection == R.id.export_button)
-			{
-				// Retrieve the current day, month and year to form a timestamp
-				@SuppressLint("SimpleDateFormat")
-				String timestamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date()) ;
+		try
+		{
+			// Identify which element has been clicked
+			int selection = view.getId() ;
+			if(selection == R.id.export_button)
+				{
+					// Retrieve the current day, month and year to form a timestamp
+					@SuppressLint("SimpleDateFormat")
+					String timestamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date()) ;
 
-				// Display the file selector for the user to select where the export file should be saved
-				exportFilePicker.launch(timestamp + "_discreetlauncher.txt") ;
-			}
-			else if (selection == R.id.import_button)
-			{
-				// Display the file selector for the user to select the import file
-				importFilePicker.launch("text/plain") ;
-			}
+					// Display the file selector for the user to select where the export file should be saved
+					exportFilePicker.launch(timestamp + "_discreetlauncher.txt") ;
+				}
+				else if (selection == R.id.import_button)
+				{
+					// Display the file selector for the user to select the import file
+					importFilePicker.launch("text/plain") ;
+				}
+		}
+		catch(ActivityNotFoundException exception)
+		{
+			// Display an error message if the file picker could not be displayed
+			Utils.logError(TAG, exception.getMessage()) ;
+			Utils.displayLongToast(view.getContext(), view.getContext().getString(R.string.error_app_not_found, "{android_file_picker}")) ;
+		}
 	}
 
 

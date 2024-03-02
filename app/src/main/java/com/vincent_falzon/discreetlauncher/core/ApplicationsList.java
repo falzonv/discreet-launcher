@@ -291,14 +291,13 @@ public class ApplicationsList
 						}
 			}
 
-			// Try to find the icon in the packs, use the default icon if not found
-			Drawable icon = iconPack1.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER + folder.getApplications().size()) ;
-			if(icon == null) icon = iconPack2.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER + folder.getApplications().size()) ;
-			if(icon == null)
-			{
-				// Create the folder icon with the number of applications inside and the selected color
-				icon = new FolderIcon(context, icon_size, folder.getApplications().size(), folder.getColor()) ;
-			}
+			// Try to find a folder base icon in the icon packs, use the default base icon if not found
+			Drawable baseIcon = iconPack1.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER) ;
+			if(baseIcon == null) baseIcon = iconPack2.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER) ;
+			if(baseIcon == null) baseIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
+
+			// Create the folder icon with the number of applications inside and the selected color
+			Drawable icon = new FolderIcon(baseIcon, icon_size, folder.getApplications().size(), folder.getColor()) ;
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
 

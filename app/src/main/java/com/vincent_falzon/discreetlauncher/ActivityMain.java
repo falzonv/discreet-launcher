@@ -799,6 +799,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 			// Ignore the gesture if the applications drawer is opened
 			if(drawer.getVisibility() == View.VISIBLE) return false ;
 
+			// Ignore incomplete gestures (may happen due to the interactive clock)
+			if((event1 == null) || (event2 == null)) return false ;
+
 			// Calculate the traveled distances on both axes
 			float x_distance = event1.getX() - event2.getX() ;
 			float y_distance = event1.getY() - event2.getY() ;

@@ -364,25 +364,33 @@ public class ViewClock extends View implements View.OnTouchListener
 		int x = Math.round(event.getX()) ;
 		int y = Math.round(event.getY()) ;
 
-		// If the touch was in the time area, try to start the selected clock app
-		if(rect_time.contains(x, y) && (event.getAction() == MotionEvent.ACTION_DOWN))
-			return Utils.searchAndStartApplication(this, settings, Constants.CLOCK_APP) ;
-
-		// If the touch was in the date area, try to start the default calendar
-		if(rect_date.contains(x, y) && (event.getAction() == MotionEvent.ACTION_DOWN))
+		// If the touch starts and ends in the time area, try to start the selected clock app
+		if(rect_time.contains(x, y))
 			{
-				try
-				{
-					Intent calendarIntent = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_CALENDAR) ;
-					calendarIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
-					getContext().startActivity(calendarIntent) ;
-					return true ;
-				}
-				catch(ActivityNotFoundException|NullPointerException exception)
-				{
-					Utils.displayLongToast(getContext(), getContext().getString(R.string.error_app_not_found, "{calendar}")) ;
-					return false ;
-				}
+				if(event.getAction() == MotionEvent.ACTION_DOWN) return true ;
+				if(event.getAction() == MotionEvent.ACTION_UP)
+					return Utils.searchAndStartApplication(this, settings, Constants.CLOCK_APP) ;
+			}
+
+		// If the touch starts and ends in the time area, try to start the default calendar
+		if(rect_date.contains(x, y))
+			{
+				if(event.getAction() == MotionEvent.ACTION_DOWN) return true ;
+				if(event.getAction() == MotionEvent.ACTION_UP)
+					{
+						try
+						{
+							Intent calendarIntent = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_CALENDAR) ;
+							calendarIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) ;
+							getContext().startActivity(calendarIntent) ;
+							return true ;
+						}
+						catch(ActivityNotFoundException|NullPointerException exception)
+						{
+							Utils.displayLongToast(getContext(), getContext().getString(R.string.error_app_not_found, "{calendar}")) ;
+							return false ;
+						}
+					}
 			}
 
 		// Do not handle touchs outside the date/time areas
