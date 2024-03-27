@@ -19,8 +19,8 @@ android
         targetSdkVersion var_compile_sdk
 
         // Versioning
-        versionCode 63
-        versionName "v7.4.1"
+        versionCode 64
+        versionName "v7.5.0"
     }
 
     // Build types always include debug (hidden by default)

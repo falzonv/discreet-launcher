@@ -1,0 +1,10 @@
+v7.5.0 (64) - 27/03/2024
+NOUVEAUTÉS
+   - Permettre aux packs d'icônes de changer l'icône des dossiers (@kaanelloed, @Donnnno)
+AMÉLIORATIONS
+   - Limitation taille recherche (@comradekingu)
+   - Clic sur l'horloge interactive (@AdalynBlack)
+   - Options cibles de clic plus haute (@bmivzkrp)
+CORRECTIONS
+   - Possible crash à l'export/import (@lesar8)
+   - Possible crash app introuvable (@AdalynBlack)

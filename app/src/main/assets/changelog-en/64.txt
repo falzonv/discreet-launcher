@@ -1,0 +1,10 @@
+v7.5.0 (64) - 27/03/2024
+NEW THINGS
+   - Allow icon packs to change folder icon (@kaanelloed, @Donnnno)
+IMPROVEMENTS
+   - Limit search input length (@comradekingu)
+   - Interactive clock tap detection (@AdalynBlack)
+   - Move touch targets option upwards (@bmivzkrp)
+CORRECTIONS
+   - Possible crash at export/import (@lesar8)
+   - Possible crash if app not found (@AdalynBlack)
