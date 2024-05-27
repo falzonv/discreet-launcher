@@ -205,6 +205,7 @@
     <string name="target_close_favorites">Fermer les\nfavoris</string>
     <string name="target_open_apps">Ouvrir les\napplications</string>
     <string name="target_close_apps">Fermer les\napplications</string>
+    <string name="help_touch_targets">Glissez le doigt vers le bas pour afficher le bouton de menu, vous pouvez activer des cibles de clic dans le menu Fonctionnement</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Définir comme lanceur par défaut</string>

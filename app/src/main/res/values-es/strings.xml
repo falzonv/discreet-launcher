@@ -205,6 +205,7 @@
     <string name="target_close_favorites">Cerrar\nfavoritos</string>
     <string name="target_open_apps">Abrir\naplicaciones</string>
     <string name="target_close_apps">Cerrar\naplicaciones</string>
+    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Establecer como lanzador por defecto</string>

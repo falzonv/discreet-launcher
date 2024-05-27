@@ -94,6 +94,7 @@
             </ScrollView>
 
             <View
+                android:id="@+id/info_touch_targets"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>

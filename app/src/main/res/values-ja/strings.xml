@@ -205,6 +205,7 @@
     <string name="target_close_favorites">お気に入りを閉じる</string>
     <string name="target_open_apps">アプリ一覧を開く</string>
     <string name="target_close_apps">アプリ一覧を\n閉じる</string>
+    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">デフォルトのランチャーに設定する</string>

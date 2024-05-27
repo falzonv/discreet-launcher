@@ -94,6 +94,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 	private TextView targetFavorites ;
 	private TextView targetApplications ;
 	private TextView defaultLauncherButton ;
+	private View infoTouchTarget ;
 
 	// Attributes related to the drawer
 	private RecyclerView drawer ;
@@ -141,6 +142,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		favorites = findViewById(R.id.favorites) ;
 		noFavoritesYet = findViewById(R.id.info_no_favorites_yet) ;
 		defaultLauncherButton = findViewById(R.id.default_launcher_button) ;
+		infoTouchTarget = findViewById(R.id.info_touch_targets) ;
 		drawer = findViewById(R.id.drawer) ;
 		menuButton = findViewById(R.id.access_menu_button) ;
 		targetFavorites = findViewById(R.id.target_favorites) ;
@@ -276,6 +278,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		if(settings.getBoolean(Constants.TOUCH_TARGETS, false))
 			{
 				// Display or not touch targets according to the other settings
+				infoTouchTarget.setContentDescription(null) ;
 				if(settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
 						targetFavorites.setVisibility(View.GONE) ;
 					else targetFavorites.setVisibility(View.VISIBLE) ;
@@ -288,6 +291,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// Hide touch targets
 				targetFavorites.setVisibility(View.GONE) ;
 				targetApplications.setVisibility(View.GONE) ;
+				infoTouchTarget.setContentDescription(getString(R.string.help_touch_targets)) ;
 			}
 	}
 

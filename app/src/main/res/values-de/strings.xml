@@ -205,6 +205,7 @@
     <string name="target_close_favorites">Favoriten\nschließen</string>
     <string name="target_open_apps">Apps\öffnen</string>
     <string name="target_close_apps">Apps\schließen</string>
+    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Als Standard-Startprogramm festlegen</string>
