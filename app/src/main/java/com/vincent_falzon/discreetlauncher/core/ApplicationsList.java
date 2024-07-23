@@ -419,7 +419,7 @@ public class ApplicationsList
 		{
 			// Search the ComponentInfo in the applications list
 			for(Application application : drawer)
-				if(line.startsWith(application.getComponentInfo()))
+				if(line.startsWith(application.getComponentInfo() + Constants.SEPARATOR))
 				{
 					// Rename the application and move to the next line
 					String new_name = line.replace(application.getComponentInfo() + Constants.SEPARATOR, "") ;
