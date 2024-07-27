@@ -31,11 +31,19 @@
 
         <SeekBarPreference
             app:key="icon_size"
-            app:title="@string/set_icon_size"
-            app:iconSpaceReserved="false"
-            app:defaultValue="4"
-            app:min="3"
+            app:isPreferenceVisible="false"
+            app:defaultValue="0"
+            app:min="0"
             android:max="6"/>
+
+        <ListPreference
+            app:key="icon_size_dp"
+            app:title="@string/set_icon_size_dp"
+            app:iconSpaceReserved="false"
+            app:entries="@array/set_icon_size_dp_values"
+            app:entryValues="@array/set_icon_size_dp_values"
+            app:defaultValue="48"
+            app:useSimpleSummaryProvider="true"/>
 
         <SwitchPreference
             app:key="hide_app_names"

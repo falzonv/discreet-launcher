@@ -54,7 +54,7 @@ public interface Constants
 	String APPLICATION_THEME = "application_theme" ;
 	String TRANSPARENT_STATUS_BAR = "transparent_status_bar" ;
 	String DARK_STATUS_BAR_ICONS = "dark_status_bar_icons" ;
-	String ICON_SIZE = "icon_size" ;
+	String ICON_SIZE_DP = "icon_size_dp" ;
 	String HIDE_APP_NAMES = "hide_app_names" ;
 	String HIDE_FOLDER_NAMES = "hide_folder_names" ;
 	String REMOVE_PADDING = "remove_padding" ;
@@ -99,4 +99,6 @@ public interface Constants
 	String OLD_FORCE_PORTRAIT = "force_portrait" ;
 	// Removed in v5.2.0 - 13/11/2021 (splitted between favorites and app drawer)
 	String OLD_BACKGROUND_COLOR = "background_color" ;
+	// Removed in v7.6.0 - xx/08/2024 (setting converted from seekbar to list)
+	String OLD_ICON_SIZE = "icon_size" ;
 }

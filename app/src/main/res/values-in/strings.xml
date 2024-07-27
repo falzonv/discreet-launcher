@@ -156,7 +156,7 @@
     <string name="set_transparent_status_bar_help">Saat favorit tertutup</string>
     <string name="set_dark_status_bar_icons">Ikon batang sistem gelap</string>
     <string name="set_dark_status_bar_icons_help">Tidak bekerja pada Android 5 (Lollipop)</string>
-    <!-- NEED UPDATE --><string name="set_icon_size">Icon size (for tablets)</string>
+    <!-- NEED UPDATE --><string name="set_icon_size_dp">Icon size</string>
     <string name="set_hide_app_names">Sembunyikan nama aplikasi</string>
     <string name="set_hide_folder_names">Sembunyikan nama folder</string>
     <string name="set_remove_padding">Hilangkan celah saat nama aplikasi disembunyikan</string>

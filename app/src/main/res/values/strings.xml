@@ -156,7 +156,7 @@
     <string name="set_transparent_status_bar_help">When favorites are closed</string>
     <string name="set_dark_status_bar_icons">Dark status bar icons</string>
     <string name="set_dark_status_bar_icons_help">Not working on Android 5 (Lollipop)</string>
-    <string name="set_icon_size">Icon size (for tablets)</string>
+    <string name="set_icon_size_dp">Icon size</string>
     <string name="set_hide_app_names">No app names</string>
     <string name="set_hide_folder_names">No folder names</string>
     <string name="set_remove_padding">No padding when app names are hidden</string>

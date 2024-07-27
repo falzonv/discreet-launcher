@@ -156,7 +156,7 @@
     <string name="set_transparent_status_bar_help">お気に入りが閉じられているとき</string>
     <string name="set_dark_status_bar_icons">黒いステータスアイコンを使用する</string>
     <string name="set_dark_status_bar_icons_help">Android 5 (Lollipop)では動作しません</string>
-    <string name="set_icon_size">アイコンの大きさ (for tablets)</string>
+    <string name="set_icon_size_dp">アイコンの大きさ</string>
     <string name="set_hide_app_names">アプリ名の非表示</string>
     <string name="set_hide_folder_names">フォルダ名の非表示</string>
     <string name="set_remove_padding">アプリ名が非表示のとき、パディングしない</string>

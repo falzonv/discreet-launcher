@@ -79,8 +79,19 @@ public abstract class Utils
 	 */
 	public static int getIconSize(Context context, SharedPreferences settings)
 	{
-		// Compute the icon size in dp based on current settings (Android default is 48dp)
-		int icon_size_dp = 12 * settings.getInt(Constants.ICON_SIZE, 4) ;
+		// Check if the legacy icon size setting is still used (v7.6.0 - xx/08/2024, to remove later)
+		int legacy_icon_size = settings.getInt(Constants.OLD_ICON_SIZE, 0) ;
+		if(legacy_icon_size != 0)
+			{
+				// Migrate the current value to the new setting
+				SharedPreferences.Editor editor = settings.edit() ;
+				editor.putString(Constants.ICON_SIZE_DP, Integer.toString(legacy_icon_size * 12)) ;
+				editor.putInt(Constants.OLD_ICON_SIZE, 0) ;
+				editor.apply() ;
+			}
+
+		// Retrieve the icon size in dp from the settings (Android default is 48dp)
+		int icon_size_dp = Integer.parseInt(settings.getString(Constants.ICON_SIZE_DP, "48")) ;
 
 		// Convert the icon size from dp to pixels
 		return Math.round(icon_size_dp * context.getResources().getDisplayMetrics().density) ;

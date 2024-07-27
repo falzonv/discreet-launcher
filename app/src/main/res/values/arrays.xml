@@ -8,6 +8,21 @@
         <item>none</item>
     </string-array>
 
+    <!-- Icon size (Android default is 48dp) -->
+    <string-array name="set_icon_size_dp_values">
+        <item>32</item>
+        <item>36</item>
+        <item>40</item>
+        <item>44</item>
+        <item>48</item>
+        <item>52</item>
+        <item>56</item>
+        <item>60</item>
+        <item>64</item>
+        <item>68</item>
+        <item>72</item>
+    </string-array>
+
     <!-- Clock format -->
     <string-array name="set_clock_format_values">
         <item>none</item>

@@ -700,7 +700,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 				// Update the theme
 				setApplicationTheme() ;
 				break ;
-			case Constants.ICON_SIZE :
+			case Constants.ICON_SIZE_DP :
 				// Update the applications list and column width
 				updateList(this) ;
 				recreate() ;
