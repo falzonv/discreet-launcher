@@ -186,7 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">お気に入りへのアクセスに関する通知</string>
     <string name="set_notification_help">サイレント通知を使用します</string>
-    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
+    <string name="set_notification_warning_disabled">通知がシステムの設定により無効化されています</string>
     <string name="notification_text">お気に入り</string>
 
     <!-- Forced orientation -->
@@ -205,7 +205,7 @@
     <string name="target_close_favorites">お気に入りを閉じる</string>
     <string name="target_open_apps">アプリ一覧を開く</string>
     <string name="target_close_apps">アプリ一覧を\n閉じる</string>
-    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
+    <string name="help_touch_targets">下にスワイプしてメニューボタンを表示し、操作方法メニューからタッチターゲットを有効にすることができます</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">デフォルトのランチャーに設定する</string>
