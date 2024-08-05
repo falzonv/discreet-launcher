@@ -186,7 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Notificação para acessar os favoritos</string>
     <string name="set_notification_help">Usar um ícone transparente</string>
-    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
+    <string name="set_notification_warning_disabled">Notificações estão desabilitadas nas configurações do sistema</string>
     <string name="notification_text">Favoritos</string>
 
     <!-- Forced orientation -->
@@ -205,7 +205,7 @@
     <string name="target_close_favorites">Fechar\nfavoritos</string>
     <string name="target_open_apps">Abrir\naplicativos</string>
     <string name="target_close_apps">Fechar\naplicativos</string>
-    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
+    <string name="help_touch_targets">Deslize para baixo para exibir o botão do menu, você pode desabilitar os alvos de toque nas configurações gerais</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Selecionar como lançador padrão</string>
