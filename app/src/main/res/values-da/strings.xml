@@ -188,7 +188,6 @@
     <string name="set_notification_help">Bruger et gennemsigtigt ikon</string>
     <string name="set_notification_warning_disabled">Meddelelser er deaktiveret af systemindstillinger</string>
     <string name="notification_text">Favoritter</string>
-    
 
     <!-- Forced orientation -->
     <string name="set_forced_orientation">Tvunget orientering</string>
