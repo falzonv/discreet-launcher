@@ -4,7 +4,7 @@ NEW THINGS
 IMPROVEMENTS
    - Limit search input length (@comradekingu)
    - Interactive clock tap detection (@AdalynBlack)
-   - Move touch targets option upwards (@bmivzkrp)
+   - Touch targets option upper (@bmivzkrp)
 CORRECTIONS
    - Possible crash at export/import (@lesar8)
    - Possible crash if app not found (@AdalynBlack)

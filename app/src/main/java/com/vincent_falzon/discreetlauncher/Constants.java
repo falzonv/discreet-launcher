@@ -99,6 +99,6 @@ public interface Constants
 	String OLD_FORCE_PORTRAIT = "force_portrait" ;
 	// Removed in v5.2.0 - 13/11/2021 (splitted between favorites and app drawer)
 	String OLD_BACKGROUND_COLOR = "background_color" ;
-	// Removed in v7.6.0 - xx/08/2024 (setting converted from seekbar to list)
+	// Removed in v7.6.0 - 24/08/2024 (setting converted from seekbar to list)
 	String OLD_ICON_SIZE = "icon_size" ;
 }

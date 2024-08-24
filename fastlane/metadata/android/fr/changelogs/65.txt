@@ -1,0 +1,6 @@
+v7.6.0 (65) - 24/08/2024
+AMÉLIORATIONS
+   - Choix taille d'icônes (@Yasen6275, @antodc)
+   - Aide TTS pour les cibles de clic (@bmivzkrp)
+CORRECTIONS
+   - Renommage applis profil de travail (@Shkzeen)

@@ -1,0 +1,6 @@
+v7.6.0 (65) - 24/08/2024
+IMPROVEMENTS
+   - More icon sizes (@Yasen6275, @antodc)
+   - Touch targets text-to-speech help (@bmivzkrp)
+CORRECTIONS
+   - Work profile apps renaming (@Shkzeen)

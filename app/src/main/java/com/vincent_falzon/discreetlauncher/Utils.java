@@ -79,7 +79,7 @@ public abstract class Utils
 	 */
 	public static int getIconSize(Context context, SharedPreferences settings)
 	{
-		// Check if the legacy icon size setting is still used (v7.6.0 - xx/08/2024, to remove later)
+		// Check if the legacy icon size setting is still used (v7.6.0 - 24/08/2024, to remove later)
 		int legacy_icon_size = settings.getInt(Constants.OLD_ICON_SIZE, 0) ;
 		if(legacy_icon_size != 0)
 			{
