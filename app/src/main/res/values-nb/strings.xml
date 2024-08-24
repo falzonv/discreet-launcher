@@ -39,7 +39,7 @@
     <string name="long_click_remove_shortcut">Fjern denne snarveien</string>
 
     <!-- General buttons used in several dialogs -->
-    <string name="button_apply">Bruk</string>
+    <string name="button_apply">Funksjon</string>
     <string name="button_cancel">Avbryt</string>
     <string name="button_close">Lukk</string>
 
@@ -186,7 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Merknad for tilgang til favoritter</string>
     <string name="set_notification_help">Bruker et gjennomsiktig ikon</string>
-    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
+    <string name="set_notification_warning_disabled">Merknader er avskrudd i systeminnstillingene</string>
     <string name="notification_text">Favoritter</string>
 
     <!-- Forced orientation -->
@@ -199,13 +199,13 @@
     </string-array>
 
     <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
-    <string name="set_touch_targets">Pekemål (tilgjengelighetsvalg)</string>
-    <string name="set_touch_targets_help">Klikkbare etiketter på hjemmeskjermen</string>
+    <string name="set_touch_targets">Klikkbare etiketter (tilgjengelighetsvalg)</string>
+    <string name="set_touch_targets_help">Pekemål på hjemmeskjermen</string>
     <string name="target_open_favorites">Åpne\nfavoritter</string>
     <string name="target_close_favorites">Lukk\nfavoritter</string>
     <string name="target_open_apps">Åpne\nprogrammer</string>
     <string name="target_close_apps">Lukk\nprogrammer</string>
-    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
+    <string name="help_touch_targets">Dra nedover for å vise menyknappen. Du kan skru på klikkbare etiketter i funksjonsmenyen</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Bruk som forvalgt oppstarter</string>
