@@ -186,7 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Favorilere erişim için bildirim</string>
     <string name="set_notification_help">Şeffaf bir simge kullanır</string>
-    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
+    <!-- NEED UPDATE --><string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">Favoriler</string>
 
     <!-- Forced orientation -->
@@ -205,7 +205,7 @@
     <string name="target_close_favorites">Kapalı\nFavoriler</string>
     <string name="target_open_apps">Açık\nuygulamalar</string>
     <string name="target_close_apps">Kapat\nuygulamaları</string>
-    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
+    <!-- NEED UPDATE --><string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Varsayılan başlatıcı olarak ayarla</string>

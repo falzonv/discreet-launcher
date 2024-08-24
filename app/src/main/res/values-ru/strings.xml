@@ -186,7 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Уведомление для доступа к избранному</string>
     <string name="set_notification_help">Использует прозрачный значок</string>
-    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
+    <!-- NEED UPDATE --><string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">Избранные</string>
 
     <!-- Forced orientation -->
@@ -205,7 +205,7 @@
     <string name="target_close_favorites">Закрыть\nизбранные</string>
     <string name="target_open_apps">Открыть\nприложения</string>
     <string name="target_close_apps">Закрыть\nприложения</string>
-    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
+    <!-- NEED UPDATE --><string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Установить лаунчером по-умолчанию</string>

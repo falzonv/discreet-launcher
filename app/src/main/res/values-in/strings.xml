@@ -186,7 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Notifikasi untuk mengakses favorit</string>
     <string name="set_notification_help">Gunakan ikon transparan</string>
-    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
+    <!-- NEED UPDATE --><string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
     <string name="notification_text">Favorit</string>
 
     <!-- Forced orientation -->
@@ -205,7 +205,7 @@
     <string name="target_close_favorites">Tutup\nfavorit</string>
     <string name="target_open_apps">Buka\nLaci Aplikasi</string>
     <!-- NEED UPDATE --><string name="target_close_apps">Close\napps</string>
-    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
+    <!-- NEED UPDATE --><string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <!-- NEED UPDATE --><string name="set_as_default_launcher">Set as default launcher</string>

@@ -186,7 +186,7 @@
     <!-- Notification -->
     <string name="set_notification">Сповіщення для доступу до обраних застосунків</string>
     <string name="set_notification_help">Використовується прозора піфтограма</string>
-    <string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
+    <string name="set_notification_warning_disabled">Сповіщення вимкнені у налаштуваннях системи</string>
     <string name="notification_text">Обране</string>
 
     <!-- Forced orientation -->
@@ -205,7 +205,7 @@
     <string name="target_close_favorites">Приховати\nобране</string>
     <string name="target_open_apps">Показати\nзастосунки</string>
     <string name="target_close_apps">Закрити\nзастосунки</string>
-    <string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
+    <string name="help_touch_targets">Для відображення кнопки Меню - проведіть вниз. Ви можете ввімкнути цілі для дотику в меню операцій</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Запускач за замовчуванням</string>
