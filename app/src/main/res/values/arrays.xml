@@ -11,15 +11,25 @@
     <!-- Icon size (Android default is 48dp) -->
     <string-array name="set_icon_size_dp_values">
         <item>32</item>
+        <item>34</item>
         <item>36</item>
+        <item>38</item>
         <item>40</item>
+        <item>42</item>
         <item>44</item>
+        <item>46</item>
         <item>48</item>
+        <item>50</item>
         <item>52</item>
+        <item>54</item>
         <item>56</item>
+        <item>58</item>
         <item>60</item>
+        <item>62</item>
         <item>64</item>
+        <item>66</item>
         <item>68</item>
+        <item>70</item>
         <item>72</item>
     </string-array>
 
