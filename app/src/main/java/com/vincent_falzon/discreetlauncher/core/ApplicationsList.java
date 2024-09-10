@@ -27,6 +27,7 @@ import android.content.Context ;
 import android.content.SharedPreferences ;
 import android.content.pm.LauncherActivityInfo ;
 import android.content.pm.LauncherApps ;
+import android.content.pm.PackageManager;
 import android.content.res.Resources ;
 import android.graphics.Bitmap ;
 import android.graphics.Canvas ;
@@ -110,6 +111,8 @@ public class ApplicationsList
 		UserManager userManager = (UserManager)context.getSystemService(Context.USER_SERVICE) ;
 		List<UserHandle> userProfiles = userManager.getUserProfiles() ;
 
+		PackageManager pm = context.getPackageManager() ;
+
 		// Browse all user profiles
 		Drawable icon ;
 		Resources resources = context.getResources() ;
@@ -136,6 +139,10 @@ public class ApplicationsList
 						if(color_tint == 0) icon = activity.getIcon(0) ;
 							else icon = applyColorTint(resources, activity.getIcon(0), color_tint) ;
 					}
+
+				if (userHandle != null)
+					icon = pm.getUserBadgedIcon(icon, profile) ;
+
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Check if the application is the launcher to provide menu access using its icon
