@@ -48,6 +48,8 @@ import com.vincent_falzon.discreetlauncher.storage.* ;
 import java.text.Collator ;
 import java.util.ArrayList ;
 import java.util.Collections ;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List ;
 
 /**
@@ -251,9 +253,10 @@ public class ApplicationsList
 		ArrayList<String> folders_colors_file = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).readAllLines() ;
 
 		// Search a folder base icon in icon packs, use the default base icon if not found
-		Drawable baseIcon = iconPack1.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER) ;
-		if(baseIcon == null) baseIcon = iconPack2.searchIcon(Constants.APK_FOLDER, Constants.APK_FOLDER) ;
-		if(baseIcon == null) baseIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
+		Drawable baseIconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER) ;
+		Drawable baseIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
+
+		HashMap<Integer, Drawable> iconPackIconsCache = new HashMap<>();
 
 		// Browse the name of all folders files
 		ArrayList<Folder> folders = new ArrayList<>() ;
@@ -294,8 +297,24 @@ public class ApplicationsList
 						}
 			}
 
-			// Create the folder icon with the number of applications inside and the selected color
-			Drawable icon = new FolderIcon(baseIcon, icon_size, folder.getApplications().size(), folder.getColor()) ;
+			Drawable icon;
+			int folderSize = folder.getApplications().size() ;
+
+			if (iconPackIconsCache.containsKey(folderSize))
+				icon = new BlankFolderIcon(iconPackIconsCache.get(folderSize), icon_size) ;
+			else {
+				Drawable iconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER + folderSize) ;
+				if (iconPackIcon != null) {
+					icon = new BlankFolderIcon(iconPackIcon, icon_size) ;
+					iconPackIconsCache.put(folderSize, iconPackIcon) ;
+				}
+				else if (baseIconPackIcon != null)
+					icon = new BlankFolderIcon(baseIconPackIcon, icon_size) ;
+				else
+					// Create the folder icon with the number of applications inside and the selected color
+					icon = new FolderIcon(baseIcon, icon_size, folderSize, folder.getColor()) ;
+			}
+
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
 
@@ -578,5 +597,12 @@ public class ApplicationsList
 
 		// Return the converted file
 		return new_content ;
+	}
+
+	private Drawable searchInMultipleIconPack(IconPack iconPack1, IconPack iconPack2, String apk, String name)
+	{
+		Drawable icon = iconPack1.searchIcon(apk, name) ;
+		if(icon == null) icon = iconPack2.searchIcon(apk, name) ;
+		return icon ;
 	}
 }
