@@ -49,7 +49,6 @@ import java.text.Collator ;
 import java.util.ArrayList ;
 import java.util.Collections ;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List ;
 
 /**
@@ -253,7 +252,7 @@ public class ApplicationsList
 		ArrayList<String> folders_colors_file = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).readAllLines() ;
 
 		// Search a folder base icon in icon packs, use the default base icon if not found
-		Drawable baseIconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER) ;
+		Drawable defaultIconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER) ;
 		Drawable baseIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
 
 		HashMap<Integer, Drawable> iconPackIconsCache = new HashMap<>();
@@ -308,8 +307,8 @@ public class ApplicationsList
 					icon = new BlankFolderIcon(iconPackIcon, icon_size) ;
 					iconPackIconsCache.put(folderSize, iconPackIcon) ;
 				}
-				else if (baseIconPackIcon != null)
-					icon = new BlankFolderIcon(baseIconPackIcon, icon_size) ;
+				else if (defaultIconPackIcon != null)
+					icon = new BlankFolderIcon(defaultIconPackIcon, icon_size) ;
 				else
 					// Create the folder icon with the number of applications inside and the selected color
 					icon = new FolderIcon(baseIcon, icon_size, folderSize, folder.getColor()) ;
