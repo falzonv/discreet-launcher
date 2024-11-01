@@ -42,6 +42,7 @@ import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.appcompat.content.res.AppCompatResources ;
+import androidx.core.content.ContextCompat ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.LinearLayoutManager ;
 import androidx.recyclerview.widget.RecyclerView ;
@@ -122,12 +123,12 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 				int icon_size = Utils.getIconSize(this, settings) ;
 				Drawable baseIcon = AppCompatResources.getDrawable(this, R.drawable.icon_folder) ;
-				Drawable icon = new FolderIcon(baseIcon, icon_size, 0, getResources().getColor(R.color.for_icon_added_in_drawer)) ;
+				Drawable icon = new FolderIcon(baseIcon, icon_size, 0, ContextCompat.getColor(this, R.color.for_icon_added_in_drawer)) ;
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Create the folder and update the list
 				file.writeLine("") ;
-				folders.add(new Folder(new_folder_name, icon, getResources().getColor(R.color.for_icon_added_in_drawer))) ;
+				folders.add(new Folder(new_folder_name, icon, ContextCompat.getColor(this, R.color.for_icon_added_in_drawer))) ;
 				ActivityMain.updateList(this) ;
 				adapter.notifyDataSetChanged() ;
 			}
@@ -240,7 +241,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 					{
 						ColorPickerDialog colorDialog = new ColorPickerDialog(context,
 								folder.getColor(),
-								ColorPickerDialog.convertIntColorToHexadecimal(context.getResources().getColor(R.color.for_icon_added_in_drawer), true),
+								ColorPickerDialog.convertIntColorToHexadecimal(ContextCompat.getColor(context, R.color.for_icon_added_in_drawer), true),
 								folder.getDisplayName(),
 								color -> {
 									// Remove the previous color from the mapping file

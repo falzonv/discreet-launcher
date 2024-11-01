@@ -39,6 +39,7 @@ import android.graphics.drawable.Drawable ;
 import android.os.UserHandle ;
 import android.os.UserManager ;
 import androidx.appcompat.content.res.AppCompatResources ;
+import androidx.core.content.ContextCompat ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
@@ -267,7 +268,7 @@ public class ApplicationsList
 			folder_file = convertComponentInfo(filename, folder_file) ;
 
 			// Check if a color has beed defined for this folder or use the default white
-			int color = context.getResources().getColor(R.color.for_icon_added_in_drawer) ;
+			int color = ContextCompat.getColor(context, R.color.for_icon_added_in_drawer) ;
 			if(folders_colors_file != null)
 				for(String mapping : folders_colors_file)
 					if(mapping.startsWith(filename))

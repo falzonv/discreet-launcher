@@ -29,6 +29,7 @@ import android.content.Context ;
 import android.content.Intent ;
 import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AlertDialog ;
+import androidx.core.content.ContextCompat ;
 import androidx.preference.PreferenceManager ;
 import androidx.recyclerview.widget.RecyclerView ;
 import android.content.SharedPreferences ;
@@ -81,7 +82,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 		this.applicationsList = applicationsList ;
 		this.target = target ;
 		padding = Math.round(context.getResources().getDimension(R.dimen.spacing_normal)) ;
-		text_color = context.getResources().getColor(R.color.for_text_on_overlay) ;
+		text_color = ContextCompat.getColor(context, R.color.for_text_on_overlay) ;
 
 		// Retrieve settings which do not need update (the activity is recreated if they change)
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
@@ -229,8 +230,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Applic
 			if(display)
 				{
 					name.setTypeface(Typeface.DEFAULT_BOLD) ;
-					name.setShadowLayer(15, 0, 0, context.getResources().getColor(R.color.for_visual_feedback_shadow)) ;
-					name.getCompoundDrawables()[1].setColorFilter(context.getResources().getColor(R.color.for_visual_feedback_drawable), PorterDuff.Mode.SRC_ATOP) ;
+					name.setShadowLayer(15, 0, 0, ContextCompat.getColor(context, R.color.for_visual_feedback_shadow)) ;
+					name.getCompoundDrawables()[1].setColorFilter(ContextCompat.getColor(context, R.color.for_visual_feedback_drawable), PorterDuff.Mode.SRC_ATOP) ;
 				}
 				else
 				{
