@@ -22,7 +22,6 @@ android
         versionName "v7.6.0"
     }
 
-    // Build types always include debug (hidden by default)
     buildTypes
     {
         debug
@@ -39,6 +38,12 @@ android
             // Allow usage of the version name in XML
             resValue "string", "app_version", "${defaultConfig.versionName}"
         }
+    }
+
+    buildFeatures
+    {
+        // Allow usage of BuildConfig.DEBUG in logging methods of Utils.java
+        buildConfig = true
     }
 }
 

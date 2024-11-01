@@ -24,5 +24,5 @@
 -keep class com.vincent_falzon.discreetlauncher** { * ; }
 
 # For shrinking troubleshooting, check these files in "app/build/outputs/mapping/release/"
-#   - "usage.txt" lists what ProGuard considers as dead code
+#   - "usage.txt" lists what ProGuard considers as dead code
 #   - "seeds.txt" exhaustively lists classes and classes members matched by "keep" rules
