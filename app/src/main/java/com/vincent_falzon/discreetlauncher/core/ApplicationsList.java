@@ -110,7 +110,7 @@ public class ApplicationsList
 		// Retrieve the list of user profiles
 		UserManager userManager = (UserManager)context.getSystemService(Context.USER_SERVICE) ;
 		List<UserHandle> userProfiles = userManager.getUserProfiles() ;
-		PackageManager packageManager = context.getPackageManager() ;
+		PackageManager apkManager = context.getPackageManager() ;
 
 		// Browse all user profiles
 		Drawable icon ;
@@ -140,7 +140,7 @@ public class ApplicationsList
 					}
 
 				// Add a badge to the chosen icon if the app is in a work profile
-				if(userHandle != null) icon = packageManager.getUserBadgedIcon(icon, profile) ;
+				if(userHandle != null) icon = apkManager.getUserBadgedIcon(icon, profile) ;
 
 				// Resize the icon to the user-defined size
 				icon.setBounds(0, 0, icon_size, icon_size) ;
