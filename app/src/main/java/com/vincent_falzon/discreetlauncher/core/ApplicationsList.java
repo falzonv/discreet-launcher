@@ -139,10 +139,10 @@ public class ApplicationsList
 							else icon = applyColorTint(resources, activity.getIcon(0), color_tint) ;
 					}
 
+				// Add a badge to the chosen icon if the app is in a work profile
 				if (userHandle != null)
 					icon = packageManager.getUserBadgedIcon(icon, profile) ;
-
-
+				// Resize the icon to the user-defined size
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Check if the application is the launcher to provide menu access using its icon
