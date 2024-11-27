@@ -140,8 +140,8 @@ public class ApplicationsList
 					}
 
 				// Add a badge to the chosen icon if the app is in a work profile
-				if (userHandle != null)
-					icon = packageManager.getUserBadgedIcon(icon, profile) ;
+				if(userHandle != null) icon = packageManager.getUserBadgedIcon(icon, profile) ;
+
 				// Resize the icon to the user-defined size
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
