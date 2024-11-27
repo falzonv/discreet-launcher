@@ -27,7 +27,7 @@ import android.content.Context ;
 import android.content.SharedPreferences ;
 import android.content.pm.LauncherActivityInfo ;
 import android.content.pm.LauncherApps ;
-import android.content.pm.PackageManager;
+import android.content.pm.PackageManager ;
 import android.content.res.Resources ;
 import android.graphics.Bitmap ;
 import android.graphics.Canvas ;
@@ -110,8 +110,7 @@ public class ApplicationsList
 		// Retrieve the list of user profiles
 		UserManager userManager = (UserManager)context.getSystemService(Context.USER_SERVICE) ;
 		List<UserHandle> userProfiles = userManager.getUserProfiles() ;
-
-		PackageManager pm = context.getPackageManager() ;
+		PackageManager packageManager = context.getPackageManager() ;
 
 		// Browse all user profiles
 		Drawable icon ;
@@ -141,7 +140,8 @@ public class ApplicationsList
 					}
 
 				if (userHandle != null)
-					icon = pm.getUserBadgedIcon(icon, profile) ;
+					icon = packageManager.getUserBadgedIcon(icon, profile) ;
+
 
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
