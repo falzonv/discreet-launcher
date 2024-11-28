@@ -51,6 +51,11 @@ public class FolderIcon extends Drawable
 	 */
 	public FolderIcon(Drawable baseIcon, int icon_size_pixels, int applications_number, int color)
 	{
+		this(baseIcon, icon_size_pixels, applications_number, color, color) ;
+	}
+
+	public FolderIcon(Drawable baseIcon, int icon_size_pixels, int applications_number, int iconColor, int textColor)
+	{
 		// Prepare the base icon on which the number of apps will be written
 		icon_size = icon_size_pixels ;
 		if(baseIcon != null)
@@ -63,8 +68,8 @@ public class FolderIcon extends Drawable
 				// Get an editable copy of the Bitmap and change its color according to settings
 				icon = convertedIcon.copy(Bitmap.Config.ARGB_8888, true) ;
 				Paint iconPaint = new Paint() ;
-				if(color != Color.TRANSPARENT)
-					iconPaint.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)) ;
+				if(iconColor != Color.TRANSPARENT)
+					iconPaint.setColorFilter(new PorterDuffColorFilter(iconColor, PorterDuff.Mode.SRC_IN)) ;
 				new Canvas(icon).drawBitmap(icon, 0, 0, iconPaint) ;
 			}
 			else icon = null ;
@@ -77,7 +82,7 @@ public class FolderIcon extends Drawable
 		{
 			paint.setAntiAlias(true) ;
 			paint.setTextSize(icon_size / 3f) ;
-			paint.setColor(color) ;
+			paint.setColor(textColor) ;
 			paint.setTextAlign(Paint.Align.CENTER) ;
 		}
 	}
