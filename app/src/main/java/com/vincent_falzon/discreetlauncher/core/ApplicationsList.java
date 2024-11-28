@@ -31,6 +31,7 @@ import android.content.pm.PackageManager ;
 import android.content.res.Resources ;
 import android.graphics.Bitmap ;
 import android.graphics.Canvas ;
+import android.graphics.Color;
 import android.graphics.ColorMatrix ;
 import android.graphics.ColorMatrixColorFilter ;
 import android.graphics.Paint ;
@@ -307,10 +308,10 @@ public class ApplicationsList
 
 			Drawable iconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER + folderSize) ;
 			if (iconPackIcon != null) {
-				icon = new BlankFolderIcon(iconPackIcon, icon_size) ;
+				icon = new FolderIcon(iconPackIcon, icon_size, -1, Color.TRANSPARENT) ;
 			}
 			else if (defaultIconPackIcon != null)
-				icon = new BlankFolderIcon(defaultIconPackIcon, icon_size) ;
+				icon = new FolderIcon(defaultIconPackIcon, icon_size, -1, Color.TRANSPARENT) ;
 			else
 				// Create the folder icon with the number of applications inside and the selected color
 				icon = new FolderIcon(baseIcon, icon_size, folderSize, folder.getColor()) ;

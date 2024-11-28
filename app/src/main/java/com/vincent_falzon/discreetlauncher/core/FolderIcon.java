@@ -25,6 +25,7 @@ package com.vincent_falzon.discreetlauncher.core ;
 // Imports
 import android.graphics.Bitmap ;
 import android.graphics.Canvas ;
+import android.graphics.Color;
 import android.graphics.ColorFilter ;
 import android.graphics.Paint ;
 import android.graphics.PixelFormat ;
@@ -62,7 +63,8 @@ public class FolderIcon extends Drawable
 				// Get an editable copy of the Bitmap and change its color according to settings
 				icon = convertedIcon.copy(Bitmap.Config.ARGB_8888, true) ;
 				Paint iconPaint = new Paint() ;
-				iconPaint.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)) ;
+				if(color != Color.TRANSPARENT)
+					iconPaint.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)) ;
 				new Canvas(icon).drawBitmap(icon, 0, 0, iconPaint) ;
 			}
 			else icon = null ;
@@ -70,10 +72,14 @@ public class FolderIcon extends Drawable
 		// Retrieve the number to write and define its settings
 		this.number = String.valueOf(applications_number) ;
 		paint = new Paint() ;
-		paint.setAntiAlias(true) ;
-		paint.setTextSize(icon_size / 3f) ;
-		paint.setColor(color) ;
-		paint.setTextAlign(Paint.Align.CENTER) ;
+
+		if(applications_number >= 0)
+		{
+			paint.setAntiAlias(true) ;
+			paint.setTextSize(icon_size / 3f) ;
+			paint.setColor(color) ;
+			paint.setTextAlign(Paint.Align.CENTER) ;
+		}
 	}
 
 
@@ -84,7 +90,7 @@ public class FolderIcon extends Drawable
 	public void draw(@NonNull Canvas canvas)
 	{
 		if(icon != null) canvas.drawBitmap(icon, 0, 0, paint) ;
-		canvas.drawText(number, icon_size * 0.5f, icon_size * 0.875f, paint) ;
+		if(!number.equals("-1")) canvas.drawText(number, icon_size * 0.5f, icon_size * 0.875f, paint) ;
 	}
 
 
