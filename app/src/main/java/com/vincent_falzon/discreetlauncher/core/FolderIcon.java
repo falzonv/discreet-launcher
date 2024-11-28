@@ -29,6 +29,7 @@ import android.graphics.Color;
 import android.graphics.ColorFilter ;
 import android.graphics.Paint ;
 import android.graphics.PixelFormat ;
+import android.graphics.PointF;
 import android.graphics.PorterDuff ;
 import android.graphics.PorterDuffColorFilter ;
 import android.graphics.drawable.Drawable ;
@@ -44,6 +45,7 @@ public class FolderIcon extends Drawable
 	private final Bitmap icon ;
 	private final Paint paint ;
 	private final int icon_size ;
+	private final PointF text_location;
 
 
 	/**
@@ -85,6 +87,16 @@ public class FolderIcon extends Drawable
 			paint.setColor(textColor) ;
 			paint.setTextAlign(Paint.Align.CENTER) ;
 		}
+
+		// Center the text if not Discreet folder icon
+		if (iconColor == Color.TRANSPARENT)
+		{
+			text_location = new PointF(icon_size * 0.5f, icon_size * 0.5f - paint.ascent() * 0.5f) ;
+		}
+		else
+		{
+			text_location = new PointF(icon_size * 0.5f, icon_size * 0.875f) ;
+		}
 	}
 
 
@@ -95,7 +107,7 @@ public class FolderIcon extends Drawable
 	public void draw(@NonNull Canvas canvas)
 	{
 		if(icon != null) canvas.drawBitmap(icon, 0, 0, paint) ;
-		if(!number.equals("-1")) canvas.drawText(number, icon_size * 0.5f, icon_size * 0.875f, paint) ;
+		if(!number.equals("-1")) canvas.drawText(number, text_location.x, text_location.y, paint) ;
 	}
 
 
