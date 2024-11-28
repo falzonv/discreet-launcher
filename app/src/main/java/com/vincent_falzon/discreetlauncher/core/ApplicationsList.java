@@ -27,6 +27,7 @@ import android.content.Context ;
 import android.content.SharedPreferences ;
 import android.content.pm.LauncherActivityInfo ;
 import android.content.pm.LauncherApps ;
+import android.content.pm.PackageManager ;
 import android.content.res.Resources ;
 import android.graphics.Bitmap ;
 import android.graphics.Canvas ;
@@ -39,6 +40,7 @@ import android.graphics.drawable.Drawable ;
 import android.os.UserHandle ;
 import android.os.UserManager ;
 import androidx.appcompat.content.res.AppCompatResources ;
+import androidx.core.content.ContextCompat ;
 import androidx.preference.PreferenceManager ;
 import com.vincent_falzon.discreetlauncher.Constants ;
 import com.vincent_falzon.discreetlauncher.R ;
@@ -110,6 +112,7 @@ public class ApplicationsList
 		// Retrieve the list of user profiles
 		UserManager userManager = (UserManager)context.getSystemService(Context.USER_SERVICE) ;
 		List<UserHandle> userProfiles = userManager.getUserProfiles() ;
+		PackageManager apkManager = context.getPackageManager() ;
 
 		// Browse all user profiles
 		Drawable icon ;
@@ -137,6 +140,11 @@ public class ApplicationsList
 						if(color_tint == 0) icon = activity.getIcon(0) ;
 							else icon = applyColorTint(resources, activity.getIcon(0), color_tint) ;
 					}
+
+				// Add a badge to the chosen icon if the app is in a work profile
+				if(userHandle != null) icon = apkManager.getUserBadgedIcon(icon, profile) ;
+
+				// Resize the icon to the user-defined size
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Check if the application is the launcher to provide menu access using its icon
@@ -269,7 +277,7 @@ public class ApplicationsList
 			folder_file = convertComponentInfo(filename, folder_file) ;
 
 			// Check if a color has beed defined for this folder or use the default white
-			int color = context.getResources().getColor(R.color.for_icon_added_in_drawer) ;
+			int color = ContextCompat.getColor(context, R.color.for_icon_added_in_drawer) ;
 			if(folders_colors_file != null)
 				for(String mapping : folders_colors_file)
 					if(mapping.startsWith(filename))

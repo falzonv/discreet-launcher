@@ -5,8 +5,7 @@ apply plugin: 'com.android.application'
 android
 {
     // API level used to compile the application
-    compileSdkVersion var_compile_sdk
-    buildToolsVersion "32.1.0-rc1"
+    compileSdk var_compile_sdk
 
     defaultConfig
     {
@@ -23,7 +22,6 @@ android
         versionName "v7.6.0"
     }
 
-    // Build types always include debug (hidden by default)
     buildTypes
     {
         debug
@@ -41,13 +39,19 @@ android
             resValue "string", "app_version", "${defaultConfig.versionName}"
         }
     }
+
+    buildFeatures
+    {
+        // Allow usage of BuildConfig.DEBUG in logging methods of Utils.java
+        buildConfig = true
+    }
 }
 
 // External requirements
 dependencies
 {
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.recyclerview:recyclerview:1.3.1'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
     implementation('androidx.preference:preference:1.2.1') {
                 // Workaround for bug https://issuetracker.google.com/issues/238425626
                 exclude group: 'androidx.lifecycle', module:'lifecycle-viewmodel'

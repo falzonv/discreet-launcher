@@ -38,6 +38,7 @@ import androidx.annotation.NonNull ;
 import androidx.appcompat.app.AppCompatActivity ;
 import androidx.appcompat.app.AppCompatDelegate ;
 import androidx.appcompat.content.res.AppCompatResources ;
+import androidx.core.content.ContextCompat ;
 import androidx.core.graphics.drawable.DrawableCompat ;
 import androidx.core.view.GestureDetectorCompat ;
 import androidx.preference.PreferenceManager ;
@@ -436,11 +437,11 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, true))
-						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
+						getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.transparent)) ;
 					else getWindow().setStatusBarColor(Utils.getColor(settings, Constants.BACKGROUND_COLOR_FAVORITES, Constants.COLOR_FOR_OVERLAY)) ;
 
 				// Make the navigation bar transparent
-				getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
+				getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.transparent)) ;
 			}
 	}
 
@@ -487,13 +488,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 				// If the option is selected, make the status bar fully transparent
 				if(settings.getBoolean(Constants.TRANSPARENT_STATUS_BAR, true))
-						getWindow().setStatusBarColor(getResources().getColor(R.color.transparent)) ;
+						getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.transparent)) ;
 					else getWindow().setStatusBarColor(favorites_background_color) ;
 
 				// Make the navigation bar transparent, unless in reverse interface with favorites always shown
 				if(reverse_interface && settings.getBoolean(Constants.ALWAYS_SHOW_FAVORITES, false))
 						getWindow().setNavigationBarColor(favorites_background_color) ;
-					else getWindow().setNavigationBarColor(getResources().getColor(R.color.transparent)) ;
+					else getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.transparent)) ;
 			}
 	}
 
