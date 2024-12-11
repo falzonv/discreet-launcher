@@ -31,6 +31,10 @@
         <item>68</item>
         <item>70</item>
         <item>72</item>
+        <item>84</item>
+        <item>96</item>
+        <item>108</item>
+        <item>120</item>
     </string-array>
 
     <!-- Clock format -->
