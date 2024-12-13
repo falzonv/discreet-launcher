@@ -307,13 +307,13 @@ public class ApplicationsList
 
 			Drawable iconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER + folderSize) ;
 			if (iconPackIcon != null) {
-				icon = new FolderIcon(iconPackIcon, icon_size, -1, Color.TRANSPARENT) ;
+				icon = new FolderIcon(iconPackIcon, icon_size, -1, Color.TRANSPARENT, Color.TRANSPARENT) ;
 			}
 			else if (defaultIconPackIcon != null)
 				icon = new FolderIcon(defaultIconPackIcon, icon_size, folderSize, Color.TRANSPARENT, folder.getColor()) ;
 			else
 				// Create the folder icon with the number of applications inside and the selected color
-				icon = new FolderIcon(baseIcon, icon_size, folderSize, folder.getColor()) ;
+				icon = new FolderIcon(baseIcon, icon_size, folderSize, folder.getColor(), folder.getColor()) ;
 
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
