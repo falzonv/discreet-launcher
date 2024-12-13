@@ -51,11 +51,6 @@ public class FolderIcon extends Drawable
 	/**
 	 * Constructor.
 	 */
-	public FolderIcon(Drawable baseIcon, int icon_size_pixels, int applications_number, int color)
-	{
-		this(baseIcon, icon_size_pixels, applications_number, color, color) ;
-	}
-
 	public FolderIcon(Drawable baseIcon, int icon_size_pixels, int applications_number, int iconColor, int textColor)
 	{
 		// Prepare the base icon on which the number of apps will be written
