@@ -31,7 +31,7 @@ import android.content.pm.PackageManager ;
 import android.content.res.Resources ;
 import android.graphics.Bitmap ;
 import android.graphics.Canvas ;
-import android.graphics.Color;
+import android.graphics.Color ;
 import android.graphics.ColorMatrix ;
 import android.graphics.ColorMatrixColorFilter ;
 import android.graphics.Paint ;
@@ -302,19 +302,17 @@ public class ApplicationsList
 						}
 			}
 
-			Drawable icon;
+			// Retrieve the number of apps in the folder
 			int folderSize = folder.getApplications().size() ;
-
+			
+			// Create a folder icon using a specific or generic icon pack icon, or the Discreet Launcher folder icon as fallback
+			Drawable icon ;
 			Drawable iconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER + folderSize) ;
-			if (iconPackIcon != null) {
-				icon = new FolderIcon(iconPackIcon, icon_size, -1, Color.TRANSPARENT, Color.TRANSPARENT) ;
-			}
-			else if (defaultIconPackIcon != null)
-				icon = new FolderIcon(defaultIconPackIcon, icon_size, folderSize, Color.TRANSPARENT, folder.getColor()) ;
-			else
-				// Create the folder icon with the number of applications inside and the selected color
-				icon = new FolderIcon(baseIcon, icon_size, folderSize, folder.getColor(), folder.getColor()) ;
+			if(iconPackIcon != null) icon = new FolderIcon(iconPackIcon, icon_size, -1, Color.TRANSPARENT, Color.TRANSPARENT) ;
+				else if(defaultIconPackIcon != null) icon = new FolderIcon(defaultIconPackIcon, icon_size, folderSize, Color.TRANSPARENT, folder.getColor()) ;
+				else icon = new FolderIcon(baseIcon, icon_size, folderSize, folder.getColor(), folder.getColor()) ;
 
+			// Resize the icon to the user-defined size
 			icon.setBounds(0, 0, icon_size, icon_size) ;
 			folder.setIcon(icon) ;
 
@@ -599,6 +597,10 @@ public class ApplicationsList
 		return new_content ;
 	}
 
+	
+	/**
+	 * Search the icon of an application in the packs (returns <code>null</code> if not found).
+	 */
 	private Drawable searchInMultipleIconPack(IconPack iconPack1, IconPack iconPack2, String apk, String name)
 	{
 		Drawable icon = iconPack1.searchIcon(apk, name) ;
