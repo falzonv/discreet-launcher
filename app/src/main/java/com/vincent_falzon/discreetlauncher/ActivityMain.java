@@ -176,9 +176,9 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		// Define the width of an application item
 		int app_size_pixels = Utils.getIconSize(this, settings) ;
 		int padding_pixels ;
-		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false)
-				&& settings.getBoolean(Constants.REMOVE_PADDING, false)) padding_pixels = Math.round(app_size_pixels / 24f) ;
-			else padding_pixels = Math.round(app_size_pixels / 1.5f) ;
+		if(settings.getBoolean(Constants.HIDE_APP_NAMES, false))
+				padding_pixels = settings.getBoolean(Constants.REMOVE_PADDING, false) ? 0 : Math.round(25 * density) ;
+			else padding_pixels = Math.round(Math.min(app_size_pixels / 1.5f, 32 * density)) ;
 		application_width = app_size_pixels + padding_pixels ;
 
 		// Update the display according to settings
