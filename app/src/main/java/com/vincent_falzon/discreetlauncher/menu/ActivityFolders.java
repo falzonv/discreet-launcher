@@ -123,7 +123,7 @@ public class ActivityFolders extends AppCompatActivity implements View.OnClickLi
 				SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this) ;
 				int icon_size = Utils.getIconSize(this, settings) ;
 				Drawable baseIcon = AppCompatResources.getDrawable(this, R.drawable.icon_folder) ;
-				Drawable icon = new FolderIcon(baseIcon, icon_size, 0, ContextCompat.getColor(this, R.color.for_icon_added_in_drawer)) ;
+				Drawable icon = new FolderIcon(baseIcon, icon_size, 0, ContextCompat.getColor(this, R.color.for_icon_added_in_drawer), false) ;
 				icon.setBounds(0, 0, icon_size, icon_size) ;
 
 				// Create the folder and update the list
