@@ -31,7 +31,6 @@ import android.content.pm.PackageManager ;
 import android.content.res.Resources ;
 import android.graphics.Bitmap ;
 import android.graphics.Canvas ;
-import android.graphics.Color ;
 import android.graphics.ColorMatrix ;
 import android.graphics.ColorMatrixColorFilter ;
 import android.graphics.Paint ;
@@ -259,8 +258,8 @@ public class ApplicationsList
 		// Retrieve fhe folders colors mapping file if it exists
 		ArrayList<String> folders_colors_file = new InternalFileTXT(Constants.FILE_FOLDERS_COLORS).readAllLines() ;
 
-		// Search a folder base icon in icon packs, use the default base icon if not found
-		Drawable defaultIconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER) ;
+		// Search a generic folder icon in icon packs and retrieve the Discreet Launcher folder icon to use as fallback
+		Drawable defaultIconPackIcon = searchInMultipleIconPacks(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER) ;
 		Drawable baseIcon = AppCompatResources.getDrawable(context, R.drawable.icon_folder) ;
 
 		// Browse the name of all folders files
@@ -303,14 +302,14 @@ public class ApplicationsList
 			}
 
 			// Retrieve the number of apps in the folder
-			int folderSize = folder.getApplications().size() ;
-			
+			int folder_size = folder.getApplications().size() ;
+
 			// Create a folder icon using a specific or generic icon pack icon, or the Discreet Launcher folder icon as fallback
 			Drawable icon ;
-			Drawable iconPackIcon = searchInMultipleIconPack(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER + folderSize) ;
-			if(iconPackIcon != null) icon = new FolderIcon(iconPackIcon, icon_size, -1, Color.TRANSPARENT, Color.TRANSPARENT) ;
-				else if(defaultIconPackIcon != null) icon = new FolderIcon(defaultIconPackIcon, icon_size, folderSize, Color.TRANSPARENT, folder.getColor()) ;
-				else icon = new FolderIcon(baseIcon, icon_size, folderSize, folder.getColor(), folder.getColor()) ;
+			Drawable iconPackIcon = searchInMultipleIconPacks(iconPack1, iconPack2, Constants.APK_FOLDER, Constants.APK_FOLDER + folder_size) ;
+			if(iconPackIcon != null) icon = new FolderIcon(iconPackIcon, icon_size, -1, -1, true) ;
+				else if(defaultIconPackIcon != null) icon = new FolderIcon(defaultIconPackIcon, icon_size, folder_size, folder.getColor(), true) ;
+				else icon = new FolderIcon(baseIcon, icon_size, folder_size, folder.getColor(), false) ;
 
 			// Resize the icon to the user-defined size
 			icon.setBounds(0, 0, icon_size, icon_size) ;
@@ -597,11 +596,11 @@ public class ApplicationsList
 		return new_content ;
 	}
 
-	
+
 	/**
 	 * Search the icon of an application in the packs (returns <code>null</code> if not found).
 	 */
-	private Drawable searchInMultipleIconPack(IconPack iconPack1, IconPack iconPack2, String apk, String name)
+	private Drawable searchInMultipleIconPacks(IconPack iconPack1, IconPack iconPack2, String apk, String name)
 	{
 		Drawable icon = iconPack1.searchIcon(apk, name) ;
 		if(icon == null) icon = iconPack2.searchIcon(apk, name) ;
