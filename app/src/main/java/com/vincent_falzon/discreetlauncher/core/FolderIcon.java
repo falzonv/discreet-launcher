@@ -28,6 +28,7 @@ import android.graphics.Canvas ;
 import android.graphics.ColorFilter ;
 import android.graphics.Paint ;
 import android.graphics.PixelFormat ;
+import android.graphics.PointF ;
 import android.graphics.PorterDuff ;
 import android.graphics.PorterDuffColorFilter ;
 import android.graphics.drawable.Drawable ;
@@ -42,16 +43,15 @@ public class FolderIcon extends Drawable
 	private final String number ;
 	private final Bitmap icon ;
 	private final Paint paint ;
-	private final int icon_size ;
+	private final PointF text_location ;
 
 
 	/**
 	 * Constructor.
 	 */
-	public FolderIcon(Drawable baseIcon, int icon_size_pixels, int applications_number, int color)
+	public FolderIcon(Drawable baseIcon, int icon_size, int number_of_apps, int color, boolean icon_from_pack)
 	{
 		// Prepare the base icon on which the number of apps will be written
-		icon_size = icon_size_pixels ;
 		if(baseIcon != null)
 			{
 				// Convert the base icon into a Bitmap of the correct size
@@ -59,21 +59,36 @@ public class FolderIcon extends Drawable
 				baseIcon.setBounds(0, 0, icon_size, icon_size) ;
 				baseIcon.draw(new Canvas(convertedIcon)) ;
 
-				// Get an editable copy of the Bitmap and change its color according to settings
+				// Get an editable copy of the Bitmap and, if the icon is not from a pack, change its color according to settings
 				icon = convertedIcon.copy(Bitmap.Config.ARGB_8888, true) ;
 				Paint iconPaint = new Paint() ;
-				iconPaint.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)) ;
+				if(!icon_from_pack)
+					iconPaint.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)) ;
 				new Canvas(icon).drawBitmap(icon, 0, 0, iconPaint) ;
 			}
 			else icon = null ;
 
-		// Retrieve the number to write and define its settings
-		this.number = String.valueOf(applications_number) ;
+		// Check if the number of apps should actually be written on the folder icon
 		paint = new Paint() ;
-		paint.setAntiAlias(true) ;
-		paint.setTextSize(icon_size / 3f) ;
-		paint.setColor(color) ;
-		paint.setTextAlign(Paint.Align.CENTER) ;
+		if(number_of_apps >= 0)
+			{
+				// Retrieve the number to write and define its settings
+				number = String.valueOf(number_of_apps) ;
+				paint.setAntiAlias(true) ;
+				paint.setTextSize(icon_size / 3f) ;
+				paint.setColor(color) ;
+				paint.setTextAlign(Paint.Align.CENTER) ;
+
+				// Center the text when another icon than the Discreet Launcher folder icon is used
+				if(icon_from_pack) text_location = new PointF(icon_size * 0.5f, icon_size * 0.5f - paint.ascent() * 0.5f) ;
+					else text_location = new PointF(icon_size * 0.5f, icon_size * 0.875f) ;
+			}
+			else
+			{
+				// Do not display the number
+				number = null ;
+				text_location = null ;
+			}
 	}
 
 
@@ -84,7 +99,7 @@ public class FolderIcon extends Drawable
 	public void draw(@NonNull Canvas canvas)
 	{
 		if(icon != null) canvas.drawBitmap(icon, 0, 0, paint) ;
-		canvas.drawText(number, icon_size * 0.5f, icon_size * 0.875f, paint) ;
+		if(number != null) canvas.drawText(number, text_location.x, text_location.y, paint) ;
 	}
 
 
