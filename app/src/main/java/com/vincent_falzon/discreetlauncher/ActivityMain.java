@@ -789,7 +789,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		 * Implemented because all gestures start with an onDown() message.
 		 */
 		@Override
-		public boolean onDown(MotionEvent event)
+		public boolean onDown(@NonNull MotionEvent event)
 		{
 			return true ;
 		}
@@ -799,13 +799,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		 * Detect a gesture over a distance.
 		 */
 		@Override
-		public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY)
+		public boolean onFling(MotionEvent event1, @NonNull MotionEvent event2, float velocityX, float velocityY)
 		{
 			// Ignore the gesture if the applications drawer is opened
 			if(drawer.getVisibility() == View.VISIBLE) return false ;
 
 			// Ignore incomplete gestures (may happen due to the interactive clock)
-			if((event1 == null) || (event2 == null)) return false ;
+			if(event1 == null) return false ;
 
 			// Calculate the traveled distances on both axes
 			float x_distance = event1.getX() - event2.getX() ;
@@ -861,7 +861,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		 * Detect a double-tap.
 		 */
 		@Override
-		public boolean onDoubleTap(MotionEvent event)
+		public boolean onDoubleTap(@NonNull MotionEvent event)
 		{
 			return Utils.searchAndStartApplication(homeScreen, settings, Constants.DOUBLE_TAP) ;
 		}
@@ -871,7 +871,7 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 		 * Detect a long click on the home screen.
 		 */
 		@Override
-		public void onLongPress(MotionEvent event)
+		public void onLongPress(@NonNull MotionEvent event)
 		{
 			// Update the display according to settings
 			maybeHideSystemBars(false) ;

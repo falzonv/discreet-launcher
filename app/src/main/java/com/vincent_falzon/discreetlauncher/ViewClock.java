@@ -38,6 +38,7 @@ import android.text.TextPaint ;
 import android.util.AttributeSet ;
 import android.view.MotionEvent ;
 import android.view.View ;
+import androidx.annotation.NonNull ;
 import androidx.preference.PreferenceManager ;
 import java.text.DateFormat ;
 import java.text.SimpleDateFormat ;
@@ -133,7 +134,7 @@ public class ViewClock extends View implements View.OnTouchListener
 	 * Called when the view must be (re)drawn.
 	 */
 	@Override
-	protected void onDraw(Canvas canvas)
+	protected void onDraw(@NonNull Canvas canvas)
 	{
 		// Let the parent actions be performed
 		super.onDraw(canvas) ;
