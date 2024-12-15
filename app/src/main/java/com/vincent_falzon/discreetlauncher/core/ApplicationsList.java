@@ -172,7 +172,8 @@ public class ApplicationsList
 		boolean reversed = settings.getBoolean(Constants.REVERSE_INTERFACE, false) ;
 
 		// Add the search icon at the beginning or end of the list (based on layout)
-		Drawable searchIcon = AppCompatResources.getDrawable(context, R.drawable.icon_search) ;
+		Drawable searchIcon = searchInMultipleIconPacks(iconPack1, iconPack2, Constants.APK_SEARCH, Constants.APK_SEARCH) ;
+		if(searchIcon == null) searchIcon = AppCompatResources.getDrawable(context, R.drawable.icon_search) ;
 		if(searchIcon != null) searchIcon.setBounds(0, 0, icon_size, icon_size) ;
 		if(reversed) drawer.add(new Search(context.getString(R.string.search_app_name), searchIcon)) ;
 			else drawer.add(0, new Search(context.getString(R.string.search_app_name), searchIcon)) ;
