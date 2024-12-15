@@ -1,0 +1,12 @@
+v7.7.0 (66) - 15/12/2024
+NEW THINGS
+   - Badge on work profile apps (@kaanelloed)
+   - Four additional icon sizes (@antodc)
+   - Android 14 support
+IMPROVEMENTS
+   - Icon pack support (@kaanelloed)
+   - Horizontal spacing of icons (@antodc)
+   - Several Android libraries updated
+CORRECTIONS
+   - Text clock not perfectly centered (@antodc)
+   - Folder icons search in packs (@kaanelloed)

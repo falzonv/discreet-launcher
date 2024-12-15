@@ -1,0 +1,12 @@
+v7.7.0 (66) - 15/12/2024
+NOUVEAUTÉS
+   - Badge sur applis profil de travail (@kaanelloed)
+   - Quatre tailles d'icônes en plus (@antodc)
+   - Support d'Android 14
+AMÉLIORATIONS
+   - Support des packs d'icônes (@kaanelloed)
+   - Espacement horizontal des icônes (@antodc)
+   - Plusieurs librairies Android mises à jour
+CORRECTIONS
+   - Horloge texte pas bien centrée (@antodc)
+   - Packs et icônes de dossiers (@kaanelloed)
