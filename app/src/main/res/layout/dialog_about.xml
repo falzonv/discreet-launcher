@@ -66,4 +66,17 @@
         android:autoLink="web"
         android:text="@string/website_link"/>
 
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:text="@string/privacy_policy_description"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:autoLink="web"
+        android:text="@string/privacy_policy_link"/>
+
 </LinearLayout>

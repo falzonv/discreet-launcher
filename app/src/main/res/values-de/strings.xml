@@ -10,6 +10,8 @@
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Verbesserungsvorschläge, mögliche Fehler und zur Unterstützung des Projekts, bitte die folgende Webseite nutzen</string>
     <string name="website_link">https://vincent-falzon.com</string>
+    <string name="privacy_policy_description">Datenschutzrichtlinie</string>
+    <string name="privacy_policy_link">https://vincent-falzon.com/privacy-policy-discreet-launcher.html</string>
     <string name="translation_credit">(Deutsche Übersetzung von tuch96)</string>
 
     <!-- Main menu -->

@@ -10,6 +10,8 @@
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Suggerisci miglioramenti, segnala problemi, e supporta il progetto su</string>
     <string name="website_link">https://vincent-falzon.com</string>
+    <string name="privacy_policy_description">Informativa sulla privacy</string>
+    <string name="privacy_policy_link">https://vincent-falzon.com/privacy-policy-discreet-launcher.html</string>
     <string name="translation_credit">Traduzione italiana di Rhapsodizer</string>
 
     <!-- Main menu -->

@@ -10,6 +10,8 @@
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
     <string name="website_description">Foreslå forbedringer, rapporter problemer og støt projektet på</string>
     <string name="website_link">https://vincent-falzon.com</string>
+    <string name="privacy_policy_description">Privatlivspolitik</string>
+    <string name="privacy_policy_link">https://vincent-falzon.com/privacy-policy-discreet-launcher.html</string>
     <string name="translation_credit">Dansk oversættelse af Thomas Jensen</string>
 
     <!-- Main menu -->
