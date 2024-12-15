@@ -131,8 +131,7 @@ public class ApplicationsList
 				String apk = activity.getApplicationInfo().packageName ;
 
 				// Try to find the icon in the packs, use the default icon if not found
-				icon = iconPack1.searchIcon(apk, name) ;
-				if(icon == null) icon = iconPack2.searchIcon(apk, name) ;
+				icon = searchInMultipleIconPacks(iconPack1, iconPack2, apk, name) ;
 				if(icon == null)
 					{
 						// Check if a color tint must be applied on the default icon
