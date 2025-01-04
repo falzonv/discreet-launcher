@@ -12,7 +12,7 @@
     <string name="website_link">https://vincent-falzon.com</string>
     <string name="privacy_policy_description">Политика конфиденциальности</string>
     <string name="privacy_policy_link">https://vincent-falzon.com/privacy-policy-discreet-launcher.html</string>
-    <string name="translation_credit">(Русский перевод от Artur Ajvasjan)</string>
+    <string name="translation_credit">(Русский перевод от Artur Ajvazjan)</string>
 
     <!-- Main menu -->
     <string name="menu">Меню</string>
@@ -30,8 +30,8 @@
     <!-- Long click menu -->
     <string name="long_click_dialog_title">Что вы хотите сделать?</string>
     <string name="long_click_open">Открыть \"%1$s\"</string>
-    <string name="long_click_settings">Доступ к настройкам</string>
-    <string name="long_click_view_store">Просмотр страницы в магазине</string>
+    <string name="long_click_settings">Смотреть в настройки</string>
+    <string name="long_click_view_store">Смотреть страницу приложения в магазине</string>
     <string name="long_click_rename">Переименовать</string>
     <string name="long_click_add_favorites">Добавить в избранное</string>
     <string name="long_click_remove_favorites">Удалить из избранного</string>
@@ -48,7 +48,7 @@
     <!-- Popup messages related to apps -->
     <string name="info_list_apps_refreshed">Список приложений обновлен</string>
     <string name="info_favorites_refreshed">Избранное обновлено</string>
-    <string name="info_display_partially_updated">Дисплей будет полностью обновлен после возвращения на главный экран</string>
+    <string name="info_display_partially_updated">Экран будет полностью обновлен после возвращения на главный экран</string>
     <string name="error_app_not_found">Не удалось найти \"%1$s\"</string>
 
     <!-- Favorites -->
@@ -63,7 +63,7 @@
     <!-- Folders -->
     <string name="button_new_folder">Добавить</string>
     <string name="button_remove_folder">Удалить</string>
-    <string name="hint_folder_edit">Нажмите на имя папки, чтобы изменить его, и по значку, чтобы выбрать его цвет. Перо позволяет редактировать содержимое папки.</string>
+    <string name="hint_folder_edit">Нажмите на имя папки, чтобы изменить его, и по значку, чтобы выбрать его цвет. Значок карандаша позволяет редактировать содержимое папки.</string>
     <string name="hint_new_folder">Новая папка</string>
     <string name="hint_rename_folder">Переименовать папку</string>
     <string name="hint_remove_folder">Удаление папки возвращает ее содержимое в основной список приложений.</string>
@@ -162,10 +162,10 @@
     <string name="set_hide_app_names">Не показывать имена приложений</string>
     <string name="set_hide_folder_names">Не показывать имена папок</string>
     <string name="set_remove_padding">Нет отступов, когда имена приложений скрыты</string>
-    <string name="set_background_color_favorites">Избранный фон</string>
-    <string name="set_text_color_favorites">Избранный текст</string>
-    <string name="set_background_color_drawer">Фон ящика приложений</string>
-    <string name="set_text_color_drawer">Текст ящика приложений</string>
+    <string name="set_background_color_favorites">Фон избранного</string>
+    <string name="set_text_color_favorites">Текст избранного</string>
+    <string name="set_background_color_drawer">Фон списка приложений</string>
+    <string name="set_text_color_drawer">Текст списка приложений</string>
     <string name="set_clock_color">Цвет</string>
     <string name="set_clock_shadow_color">Цвет тени текста</string>
     <string name="set_icon_pack_primary">Основной</string>
@@ -188,8 +188,8 @@
     <!-- Notification -->
     <string name="set_notification">Уведомление для доступа к избранному</string>
     <string name="set_notification_help">Использует прозрачный значок</string>
-    <!-- NEED UPDATE --><string name="set_notification_warning_disabled">Notifications are disabled by system settings</string>
-    <string name="notification_text">Избранные</string>
+    <string name="set_notification_warning_disabled">Уведомления отключены в настройках системы</string>
+    <string name="notification_text">Избранные приложения</string>
 
     <!-- Forced orientation -->
     <string name="set_forced_orientation">Принудительная ориентация</string>
@@ -207,42 +207,42 @@
     <string name="target_close_favorites">Закрыть\nизбранные</string>
     <string name="target_open_apps">Открыть\nприложения</string>
     <string name="target_close_apps">Закрыть\nприложения</string>
-    <!-- NEED UPDATE --><string name="help_touch_targets">Swipe down to display the menu button, you can enable touch targets in the Operation menu</string><!-- (home screen TTS description for accessibility) -->
+    <string name="help_touch_targets">Смахните пальцем вниз, чтобы показать кнопку меню. Вы можете включить цели касания в меню Настроек</string><!-- (home screen TTS description for accessibility) -->
 
     <!-- Other operation settings -->
     <string name="set_as_default_launcher">Установить лаунчером по-умолчанию</string>
     <string name="set_always_show_favorites">Всегда показывать избранное</string>
     <string name="set_reverse_interface">Обратный интерфейс</string>
-    <string name="set_reverse_interface_help">Приложения выше, а избранное ниже главного экрана</string>
+    <string name="set_reverse_interface_help">К приложениям смахнуть вверх, а к избранному вниз на главном экране</string>
     <string name="set_immersive_mode">Иммерсивный режим</string>
-    <string name="set_immersive_mode_help">Нет системных панелей. (Можно принудительно включить, долго нажимая на главный экран.)</string>
+    <string name="set_immersive_mode_help">Убирает системные панели. (Можно принудительно включить, долго нажимая на главный экран.)</string>
     <string name="set_interactive_clock">Интерактивные часы</string>
-    <string name="set_interactive_clock_help">Нажмите на дату, чтобы открыть календарь по-умолчанию, нажмите на время, чтобы открыть выбранное приложение часов.</string>
+    <string name="set_interactive_clock_help">Нажмите на дату, чтобы открыть календарь по-умолчанию, нажмите на время, чтобы открыть приложение часов.</string>
     <string name="set_clock_app">Приложение часов</string>
     <string name="set_no_clock_app">Нет</string>
-    <string name="set_hide_menu_button">Нет кнопки меню</string>
+    <string name="set_hide_menu_button">Убрать кнопку меню</string>
     <string name="set_hide_menu_button_help">Всегда доступна с иконки приложения лаунчера</string>
-    <string name="set_disable_app_drawer">Нет ящика приложений</string>
+    <string name="set_disable_app_drawer">Убрать список приложений</string>
     <string name="set_double_tap">Двойное касание</string>
-    <string name="set_swipe_leftwards">Проведите влево</string>
-    <string name="set_swipe_rightwards">Проведите вправо</string>
+    <string name="set_swipe_leftwards">Смах влево</string>
+    <string name="set_swipe_rightwards">Смах вправо</string>
     <string name="set_no_action">Нет действий</string>
 
     <!-- Error messages related to operation settings -->
     <string name="error_always_show_favorites_not_safe">Избранное разблокировано, чтобы сохранить доступ к меню.</string>
-    <string name="error_disable_app_drawer_not_safe">Восстановление ящика приложений для сохранения доступа к меню.</string>
+    <string name="error_disable_app_drawer_not_safe">Возврат списка приложений для сохранения доступа к меню.</string>
 
 
     <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
 
     <string name="help_navigation_title">Навигация</string>
-    <string name="help_navigation">Проведите пальцем вверх от главного экрана, чтобы показать все приложения, и вниз, чтобы вернутсья назад.\n\nПроведите пальцем вниз с главного экрана, чтобы показать избранные приложения, и вверх, чтобы вернуться назад.\n\nНажмите на кнопку меню (при отображении избранного) или иконку лаунчера, чтобы открыть меню.\n\nДлительное удерживание приложения или папки открывает доступ к его настройкам.</string>
+    <string name="help_navigation">Проведите пальцем вверх на главном экране, чтобы показать все приложения, и вниз, чтобы вернуться назад.\n\nПроведите пальцем вниз на главном экране, чтобы показать избранные приложения, и вверх, чтобы вернуться назад.\n\nНажмите на кнопку меню (при отображении избранного) или иконку лаунчера, чтобы открыть меню.\n\nДлительное удерживание приложения или папки открывает доступ к его настройкам.</string>
     <string name="help_notification_title">Уведомления</string>
     <string name="help_notification">Показывает всплывающее окно избранного над другими приложениями при выходе с главного экрана.</string>
     <string name="help_list_update_title">Обновление списка</string>
     <string name="help_list_update">При обновлении списка приложений и значков отображается всплывающее сообщение, при запуске, добавлении/удалении приложений, а также при изменении пакета значков.</string>
     <string name="help_folders_title">Папки</string>
-    <string name="help_folders">Управляйте папками или избранными с помощью кнопки или щелкните на название открытой папки, чтобы создавать, переименовывать и помещать в нее приложения.\nУдаление папок возвращает все находящиеся в них приложения в основной список.</string>
+    <string name="help_folders">Управляйте папками или избранными приложениями с помощью кнопки или щелкните на название открытой папки, чтобы создавать, переименовывать и помещать в нее приложения.\nУдаление папок возвращает все находящиеся в них приложения в основной список.</string>
     <string name="help_search_title">Поиск</string>
     <string name="help_search">Найдите любое приложение с помощью значка поиска. Его также можно выбрать, чтобы оно было доступно из уведомлений или скрыть.\n\nНажатие \"Enter\" открывает первый результат поиска.</string>
 
@@ -250,7 +250,7 @@
     <!-- ========== Changelog ========== -->
 
     <string name="changelog_mentions">\"@pseudo\" указывает на пользователя, который предложил идею или сообщил об ошибке</string>
-    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
+    <string name="changelog_folder">changelog-fr</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
     <string name="error_changelog_missing_folder">Не удалось найти папку журнала изменений</string>
     <string name="error_changelog_missing_file">Не удалось открыть %1$s</string>
 
