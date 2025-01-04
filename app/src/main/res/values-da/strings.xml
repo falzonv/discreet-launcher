@@ -250,7 +250,6 @@
     <!-- ========== Changelog ========== -->
 
     <string name="changelog_mentions">\"@pseudo\" angiver den bruger, der foreslog ideen eller rapporterede fejlen</string>
-    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
     <string name="error_changelog_missing_folder">Kunne ikke finde mappen med liste med opdateringer</string>
     <string name="error_changelog_missing_file">Kunne ikke åbne %1$s</string>
 

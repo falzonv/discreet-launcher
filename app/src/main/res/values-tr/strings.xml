@@ -250,7 +250,6 @@
     <!-- ========== Changelog ========== -->
 
     <string name="changelog_mentions">\"@pseudo\" fikri öneren veya hatayı bildiren kullanıcıyı gösterir</string>
-    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
     <string name="error_changelog_missing_folder">Değişiklik günlüğü klasörü bulunamadı</string>
     <string name="error_changelog_missing_file">Açılamadı %1$s</string>
 

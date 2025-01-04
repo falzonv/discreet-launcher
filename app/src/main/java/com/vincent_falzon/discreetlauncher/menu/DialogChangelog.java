@@ -71,8 +71,8 @@ public class DialogChangelog extends AlertDialog
 		ArrayList<String> changelog_files = new ArrayList<>() ;
 		try
 		{
-			// Retrieve the content of the folder
-			String folder = context.getString(R.string.changelog_folder) ;
+			// Select the proper changelog folder and retrieve its content
+			String folder = context.getString(R.string.menu_changelog).equals("Journal des changements") ? "changelog-fr" : "changelog-en" ;
 			String[] files = context.getAssets().list(folder) ;
 			if(files != null)
 				{

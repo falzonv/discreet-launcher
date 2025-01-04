@@ -250,7 +250,6 @@
     <!-- ========== Changelog ========== -->
 
     <string name="changelog_mentions">\"@pseudo\" indica el usuario que sugirió la idea o reportó el bug</string>
-    <string name="changelog_folder">changelog-en</string><!-- (this value must be either "changelog-en" or "changelog-fr") -->
     <string name="error_changelog_missing_folder">No se pudo encontrar la carpeta con el registro de cambios</string>
     <string name="error_changelog_missing_file">No se pudo abrir %1$s</string>
 
