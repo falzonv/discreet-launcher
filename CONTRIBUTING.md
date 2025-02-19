@@ -72,6 +72,4 @@ Screenshot 4:
 Access favorites from anywhere,
   thanks to the notification!
 ```
-- In the Pull Request description, provide me the translation of this text that will be added at the end of the Google Play description:
-  > *Discreet Launcher is also available on F-Droid.  
-  > Source code: https://github.com/falzonv/discreet-launcher*
+

@@ -12,5 +12,3 @@ makeadonation: Faire un don
 [Politique de confidentialité](privacy-policy-discreet-launcher.html)
 
 [Licence publique générale GNU v3.0](https://www.gnu.org/licenses/gpl-3.0.txt)
-
-<small>Google Play et le logo Google Play sont des marques de Google LLC.</small>
