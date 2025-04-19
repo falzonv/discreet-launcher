@@ -62,6 +62,8 @@ public interface Constants
 	String TEXT_COLOR_FAVORITES = "text_color_favorites" ;
 	String BACKGROUND_COLOR_DRAWER = "background_color_drawer" ;
 	String TEXT_COLOR_DRAWER = "text_color_drawer" ;
+	String BACKGROUND_COLOR_FOLDERS = "background_color_folders" ;
+	String TEXT_COLOR_FOLDERS = "text_color_folders" ;
 	String CLOCK_FORMAT = "clock_format" ;
 	String CLOCK_COLOR = "clock_color" ;
 	String CLOCK_SHADOW_COLOR = "clock_shadow_color" ;
@@ -86,6 +88,7 @@ public interface Constants
 
 	// Constants represetings fallback colors
 	String COLOR_FOR_OVERLAY = "#66000000" ;
+	String COLOR_FOR_DENSE_OVERLAY = "#EB333333" ;
 	String COLOR_FOR_TEXT_ON_OVERLAY = "#FFFFFFFF" ;
 	String COLOR_TRANSPARENT = "#00000000" ;
 

@@ -166,7 +166,6 @@ public class Folder extends Application
 		// Prepare the folder header
 		TextView popupTitle = popupView.findViewById(R.id.popup_title) ;
 		popupTitle.setText(getDisplayNameWithCount()) ;
-		popupTitle.setTextColor(color) ;
 		popupView.findViewById(R.id.popup_header).setOnClickListener(view -> {
 				// Open the interface to manage folders and close the popup
 				showSettings(view.getContext()) ;
@@ -181,21 +180,16 @@ public class Folder extends Application
 		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
 			popupRecycler.setOverScrollMode(View.OVER_SCROLL_NEVER) ;
 
-		// Retrieve the app drawer colors
+		// Retrieve the folder colors
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context) ;
-		int text_color = Utils.getColor(settings, Constants.TEXT_COLOR_DRAWER, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
-		int background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_DRAWER, Constants.COLOR_FOR_OVERLAY) ;
-
-		// Lighten the folder background color for better contrast
-		float[] background_hsv = new float[3] ;
-		Color.colorToHSV(background_color, background_hsv) ;
-		background_hsv[2] += (background_hsv[2] <= 0.5) ? 0.2 : 0.1 ;
-		int folder_background_color = Color.HSVToColor(235, background_hsv) ;
+		int text_color = Utils.getColor(settings, Constants.TEXT_COLOR_FOLDERS, Constants.COLOR_FOR_TEXT_ON_OVERLAY) ;
+		int background_color = Utils.getColor(settings, Constants.BACKGROUND_COLOR_FOLDERS, Constants.COLOR_FOR_DENSE_OVERLAY) ;
 
 		// Set the folder colors
-		popupView.findViewById(R.id.popup_header).setBackgroundColor(folder_background_color) ;
+		popupView.findViewById(R.id.popup_header).setBackgroundColor(background_color) ;
 		popupView.findViewById(R.id.popup_line1).setBackgroundColor(color) ;
-		popupRecycler.setBackgroundColor(folder_background_color) ;
+		popupRecycler.setBackgroundColor(background_color) ;
+		popupTitle.setTextColor(text_color) ;
 		recyclerAdapter.setTextColor(text_color) ;
 
 		// Create the popup representing the folder

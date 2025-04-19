@@ -166,6 +166,8 @@
     <string name="set_text_color_favorites">Texte des favoris</string>
     <string name="set_background_color_drawer">Fond du tiroir d\'applications</string>
     <string name="set_text_color_drawer">Texte du tiroir d\'applications</string>
+    <string name="set_background_color_folders">Fond des dossiers</string>
+    <string name="set_text_color_folders">Texte des dossiers</string>
     <string name="set_clock_color">Couleur</string>
     <string name="set_clock_shadow_color">Couleur de l\'ombre du texte</string>
     <string name="set_icon_pack_primary">Primaire</string>

@@ -166,6 +166,8 @@
     <string name="set_text_color_favorites">Текст избранного</string>
     <string name="set_background_color_drawer">Фон списка приложений</string>
     <string name="set_text_color_drawer">Текст списка приложений</string>
+    <string name="set_background_color_folders">Folders background</string>
+    <string name="set_text_color_folders">Folders text</string>
     <string name="set_clock_color">Цвет</string>
     <string name="set_clock_shadow_color">Цвет тени текста</string>
     <string name="set_icon_pack_primary">Основной</string>

@@ -166,6 +166,8 @@
     <string name="set_text_color_favorites">Teks Favorit</string>
     <string name="set_background_color_drawer">Latar belakang Laci Aplikasi</string>
     <string name="set_text_color_drawer">Teks Laci Aplikasi</string>
+    <string name="set_background_color_folders">Folders background</string>
+    <string name="set_text_color_folders">Folders text</string>
     <string name="set_clock_color">Warna</string>
     <string name="set_clock_shadow_color">Warna bayangan teks</string>
     <string name="set_icon_pack_primary">Primer</string>

@@ -166,6 +166,8 @@
     <string name="set_text_color_favorites">Favoriten Text</string>
     <string name="set_background_color_drawer">Hintergrund der App Übersicht</string>
     <string name="set_text_color_drawer">Text der App Übersicht</string>
+    <string name="set_background_color_folders">Folders background</string>
+    <string name="set_text_color_folders">Folders text</string>
     <string name="set_clock_color">Farbe</string>
     <string name="set_clock_shadow_color">Farbe des Textschattens</string>
     <string name="set_icon_pack_primary">Erstrangig</string>

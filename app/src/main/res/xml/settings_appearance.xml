@@ -88,6 +88,18 @@
             app:defaultValue="#FFFFFFFF"
             app:iconSpaceReserved="false"/>
 
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="background_color_folders"
+            app:title="@string/set_background_color_folders"
+            app:defaultValue="#EB333333"
+            app:iconSpaceReserved="false"/>
+
+        <com.vincent_falzon.discreetlauncher.settings.ColorPickerPreference
+            app:key="text_color_folders"
+            app:title="@string/set_text_color_folders"
+            app:defaultValue="#FFFFFFFF"
+            app:iconSpaceReserved="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -166,6 +166,8 @@
     <string name="set_text_color_favorites">Favoritter tekst</string>
     <string name="set_background_color_drawer">App skuffe baggrund</string>
     <string name="set_text_color_drawer">App skuffe tekst</string>
+    <string name="set_background_color_folders">Folders background</string>
+    <string name="set_text_color_folders">Folders text</string>
     <string name="set_clock_color">Farve</string>
     <string name="set_clock_shadow_color">Tekst skyggefarve</string>
     <string name="set_icon_pack_primary">Primær</string>
