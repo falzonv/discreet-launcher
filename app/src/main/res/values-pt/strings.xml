@@ -166,8 +166,8 @@
     <string name="set_text_color_favorites">Texto de favoritos</string>
     <string name="set_background_color_drawer">Cor de fundo da bandeja de aplicativos</string>
     <string name="set_text_color_drawer">Texto da bandeja de aplicativos</string>
-    <string name="set_background_color_folders">Folders background</string>
-    <string name="set_text_color_folders">Folders text</string>
+    <string name="set_background_color_folders">Fundo das pastas</string>
+    <string name="set_text_color_folders">Texto das pastas</string>
     <string name="set_clock_color">Cor</string>
     <string name="set_clock_shadow_color">Cor da sombra do texto do relógio</string>
     <string name="set_icon_pack_primary">Primário</string>
