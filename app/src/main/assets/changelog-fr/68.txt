@@ -1,0 +1,3 @@
+v7.8.0 (68) - 03/05/2025
+NOUVEAUTÉS
+   - Couleur de fond des dossiers (@antodc)
