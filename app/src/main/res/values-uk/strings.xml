@@ -166,8 +166,8 @@
     <string name="set_text_color_favorites">Обраний текст</string>
     <string name="set_background_color_drawer">Тло шухляди застосунків</string>
     <string name="set_text_color_drawer">Текст шухляди застосунків</string>
-    <string name="set_background_color_folders">Folders background</string>
-    <string name="set_text_color_folders">Folders text</string>
+    <string name="set_background_color_folders">Тло тек</string>
+    <string name="set_text_color_folders">Текст тек</string>
     <string name="set_clock_color">Колір</string>
     <string name="set_clock_shadow_color">Колір тіні тексту</string>
     <string name="set_icon_pack_primary">Основний</string>
