@@ -57,7 +57,7 @@ public class InternalFilePNG extends InternalFile
 	 */
 	public void writeToFile(Bitmap bitmap)
 	{
-		// Do not continue if the bitmap is empty
+		// Do not continue if the Bitmap is empty
 		if(bitmap == null) return ;
 
 		try

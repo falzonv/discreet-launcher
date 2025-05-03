@@ -112,7 +112,7 @@ public class ColorPickerPreference extends Preference implements Preference.OnPr
 	{
 		try
 		{
-			// Try to notify the ChangeListener that a preference will been changed
+			// Try to notify the ChangeListener that a preference has been changed
 			Objects.requireNonNull(getOnPreferenceChangeListener()).onPreferenceChange(this, new_color) ;
 		}
 		catch (NullPointerException ignored) { }
