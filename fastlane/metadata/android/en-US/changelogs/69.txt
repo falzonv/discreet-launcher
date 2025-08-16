@@ -1,0 +1,3 @@
+v7.8.1 (69) - 16/08/2025
+IMPROVEMENTS
+   - Translation updates
