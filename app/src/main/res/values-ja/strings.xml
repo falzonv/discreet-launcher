@@ -166,8 +166,8 @@
     <string name="set_text_color_favorites">お気に入りのアプリのテキスト</string>
     <string name="set_background_color_drawer">アプリドロワーの背景</string>
     <string name="set_text_color_drawer">アプリドロワーのテキスト</string>
-    <string name="set_background_color_folders">Folders background</string>
-    <string name="set_text_color_folders">Folders text</string>
+    <!-- NEED UPDATE --><string name="set_background_color_folders">Folders background</string>
+    <!-- NEED UPDATE --><string name="set_text_color_folders">Folders text</string>
     <string name="set_clock_color">色</string>
     <string name="set_clock_shadow_color">テキストの影の色</string>
     <string name="set_icon_pack_primary">1番目</string>
