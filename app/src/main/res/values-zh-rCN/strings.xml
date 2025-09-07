@@ -8,11 +8,11 @@
     <string name="author">Vincent Falzon</string>
     <string name="licence_name">GNU General Public License v3.0</string>
     <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
-    <string name="website_description">Suggest improvements, report issues, and support the project on</string>
+    <string name="website_description">要提出完善应用建议、报告问题及支持本应用，请前往</string>
     <string name="website_link">https://vincent-falzon.com</string>
-    <string name="privacy_policy_description">Privacy policy</string>
+    <string name="privacy_policy_description">隐私政策</string>
     <string name="privacy_policy_link">https://vincent-falzon.com/privacy-policy-discreet-launcher.html</string>
-    <string name="translation_credit">Simplified Chinese translation by sr093906</string>
+    <string name="translation_credit">简体中文翻译者 sr093906</string>
 
     <!-- Main menu -->
     <string name="menu">菜单</string>
@@ -255,4 +255,5 @@
     <string name="error_changelog_missing_file">无法打开 %1$s</string>
 
 </resources>
+
 
