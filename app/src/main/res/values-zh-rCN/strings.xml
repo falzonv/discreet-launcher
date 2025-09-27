@@ -223,8 +223,8 @@
     <string name="set_clock_app">时钟应用</string>
     <string name="set_no_clock_app">无</string>
     <string name="set_hide_menu_button">无菜单按钮</string>
-    <string name="set_hide_menu_button_help">无应用抽屉</string>
-    <string name="set_disable_app_drawer">No app drawer</string>
+    <string name="set_hide_menu_button_help">始终可以从启动器应用图标进行访问</string>
+    <string name="set_disable_app_drawer">无应用抽屉</string>
     <string name="set_double_tap">轻按两次</string>
     <string name="set_swipe_leftwards">向左滑动</string>
     <string name="set_swipe_rightwards">向右滑动</string>
@@ -256,4 +256,3 @@
     <string name="error_changelog_missing_file">无法打开 %1$s</string>
 
 </resources>
-
