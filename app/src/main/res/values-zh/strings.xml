@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ========== General ========== -->
+
+    <!-- About dialog -->
+    <string name="app_name">Discreet Launcher</string>
+    <string name="author">Vincent Falzon</string>
+    <string name="licence_name">GNU General Public License v3.0</string>
+    <string name="license_link">https://gnu.org/licenses/gpl-3.0.txt</string>
+    <string name="website_description">要提出完善应用建议、报告问题及支持本应用，请前往</string>
+    <string name="website_link">https://vincent-falzon.com</string>
+    <string name="privacy_policy_description">隐私政策</string>
+    <string name="privacy_policy_link">https://vincent-falzon.com/privacy-policy-discreet-launcher.html</string>
+    <string name="translation_credit">简体中文翻译者 sr093906</string>
+
+    <!-- Main menu -->
+    <string name="menu">菜单</string>
+    <string name="menu_favorites">收藏</string>
+    <string name="menu_folders">文件夹</string>
+    <string name="menu_hidden_apps">隐藏的应用</string>
+    <string name="menu_refresh_list_apps">刷新应用列表</string>
+    <string name="menu_settings_appearance">外观</string>
+    <string name="menu_settings_operation">操作</string>
+    <string name="menu_export_import">导出和导入</string>
+    <string name="menu_help">帮助</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_changelog">更新记录</string>
+
+    <!-- Long click menu -->
+    <string name="long_click_dialog_title">你想做什么？</string>
+    <string name="long_click_open">打开 \"%1$s\"</string>
+    <string name="long_click_settings">访问其设置</string>
+    <string name="long_click_view_store">查看商店页面</string>
+    <string name="long_click_rename">重命名</string>
+    <string name="long_click_add_favorites">添加到收藏</string>
+    <string name="long_click_remove_favorites">从收藏中删除</string>
+    <string name="long_click_add_folder">添加到文件夹</string>
+    <string name="long_click_remove_folder">从 \"%1$s\" 文件夹删除</string>
+    <string name="long_click_hide_search">隐藏</string>
+    <string name="long_click_remove_shortcut">删除此快捷方式</string>
+
+    <!-- General buttons used in several dialogs -->
+    <string name="button_apply">应用</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_close">关闭</string>
+
+    <!-- Popup messages related to apps -->
+    <string name="info_list_apps_refreshed">应用列表已刷新</string>
+    <string name="info_favorites_refreshed">刷新了收藏</string>
+    <string name="info_display_partially_updated">返回主屏幕后将完全更新显示内容</string>
+    <string name="error_app_not_found">找不到 \"%1$s\"</string>
+
+    <!-- Favorites -->
+    <string name="button_select_favorites">选择收藏</string>
+    <string name="button_sort">排序</string>
+    <string name="hint_no_favorites_yet">单击菜单按钮在此\n添加你喜欢的应用</string>
+    <string name="hint_modify_order_of_favorites">在下方更改收藏的顺序。</string>
+    <string name="warning_sort_favorites_alphabetically">英语字母表顺序将替代当前的收藏顺序</string>
+    <string name="favorite_move_before">移到 \"%1$s\" 前面</string>
+    <string name="favorite_move_after">移到 \"%1$s\" 后面</string>
+
+    <!-- Folders -->
+    <string name="button_new_folder">添加</string>
+    <string name="button_remove_folder">删除</string>
+    <string name="hint_folder_edit">单击文件夹名更改名称，单击图标选择图标颜色。“笔”允许编辑文件夹内容。</string>
+    <string name="hint_new_folder">新文件夹</string>
+    <string name="hint_rename_folder">重命名文件夹</string>
+    <string name="hint_remove_folder">删除文件夹会把其内容放回主列表。</string>
+    <string name="error_folder_empty_name">先挑一个名称</string>
+    <string name="error_folder_already_exists">挑一个目前没有的名称</string>
+    <string name="error_folder_rename">无法重命名文件夹</string>
+
+    <!-- Search app -->
+    <string name="search_app_name">搜索</string>
+    <string name="search_app_hint">搜索应用</string>
+
+    <!-- Export and import -->
+    <string name="export_import_help">这些按钮允许导出应用数据 （收藏、文件夹、快捷方式和设置）或再次导入它们。</string>
+    <string name="button_export">导出</string>
+    <string name="button_import">导入</string>
+    <string name="export_import_header_internal_files">内部文本文件的内容</string>
+    <string name="export_import_header_settings">设置</string>
+    <string name="export_import_header_icons">保存的图标</string>
+    <string name="export_import_warning_file_edit">编辑此文件可能造成问题</string>
+    <string name="export_import_warning_shortcuts">（在 Android 8 (Oreo) 及更高版本系统上，导入的快捷方式可能不会生效，因它们受系统管理，不应导出。）</string>
+    <string name="export_completed">导出已完成</string>
+    <string name="error_export">无法创建导出文件</string>
+    <string name="error_import">无法读取导入文件</string>
+
+    <!-- Errors messages related to shortcuts -->
+    <string name="error_shortcut_invalid_request">无法将那个添加为快捷方式</string>
+    <string name="error_shortcut_missing_info">无法跟随此快捷方式</string>
+    <string name="error_shortcut_not_default_launcher">仅默认启动器可打开快捷方式</string>
+    <string name="error_shortcut_start">Android 系统无法打开该快捷方式</string>
+    <string name="error_shortcut_remove">无法删除 %1$s 文件</string>
+
+
+    <!-- ========== Appearance settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="appearance_settings_title_interface">界面</string>
+    <string name="appearance_settings_title_clock">时钟</string>
+    <string name="appearance_settings_title_icon_packs">图标包</string>
+
+    <!-- Color picker -->
+    <string name="color_picker_base">底色：</string>
+    <string name="color_picker_reset">重置</string>
+    <string name="color_picker_preview">预览</string>ew</string><!-- (label for a shown preview, not a verb) -->
+    <string name="error_invalid_color_format">无效的 16 进制色</string>
+
+    <!-- Application theme -->
+    <string name="set_application_theme">主题</string>
+    <string-array name="set_application_theme_entries">
+        <item>浅色</item>
+        <item>深色</item>
+        <item>系统偏好</item>
+    </string-array>
+
+    <!-- Clock format -->
+    <string name="set_clock_format">格式</string>
+    <string-array name="set_clock_format_entries">
+        <item>无（隐藏）</item>
+        <item>24 小时</item>
+        <item>12 小时</item>
+        <item>12 小时 + AM/PM</item>
+        <item>模拟时钟</item>
+        <item>日期和时间</item>
+        <item>完整日期和时间</item>
+        <item>没有时间的日期</item>
+        <item>没有时间的完整日期</item>
+    </string-array>
+
+    <!-- Clock position (double spaces are intentional) -->
+    <string name="set_clock_position">位置</string>
+    <string-array name="set_clock_position_entries">
+        <item>顶部</item>
+        <item>"左上方"</item>
+        <item>"右上方"</item>
+        <item>正中</item>
+        <item>"中左方"</item>
+        <item>"中右方"</item>
+        <item>底部</item>
+        <item>"左下方"</item>
+        <item>"右下方"</item>
+    </string-array>
+
+    <!-- Clock size -->
+    <string name="set_clock_size">大小</string>
+    <string-array name="set_clock_size_entries">
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
+    </string-array>
+
+    <!-- Other appearance settings -->
+    <string name="set_transparent_status_bar">透明状态栏</string>
+    <string name="set_transparent_status_bar_help">关闭收藏时</string>
+    <string name="set_dark_status_bar_icons">深色状态栏图标</string>
+    <string name="set_dark_status_bar_icons_help">在 Android 5 (Lollipop) 上不生效</string>
+    <string name="set_icon_size_dp">图标大小</string>
+    <string name="set_hide_app_names">无应用名</string>
+    <string name="set_hide_folder_names">无文件夹名</string>
+    <string name="set_remove_padding">当应用名隐藏时无填充</string>
+    <string name="set_background_color_favorites">收藏背景色</string>
+    <string name="set_text_color_favorites">收藏文本颜色</string>
+    <string name="set_background_color_drawer">应用抽屉背景色</string>
+    <string name="set_text_color_drawer">应用抽屉文本颜色</string>
+    <string name="set_background_color_folders">文件夹背景色</string>
+    <string name="set_text_color_folders">文件夹文本颜色</string>
+    <string name="set_clock_color">颜色</string>
+    <string name="set_clock_shadow_color">文本阴影色</string>
+    <string name="set_icon_pack_primary">主要</string>
+    <string name="set_icon_pack_secondary">次要</string>
+    <string name="set_icon_pack_none">无（使用默认图标）</string>
+    <string name="set_icon_color_filter">图标颜色滤镜</string>
+    <string name="set_icon_color_filter_help">只应用到默认图标，可以配合图标包一起使用</string>
+
+    <!-- Error messages related to appearance settings -->
+    <string name="error_no_icon_pack_installed">先从应用商店安装一些</string>
+    <string name="error_icon_pack_appfilter_not_found">在选中的图标包中找不到 appfilter.xml  (%1$s)</string>
+
+
+    <!-- ========== Operation settings menu ========== -->
+
+    <!-- Sections titles -->
+    <string name="operation_settings_title_interface">界面</string>
+    <string name="operation_settings_title_gestures">主屏幕手势</string>
+
+    <!-- Notification -->
+    <string name="set_notification">访问收藏的通知</string>
+    <string name="set_notification_help">使用透明图标</string>
+    <string name="set_notification_warning_disabled">系统设置禁用了通知</string>
+    <string name="notification_text">收藏</string>
+
+    <!-- Forced orientation -->
+    <string name="set_forced_orientation">强制方向</string>
+    <string-array name="set_forced_orientation_entries">
+        <item>无</item>
+        <item>竖屏</item>
+        <item>横屏</item>
+        <item>反向横屏</item>
+    </string-array>
+
+    <!-- Touch targets ("\n" creates a new line so that targets have more surface) -->
+    <string name="set_touch_targets">触摸目标（无障碍）</string>
+    <string name="set_touch_targets_help">主屏幕上的可单击标签</string>
+    <string name="target_open_favorites">打开\n收藏</string>
+    <string name="target_close_favorites">关闭\n收藏</string>
+    <string name="target_open_apps">打开\n应用</string>
+    <string name="target_close_apps">关闭\n应用</string>
+    <string name="help_touch_targets">下滑显示菜单按钮，可以在“操作”菜单中启用触摸目标</string><!-- (home screen TTS description for accessibility) -->
+
+    <!-- Other operation settings -->
+    <string name="set_as_default_launcher">设为默认启动器</string>
+    <string name="set_always_show_favorites">始终显示收藏</string>
+    <string name="set_reverse_interface">反向界面</string>
+    <string name="set_reverse_interface_help">应用在主屏幕上方，收藏在主屏幕下方</string>
+    <string name="set_immersive_mode">沉浸模式</string>
+    <string name="set_immersive_mode_help">无系统栏。 （长按主屏幕可强制进入。）</string>
+    <string name="set_interactive_clock">互动式时钟</string>
+    <string name="set_interactive_clock_help">单击日期打开默认日历，单击时间打开选中的时钟应用</string>
+    <string name="set_clock_app">时钟应用</string>
+    <string name="set_no_clock_app">无</string>
+    <string name="set_hide_menu_button">无菜单按钮</string>
+    <string name="set_hide_menu_button_help">始终可以从启动器应用图标进行访问</string>
+    <string name="set_disable_app_drawer">无应用抽屉</string>
+    <string name="set_double_tap">轻按两次</string>
+    <string name="set_swipe_leftwards">向左滑动</string>
+    <string name="set_swipe_rightwards">向右滑动</string>
+    <string name="set_no_action">无动作</string>
+
+    <!-- Error messages related to operation settings -->
+    <string name="error_always_show_favorites_not_safe">解锁了收藏以保持菜单访问。</string>
+    <string name="error_disable_app_drawer_not_safe">恢复应用抽屉以保持菜单访问。</string>
+
+
+    <!-- ========== Help (the symbol "\n" creates a new line) ========== -->
+
+    <string name="help_navigation_title">导航</string>
+    <string name="help_navigation">主屏幕上滑显示所有应用，下滑返回。\n\n主屏幕下滑显示收藏，上滑返回。\n\n单击菜单按钮 （显示收藏时）或启动器图标打开菜单。\n\n长按应用或文件夹访问其设置。</string>
+    <string name="help_notification_title">通知</string>
+    <string name="help_notification">离开主屏幕时在其他应用上方显示收藏应用的弹窗</string>
+    <string name="help_list_update_title">列表更新</string>
+    <string name="help_list_update">刷新应用列表和图标时，启动、添加或删除应用时或如果图标包被修改显示一则弹窗信息。</string>
+    <string name="help_folders_title">文件夹</string>
+    <string name="help_folders">从菜单按钮管理文件夹或收藏文件夹，或单击打开文件夹的标题来创建、重命名以及把应用放在里面。\n删除文件夹会把其中的应用放回主列表。</string>
+    <string name="help_search_title">搜索</string>
+    <string name="help_search">从搜索图标寻找任何应用。也可以收藏以便从通知找到或进行隐藏。\n\n按下 \“Enter\” 键打开第一个搜索结果。</string>
+
+
+    <!-- ========== Changelog ========== -->
+
+    <string name="changelog_mentions">\"@pseudo\" 表示提出想法或报告故障的用户</string>
+    <string name="error_changelog_missing_folder">找不到更新记录文件夹</string>
+    <string name="error_changelog_missing_file">无法打开 %1$s</string>
+
+</resources>
