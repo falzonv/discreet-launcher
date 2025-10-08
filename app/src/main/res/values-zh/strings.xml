@@ -106,7 +106,7 @@
     <!-- Color picker -->
     <string name="color_picker_base">底色：</string>
     <string name="color_picker_reset">重置</string>
-    <string name="color_picker_preview">预览</string>ew</string><!-- (label for a shown preview, not a verb) -->
+    <string name="color_picker_preview">预览</string><!-- (label for a shown preview, not a verb) -->
     <string name="error_invalid_color_format">无效的 16 进制色</string>
 
     <!-- Application theme -->
