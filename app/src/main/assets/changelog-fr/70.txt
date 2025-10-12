@@ -1,0 +1,3 @@
+v7.8.2 (70) - 12/10/2025
+NOUVEAUTÉS
+   - Traduction en chinois simplifié par sr093906
