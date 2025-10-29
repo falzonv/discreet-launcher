@@ -9,6 +9,6 @@ makeadonation: Faire un don
 
 {% include description.md lang="fr" %}
 
-[Politique de confidentialité](privacy-policy-discreet-launcher.html)
+[Politique de confidentialité](https://github.com/falzonv/discreet-launcher/blob/main/PRIVACY_POLICY.md)
 
 [Licence publique générale GNU v3.0](https://www.gnu.org/licenses/gpl-3.0.txt)
