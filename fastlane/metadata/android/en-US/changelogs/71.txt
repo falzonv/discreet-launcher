@@ -1,0 +1,5 @@
+v7.8.3 (71) - 29/10/2025
+IMPROVEMENTS
+   - Minor internal improvements
+CORRECTIONS
+   - Website link in the About dialog

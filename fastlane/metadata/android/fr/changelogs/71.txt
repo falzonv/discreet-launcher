@@ -1,0 +1,5 @@
+v7.8.3 (71) - 29/10/2025
+AMÉLIORATIONS
+   - Améliorations internes mineures
+CORRECTIONS
+   - Lien du site web dans la fenêtre À propos
