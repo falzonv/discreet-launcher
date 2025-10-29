@@ -212,13 +212,13 @@ public class ActivityMain extends AppCompatActivity implements View.OnClickListe
 
 		// Start to listen for packages added or removed
 		packagesListener = new PackagesListener() ;
-		registerReceiver(packagesListener, packagesListener.getFilter()) ;
+		ContextCompat.registerReceiver(this, packagesListener, packagesListener.getFilter(), ContextCompat.RECEIVER_EXPORTED) ;
 
 		// When Android version is before Oreo, start to listen for legacy shortcut requests
 		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 			{
 				shortcutLegacyListener = new ShortcutLegacyListener() ;
-				registerReceiver(shortcutLegacyListener, shortcutLegacyListener.getFilter()) ;
+				ContextCompat.registerReceiver(this, shortcutLegacyListener, shortcutLegacyListener.getFilter(), ContextCompat.RECEIVER_EXPORTED) ;
 			}
 	}
 
