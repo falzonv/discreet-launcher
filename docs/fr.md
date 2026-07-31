@@ -4,7 +4,7 @@ lang: fr
 title: Lanceur Discret
 excerpt: Profitez d'un écran d'accueil épuré tout en accédant à tout en un instant
 seeongithub: Voir le projet sur GitHub
-makeadonation: Faire un don
+projectarchived: Ce projet a été archivé et n'est plus maintenu.
 ---
 
 {% include description.md lang="fr" %}

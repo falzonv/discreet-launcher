@@ -1,3 +1,9 @@
+> [!WARNING]
+> ## Archival of the project *(Archivage du projet)*
+> This project has been archived and is no longer maintained, you can find more details in ticket [#378](https://github.com/falzonv/discreet-launcher/issues/378).
+> *(Ce projet a été archivé et n'est plus maintenu, vous pouvez trouver plus de détails dans le ticket [#378](https://github.com/falzonv/discreet-launcher/issues/378).)*
+
+
 # Discreet Launcher *(Lanceur Discret)*
 
 <img alt="ApplicationIcon" align="left" src="app/src/main/res/mipmap-hdpi/ic_launcher.png">
@@ -16,12 +22,6 @@ You may see a gap between the latest release and what is really available on F-D
 Il y a donc parfois une différence entre la dernière version et ce qui est disponible sur F-Droid.)*
 
 [![Build project](https://github.com/falzonv/discreet-launcher/actions/workflows/build_project.yml/badge.svg)](https://github.com/falzonv/discreet-launcher/actions/workflows/build_project.yml)
-
-
-## Project status *(État du projet)*
-
-Due to lack of time and motivation, no more new features or options will be implemented in Discreet Launcher and I consider this project as completed. Only maintenance releases to fix bugs and maintain compatibility with new Android versions will continue. You can find more details in ticket [#314](https://github.com/falzonv/discreet-launcher/issues/314).  
-*(Faute de temps et de motivation, il n'y aura plus de nouvelles fonctionnalités ou options dans Lanceur Discret et je considère ce projet comme terminé. Seules les versions de maintenance pour corriger les bugs et maintenir la compatibilité avec les nouvelles versions d'Android continueront.)*
 
 
 ## Screenshots *(Captures d'écran)*
